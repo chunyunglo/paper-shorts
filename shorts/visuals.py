@@ -401,22 +401,14 @@ def v_takeaway(c: Canvas, sc, p, ctx):
     text = sc.big_text or sc.lines[0]
     f, lines = fit(text, "black", VW - 100, [96, 84, 72, 60], 3)
     a = stage(p, 0.0, 0.25)
-    y = 260 - (len(lines) - 1) * f.size * 0.6
+    y = 380 - (len(lines) - 1) * f.size * 0.6
     for ln in lines:
         c.text((VW / 2, y + (1 - a) * 30), ln, "black", f.size, NAVY + (int(255 * a),), anchor="mm")
         y += f.size * 1.2
     b = stage(p, 0.2, 0.3)
     w = min(f.getlength(lines[-1]), VW - 100) * b
     c.line([(VW / 2 - w / 2, y - f.size * 0.45), (VW / 2 + w / 2, y - f.size * 0.45)], CORAL, 14)
-    k = stage(p, 0.45, 0.25)
-    if k > 0:
-        logo = ctx["logo"]
-        lw = logo.width
-        c.img.alpha_composite(logo, (int((VW / 2 - lw / S / 2) * S), int((480 + (1 - k) * 30) * S)))
-        cta, sub = (("追蹤・每週兩篇新論文", "行為解碼 Behavior Decoded") if ctx["lang"] == "zh"
-                    else ("Follow for two new papers a week", "Behavior Decoded"))
-        c.text((VW / 2, 680 + (1 - k) * 30), cta, "bold", 42, NAVY + (int(255 * k),), anchor="mm")
-        c.text((VW / 2, 740 + (1 - k) * 30), sub, "regular", 32, NAVY + (int(200 * k),), anchor="mm")
+    # the follow prompt lives on the fixed outro card (brand.py)
 
 
 DRAW = {"hook": v_hook, "paper": v_paper, "crowd": v_crowd, "network": v_network,

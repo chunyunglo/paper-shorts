@@ -64,7 +64,7 @@ crowd (people/participants/accounts), network (connections, spread, communities)
 time), scatter (a relationship between two measures), contrast (A vs B; labels = the two sides, \
 big_text = the key difference).
 7. the finding, and one honest caveat.
-8. takeaway: one sentence to remember (big_text), then invite viewers to follow for two papers a week.
+8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
 Accuracy rules: use only facts from the provided paper. Never invent numbers, sample sizes, or \
 effects; values must be empty unless the exact numbers are in the paper. Do not overstate \

@@ -7,7 +7,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
-from . import visuals
+from . import brand, visuals
 from .config import ASSETS, BRAND_EN, BRAND_ZH, CORAL, CREAM, FPS, H, INK_MUTED, NAVY, W
 
 from .fonts import clause_wrap, fit, font
@@ -94,9 +94,14 @@ class Renderer:
                          "paper_title": script.paper_title_zh if lang == "zh" else paper["title"],
                          "logo": logo(150 * visuals.S)}
         self._header_cache: dict[int, Image.Image] = {}
+        self.cards = brand.Cards(self.bg, logo(300), lang)
+
+    @property
+    def duration(self) -> float:
+        return brand.INTRO + self.total + brand.OUTRO
 
     def frame_count(self) -> int:
-        return int(self.total * FPS) + 1
+        return int(self.duration * FPS)
 
     def scene_at(self, t: float) -> int:
         for i, s in enumerate(self.timings):
@@ -162,6 +167,11 @@ class Renderer:
 
     def frame(self, n: int) -> Image.Image:
         t = n / FPS
+        if t < brand.INTRO:
+            return self.cards.intro(t)
+        t -= brand.INTRO
+        if t >= self.total:
+            return self.cards.outro(t - self.total)
         i = self.scene_at(t)
         st = self.timings[i]
         p = visuals.clamp((t - st.start) / (st.end - st.start))
