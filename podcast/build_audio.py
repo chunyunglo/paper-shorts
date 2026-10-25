@@ -12,7 +12,7 @@ import json, os, re, sys, hashlib
 from pathlib import Path
 import numpy as np, soundfile as sf
 import sherpa_onnx
-import sfx
+import sfx, crowd
 
 FPS = 30
 SR = 24000
@@ -47,7 +47,13 @@ def engine(name):
     return _engines[name]
 
 
+# spoken forms for the TTS: "A.I." makes it pause between the letters, so say it as one word
+SAY = {'A.I.': 'Ay Eye', 'AI': 'Ay Eye'}
+
+
 def synth(text, eng, sid, speed, steps=10):
+    for k, v in SAY.items():
+        text = re.sub(r'(?<![\w.])' + re.escape(k) + r'(?![\w])', v, text)
     key = hashlib.sha1(f"{eng}|{text}|{sid}|{speed}|{steps}".encode()).hexdigest()[:16]
     p = CACHE / f"{key}.wav"
     if not p.exists():
@@ -202,13 +208,16 @@ def main():
             L['back'] = {'spk': other, 'start': round(bt, 3), 'end': round(bt + len(b) / SR, 3)}
     voices = sum(tracks.values())
     fx = np.zeros(N, np.float32)
+    bank = None
     for e in effects:
         if e['kind'] == 'sting':
             y = sfx.sting(e['dur'])
         elif e['kind'] == 'applause':
             y = sfx.applause(e['dur'], e['gain'])
         else:
-            y = sfx.laugh(e['dur'], e['gain'])
+            if bank is None:
+                bank = crowd.syllable_bank(synth, str(CACHE / 'laugh_bank.npz'))
+            y = sfx.laugh(bank, e['dur'], e['gain'])
         i = int(e['start'] * SR); L_ = min(len(y), N - i)
         fx[i:i + L_] += y[:L_]
         e['end'] = round(e['start'] + e['dur'], 3); e['start'] = round(e['start'], 3)

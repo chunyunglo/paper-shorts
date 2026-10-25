@@ -273,6 +273,17 @@ function tuneMaterial(m, o) {
   if (n === 'HairCap') { m.roughness = 0.9; }
 }
 
+// hair: anisotropic highlight running along the strands (UV v), strand texture doubling as a bump map
+function hairMaterial(m) {
+  const h = new THREE.MeshPhysicalMaterial({
+    name: m.name, map: m.map, color: new THREE.Color(1.2, 1.15, 1.1), roughness: 0.55, metalness: 0, specularIntensity: 0.6,
+    bumpMap: m.map, bumpScale: 1.5, anisotropy: 0.6, anisotropyRotation: Math.PI / 2,
+    sheen: 0.2, sheenRoughness: 0.5, sheenColor: new THREE.Color(0.3, 0.22, 0.16), alphaToCoverage: true,
+    alphaTest: m.alphaTest, side: THREE.DoubleSide,
+  });
+  return h;
+}
+
 async function loadHost(url) {
   const gltf = await loader.loadAsync(url);
   const vrm = gltf.userData.vrm;
@@ -285,6 +296,7 @@ async function loadHost(url) {
     if (!o.isMesh) return;
     o.castShadow = true; o.receiveShadow = true;
     for (const m of [].concat(o.material)) tuneMaterial(m, o);
+    if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap') o.material = hairMaterial(o.material);
   });
   const root = new THREE.Group(); root.add(vrm.scene);
   return { vrm, root, flip: vrm0 ? -1 : 1 };

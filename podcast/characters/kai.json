@@ -64,7 +64,12 @@
    "open_top": 0.058,
    "u_rep": 14,
    "seed": 4,
-   "tip_scale": 0.4
+   "tip_scale": 0.4,
+   "strips": 1400,
+   "strip_w": 0.01,
+   "open_drop": 0.03,
+   "open_ramp": 0.7,
+   "open_w": 0.5
   }
  },
  "colors": {

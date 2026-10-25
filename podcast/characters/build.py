@@ -182,15 +182,14 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
         return skin.material(name, tex=A, normal=N, rough=rough, scale=scale, nstrength=0.15)
     suit = fab('Suit', 'twill', C['suit'], 18, 0.86, 1, 0.6)
     mats = {'Jacket': suit, 'Trousers': suit,
-            'Lapels': fab('Lapel', 'satin', [c * 0.85 for c in C['suit']], 18, 0.58, 2),
+            'Lapels': fab('Lapel', 'twill', [c * 0.92 for c in C['suit']], 18, 0.8, 2, 0.6),
             'Shirt': fab('Shirt', 'weave', C['shirt'], 24, 0.55, 3, 0.4),
             'Collar': None, 'Belt': skin.material('Belt', base=C.get('belt', (0.03, 0.025, 0.02)), rough=0.35),
-            'Shoes': skin.material('Shoes', base=C.get('shoes', (0.02, 0.02, 0.022)), rough=0.22)}
-    mats['Collar'] = mats['Shirt']
+            'Shoes': skin.material('Shoes', base=C.get('shoes', (0.02, 0.02, 0.022)), rough=0.22),
+            'Button': skin.material('Button', base=[c * 0.6 for c in C['suit']], rough=0.3)}
+    mats['Collar'] = mats['CollarPoints'] = mats['Shirt']
     if 'Tie' in clothes:
-        a, n = skin.fabric('stripe_tie', list(C['tie']) + list(C.get('tie2', (0.75, 0.7, 0.55))), seed=4)
-        A = skin.to_image(f"{spec['name']}_tie_alb", a, f"{texdir}/{spec['name']}_tie_alb.png")
-        mats['Tie'] = skin.material('Tie', tex=A, rough=0.35, double=True)
+        mats['Tie'] = mats['Knot'] = fab('Tie', 'twill', C['tie'], 30, 0.45, 4, 0.8)
     for k, o in clothes.items():
         skin.set_material(o, mats[k])
     # body: painted skin + teeth, tongue, lashes
@@ -231,6 +230,11 @@ if __name__ == '__main__':
     bake_expressions(body, keys)
     info = garments.BodyInfo(body, rig)
     clothes, covered = garments.suit(info, spec.get('outfit', 'host'))
+    THICK = {'Shirt': 0.0016, 'Collar': 0.0025, 'CollarPoints': 0.002, 'Jacket': 0.0045, 'Lapels': 0.003,
+             'Trousers': 0.0035, 'Belt': 0.004, 'Tie': 0.004}
+    for k, o in clothes.items():
+        if k in THICK:   # shirt and shoes are already dense; the rest get one level of rounding
+            garments.finish(o, THICK[k], levels=0 if k in ('Shirt', 'Shoes') else 1)
     strip_body(info, covered)
     # hair on the rest pose
     headm = group_mask(body, 'head', 0.5)
@@ -243,8 +247,12 @@ if __name__ == '__main__':
     if spec['hair'].get('bob'):
         ez = float(np.array([v.co[2] for v in eyes.data.vertices]).mean())
         hairs.append(hair.bob(body, rig, head_c, ez, spec['hair']['bob']))
+        hairs.append(hair.strips(rig, spec['hair']['bob']))
     if spec['hair'].get('cards'):
         hairs.append(hair.grow(body, rig, scalp, collide, spec['hair'], head_c))
+    for o in hairs:
+        if o.name.startswith('HairBob'):   # give the sculpted hair a rounded hem instead of a paper edge
+            garments.finish(o, 0.004, levels=1)
     vrmexport.add_eye_bones(rig, eyes)
     m = eyes.modifiers.get('Armature') or eyes.modifiers.new('Armature', 'ARMATURE'); m.object = rig
     vrmexport.t_pose(rig)

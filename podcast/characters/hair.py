@@ -196,12 +196,17 @@ def bob(body, rig, head_c, eye_z, style, name='HairBob'):
     part = style.get('part_theta', 0.35)             # parting angle (rad, + = character's left)
     grid = {}
     verts, uvs = [], []
+    cols = [[] for _ in range(nt)]      # each column's points crown -> hem, for the strand strips
     rng = np.random.default_rng(style.get('seed', 3))
-    tip = np.array([rng.uniform(-0.012, 0.004) for _ in range(nt)])
+    # ends: gently uneven along the hem (smooth noise over a few columns, not per-column jitter)
+    raw = rng.uniform(-1, 1, nt)
+    tip = sum(np.roll(raw, k) * math.exp(-(k / 2.5) ** 2) for k in range(-6, 7))
+    tip = 0.004 * tip / (np.abs(tip).max() + 1e-9) - 0.004
     for i in range(nt):
         th = 2 * math.pi * i / nt - math.pi       # 0 = front (-y), +-pi = back
         dxy = Vector((math.sin(th), -math.cos(th), 0))
         prev = None
+        last = None
         for j in range(nf + 1):
             ph = math.radians(88) - math.radians(178) * j / nf   # from the crown down
             d = (dxy * math.cos(ph) + Vector((0, 0, math.sin(ph)))).normalized()
@@ -222,13 +227,25 @@ def bob(body, rig, head_c, eye_z, style, name='HairBob'):
             if style.get('bottom_back') is not None:   # short cut: above the ears at the sides, down to the nape at the back
                 bb = eye_z + style['bottom_back']
                 zb = z_bot + (bb - z_bot) * max(0.0, -math.cos(th)) ** 1.5
-            if q.z < zb + tip[i] * style.get('tip_scale', 1.0):
-                break
             # face opening: below a hairline that sweeps down from the forehead to behind the temples
             ath = abs(th)
-            zcut = eye_z + style.get('open_top', 0.06) - max(0.0, (ath - 0.6) / 0.75) * 0.3
-            if ath < 1.35 and q.z < zcut:
+            ramp = min(1.0, max(0.0, (ath - style.get('open_w', 0.55)) / style.get('open_ramp', 0.6)))
+            zcut = eye_z + style.get('open_top', 0.06) - ramp * ramp * (3 - 2 * ramp) * style.get('open_drop', 0.3)
+            level = zb + tip[i] * style.get('tip_scale', 1.0)
+            if ath < 1.35:
+                level = max(level, zcut)
+            if q.z < level:
+                # end the column exactly on the edge line, so the hem and hairline are smooth curves
+                if last is not None and last.z > level:
+                    f = (last.z - level) / (last.z - q.z)
+                    e = last + (q - last) * f
+                    grid[(i, j)] = len(verts)
+                    verts.append(tuple(e))
+                    cols[i].append(e.copy())
+                    uvs.append(((i / nt) * style.get('u_rep', 6), 1 - ((j - 1 + f) / nf)))
                 break
+            last = q.copy()
+            cols[i].append(q.copy())
             prev = q.copy() if q.z >= z_drop else prev
             grid[(i, j)] = len(verts)
             verts.append(tuple(q))
@@ -247,6 +264,66 @@ def bob(body, rig, head_c, eye_z, style, name='HairBob'):
         for li in poly.loop_indices:
             uvl.data[li].uv = uvs[mesh.loops[li].vertex_index]
     o = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(o)
+    vg = o.vertex_groups.new(name='head')
+    vg.add(list(range(len(verts))), 1.0, 'REPLACE')
+    m = o.modifiers.new('Armature', 'ARMATURE')
+    m.object = rig
+    global LAST_BOB
+    LAST_BOB = (cols, nt, Vector(head_c))
+    return o
+
+
+LAST_BOB = None
+
+
+def strips(rig, style, name='Hair'):
+    """Strand strips laid over the sculpted shell, following its crown-to-hem flow, in a few layers.
+    They carry an alpha strand texture, so the silhouette and surface break up into locks."""
+    cols, nt, c = LAST_BOB
+    rng = np.random.default_rng(style.get('seed', 3) + 11)
+    n = style.get('strips', 900)
+    verts, faces, uvs = [], [], []
+    for s_ in range(n):
+        u = rng.uniform(0, nt)
+        i0 = int(u) % nt; i1 = (i0 + 1) % nt; f = u - int(u)
+        A, B = cols[i0], cols[i1]
+        L = min(len(A), len(B))
+        if L < 3:
+            continue
+        pts = [A[k] * (1 - f) + B[k] * f for k in range(L)]
+        layer = rng.integers(0, 3)
+        start = int(rng.uniform(0, 0.25) * L) if layer else 0
+        end = L - int(rng.uniform(0, 0.12) * L)
+        if end - start < 3:
+            continue
+        w = rng.uniform(0.7, 1.3) * style.get('strip_w', 0.014)
+        off = 0.0012 + 0.0022 * layer
+        swing = rng.uniform(-0.25, 0.25)            # locks drift a little sideways along their length
+        base = len(verts)
+        rows = range(start, end)
+        for r, k in enumerate(rows):
+            p = pts[k]
+            nrm = (p - c).normalized()
+            k2 = min(k + 1, L - 1); k1 = max(k - 1, 0)
+            along = (pts[k2] - pts[k1]).normalized()
+            side = along.cross(nrm).normalized()
+            t = r / max(1, len(rows) - 1)
+            ww = w * (1 - 0.55 * t ** 2)
+            ctr = p + nrm * off + side * swing * w * t
+            verts.append(tuple(ctr - side * ww / 2)); verts.append(tuple(ctr + side * ww / 2))
+            uvs.append((0.0, 1 - t)); uvs.append((1.0, 1 - t))
+        for r in range(len(rows) - 1):
+            a = base + 2 * r
+            faces.append((a, a + 1, a + 3, a + 2))
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], faces)
+    uvl = me.uv_layers.new(name='UVMap')
+    for poly in me.polygons:
+        poly.use_smooth = True
+        for li in poly.loop_indices:
+            uvl.data[li].uv = uvs[me.loops[li].vertex_index]
+    o = bpy.data.objects.new(name, me)
     bpy.context.collection.objects.link(o)
     vg = o.vertex_groups.new(name='head')
     vg.add(list(range(len(verts))), 1.0, 'REPLACE')
@@ -272,5 +349,4 @@ def long_strands(color, w=512, h=1024, seed=7):
     # uneven tips: each column ends at its own length
     ends = 0.04 + 0.07 * rng.random(w)
     alpha = np.clip(((1 - v) - (ends[None, :] - 0.04)) / 0.03, 0, 1)
-    alpha = alpha[::-1] if False else alpha
-    return np.clip(rgb, 0, 1), alpha
+    return np.clip(rgb, 0, 1), np.ones_like(alpha)   # solid ends: the shell's rounded hem reads better than cut-outs

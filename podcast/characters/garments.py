@@ -218,11 +218,7 @@ def make_tie(info, z_top, z_bot, name='Tie'):
         z = z_top - (z_top - z_bot) * t
         y = at(z)
         y = (y if y is not None else -0.1) - 0.010 - 0.004 * math.sin(math.pi * min(1, t * 1.2))
-        if t < 0.07:      # knot
-            w = 0.022 - 0.006 * (t / 0.07)
-            y -= 0.006
-        else:
-            w = 0.017 + 0.026 * ((t - 0.07) / 0.93) ** 0.9
+        w = 0.013 + 0.03 * t ** 0.9
         for c in cols:
             tip = 0.0
             if t > 0.96:  # point
@@ -324,6 +320,140 @@ def lapels_from(jacket, planes, lift=0.004):
     return o
 
 
+def finish(o, thickness, levels=1, crease=0.0):
+    """Give a garment shell real cloth thickness and round it off: solidify inwards with closed rims,
+    then Catmull-Clark subdivision, applied into the mesh (vertex groups carry through)."""
+    bm = bmesh.new(); bm.from_mesh(o.data)          # no slivers: they make solidify spike
+    bmesh.ops.remove_doubles(bm, verts=bm.verts[:], dist=0.0015)
+    bmesh.ops.dissolve_degenerate(bm, edges=bm.edges[:], dist=0.0005)
+    bm.to_mesh(o.data); bm.free()
+    arm = [m for m in o.modifiers if m.type == 'ARMATURE']
+    for m in arm:
+        m.show_viewport = False
+    sol = o.modifiers.new('Solid', 'SOLIDIFY')
+    sol.thickness = thickness
+    sol.offset = -1.0
+    sol.use_rim = True
+    sol.use_even_offset = False
+    sol.use_quality_normals = True
+    sol.edge_crease_rim = crease
+    if levels:
+        sub = o.modifiers.new('Sub', 'SUBSURF')
+        sub.levels = sub.render_levels = levels
+        sub.boundary_smooth = 'PRESERVE_CORNERS'
+    dg = bpy.context.evaluated_depsgraph_get()
+    bm = bmesh.new()
+    bm.from_object(o, dg)            # evaluated geometry, with UVs and vertex groups
+    for m in list(o.modifiers):
+        if m.type != 'ARMATURE':
+            o.modifiers.remove(m)
+    bm.to_mesh(o.data)
+    bm.free()
+    o.data.update()
+    for m in arm:
+        m.show_viewport = True
+    return o
+
+
+def make_button(info, z, y_off=0.0, r=0.0085, name='Button'):
+    """A flat, slightly domed button on the jacket front at height z."""
+    at = front_profile(info, band=0.03)
+    yf = (at(z) or -0.12) - 0.016 - y_off
+    bm = bmesh.new()
+    bmesh.ops.create_cone(bm, cap_ends=True, cap_tris=False, segments=20, radius1=r, radius2=r * 0.85, depth=0.003)
+    for v in bm.verts:
+        v.co = Vector((v.co.x, -v.co.z, v.co.y)) + Vector((0, yf, z))
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me); bm.free()
+    uv = me.uv_layers.new(name='UVMap')
+    o = bpy.data.objects.new(name, me)
+    bpy.context.collection.objects.link(o)
+    o.parent = info.rig
+    copy_weights(o, info)
+    return o
+
+
+class FrontSurface:
+    """y of the (smoothed) body front at any (x, z): nearest front vertices in the xz plane."""
+    def __init__(self, info, co=None):
+        co = info.co if co is None else co
+        m = info.isbody & (info.no[:, 1] < -0.2)
+        self.idx = np.where(m)[0]
+        self.co = co
+        self.kd = kdtree.KDTree(len(self.idx))
+        for j, i in enumerate(self.idx):
+            self.kd.insert(Vector((co[i, 0], co[i, 2], 0)), j)
+        self.kd.balance()
+
+    def y(self, x, z):
+        hits = self.kd.find_n(Vector((x, z, 0)), 4)
+        w = np.array([1 / (d + 1e-3) for _, _, d in hits])
+        ys = np.array([self.co[self.idx[j], 1] for _, j, _ in hits])
+        return float((w * ys).sum() / w.sum())
+
+
+def _grid_object(name, verts, faces, uvs, info):
+    me = bpy.data.meshes.new(name)
+    me.from_pydata(verts, [], faces)
+    uv = me.uv_layers.new(name='UVMap')
+    for poly in me.polygons:
+        for li in poly.loop_indices:
+            uv.data[li].uv = uvs[me.loops[li].vertex_index]
+    o = bpy.data.objects.new(name, me)
+    bpy.context.collection.objects.link(o)
+    o.parent = info.rig
+    copy_weights(o, info)
+    return o
+
+
+def collar_points(info, front, z_neck, name='CollarPoints'):
+    """The two pointed flaps of a dress-shirt collar, lying on the chest and over the sides of the knot."""
+    verts, faces, uvs = [], [], []
+    n = 10
+    for side in (1, -1):
+        A = np.array([0.006, z_neck + 0.014]); B = np.array([0.052, z_neck + 0.004])     # top edge (fold)
+        D = np.array([0.008, z_neck - 0.022]); C = np.array([0.040, z_neck - 0.068])     # inner edge down to the point
+        base = len(verts)
+        for i in range(n + 1):
+            for j in range(n + 1):
+                u, v = i / n, j / n
+                p = (A * (1 - u) + B * u) * (1 - v) + (D * (1 - u) + C * u) * v
+                x, z = p
+                lift = 0.016 - 0.011 * min(1, max(0, (x - 0.012) / 0.03)) + 0.003 * (1 - v)
+                verts.append((side * x, front.y(side * x, z) - lift, z))
+                uvs.append((u, v))
+        for i in range(n):
+            for j in range(n):
+                a = base + i * (n + 1) + j
+                q = (a, a + 1, a + n + 2, a + n + 1)
+                faces.append(q if side > 0 else q[::-1])
+    return _grid_object(name, verts, faces, uvs, info)
+
+
+def make_knot(info, front, z_neck, name='Knot'):
+    """A four-in-hand knot: a tapered, rounded block in the collar opening."""
+    zt, zb = z_neck + 0.016, z_neck - 0.024
+    yb = front.y(0, (zt + zb) / 2)
+    bm = bmesh.new()
+    bmesh.ops.create_cube(bm, size=1.0)
+    for v in bm.verts:
+        t = v.co.z + 0.5                      # 0 bottom .. 1 top
+        w = 0.013 + 0.008 * t
+        d = 0.009 + 0.002 * t
+        v.co = Vector((v.co.x * 2 * w, yb - 0.009 - 0.0 + v.co.y * 2 * d - 0.004 * t, zb + (zt - zb) * t))
+    me = bpy.data.meshes.new(name)
+    bm.to_mesh(me); bm.free()
+    me.uv_layers.new(name='UVMap')
+    o = bpy.data.objects.new(name, me)
+    bpy.context.collection.objects.link(o)
+    o.parent = info.rig
+    sub = o.modifiers.new('Sub', 'SUBSURF'); sub.levels = 3
+    dg = bpy.context.evaluated_depsgraph_get()
+    bm = bmesh.new(); bm.from_object(o, dg); o.modifiers.remove(sub); bm.to_mesh(o.data); bm.free()
+    copy_weights(o, info)
+    return o
+
+
 def _unit(v):
     v = np.asarray(v, float)
     return v / np.linalg.norm(v)
@@ -361,8 +491,8 @@ def suit(info, style):
     upper = isb & inset(TORSO | ARMS | {'neck_01', 'hand_l', 'hand_r'})
     shirt_planes = [((0, 0, z_waist - 0.05), (0, 0, -1), None), ((0, 0, z_neck + 0.004), (0, 0, 1), lambda c: c[2] > z_neck - 0.06),
                     wrist_plane('l', 1.0), wrist_plane('r', 1.0)]
-    if style != 'host':   # open neckline on the blouse
-        shirt_planes += v_planes(0.03, 1.1, info.z('spine_03', 1) + 0.055, z_neck + 0.05)
+    if style != 'host':   # open, rounded neckline on the blouse: one plane tilted down at the front
+        shirt_planes[1] = ((0, -0.1, z_neck - 0.08), _unit((0, -0.85, 1)), None)
     sm = info.smoothed(40)
     out['Shirt'] = cut(info, 'Shirt', upper, 0.003, smooth=2, planes=shirt_planes, subdiv=1, base=sm)
 
@@ -387,7 +517,7 @@ def suit(info, style):
                 wrist_plane('l', 0.95), wrist_plane('r', 0.95)]
                + v_planes(0.008, slope, z_btn, z_neck + 0.08) + cutaway)
     under = lambda c, n: abs(c[0]) < 0.075 and c[2] < info.z('pelvis') + 0.02 and n[2] < -0.3
-    out['Jacket'] = cut(info, 'Jacket', jm, 0.013, smooth=4, planes=jplanes, drop=under, subdiv=1, base=sm)
+    out['Jacket'] = cut(info, 'Jacket', jm, 0.013, smooth=4, planes=jplanes, drop=under, subdiv=0, base=sm)
     # lapels: a band just outside the V, a few mm proud of the jacket
     lap = v_planes(0.008, slope, z_btn + 0.015, z_neck + 0.08)
     outer = []
@@ -399,8 +529,9 @@ def suit(info, style):
     chest = lambda c: z_waist - 0.03 < c[2] < z_neck - 0.015
     drape(out['Shirt'], info, 0.002, 1, chest, 0.0)
     drape(out['Jacket'], info, 0.009, 1, chest, 0.0)
+    drape(out['Jacket'], info, 0.019, 1, lambda c: z_waist - 0.06 < c[2] < z_waist + 0.03, 0.0)
     lm = isb & inset(LEGS)
-    out['Trousers'] = cut(info, 'Trousers', lm, 0.009, smooth=4, subdiv=1, base=sm, planes=[
+    out['Trousers'] = cut(info, 'Trousers', lm, 0.009, smooth=4, subdiv=0, base=sm, planes=[
         ((0, 0, z_waist), (0, 0, 1), None), ((0, 0, z_ankle), (0, 0, -1), None)])
     J = info.j
     legs = []
@@ -424,7 +555,11 @@ def suit(info, style):
     for v in out['Shoes'].data.vertices:   # flat sole
         if v.co[2] < 0.012: v.co[2] = max(0.0, v.co[2] * 0.3)
     if style == 'host':
-        out['Tie'] = make_tie(info, z_neck + 0.016, z_waist + 0.015)
+        front = FrontSurface(info, sm[0])
+        out['Tie'] = make_tie(info, z_neck - 0.012, z_waist + 0.015)
+        out['Knot'] = make_knot(info, front, z_neck)
+        out['CollarPoints'] = collar_points(info, front, z_neck)
+    out['Button'] = make_button(info, z_btn - 0.005)
 
     # skin that is now hidden, kept a little inside the garment edges so no gap shows
     a_l, a_r = info.along('lowerarm_l'), info.along('lowerarm_r')
