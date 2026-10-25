@@ -1,0 +1,8 @@
+anthropic==2.3.0
+pydantic==2.13.5
+feedparser==6.0.14
+requests==2.34.2
+numpy==2.5.3
+pillow==12.3.0
+PyNaCl==1.6.2
+edge-tts==7.3.1

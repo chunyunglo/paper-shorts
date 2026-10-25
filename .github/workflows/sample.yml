@@ -1,0 +1,43 @@
+# Build a sample episode for review without posting anything.
+# Runs on demand, or on a push to a claude/* branch whose commit message contains [sample].
+name: Sample episode
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  sample:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[sample]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - name: Make episode
+        run: |
+          python -m shorts make
+          echo "EP_DIR=$(ls -d out/*/ | head -1)" >> "$GITHUB_ENV"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sample
+          path: ${{ env.EP_DIR }}
+          retention-days: 14
+      - name: Attach to a sample pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="sample-${{ github.run_number }}"
+          gh release create "$tag" "$EP_DIR/video.mp4" "$EP_DIR/cover.jpg" "$EP_DIR/script.md" "$EP_DIR/episode.json" \
+            --prerelease --target "${{ github.sha }}" --title "樣片 Sample #${{ github.run_number }} (not posted)" \
+            --notes-file "$EP_DIR/script.md"
+          echo "Sample: https://github.com/${{ github.repository }}/releases/tag/$tag"

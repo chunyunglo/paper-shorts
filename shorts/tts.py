@@ -1,0 +1,165 @@
+"""Voiceover: synthesize each subtitle line, then lay them on one timeline.
+
+Providers:
+  google  Google Cloud Text-to-Speech (needs GOOGLE_TTS_API_KEY). Default when the key exists.
+  edge    Microsoft Edge neural voices via the edge-tts package (no key). Fallback.
+  silent  Silence sized to the text, for offline tests.
+"""
+from __future__ import annotations
+
+import asyncio
+import base64
+import io
+import subprocess
+import tempfile
+import wave
+from dataclasses import dataclass, field
+from pathlib import Path
+
+import numpy as np
+
+from . import config
+from .safelog import http, log
+
+SR = 24000
+GAP_LINE = 0.16
+PAD_SCENE_START = 0.12
+PAD_SCENE_END = 0.32
+
+
+@dataclass
+class LineTiming:
+    start: float
+    end: float
+
+
+@dataclass
+class SceneTiming:
+    start: float
+    end: float
+    lines: list[LineTiming] = field(default_factory=list)
+
+
+def _wav_to_array(data: bytes) -> np.ndarray:
+    with wave.open(io.BytesIO(data)) as w:
+        if w.getframerate() != SR or w.getnchannels() != 1:
+            raise RuntimeError("Unexpected TTS audio format")
+        pcm = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16)
+    return pcm.astype(np.float32) / 32768.0
+
+
+def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
+    idx = np.flatnonzero(np.abs(a) > thresh)
+    if idx.size == 0:
+        return a
+    lo, hi = max(idx[0] - int(0.03 * SR), 0), min(idx[-1] + int(0.06 * SR), a.size)
+    return a[lo:hi]
+
+
+def synth_google(text: str) -> np.ndarray:
+    voice = config.env("TTS_VOICE", "cmn-TW-Wavenet-A")
+    body = {
+        "input": {"text": text},
+        "voice": {"languageCode": voice.rsplit("-", 2)[0], "name": voice},
+        "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SR,
+                        "speakingRate": float(config.env("TTS_RATE", "1.1"))},
+    }
+    resp = http("google-tts", "synthesize", "POST",
+                "https://texttospeech.googleapis.com/v1/text:synthesize",
+                headers={"X-Goog-Api-Key": config.require("GOOGLE_TTS_API_KEY")}, json=body)
+    return _wav_to_array(base64.b64decode(resp.json()["audioContent"]))
+
+
+def synth_edge(text: str) -> np.ndarray:
+    import edge_tts
+
+    voice = config.env("EDGE_VOICE", "zh-TW-HsiaoChenNeural")
+    with tempfile.TemporaryDirectory() as tmp:
+        mp3, wav = Path(tmp) / "a.mp3", Path(tmp) / "a.wav"
+        asyncio.run(edge_tts.Communicate(text, voice, rate="+8%").save(str(mp3)))
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(mp3), "-ac", "1",
+                        "-ar", str(SR), "-sample_fmt", "s16", str(wav)], check=True)
+        return _wav_to_array(wav.read_bytes())
+
+
+def synth_silent(text: str) -> np.ndarray:
+    return np.zeros(int(SR * max(0.8, len(text) * 0.21)), dtype=np.float32)
+
+
+def provider() -> str:
+    chosen = config.env("TTS_PROVIDER")
+    if chosen:
+        return chosen
+    return "google" if config.env("GOOGLE_TTS_API_KEY") else "edge"
+
+
+def voiceover(scenes: list[list[str]], out_wav: Path) -> tuple[list[SceneTiming], float]:
+    """scenes: the zh lines of each scene. Writes a mono wav, returns timings in seconds."""
+    name = provider()
+    synth = {"google": synth_google, "edge": synth_edge, "silent": synth_silent}[name]
+    log(f"TTS provider: {name}")
+    chunks: list[np.ndarray] = []
+    timings: list[SceneTiming] = []
+    t = 0.0
+
+    def add(a: np.ndarray) -> None:
+        nonlocal t
+        chunks.append(a)
+        t += a.size / SR
+
+    def silence(sec: float) -> None:
+        add(np.zeros(int(SR * sec), dtype=np.float32))
+
+    for lines in scenes:
+        scene = SceneTiming(start=t, end=t)
+        silence(PAD_SCENE_START)
+        for i, text in enumerate(lines):
+            if i:
+                silence(GAP_LINE)
+            start = t
+            add(_trim(synth(text)))
+            scene.lines.append(LineTiming(start, t))
+        silence(PAD_SCENE_END)
+        scene.end = t
+        timings.append(scene)
+
+    voice = np.concatenate(chunks)
+    mixed = voice * 0.95 + music_bed(voice.size, [s.start for s in timings[1:]])
+    write_wav(out_wav, mixed)
+    return timings, t
+
+
+def write_wav(path: Path, a: np.ndarray) -> None:
+    pcm = (np.clip(a, -1, 1) * 32767).astype(np.int16)
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(pcm.tobytes())
+
+
+def music_bed(n: int, cues: list[float]) -> np.ndarray:
+    """A quiet generated pad (Am-F-C-G) plus a soft tick at each scene change. No licensed music."""
+    t = np.arange(n) / SR
+    chords = [(220.0, 261.63, 329.63), (174.61, 220.0, 261.63), (196.0, 261.63, 329.63), (196.0, 246.94, 293.66)]
+    bar = 4.0
+    out = np.zeros(n, dtype=np.float32)
+    for k in range(int(n / SR / bar) + 1):
+        lo, hi = int(k * bar * SR), min(int((k + 1) * bar * SR), n)
+        if lo >= n:
+            break
+        seg = t[lo:hi] - k * bar
+        env = np.minimum(1, seg / 0.8) * np.minimum(1, (bar - seg) / 0.8)
+        tone = sum(np.sin(2 * np.pi * f * t[lo:hi]) + 0.3 * np.sin(4 * np.pi * f * t[lo:hi])
+                   for f in chords[k % 4])
+        out[lo:hi] += (0.012 * env * tone).astype(np.float32)
+    for c in cues:
+        lo = int(c * SR)
+        m = min(int(0.25 * SR), n - lo)
+        if m <= 0:
+            continue
+        s = np.arange(m) / SR
+        out[lo:lo + m] += (0.05 * np.exp(-s * 18) * np.sin(2 * np.pi * 880 * s)).astype(np.float32)
+    fade = min(int(1.5 * SR), n)
+    out[-fade:] *= np.linspace(1, 0, fade, dtype=np.float32)
+    return out

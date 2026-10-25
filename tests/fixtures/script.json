@@ -1,0 +1,12 @@
+{"title_zh": "看見對立觀點，反而更極化？", "title_en": "Seeing the other side made people more polarized", "paper_title_zh": "在社群媒體上接觸對立觀點可能加劇政治極化",
+"scenes": [
+ {"visual": "hook", "heading_zh": "問題", "heading_en": "The question", "labels": [], "values": [], "big_text": "多看對方的貼文，會更理解彼此嗎？", "lines": [{"zh": "如果每天滑到對立陣營的貼文，", "en": "If your feed showed the other side every day,"}, {"zh": "你會更理解他們嗎？", "en": "would you understand them better?"}]},
+ {"visual": "paper", "heading_zh": "論文", "heading_en": "The paper", "labels": [], "values": [], "big_text": "", "lines": [{"zh": "杜克大學團隊在 PNAS 做了一個實驗。", "en": "A Duke team tested this in PNAS."}]},
+ {"visual": "crowd", "heading_zh": "受試者", "heading_en": "Participants", "labels": ["推特用戶", "付費追蹤機器人"], "values": [], "big_text": "", "lines": [{"zh": "他們找來一群美國推特用戶，", "en": "They recruited American Twitter users"}, {"zh": "付錢請一部分人追蹤一個機器人帳號。", "en": "and paid some to follow a bot account."}]},
+ {"visual": "pipeline", "heading_zh": "方法", "heading_en": "Method", "labels": ["問卷測政治立場", "追蹤對立陣營機器人", "一個月後再測"], "values": [], "big_text": "", "lines": [{"zh": "先用問卷量政治立場，", "en": "First, a survey measured their views."}, {"zh": "機器人每天轉推對立陣營的內容，", "en": "The bot retweeted the other side daily,"}, {"zh": "一個月後再測一次。", "en": "then they were surveyed again a month later."}]},
+ {"visual": "network", "heading_zh": "資訊流", "heading_en": "Information flow", "labels": ["對立觀點", "進入動態牆"], "values": [], "big_text": "", "lines": [{"zh": "等於把另一邊的聲音，直接放進動態牆。", "en": "The other side's voices went straight into their feed."}]},
+ {"visual": "contrast", "heading_zh": "發現", "heading_en": "Finding", "labels": ["實驗前", "一個月後"], "values": [], "big_text": "立場更極端", "lines": [{"zh": "結果共和黨支持者變得更保守，", "en": "Republicans became more conservative,"}, {"zh": "民主黨的變化則不明顯。", "en": "while the Democrats' shift was not significant."}]},
+ {"visual": "timeline", "heading_zh": "限制", "heading_en": "Caveat", "labels": ["2017", "一個月後"], "values": [], "big_text": "", "lines": [{"zh": "不過這只是一個平台、一段時間的實驗，", "en": "Still, it was one platform over one month,"}, {"zh": "不代表所有接觸都有反效果。", "en": "not proof that all exposure backfires."}]},
+ {"visual": "takeaway", "heading_zh": "重點", "heading_en": "Takeaway", "labels": [], "values": [], "big_text": "接觸不等於理解", "lines": [{"zh": "接觸不等於理解。", "en": "Exposure is not understanding."}, {"zh": "追蹤我們，每週帶你讀兩篇新研究。", "en": "Follow for two new studies every week."}]}
+],
+"description_zh": "測試用腳本。", "description_en": "Test fixture script.", "hashtags": ["計算社會科學", "CSS"], "method_summary": "fixture", "limitations": "fixture"}
