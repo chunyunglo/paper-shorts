@@ -105,3 +105,34 @@ def test_citation_comment():
     ref = citation(paper)
     assert paper["title"] in ref and paper["published"][:4] in ref and ref.split()[-1].startswith("http")
     assert first_comment({"paper": paper}, "pt").startswith("📄 Artigo")
+
+
+@pytest.mark.parametrize("text,kind", [("OK", "approve"), ("沒問題", "approve"), ("不要上", "reject"),
+                                       ("第三段講太快", "feedback"), ("ok 但標題要改", "feedback")])
+def test_review_comment_kind(text, kind):
+    from shorts import review
+    assert review.kind(text) == kind
+
+
+def test_latest_owner_comment_decides(monkeypatch):
+    from shorts import review
+
+    class Resp:
+        def __init__(self, data):
+            self.data = data
+
+        def json(self):
+            return self.data
+
+    def thread(*bodies):
+        return [{"user": {"login": who}, "body": b} for who, b in bodies]
+
+    monkeypatch.setenv("GITHUB_TOKEN", "x")
+    for comments, ok in [
+        (thread(("chunyunglo", "OK")), True),
+        (thread(("chunyunglo", "OK"), ("chunyunglo", "標題改短一點")), False),
+        (thread(("chunyunglo", "標題改短一點"), ("github-actions[bot]", "新版本"), ("chunyunglo", "沒問題")), True),
+        (thread(("someone", "OK")), False),
+    ]:
+        monkeypatch.setattr(review, "http", lambda *a, c=comments, **k: Resp(c))
+        assert review._is_approved({"comments_url": "u"}) is ok

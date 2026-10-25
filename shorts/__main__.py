@@ -5,7 +5,8 @@
   delete-posts EP   delete an episode's posts on every platform and drop it from history
   comments          triage and answer new comments on recent episodes
   refresh-tokens    renew Instagram/Threads long-lived tokens and store them as repo secrets
-  review-*          owner review issue: open / list approved / close / skip unapproved
+  review-*          owner review issue: open / list approved / close / skip unapproved / classify
+  revise EP_JSON    apply the owner's feedback ($COMMENT): rewrite the script, re-render the videos
   voices            render one sentence in several voices for choosing (out/voices/)
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
 """
@@ -50,6 +51,21 @@ def main() -> None:
     rc.add_argument("--published", action="store_true")
     rc.add_argument("--keep-open", action="store_true", help="only comment (a later run retries)")
     sub.add_parser("review-skip-unapproved")
+    sub.add_parser("review-kind", help="classify the comment in $COMMENT: approve / reject / feedback")
+    rt = sub.add_parser("review-tag")
+    rt.add_argument("number", type=int)
+    rv = sub.add_parser("revise", help="apply the feedback in $COMMENT to an episode and re-render it")
+    rv.add_argument("episode_json", type=Path)
+    rv.add_argument("--changes-out", type=Path, required=True)
+    rr = sub.add_parser("review-revised")
+    rr.add_argument("number", type=int)
+    rr.add_argument("episode_dir", type=Path)
+    rr.add_argument("tag")
+    rr.add_argument("changes", type=Path)
+    rr.add_argument("--version", default="")
+    rm = sub.add_parser("review-comment")
+    rm.add_argument("number", type=int)
+    rm.add_argument("--message", required=True)
     args = ap.parse_args()
 
     if args.cmd == "make":
@@ -77,6 +93,14 @@ def main() -> None:
         from .tokens import refresh_all
 
         refresh_all()
+    elif args.cmd == "revise":
+        install_excepthook(strict=False)
+        import os
+
+        from .pipeline import revise
+
+        _, changes = revise(args.episode_json, os.environ["COMMENT"])
+        args.changes_out.write_text(changes + "\n", encoding="utf-8")
     elif args.cmd.startswith("review"):
         install_excepthook(strict=True)
         from . import review
@@ -87,6 +111,17 @@ def main() -> None:
             # one "number tag" pair per line, for the workflow to loop over
             for number, tag in review.approved():
                 print(f"{number} {tag}")
+        elif args.cmd == "review-kind":
+            import os
+
+            print(review.kind(os.environ.get("COMMENT", "")))
+        elif args.cmd == "review-tag":
+            print(review.tag_of(args.number))
+        elif args.cmd == "review-revised":
+            review.post_revision(args.number, args.episode_dir, args.tag,
+                                 args.changes.read_text(encoding="utf-8").strip(), args.version)
+        elif args.cmd == "review-comment":
+            review.comment(args.number, args.message)
         elif args.cmd == "review-close":
             review.close(args.number, args.message, args.published, args.keep_open)
         else:

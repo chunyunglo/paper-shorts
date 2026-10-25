@@ -48,7 +48,19 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
     if "pt" in LANGS and not script.pt:
         script.pt = scriptmod.translate_pt(script)
+    return build(ep_id, paper, script, reason, preview_every)
 
+
+def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
+    """Apply the owner's review feedback: Claude rewrites the script, then every video is
+    re-rendered under the same episode id (so the same release and review issue)."""
+    old = json.loads(episode_json.read_text(encoding="utf-8"))
+    paper = papers.Paper(**old["paper"])
+    script, changes = scriptmod.revise(paper, scriptmod.Script(**old["script"]), feedback)
+    return build(old["episode"], paper, script, old.get("pick_reason", ""), 0), changes
+
+
+def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str, preview_every: int) -> Path:
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
 

@@ -1,0 +1,62 @@
+# When the owner comments on an open review issue with feedback (anything that is not "OK" or
+# "不要上"), Claude revises the script, every video is re-rendered onto the same pre-release,
+# and the new version is posted back on the issue for another OK.
+# Only the repo owner's comments trigger it; anyone else's are ignored. The comment text is only
+# passed through an environment variable, never into the shell script itself.
+name: Revise episode
+
+on:
+  issue_comment:
+    types: [created]
+
+concurrency:
+  group: revise-${{ github.event.issue.number }}
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  revise:
+    if: >-
+      !github.event.issue.pull_request
+      && github.event.issue.state == 'open'
+      && contains(github.event.issue.labels.*.name, 'review')
+      && github.event.comment.user.login == github.repository_owner
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      COMMENT: ${{ github.event.comment.body }}
+      ISSUE: ${{ github.event.issue.number }}
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - name: Is it feedback?
+        run: |
+          kind=$(python -m shorts review-kind)
+          echo "Comment kind: $kind"
+          echo "KIND=$kind" >> "$GITHUB_ENV"
+      - name: Revise and re-render
+        if: env.KIND == 'feedback'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+          TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
+          TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
+          TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
+        run: |
+          python -m shorts review-comment "$ISSUE" --message "收到，正在依照你的意見修改並重做影片，約 10 分鐘後貼新版本。Revising now."
+          tag=$(python -m shorts review-tag "$ISSUE")
+          mkdir -p old
+          gh release download "$tag" --dir old --pattern episode.json
+          if ! python -m shorts revise old/episode.json --changes-out changes.md; then
+            python -m shorts review-comment "$ISSUE" --message "修改失敗，原本的版本沒有變。請看 Actions 紀錄：${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            exit 1
+          fi
+          dir="out/${tag#ep-}"
+          gh release upload "$tag" "$dir"/video_*.mp4 "$dir"/cover_*.jpg "$dir/episode.json" "$dir/script.md" --clobber
+          python -m shorts review-revised "$ISSUE" "$dir" "$tag" changes.md --version "${{ github.run_id }}"
