@@ -141,13 +141,16 @@ Lines can be a little longer than the English but must stay short (at most 80 ch
 The last line of the last scene is a short invitation to follow the channel, with no schedule."""
 
 
-def translate_pt(script: Script) -> Localized:
+def translate_pt(script: Script, notes: str = "") -> Localized:
     src = {"title_en": script.title_en, "description_en": script.description_en,
            "hashtags": script.hashtags,
            "scenes": [{"visual": s.visual, "heading_en": s.heading_en, "labels_en": s.labels_en or s.labels,
                        "big_text_en": s.big_text_en, "lines": [{"en": l.en, "zh": l.zh} for l in s.lines]}
                       for s in script.scenes]}
     text = "Source script (JSON):\n" + json.dumps(src, ensure_ascii=False, indent=1)
+    if notes:
+        text += ("\n\nThe channel owner gave this review feedback on the episode (it may be about "
+                 "any language; apply what concerns the Portuguese video):\n<feedback>" + notes + "</feedback>")
     for attempt in range(2):
         loc = llm.ask(Localized, PT_SYSTEM, [{"type": "text", "text": text}], effort="medium")
         try:
@@ -169,3 +172,42 @@ def check_localized(script: Script, loc: Localized) -> None:
         l.labels = [x.strip() for x in l.labels if x.strip()][: len(s.labels)]
         if len(l.labels) != len(s.labels):
             l.labels = s.labels_en or s.labels
+
+
+class Revision(BaseModel):
+    script: ScriptDraft
+    changes_zh: str = Field(description="1-4 short Traditional Chinese bullet points (one per line, starting with '- ') "
+                                        "saying what you changed; say plainly if a request could not be done")
+
+
+REVISE_SYSTEM = SYSTEM + """
+
+You are revising an episode script after the channel owner reviewed the videos. Apply their \
+feedback faithfully and change nothing else. The accuracy rules still win: if a request would \
+need facts that are not in the paper, do not invent them and say so in changes_zh. You can only \
+change the script (narration lines, headings, labels, big text, titles, descriptions, hashtags, \
+and which visual each scene uses); if the feedback is about something else (voice, music, colors, \
+the fixed intro/outro), say so in changes_zh."""
+
+
+def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
+    meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
+            f"Abstract:\n{paper.abstract}")
+    current = script.model_dump(exclude={"pt"})
+    text = (meta + "\n\nCurrent script (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
+            "\n\nOwner feedback:\n<feedback>" + feedback + "</feedback>\n\nReturn the revised script.")
+    content: list = []
+    if paper.pdf_url:
+        content.append({"type": "document", "source": {"type": "url", "url": paper.pdf_url}})
+    content.append({"type": "text", "text": text})
+    try:
+        rev = llm.ask(Revision, REVISE_SYSTEM, content, effort="high")
+    except RuntimeError:
+        if not paper.pdf_url:
+            raise
+        rev = llm.ask(Revision, REVISE_SYSTEM, content[1:], effort="high")
+    new = Script(**rev.script.model_dump())
+    validate(new)
+    new.pt = translate_pt(new, feedback)
+    log("Script revised")
+    return new, rev.changes_zh.strip()
