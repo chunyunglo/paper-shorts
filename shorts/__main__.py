@@ -4,6 +4,7 @@
   publish DIR       upload an episode folder to YouTube, Instagram, Threads; record history
   delete-posts EP   delete an episode's posts on every platform and drop it from history
   comments          triage and answer new comments on recent episodes
+  suggest-replies   email the owner drafted replies for related Threads posts (never posts)
   refresh-tokens    renew Instagram/Threads long-lived tokens and store them as repo secrets
   review-*          owner review issue: open / list approved / close / skip unapproved / classify
   revise EP_JSON    apply the owner's feedback ($COMMENT): rewrite the script, re-render the videos
@@ -34,6 +35,8 @@ def main() -> None:
     pb.add_argument("--langs", nargs="*", choices=["zh", "en", "pt"], help="publish only these videos")
     dp = sub.add_parser("delete-posts", help="delete an episode's posts on every platform")
     dp.add_argument("episode")
+    sr = sub.add_parser("suggest-replies")
+    sr.add_argument("--dry-run", action="store_true")
     c = sub.add_parser("comments")
     c.add_argument("--dry-run", action="store_true", help="classify only; post, hide, and email nothing")
     sub.add_parser("refresh-tokens")
@@ -88,6 +91,11 @@ def main() -> None:
         from .comments import run
 
         run(dry_run=args.dry_run)
+    elif args.cmd == "suggest-replies":
+        install_excepthook(strict=True)
+        from .engage import run as suggest
+
+        suggest(dry_run=args.dry_run)
     elif args.cmd == "refresh-tokens":
         install_excepthook(strict=True)
         from .tokens import refresh_all

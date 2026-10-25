@@ -55,6 +55,11 @@ def _smtp(title: str, body: str) -> bool:
     return True
 
 
+def email(title: str, body: str) -> bool:
+    """Private email only, no public fallback."""
+    return _smtp(title, body)
+
+
 def _pointer(count: int, private_url: str | None, post_links: list[str]) -> bool:
     token = config.env("GITHUB_TOKEN")
     if not token:
