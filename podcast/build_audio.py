@@ -143,7 +143,6 @@ def chunks_en(text, maxlen=44):
     return out
 
 
-LAUGH_TEXTS = ["Ha ha ha ha!", "Hahaha!", "Ha! Ha ha ha.", "Heh heh heh heh!", "Ha ha ha!"]
 
 
 def main():
@@ -203,18 +202,13 @@ def main():
             L['back'] = {'spk': other, 'start': round(bt, 3), 'end': round(bt + len(b) / SR, 3)}
     voices = sum(tracks.values())
     fx = np.zeros(N, np.float32)
-    laugh_clips = None
     for e in effects:
         if e['kind'] == 'sting':
             y = sfx.sting(e['dur'])
         elif e['kind'] == 'applause':
             y = sfx.applause(e['dur'], e['gain'])
         else:
-            if laugh_clips is None:
-                eng = 'supertonic' if en else 'kokoro'
-                laugh_clips = [synth(tx, eng, v, 1.0 + 0.15 * (k % 3)) for k, tx in enumerate(LAUGH_TEXTS)
-                               for v in (range(10) if en else (3, 10, 20, 58, 65, 80))]
-            y = sfx.laugh(laugh_clips, e['dur'], e['gain'])
+            y = sfx.laugh(e['dur'], e['gain'])
         i = int(e['start'] * SR); L_ = min(len(y), N - i)
         fx[i:i + L_] += y[:L_]
         e['end'] = round(e['start'] + e['dur'], 3); e['start'] = round(e['start'], 3)

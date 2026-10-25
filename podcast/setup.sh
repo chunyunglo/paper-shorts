@@ -1,5 +1,5 @@
 #!/bin/bash
-# Download the open models and JS dependencies the podcast pipeline needs (all usable commercially).
+# Download the open models, assets and JS dependencies the podcast pipeline needs, and build the two hosts.
 set -e
 cd "$(dirname "$0")"
 mkdir -p .cache web/models
@@ -14,5 +14,26 @@ if [ ! -f web/models/AvatarSample_C.vrm ]; then
   git clone -q --depth 1 --filter=blob:none --sparse https://github.com/madjin/vrm-samples .cache/vrm-samples
   git -C .cache/vrm-samples sparse-checkout set --no-cone 'vroid/stable/*.vrm'
   cp .cache/vrm-samples/vroid/stable/AvatarSample_A.vrm .cache/vrm-samples/vroid/stable/AvatarSample_C.vrm web/models/
+fi
+# Audience laughter and applause: real recordings from ESC-50 (CC BY-NC 3.0, fine for trials;
+# swap in a licensed crowd pack via CROWD_DIR before publishing commercially)
+if [ ! -d .cache/esc50 ]; then
+  git clone -q --depth 1 --filter=blob:none --sparse https://github.com/karolpiczak/ESC-50 .cache/esc50
+  git -C .cache/esc50 sparse-checkout set --no-cone 'audio/*-22.wav' 'audio/*-26.wav'
+fi
+# Characters, built from scratch in Blender (bpy as a Python module):
+# MakeHuman base mesh and targets through MPFB2 (GPL code, CC0 assets), MakeHuman eyes (CC0),
+# VRM export through VRM-Addon-for-Blender (MIT). Clothes, hair and skin are procedural (characters/).
+if [ ! -f web/models/kai.vrm ]; then
+  [ -d .cache/bpyenv ] || { uv venv -q -p 3.13 .cache/bpyenv && uv pip install -q -p .cache/bpyenv bpy==5.1.2 numpy; }
+  [ -d .cache/mpfb2 ] || git clone -q --depth 1 https://github.com/makehumancommunity/mpfb2 .cache/mpfb2
+  [ -d .cache/vrmaddon ] || git clone -q --depth 1 https://github.com/saturday06/VRM-Addon-for-Blender .cache/vrmaddon
+  if [ ! -d .cache/makehuman ]; then
+    git clone -q --depth 1 --filter=blob:none --sparse https://github.com/makehumancommunity/makehuman .cache/makehuman
+    git -C .cache/makehuman sparse-checkout set --no-cone 'makehuman/data/eyes/*'
+  fi
+  EXT=~/.config/blender/5.1/extensions/user_default; mkdir -p $EXT
+  ln -sfn "$PWD/.cache/mpfb2/src/mpfb" $EXT/mpfb; ln -sfn "$PWD/.cache/vrmaddon/src/io_scene_vrm" $EXT/vrm
+  (cd characters && for c in kai anne; do ../.cache/bpyenv/bin/python build.py $c.json "$PWD/../web/models/$c.vrm"; done)
 fi
 cd web && npm install --silent && npx esbuild src/main.js --bundle --outfile=bundle.js --format=iife --log-level=warning

@@ -261,6 +261,18 @@ const loader = new GLTFLoader();
 loader.register((p) => new VRMLoaderPlugin(p));
 const bone = (vrm, n) => vrm.humanoid.getNormalizedBoneNode(n);
 
+// our own characters export plain PBR materials; give hair cut-out alpha and skin a little warmth
+function tuneMaterial(m, o) {
+  const n = m.name || '';
+  if (n.startsWith('Hair') && n !== 'HairCap') { m.alphaTest = 0.3; m.alphaToCoverage = true; m.transparent = false; m.depthWrite = true; m.side = THREE.DoubleSide; o.castShadow = false; }
+  if (n === 'Lashes') { m.side = THREE.DoubleSide; }
+  if (window.DEBUG && window.DEBUG.hide && window.DEBUG.hide.includes(o.name)) o.visible = false;
+  if (window.DEBUG && window.DEBUG.hairopaque && n.startsWith('Hair') && n !== 'HairCap') { m.alphaTest = 0; m.alphaToCoverage = false; m.map = null; m.color = new THREE.Color(1, 0, 0); }
+  if (n === 'Skin') { m.emissive = new THREE.Color(0.22, 0.09, 0.06); m.emissiveMap = m.map; m.emissiveIntensity = 0.35; m.roughness = 0.55; }
+  if (n === 'Eye') { m.roughness = 0.08; m.emissive = new THREE.Color(1, 1, 1); m.emissiveMap = m.map; m.emissiveIntensity = 0.08; }
+  if (n === 'HairCap') { m.roughness = 0.9; }
+}
+
 async function loadHost(url) {
   const gltf = await loader.loadAsync(url);
   const vrm = gltf.userData.vrm;
@@ -268,7 +280,12 @@ async function loadHost(url) {
   VRMUtils.combineSkeletons(gltf.scene);
   const vrm0 = vrm.meta && vrm.meta.metaVersion === '0';
   if (vrm0) VRMUtils.rotateVRM0(vrm);
-  vrm.scene.traverse((o) => { o.frustumCulled = false; if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  vrm.scene.traverse((o) => {
+    o.frustumCulled = false;
+    if (!o.isMesh) return;
+    o.castShadow = true; o.receiveShadow = true;
+    for (const m of [].concat(o.material)) tuneMaterial(m, o);
+  });
   const root = new THREE.Group(); root.add(vrm.scene);
   return { vrm, root, flip: vrm0 ? -1 : 1 };
 }
@@ -284,32 +301,49 @@ function applyPose(h, t, st) {
   set('leftFoot', -0.1, 0, 0); set('rightFoot', -0.1, 0, 0);
   const breath = Math.sin(t * 1.6 + seed) * 0.5 + 0.5;
   const sway = fbm(t * 0.35, seed) * 0.05 + fbm(t * 1.2, seed + 3) * 0.05 * sp;
-  const laugh = st.laugh || 0;
-  const bounce = laugh * Math.sin(t * 22) * 0.025;
+  // laughing: head snaps back on the burst, then the body folds forward and pumps with each "ha"
+  const laugh = st.laugh || 0, lt = st.laughT || 0, pulse = st.laughPulse || 0;
+  const burst = laugh * Math.exp(-lt / 0.55) * (1 - Math.exp(-lt / 0.07));
+  const fold = laugh * (1 - Math.exp(-lt / 0.5)) * (0.7 + 0.3 * hash(Math.floor(st.laughId || 0)));
+  const pump = laugh * pulse * (0.55 + 0.45 * Math.exp(-lt / 1.4));
+  const beat = st.beat || 0;
   set('hips', 0, 0, 0);
-  set('spine', h.lean0 + breath * 0.015 + st.lean + bounce + laugh * 0.06, sway * 0.6 + st.turn * 0.35, fbm(t * 0.3, seed + 9) * 0.03);
-  set('chest', 0.04 + breath * 0.02 + bounce, st.turn * 0.25, sway * 0.4);
-  if (bone(v, 'upperChest')) set('upperChest', 0.02, st.turn * 0.1, 0);
-  const nod = fbm(t * 2.2, seed + 11) * 0.09 * sp + st.nod;
-  const tilt = fbm(t * 0.5, seed + 21) * 0.08 + st.tilt;
-  set('neck', 0.04 + nod * 0.4 - laugh * 0.1, st.turn * 0.25, tilt * 0.4);
-  set('head', -0.03 + nod * 0.6 + fbm(t * 0.4, seed + 31) * 0.04 - laugh * 0.12, st.turn * 0.4 + fbm(t * 0.3, seed + 41) * 0.08, tilt * 0.6);
+  set('spine', h.lean0 + breath * 0.015 + st.lean + fold * 0.13 + pump * 0.035 - burst * 0.05, sway * 0.6 + st.turn * 0.35 + fold * st.laughSide * 0.08, fbm(t * 0.3, seed + 9) * 0.03 + fold * st.laughSide * 0.05);
+  set('chest', 0.04 + breath * 0.02 + pump * 0.045 + beat * 0.012, st.turn * 0.25, sway * 0.4);
+  if (bone(v, 'upperChest')) set('upperChest', 0.02 + pump * 0.02, st.turn * 0.1, 0);
+  // speech: small idle drift plus a nod on each stressed syllable
+  const nod = fbm(t * 1.1, seed + 11) * 0.035 * sp + beat * 0.11 + st.nod;
+  const tilt = fbm(t * 0.5, seed + 21) * 0.08 + st.tilt + fold * st.laughSide * 0.06;
+  set('neck', 0.04 + nod * 0.4 - burst * 0.25 + fold * 0.05, st.turn * 0.25, tilt * 0.4);
+  set('head', -0.03 + nod * 0.6 + fbm(t * 0.4, seed + 31) * 0.04 - burst * 0.3 + fold * 0.08 - pump * 0.04,
+      st.turn * 0.4 + fbm(t * 0.3, seed + 41) * 0.08 + fbm(t * 0.9, seed + 43) * 0.04 * sp, tilt * 0.6);
 
   const R = h.root; R.updateMatrixWorld(true);
   const shoulderY = h.shoulderLocalY;
   const near = h.nearArm, far = near === 'left' ? 'right' : 'left';
   const k = (side) => (side === 'left' ? 1 : -1);
   const wob = (o, fr = 1.3) => fbm(t * fr, seed + o);
+  const laughHand = st.laughHand || 0;   // 0 none, 1 hand to chest, 2 pat the desk / knee
   for (const side of ['left', 'right']) {
     const g = side === near ? gs.main : gs.both;
+    const lift = side === near ? gs.lift || 0 : (gs.lift2 || 0);
     let rest;
     if (h.role === 'desk') rest = V(k(side) * 0.15, 0.8 - R.position.y + 0.04, h.L1 * 0.45 + h.L2 * 0.9 + (side === near ? 0.02 : 0));
     else rest = V(k(side) * (side === near ? 0.05 : 0.09), h.lapY + 0.05, h.lapZ + (side === near ? 0.03 : 0));
     const up = V(k(side) * (0.2 + wob(51 + k(side)) * 0.07), shoulderY - h.L1 * 0.55 + wob(61 + k(side), 1.7) * 0.08, h.L1 * 0.35 + h.L2 * 0.8 + wob(71 + k(side)) * 0.05);
-    const p = rest.lerp(up, g);
+    // phrase gestures: a softer, lower version of the full gesture
+    const p = rest.clone().lerp(up, Math.max(g, lift * 0.55));
+    // beats: the hand strokes down a little on stressed syllables while it is up
+    const handUp = Math.max(g, lift);
+    p.y -= beat * 0.035 * handUp; p.z += beat * 0.015 * handUp;
+    p.x += k(side) * wob(81 + k(side), 0.6) * 0.04 * handUp;
+    if (laugh > 0.05 && side === near) {
+      if (laughHand === 1) p.lerp(V(k(side) * 0.04, shoulderY - h.L1 * 0.45, 0.13), smooth(fold * 1.6));
+      else if (laughHand === 2) { p.y += pump * 0.05; p.z += fold * 0.03; }
+    }
     if (side === far && gs.wave > 0) p.lerp(V(k(side) * 0.32, shoulderY + 0.2, 0.22), gs.wave);
     const open = Math.max(g, side === far ? gs.wave : 0);
-    set(side + 'Shoulder', 0, 0, 0);
+    set(side + 'Shoulder', 0, 0, -k(side) * (pump * 0.07 + burst * 0.04));
     const pole = R.localToWorld(h.role === 'desk' ? V(k(side) * 0.8, -0.6, -0.5) : V(k(side) * 0.35, -0.8, -0.45)).sub(R.getWorldPosition(V(0, 0, 0)));
     solveArm(v, side, R.localToWorld(p.clone()), pole);
     const kk = k(side);
@@ -442,12 +476,29 @@ window.setup = async (tl) => {
     composer.addPass(new UnrealBloomPass(new THREE.Vector2(W * Q.scale / 2, H * Q.scale / 2), 0.4, 0.45, 0.97));
     composer.addPass(new OutputPass());
   }
-  S = { renderer, composer, scene, camera, hosts, host, guest, tl, lastT: null, cardShown: null };
+  S = { renderer, composer, scene, camera, hosts, host, guest, tl, lastT: null, cardShown: null, beats: {} };
+  for (const k of Object.keys(hosts)) S.beats[k] = findBeats(tl.mouth[k], tl.fps);
   buildShots();
   return true;
 };
 
-function idleState() { return { speak: 0, lean: 0, turn: 0, nod: 0, tilt: 0, laugh: 0, gesture: { main: 0, both: 0, wave: 0 } }; }
+// stressed syllables: peaks in the rise of mouth energy, at least 0.22 s apart
+function findBeats(track, fps) {
+  const e = track.map((m) => (m ? m.reduce((a, b) => a + b, 0) : 0));
+  const on = e.map((x, i) => { let a = 0; for (let k = 1; k <= 5; k++) a += e[Math.max(0, i - k)]; return Math.max(0, x - a / 5); });
+  const sorted = on.filter((x) => x > 0).sort((a, b) => a - b);
+  const thr = sorted.length ? sorted[Math.floor(sorted.length * 0.85)] : 1, top = sorted.length ? sorted[sorted.length - 1] : 1;
+  const out = []; let last = -1;
+  for (let i = 1; i < on.length - 1; i++) {
+    if (on[i] < thr || on[i] < on[i - 1] || on[i] < on[i + 1]) continue;
+    const t = i / fps;
+    if (out.length && t - last < 0.22) { if (on[i] / top > out[out.length - 1].a) { out[out.length - 1] = { t, a: on[i] / top }; last = t; } continue; }
+    out.push({ t, a: Math.min(1, 0.4 + 0.6 * on[i] / top) }); last = t;
+  }
+  return out;
+}
+
+function idleState() { return { speak: 0, lean: 0, turn: 0, nod: 0, tilt: 0, laugh: 0, laughT: 0, laughPulse: 0, laughSide: 0, laughHand: 0, laughId: 0, beat: 0, gesture: { main: 0, both: 0, wave: 0, lift: 0, lift2: 0 } }; }
 
 // camera shots from the timeline: close-ups follow the speaker, quick exchanges and laughs go wide
 function buildShots() {
@@ -537,14 +588,46 @@ function hostState(key, t) {
       const d = t - l.end; if (d > -0.3 && d < 0.6) st.nod += Math.sin(clamp((d + 0.3) / 0.9) * Math.PI) * 0.05;
     }
   }
-  // audience laughs: everybody grins; the one who did not make the joke laughs harder
+  // audience laughs: everybody grins; the one who did not make the joke laughs harder.
+  // Each laugh gets its own onset time, rhythm ("ha" pulses ~4-5 Hz with jitter), lean side and hand.
+  st.laughT = 0; st.laughPulse = 0; st.laughSide = 0; st.laughHand = 0; st.laughId = 0;
   for (const s of tl.sfx) {
     if (s.kind !== 'laugh') continue;
-    const w = smooth((t - s.start) / 0.3) * (1 - smooth((t - s.end + 0.4) / 0.6)) * s.gain;
-    if (w <= 0) continue;
     const mine = s.after === key;
-    st.emo.happy = Math.max(st.emo.happy || 0, w * (mine ? 0.55 : 0.85));
-    st.laugh = Math.max(st.laugh, w * (mine ? 0.3 : 1));
+    const lag = mine ? 0.05 : 0.12 + hash(s.start * 7 + key.charCodeAt(0)) * 0.15;   // reacting a beat after the punchline
+    const lt = t - s.start - lag;
+    const w = smooth(lt / 0.12) * (1 - smooth((t - s.end + 0.3) / 0.7)) * s.gain;
+    if (w <= 0) continue;
+    const amt = w * (mine ? 0.45 : 1);
+    if (amt <= st.laugh) continue;
+    st.laugh = amt; st.laughT = Math.max(0, lt); st.laughId = s.start * 13 + key.charCodeAt(0);
+    const r = hash(st.laughId);
+    const rate = 4.2 + r * 1.0;
+    const ph = 2 * Math.PI * (rate * st.laughT + 0.35 * fbm(st.laughT * 1.5, r * 9)) ;
+    st.laughPulse = Math.pow(0.5 + 0.5 * Math.sin(ph), 2.5) * (0.6 + 0.4 * fbm(st.laughT * 3, r * 5 + 1));
+    st.laughSide = (hash(st.laughId + 3) - 0.5) * 2;
+    st.laughHand = mine ? 0 : (r < 0.4 ? 1 : r < 0.75 ? 2 : 0);
+    st.emo.happy = Math.max(st.emo.happy || 0, amt * (mine ? 0.65 : 0.95));
+  }
+  // speech beats from the voice track: stressed syllables nod the head and stroke the hand
+  st.beat = 0;
+  const B = S.beats[key];
+  for (let i = 0; i < B.length; i++) {
+    const d = t - B[i].t;
+    if (d < -0.25) break;
+    if (d > 0.5) continue;
+    st.beat += B[i].a * (Math.exp(-(((d + 0.06) / 0.11) ** 2)) - 0.35 * Math.exp(-(((d - 0.2) / 0.12) ** 2)));
+  }
+  // phrase gestures on longer lines without a scripted gesture: one hand comes up for part of the line
+  for (const [i, l] of tl.lines.entries()) {
+    if (l.spk !== key || l.gest || l.end - l.start < 2.2) continue;
+    const r = hash(i * 5.7 + key.charCodeAt(0));
+    if (r < 0.25) continue;
+    const a = l.start + 0.3 + r * 0.6, b = l.end - 0.2;
+    const w = smooth((t - a) / 0.45) * (1 - smooth((t - b) / 0.5)) * (0.55 + 0.45 * Math.max(0, fbm(t * 0.35, i)));
+    if (w <= 0) continue;
+    if (r > 0.8) st.gesture.lift2 = Math.max(st.gesture.lift2 || 0, w * 0.8);
+    st.gesture.lift = Math.max(st.gesture.lift || 0, w);
   }
   st.lean = st.speak * 0.04;
   st.tilt = (st.emo.surprised || 0) * -0.06 + (st.emo.happy || 0) * 0.05;
@@ -576,27 +659,43 @@ window.renderAt = (t) => {
     const toCam = talking && closeOnMe && hash(Math.floor(t / 2.7) + h.seed) < 0.3;
     // the host plays to the audience during the monologue and laughs
     const toAudience = h.role === 'desk' && (st.laugh > 0.4 || (cur && cur.toCamera && talking));
-    const target = toCam || toAudience ? camera.position.clone() : h.other.headPos.clone().add(V(0, -0.03, 0));
+    const target = toCam || toAudience ? camera.position.clone() : h.other.headPos.clone().add(V(0, -0.03 - st.laugh * 0.25, 0));
     const targetTurn = toCam || toAudience ? 0.35 * (h.role === 'desk' ? 1 : -1) : 0;
     h.turn = h.turn === undefined ? targetTurn : h.turn + (targetTurn - h.turn) * Math.min(1, dt * 4);
     st.turn = h.turn;
     applyPose(h, t, st);
-    if (!h.lookObj) { h.lookObj = new THREE.Object3D(); scene.add(h.lookObj); h.vrm.lookAt.target = h.lookObj; h.lookObj.position.copy(target); }
+    if (!h.lookObj) { h.lookObj = new THREE.Object3D(); scene.add(h.lookObj); h.vrm.lookAt.target = h.lookObj; h.lookObj.position.copy(target); if (window.DEBUG && window.DEBUG.nolook) h.vrm.lookAt.autoUpdate = false; }
     h.lookObj.position.lerp(target, Math.min(1, dt * 6));
     h.lookObj.position.x += fbm(t * 3, h.seed + 99) * 0.01;
     const em = h.vrm.expressionManager;
     const m = st.mouth;
     const happy = st.emo.happy || 0, sur = st.emo.surprised || 0, rel = st.emo.relaxed || 0, sad = st.emo.sad || 0;
-    const laughOpen = st.laugh * (0.35 + 0.25 * Math.sin(t * 22));
+    const laughOpen = st.laugh * (0.18 + 0.5 * st.laughPulse) * (0.6 + 0.4 * Math.exp(-st.laughT / 1.6));
     const ms = 1 - happy * 0.3;
     em.setValue('aa', clamp(m[0] * 1.5 * ms + laughOpen)); em.setValue('ih', clamp(m[1] * 1.2)); em.setValue('ou', clamp(m[2] * 1.4));
-    em.setValue('ee', clamp(m[3] * 1.2 * ms)); em.setValue('oh', clamp(m[4] * 1.4));
+    em.setValue('ee', clamp(m[3] * 1.2 * ms + st.laugh * 0.15)); em.setValue('oh', clamp(m[4] * 1.4));
     em.setValue('happy', clamp(happy)); if (em.getExpression('surprised')) em.setValue('surprised', sur * (1 - st.speak * 0.4));
     em.setValue('relaxed', rel * 0.7); em.setValue('sad', sad * 0.5);
-    em.setValue('blink', happy > 0.4 ? 0 : blinkAt(h.seed * 10, t));
+    const squint = clamp(st.laugh * (0.35 + 0.25 * st.laughPulse));
+    em.setValue('blink', Math.max(squint, happy > 0.4 ? 0 : blinkAt(h.seed * 10, t)));
     h.vrm.update(dt);
   }
   overlays(t, cur, shot);
+  if (composer) composer.render(); else renderer.render(scene, camera);
+};
+
+window.debugBoxes = (k) => {
+  const h = S.hosts[k]; const out = {};
+  h.vrm.scene.traverse((o) => { if (o.isMesh) { const b = new THREE.Box3().setFromObject(o, true); out[o.name + ':' + (o.material.name || '')] = [b.min.toArray().map((x) => +x.toFixed(3)), b.max.toArray().map((x) => +x.toFixed(3))]; } });
+  out.head = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).toArray().map((x) => +x.toFixed(3));
+  return out;
+};
+// debug: put the camera on one face and draw again
+window.closeup = (k, side = 0) => {
+  const { camera, hosts, composer, renderer, scene } = S;
+  const h = hosts[k]; const p = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).add(V(0, 0.06, 0));
+  const fwd = V(Math.sin(h.root.rotation.y + side), 0, Math.cos(h.root.rotation.y + side));
+  camera.position.copy(p.clone().add(fwd.multiplyScalar(0.55))); camera.fov = 30; camera.updateProjectionMatrix(); camera.lookAt(p);
   if (composer) composer.render(); else renderer.render(scene, camera);
 };
 
