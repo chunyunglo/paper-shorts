@@ -127,6 +127,20 @@ def candidates(history: list[dict]) -> list[Paper]:
     return fresh
 
 
+def enrich(paper: Paper) -> Paper:
+    """Journal RSS often omits authors; fill them from Crossref by DOI."""
+    if paper.authors or not paper.doi:
+        return paper
+    try:
+        resp = http("crossref", "works", "GET", f"https://api.crossref.org/works/{paper.doi}", headers=UA)
+        people = resp.json()["message"].get("author", [])
+        paper.authors = [" ".join(x for x in (a.get("given"), a.get("family")) if x) for a in people
+                         if a.get("family")]
+    except Exception as exc:
+        log(f"Crossref lookup skipped: {exc}")
+    return paper
+
+
 class Pick(BaseModel):
     index: int = Field(description="Index of the chosen paper in the list")
     reason: str = Field(description="One sentence on why this paper fits best")
@@ -163,6 +177,6 @@ def pick(papers: list[Paper], history: list[dict]) -> tuple[Paper, str]:
     choice = llm.ask(Pick, PICK_SYSTEM, prompt, effort="medium")
     if not 0 <= choice.index < len(papers):
         raise RuntimeError("Claude picked an index outside the list")
-    chosen = papers[choice.index]
+    chosen = enrich(papers[choice.index])
     log(f"Picked: {chosen.title} [{chosen.venue}]")
     return chosen, choice.reason

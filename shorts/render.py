@@ -123,8 +123,11 @@ class Renderer:
         if i == 0:
             return
         p = self.paper
-        first = (p.get("authors") or [""])[0].split(" ")[-1]
-        txt = f"Source: {first}{' et al.' if len(p.get('authors') or []) > 1 else ''}, {p['venue']} {p.get('published', '')[:4]}"
+        authors = p.get("authors") or []
+        who = ""
+        if authors:
+            who = authors[0].split(" ")[-1] + (" et al." if len(authors) > 1 else "") + ", "
+        txt = f"Source: {who}{p['venue']} {p.get('published', '')[:4]}"
         d.text((MARGIN, 1580), txt, font=font("regular", 28), fill=INK_MUTED)
 
     def frame(self, n: int) -> Image.Image:

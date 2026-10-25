@@ -68,8 +68,11 @@ def comment_threads(video_id: str) -> list[dict]:
     resp = http("youtube", "commentThreads.list", "GET", f"{API}/commentThreads", headers=_auth(),
                 params={"part": "snippet,replies", "videoId": video_id, "maxResults": 100,
                         "order": "time", "textFormat": "plainText"}, ok=(200, 403))
-    if resp.status_code == 403:  # comments disabled
-        return []
+    if resp.status_code == 403:
+        reasons = [e.get("reason") for e in resp.json().get("error", {}).get("errors", [])]
+        if "commentsDisabled" in reasons:
+            return []
+        raise ApiError("youtube", "commentThreads.list", 403, ",".join(r for r in reasons if r) or None)
     return resp.json().get("items", [])
 
 

@@ -65,12 +65,36 @@ def wrap(text: str, f: ImageFont.FreeTypeFont, max_w: int, max_lines: int = 3) -
     return lines
 
 
+_CLAUSE = re.compile(r"[^，、：；？！,;:?!\s]+[，、：；？！,;:?!]*\s*")
+
+
+def clause_wrap(text: str, f: ImageFont.FreeTypeFont, max_w: int) -> list[str] | None:
+    """Break only after punctuation (or spaces), packing clauses greedily. None if a clause is too wide."""
+    lines: list[str] = []
+    cur = ""
+    for clause in _CLAUSE.findall(text.strip()):
+        if f.getlength(clause.strip()) > max_w:
+            return None
+        if cur and f.getlength((cur + clause).strip()) > max_w:
+            lines.append(cur.strip())
+            cur = clause
+        else:
+            cur += clause
+    if cur.strip():
+        lines.append(cur.strip())
+    return lines
+
+
 def fit(text: str, weight: str, max_w: int, sizes: list[int], max_lines: int):
-    """Largest size whose wrap fits within max_lines; returns (font, lines)."""
+    """Largest size whose wrap fits within max_lines; returns (font, lines).
+    Multi-line text breaks at punctuation when it can, so phrases stay whole."""
     for s in sizes:
         f = font(weight, s)
         lines = wrap(text, f, max_w, max_lines=99)
-        if len(lines) <= max_lines:
+        if len(lines) == 1:
             return f, lines
+        if len(lines) <= max_lines:
+            nicer = clause_wrap(text, f, max_w)
+            return f, nicer if nicer and len(nicer) <= max_lines else lines
     f = font(weight, sizes[-1])
     return f, wrap(text, f, max_w, max_lines)
