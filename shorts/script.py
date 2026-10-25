@@ -76,7 +76,17 @@ video's voiceover and subtitle. On-screen labels and big text also come in both 
 
 Structure (about 200-260 Chinese characters and 120-150 English words of narration in total; \
 each video should run about 40-50 seconds at a brisk pace):
-1. hook: a question or surprising fact that makes people stay (big_text = the hook in a few words).
+1. hook. Viewers decide in the first 3 seconds whether to keep watching, and the video starts \
+directly on this scene (no intro card), so it carries the episode. Two lines:
+   - Line 1 (spoken in under 3 seconds: at most ~15 Chinese characters / ~10 English words) lands \
+the most surprising, counterintuitive or personally relevant point at once: a direct question \
+about the viewer's own behavior ("你以為你滑手機是自己選的嗎？"), or the striking result stated \
+as a tension. Never open with "a new study", "researchers", the channel, the authors, a date, \
+or background.
+   - Line 2 opens a loop: promise what viewers will find out by the end (e.g. the twist is in how \
+they measured it), and pay it off in the finding scene.
+   big_text = the core of line 1 in at most 8 Chinese characters (a number or a sharp phrase), \
+readable at a glance; the English and pt big text are just as short.
 2. paper: who did this study and where it was published (keep it to one line).
 3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
 This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
@@ -152,6 +162,8 @@ conversational, not a word-for-word translation. Keep every fact exactly as in t
 nothing. Keep scene count, label count, and line count identical to the source, in the same \
 order, so the lines match the visuals. Keep numbers, names, and the paper venue as they are. \
 Lines can be a little longer than the English but must stay short (at most 80 characters). \
+The first line of the hook decides whether people keep watching: keep it as short and punchy as \
+the English (spoken in under 3 seconds) and keep its big text just as short. \
 The last line of the last scene is a short invitation to follow the channel, with no schedule."""
 
 
@@ -201,7 +213,7 @@ feedback faithfully and change nothing else. The accuracy rules still win: if a 
 need facts that are not in the paper, do not invent them and say so in changes_zh. You can only \
 change the script (narration lines, headings, labels, big text, titles, descriptions, hashtags, \
 and which visual each scene uses); if the feedback is about something else (voice, music, colors, \
-the fixed intro/outro), say so in changes_zh."""
+the fixed end card), say so in changes_zh."""
 
 
 def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
