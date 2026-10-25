@@ -56,8 +56,11 @@ def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
     return a[lo:hi]
 
 
-DEFAULT_VOICES = {"zh": "cmn-TW-Wavenet-A", "en": "en-US-Neural2-F"}
-EDGE_FALLBACK = {"zh": "zh-TW-HsiaoChenNeural", "en": "en-US-AriaNeural"}
+# Chosen by the owner from the voice samples (2026-10-25): zh #10 雲哲, en #13 Chirp3 Aoede.
+DEFAULT_VOICES = {"zh": "zh-TW-YunJheNeural", "en": "en-US-Chirp3-HD-Aoede"}
+# Used if the chosen voice fails (Edge TTS is an unofficial service and may break).
+GOOGLE_FALLBACK = {"zh": "cmn-TW-Wavenet-C", "en": "en-US-Neural2-J"}
+EDGE_FALLBACK = {"zh": "zh-TW-YunJheNeural", "en": "en-US-AriaNeural"}
 
 
 def rate() -> float:
@@ -109,8 +112,22 @@ SYNTH = {"google": synth_google, "edge": synth_edge, "silent": synth_silent}
 
 
 def voiceover(scenes: list[list[str]], out_wav: Path, lang: str) -> tuple[list[SceneTiming], float]:
-    """scenes: the spoken lines of each scene. Writes a mono wav, returns timings in seconds."""
+    """scenes: the spoken lines of each scene. Writes a mono wav, returns timings in seconds.
+    If the chosen voice fails, the whole video is redone in a fallback voice so it stays consistent."""
     name, voice = choose(lang)
+    try:
+        return _voiceover(scenes, out_wav, lang, name, voice)
+    except Exception as exc:
+        if name == "silent":
+            raise
+        fb = ("google", GOOGLE_FALLBACK[lang]) if config.env("GOOGLE_TTS_API_KEY") else ("edge", EDGE_FALLBACK[lang])
+        if fb == (name, voice):
+            raise
+        log(f"TTS ({lang}): {voice} failed ({type(exc).__name__}); falling back to {fb[1]}")
+        return _voiceover(scenes, out_wav, lang, *fb)
+
+
+def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voice: str):
     log(f"TTS ({lang}): {name} {voice}")
 
     def synth(text: str) -> np.ndarray:

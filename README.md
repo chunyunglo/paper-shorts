@@ -10,7 +10,7 @@ Every Sunday, Wednesday and Friday this repo picks one new computational human-b
 |---|---|---|
 | 選論文 | arXiv（cs.SI、cs.CY、physics.soc-ph、econ.GN、cs.HC）＋ Nature Human Behaviour、Nature Computational Science、PNAS、Science Advances、EPJ Data Science、Journal of Computational Social Science 的 RSS，去掉做過的，由 Claude 挑一篇 | `shorts/papers.py` |
 | 寫腳本 | Claude 讀論文（arXiv 讀全文 PDF，期刊讀摘要），寫 6–9 個場景，每句都有中文旁白和英文字幕，並指定畫面類型 | `shorts/script.py` |
-| 配音 | Google Cloud TTS（`cmn-TW-Wavenet-A`），沒有金鑰時改用 Edge TTS；再疊一層程式產生的背景音 | `shorts/tts.py` |
+| 配音 | 中文：Edge TTS 雲哲（`zh-TW-YunJheNeural`）；英文：Google Chirp3 HD（`en-US-Chirp3-HD-Aoede`）。選定的聲音失敗時整支改用備援聲音；再疊一層程式產生的背景音 | `shorts/tts.py` |
 | 畫面 | 依頭像配色的「資料軌跡」風格：人群點陣、網路擴散、步驟流程、長條、時間線、散佈圖、對比卡，逐格繪製後用 ffmpeg 輸出 1080×1920 | `shorts/visuals.py`、`shorts/render.py` |
 | 上傳 | 影片先放到 GitHub Release，IG 和 Threads 從那個網址抓；YouTube 直接上傳並標示 AI 生成內容 | `shorts/publish/` |
 | 留言 | 一般問答／稱讚：用留言者的語言根據論文摘要回覆；垃圾留言：隱藏；敏感或學術爭議：不回覆，私下通知 | `shorts/comments.py` |
