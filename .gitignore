@@ -3,7 +3,7 @@ __pycache__/
 .pytest_cache/
 podcast/.cache/
 podcast/out/
-podcast/web/node_modules/
+podcast/web/node_modules
 podcast/web/models/
 podcast/web/bundle.js
 podcast/web/timeline.json
