@@ -1,0 +1,21 @@
+# Send one test email with the ALERT_EMAIL_* secrets. On demand, or a claude/* push with [mailtest].
+name: Test alert email
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+
+jobs:
+  email:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[mailtest]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: python -m shorts test-email
+        env:
+          ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
+          ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}

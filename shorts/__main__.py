@@ -33,6 +33,7 @@ def main() -> None:
     sub.add_parser("refresh-tokens")
     sub.add_parser("keepalive")
     sub.add_parser("voices")
+    sub.add_parser("test-email")
     ro = sub.add_parser("review-open")
     ro.add_argument("episode_dir", type=Path)
     ro.add_argument("tag")
@@ -78,6 +79,14 @@ def main() -> None:
             review.close(args.number, args.message, args.published)
         else:
             review.skip_unapproved()
+    elif args.cmd == "test-email":
+        install_excepthook(strict=True)
+        from .notify import _smtp
+
+        ok = _smtp("[行為解碼] 測試信 Test email",
+                   "這是一封測試信。之後需要你親自處理的留言會寄到這裡。\n"
+                   "This is a test. Comments that need you will be sent here.")
+        raise SystemExit(0 if ok else "Test email was not sent (check the ALERT_EMAIL_* secrets)")
     elif args.cmd == "voices":
         from .voices import render_all
 
