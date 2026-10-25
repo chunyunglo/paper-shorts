@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import papers, render, script as scriptmod, tts
+from . import brand, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -44,9 +44,9 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
         log(f"Voiceover ({lang}): {total:.1f}s")
         r = render.Renderer(script, paper.model_dump(), timings, total, lang)
         render.encode(r, audio, out / f"video_{lang}.mp4", preview_every=preview_every)
-        cover_at = timings[1 if len(timings) > 1 else 0].start + 1.2
+        cover_at = brand.INTRO + timings[1 if len(timings) > 1 else 0].start + 1.2
         r.frame(int(cover_at * 30)).convert("RGB").save(out / f"cover_{lang}.jpg", quality=90)
-        videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(total, 2),
+        videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(r.duration, 2),
                         "cover_offset_ms": int(cover_at * 1000), "tts": " ".join(tts.choose(lang)).strip()}
 
     meta = {
