@@ -166,3 +166,39 @@ def test_news_hook_in_review_and_script(tmp_path):
     ep = {"script": meta, "paper": {"title": "T", "url": "u", "venue": "V", "published": "2026"},
           "pick_reason": "r", "news": n, "videos": {}}
     assert "Big AI chatbot story" in pipeline.script_markdown(ep)
+
+
+def test_suggest_replies_filters_posts_and_never_posts(monkeypatch):
+    from datetime import datetime, timezone
+    from shorts import engage
+    from shorts.safelog import ApiError
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+0000")
+    found = [{"id": "1", "text": "my feed is all one side", "username": "a", "timestamp": now, "permalink": "p1"},
+             {"id": "1", "text": "dup", "username": "a", "timestamp": now},
+             {"id": "2", "text": "ours", "username": "me", "timestamp": now},
+             {"id": "3", "text": "old", "username": "b", "timestamp": "2020-01-01T00:00:00+0000"}]
+    monkeypatch.setattr(engage, "search", lambda q, limit=15: found)
+    q = engage.Queries(zh=["演算法 同溫層"], en=["my feed"], pt=["algoritmo bolha"])
+    posts, ok = engage.find_posts(q, "me")
+    assert ok and [p["id"] for p in posts] == ["1"]
+
+    def denied(q, limit=15):
+        raise ApiError("threads", "keyword search", 400, "10")
+    monkeypatch.setattr(engage, "search", denied)
+    assert engage.find_posts(q, "me") == ([], False)
+
+    ep = {"script": {"title_zh": "標題", "title_en": "Title"}}
+    plan = engage.Plan(suggestions=[engage.Suggestion(index=0, why="相關", reply="Nice point!"),
+                                    engage.Suggestion(index=-1, why="通用", reply="草稿")])
+    body = engage.email_body(ep, posts, plan, q, available=False)
+    assert "Nice point!" in body and "p1" in body and "threads_keyword_search" in body
+    assert "threads.com/search?q=" in body
+
+
+def test_latest_episode_needs_recent_posts():
+    from datetime import datetime, timezone
+    from shorts import engage
+    now = datetime.now(timezone.utc).isoformat()
+    assert engage.latest_episode([{"created": now, "posts": {}}]) is None
+    assert engage.latest_episode([{"created": "2020-01-01T00:00:00+00:00", "posts": {"zh": {}}}]) is None
+    assert engage.latest_episode([{"created": now, "posts": {"zh": {}}}])["created"] == now

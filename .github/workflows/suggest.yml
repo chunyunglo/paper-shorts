@@ -1,0 +1,33 @@
+# 19:30 Taiwan, Mon-Sat (after the zh/en posts): email the owner drafted replies for related
+# public Threads posts. Nothing is posted. Logs show counts only; never print post data.
+name: Suggest replies
+
+on:
+  schedule:
+    - cron: "30 11 * * 1-6"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Draft only (no email)
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  suggest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Draft and email suggested replies
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
+          ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+        run: python -m shorts suggest-replies ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}

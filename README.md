@@ -20,6 +20,7 @@ Monday to Saturday (Sunday off) this repo picks one new computational human-beha
 | Workflow | 時間 | 開關 |
 |---|---|---|
 | `revise.yml` | 你在審核 issue 留言寫修改意見時（不是 OK、也不是「不要上」）自動觸發：Claude 改腳本、重做三支影片，在 issue 貼新版本 | 只有 repo 擁有者的留言會觸發 |
+| `suggest.yml` | 週一到週六 19:30（台灣）：找和當天論文相關的公開 Threads 貼文，起草 3 到 5 則以研究發現為主的留言，寄到你的信箱。**不會自動貼**，你自己決定要不要貼 | 需要 Threads 的 `threads_keyword_search` 權限才會自動找貼文；沒有的話信裡會附搜尋連結和通用草稿 |
 | `publish.yml` | 週一到六 14:00 做影片並開審核 issue；19:00 上中英文（台灣時間）；巴西 19:00（台灣隔天 06:00）上葡語。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。在審核 issue 回「OK」或「沒問題」才會上片，沒回就跳過 |
 | `comments.yml` | 每小時 | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
