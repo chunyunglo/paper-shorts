@@ -22,7 +22,7 @@ def ig_base() -> str:
 
 def ig(method: str, path: str, what: str, **params) -> dict:
     params["access_token"] = config.require("IG_ACCESS_TOKEN")
-    kw = {"params": params} if method == "GET" else {"data": params}
+    kw = {"params": params} if method in ("GET", "DELETE") else {"data": params}
     return http("instagram", what, method, f"{ig_base()}/{path}", **kw).json()
 
 
@@ -61,6 +61,14 @@ def ig_comments(media_id: str) -> list[dict]:
     return data.get("data", [])
 
 
+def ig_comment(media_id: str, text: str) -> None:
+    ig("POST", f"{media_id}/comments", "comment", message=text)
+
+
+def ig_delete(media_id: str) -> None:
+    ig("DELETE", media_id, "delete media")
+
+
 def ig_reply(comment_id: str, text: str) -> None:
     ig("POST", f"{comment_id}/replies", "reply", message=text)
 
@@ -76,7 +84,7 @@ THREADS = f"https://graph.threads.net/{config.THREADS_VERSION}"
 
 def th(method: str, path: str, what: str, **params) -> dict:
     params["access_token"] = config.require("THREADS_ACCESS_TOKEN")
-    kw = {"params": params} if method == "GET" else {"data": params}
+    kw = {"params": params} if method in ("GET", "DELETE") else {"data": params}
     return http("threads", what, method, f"{THREADS}/{path}", **kw).json()
 
 
@@ -112,6 +120,10 @@ def th_reply(reply_to: str, text: str) -> None:
     container = th("POST", f"{uid}/threads", "create reply", media_type="TEXT", text=text,
                    reply_to_id=reply_to)["id"]
     th_publish(container)
+
+
+def th_delete(post_id: str) -> None:
+    th("DELETE", post_id, "delete post")
 
 
 def th_hide(reply_id: str) -> None:

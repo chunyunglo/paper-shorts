@@ -44,14 +44,15 @@ def open_review(folder: Path, tag: str) -> int:
     s, p = ep["script"], ep["paper"]
     base = f"https://github.com/{config.GITHUB_REPO}/releases/download/{tag}"
     when = os.environ.get("PUBLISH_AT", "今晚 19:00")
+    name = {"zh": "中文版", "en": "English", "pt": "Português (BR)"}
     videos = "\n".join(
-        f"- **{'中文版' if lang == 'zh' else 'English'}**（{v['duration']:.0f} 秒）：[{v['file']}]({base}/{v['file']})"
+        f"- **{name.get(lang, lang)}**（{v['duration']:.0f} 秒）：[{v['file']}]({base}/{v['file']})"
         for lang, v in ep["videos"].items())
     covers = " ".join(f'<img src="{base}/cover_{lang}.jpg" width="240">' for lang in ep["videos"])
     body = (f"## {s['title_zh']} / {s['title_en']}\n\n"
-            f"回覆 **OK** 或 **沒問題**，{when}就會上片到 YouTube、Instagram、Threads。\n"
-            f"沒回覆或回其他內容，今天就不上片。\n\n"
-            f"Reply **OK** to publish at {when} (Taiwan time). No reply means no post today.\n\n"
+            f"回覆 **OK** 或 **沒問題**，就會上片到 YouTube、Instagram、Threads：{when}。\n"
+            f"沒回覆或回其他內容，這集就不上片。\n\n"
+            f"Reply **OK** to publish ({when}). No reply means no post.\n\n"
             f"### 影片 Videos\n{videos}\n\n{covers}\n\n"
             f"### 論文 Paper\n[{p['title']}]({p['url']}), {p['venue']} ({p['published']})\n\n"
             f"<details><summary>腳本 Script</summary>\n\n{(folder / 'script.md').read_text(encoding='utf-8')}\n</details>\n\n"

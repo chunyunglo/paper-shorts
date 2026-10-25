@@ -1,6 +1,7 @@
-"""Turn a paper into a bilingual short-video script with a scene plan."""
+"""Turn a paper into a short-video script (zh + en scene plan), plus a Brazilian Portuguese version."""
 from __future__ import annotations
 
+import json
 from typing import Literal
 
 from pydantic import BaseModel, Field
@@ -30,7 +31,7 @@ class Scene(BaseModel):
     lines: list[Line] = Field(description="1-4 narration lines spoken during this scene")
 
 
-class Script(BaseModel):
+class ScriptDraft(BaseModel):
     title_zh: str = Field(description="Catchy Traditional Chinese title, at most 28 characters")
     title_en: str = Field(description="Catchy English title for the English video, at most 60 characters")
     paper_title_zh: str = Field(description="Faithful Traditional Chinese translation of the paper title, at most 40 characters")
@@ -40,6 +41,26 @@ class Script(BaseModel):
     hashtags: list[str] = Field(description="5-8 hashtags without the # sign, mixing Chinese and English")
     method_summary: str = Field(description="English summary of the method, data, and main findings for answering viewer questions later (120-250 words)")
     limitations: str = Field(description="English summary of limitations / what the paper does NOT show (40-120 words)")
+
+
+class LocalScene(BaseModel):
+    heading: str = Field(description="1-3 word label")
+    labels: list[str] = Field(description="Same number of labels as the source scene, same order, each at most 18 characters")
+    big_text: str = Field(description="Big on-screen text (at most 40 characters); empty if the source is empty")
+    lines: list[str] = Field(description="Exactly one spoken line per source line, same order, each at most 80 characters")
+
+
+class Localized(BaseModel):
+    """The episode in one more language, scene for scene and line for line."""
+    title: str = Field(description="Catchy title, at most 60 characters")
+    paper_title: str = Field(description="Faithful translation of the paper title")
+    description: str = Field(description="2-4 sentence video description")
+    hashtags: list[str] = Field(description="5-8 hashtags without the # sign, in this language (English terms are fine)")
+    scenes: list[LocalScene]
+
+
+class Script(ScriptDraft):
+    pt: Localized | None = None
 
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
@@ -79,12 +100,13 @@ def write(paper: Paper) -> Script:
         content.append({"type": "document", "source": {"type": "url", "url": paper.pdf_url}})
     content.append({"type": "text", "text": meta + "\n\nWrite the episode script."})
     try:
-        script = llm.ask(Script, SYSTEM, content, effort="high")
+        draft = llm.ask(ScriptDraft, SYSTEM, content, effort="high")
     except RuntimeError:
         if not paper.pdf_url:
             raise
         log("Script with full PDF failed; retrying from the abstract only")
-        script = llm.ask(Script, SYSTEM, content[1:], effort="high")
+        draft = llm.ask(ScriptDraft, SYSTEM, content[1:], effort="high")
+    script = Script(**draft.model_dump())
     validate(script)
     n = sum(len(l.zh) for s in script.scenes for l in s.lines)
     w = sum(len(l.en.split()) for s in script.scenes for l in s.lines)
@@ -106,3 +128,44 @@ def validate(script: Script) -> None:
             s.values = []
     if script.scenes[-1].visual != "takeaway":
         script.scenes[-1].visual = "takeaway"
+
+
+PT_SYSTEM = """You adapt a finished one-minute explainer video script for "Behavior Decoded" into \
+Brazilian Portuguese (pt-BR) for a Brazilian audience. You get the English and Chinese versions \
+scene by scene. Write natural spoken Brazilian Portuguese for the ear (você, not tu; Brazilian \
+spelling and vocabulary, e.g. "pesquisadores", "dados", "rede social", "celular"), brisk and \
+conversational, not a word-for-word translation. Keep every fact exactly as in the source; add \
+nothing. Keep scene count, label count, and line count identical to the source, in the same \
+order, so the lines match the visuals. Keep numbers, names, and the paper venue as they are. \
+Lines can be a little longer than the English but must stay short (at most 80 characters). \
+The last line of the last scene is a short invitation to follow the channel, with no schedule."""
+
+
+def translate_pt(script: Script) -> Localized:
+    src = {"title_en": script.title_en, "description_en": script.description_en,
+           "hashtags": script.hashtags,
+           "scenes": [{"visual": s.visual, "heading_en": s.heading_en, "labels_en": s.labels_en or s.labels,
+                       "big_text_en": s.big_text_en, "lines": [{"en": l.en, "zh": l.zh} for l in s.lines]}
+                      for s in script.scenes]}
+    text = "Source script (JSON):\n" + json.dumps(src, ensure_ascii=False, indent=1)
+    for attempt in range(2):
+        loc = llm.ask(Localized, PT_SYSTEM, [{"type": "text", "text": text}], effort="medium")
+        try:
+            check_localized(script, loc)
+            words = sum(len(l.split()) for s in loc.scenes for l in s.lines)
+            log(f"Portuguese script: {len(loc.scenes)} scenes, {words} words")
+            return loc
+        except RuntimeError as exc:
+            log(f"Portuguese script did not match the scene plan ({exc}); retrying")
+    raise RuntimeError("Portuguese script did not match the scene plan")
+
+
+def check_localized(script: Script, loc: Localized) -> None:
+    if len(loc.scenes) != len(script.scenes):
+        raise RuntimeError(f"{len(loc.scenes)} scenes, expected {len(script.scenes)}")
+    for k, (s, l) in enumerate(zip(script.scenes, loc.scenes)):
+        if len(l.lines) != len(s.lines) or not all(x.strip() for x in l.lines):
+            raise RuntimeError(f"scene {k + 1} has {len(l.lines)} lines, expected {len(s.lines)}")
+        l.labels = [x.strip() for x in l.labels if x.strip()][: len(s.labels)]
+        if len(l.labels) != len(s.labels):
+            l.labels = s.labels_en or s.labels

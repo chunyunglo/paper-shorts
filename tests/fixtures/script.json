@@ -199,5 +199,104 @@
   "CSS"
  ],
  "method_summary": "fixture",
- "limitations": "fixture"
+ "limitations": "fixture",
+ "pt": {
+  "title": "Ver o outro lado deixou as pessoas mais polarizadas",
+  "paper_title": "Exposição a visões opostas nas redes sociais pode aumentar a polarização política",
+  "description": "Roteiro de teste.",
+  "hashtags": [
+   "ciênciacomputacional",
+   "polarização",
+   "redessociais"
+  ],
+  "scenes": [
+   {
+    "heading": "A pergunta",
+    "labels": [],
+    "big_text": "Ver o outro lado ajuda?",
+    "lines": [
+     "Se o seu feed mostrasse o outro lado todo dia,",
+     "você entenderia melhor essas pessoas?"
+    ]
+   },
+   {
+    "heading": "O estudo",
+    "labels": [],
+    "big_text": "",
+    "lines": [
+     "Uma equipe da Duke testou isso na PNAS."
+    ]
+   },
+   {
+    "heading": "Participantes",
+    "labels": [
+     "Usuários do Twitter",
+     "Pagos p/ seguir um bot"
+    ],
+    "big_text": "",
+    "lines": [
+     "Eles recrutaram usuários americanos do Twitter",
+     "e pagaram alguns para seguir um bot."
+    ]
+   },
+   {
+    "heading": "Método",
+    "labels": [
+     "Medir opiniões",
+     "Seguir bot oposto",
+     "Nova pesquisa"
+    ],
+    "big_text": "",
+    "lines": [
+     "Primeiro, uma pesquisa mediu as opiniões.",
+     "O bot retuitava o outro lado todo dia,",
+     "e um mês depois veio uma nova pesquisa."
+    ]
+   },
+   {
+    "heading": "Fluxo",
+    "labels": [
+     "Visões opostas",
+     "No feed"
+    ],
+    "big_text": "",
+    "lines": [
+     "As vozes do outro lado iam direto para o feed."
+    ]
+   },
+   {
+    "heading": "Resultado",
+    "labels": [
+     "Antes",
+     "Um mês depois"
+    ],
+    "big_text": "Opiniões mais extremas",
+    "lines": [
+     "Os republicanos ficaram mais conservadores,",
+     "e a mudança dos democratas não foi significativa."
+    ]
+   },
+   {
+    "heading": "Ressalva",
+    "labels": [
+     "2017",
+     "Um mês depois"
+    ],
+    "big_text": "",
+    "lines": [
+     "Mas foi uma plataforma, durante um mês,",
+     "não prova de que toda exposição dá errado."
+    ]
+   },
+   {
+    "heading": "Lição",
+    "labels": [],
+    "big_text": "Exposição não é compreensão",
+    "lines": [
+     "Exposição não é compreensão.",
+     "Siga para mais pesquisas novas."
+    ]
+   }
+  ]
+ }
 }

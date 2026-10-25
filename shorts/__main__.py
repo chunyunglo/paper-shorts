@@ -2,6 +2,7 @@
 
   make              pick a paper and build out/<episode>/video.mp4 (no uploads)
   publish DIR       upload an episode folder to YouTube, Instagram, Threads; record history
+  delete-posts EP   delete an episode's posts on every platform and drop it from history
   comments          triage and answer new comments on recent episodes
   refresh-tokens    renew Instagram/Threads long-lived tokens and store them as repo secrets
   review-*          owner review issue: open / list approved / close / skip unapproved
@@ -23,11 +24,15 @@ def main() -> None:
     m.add_argument("--script-json", type=Path)
     m.add_argument("--paper-json", type=Path)
     m.add_argument("--preview-every", type=int, default=0)
+    m.add_argument("--episode-json", type=Path, help="remake an existing episode (same paper and script)")
     pb = sub.add_parser("publish")
     pb.add_argument("episode_dir", type=Path)
     pb.add_argument("--video-base-url", required=True,
                     help="Public URL prefix of the release assets video_zh.mp4 / video_en.mp4")
     pb.add_argument("--only", nargs="*", choices=["youtube", "instagram", "threads"])
+    pb.add_argument("--langs", nargs="*", choices=["zh", "en", "pt"], help="publish only these videos")
+    dp = sub.add_parser("delete-posts", help="delete an episode's posts on every platform")
+    dp.add_argument("episode")
     c = sub.add_parser("comments")
     c.add_argument("--dry-run", action="store_true", help="classify only; post, hide, and email nothing")
     sub.add_parser("refresh-tokens")
@@ -50,12 +55,17 @@ def main() -> None:
         install_excepthook(strict=False)
         from .pipeline import make
 
-        make(args.script_json, args.paper_json, args.preview_every)
+        make(args.script_json, args.paper_json, args.preview_every, args.episode_json)
     elif args.cmd == "publish":
         install_excepthook(strict=True)
         from .publish import publish_episode
 
-        publish_episode(args.episode_dir, args.video_base_url, args.only)
+        publish_episode(args.episode_dir, args.video_base_url, args.only, args.langs)
+    elif args.cmd == "delete-posts":
+        install_excepthook(strict=True)
+        from .publish import delete_episode
+
+        delete_episode(args.episode)
     elif args.cmd == "comments":
         install_excepthook(strict=True)
         from .comments import run

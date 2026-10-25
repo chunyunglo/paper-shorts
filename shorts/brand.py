@@ -11,8 +11,10 @@ from .fonts import font
 INTRO = 1.0   # seconds
 OUTRO = 2.4
 
-TAGLINE = {"zh": "用數據讀懂人類行為", "en": "Human behavior, decoded by data"}
-FOLLOW = {"zh": "追蹤・每週日、三、五 晚上 7 點", "en": "Follow · new paper Sun / Wed / Fri"}
+TAGLINE = {"zh": "用數據讀懂人類行為", "en": "Human behavior, decoded by data",
+           "pt": "O comportamento humano, decifrado por dados"}
+FOLLOW = {"zh": "追蹤・週一到週六 每天一篇新論文", "en": "Follow · a new paper every Mon–Sat",
+          "pt": "Siga · um estudo novo de segunda a sábado"}
 
 
 def _ease(x: float) -> float:
@@ -50,7 +52,8 @@ class Cards:
         self._brand(img, t, 700)
         d = ImageDraw.Draw(img)
         a = _ease((t - 0.4) / 0.35)
-        d.text((W / 2, 1200), TAGLINE[self.lang], font=font("bold", 50), fill=_mix(NAVY, a), anchor="mm")
+        d.text((W / 2, 1200), TAGLINE[self.lang], font=font("bold", 42 if self.lang == "pt" else 50),
+               fill=_mix(NAVY, a), anchor="mm")
         return img
 
     def outro(self, t: float) -> Image.Image:
@@ -59,7 +62,7 @@ class Cards:
         d = ImageDraw.Draw(img)
         a = _ease((t - 0.5) / 0.4)
         d.rounded_rectangle([140, 1160, W - 140, 1290], 65, fill=_mix(NAVY, a))
-        d.text((W / 2, 1225), FOLLOW[self.lang], font=font("bold", 44 if self.lang == "zh" else 38),
+        d.text((W / 2, 1225), FOLLOW[self.lang], font=font("bold", {"zh": 44, "en": 40}.get(self.lang, 34)),
                fill=CREAM, anchor="mm")
         d.text((W / 2, 1370), HANDLE, font=font("regular", 40), fill=_mix(INK_MUTED, a), anchor="mm")
         return img

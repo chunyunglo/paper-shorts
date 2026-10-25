@@ -1,8 +1,8 @@
 # 行為解碼 Behavior Decoded · paper-shorts
 
-每週日、三、五，自動挑一篇「用計算方法研究人類行為」的新論文，做成中文版和英文版兩支直式短影音，下午先給頻道主審核，晚上 7 點上傳到 YouTube Shorts、Instagram Reels 和 Threads，並每小時自動整理留言。
+每週一到週六（週日休息），自動挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文、巴西葡語三支直式短影音，下午先給頻道主審核。中英文在台灣晚上 7 點、葡語在巴西晚上 7 點上傳到 YouTube Shorts、Instagram Reels 和 Threads，每支影片底下第一則留言會附上論文 citation，並每小時自動整理留言。
 
-Every Sunday, Wednesday and Friday this repo picks one new computational human-behavior paper, makes a Chinese and an English 9:16 explainer, asks the owner to approve them in the afternoon, posts them at 19:00 Taiwan time, and triages comments every hour.
+Monday to Saturday (Sunday off) this repo picks one new computational human-behavior paper, makes Chinese, English and Brazilian Portuguese 9:16 explainers, asks the owner to approve them in the afternoon, posts zh/en at 19:00 Taiwan time and pt at 19:00 Brasília time, adds the full citation as the first comment under each post, and triages comments every hour.
 
 ## 流程 How it works
 
@@ -19,7 +19,7 @@ Every Sunday, Wednesday and Friday this repo picks one new computational human-b
 
 | Workflow | 時間 | 開關 |
 |---|---|---|
-| `publish.yml` | 週日、三、五 14:00 做影片並開審核 issue；19:00 上片（台灣時間） | repo variable `AUTO_PUBLISH=true` 才會自動跑。在審核 issue 回「OK」或「沒問題」才會上片，沒回就跳過 |
+| `publish.yml` | 週一到六 14:00 做影片並開審核 issue；19:00 上中英文（台灣時間）；巴西 19:00（台灣隔天 06:00）上葡語。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。在審核 issue 回「OK」或「沒問題」才會上片，沒回就跳過 |
 | `comments.yml` | 每小時 | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
