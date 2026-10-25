@@ -1,1 +1,249 @@
-[]
+[
+  {
+    "episode": "20261025-petition-style-changes-with-ai-writing-s",
+    "created": "2026-10-25T01:37:03+00:00",
+    "paper": {
+      "id": "doi:10.1038/s41562-026-02579-1",
+      "title": "Petition style changes with AI writing support but outcomes do not improve",
+      "abstract": "Nature Human Behaviour, Published online: 14 October 2026; doi:10.1038/s41562-026-02579-1 In 2023, Change.org introduced an artificial intelligence (AI)-supported petition-drafting tool to their platform. With access to this tool, users’ petitions changed substantially, and their texts became more similar to one another. At the same time, overall petition outcomes did not improve, which shows the limits of AI integration into online advocacy communities.",
+      "authors": [],
+      "venue": "Nature Human Behaviour",
+      "url": "https://www.nature.com/articles/s41562-026-02579-1",
+      "pdf_url": null,
+      "doi": "10.1038/s41562-026-02579-1",
+      "published": "2026-10-14",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "AI幫你寫請願書,真的比較有用嗎?",
+      "title_en": "AI Wrote the Petitions. Did They Win More?",
+      "paper_title_zh": "AI寫作輔助改變了請願風格,但成效並未提升",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "問題",
+          "heading_en": "THE QUESTION",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI寫請願,更有用?",
+          "big_text_en": "Do AI petitions do better?",
+          "lines": [
+            {
+              "zh": "讓AI幫你寫連署請願,會更成功嗎?",
+              "en": "If AI helps you write a petition, will it do better?"
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "自然:人類行為",
+            "2026"
+          ],
+          "labels_en": [
+            "Nature Hum. Behav.",
+            "2026"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "這篇研究刊登在《自然:人類行為》。",
+              "en": "This study was published in Nature Human Behaviour."
+            }
+          ]
+        },
+        {
+          "visual": "crowd",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "Change.org",
+            "使用者請願"
+          ],
+          "labels_en": [
+            "Change.org",
+            "User petitions"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "2023年,Change.org加入AI寫作工具。",
+              "en": "In 2023, Change.org added an AI tool that drafts petitions."
+            },
+            {
+              "zh": "研究者分析平台上使用者寫的請願。",
+              "en": "Researchers studied the petitions users wrote on the platform."
+            }
+          ]
+        },
+        {
+          "visual": "timeline",
+          "heading_zh": "前後比較",
+          "heading_en": "BEFORE & AFTER",
+          "labels": [
+            "沒有AI工具",
+            "可用AI工具"
+          ],
+          "labels_en": [
+            "No AI tool",
+            "AI tool access"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們比較能用AI工具前後的請願。",
+              "en": "They compared petitions from before and after users got the tool."
+            },
+            {
+              "zh": "用電腦分析文字和風格怎麼變。",
+              "en": "A computer measured how the wording and style shifted."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "相似度",
+          "heading_en": "SIMILARITY",
+          "labels": [
+            "請願文字",
+            "彼此更像"
+          ],
+          "labels_en": [
+            "Petition texts",
+            "More alike"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再計算每份請願彼此有多相似。",
+              "en": "Then they checked how similar the petitions were to each other."
+            },
+            {
+              "zh": "結果:文字明顯改變,也越來越像。",
+              "en": "The texts changed a lot, and they started to sound alike."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "成效",
+          "heading_en": "OUTCOMES",
+          "labels": [
+            "寫作風格",
+            "請願成效"
+          ],
+          "labels_en": [
+            "Writing style",
+            "Outcomes"
+          ],
+          "values": [],
+          "big_text": "風格變了,成效沒變",
+          "big_text_en": "Style changed. Results didn't.",
+          "lines": [
+            {
+              "zh": "但整體來看,請願成效並沒有提升。",
+              "en": "But overall, petition outcomes did not improve."
+            },
+            {
+              "zh": "提醒:這只是單一平台的觀察。",
+              "en": "One caveat: this is just one platform."
+            },
+            {
+              "zh": "也不代表AI對每份請願都沒幫助。",
+              "en": "And it doesn't mean AI never helps any single petition."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "寫得像,不等於有影響力",
+          "big_text_en": "Polished isn't the same as powerful",
+          "lines": [
+            {
+              "zh": "AI能改寫文字,卻未必改變結果。",
+              "en": "AI can reshape your words, but not necessarily the outcome."
+            },
+            {
+              "zh": "追蹤行為解碼,看更多研究方法!",
+              "en": "Follow Behavior Decoded for more studies like this."
+            }
+          ]
+        }
+      ],
+      "description_zh": "2023年,連署平台Change.org推出AI請願草擬工具。研究發現,使用者能用這個工具後,請願文字明顯改變、彼此也越來越相似,但整體請願成效並沒有提升。AI能幫你寫,卻不一定能幫你贏。",
+      "description_en": "In 2023, Change.org added an AI tool that helps users draft petitions. A new study in Nature Human Behaviour finds that petitions changed substantially and became more similar to each other once users had the tool, yet overall outcomes did not improve. AI can change how advocacy sounds without changing what it achieves.",
+      "hashtags": [
+        "行為解碼",
+        "人工智慧",
+        "連署請願",
+        "BehaviorDecoded",
+        "AI",
+        "ComputationalSocialScience",
+        "OnlineAdvocacy"
+      ],
+      "method_summary": "The study examined Change.org, an online petition platform that introduced an AI-supported petition-drafting tool in 2023. The researchers compared petitions written by users with access to this tool against petitions written without it (around the tool's introduction), using computational text analysis to measure how petition texts changed and how similar petitions were to one another. They also compared petition outcomes. According to the published abstract, two main findings emerged: first, with access to the AI tool, users' petitions changed substantially and their texts became more similar to one another (a homogenizing effect on writing). Second, overall petition outcomes did not improve. The authors interpret this as showing the limits of integrating AI into online advocacy communities: AI writing support altered style and reduced diversity of texts, but did not translate into better results for petitioners on the whole. The abstract does not specify the sample size, the exact outcome measures, the specific text-similarity method, or effect sizes, so these details were not reported in this episode.",
+      "limitations": "Based on the abstract alone, exact sample size, outcome metrics, and effect sizes are not stated, so no numbers were reported. The study covers a single platform, Change.org, so results may not generalize to other platforms, countries, or forms of advocacy. 'Outcomes did not improve' refers to overall results; it does not show that AI never helps an individual petition, nor does it fully explain why outcomes stayed flat (e.g., whether homogenized texts cancel each other out). Design details limiting causal claims are not described in the abstract."
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 40.45,
+        "cover_offset_ms": 5204,
+        "tts": "google cmn-CN-Chirp3-HD-Charon"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 41.69,
+        "cover_offset_ms": 5032,
+        "tts": "google en-US-Chirp3-HD-Aoede"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "GZK1Bp0CDeA",
+          "url": "https://youtube.com/shorts/GZK1Bp0CDeA"
+        },
+        "instagram": {
+          "id": "18139080145627942",
+          "url": "https://www.instagram.com/reel/De5jTLklIP0/"
+        },
+        "threads": {
+          "id": "18014826041986118",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De5jWwclDbK"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "zGc8rOry3JM",
+          "url": "https://youtube.com/shorts/zGc8rOry3JM"
+        },
+        "instagram": {
+          "id": "17955230553291901",
+          "url": "https://www.instagram.com/reel/De5jbiHjAoZ/"
+        },
+        "threads": {
+          "id": "17867213583679748",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De5jgcagrHm"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261025-petition-style-changes-with-ai-writing-s"
+  }
+]
