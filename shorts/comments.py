@@ -223,17 +223,22 @@ def run(dry_run: bool = False) -> None:
             break
 
     if alerts and not dry_run:
-        if notify.alert(*alert_message(alerts)):
+        if notify.alert(*alert_message(alerts), len(alerts), [link_of_post(c) for c, _, _ in alerts]):
             done |= {digest(c) for c, _, _ in alerts}
             log(f"Alert sent for {len(alerts)} comment(s)")
         else:
-            log(f"{len(alerts)} comment(s) need you, but no alert channel is configured "
-                "(set GH_PAT + a private paper-shorts-inbox repo, or the ALERT_EMAIL_* secrets)")
+            log(f"{len(alerts)} comment(s) need you, but no private alert channel works "
+                "(needs GH_PAT with access to a private paper-shorts-inbox repo, or the ALERT_EMAIL_* secrets)")
 
     summary = ", ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "no new comments"
     log(f"Episodes checked: {len(episodes)}; {summary}{' (dry run)' if dry_run else ''}")
     if not dry_run:
         save_done(done)
+
+
+def link_of_post(c: Comment) -> str:
+    """The public post a comment sits under (YouTube links drop the comment anchor)."""
+    return c.link.split("&lc=")[0]
 
 
 def alert_message(items: list[tuple[Comment, Decision, dict]]) -> tuple[str, str]:

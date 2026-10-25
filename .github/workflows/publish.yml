@@ -1,71 +1,78 @@
-# Twice a week: pick a paper, make the video, and (when enabled) post it everywhere.
-# Scheduled runs only do anything once the repo variable AUTO_PUBLISH is "true".
+# Sun / Wed / Fri, Taiwan time (UTC+8):
+#   14:00  prepare: pick a paper, make the Chinese and English videos, put them on a
+#          pre-release, and open a review issue (GitHub emails/pushes the owner).
+#   19:00  publish: if the owner replied "OK" / "沒問題" on the review issue, post both
+#          videos to YouTube, Instagram and Threads. Otherwise close it as skipped.
+# Scheduled runs only happen once the repo variable AUTO_PUBLISH is "true".
 name: Publish episode
 
 on:
   schedule:
-    - cron: "0 1 * * 2,5"  # Tue and Fri, 09:00 Taiwan time
+    - cron: "0 6 * * 0,3,5"   # 14:00 Taiwan: prepare
+    - cron: "0 11 * * 0,3,5"  # 19:00 Taiwan: publish
   workflow_dispatch:
     inputs:
-      publish:
-        description: Upload to YouTube, Instagram and Threads (otherwise just build the video)
-        type: boolean
-        default: false
+      mode:
+        description: "prepare = make videos + review issue; publish = post approved episodes now"
+        type: choice
+        options: [prepare, publish]
+        default: prepare
 
 concurrency: publish
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
-  episode:
-    if: github.event_name != 'schedule' || vars.AUTO_PUBLISH == 'true'
+  prepare:
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 0,3,5' && vars.AUTO_PUBLISH == 'true')
+      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare')
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+      TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
+      TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
         with:
           render: "true"
-
       - name: Make episode
         run: |
           python -m shorts make
           echo "EP_DIR=$(ls -d out/*/ | head -1)" >> "$GITHUB_ENV"
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: episode
-          path: |
-            ${{ env.EP_DIR }}video_*.mp4
-            ${{ env.EP_DIR }}cover_*.jpg
-            ${{ env.EP_DIR }}script.md
-            ${{ env.EP_DIR }}episode.json
-          retention-days: 14
-
-      - name: Should we publish?
-        id: mode
-        run: |
-          if [[ "${{ github.event_name }}" == "schedule" || "${{ inputs.publish }}" == "true" ]]; then
-            echo "publish=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Host video on a GitHub release
-        if: steps.mode.outputs.publish == 'true'
+      - name: Put videos on a pre-release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          ep=$(basename "$EP_DIR")
+          tag="ep-$(basename "$EP_DIR")"
           title=$(python -c "import json,sys;print(json.load(open(sys.argv[1]))['script']['title_zh'])" "$EP_DIR/episode.json")
-          gh release create "ep-$ep" "$EP_DIR"/video_*.mp4 "$EP_DIR"/cover_*.jpg \
-            --title "$title" --notes-file "$EP_DIR/script.md"
-          echo "VIDEO_BASE_URL=https://github.com/${{ github.repository }}/releases/download/ep-$ep" >> "$GITHUB_ENV"
+          gh release create "$tag" "$EP_DIR"/video_*.mp4 "$EP_DIR"/cover_*.jpg "$EP_DIR/episode.json" "$EP_DIR/script.md" \
+            --prerelease --title "$title" --notes-file "$EP_DIR/script.md"
+          echo "TAG=$tag" >> "$GITHUB_ENV"
+      - name: Open review issue
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PUBLISH_AT: 今晚 19:00
+        run: python -m shorts review-open "$EP_DIR" "$TAG"
 
-      - name: Upload to platforms
-        if: steps.mode.outputs.publish == 'true'
+  publish:
+    if: >-
+      (github.event_name == 'schedule' && github.event.schedule == '0 11 * * 0,3,5' && vars.AUTO_PUBLISH == 'true')
+      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - name: Publish approved episodes
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -74,14 +81,31 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
-        run: python -m shorts publish "$EP_DIR" --video-base-url "$VIDEO_BASE_URL"
-
+        run: |
+          status=0
+          python -m shorts review-approved | grep -E '^[0-9]+ ep-' > approved.txt || true
+          while read -r number tag; do
+            dir="out/${tag#ep-}"
+            mkdir -p "$dir"
+            gh release download "$tag" --dir "$dir" --pattern 'video_*.mp4' --pattern 'episode.json'
+            base="https://github.com/${{ github.repository }}/releases/download/$tag"
+            if python -m shorts publish "$dir" --video-base-url "$base"; then
+              gh release edit "$tag" --prerelease=false --latest
+              links=$(python -c "import json,sys;e=json.load(open(sys.argv[1]));print('\n'.join(f'- {l} {p}: {v[\"url\"]}' for l,ps in e['posts'].items() for p,v in ps.items()))" "$dir/episode.json")
+              python -m shorts review-close "$number" --published --message "$(printf '已上片 Published:\n%s' "$links")"
+            else
+              status=1
+              python -m shorts review-close "$number" --message "上片時有平台失敗，請看 Actions 紀錄。Some platforms failed; see the Actions run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+            fi
+          done < approved.txt
+          python -m shorts review-skip-unapproved
+          exit $status
       - name: Record history
-        if: always() && steps.mode.outputs.publish == 'true'
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/history.json
           git diff --cached --quiet && exit 0
-          git commit -qm "Episode $(basename "$EP_DIR")"
+          git commit -qm "Record published episodes"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

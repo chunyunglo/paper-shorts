@@ -1,10 +1,12 @@
-"""Send a private alert to the owner about a comment that needs a human.
+"""Tell the owner that some comments need a human, without making comment content public.
 
-Two channels, used in this order:
-  1. An issue in a PRIVATE repo (ALERT_REPO, default <owner>/paper-shorts-inbox) via GH_PAT.
-     GitHub emails the owner about new issues there, and nobody else can read them.
-  2. SMTP (ALERT_EMAIL_USER / ALERT_EMAIL_APP_PASSWORD / ALERT_EMAIL_TO), e.g. a Gmail app password.
-Returns True if at least one channel delivered. Nothing about the comment is ever logged.
+1. Details (comment text, author, Claude's note, a suggested reply) go to a PRIVATE place:
+   an issue in the private inbox repo (GH_PAT; ALERT_REPO, default <owner>/paper-shorts-inbox),
+   and/or an email via SMTP (ALERT_EMAIL_USER / ALERT_EMAIL_APP_PASSWORD / ALERT_EMAIL_TO).
+2. A pointer issue in this public repo, opened by the Actions bot (GITHUB_TOKEN), so GitHub
+   actually notifies the owner. It holds only counts and links: the private issue and the
+   public posts the comments are under. No comment text or names.
+Returns True if the owner was notified. Nothing about the comments is logged.
 """
 from __future__ import annotations
 
@@ -15,24 +17,24 @@ from . import config
 from .safelog import ApiError, http, log
 
 
-def _issue(title: str, body: str) -> bool:
+def _gh(token: str) -> dict:
+    return {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+            "X-GitHub-Api-Version": "2022-11-28"}
+
+
+def _private_issue(title: str, body: str) -> str | None:
     pat = config.env("GH_PAT")
-    repo = config.env("ALERT_REPO", config.GITHUB_REPO.split("/")[0] + "/paper-shorts-inbox")
+    repo = config.env("ALERT_REPO") or config.GITHUB_REPO.split("/")[0] + "/paper-shorts-inbox"
     if not pat:
-        return False
+        return None
     meta = http("github", "alert repo check", "GET", f"https://api.github.com/repos/{repo}",
                 headers=_gh(pat), ok=(200, 404))
     if meta.status_code == 404 or not meta.json().get("private"):
-        log("Alert repo missing or not private; skipped issue alert")
-        return False
-    http("github", "create alert issue", "POST", f"https://api.github.com/repos/{repo}/issues",
-         headers=_gh(pat), json={"title": title, "body": body, "labels": ["needs-you"]})
-    return True
-
-
-def _gh(pat: str) -> dict:
-    return {"Authorization": f"Bearer {pat}", "Accept": "application/vnd.github+json",
-            "X-GitHub-Api-Version": "2022-11-28"}
+        log("Private alert repo missing or not private; skipped detailed issue")
+        return None
+    resp = http("github", "create alert issue", "POST", f"https://api.github.com/repos/{repo}/issues",
+                headers=_gh(pat), json={"title": title, "body": body})
+    return resp.json()["html_url"]
 
 
 def _smtp(title: str, body: str) -> bool:
@@ -52,10 +54,32 @@ def _smtp(title: str, body: str) -> bool:
     return True
 
 
-def alert(title: str, body: str) -> bool:
+def _pointer(count: int, private_url: str | None, post_links: list[str]) -> bool:
+    token = config.env("GITHUB_TOKEN")
+    if not token:
+        return False
+    lines = [f"有 {count} 則留言需要你親自處理（沒有自動回覆）。{count} comment(s) need you."]
+    if private_url:
+        lines.append(f"\n詳細內容與建議回覆（私人）：{private_url}")
+    lines.append("\n留言所在的貼文 Posts:\n" + "\n".join(f"- {u}" for u in sorted(set(post_links))))
+    lines.append("\n處理完把這則關掉即可。Close this when done.")
+    http("github", "create pointer issue", "POST",
+         f"https://api.github.com/repos/{config.GITHUB_REPO}/issues", headers=_gh(token),
+         json={"title": f"[留言] {count} 則需要你處理", "body": "\n".join(lines),
+               "assignees": [config.GITHUB_REPO.split("/")[0]]})
+    return True
+
+
+def alert(title: str, body: str, count: int, post_links: list[str]) -> bool:
+    private_url = None
     try:
-        if _issue(title, body):
-            return True
+        private_url = _private_issue(title, body)
     except ApiError as exc:
-        log(f"Issue alert failed: {exc}")
-    return _smtp(title, body)
+        log(f"Private alert failed: {exc}")
+    emailed = _smtp(title, body)
+    # Without a private channel the pointer still goes out: it only names the posts, never the comments.
+    try:
+        return _pointer(count, private_url, post_links) or emailed
+    except ApiError as exc:
+        log(f"Pointer issue failed: {exc}")
+        return emailed

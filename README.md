@@ -1,8 +1,8 @@
 # 行為解碼 Behavior Decoded · paper-shorts
 
-每週兩次，自動挑一篇「用計算方法研究人類行為」的新論文，做成中英雙語的一分鐘直式短影音，上傳到 YouTube Shorts、Instagram Reels 和 Threads，並每小時自動整理留言。
+每週日、三、五，自動挑一篇「用計算方法研究人類行為」的新論文，做成中文版和英文版兩支直式短影音，下午先給頻道主審核，晚上 7 點上傳到 YouTube Shorts、Instagram Reels 和 Threads，並每小時自動整理留言。
 
-Twice a week this repo picks one new computational human-behavior paper, turns it into a bilingual 9:16 explainer, posts it to YouTube Shorts, Instagram Reels and Threads, and triages comments every hour.
+Every Sunday, Wednesday and Friday this repo picks one new computational human-behavior paper, makes a Chinese and an English 9:16 explainer, asks the owner to approve them in the afternoon, posts them at 19:00 Taiwan time, and triages comments every hour.
 
 ## 流程 How it works
 
@@ -19,7 +19,7 @@ Twice a week this repo picks one new computational human-behavior paper, turns i
 
 | Workflow | 時間 | 開關 |
 |---|---|---|
-| `publish.yml` | 每週二、五 09:00（台灣） | repo variable `AUTO_PUBLISH=true` 才會自動跑；也可手動執行，勾選 publish 才會上傳 |
+| `publish.yml` | 週日、三、五 14:00 做影片並開審核 issue；19:00 上片（台灣時間） | repo variable `AUTO_PUBLISH=true` 才會自動跑。在審核 issue 回「OK」或「沒問題」才會上片，沒回就跳過 |
 | `comments.yml` | 每小時 | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
@@ -38,7 +38,9 @@ Twice a week this repo picks one new computational human-behavior paper, turns i
 | `GH_PAT` | 把續期後的 token 寫回 Secrets；在私人 repo 開通知 issue |
 | `ALERT_EMAIL_USER` / `ALERT_EMAIL_APP_PASSWORD` / `ALERT_EMAIL_TO` | 選用：用 Gmail 寄敏感留言通知 |
 
-敏感留言通知預設會在私人 repo `paper-shorts-inbox` 開 issue（GitHub 會寄 email 給你）。repo 名稱可用 variable `ALERT_REPO` 改。
+敏感留言：詳細內容放在私人 repo `paper-shorts-inbox` 的 issue（或 email），再由 Actions bot 在這個 repo 開一則只含連結的 issue，GitHub 才會通知你（自己的 token 開的 issue 不會通知自己）。私人 repo 名稱可用 variable `ALERT_REPO` 改。
+
+配音聲音用 repo variable `TTS_VOICE_ZH`、`TTS_VOICE_EN` 設定（Google 聲音名稱，或結尾是 `Neural` 的 Edge 聲音）。
 
 ## 隱私 Privacy
 

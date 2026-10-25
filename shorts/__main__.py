@@ -4,6 +4,7 @@
   publish DIR       upload an episode folder to YouTube, Instagram, Threads; record history
   comments          triage and answer new comments on recent episodes
   refresh-tokens    renew Instagram/Threads long-lived tokens and store them as repo secrets
+  review-*          owner review issue: open / list approved / close / skip unapproved
   voices            render one sentence in several voices for choosing (out/voices/)
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
 """
@@ -32,6 +33,15 @@ def main() -> None:
     sub.add_parser("refresh-tokens")
     sub.add_parser("keepalive")
     sub.add_parser("voices")
+    ro = sub.add_parser("review-open")
+    ro.add_argument("episode_dir", type=Path)
+    ro.add_argument("tag")
+    sub.add_parser("review-approved")
+    rc = sub.add_parser("review-close")
+    rc.add_argument("number", type=int)
+    rc.add_argument("--message", required=True)
+    rc.add_argument("--published", action="store_true")
+    sub.add_parser("review-skip-unapproved")
     args = ap.parse_args()
 
     if args.cmd == "make":
@@ -54,6 +64,20 @@ def main() -> None:
         from .tokens import refresh_all
 
         refresh_all()
+    elif args.cmd.startswith("review"):
+        install_excepthook(strict=True)
+        from . import review
+
+        if args.cmd == "review-open":
+            review.open_review(args.episode_dir, args.tag)
+        elif args.cmd == "review-approved":
+            # one "number tag" pair per line, for the workflow to loop over
+            for number, tag in review.approved():
+                print(f"{number} {tag}")
+        elif args.cmd == "review-close":
+            review.close(args.number, args.message, args.published)
+        else:
+            review.skip_unapproved()
     elif args.cmd == "voices":
         from .voices import render_all
 

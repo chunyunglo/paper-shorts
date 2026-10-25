@@ -78,3 +78,11 @@ def test_state_stores_hashes_not_ids(tmp_path, monkeypatch):
     raw = (tmp_path / "comments.json").read_text()
     assert "UgxCOMMENTID" not in raw
     assert comments.digest(c) in comments.load_done()
+
+
+@pytest.mark.parametrize("text,ok", [("OK", True), ("ok!", True), ("沒問題", True), ("沒問題～", True),
+                                     ("可以", True), ("👍", True), ("不可以", False),
+                                     ("ok 但標題改一下", False), ("標題要改", False)])
+def test_review_approval_words(text, ok):
+    from shorts import review
+    assert review.is_approval(text) is ok
