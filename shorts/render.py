@@ -104,7 +104,7 @@ class Renderer:
 
     @property
     def duration(self) -> float:
-        return brand.INTRO + self.total + brand.OUTRO
+        return self.total + brand.OUTRO
 
     def frame_count(self) -> int:
         return int(self.duration * FPS)
@@ -149,7 +149,7 @@ class Renderer:
                 k = j
         line, lt = sc.lines[k], st.lines[k]
         end = st.lines[k + 1].start if k + 1 < len(st.lines) else st.end
-        a = visuals.ease((t - lt.start + 0.05) / 0.15)
+        a = 1.0 if i == 0 and k == 0 else visuals.ease((t - lt.start + 0.05) / 0.15)  # frame 0 is readable
         a *= 1 - visuals.ease((t - (end - 0.1)) / 0.1) if k + 1 < len(st.lines) else 1
         f, rows = subtitle_lines(line) if self.lang == "zh" else subtitle_lines_en(line)
         y = SUB_Y + (1 - a) * 14
@@ -173,9 +173,6 @@ class Renderer:
 
     def frame(self, n: int) -> Image.Image:
         t = n / FPS
-        if t < brand.INTRO:
-            return self.cards.intro(t)
-        t -= brand.INTRO
         if t >= self.total:
             return self.cards.outro(t - self.total)
         i = self.scene_at(t)
@@ -184,8 +181,8 @@ class Renderer:
         img = self.header(i).copy()
         ctx = dict(self.ctx_base, seed=i * 101 + 7, t=t)
         vis = visuals.draw(self.scenes[i], p, ctx)
-        # fade the visual in at scene start
-        alpha = visuals.ease((t - st.start) / 0.25)
+        # fade the visual in at scene start, except the hook: frame 0 must already grab attention
+        alpha = 1.0 if i == 0 else visuals.ease((t - st.start) / 0.25)
         if alpha < 1:
             vis.putalpha(vis.getchannel("A").point(lambda v: int(v * alpha)))
         img.paste(vis, (VIS_X, VIS_Y + int((1 - alpha) * 30)), vis)
