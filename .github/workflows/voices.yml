@@ -1,0 +1,32 @@
+# Render voice samples for choosing a narrator. On demand, or a claude/* push with [voices].
+name: Voice samples
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  voices:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[voices]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - run: python -m shorts voices
+      - name: Attach to a pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="voices-${{ github.run_number }}"
+          gh release create "$tag" out/voices/*.mp3 out/voices/voices.md --prerelease \
+            --target "${{ github.sha }}" --title "聲音試聽 Voice samples #${{ github.run_number }}" \
+            --notes-file out/voices/voices.md

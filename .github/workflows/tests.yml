@@ -1,0 +1,21 @@
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - run: pip install -q pytest && python -m pytest -q tests
+      - name: Render the fixture episode offline (silent voice)
+        env:
+          TTS_PROVIDER: silent
+        run: python -m shorts make --paper-json tests/fixtures/paper.json --script-json tests/fixtures/script.json

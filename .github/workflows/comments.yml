@@ -1,0 +1,72 @@
+# Hourly: triage new comments on episodes from the last 30 days.
+# Scheduled runs only act once the repo variable AUTO_REPLY is "true".
+# Logs show counts only. Never add steps that print comment data.
+name: Reply to comments
+
+on:
+  schedule:
+    - cron: "23 * * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Classify only (no replies, hiding, or alerts)
+        type: boolean
+        default: true
+
+concurrency: comments
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  comments:
+    if: github.event_name != 'schedule' || vars.AUTO_REPLY == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load comment state
+        id: state
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+      - uses: ./.github/actions/setup
+
+      - name: Triage comments
+        env:
+          STATE_DIR: state
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ github.token }}
+          ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
+          ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          ALERT_REPO: ${{ vars.ALERT_REPO }}
+        run: python -m shorts comments ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
+
+      - name: Save comment state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f state/comments.json ] || exit 0
+          cd state
+          if [ ! -d .git ]; then
+            git init -q -b state
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add comments.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Update comment state"
+          git push -q origin HEAD:state
