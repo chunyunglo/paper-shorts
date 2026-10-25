@@ -33,10 +33,11 @@ def _auth() -> dict:
     return {"Authorization": f"Bearer {access_token()}"}
 
 
-def upload(video: Path, title: str, description: str, tags: list[str]) -> str:
+def upload(video: Path, title: str, description: str, tags: list[str], lang: str = "zh") -> str:
+    language = {"zh": ("zh-Hant", "zh-TW"), "en": ("en", "en")}[lang]
     meta = {
-        "snippet": {"title": title, "description": description, "tags": tags[:15],
-                    "categoryId": "27", "defaultLanguage": "zh-Hant", "defaultAudioLanguage": "zh-TW"},
+        "snippet": {"title": title, "description": description, "tags": tags[:15], "categoryId": "27",
+                    "defaultLanguage": language[0], "defaultAudioLanguage": language[1]},
         "status": {"privacyStatus": config.env("YOUTUBE_PRIVACY", "public"),
                    "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True},
     }

@@ -131,7 +131,7 @@ def fingerprint(c: Canvas, cx, cy, scale, p, coral_ring=3, rings=9, seed=7):
 
 def v_hook(c: Canvas, sc, p, ctx):
     fingerprint(c, 300, 210, 0.7, p)
-    text = sc.big_text or sc.lines[0].zh
+    text = sc.big_text or sc.lines[0]
     f, lines = fit(text, "black", VW - 80, [104, 92, 80, 68], 3)
     a = stage(p, 0.15, 0.25)
     y = 600 - (len(lines) - 1) * f.size * 0.45 + (1 - a) * 40
@@ -142,16 +142,16 @@ def v_hook(c: Canvas, sc, p, ctx):
 
 def v_paper(c: Canvas, sc, p, ctx):
     paper = ctx["paper"]
-    f, lines = fit(ctx["paper_title_zh"], "black", VW - 200, [58, 52, 46], 4)
+    f, lines = fit(ctx["paper_title"], "black", VW - 200, [58, 52, 46, 40], 5)
     en_size = 30
-    _, en = fit(paper["title"], "regular", VW - 200, [30, 27], 4)
+    en = fit(paper["title"], "regular", VW - 200, [30, 27], 4)[1] if ctx["lang"] == "zh" else []
     authors = paper.get("authors") or []
     height = 214 + len(lines) * f.size * 1.3 + 18 + len(en) * en_size * 1.35 + (90 if authors else 0) + 50
     a = stage(p, 0.0, 0.25)
     y0 = (VH - height) / 2 + (1 - a) * 80
     c.rrect((48, y0 + 14, VW - 32, y0 + height + 14), 36, fill=NAVY_20)
     c.rrect((40, y0, VW - 40, y0 + height), 36, fill=WHITE + (int(255 * a),), outline=NAVY, width=4)
-    pill = "論文 PAPER"
+    pill = "論文 PAPER" if ctx["lang"] == "zh" else "NEW PAPER"
     c.rrect((90, y0 + 56, 90 + font("bold", 30).getlength(pill) + 44, y0 + 112), 28, fill=CORAL)
     c.text((112, y0 + 84), pill, "bold", 30, CREAM, anchor="lm")
     venue = f"{paper['venue']} · {paper.get('published', '')[:4]}".strip(" ·")
@@ -247,7 +247,7 @@ def v_network(c: Canvas, sc, p, ctx):
 
 
 def v_pipeline(c: Canvas, sc, p, ctx):
-    steps = sc.labels or [sc.heading_zh]
+    steps = sc.labels or [sc.heading]
     n = len(steps)
     box_h = min(150, (720 - 40 * (n - 1)) / n)
     top = (VH - (n * box_h + (n - 1) * 46)) / 2
@@ -398,7 +398,7 @@ def v_contrast(c: Canvas, sc, p, ctx):
 
 
 def v_takeaway(c: Canvas, sc, p, ctx):
-    text = sc.big_text or sc.lines[0].zh
+    text = sc.big_text or sc.lines[0]
     f, lines = fit(text, "black", VW - 100, [96, 84, 72, 60], 3)
     a = stage(p, 0.0, 0.25)
     y = 260 - (len(lines) - 1) * f.size * 0.6
@@ -413,8 +413,10 @@ def v_takeaway(c: Canvas, sc, p, ctx):
         logo = ctx["logo"]
         lw = logo.width
         c.img.alpha_composite(logo, (int((VW / 2 - lw / S / 2) * S), int((480 + (1 - k) * 30) * S)))
-        c.text((VW / 2, 680 + (1 - k) * 30), "追蹤・每週兩篇新論文", "bold", 42, NAVY + (int(255 * k),), anchor="mm")
-        c.text((VW / 2, 740 + (1 - k) * 30), "Follow for two papers a week", "regular", 32, NAVY + (int(200 * k),), anchor="mm")
+        cta, sub = (("追蹤・每週兩篇新論文", "行為解碼 Behavior Decoded") if ctx["lang"] == "zh"
+                    else ("Follow for two new papers a week", "Behavior Decoded"))
+        c.text((VW / 2, 680 + (1 - k) * 30), cta, "bold", 42, NAVY + (int(255 * k),), anchor="mm")
+        c.text((VW / 2, 740 + (1 - k) * 30), sub, "regular", 32, NAVY + (int(200 * k),), anchor="mm")
 
 
 DRAW = {"hook": v_hook, "paper": v_paper, "crowd": v_crowd, "network": v_network,

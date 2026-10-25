@@ -40,8 +40,8 @@ jobs:
         with:
           name: episode
           path: |
-            ${{ env.EP_DIR }}video.mp4
-            ${{ env.EP_DIR }}cover.jpg
+            ${{ env.EP_DIR }}video_*.mp4
+            ${{ env.EP_DIR }}cover_*.jpg
             ${{ env.EP_DIR }}script.md
             ${{ env.EP_DIR }}episode.json
           retention-days: 14
@@ -60,9 +60,9 @@ jobs:
         run: |
           ep=$(basename "$EP_DIR")
           title=$(python -c "import json,sys;print(json.load(open(sys.argv[1]))['script']['title_zh'])" "$EP_DIR/episode.json")
-          gh release create "ep-$ep" "$EP_DIR/video.mp4" "$EP_DIR/cover.jpg" \
+          gh release create "ep-$ep" "$EP_DIR"/video_*.mp4 "$EP_DIR"/cover_*.jpg \
             --title "$title" --notes-file "$EP_DIR/script.md"
-          echo "VIDEO_URL=https://github.com/${{ github.repository }}/releases/download/ep-$ep/video.mp4" >> "$GITHUB_ENV"
+          echo "VIDEO_BASE_URL=https://github.com/${{ github.repository }}/releases/download/ep-$ep" >> "$GITHUB_ENV"
 
       - name: Upload to platforms
         if: steps.mode.outputs.publish == 'true'
@@ -74,7 +74,7 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
-        run: python -m shorts publish "$EP_DIR" --video-url "$VIDEO_URL"
+        run: python -m shorts publish "$EP_DIR" --video-base-url "$VIDEO_BASE_URL"
 
       - name: Record history
         if: always() && steps.mode.outputs.publish == 'true'

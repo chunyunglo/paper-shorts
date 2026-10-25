@@ -143,20 +143,20 @@ def threads_new(post_id: str, link: str) -> list[Comment]:
 
 
 def collect(ep: dict, done: set[str], me_ig: str | None) -> list[Comment]:
-    posts = ep.get("posts", {})
     found: list[Comment] = []
-    sources = []
-    if "youtube" in posts:
-        sources.append(("youtube", lambda: youtube_new(posts["youtube"]["id"])))
-    if "instagram" in posts and me_ig:
-        sources.append(("instagram", lambda: instagram_new(posts["instagram"]["id"], posts["instagram"]["url"], me_ig)))
-    if "threads" in posts:
-        sources.append(("threads", lambda: threads_new(posts["threads"]["id"], posts["threads"]["url"])))
-    for name, fetch in sources:
-        try:
-            found += [c for c in fetch() if digest(c) not in done and c.text.strip()]
-        except (ApiError, SystemExit, KeyError) as exc:
-            log(f"{name}: fetch failed - {exc}")
+    for lang, posts in ep.get("posts", {}).items():
+        sources = []
+        if "youtube" in posts:
+            sources.append(("youtube", lambda p=posts: youtube_new(p["youtube"]["id"])))
+        if "instagram" in posts and me_ig:
+            sources.append(("instagram", lambda p=posts: instagram_new(p["instagram"]["id"], p["instagram"]["url"], me_ig)))
+        if "threads" in posts:
+            sources.append(("threads", lambda p=posts: threads_new(p["threads"]["id"], p["threads"]["url"])))
+        for name, fetch in sources:
+            try:
+                found += [c for c in fetch() if digest(c) not in done and c.text.strip()]
+            except (ApiError, SystemExit, KeyError) as exc:
+                log(f"{name} ({lang}): fetch failed - {exc}")
     return found
 
 
@@ -186,11 +186,12 @@ def act(c: Comment, d: Decision) -> None:
 
 def run(dry_run: bool = False) -> None:
     cutoff = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
-    episodes = [ep for ep in load_history() if ep.get("posts")
+    episodes = [ep for ep in load_history() if any(ep.get("posts", {}).values())
                 and datetime.fromisoformat(ep["created"]) >= cutoff]
     done = load_done()
     try:
-        me_ig = meta.ig_username() if any("instagram" in ep["posts"] for ep in episodes) else None
+        me_ig = (meta.ig_username() if any("instagram" in p for ep in episodes for p in ep["posts"].values())
+                 else None)
     except ApiError as exc:
         log(f"instagram: username lookup failed - {exc}")
         me_ig = None

@@ -1,20 +1,55 @@
-"""Compose 1080x1920 frames (header, scene visual, bilingual subtitles) and encode with ffmpeg."""
+"""Compose 1080x1920 frames (header, scene visual, subtitles) for one language and encode with ffmpeg."""
 from __future__ import annotations
 
 import subprocess
+from dataclasses import dataclass
 from pathlib import Path
 
 from PIL import Image, ImageDraw
 
 from . import visuals
 from .config import ASSETS, BRAND_EN, BRAND_ZH, CORAL, CREAM, FPS, H, INK_MUTED, NAVY, W
-from .fonts import fit, font, wrap
+
+from .fonts import clause_wrap, fit, font
 from .script import Script
 from .tts import SceneTiming
 
 VIS_X, VIS_Y = (W - visuals.VW) // 2, 360
 SUB_Y = 1235
 MARGIN = 80
+
+
+@dataclass
+class SceneView:
+    """One scene in one language, as the renderer and visuals see it."""
+    visual: str
+    heading: str
+    labels: list[str]
+    values: list[float]
+    big_text: str
+    lines: list[str]
+
+
+def localize(script: Script, lang: str) -> list[SceneView]:
+    out = []
+    for sc in script.scenes:
+        if lang == "zh":
+            out.append(SceneView(sc.visual, sc.heading_zh, sc.labels, sc.values, sc.big_text,
+                                 [l.zh for l in sc.lines]))
+        else:
+            out.append(SceneView(sc.visual, sc.heading_en.upper(), sc.labels_en or sc.labels, sc.values,
+                                 sc.big_text_en or sc.big_text, [l.en for l in sc.lines]))
+    return out
+
+
+def subtitle_lines_en(text: str):
+    text = text.strip()
+    for size in (60, 56, 52, 48):
+        f = font("bold", size)
+        lines = clause_wrap(text, f, W - 2 * MARGIN)
+        if lines and len(lines) <= 2:
+            return f, lines
+    return fit(text, "bold", W - 2 * MARGIN, [48], 3)
 
 
 def subtitle_lines(text: str):
@@ -50,11 +85,13 @@ def logo(size: int) -> Image.Image:
 
 
 class Renderer:
-    def __init__(self, script: Script, paper: dict, timings: list[SceneTiming], total: float):
-        self.script, self.paper, self.timings, self.total = script, paper, timings, total
+    def __init__(self, script: Script, paper: dict, timings: list[SceneTiming], total: float, lang: str = "zh"):
+        self.paper, self.timings, self.total, self.lang = paper, timings, total, lang
+        self.scenes = localize(script, lang)
         self.bg = background()
         self.small_logo = logo(64)
-        self.ctx_base = {"paper": paper, "paper_title_zh": script.paper_title_zh,
+        self.ctx_base = {"paper": paper, "lang": lang,
+                         "paper_title": script.paper_title_zh if lang == "zh" else paper["title"],
                          "logo": logo(150 * visuals.S)}
         self._header_cache: dict[int, Image.Image] = {}
 
@@ -77,8 +114,7 @@ class Renderer:
         d.text((MARGIN + 84, 160), BRAND_ZH, font=font("black", 38), fill=NAVY, anchor="lm")
         zw = font("black", 38).getlength(BRAND_ZH)
         d.text((MARGIN + 100 + zw, 162), BRAND_EN, font=font("regular", 30), fill=INK_MUTED, anchor="lm")
-        sc = self.script.scenes[i]
-        label = f"{i + 1:02d}  {sc.heading_zh}  ·  {sc.heading_en.upper()}"
+        label = f"{i + 1:02d}  ·  {self.scenes[i].heading}"
         d.text((MARGIN, 290), label, font=font("bold", 34), fill=CORAL, anchor="lm")
         self._header_cache = {i: img}
         return img
@@ -95,29 +131,23 @@ class Renderer:
                 d.rounded_rectangle([x, 70, x + max(8, seg * frac), 78], 4, fill=NAVY if frac < 1 else CORAL)
 
     def subtitles(self, d: ImageDraw.ImageDraw, i: int, t: float) -> None:
-        sc, st = self.script.scenes[i], self.timings[i]
+        sc, st = self.scenes[i], self.timings[i]
         k = 0
         for j, lt in enumerate(st.lines):
             if t >= lt.start - 0.05:
                 k = j
         line, lt = sc.lines[k], st.lines[k]
         end = st.lines[k + 1].start if k + 1 < len(st.lines) else st.end
-        a = visuals.ease((t - lt.start + 0.05) / 0.18)
-        a *= 1 - visuals.ease((t - (end - 0.12)) / 0.12) if k + 1 < len(st.lines) else 1
-        fz, zh = subtitle_lines(line.zh)
+        a = visuals.ease((t - lt.start + 0.05) / 0.15)
+        a *= 1 - visuals.ease((t - (end - 0.1)) / 0.1) if k + 1 < len(st.lines) else 1
+        f, rows = subtitle_lines(line) if self.lang == "zh" else subtitle_lines_en(line)
         y = SUB_Y + (1 - a) * 14
         col = tuple(int(CREAM[c] + (NAVY[c] - CREAM[c]) * a) for c in range(3))
-        for ln in zh:
-            d.text((MARGIN, y), ln, font=fz, fill=col)
-            y += fz.size * 1.3
+        for ln in rows:
+            d.text((MARGIN, y), ln, font=f, fill=col)
+            y += f.size * 1.3
         prog = visuals.clamp((t - lt.start) / max(0.1, lt.end - lt.start))
         d.rounded_rectangle([MARGIN, y + 6, MARGIN + 120 * prog + 1, y + 13], 3, fill=CORAL)
-        fe = font("regular", 38)
-        y += 34
-        en_col = tuple(int(CREAM[c] + (INK_MUTED[c] - CREAM[c]) * a) for c in range(3))
-        for ln in wrap(line.en, fe, W - 2 * MARGIN, max_lines=2):
-            d.text((MARGIN, y), ln, font=fe, fill=en_col)
-            y += 50
 
     def source_line(self, d: ImageDraw.ImageDraw, i: int) -> None:
         if i == 0:
@@ -137,7 +167,7 @@ class Renderer:
         p = visuals.clamp((t - st.start) / (st.end - st.start))
         img = self.header(i).copy()
         ctx = dict(self.ctx_base, seed=i * 101 + 7, t=t)
-        vis = visuals.draw(self.script.scenes[i], p, ctx)
+        vis = visuals.draw(self.scenes[i], p, ctx)
         # fade the visual in at scene start
         alpha = visuals.ease((t - st.start) / 0.25)
         if alpha < 1:

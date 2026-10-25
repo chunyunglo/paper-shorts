@@ -42,10 +42,11 @@ def test_http_error_hides_url_and_body(monkeypatch):
 def test_captions_fit_platform_limits():
     ep = {"script": json.loads((FIX / "script.json").read_text()),
           "paper": json.loads((FIX / "paper.json").read_text())}
-    cap = captions(ep)
-    assert cap["yt_title"].endswith("#Shorts") and len(cap["yt_title"]) <= 100
-    assert len(cap["threads"]) <= 500
-    assert "AI" in cap["long"]
+    for lang in ("zh", "en"):
+        cap = captions(ep, lang)
+        assert cap["yt_title"].endswith("#Shorts") and len(cap["yt_title"]) <= 100
+        assert len(cap["threads"]) <= 500
+        assert "AI" in cap["long"]
 
 
 def test_unclassified_comments_go_to_the_owner(monkeypatch):

@@ -11,6 +11,8 @@ from .config import OUT
 from .safelog import log
 from .state import load_history
 
+LANGS = ("zh", "en")
+
 
 def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "episode"
@@ -34,15 +36,18 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
 
-    audio = out / "voice.wav"
-    timings, total = tts.voiceover([[l.zh for l in s.lines] for s in script.scenes], audio)
-    log(f"Voiceover: {total:.1f}s")
-
-    r = render.Renderer(script, paper.model_dump(), timings, total)
-    video = out / "video.mp4"
-    render.encode(r, audio, video, preview_every=preview_every)
-    cover_scene = 1 if len(timings) > 1 else 0
-    r.frame(int((timings[cover_scene].start + 1.2) * 30)).convert("RGB").save(out / "cover.jpg", quality=90)
+    videos = {}
+    for lang in LANGS:
+        audio = out / f"voice_{lang}.wav"
+        lines = [[l.zh if lang == "zh" else l.en for l in s.lines] for s in script.scenes]
+        timings, total = tts.voiceover(lines, audio, lang)
+        log(f"Voiceover ({lang}): {total:.1f}s")
+        r = render.Renderer(script, paper.model_dump(), timings, total, lang)
+        render.encode(r, audio, out / f"video_{lang}.mp4", preview_every=preview_every)
+        cover_at = timings[1 if len(timings) > 1 else 0].start + 1.2
+        r.frame(int(cover_at * 30)).convert("RGB").save(out / f"cover_{lang}.jpg", quality=90)
+        videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(total, 2),
+                        "cover_offset_ms": int(cover_at * 1000), "tts": " ".join(tts.choose(lang)).strip()}
 
     meta = {
         "episode": ep_id,
@@ -50,9 +55,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
         "paper": paper.model_dump(),
         "pick_reason": reason,
         "script": script.model_dump(),
-        "duration": round(total, 2),
-        "cover_offset_ms": int((timings[cover_scene].start + 1.2) * 1000),
-        "tts": tts.provider(),
+        "videos": videos,
     }
     (out / "episode.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "script.md").write_text(script_markdown(meta), encoding="utf-8")
@@ -63,6 +66,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
 def script_markdown(meta: dict) -> str:
     s, p = meta["script"], meta["paper"]
     lines = [f"# {s['title_zh']} / {s['title_en']}", "",
+             "Videos: " + ", ".join(f"{k} {v['duration']}s ({v['tts']})" for k, v in meta["videos"].items()), "",
              f"**Paper:** [{p['title']}]({p['url']}), {p['venue']} ({p['published']})", "",
              f"**Why this paper:** {meta['pick_reason']}", ""]
     for i, sc in enumerate(s["scenes"], 1):

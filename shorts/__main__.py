@@ -24,7 +24,8 @@ def main() -> None:
     m.add_argument("--preview-every", type=int, default=0)
     pb = sub.add_parser("publish")
     pb.add_argument("episode_dir", type=Path)
-    pb.add_argument("--video-url", required=True, help="Public URL of video.mp4 (GitHub release asset)")
+    pb.add_argument("--video-base-url", required=True,
+                    help="Public URL prefix of the release assets video_zh.mp4 / video_en.mp4")
     pb.add_argument("--only", nargs="*", choices=["youtube", "instagram", "threads"])
     c = sub.add_parser("comments")
     c.add_argument("--dry-run", action="store_true", help="classify only; post, hide, and email nothing")
@@ -42,7 +43,7 @@ def main() -> None:
         install_excepthook(strict=True)
         from .publish import publish_episode
 
-        publish_episode(args.episode_dir, args.video_url, args.only)
+        publish_episode(args.episode_dir, args.video_base_url, args.only)
     elif args.cmd == "comments":
         install_excepthook(strict=True)
         from .comments import run

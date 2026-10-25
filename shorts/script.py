@@ -14,23 +14,25 @@ Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timel
 
 
 class Line(BaseModel):
-    zh: str = Field(description="One spoken subtitle line in Traditional Chinese (Taiwan), 6-22 characters")
-    en: str = Field(description="Natural English rendering of the same line, at most 60 characters")
+    zh: str = Field(description="One spoken line of the Chinese video, Traditional Chinese (Taiwan), 6-22 characters")
+    en: str = Field(description="The same idea as one spoken line of the English video, natural spoken English, at most 70 characters")
 
 
 class Scene(BaseModel):
     visual: Visual
     heading_zh: str = Field(description="2-6 character label shown above the visual, e.g. 資料、方法、發現")
     heading_en: str = Field(description="1-3 word English label, e.g. THE DATA")
-    labels: list[str] = Field(description="0-4 very short on-screen labels (each at most 10 zh characters or 16 latin characters) used by the visual")
+    labels: list[str] = Field(description="0-4 very short Chinese on-screen labels (each at most 10 characters) used by the visual")
+    labels_en: list[str] = Field(description="The same labels in English (each at most 18 characters), same order")
     values: list[float] = Field(description="Numbers for bars/contrast/timeline ONLY if stated in the paper, same order as labels; otherwise empty")
-    big_text: str = Field(description="Optional big text for hook/contrast/takeaway (a number like '3.2倍' or a short phrase); empty if unused")
+    big_text: str = Field(description="Optional big Chinese text for hook/contrast/takeaway (a number like '3.2倍' or a short phrase); empty if unused")
+    big_text_en: str = Field(description="The same big text in English (at most 40 characters); empty if unused")
     lines: list[Line] = Field(description="1-4 narration lines spoken during this scene")
 
 
 class Script(BaseModel):
     title_zh: str = Field(description="Catchy Traditional Chinese title, at most 28 characters")
-    title_en: str = Field(description="English title, at most 60 characters")
+    title_en: str = Field(description="Catchy English title for the English video, at most 60 characters")
     paper_title_zh: str = Field(description="Faithful Traditional Chinese translation of the paper title, at most 40 characters")
     scenes: list[Scene] = Field(description="6-9 scenes; the second scene must be visual 'paper'; the last must be 'takeaway'")
     description_zh: str = Field(description="2-4 sentence Traditional Chinese video description")
@@ -44,12 +46,15 @@ SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Beh
 Each episode explains HOW one new study used a computational method to learn something about \
 human behavior. Audience: curious Taiwanese and international viewers, not specialists.
 
-Narration is spoken in Traditional Chinese (Taiwan usage and vocabulary, e.g. 資料 not 数据, \
-網路, 演算法, 影片), with English subtitles under each line. Write the Chinese for the ear: short, \
-concrete, conversational, no jargon without a plain-words gloss. The English is a natural \
-rendering, not word-for-word.
+Each episode is made as TWO videos from the same scene plan: a Chinese video narrated in \
+Traditional Chinese (Taiwan usage and vocabulary, e.g. 資料 not 数据, 網路, 演算法, 影片) and an \
+English video narrated in English. Every line has both versions. Write both for the ear: \
+short, concrete, conversational, no jargon without a plain-words gloss. The English line says \
+the same thing as natural spoken English (not a word-for-word translation); it is the English \
+video's voiceover and subtitle. On-screen labels and big text also come in both languages.
 
-Structure (about 230-300 Chinese characters of narration in total, roughly 50-60 seconds):
+Structure (about 200-260 Chinese characters and 120-150 English words of narration in total; \
+each video should run about 40-50 seconds at a brisk pace):
 1. hook: a question or surprising fact that makes people stay (big_text = the hook in a few words).
 2. paper: who did this study and where it was published (keep it to one line).
 3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
@@ -82,7 +87,8 @@ def write(paper: Paper) -> Script:
         script = llm.ask(Script, SYSTEM, content[1:], effort="high")
     validate(script)
     n = sum(len(l.zh) for s in script.scenes for l in s.lines)
-    log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters")
+    w = sum(len(l.en.split()) for s in script.scenes for l in s.lines)
+    log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters, {w} English words")
     return script
 
 
@@ -93,6 +99,9 @@ def validate(script: Script) -> None:
         if not s.lines:
             raise RuntimeError("A scene has no narration")
         s.labels = [l.strip() for l in s.labels if l.strip()][:4]
+        s.labels_en = [l.strip() for l in s.labels_en if l.strip()][:4]
+        if len(s.labels_en) != len(s.labels):
+            s.labels_en = s.labels_en[: len(s.labels)] if len(s.labels_en) > len(s.labels) else s.labels
         if s.values and len(s.values) != len(s.labels):
             s.values = []
     if script.scenes[-1].visual != "takeaway":

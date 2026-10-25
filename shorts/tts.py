@@ -56,13 +56,19 @@ def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
     return a[lo:hi]
 
 
-def synth_google(text: str, voice: str | None = None) -> np.ndarray:
-    voice = voice or config.env("TTS_VOICE", "cmn-TW-Wavenet-A")
+DEFAULT_VOICES = {"zh": "cmn-TW-Wavenet-A", "en": "en-US-Neural2-F"}
+EDGE_FALLBACK = {"zh": "zh-TW-HsiaoChenNeural", "en": "en-US-AriaNeural"}
+
+
+def rate() -> float:
+    return float(config.env("TTS_RATE", "1.25"))
+
+
+def synth_google(text: str, voice: str) -> np.ndarray:
     body = {
         "input": {"text": text},
         "voice": {"languageCode": "-".join(voice.split("-")[:2]), "name": voice},
-        "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SR,
-                        "speakingRate": float(config.env("TTS_RATE", "1.25"))},
+        "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SR, "speakingRate": rate()},
     }
     resp = http("google-tts", "synthesize", "POST",
                 "https://texttospeech.googleapis.com/v1/text:synthesize",
@@ -70,43 +76,45 @@ def synth_google(text: str, voice: str | None = None) -> np.ndarray:
     return _wav_to_array(base64.b64decode(resp.json()["audioContent"]))
 
 
-def synth_edge(text: str, voice: str | None = None) -> np.ndarray:
+def synth_edge(text: str, voice: str) -> np.ndarray:
     import edge_tts
 
-    voice = voice or config.env("EDGE_VOICE", "zh-TW-HsiaoChenNeural")
-    rate = f"+{round((float(config.env('TTS_RATE', '1.25')) - 1) * 100)}%"
+    pct = f"+{round((rate() - 1) * 100)}%"
     with tempfile.TemporaryDirectory() as tmp:
         mp3, wav = Path(tmp) / "a.mp3", Path(tmp) / "a.wav"
-        asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(mp3)))
+        asyncio.run(edge_tts.Communicate(text, voice, rate=pct).save(str(mp3)))
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(mp3), "-ac", "1",
                         "-ar", str(SR), "-sample_fmt", "s16", str(wav)], check=True)
         return _wav_to_array(wav.read_bytes())
 
 
-def synth_silent(text: str, voice: str | None = None) -> np.ndarray:
-    return np.zeros(int(SR * max(0.6, len(text) * 0.17)), dtype=np.float32)
+def synth_silent(text: str, voice: str = "") -> np.ndarray:
+    per_char = 0.17 if any("\u4e00" <= ch <= "\u9fff" for ch in text) else 0.055
+    return np.zeros(int(SR * max(0.6, len(text) * per_char)), dtype=np.float32)
 
 
-def provider() -> str:
-    chosen = config.env("TTS_PROVIDER")
-    if chosen:
-        return chosen
-    if config.env("TTS_VOICE", "").endswith("Neural"):  # an Edge voice name, e.g. zh-TW-YunJheNeural
-        return "edge"
-    return "google" if config.env("GOOGLE_TTS_API_KEY") else "edge"
+def choose(lang: str) -> tuple[str, str]:
+    """(provider, voice) for a language. Voice names ending in 'Neural' are Edge voices."""
+    if config.env("TTS_PROVIDER") == "silent":
+        return "silent", ""
+    voice = config.env(f"TTS_VOICE_{lang.upper()}", DEFAULT_VOICES[lang])
+    if voice.endswith("Neural"):
+        return "edge", voice
+    if config.env("GOOGLE_TTS_API_KEY"):
+        return "google", voice
+    return "edge", EDGE_FALLBACK[lang]
 
 
-def synth_for(name: str):
-    if name == "edge":
-        return lambda text: synth_edge(text, config.env("TTS_VOICE") if config.env("TTS_VOICE", "").endswith("Neural") else None)
-    return {"google": synth_google, "silent": synth_silent}[name]
+SYNTH = {"google": synth_google, "edge": synth_edge, "silent": synth_silent}
 
 
-def voiceover(scenes: list[list[str]], out_wav: Path) -> tuple[list[SceneTiming], float]:
-    """scenes: the zh lines of each scene. Writes a mono wav, returns timings in seconds."""
-    name = provider()
-    synth = synth_for(name)
-    log(f"TTS provider: {name}")
+def voiceover(scenes: list[list[str]], out_wav: Path, lang: str) -> tuple[list[SceneTiming], float]:
+    """scenes: the spoken lines of each scene. Writes a mono wav, returns timings in seconds."""
+    name, voice = choose(lang)
+    log(f"TTS ({lang}): {name} {voice}")
+
+    def synth(text: str) -> np.ndarray:
+        return SYNTH[name](text, voice)
     chunks: list[np.ndarray] = []
     timings: list[SceneTiming] = []
     t = 0.0
