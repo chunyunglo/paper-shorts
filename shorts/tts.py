@@ -56,8 +56,8 @@ def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
     return a[lo:hi]
 
 
-# Chosen by the owner from the voice samples (2026-10-25): zh #10 雲哲, en #13 Chirp3 Aoede.
-DEFAULT_VOICES = {"zh": "zh-TW-YunJheNeural", "en": "en-US-Chirp3-HD-Aoede"}
+# Chosen by the owner from the voice samples (2026-10-25): zh #07 Chirp3 Charon, en #13 Chirp3 Aoede.
+DEFAULT_VOICES = {"zh": "cmn-CN-Chirp3-HD-Charon", "en": "en-US-Chirp3-HD-Aoede"}
 # Used if the chosen voice fails (Edge TTS is an unofficial service and may break).
 GOOGLE_FALLBACK = {"zh": "cmn-TW-Wavenet-C", "en": "en-US-Neural2-J"}
 EDGE_FALLBACK = {"zh": "zh-TW-YunJheNeural", "en": "en-US-AriaNeural"}
