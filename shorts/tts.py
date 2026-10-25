@@ -159,7 +159,7 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
 
     voice = np.concatenate(chunks)
     mixed = voice * 0.95 + music_bed(voice.size, [s.start for s in timings[1:]])
-    # The fixed intro/outro chimes go around it; timings stay relative to the narration.
+    # The fixed outro chime is appended; timings stay relative to the narration.
     write_wav(out_wav, brand.wrap_audio(mixed, SR))
     return timings, t
 

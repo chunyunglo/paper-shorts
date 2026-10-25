@@ -213,7 +213,7 @@ feedback faithfully and change nothing else. The accuracy rules still win: if a 
 need facts that are not in the paper, do not invent them and say so in changes_zh. You can only \
 change the script (narration lines, headings, labels, big text, titles, descriptions, hashtags, \
 and which visual each scene uses); if the feedback is about something else (voice, music, colors, \
-the fixed intro/outro), say so in changes_zh."""
+the fixed end card), say so in changes_zh."""
 
 
 def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
