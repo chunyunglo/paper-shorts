@@ -9,7 +9,7 @@ from typing import Literal
 import feedparser
 from pydantic import BaseModel, Field
 
-from . import llm
+from . import llm, news as newsmod
 from .safelog import http, log
 from .state import norm_title, seen_keys
 
@@ -144,6 +144,10 @@ def enrich(paper: Paper) -> Paper:
 class Pick(BaseModel):
     index: int = Field(description="Index of the chosen paper in the list")
     reason: str = Field(description="One sentence on why this paper fits best")
+    news_index: int = Field(-1, description="Index <n> of the headline this paper genuinely connects to, "
+                                            "or -1 if none fits naturally")
+    news_link: str = Field("", description="If news_index is set: one sentence on how the paper speaks to "
+                                           "that news; otherwise empty")
 
 
 PICK_SYSTEM = """You curate papers for "Behavior Decoded / 行為解碼", a short-video channel that \
@@ -160,10 +164,21 @@ prediction of behavior);
 - is a research article (not a review, perspective, editorial, dataset-only note, or pure \
 engineering/benchmark paper with no behavioral question).
 Avoid neuroscience/brain-imaging papers and avoid topics too close to the recent episodes listed. \
-Prefer peer-reviewed journal papers when quality is similar, but a strong arXiv preprint is fine."""
+Prefer peer-reviewed journal papers when quality is similar, but a strong arXiv preprint is fine.
+
+You also get this week's news headlines. When two papers are close in quality, prefer the one \
+that speaks to something in the news, so the episode can open with a timely hook (e.g. an \
+election and a paper on political polarization online, a viral AI story and a paper on how people \
+use chatbots). Paper quality comes first: never pick a weaker paper just for a news link. Only \
+link news when the paper genuinely says something about it, not just a shared keyword. Prefer \
+stories that viewers in Taiwan, the US and Brazil would recognize. Do not use deaths, disasters, \
+violent crime, or personal scandals as hooks, and do not take sides on partisan issues. If \
+nothing fits naturally, set news_index to -1."""
 
 
-def pick(papers: list[Paper], history: list[dict]) -> tuple[Paper, str]:
+def pick(papers: list[Paper], history: list[dict],
+         headlines: list[newsmod.Headline] | None = None) -> tuple[Paper, str, dict | None]:
+    """Returns the paper, why it was picked, and the news it connects to (or None)."""
     if not papers:
         raise SystemExit("No new candidate papers found")
     papers = papers[:220]
@@ -174,9 +189,15 @@ def pick(papers: list[Paper], history: list[dict]) -> tuple[Paper, str]:
     )
     prompt = (f"Recent episodes (avoid repeating these topics):\n- " + "\n- ".join(recent or ["(none yet)"])
               + f"\n\nCandidates:\n\n{listing}")
+    headlines = headlines or []
+    prompt += "\n\nThis week's news headlines:\n" + (newsmod.listing(headlines) or "(none available)")
     choice = llm.ask(Pick, PICK_SYSTEM, prompt, effort="medium")
     if not 0 <= choice.index < len(papers):
         raise RuntimeError("Claude picked an index outside the list")
     chosen = enrich(papers[choice.index])
     log(f"Picked: {chosen.title} [{chosen.venue}]")
-    return chosen, choice.reason
+    news = None
+    if 0 <= choice.news_index < len(headlines) and choice.news_link.strip():
+        news = {**headlines[choice.news_index].model_dump(), "link": choice.news_link.strip()}
+        log("Linked to a news headline")
+    return chosen, choice.reason, news

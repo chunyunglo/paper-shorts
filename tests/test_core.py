@@ -136,3 +136,33 @@ def test_latest_owner_comment_decides(monkeypatch):
     ]:
         monkeypatch.setattr(review, "http", lambda *a, c=comments, **k: Resp(c))
         assert review._is_approved({"comments_url": "u"}) is ok
+
+
+RSS = b"""<?xml version="1.0"?><rss version="2.0"><channel><title>t</title>
+<item><title>Big AI chatbot story - Example News</title><source url="https://x">Example News</source>
+<pubDate>Fri, 23 Oct 2026 10:00:00 GMT</pubDate></item>
+<item><title>Old story - Example News</title><source url="https://x">Example News</source>
+<pubDate>Mon, 05 Oct 2026 10:00:00 GMT</pubDate></item>
+</channel></rss>"""
+
+
+def test_news_parse_strips_source_and_drops_old():
+    from calendar import timegm
+    from shorts import news
+    now = timegm((2026, 10, 25, 3, 0, 0))
+    items = news.parse(RSS, "US", now=now)
+    assert [h.title for h in items] == ["Big AI chatbot story"]
+    assert items[0].source == "Example News" and items[0].published == "2026-10-23"
+    assert "<0> [US] Big AI chatbot story" in news.listing(items)
+
+
+def test_news_hook_in_review_and_script(tmp_path):
+    from shorts import pipeline, review
+    n = {"title": "Big AI chatbot story", "source": "Example News", "published": "2026-10-23",
+         "region": "US", "link": "The paper measures how people trust chatbot advice."}
+    assert "Big AI chatbot story" in review.news_md(n) and "trust" in review.news_md(n)
+    assert "沒有" in review.news_md(None)
+    meta = json.loads((FIX / "script.json").read_text(encoding="utf-8"))
+    ep = {"script": meta, "paper": {"title": "T", "url": "u", "venue": "V", "published": "2026"},
+          "pick_reason": "r", "news": n, "videos": {}}
+    assert "Big AI chatbot story" in pipeline.script_markdown(ep)
