@@ -63,6 +63,12 @@ def videos_md(ep: dict, base: str, version: str = "") -> str:
     return f"{rows}\n\n{covers}"
 
 
+def news_md(n: dict | None) -> str:
+    if not n:
+        return "### 時事連結 News hook\n這集沒有找到合適的時事，用一般開場。\n\n"
+    return f"### 時事連結 News hook\n{n['title']}（{n['source']}，{n['published']}）\n{n['link']}\n\n"
+
+
 def open_review(folder: Path, tag: str) -> int:
     ep = json.loads((folder / "episode.json").read_text(encoding="utf-8"))
     s, p = ep["script"], ep["paper"]
@@ -77,6 +83,7 @@ def open_review(folder: Path, tag: str) -> int:
             f"No reply means no post.\n\n"
             f"### 影片 Videos\n{videos_md(ep, base)}\n\n"
             f"### 論文 Paper\n[{p['title']}]({p['url']}), {p['venue']} ({p['published']})\n\n"
+            f"{news_md(ep.get('news'))}"
             f"<details><summary>腳本 Script</summary>\n\n{(folder / 'script.md').read_text(encoding='utf-8')}\n</details>\n\n"
             f"<!-- release: {tag} -->\n")
     resp = http("github", "open review issue", "POST", f"https://api.github.com/repos/{inbox()}/issues",

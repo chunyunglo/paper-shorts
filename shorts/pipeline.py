@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import brand, papers, render, script as scriptmod, tts
+from . import brand, news as newsmod, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -32,23 +32,24 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
     if episode_json:
         old = json.loads(episode_json.read_text(encoding="utf-8"))
         paper, reason = papers.Paper(**old["paper"]), old.get("pick_reason", "remake")
+        news = old.get("news")
         script = scriptmod.Script(**old["script"])
         ep_id = f"{old['episode']}-r{now:%H%M}"  # a new id, so it gets its own release and review
     else:
         if paper_json:
             paper = papers.Paper.model_validate_json(paper_json.read_text(encoding="utf-8"))
-            reason = "given"
+            reason, news = "given", None
         else:
-            paper, reason = papers.pick(papers.candidates(history), history)
+            paper, reason, news = papers.pick(papers.candidates(history), history, newsmod.headlines())
         if script_json:
             script = scriptmod.Script.model_validate_json(script_json.read_text(encoding="utf-8"))
             scriptmod.validate(script)
         else:
-            script = scriptmod.write(paper)
+            script = scriptmod.write(paper, news)
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
     if "pt" in LANGS and not script.pt:
         script.pt = scriptmod.translate_pt(script)
-    return build(ep_id, paper, script, reason, preview_every)
+    return build(ep_id, paper, script, reason, preview_every, news)
 
 
 def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
@@ -57,10 +58,11 @@ def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
     old = json.loads(episode_json.read_text(encoding="utf-8"))
     paper = papers.Paper(**old["paper"])
     script, changes = scriptmod.revise(paper, scriptmod.Script(**old["script"]), feedback)
-    return build(old["episode"], paper, script, old.get("pick_reason", ""), 0), changes
+    return build(old["episode"], paper, script, old.get("pick_reason", ""), 0, old.get("news")), changes
 
 
-def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str, preview_every: int) -> Path:
+def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str, preview_every: int,
+          news: dict | None = None) -> Path:
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
 
@@ -81,6 +83,7 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
         "created": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "paper": paper.model_dump(),
         "pick_reason": reason,
+        "news": news,
         "script": script.model_dump(),
         "videos": videos,
     }
@@ -97,6 +100,10 @@ def script_markdown(meta: dict) -> str:
              "Videos: " + ", ".join(f"{k} {v['duration']}s ({v['tts']})" for k, v in meta["videos"].items()), "",
              f"**Paper:** [{p['title']}]({p['url']}), {p['venue']} ({p['published']})", "",
              f"**Why this paper:** {meta['pick_reason']}", ""]
+    if n := meta.get("news"):
+        lines += [f"**時事連結 News hook:** {n['title']} ({n['source']}, {n['published']}). {n['link']}", ""]
+    else:
+        lines += ["**時事連結 News hook:** 這集沒有合適的時事 (none fit)", ""]
     for i, sc in enumerate(s["scenes"], 1):
         lines.append(f"## {i:02d} {sc['heading_zh']} / {sc['heading_en']} ({sc['visual']})")
         pt_lines = pt["scenes"][i - 1]["lines"] if pt else []
