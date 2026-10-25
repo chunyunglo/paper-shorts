@@ -1,5 +1,6 @@
 """Tell the owner that some comments need a human, without making comment content public.
 
+Email (SMTP) is the main channel. Fallback when email is not set up or fails:
 1. Details (comment text, author, Claude's note, a suggested reply) go to a PRIVATE place:
    an issue in the private inbox repo (GH_PAT; ALERT_REPO, default <owner>/paper-shorts-inbox),
    and/or an email via SMTP (ALERT_EMAIL_USER / ALERT_EMAIL_APP_PASSWORD / ALERT_EMAIL_TO).
@@ -71,15 +72,17 @@ def _pointer(count: int, private_url: str | None, post_links: list[str]) -> bool
 
 
 def alert(title: str, body: str, count: int, post_links: list[str]) -> bool:
+    """Email first. Only if email is not configured or fails, use the private issue + public pointer."""
+    if _smtp(title, body):
+        return True
     private_url = None
     try:
         private_url = _private_issue(title, body)
     except ApiError as exc:
         log(f"Private alert failed: {exc}")
-    emailed = _smtp(title, body)
-    # Without a private channel the pointer still goes out: it only names the posts, never the comments.
+    # The pointer only names the posts, never the comments, so it is safe even without a private channel.
     try:
-        return _pointer(count, private_url, post_links) or emailed
+        return _pointer(count, private_url, post_links)
     except ApiError as exc:
         log(f"Pointer issue failed: {exc}")
-        return emailed
+        return False
