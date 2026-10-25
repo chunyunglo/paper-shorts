@@ -12,6 +12,8 @@ TEXT = {
            "研究者分析了使用者寫的請願書，結果發現，寫法明顯改變，但成效並沒有變好。"),
     "en": ("In 2023, the petition site Change.org added an AI writing tool. Researchers analyzed "
            "the petitions people wrote, and found the writing changed a lot, but the results didn't improve."),
+    "pt": ("Em 2023, o site de petições Change.org lançou uma ferramenta de IA para escrever petições. "
+           "Os pesquisadores analisaram os textos e descobriram que a escrita mudou muito, mas os resultados não melhoraram."),
 }
 
 VOICES = [
@@ -33,15 +35,31 @@ VOICES = [
     ("google", "en-US-Chirp3-HD-Charon", "English male Chirp3 HD Charon"),
     ("edge", "en-US-AriaNeural", "Edge English female Aria"),
     ("edge", "en-US-AndrewNeural", "Edge English male Andrew"),
+    ("google", "pt-BR-Chirp3-HD-Aoede", "Português feminina Chirp3 HD Aoede"),
+    ("google", "pt-BR-Chirp3-HD-Leda", "Português feminina Chirp3 HD Leda"),
+    ("google", "pt-BR-Chirp3-HD-Kore", "Português feminina Chirp3 HD Kore"),
+    ("google", "pt-BR-Chirp3-HD-Puck", "Português masculina Chirp3 HD Puck"),
+    ("google", "pt-BR-Chirp3-HD-Charon", "Português masculina Chirp3 HD Charon"),
+    ("google", "pt-BR-Chirp3-HD-Fenrir", "Português masculina Chirp3 HD Fenrir"),
+    ("google", "pt-BR-Neural2-A", "Português feminina Neural2-A"),
+    ("google", "pt-BR-Neural2-B", "Português masculina Neural2-B"),
+    ("edge", "pt-BR-FranciscaNeural", "Edge Português feminina Francisca"),
+    ("edge", "pt-BR-AntonioNeural", "Edge Português masculina Antonio"),
 ]
 
 
-def render_all() -> None:
+def lang_of(voice: str) -> str:
+    return "zh" if voice.startswith(("cmn", "zh")) else voice[:2]
+
+
+def render_all(langs: list[str] | None = None) -> None:
     out = OUT / "voices"
     out.mkdir(parents=True, exist_ok=True)
-    index = ["# 聲音試聽 Voice samples", "", f"中文句子：{TEXT['zh']}", "", f"English: {TEXT['en']}", ""]
-    for n, (prov, voice, label) in enumerate(VOICES, 1):
-        text = TEXT["zh"] if voice.startswith(("cmn", "zh")) else TEXT["en"]
+    langs = langs or list(TEXT)
+    index = ["# 聲音試聽 Voice samples", ""] + [f"{l}: {TEXT[l]}\n" for l in langs]
+    picked = [v for v in VOICES if lang_of(v[1]) in langs]
+    for n, (prov, voice, label) in enumerate(picked, 1):
+        text = TEXT[lang_of(voice)]
         try:
             audio = (synth_google if prov == "google" else synth_edge)(text, voice)
         except Exception as exc:

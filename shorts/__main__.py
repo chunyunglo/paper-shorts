@@ -32,7 +32,8 @@ def main() -> None:
     c.add_argument("--dry-run", action="store_true", help="classify only; post, hide, and email nothing")
     sub.add_parser("refresh-tokens")
     sub.add_parser("keepalive")
-    sub.add_parser("voices")
+    vo = sub.add_parser("voices")
+    vo.add_argument("--lang", nargs="*", choices=["zh", "en", "pt"])
     sub.add_parser("test-email")
     ro = sub.add_parser("review-open")
     ro.add_argument("episode_dir", type=Path)
@@ -90,7 +91,7 @@ def main() -> None:
     elif args.cmd == "voices":
         from .voices import render_all
 
-        render_all()
+        render_all(args.lang)
     elif args.cmd == "keepalive":
         install_excepthook(strict=True)
         from .tokens import keepalive
