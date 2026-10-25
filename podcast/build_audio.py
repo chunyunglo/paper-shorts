@@ -1,47 +1,68 @@
-"""Synthesize the dialogue with Kokoro (sherpa-onnx), lay it on a timeline, and
-derive per-frame mouth shapes, subtitles and screen cards for the renderer.
+"""Synthesize the dialogue, lay it on a timeline with studio sound effects, and derive
+per-frame mouth shapes, subtitles and screen cards for the renderer.
 
-Usage: python podcast/build_audio.py podcast/episodes/ep01.json
-Writes podcast/out/dialog.wav and podcast/web/timeline.json."""
+Usage: python podcast/build_audio.py podcast/episodes/ep01_en.json
+Writes podcast/out/dialog.wav and podcast/web/timeline.json.
+
+TTS engines (all run on CPU through sherpa-onnx):
+  supertonic  Supertonic 3, English, 10 voices (0-4 female, 5-9 male)
+  kokoro      Kokoro v1.1 Chinese+English (used for the Chinese episode)
+"""
 import json, os, re, sys, hashlib
 from pathlib import Path
 import numpy as np, soundfile as sf
 import sherpa_onnx
+import sfx
 
 FPS = 30
 SR = 24000
-INTRO = 3.2   # seconds of title before the first line
 OUTRO = 3.0
 ROOT = Path(__file__).parent
 CACHE = ROOT / ".cache" / "tts"
 OUT = ROOT / "out"
-K = os.environ.get('KOKORO_DIR', str(ROOT / '.cache' / 'kokoro-multi-lang-v1_1')) + '/'
+MODELS = Path(os.environ.get('TTS_MODELS', ROOT / '.cache'))
+KOKORO = MODELS / 'kokoro-multi-lang-v1_1'
+SUPERTONIC = MODELS / 'sherpa-onnx-supertonic-3-tts-int8-2026-05-11'
 
-_tts = None
-def tts():
-    global _tts
-    if _tts is None:
-        cfg = sherpa_onnx.OfflineTtsConfig(
-            model=sherpa_onnx.OfflineTtsModelConfig(kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
-                model=K + 'model.onnx', voices=K + 'voices.bin', tokens=K + 'tokens.txt',
-                data_dir=K + 'espeak-ng-data', dict_dir=K + 'dict',
-                lexicon=K + 'lexicon-us-en.txt,' + K + 'lexicon-zh.txt'), num_threads=4),
-            rule_fsts=K + 'date-zh.fst,' + K + 'phone-zh.fst,' + K + 'number-zh.fst')
-        _tts = sherpa_onnx.OfflineTts(cfg)
-    return _tts
+_engines = {}
+def engine(name):
+    if name not in _engines:
+        if name == 'kokoro':
+            K = str(KOKORO) + '/'
+            cfg = sherpa_onnx.OfflineTtsConfig(
+                model=sherpa_onnx.OfflineTtsModelConfig(kokoro=sherpa_onnx.OfflineTtsKokoroModelConfig(
+                    model=K + 'model.onnx', voices=K + 'voices.bin', tokens=K + 'tokens.txt',
+                    data_dir=K + 'espeak-ng-data', dict_dir=K + 'dict',
+                    lexicon=K + 'lexicon-us-en.txt,' + K + 'lexicon-zh.txt'), num_threads=4),
+                rule_fsts=K + 'date-zh.fst,' + K + 'phone-zh.fst,' + K + 'number-zh.fst')
+        else:
+            P = str(SUPERTONIC) + '/'
+            cfg = sherpa_onnx.OfflineTtsConfig(model=sherpa_onnx.OfflineTtsModelConfig(
+                supertonic=sherpa_onnx.OfflineTtsSupertonicModelConfig(
+                    duration_predictor=P + 'duration_predictor.int8.onnx', text_encoder=P + 'text_encoder.int8.onnx',
+                    vector_estimator=P + 'vector_estimator.int8.onnx', vocoder=P + 'vocoder.int8.onnx',
+                    tts_json=P + 'tts.json', unicode_indexer=P + 'unicode_indexer.bin', voice_style=P + 'voice.bin'),
+                num_threads=4))
+        _engines[name] = sherpa_onnx.OfflineTts(cfg)
+    return _engines[name]
 
 
-def synth(text, sid, speed):
-    key = hashlib.sha1(f"{text}|{sid}|{speed}".encode()).hexdigest()[:16]
+def synth(text, eng, sid, speed, steps=10):
+    key = hashlib.sha1(f"{eng}|{text}|{sid}|{speed}|{steps}".encode()).hexdigest()[:16]
     p = CACHE / f"{key}.wav"
     if not p.exists():
-        a = tts().generate(text, sid=sid, speed=speed)
-        sf.write(p, np.array(a.samples, dtype=np.float32), a.sample_rate)
+        if eng == 'kokoro':
+            a = engine(eng).generate(text, sid=sid, speed=speed)
+        else:
+            g = sherpa_onnx.GenerationConfig(); g.sid = sid; g.num_steps = steps; g.speed = speed; g.extra["lang"] = "en"
+            a = engine(eng).generate(text, g)
+        x = np.array(a.samples, dtype=np.float32)
+        if a.sample_rate != SR:
+            x = np.interp(np.arange(0, len(x), a.sample_rate / SR), np.arange(len(x)), x).astype(np.float32)
+        sf.write(p, x, SR)
     x, sr = sf.read(p, dtype='float32')
-    assert sr == SR
     # trim silence, keep a few ms of breath
-    env = np.abs(x) > 0.01
-    idx = np.where(env)[0]
+    idx = np.where(np.abs(x) > 0.01)[0]
     if len(idx):
         x = x[max(0, idx[0] - 600): idx[-1] + 2400]
     return x
@@ -89,7 +110,7 @@ def mouth_track(x):
     return sm
 
 
-def chunks(text, maxlen=17):
+def chunks_zh(text, maxlen=17):
     """Split a line into subtitle chunks at punctuation, no chunk longer than maxlen."""
     parts = [p for p in re.split(r'(?<=[，。？！、])', text) if p.strip()]
     out = []
@@ -104,56 +125,109 @@ def chunks(text, maxlen=17):
     return [re.sub(r'[，。、]$', '', c) for c in out]
 
 
+def chunks_en(text, maxlen=44):
+    """Split an English line into subtitle chunks at punctuation, then by words."""
+    out = []
+    for part in re.split(r'(?<=[,.?!;:])\s+', text.strip()):
+        words, cur = part.split(), ''
+        for w in words:
+            if cur and len(cur) + 1 + len(w) > maxlen:
+                out.append(cur); cur = w
+            else:
+                cur = (cur + ' ' + w).strip()
+        if cur:
+            if out and len(out[-1]) + len(cur) < 22 and not out[-1].endswith(('.', '?', '!')):
+                out[-1] += ' ' + cur
+            else:
+                out.append(cur)
+    return out
+
+
+LAUGH_TEXTS = ["Ha ha ha ha!", "Hahaha!", "Ha! Ha ha ha.", "Heh heh heh heh!", "Ha ha ha!"]
+
+
 def main():
     CACHE.mkdir(parents=True, exist_ok=True); OUT.mkdir(exist_ok=True)
     ep = json.loads(Path(sys.argv[1]).read_text())
     hosts = ep['hosts']
-    total = INTRO + 2
-    placed = []
-    t = INTRO
-    for spk, text, opt in ep['lines']:
-        x = synth(text, hosts[spk]['voice'], round(opt.get('speed', 1.0) * 1.15, 3))
-        gap = opt.get('gap', 0.3)
-        t += gap
+    en = ep.get('lang', 'zh') == 'en'
+    speed0 = 1.05 if en else 1.15
+    t = 0.0
+    intro = 3.2
+    placed, effects = [], []
+    for row in ep['lines']:
+        if row[0] == 'SFX':
+            kind, opt = row[1], row[2]
+            effects.append({'kind': kind, 'start': t + 0.1, 'dur': opt.get('dur', 3.0), 'gain': opt.get('gain', 1.0)})
+            if kind == 'sting':
+                intro = t + 0.1 + opt.get('dur', 3.0) - 0.5
+                t = intro - 0.3
+            continue
+        spk, text, opt = row
+        h = hosts[spk]
+        x = synth(text, h.get('tts', 'kokoro'), h['voice'], round(opt.get('speed', 1.0) * speed0, 3))
+        t += opt.get('gap', 0.3)
         placed.append((spk, text, opt, t, x))
         t += len(x) / SR
-    total = t + OUTRO
-    N = int(total * SR) + SR
-    tracks = {'A': np.zeros(N, np.float32), 'B': np.zeros(N, np.float32)}
+        if opt.get('laugh'):
+            d = 1.0 + 1.6 * opt['laugh']
+            effects.append({'kind': 'laugh', 'start': t - 0.15, 'dur': d, 'gain': 0.55 + 0.45 * opt['laugh'], 'after': spk})
+            t += d * 0.6
+        if opt.get('applause'):
+            d = opt['applause']
+            effects.append({'kind': 'applause', 'start': t - 0.2, 'dur': d, 'gain': 1.0})
+            t += d * 0.55
+    total = t + OUTRO + 1.0
+    N = int(total * SR) + 3 * SR
+    tracks = {k: np.zeros(N, np.float32) for k in hosts}
     lines = []
     for spk, text, opt, st, x in placed:
         i = int(st * SR)
         tracks[spk][i:i + len(x)] += x
-        en = st + len(x) / SR
-        L = {'spk': spk, 'start': round(st, 3), 'end': round(en, 3), 'text': text,
-             'emo': opt.get('emo'), 'gest': opt.get('gest'), 'card': opt.get('card')}
-        # subtitles: proportional timing on characters
-        cs = chunks(opt.get('sub', text.replace('Change dot org', 'Change.org')))
+        end = st + len(x) / SR
+        L = {'spk': spk, 'start': round(st, 3), 'end': round(end, 3), 'text': text, 'emo': opt.get('emo'),
+             'gest': opt.get('gest'), 'card': opt.get('card'), 'toCamera': bool(opt.get('toCamera')), 'laugh': opt.get('laugh', 0)}
+        shown = opt.get('sub', text.replace('Change dot org', 'Change.org').replace('A.I.', 'AI'))
+        cs = chunks_en(shown) if en else chunks_zh(shown)
         lens = np.array([len(c) for c in cs], float)
-        edges = st + np.concatenate([[0], np.cumsum(lens) / lens.sum()]) * (en - st)
+        edges = st + np.concatenate([[0], np.cumsum(lens) / lens.sum()]) * (end - st)
         L['subs'] = [[round(edges[k], 3), round(edges[k + 1], 3), c] for k, c in enumerate(cs)]
         lines.append(L)
         if opt.get('back'):
-            other = 'B' if spk == 'A' else 'A'
-            b = synth(opt['back'], hosts[other]['voice'], 1.0) * 0.45
-            bt = st + (en - st) * 0.5
+            other = next(k for k in hosts if k != spk)
+            oh = hosts[other]
+            b = synth(opt['back'], oh.get('tts', 'kokoro'), oh['voice'], 1.0) * 0.45
+            bt = st + (end - st) * 0.5
             j = int(bt * SR)
             tracks[other][j:j + len(b)] += b
             L['back'] = {'spk': other, 'start': round(bt, 3), 'end': round(bt + len(b) / SR, 3)}
-    mix = tracks['A'] + tracks['B']
-    # gentle room tone so silences are not digital-black
+    voices = sum(tracks.values())
+    fx = np.zeros(N, np.float32)
+    laugh_clips = None
+    for e in effects:
+        if e['kind'] == 'sting':
+            y = sfx.sting(e['dur'])
+        elif e['kind'] == 'applause':
+            y = sfx.applause(e['dur'], e['gain'])
+        else:
+            if laugh_clips is None:
+                eng = 'supertonic' if en else 'kokoro'
+                laugh_clips = [synth(tx, eng, v, 1.0 + 0.15 * (k % 3)) for k, tx in enumerate(LAUGH_TEXTS)
+                               for v in (range(10) if en else (3, 10, 20, 58, 65, 80))]
+            y = sfx.laugh(laugh_clips, e['dur'], e['gain'])
+        i = int(e['start'] * SR); L_ = min(len(y), N - i)
+        fx[i:i + L_] += y[:L_]
+        e['end'] = round(e['start'] + e['dur'], 3); e['start'] = round(e['start'], 3)
     rng = np.random.default_rng(1)
-    room = rng.normal(0, 1, N).astype(np.float32)
-    room = np.convolve(room, np.ones(40) / 40, 'same') * 0.0025
-    mix = mix + room
-    peak = np.abs(mix).max()
-    mix = mix / peak * 0.89
+    room = np.convolve(rng.normal(0, 1, N).astype(np.float32), np.ones(40) / 40, 'same') * 0.0025
+    mix = voices / (np.abs(voices).max() + 1e-9) * 0.85 + fx * 0.8 + room
+    mix = np.tanh(mix * 1.1) / np.tanh(1.1)
     sf.write(OUT / 'dialog.wav', mix[:int(total * SR)], SR)
     mouths = {k: np.round(mouth_track(v[:int(total * SR)]), 3).tolist() for k, v in tracks.items()}
-    tl = {'fps': FPS, 'duration': round(total, 3), 'intro': INTRO, 'title': ep['title'],
-          'paper': ep['paper'], 'hosts': hosts, 'lines': lines, 'mouth': mouths}
+    tl = {'fps': FPS, 'duration': round(total, 3), 'intro': round(intro, 3), 'outro': OUTRO, 'title': ep['title'],
+          'show': ep.get('show'), 'paper': ep['paper'], 'hosts': hosts, 'lines': lines, 'sfx': effects, 'mouth': mouths}
     (ROOT / 'web' / 'timeline.json').write_text(json.dumps(tl, ensure_ascii=False))
-    print(f"duration {total:.1f}s, {len(lines)} lines")
+    print(f"duration {total:.1f}s, {len(lines)} lines, {len(effects)} effects")
 
 
 if __name__ == '__main__':

@@ -25,7 +25,7 @@ const browser = process.env.DISPLAY
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.error('[page]', m.text()); });
 page.on('pageerror', (e) => console.error('[pageerror]', e.message));
-await page.addInitScript(`window.QUALITY = ${process.env.QUALITY || '{"aa":true,"shadow":2048,"scale":1}'}; window.HANDTWIST = ${process.env.HANDTWIST || 1};`);
+await page.addInitScript(`window.QUALITY = ${process.env.QUALITY || '{"aa":true,"shadow":2048,"scale":1,"bloom":true}'};`);
 await page.goto(`http://127.0.0.1:${port}/index.html`);
 const tl = await page.evaluate(() => window.boot());
 await page.evaluate(() => document.fonts.ready);

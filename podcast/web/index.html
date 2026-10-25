@@ -1,17 +1,16 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
-html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000;font-family:"Noto Sans CJK TC","Noto Sans",sans-serif}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000;font-family:"Noto Sans","Noto Sans CJK TC",sans-serif}
 #c{position:absolute;inset:0;width:1920px;height:1080px}
-#sub{position:absolute;left:0;right:0;bottom:64px;text-align:center;font-size:52px;font-weight:700;color:#fff;
+#sub{position:absolute;left:160px;right:160px;bottom:58px;text-align:center;font-size:46px;font-weight:700;color:#fff;line-height:1.25;
  text-shadow:0 0 6px rgba(0,0,0,.9),0 3px 10px rgba(0,0,0,.8);letter-spacing:1px}
 #sub .who{display:inline-block;font-size:28px;padding:4px 14px;border-radius:20px;margin-right:16px;vertical-align:middle;position:relative;top:-6px;text-shadow:none}
-#sub .who.A{background:#ff6b4a;color:#fff}#sub .who.B{background:#f6efe3;color:#1d2a5c}
-#title{position:absolute;left:0;top:0;bottom:0;width:1300px;padding:330px 0 0 120px;box-sizing:border-box;color:#fff;background:linear-gradient(90deg,rgba(14,19,40,.85),rgba(14,19,40,.55) 60%,rgba(14,19,40,0))}
-#title .k{font-size:34px;letter-spacing:6px;color:#ffb8a6;font-weight:700}
-#title .t{font-size:92px;font-weight:900;margin-top:18px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
-#title .p{font-size:30px;margin-top:22px;color:#dfe4ff;max-width:1300px}
-#names{position:absolute;left:0;right:0;bottom:170px;display:flex;justify-content:space-between;padding:0 260px}
-#names div{background:rgba(29,42,92,.88);color:#fff;padding:12px 28px;border-left:8px solid #ff6b4a;font-size:34px;font-weight:700}
-#names small{display:block;font-size:20px;font-weight:400;color:#cfd6ff}
+#sub .who.A{background:#ff6b4a;color:#fff}#sub .who.K{background:#f6efe3;color:#1d2a5c}
+#title{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center;opacity:0}
+#title .k{font-size:150px;font-weight:900;letter-spacing:8px;line-height:.95;text-shadow:0 0 40px rgba(255,107,74,.8),0 8px 40px rgba(0,0,0,.6)}
+#title .t{font-family:"Noto Serif",serif;font-style:italic;font-size:120px;color:#ffd0c4;margin-top:-6px;text-shadow:0 0 30px rgba(126,162,255,.8)}
+#title .p{font-size:34px;margin-top:30px;color:#e6ecff;letter-spacing:2px;background:rgba(10,14,40,.6);padding:10px 28px;border-radius:40px}
+.lt{position:absolute;bottom:170px;left:90px;opacity:0;background:linear-gradient(90deg,rgba(18,24,60,.95),rgba(18,24,60,.75));color:#fff;padding:14px 30px 14px 26px;border-left:10px solid #ff6b4a;font-size:44px;font-weight:900;letter-spacing:1px}
+.lt small{display:block;font-size:24px;font-weight:500;color:#cfd6ff;letter-spacing:2px;text-transform:uppercase}
 .card{position:absolute;top:110px;width:640px;background:rgba(246,239,227,.96);color:#1d2a5c;border-radius:22px;padding:34px 40px;box-shadow:0 20px 60px rgba(0,0,0,.45);border-top:10px solid #ff6b4a}
 .card.right{right:90px}.card.left{left:90px}
 .card .kicker{font-size:24px;font-weight:700;color:#ff6b4a;letter-spacing:3px;margin-bottom:14px}
@@ -30,17 +29,17 @@ html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000;fo
 #outro .t{font-size:110px;font-weight:900}#outro .s{font-size:36px;margin-top:20px;color:#ffd0c4}
 </style></head><body>
 <canvas id="c" width="1920" height="1080"></canvas>
-<div id="title"><div class="k">行為解碼 PODCAST · EP.01</div><div class="t"></div><div class="p"></div></div>
-<div id="names"><div>小安<small>讀論文的那個</small></div><div>阿凱<small>負責問蠢問題</small></div></div>
+<div id="title"><div class="k">BEHAVIOR<br>DECODED</div><div class="t">Tonight</div><div class="p"></div></div>
+<div id="nameK" class="lt">KAI<small>Host</small></div>
+<div id="nameA" class="lt">ANNE<small>Resident data scientist</small></div>
 <div id="card" class="card" style="opacity:0"></div>
 <div id="sub"></div>
-<div id="outro"><div class="t">行為解碼</div><div class="s">用數據讀懂人類行為 · 下集見</div></div>
+<div id="outro"><div class="t">BEHAVIOR DECODED</div><div class="s">Tonight · new episodes every week</div></div>
 <script src="bundle.js"></script>
 <script>
 window.boot = async () => {
   const tl = await (await fetch('timeline.json')).json();
-  document.querySelector('#title .t').textContent = tl.title;
-  document.querySelector('#title .p').textContent = tl.paper.venue + ' ・ ' + tl.paper.authors;
+  document.querySelector('#title .p').textContent = tl.title;
   await window.setup(tl); return tl;
 };
 </script></body></html>
