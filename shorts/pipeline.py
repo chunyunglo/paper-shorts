@@ -11,36 +11,51 @@ from .config import OUT
 from .safelog import log
 from .state import load_history
 
-LANGS = ("zh", "en")
+LANGS = ("zh", "en", "pt")
 
 
 def slug(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "episode"
 
 
-def make(script_json: Path | None = None, paper_json: Path | None = None, preview_every: int = 0) -> Path:
-    history = load_history()
-    if paper_json:
-        paper = papers.Paper.model_validate_json(paper_json.read_text(encoding="utf-8"))
-        reason = "given"
-    else:
-        paper, reason = papers.pick(papers.candidates(history), history)
-    if script_json:
-        script = scriptmod.Script.model_validate_json(script_json.read_text(encoding="utf-8"))
-        scriptmod.validate(script)
-    else:
-        script = scriptmod.write(paper)
+def spoken(script: scriptmod.Script, lang: str) -> list[list[str]]:
+    if lang == "pt":
+        return [s.lines for s in script.pt.scenes]
+    return [[l.zh if lang == "zh" else l.en for l in s.lines] for s in script.scenes]
 
-    date = datetime.now(timezone.utc).strftime("%Y%m%d")
-    ep_id = f"{date}-{slug(paper.title)}"
+
+def make(script_json: Path | None = None, paper_json: Path | None = None, preview_every: int = 0,
+         episode_json: Path | None = None) -> Path:
+    """episode_json: remake the videos of an existing episode (same paper and script)."""
+    history = load_history()
+    now = datetime.now(timezone.utc)
+    if episode_json:
+        old = json.loads(episode_json.read_text(encoding="utf-8"))
+        paper, reason = papers.Paper(**old["paper"]), old.get("pick_reason", "remake")
+        script = scriptmod.Script(**old["script"])
+        ep_id = f"{old['episode']}-r{now:%H%M}"  # a new id, so it gets its own release and review
+    else:
+        if paper_json:
+            paper = papers.Paper.model_validate_json(paper_json.read_text(encoding="utf-8"))
+            reason = "given"
+        else:
+            paper, reason = papers.pick(papers.candidates(history), history)
+        if script_json:
+            script = scriptmod.Script.model_validate_json(script_json.read_text(encoding="utf-8"))
+            scriptmod.validate(script)
+        else:
+            script = scriptmod.write(paper)
+        ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
+    if "pt" in LANGS and not script.pt:
+        script.pt = scriptmod.translate_pt(script)
+
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
 
     videos = {}
     for lang in LANGS:
         audio = out / f"voice_{lang}.wav"
-        lines = [[l.zh if lang == "zh" else l.en for l in s.lines] for s in script.scenes]
-        timings, total = tts.voiceover(lines, audio, lang)
+        timings, total = tts.voiceover(spoken(script, lang), audio, lang)
         log(f"Voiceover ({lang}): {total:.1f}s")
         r = render.Renderer(script, paper.model_dump(), timings, total, lang)
         render.encode(r, audio, out / f"video_{lang}.mp4", preview_every=preview_every)
@@ -65,16 +80,20 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
 
 def script_markdown(meta: dict) -> str:
     s, p = meta["script"], meta["paper"]
-    lines = [f"# {s['title_zh']} / {s['title_en']}", "",
+    pt = s.get("pt")
+    lines = [f"# {s['title_zh']} / {s['title_en']}" + (f" / {pt['title']}" if pt else ""), "",
              "Videos: " + ", ".join(f"{k} {v['duration']}s ({v['tts']})" for k, v in meta["videos"].items()), "",
              f"**Paper:** [{p['title']}]({p['url']}), {p['venue']} ({p['published']})", "",
              f"**Why this paper:** {meta['pick_reason']}", ""]
     for i, sc in enumerate(s["scenes"], 1):
         lines.append(f"## {i:02d} {sc['heading_zh']} / {sc['heading_en']} ({sc['visual']})")
-        for ln in sc["lines"]:
-            lines.append(f"- {ln['zh']}  \n  _{ln['en']}_")
+        pt_lines = pt["scenes"][i - 1]["lines"] if pt else []
+        for k, ln in enumerate(sc["lines"]):
+            extra = f"  \n  🇧🇷 {pt_lines[k]}" if k < len(pt_lines) else ""
+            lines.append(f"- {ln['zh']}  \n  _{ln['en']}_{extra}")
         lines.append("")
     lines += ["## Captions", "", s["description_zh"], "", s["description_en"], "",
+              *([pt["description"], ""] if pt else []),
               " ".join("#" + h for h in s["hashtags"]), "",
               "## Method summary (used for replies)", "", s["method_summary"], "",
               "## Limitations", "", s["limitations"], ""]

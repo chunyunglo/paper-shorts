@@ -31,6 +31,11 @@ class SceneView:
 
 
 def localize(script: Script, lang: str) -> list[SceneView]:
+    if lang == "pt":
+        if not script.pt:
+            raise RuntimeError("Script has no Portuguese version")
+        return [SceneView(sc.visual, ls.heading.upper(), ls.labels, sc.values, ls.big_text, ls.lines)
+                for sc, ls in zip(script.scenes, script.pt.scenes)]
     out = []
     for sc in script.scenes:
         if lang == "zh":
@@ -91,7 +96,8 @@ class Renderer:
         self.bg = background()
         self.small_logo = logo(64)
         self.ctx_base = {"paper": paper, "lang": lang,
-                         "paper_title": script.paper_title_zh if lang == "zh" else paper["title"],
+                         "paper_title": {"zh": script.paper_title_zh,
+                                         "pt": script.pt.paper_title if script.pt else ""}.get(lang) or paper["title"],
                          "logo": logo(150 * visuals.S)}
         self._header_cache: dict[int, Image.Image] = {}
         self.cards = brand.Cards(self.bg, logo(300), lang)
@@ -162,7 +168,7 @@ class Renderer:
         who = ""
         if authors:
             who = authors[0].split(" ")[-1] + (" et al." if len(authors) > 1 else "") + ", "
-        txt = f"Source: {who}{p['venue']} {p.get('published', '')[:4]}"
+        txt = f"{'Fonte' if self.lang == 'pt' else 'Source'}: {who}{p['venue']} {p.get('published', '')[:4]}"
         d.text((MARGIN, 1580), txt, font=font("regular", 28), fill=INK_MUTED)
 
     def frame(self, n: int) -> Image.Image:

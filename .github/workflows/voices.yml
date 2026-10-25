@@ -3,6 +3,10 @@ name: Voice samples
 
 on:
   workflow_dispatch:
+    inputs:
+      langs:
+        description: "Languages to sample (zh en pt)"
+        default: "zh en pt"
   push:
     branches: ["claude/**"]
 
@@ -21,7 +25,7 @@ jobs:
       - uses: ./.github/actions/setup
         with:
           render: "true"
-      - run: python -m shorts voices
+      - run: python -m shorts voices --lang ${{ inputs.langs || 'pt' }}
       - name: Attach to a pre-release
         env:
           GH_TOKEN: ${{ github.token }}

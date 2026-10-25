@@ -34,7 +34,7 @@ def _auth() -> dict:
 
 
 def upload(video: Path, title: str, description: str, tags: list[str], lang: str = "zh") -> str:
-    language = {"zh": ("zh-Hant", "zh-TW"), "en": ("en", "en")}[lang]
+    language = {"zh": ("zh-Hant", "zh-TW"), "en": ("en", "en"), "pt": ("pt-BR", "pt-BR")}[lang]
     meta = {
         "snippet": {"title": title, "description": description, "tags": tags[:15], "categoryId": "27",
                     "defaultLanguage": language[0], "defaultAudioLanguage": language[1]},
@@ -75,6 +75,18 @@ def comment_threads(video_id: str) -> list[dict]:
             return []
         raise ApiError("youtube", "commentThreads.list", 403, ",".join(r for r in reasons if r) or None)
     return resp.json().get("items", [])
+
+
+def comment(video_id: str, text: str) -> None:
+    """A top-level comment from the channel (used for the citation under each video)."""
+    http("youtube", "commentThreads.insert", "POST", f"{API}/commentThreads", params={"part": "snippet"},
+         headers=_auth(), json={"snippet": {"videoId": video_id,
+                                            "topLevelComment": {"snippet": {"textOriginal": text}}}})
+
+
+def delete(video_id: str) -> None:
+    http("youtube", "videos.delete", "DELETE", f"{API}/videos", params={"id": video_id},
+         headers=_auth(), ok=(204,))
 
 
 def reply(parent_id: str, text: str) -> None:

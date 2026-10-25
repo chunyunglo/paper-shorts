@@ -4,7 +4,8 @@ from pathlib import Path
 import pytest
 
 from shorts import comments, fonts, safelog
-from shorts.publish import captions
+from shorts import render, script as scriptmod
+from shorts.publish import captions, citation, first_comment
 
 FIX = Path(__file__).parent / "fixtures"
 
@@ -42,11 +43,11 @@ def test_http_error_hides_url_and_body(monkeypatch):
 def test_captions_fit_platform_limits():
     ep = {"script": json.loads((FIX / "script.json").read_text()),
           "paper": json.loads((FIX / "paper.json").read_text())}
-    for lang in ("zh", "en"):
+    for lang in ("zh", "en", "pt"):
         cap = captions(ep, lang)
         assert cap["yt_title"].endswith("#Shorts") and len(cap["yt_title"]) <= 100
         assert len(cap["threads"]) <= 500
-        assert "AI" in cap["long"]
+        assert "AI" in cap["long"] or "IA" in cap["long"]
 
 
 def test_unclassified_comments_go_to_the_owner(monkeypatch):
@@ -86,3 +87,21 @@ def test_state_stores_hashes_not_ids(tmp_path, monkeypatch):
 def test_review_approval_words(text, ok):
     from shorts import review
     assert review.is_approval(text) is ok
+
+
+def test_portuguese_follows_the_scene_plan():
+    script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
+    views = render.localize(script, "pt")
+    assert [len(v.lines) for v in views] == [len(s.lines) for s in script.scenes]
+    assert views[1].heading == "O ESTUDO"
+    bad = script.pt.model_copy(deep=True)
+    bad.scenes[0].lines.pop()
+    with pytest.raises(RuntimeError):
+        scriptmod.check_localized(script, bad)
+
+
+def test_citation_comment():
+    paper = json.loads((FIX / "paper.json").read_text())
+    ref = citation(paper)
+    assert paper["title"] in ref and paper["published"][:4] in ref and ref.split()[-1].startswith("http")
+    assert first_comment({"paper": paper}, "pt").startswith("📄 Artigo")
