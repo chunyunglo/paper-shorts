@@ -130,7 +130,9 @@ jobs:
               fi
             else
               status=1
-              python -m shorts review-close "$number" --message "上片時有平台失敗，請看 Actions 紀錄。Some platforms failed; see the Actions run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
+              # keep the review open: the episode is still approved, and later runs (e.g. pt at
+              # 22:00 UTC) or a manual re-run can finish it; posts already made are not repeated
+              python -m shorts review-close "$number" --keep-open --message "上片時有平台失敗，請看 Actions 紀錄；修好後重跑 publish 會補上沒上成功的。Some platforms failed; see the Actions run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             fi
           done < approved.txt
           python -m shorts review-skip-unapproved

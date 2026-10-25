@@ -83,9 +83,11 @@ def approved() -> list[tuple[int, str]]:
     return out
 
 
-def close(number: int, message: str, published: bool) -> None:
+def close(number: int, message: str, published: bool, keep_open: bool = False) -> None:
     base = f"https://api.github.com/repos/{inbox()}/issues/{number}"
     http("github", "comment on review", "POST", f"{base}/comments", headers=_gh(), json={"body": message})
+    if keep_open:
+        return
     http("github", "close review", "PATCH", base, headers=_gh(),
          json={"state": "closed", "state_reason": "completed" if published else "not_planned"})
 

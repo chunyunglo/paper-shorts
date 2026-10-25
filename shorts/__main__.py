@@ -48,6 +48,7 @@ def main() -> None:
     rc.add_argument("number", type=int)
     rc.add_argument("--message", required=True)
     rc.add_argument("--published", action="store_true")
+    rc.add_argument("--keep-open", action="store_true", help="only comment (a later run retries)")
     sub.add_parser("review-skip-unapproved")
     args = ap.parse_args()
 
@@ -87,7 +88,7 @@ def main() -> None:
             for number, tag in review.approved():
                 print(f"{number} {tag}")
         elif args.cmd == "review-close":
-            review.close(args.number, args.message, args.published)
+            review.close(args.number, args.message, args.published, args.keep_open)
         else:
             review.skip_unapproved()
     elif args.cmd == "test-email":
