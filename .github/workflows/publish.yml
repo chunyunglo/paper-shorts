@@ -38,14 +38,24 @@ jobs:
       TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
     steps:
       - uses: actions/checkout@v4
+      - name: Skip paused dates
+        if: github.event_name == 'schedule'
+        run: |
+          if grep -qx "$(TZ=Asia/Taipei date +%F)" data/skip_dates.txt; then
+            echo "Today is in data/skip_dates.txt; nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
       - uses: ./.github/actions/setup
+        if: env.SKIP != '1'
         with:
           render: "true"
       - name: Make episode
+        if: env.SKIP != '1'
         run: |
           python -m shorts make
           echo "EP_DIR=$(ls -d out/*/ | head -1)" >> "$GITHUB_ENV"
       - name: Put videos on a pre-release
+        if: env.SKIP != '1'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -55,6 +65,7 @@ jobs:
             --prerelease --title "$title" --notes-file "$EP_DIR/script.md"
           echo "TAG=$tag" >> "$GITHUB_ENV"
       - name: Open review issue
+        if: env.SKIP != '1'
         env:
           GITHUB_TOKEN: ${{ github.token }}
           PUBLISH_AT: 今晚 19:00
