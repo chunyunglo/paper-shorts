@@ -181,7 +181,7 @@ def test_suggest_replies_filters_posts_and_never_posts(monkeypatch):
     monkeypatch.setattr(engage, "search", lambda q, limit=15: found)
     q = engage.Queries(zh=["演算法 同溫層"], en=["my feed"], pt=["algoritmo bolha"])
     posts, ok = engage.find_posts(q, "me")
-    assert ok and [p["id"] for p in posts] == ["1"] and {p["query_lang"] for p in posts} == {"zh"}
+    assert ok and [(p["id"], p["query_lang"]) for p in posts] == [("1", "zh"), ("4", "en")]
 
     def denied(q, limit=15):
         raise ApiError("threads", "keyword search", 400, "10")
