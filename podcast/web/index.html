@@ -1,0 +1,46 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000;font-family:"Noto Sans CJK TC","Noto Sans",sans-serif}
+#c{position:absolute;inset:0;width:1920px;height:1080px}
+#sub{position:absolute;left:0;right:0;bottom:64px;text-align:center;font-size:52px;font-weight:700;color:#fff;
+ text-shadow:0 0 6px rgba(0,0,0,.9),0 3px 10px rgba(0,0,0,.8);letter-spacing:1px}
+#sub .who{display:inline-block;font-size:28px;padding:4px 14px;border-radius:20px;margin-right:16px;vertical-align:middle;position:relative;top:-6px;text-shadow:none}
+#sub .who.A{background:#ff6b4a;color:#fff}#sub .who.B{background:#f6efe3;color:#1d2a5c}
+#title{position:absolute;left:0;top:0;bottom:0;width:1300px;padding:330px 0 0 120px;box-sizing:border-box;color:#fff;background:linear-gradient(90deg,rgba(14,19,40,.85),rgba(14,19,40,.55) 60%,rgba(14,19,40,0))}
+#title .k{font-size:34px;letter-spacing:6px;color:#ffb8a6;font-weight:700}
+#title .t{font-size:92px;font-weight:900;margin-top:18px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
+#title .p{font-size:30px;margin-top:22px;color:#dfe4ff;max-width:1300px}
+#names{position:absolute;left:0;right:0;bottom:170px;display:flex;justify-content:space-between;padding:0 260px}
+#names div{background:rgba(29,42,92,.88);color:#fff;padding:12px 28px;border-left:8px solid #ff6b4a;font-size:34px;font-weight:700}
+#names small{display:block;font-size:20px;font-weight:400;color:#cfd6ff}
+.card{position:absolute;top:110px;width:640px;background:rgba(246,239,227,.96);color:#1d2a5c;border-radius:22px;padding:34px 40px;box-shadow:0 20px 60px rgba(0,0,0,.45);border-top:10px solid #ff6b4a}
+.card.right{right:90px}.card.left{left:90px}
+.card .kicker{font-size:24px;font-weight:700;color:#ff6b4a;letter-spacing:3px;margin-bottom:14px}
+.card .ptitle{font-size:38px;font-weight:900;line-height:1.3;margin-bottom:16px}
+.card .meta{font-size:24px;line-height:1.5;color:#33406f}.card .dim{color:#7a7f99}
+.card .big{font-size:96px;font-weight:900;line-height:1.05}.card .sub{font-size:30px;margin:6px 0 20px}
+.card .row{font-size:30px;line-height:1.6;margin-top:6px}.card .coral{color:#ff6b4a}
+.card .pill{background:#1d2a5c;color:#fff;border-radius:12px;padding:2px 12px;margin-right:8px}
+.card .stat{display:flex;align-items:center;margin:14px 0}.card .num{font-size:78px;font-weight:900;width:250px;color:#1d2a5c}
+.card .num.down{color:#ff6b4a}.card .num.dim{color:#9aa0b8}.card .lbl{font-size:30px;line-height:1.25}.card small{font-size:20px;color:#6b7090}
+.card .tl{margin-top:10px}.card .lane{display:flex;align-items:center;margin:18px 0;font-size:28px}.card .lane b{width:150px}
+.card .bar{flex:1;height:14px;background:#d9d2c3;border-radius:7px;position:relative}
+.card .bar i{position:absolute;top:-9px;width:32px;height:32px;border-radius:50%;background:#ff6b4a;margin-left:-16px}
+.card .gapnote{font-size:26px;color:#33406f;margin-top:10px}
+#outro{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:rgba(20,26,51,.55);opacity:0}
+#outro .t{font-size:110px;font-weight:900}#outro .s{font-size:36px;margin-top:20px;color:#ffd0c4}
+</style></head><body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<div id="title"><div class="k">行為解碼 PODCAST · EP.01</div><div class="t"></div><div class="p"></div></div>
+<div id="names"><div>小安<small>讀論文的那個</small></div><div>阿凱<small>負責問蠢問題</small></div></div>
+<div id="card" class="card" style="opacity:0"></div>
+<div id="sub"></div>
+<div id="outro"><div class="t">行為解碼</div><div class="s">用數據讀懂人類行為 · 下集見</div></div>
+<script src="bundle.js"></script>
+<script>
+window.boot = async () => {
+  const tl = await (await fetch('timeline.json')).json();
+  document.querySelector('#title .t').textContent = tl.title;
+  document.querySelector('#title .p').textContent = tl.paper.venue + ' ・ ' + tl.paper.authors;
+  await window.setup(tl); return tl;
+};
+</script></body></html>
