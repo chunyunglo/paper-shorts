@@ -22,9 +22,9 @@ from . import config
 from .safelog import http, log
 
 SR = 24000
-GAP_LINE = 0.16
-PAD_SCENE_START = 0.12
-PAD_SCENE_END = 0.32
+GAP_LINE = 0.07
+PAD_SCENE_START = 0.04
+PAD_SCENE_END = 0.16
 
 
 @dataclass
@@ -56,13 +56,13 @@ def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
     return a[lo:hi]
 
 
-def synth_google(text: str) -> np.ndarray:
-    voice = config.env("TTS_VOICE", "cmn-TW-Wavenet-A")
+def synth_google(text: str, voice: str | None = None) -> np.ndarray:
+    voice = voice or config.env("TTS_VOICE", "cmn-TW-Wavenet-A")
     body = {
         "input": {"text": text},
-        "voice": {"languageCode": voice.rsplit("-", 2)[0], "name": voice},
+        "voice": {"languageCode": "-".join(voice.split("-")[:2]), "name": voice},
         "audioConfig": {"audioEncoding": "LINEAR16", "sampleRateHertz": SR,
-                        "speakingRate": float(config.env("TTS_RATE", "1.1"))},
+                        "speakingRate": float(config.env("TTS_RATE", "1.25"))},
     }
     resp = http("google-tts", "synthesize", "POST",
                 "https://texttospeech.googleapis.com/v1/text:synthesize",
@@ -70,33 +70,42 @@ def synth_google(text: str) -> np.ndarray:
     return _wav_to_array(base64.b64decode(resp.json()["audioContent"]))
 
 
-def synth_edge(text: str) -> np.ndarray:
+def synth_edge(text: str, voice: str | None = None) -> np.ndarray:
     import edge_tts
 
-    voice = config.env("EDGE_VOICE", "zh-TW-HsiaoChenNeural")
+    voice = voice or config.env("EDGE_VOICE", "zh-TW-HsiaoChenNeural")
+    rate = f"+{round((float(config.env('TTS_RATE', '1.25')) - 1) * 100)}%"
     with tempfile.TemporaryDirectory() as tmp:
         mp3, wav = Path(tmp) / "a.mp3", Path(tmp) / "a.wav"
-        asyncio.run(edge_tts.Communicate(text, voice, rate="+8%").save(str(mp3)))
+        asyncio.run(edge_tts.Communicate(text, voice, rate=rate).save(str(mp3)))
         subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(mp3), "-ac", "1",
                         "-ar", str(SR), "-sample_fmt", "s16", str(wav)], check=True)
         return _wav_to_array(wav.read_bytes())
 
 
-def synth_silent(text: str) -> np.ndarray:
-    return np.zeros(int(SR * max(0.8, len(text) * 0.21)), dtype=np.float32)
+def synth_silent(text: str, voice: str | None = None) -> np.ndarray:
+    return np.zeros(int(SR * max(0.6, len(text) * 0.17)), dtype=np.float32)
 
 
 def provider() -> str:
     chosen = config.env("TTS_PROVIDER")
     if chosen:
         return chosen
+    if config.env("TTS_VOICE", "").endswith("Neural"):  # an Edge voice name, e.g. zh-TW-YunJheNeural
+        return "edge"
     return "google" if config.env("GOOGLE_TTS_API_KEY") else "edge"
+
+
+def synth_for(name: str):
+    if name == "edge":
+        return lambda text: synth_edge(text, config.env("TTS_VOICE") if config.env("TTS_VOICE", "").endswith("Neural") else None)
+    return {"google": synth_google, "silent": synth_silent}[name]
 
 
 def voiceover(scenes: list[list[str]], out_wav: Path) -> tuple[list[SceneTiming], float]:
     """scenes: the zh lines of each scene. Writes a mono wav, returns timings in seconds."""
     name = provider()
-    synth = {"google": synth_google, "edge": synth_edge, "silent": synth_silent}[name]
+    synth = synth_for(name)
     log(f"TTS provider: {name}")
     chunks: list[np.ndarray] = []
     timings: list[SceneTiming] = []

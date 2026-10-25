@@ -4,6 +4,7 @@
   publish DIR       upload an episode folder to YouTube, Instagram, Threads; record history
   comments          triage and answer new comments on recent episodes
   refresh-tokens    renew Instagram/Threads long-lived tokens and store them as repo secrets
+  voices            render one sentence in several voices for choosing (out/voices/)
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
 """
 from __future__ import annotations
@@ -29,6 +30,7 @@ def main() -> None:
     c.add_argument("--dry-run", action="store_true", help="classify only; post, hide, and email nothing")
     sub.add_parser("refresh-tokens")
     sub.add_parser("keepalive")
+    sub.add_parser("voices")
     args = ap.parse_args()
 
     if args.cmd == "make":
@@ -51,6 +53,10 @@ def main() -> None:
         from .tokens import refresh_all
 
         refresh_all()
+    elif args.cmd == "voices":
+        from .voices import render_all
+
+        render_all()
     elif args.cmd == "keepalive":
         install_excepthook(strict=True)
         from .tokens import keepalive
