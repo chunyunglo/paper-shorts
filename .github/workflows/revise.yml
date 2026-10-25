@@ -49,8 +49,13 @@ jobs:
           TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
           TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
         run: |
-          python -m shorts review-comment "$ISSUE" --message "收到，正在依照你的意見修改並重做影片，約 10 分鐘後貼新版本。Revising now."
           tag=$(python -m shorts review-tag "$ISSUE")
+          # once any video of the episode is out, the rest must match it: no more revisions
+          if python -c "import json,sys;h=json.load(open('data/history.json'));sys.exit(0 if any(e['episode']==sys.argv[1] and any(e.get('posts',{}).values()) for e in h) else 1)" "${tag#ep-}"; then
+            python -m shorts review-comment "$ISSUE" --message "這集已經有影片上線了，為了讓三個語言一致，不能再修改。要讓剩下的語言照原本版本上片，請再回一次 OK；不想上就回「不要上」。This episode is already partly published, so it cannot be revised. Reply OK to post the rest as is."
+            exit 0
+          fi
+          python -m shorts review-comment "$ISSUE" --message "收到，正在依照你的意見修改並重做影片，約 10 分鐘後貼新版本。Revising now."
           mkdir -p old
           gh release download "$tag" --dir old --pattern episode.json
           if ! python -m shorts revise old/episode.json --changes-out changes.md; then
