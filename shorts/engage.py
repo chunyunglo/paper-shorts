@@ -6,6 +6,7 @@ never into logs, issues or the repo.
 """
 from __future__ import annotations
 
+import re
 import time
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
@@ -99,6 +100,8 @@ def find_posts(queries: Queries, own: str, days: int = 7) -> tuple[list[dict], b
                 except ValueError:
                     old = False
                 if p["id"] in seen or p.get("username") == own or old or not p.get("text"):
+                    continue
+                if lang == "zh" and not re.search(r"[\u4e00-\u9fff]", p["text"]):  # Chinese posts only
                     continue
                 seen.add(p["id"])
                 posts.append({**p, "query_lang": lang})

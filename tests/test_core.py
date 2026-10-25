@@ -173,8 +173,9 @@ def test_suggest_replies_filters_posts_and_never_posts(monkeypatch):
     from shorts import engage
     from shorts.safelog import ApiError
     now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+0000")
-    found = [{"id": "1", "text": "my feed is all one side", "username": "a", "timestamp": now, "permalink": "p1"},
+    found = [{"id": "1", "text": "我的動態全是同一邊", "username": "a", "timestamp": now, "permalink": "p1"},
              {"id": "1", "text": "dup", "username": "a", "timestamp": now},
+             {"id": "4", "text": "english only", "username": "c", "timestamp": now},
              {"id": "2", "text": "ours", "username": "me", "timestamp": now},
              {"id": "3", "text": "old", "username": "b", "timestamp": "2020-01-01T00:00:00+0000"}]
     monkeypatch.setattr(engage, "search", lambda q, limit=15: found)
