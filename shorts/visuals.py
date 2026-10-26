@@ -255,7 +255,7 @@ def _icon_crowd(c: Canvas, sc, p, ctx, rnd):
 def v_icons(c: Canvas, sc, p, ctx):
     """2-4 concrete things or actors in the study, each a card with its icon and name."""
     labels = sc.labels or [sc.heading]
-    names = (sc.icons + [""] * 4)[: len(labels)]
+    names = (sc.icons + [""] * len(labels))[: len(labels)]
     n = len(labels)
     t = ctx["t"]
     if n <= 3:  # one row, linked by arrows: reads as a flow from left to right
@@ -521,7 +521,7 @@ def v_journey(c: Canvas, sc, p, ctx):
     """Something travels from stop to stop (cattle to buyers, a post to its readers); each stop lights up."""
     labels = sc.labels or [sc.heading]
     n = len(labels)
-    names = (sc.icons + [""] * 4)[:n]
+    names = (sc.icons + [""] * n)[:n]
     xs = [140, VW - 140] if n == 2 else [140, VW / 2, VW - 140, VW / 2][:n]
     ys = [150, 560] if n == 2 else [140, 330, 520, 700][:n]
     if n >= 3:  # zig-zag down the screen
