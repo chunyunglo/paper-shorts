@@ -8,7 +8,8 @@
 name: Publish episode
 
 on:
-  # GitHub drops scheduled events under load, so each slot has two backups. Repeats are
+  # GitHub drops scheduled events under load (on this repo it has never fired publish at all),
+  # so a Claude scheduled task also dispatches each slot with auto=true. Repeats are
   # harmless: prepare skips once today's review issue exists, and publish only posts what is
   # approved and not yet out.
   schedule:
@@ -34,6 +35,10 @@ on:
       episode:
         description: "prepare: remake this published episode instead of picking a new paper; delete: the episode to remove"
         default: ""
+      auto:
+        description: "Sent by the backup scheduler: behave like a scheduled run (needs AUTO_PUBLISH, skips paused or already-prepared days)"
+        type: boolean
+        default: false
 
 concurrency: publish
 
@@ -45,7 +50,7 @@ jobs:
   prepare:
     if: >-
       (github.event_name == 'schedule' && contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
-      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare')
+      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare' && (!inputs.auto || vars.AUTO_PUBLISH == 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
@@ -57,7 +62,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Skip paused dates and days already prepared
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.auto
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -110,7 +115,7 @@ jobs:
   publish:
     if: >-
       (github.event_name == 'schedule' && !contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
-      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
+      || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish' && (!inputs.auto || vars.AUTO_PUBLISH == 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
