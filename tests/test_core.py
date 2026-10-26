@@ -223,6 +223,28 @@ def test_icon_pick_keeps_only_real_names(monkeypatch):
             assert len(ic) <= max(1, len(sc.labels))
 
 
+def test_icon_pick_falls_back_to_keywords_when_claude_fails(monkeypatch):
+    from shorts import icons, llm
+
+    script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
+    monkeypatch.setattr(icons, "catalog", lambda: ["users", "truck"])
+    calls = []
+
+    def boom(*a, **k):
+        calls.append(k.get("effort"))
+        raise RuntimeError("Claude output incomplete (stop_reason=max_tokens)")
+
+    monkeypatch.setattr(llm, "ask", boom)
+    monkeypatch.setattr(icons, "find", lambda w: "truck")
+    scriptmod.pick_icons(script)
+    assert calls == ["low", "medium"]
+    assert len(script.icons) == len(script.scenes)
+    assert any(script.icons)
+    for sc, ic in zip(script.scenes, script.icons):
+        if sc.visual in ("hook", "paper", "takeaway"):
+            assert ic == []
+
+
 def test_scenes_draw_without_icons(monkeypatch):
     from shorts import icons, visuals
 

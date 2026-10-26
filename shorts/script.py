@@ -153,7 +153,8 @@ possible (a cow or meat for cattle, a truck for transport, a gavel for a court r
 - crowd: one icon for what the many dots stand for (users for people, or the thing studied);
 - hook, paper and takeaway scenes: an empty list.
 Prefer literal, recognizable objects over abstract symbols. If nothing in the list fits a \
-label, use the closest general icon (e.g. users, building, chart-bar, file-text)."""
+label, use the closest general icon (e.g. users, building, chart-bar, file-text).
+Never more than 4 names for a scene; the whole answer is a few short lists."""
 
 
 def pick_icons(script: Script) -> None:
@@ -168,16 +169,19 @@ def pick_icons(script: Script) -> None:
                "narration": [l.en for l in s.lines]} for i, s in enumerate(script.scenes)]
     text = (f"Video: {script.title_en}\n\nScenes (JSON):\n{json.dumps(scenes, ensure_ascii=False)}\n\n"
             f"Icon names:\n{' '.join(names)}")
-    try:
-        pick = llm.ask(IconPick, ICON_SYSTEM, text, effort="low")
-    except Exception as exc:  # icons are decoration; never fail an episode over them
-        log(f"Icon pick failed: {exc}")
-        script.icons = []
-        return
+    pick = None
+    for effort in ("low", "medium"):  # the answer is tiny; a runaway output fails fast and gets one retry
+        try:
+            pick = llm.ask(IconPick, ICON_SYSTEM, text, effort=effort, max_tokens=4000)
+            break
+        except Exception as exc:  # icons are decoration; never fail an episode over them
+            log(f"Icon pick failed ({effort}): {exc}")
     out = []
     for i, s in enumerate(script.scenes):
-        got = pick.scenes[i] if i < len(pick.scenes) else []
+        got = pick.scenes[i] if pick and i < len(pick.scenes) else []
         got = [n.strip() for n in got if icons.known(n.strip())]
+        if not got:  # keyword match on the English labels as a fallback
+            got = [n for n in map(icons.find, s.labels_en or s.labels or [s.heading_en]) if n]
         if s.visual in ("hook", "paper", "takeaway"):
             got = []
         out.append(got[: max(1, len(s.labels))] if s.labels or s.visual == "crowd" else got[:1])
