@@ -90,6 +90,7 @@ def fetch_journal(venue: str, url: str) -> list[Paper]:
         authors = [a.get("name", "") for a in e.get("authors", []) if a.get("name")]
         if not authors and e.get("author"):
             authors = [e.author]
+        authors = clean_authors(authors)  # garbled ones are refilled from Crossref by enrich()
         out.append(Paper(
             id=f"doi:{doi.lower()}" if doi else e.link,
             title=_clean(e.title),
@@ -127,8 +128,16 @@ def candidates(history: list[dict]) -> list[Paper]:
     return fresh
 
 
+def clean_authors(authors: list[str]) -> list[str]:
+    """Drop author fields that are really a run-together author/affiliation blob (seen in PNAS RSS)."""
+    if any(len(a) > 60 or "http" in a for a in authors):
+        return []
+    return [a.strip() for a in authors if a.strip()]
+
+
 def enrich(paper: Paper) -> Paper:
     """Journal RSS often omits authors; fill them from Crossref by DOI."""
+    paper.authors = clean_authors(paper.authors)
     if paper.authors or not paper.doi:
         return paper
     try:

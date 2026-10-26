@@ -8,9 +8,11 @@ from __future__ import annotations
 
 import math
 import random
+from functools import lru_cache
 
 from PIL import Image, ImageDraw
 
+from . import icons as iconset
 from .config import CORAL, CREAM, NAVY
 from .fonts import fit, font
 
@@ -73,8 +75,37 @@ class Canvas:
         self.d.arc([(cx - r) * S, (cy - r) * S, (cx + r) * S, (cy + r) * S], start, end,
                    fill=fill, width=int(width * S))
 
+    def icon(self, name: str, cx, cy, size, color, alpha: float = 1.0) -> bool:
+        """Paste a Tabler icon centered at (cx, cy). Returns False if it can't be drawn."""
+        if not name or alpha <= 0 or size < 4:
+            return False
+        q = max(1, round(alpha * 8))  # quantized so the tinted images cache well
+        img = _icon(name, int(size * S) // 12 * 12 or 12, color, q)  # size steps keep the cache warm
+        if img is None:
+            return False
+        self.img.alpha_composite(img, (int(cx * S - img.width / 2), int(cy * S - img.height / 2)))
+        return True
+
     def finish(self) -> Image.Image:
         return self.img.reduce(S)
+
+
+@lru_cache(maxsize=4096)
+def _icon(name: str, px: int, color, q: int):
+    img = iconset.image(name, px, tuple(color[:3]), 1.6 if px > 160 else 2.0)
+    if img is None or q >= 8:
+        return img
+    a = img.getchannel("A").point(lambda v: v * q // 8)
+    img = img.copy()
+    img.putalpha(a)
+    return img
+
+
+def back(x: float) -> float:
+    """Ease with a small overshoot, for things that pop in."""
+    x = clamp(x)
+    c1 = 1.70158
+    return 1 + (c1 + 1) * (x - 1) ** 3 + c1 * (x - 1) ** 2
 
 
 def chips(c: Canvas, labels: list[str], y: float, p: float, start: float = 0.35, accent: int = -1):
@@ -183,6 +214,8 @@ def person(c: Canvas, x, y, r, col):
 
 def v_crowd(c: Canvas, sc, p, ctx):
     rnd = random.Random(ctx["seed"])
+    if sc.icons and iconset.image(sc.icons[0], 32, NAVY) is not None:
+        return _icon_crowd(c, sc, p, ctx, rnd)
     cols, rows = 10, 8
     gx, gy = VW / (cols + 1), 560 / (rows + 0.5)
     hot = {i for i in range(cols * rows) if rnd.random() < 0.22}
@@ -198,6 +231,68 @@ def v_crowd(c: Canvas, sc, p, ctx):
         bob = math.sin(t * 2.2 + i) * 3 * k
         person(c, cx, cy + bob, 26 * (0.6 + 0.4 * a), col)
     chips(c, sc.labels, 640, p, accent=len(sc.labels) - 1 if len(sc.labels) > 1 else -1)
+
+
+def _icon_crowd(c: Canvas, sc, p, ctx, rnd):
+    """Many copies of the thing studied (cattle, phones, people...); some light up coral."""
+    cols, rows = 6, 5
+    gx, gy = VW / (cols + 1), 560 / (rows + 0.3)
+    hot = {i for i in range(cols * rows) if rnd.random() < 0.22}
+    t = ctx["t"]
+    for i in range(cols * rows):
+        cx = gx * (i % cols + 1) + (gx / 2 if (i // cols) % 2 else 0) - gx / 4
+        cy = 80 + gy * (i // cols + 0.5)
+        a = stage(p, 0.006 * i, 0.12)
+        if a <= 0:
+            continue
+        k = stage(p, 0.45 + 0.002 * i, 0.15) if i in hot else 0
+        col = CORAL if k > 0.5 else NAVY
+        bob = math.sin(t * 2.2 + i) * 4 * k
+        c.icon(sc.icons[0], cx, cy + bob, 100 * (0.7 + 0.3 * back(a)), col, a)
+    chips(c, sc.labels, 640, p, accent=len(sc.labels) - 1 if len(sc.labels) > 1 else -1)
+
+
+def v_icons(c: Canvas, sc, p, ctx):
+    """2-4 concrete things or actors in the study, each a card with its icon and name."""
+    labels = sc.labels or [sc.heading]
+    names = (sc.icons + [""] * 4)[: len(labels)]
+    n = len(labels)
+    t = ctx["t"]
+    if n <= 3:  # one row, linked by arrows: reads as a flow from left to right
+        w = min(270, (VW - 60 - 40 * (n - 1)) / n)
+        h = 380
+        x0 = (VW - (n * w + 40 * (n - 1))) / 2
+        boxes = [(x0 + i * (w + 40), (VH - h) / 2 - 20, w, h) for i in range(n)]
+    else:
+        w, h = 400, 330
+        boxes = [(50 + (i % 2) * (w + 20), 60 + (i // 2) * (h + 30), w, h) for i in range(n)]
+    for i, (x, y, bw, bh) in enumerate(boxes):
+        a = stage(p, 0.05 + 0.14 * i, 0.18)
+        if a <= 0:
+            continue
+        pop = back((p - 0.05 - 0.14 * i) / 0.18)
+        hot = i == n - 1 and n > 1
+        bob = math.sin(t * 1.8 + i * 1.3) * 5
+        yy = y + (1 - a) * 40
+        c.rrect((x + 8, yy + 12, x + bw + 8, yy + bh + 12), 32, fill=NAVY_20)
+        c.rrect((x, yy, x + bw, yy + bh), 32, fill=(CORAL if hot else WHITE) + (int(255 * a),), outline=NAVY, width=4)
+        size = min(bw, bh) * 0.55 * pop
+        drawn = c.icon(names[i], x + bw / 2, yy + bh * 0.42 + bob, size, CREAM if hot else NAVY, a)
+        if not drawn:
+            c.circle(x + bw / 2, yy + bh * 0.42 + bob, size * 0.35, fill=(CREAM if hot else NAVY) + (int(255 * a),))
+        f, lines = fit(labels[i], "bold", int(bw - 30), [40, 34, 30, 26], 2)
+        ty = yy + bh * 0.80 - (len(lines) - 1) * f.size * 0.6
+        for ln in lines:
+            c.text((x + bw / 2, ty), ln, "bold", f.size, (CREAM if hot else NAVY) + (int(255 * a),), anchor="mm")
+            ty += f.size * 1.2
+        if n <= 3 and i < n - 1:
+            b = stage(p, 0.12 + 0.14 * i, 0.12)
+            if b > 0:
+                ax, ay = x + bw + 6, y + bh / 2
+                c.line([(ax, ay), (ax + 28 * b, ay)], NAVY, 6)
+                if b >= 1:
+                    c.d.polygon([((ax + 24) * S, (ay - 12) * S), ((ax + 24) * S, (ay + 12) * S),
+                                 ((ax + 36) * S, ay * S)], fill=NAVY)
 
 
 def v_network(c: Canvas, sc, p, ctx):
@@ -266,8 +361,10 @@ def v_pipeline(c: Canvas, sc, p, ctx):
         hot = i == active
         fill = CORAL if hot else WHITE
         c.rrect((90, y, VW - 90, y + box_h), 30, fill=fill + (int(255 * a),), outline=NAVY, width=4)
-        c.circle(160, y + box_h / 2, 36, fill=NAVY if not hot else CREAM)
-        c.text((160, y + box_h / 2), str(i + 1), "black", 38, CREAM if not hot else CORAL, anchor="mm")
+        name = sc.icons[i] if i < len(sc.icons) else ""
+        if not c.icon(name, 160, y + box_h / 2, min(84, box_h * 0.62), CREAM if hot else NAVY, a):
+            c.circle(160, y + box_h / 2, 36, fill=NAVY if not hot else CREAM)
+            c.text((160, y + box_h / 2), str(i + 1), "black", 38, CREAM if not hot else CORAL, anchor="mm")
         f, lines = fit(label, "bold", VW - 360, [48, 42, 36], 2)
         yy = y + box_h / 2 - (len(lines) - 1) * f.size * 0.62
         for ln in lines:
@@ -304,7 +401,10 @@ def v_bars(c: Canvas, sc, p, ctx):
         a = stage(p, 0.1 + 0.08 * i, 0.4)
         col = CORAL if i == hot else NAVY
         if labels:
-            c.text((80, y - 6), labels[i], "bold", 38, NAVY, anchor="ls")
+            lx = 80
+            if i < len(sc.icons) and c.icon(sc.icons[i], 102, y - 20, 50, col, stage(p, 0.05 + 0.08 * i, 0.2)):
+                lx = 140
+            c.text((lx, y - 6), labels[i], "bold", 38, NAVY, anchor="ls")
         ln = 40 + (VW - 300) * abs(v) / vmax * a
         c.line([(90, y + 30), (90 + ln, y + 30)], col, 34)
         if real and a > 0.05:
@@ -391,6 +491,8 @@ def v_contrast(c: Canvas, sc, p, ctx):
             v = sc.values[side] * stage(p, 0.3, 0.35)
             f2, _ = fit(_fmt(sc.values[side]), "black", int(w - 40), [110, 90, 72, 60], 1)
             c.text((x + w / 2, y + 330), _fmt(v), "black", f2.size, CREAM, anchor="mm")
+        elif side < len(sc.icons) and c.icon(sc.icons[side], x + w / 2, y + 330, 200 * back(a), CREAM, a):
+            pass
         else:
             rnd = random.Random(ctx["seed"] + side)
             dens = 0.35 if side == 0 else 0.8
@@ -419,7 +521,7 @@ def v_takeaway(c: Canvas, sc, p, ctx):
 
 DRAW = {"hook": v_hook, "paper": v_paper, "crowd": v_crowd, "network": v_network,
         "pipeline": v_pipeline, "bars": v_bars, "timeline": v_timeline, "scatter": v_scatter,
-        "contrast": v_contrast, "takeaway": v_takeaway}
+        "contrast": v_contrast, "icons": v_icons, "takeaway": v_takeaway}
 
 
 def draw(sc, p: float, ctx: dict) -> Image.Image:

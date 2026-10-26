@@ -11,7 +11,7 @@ from .papers import Paper
 from .safelog import log
 
 Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timeline",
-                 "scatter", "contrast", "takeaway"]
+                 "scatter", "contrast", "icons", "takeaway"]
 
 
 class Line(BaseModel):
@@ -61,6 +61,11 @@ class Localized(BaseModel):
 
 class Script(ScriptDraft):
     pt: Localized | None = None
+    icons: list[list[str]] = []  # per scene, Tabler icon names (picked after the script is written)
+
+
+class IconPick(BaseModel):
+    scenes: list[list[str]] = Field(description="One list per scene, in scene order: the icon names for that scene")
 
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
@@ -90,10 +95,13 @@ readable at a glance; the English and pt big text are just as short.
 2. paper: who did this study and where it was published (keep it to one line).
 3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
 This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
-crowd (people/participants/accounts), network (connections, spread, communities), pipeline \
-(a 2-4 step process; labels = the step names), bars (comparing groups), timeline (change over \
-time), scatter (a relationship between two measures), contrast (A vs B; labels = the two sides, \
-big_text = the key difference).
+crowd (people/participants/accounts, or many of the things studied), network (connections, \
+spread, communities), pipeline (a 2-4 step process; labels = the step names), bars (comparing \
+groups), timeline (change over time), scatter (a relationship between two measures), contrast \
+(A vs B; labels = the two sides, big_text = the key difference), icons (2-4 concrete things or \
+actors in the study, e.g. ranchers, cattle, buyers, a court; labels = their names). Each scene \
+is later illustrated with simple icons of its labels, so make labels concrete nouns where you \
+can; use the icons visual at least once so the episode visibly shows its own subject.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
@@ -136,6 +144,45 @@ def write(paper: Paper, news: dict | None = None) -> Script:
     w = sum(len(l.en.split()) for s in script.scenes for l in s.lines)
     log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters, {w} English words")
     return script
+
+
+ICON_SYSTEM = """You choose simple line icons to illustrate each scene of a short explainer video. \
+For each scene, return icon names taken EXACTLY from the provided list (never invent names):
+- scenes with labels: one icon per label, same order, picturing that label as concretely as \
+possible (a cow or meat for cattle, a truck for transport, a gavel for a court ruling);
+- crowd: one icon for what the many dots stand for (users for people, or the thing studied);
+- hook, paper and takeaway scenes: an empty list.
+Prefer literal, recognizable objects over abstract symbols. If nothing in the list fits a \
+label, use the closest general icon (e.g. users, building, chart-bar, file-text)."""
+
+
+def pick_icons(script: Script) -> None:
+    """Fill script.icons; leaves it empty when the icon set is unavailable."""
+    from . import icons
+
+    names = icons.catalog()
+    if not names:
+        script.icons = []
+        return
+    scenes = [{"index": i, "visual": s.visual, "heading": s.heading_en, "labels": s.labels_en or s.labels,
+               "narration": [l.en for l in s.lines]} for i, s in enumerate(script.scenes)]
+    text = (f"Video: {script.title_en}\n\nScenes (JSON):\n{json.dumps(scenes, ensure_ascii=False)}\n\n"
+            f"Icon names:\n{' '.join(names)}")
+    try:
+        pick = llm.ask(IconPick, ICON_SYSTEM, text, effort="low")
+    except Exception as exc:  # icons are decoration; never fail an episode over them
+        log(f"Icon pick failed: {exc}")
+        script.icons = []
+        return
+    out = []
+    for i, s in enumerate(script.scenes):
+        got = pick.scenes[i] if i < len(pick.scenes) else []
+        got = [n.strip() for n in got if icons.known(n.strip())]
+        if s.visual in ("hook", "paper", "takeaway"):
+            got = []
+        out.append(got[: max(1, len(s.labels))] if s.labels or s.visual == "crowd" else got[:1])
+    script.icons = out
+    log(f"Icons picked for {sum(1 for x in out if x)} scenes")
 
 
 def validate(script: Script) -> None:
