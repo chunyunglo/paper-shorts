@@ -255,7 +255,7 @@ def _icon_crowd(c: Canvas, sc, p, ctx, rnd):
 def v_icons(c: Canvas, sc, p, ctx):
     """2-4 concrete things or actors in the study, each a card with its icon and name."""
     labels = sc.labels or [sc.heading]
-    names = (sc.icons + [""] * 4)[: len(labels)]
+    names = (sc.icons + [""] * len(labels))[: len(labels)]
     n = len(labels)
     t = ctx["t"]
     if n <= 3:  # one row, linked by arrows: reads as a flow from left to right
@@ -505,6 +505,126 @@ def v_contrast(c: Canvas, sc, p, ctx):
         c.text_block(VW / 2, 650 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
 
 
+def _bezier(pts, k):
+    """Point at fraction k along a polyline (by length)."""
+    segs = [math.dist(a, b) for a, b in zip(pts, pts[1:])]
+    d = k * sum(segs)
+    for (a, b), L in zip(zip(pts, pts[1:]), segs):
+        if d <= L or L == 0:
+            f = d / L if L else 0
+            return a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f
+        d -= L
+    return pts[-1]
+
+
+def v_journey(c: Canvas, sc, p, ctx):
+    """Something travels from stop to stop (cattle to buyers, a post to its readers); each stop lights up."""
+    labels = sc.labels or [sc.heading]
+    n = len(labels)
+    names = (sc.icons + [""] * n)[:n]
+    xs = [140, VW - 140] if n == 2 else [140, VW / 2, VW - 140, VW / 2][:n]
+    ys = [150, 560] if n == 2 else [140, 330, 520, 700][:n]
+    if n >= 3:  # zig-zag down the screen
+        xs = [140 if i % 2 == 0 else VW - 140 for i in range(n)]
+        ys = [110 + i * (560 / (n - 1)) for i in range(n)]
+    stops = list(zip(xs, ys))
+    # a smooth path through the stops
+    path = []
+    for (x0, y0), (x1, y1) in zip(stops, stops[1:]):
+        for j in range(24):
+            k = j / 24
+            path.append((x0 + (x1 - x0) * ease(k), y0 + (y1 - y0) * k))
+    path.append(stops[-1])
+    draw_k = stage(p, 0.1, 0.55)
+    shown = path[: max(2, int(len(path) * draw_k))]
+    for a, b in zip(shown[::2], shown[1::2]):  # dashed trail
+        c.line([a, b], NAVY_40, 8)
+    t = ctx["t"]
+    for i, (x, y) in enumerate(stops):
+        a = stage(p, 0.02 + 0.08 * i, 0.15)
+        if a <= 0:
+            continue
+        reached = draw_k >= (i / (n - 1) if n > 1 else 0) - 1e-6 and p > 0.1
+        hot = reached and i == n - 1 and n > 1
+        r = 92 * back((p - 0.02 - 0.08 * i) / 0.15)
+        if reached and i > 0:
+            c.circle(x, y, r + 14 + 6 * math.sin(t * 4), fill=CORAL_30)
+        c.circle(x, y, r, fill=(CORAL if hot else WHITE) + (int(255 * a),), outline=NAVY, width=4)
+        if not c.icon(names[i], x, y, r * 1.05, CREAM if hot else NAVY, a):
+            c.circle(x, y, r * 0.3, fill=(CREAM if hot else NAVY) + (int(255 * a),))
+        f, lines = fit(labels[i], "bold", 300, [36, 32, 28], 2)
+        lx = x + (130 if x < VW / 2 else -130)
+        c.text_block(lx, y - f.size * 0.6 * len(lines), lines, "bold", f.size, NAVY + (int(255 * a),),
+                     anchor="la" if x < VW / 2 else "ra")
+    if 0.1 < p and draw_k < 1:  # the traveller
+        x, y = shown[-1]
+        c.circle(x, y, 22, fill=CORAL)
+        c.circle(x, y, 34, outline=CORAL, width=4)
+
+
+def v_spotlight(c: Canvas, sc, p, ctx):
+    """One key thing, big and centered, with the related things orbiting it."""
+    names = sc.icons or [""]
+    t = ctx["t"]
+    cx, cy = VW / 2, 330
+    a = stage(p, 0.0, 0.2)
+    for k in range(3):  # ripples
+        ph = (t * 0.5 + k / 3) % 1
+        c.circle(cx, cy, 170 + 190 * ph, outline=NAVY + (int(90 * (1 - ph) * a),), width=4)
+    r = 170 * back(p / 0.25)
+    c.circle(cx, cy, r, fill=CORAL + (int(255 * a),))
+    if not c.icon(names[0], cx, cy, r * 1.1, CREAM, a):
+        fingerprint(c, cx, cy, r / 160, p, coral_ring=-1)
+    orbit = names[1:4]
+    for i, name in enumerate(orbit):
+        b = stage(p, 0.25 + 0.1 * i, 0.15)
+        if b <= 0:
+            continue
+        ang = t * 0.6 + i * 2 * math.pi / len(orbit)
+        ox, oy = cx + math.cos(ang) * 300, cy + math.sin(ang) * 230
+        c.circle(ox, oy, 62 * b, fill=WHITE, outline=NAVY, width=4)
+        c.icon(name, ox, oy, 70 * b, NAVY, b)
+    text = sc.big_text or (sc.labels[0] if sc.labels else "")
+    if text:
+        b = stage(p, 0.35, 0.2)
+        f, lines = fit(text, "black", VW - 100, [72, 60, 50], 2)
+        c.text_block(VW / 2, 640 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
+
+
+def v_funnel(c: Canvas, sc, p, ctx):
+    """Lots of raw data go in, the computer filters, a few that matter come out (coral)."""
+    rnd = random.Random(ctx["seed"])
+    name = sc.icons[0] if sc.icons else ""
+    top, neck, bottom = 170, 470, 560
+    a = stage(p, 0.0, 0.15)
+    c.d.polygon([(110 * S, top * S), ((VW - 110) * S, top * S), ((VW / 2 + 60) * S, neck * S),
+                 ((VW / 2 + 60) * S, bottom * S), ((VW / 2 - 60) * S, bottom * S),
+                 ((VW / 2 - 60) * S, neck * S)], fill=WHITE + (int(255 * a),), outline=NAVY + (int(255 * a),), width=4 * S)
+    for i in range(36):
+        start = 0.05 + rnd.random() * 0.55
+        k = (p - start) / 0.3
+        if k <= 0:
+            continue
+        x0 = 140 + rnd.random() * (VW - 280)
+        keep = rnd.random() < 0.18
+        if k < 1:  # falling in, squeezing toward the neck
+            yy = 110 + (neck - 20 - 110) * k
+            xx = x0 + (VW / 2 - x0) * clamp((yy - top) / (neck - top))
+            col = NAVY
+        elif keep:  # out the bottom, coral
+            k2 = clamp(k - 1)
+            xx, yy = VW / 2 + (rnd.random() - 0.5) * 300 * k2, bottom + 40 + 120 * ease(k2)
+            col = CORAL
+        else:
+            continue
+        if not c.icon(name, xx, yy, 56, col):
+            c.circle(xx, yy, 14, fill=col)
+    if sc.labels:
+        chips(c, sc.labels[:1], 40, p, start=0.0)
+        if len(sc.labels) > 1:
+            chips(c, sc.labels[-1:], 730, p, start=0.6, accent=0)
+
+
 def v_takeaway(c: Canvas, sc, p, ctx):
     text = sc.big_text or sc.lines[0]
     f, lines = fit(text, "black", VW - 100, [96, 84, 72, 60], 3)
@@ -521,10 +641,16 @@ def v_takeaway(c: Canvas, sc, p, ctx):
 
 DRAW = {"hook": v_hook, "paper": v_paper, "crowd": v_crowd, "network": v_network,
         "pipeline": v_pipeline, "bars": v_bars, "timeline": v_timeline, "scatter": v_scatter,
-        "contrast": v_contrast, "icons": v_icons, "takeaway": v_takeaway}
+        "contrast": v_contrast, "icons": v_icons, "journey": v_journey, "spotlight": v_spotlight,
+        "funnel": v_funnel, "takeaway": v_takeaway}
 
 
 def draw(sc, p: float, ctx: dict) -> Image.Image:
     c = Canvas()
-    DRAW[sc.visual](c, sc, p, ctx)
-    return c.finish()
+    DRAW.get(sc.visual, v_icons)(c, sc, p, ctx)
+    img = c.finish()
+    z = 1 + 0.04 * ease(p)  # slow push-in so no scene sits still
+    if sc.visual in ("hook", "takeaway") or z < 1.002:
+        return img
+    w, h = int(VW / z), int(VH / z)
+    return img.resize((VW, VH), Image.BILINEAR, box=((VW - w) / 2, (VH - h) / 2, (VW + w) / 2, (VH + h) / 2))

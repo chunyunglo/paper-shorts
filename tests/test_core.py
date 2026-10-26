@@ -253,7 +253,7 @@ def test_scenes_draw_without_icons(monkeypatch):
     view = render.SceneView("icons", "THE DATA", ["Ranches", "Buyers", "Cattle"], [], "", ["x"],
                             ["tractor", "building-store", "truck"])
     ctx = {"seed": 1, "t": 1.0, "lang": "en"}
-    for visual in ("icons", "crowd", "pipeline", "contrast", "bars"):
+    for visual in ("icons", "crowd", "pipeline", "contrast", "bars", "journey", "spotlight", "funnel"):
         view.visual = visual
         assert visuals.draw(view, 0.8, ctx).size == (visuals.VW, visuals.VH)
 
