@@ -77,9 +77,9 @@ EXPRESSIONS = {
     'blinkLeft': {'eye-left-closure': 1.0},
     'blinkRight': {'eye-right-closure': 1.0},
     # a real smile narrows the eyes only a little (the cheeks push up), it does not close them
-    'happy': {'mouth-corner-puller': 0.8, 'eye-left-slit': 0.18, 'eye-right-slit': 0.18, 'mouth-upward-retraction': 0.15,
+    'happy': {'mouth-corner-puller': 0.8, 'eye-left-slit': 0.08, 'eye-right-slit': 0.08, 'mouth-upward-retraction': 0.15,
               'eyebrows-left-extern-up': 0.12, 'eyebrows-right-extern-up': 0.12, 'nose-left-elevation': 0.15, 'nose-right-elevation': 0.15},
-    'relaxed': {'mouth-corner-puller': 0.4, 'eye-left-slit': 0.06, 'eye-right-slit': 0.06},
+    'relaxed': {'mouth-corner-puller': 0.4},
     'surprised': {'eyebrows-left-up': 0.9, 'eyebrows-right-up': 0.9, 'eye-left-opened-up': 0.6, 'eye-right-opened-up': 0.6,
                   'mouth-open': 0.35},
     'sad': {'eyebrows-left-inner-up': 0.8, 'eyebrows-right-inner-up': 0.8, 'mouth-depression': 0.5},
@@ -87,16 +87,126 @@ EXPRESSIONS = {
 }
 
 
-def bake_expressions(h, keys):
-    for name, mix in EXPRESSIONS.items():
+def bake_expressions(h, keys, base=None):
+    """Bake each VRM preset from the facial units. `base` is a set of units held in the neutral face
+    itself (e.g. lids a little more open); every preset is built on top of it, except the blinks,
+    whose keys then close the lids from that opened rest."""
+    base = base or {}
+    for name, mix in list(EXPRESSIONS.items()) + ([('_base', {})] if base else []):
         for k in keys.values():
             k.value = 0.0
-        for u, w in mix.items():
+        full = dict(mix) if name.startswith('blink') else {u: base.get(u, 0) + mix.get(u, 0) for u in set(base) | set(mix)}
+        for u, w in full.items():
             keys[u].value = w
         sk = h.shape_key_add(name=name, from_mix=True)
         sk.value = 0.0
     for k in list(keys.values()):
         h.shape_key_remove(k)
+    if base:
+        kb = h.data.shape_keys.key_blocks
+        co = np.array([v.co[:] for v in kb['_base'].data])
+        kb[0].data.foreach_set('co', co.ravel())
+        for v, c in zip(h.data.vertices, co):
+            v.co = c
+        h.shape_key_remove(kb['_base'])
+
+
+def stylize(body, eyes, st):
+    """Push the face toward a friendly animated look: larger eyes, a smaller nose, a narrower jaw,
+    a softer chin. One smooth displacement field of the rest position, added to the basis and to
+    every expression key, so all the expressions keep working."""
+    me = body.data
+    kbs = me.shape_keys.key_blocks
+    rest = np.array([v.co[:] for v in kbs[0].data])
+    E = np.array([v.co[:] for v in eyes.data.vertices])
+    ecs = [E[E[:, 0] > 0].mean(0), E[E[:, 0] < 0].mean(0)]
+    lips = body.vertex_groups['lips'].index
+    lv = np.array([v.co[:] for v in me.vertices if any(g.group == lips and g.weight > 0.5 for g in v.groups)])
+    mouth = lv.mean(0)
+    ez = ecs[0][2]
+    near = rest[(np.abs(rest[:, 0]) < 0.01) & (rest[:, 2] < ez - 0.01) & (rest[:, 2] > mouth[2] + 0.01)]
+    tip = near[np.argmin(near[:, 1])]                     # nose tip
+    root = np.array([0.0, tip[1] + 0.02, ez - 0.035])     # roughly where the nose meets the face
+
+    def ss(x):
+        x = np.clip(x, 0, 1)
+        return x * x * (3 - 2 * x)
+
+    def field(P):
+        D = np.zeros_like(P)
+        s = st.get('eyes', 1.0)
+        for c in ecs:     # eyes: scale about the eye centre, mostly sideways and up/down
+            q = (P - c) * np.array([1, 0.6, 1])
+            q[:, 2] *= np.where(P[:, 2] < c[2], 1.8, 1.0)     # stay clear of the nose and the mouth below
+            r = np.linalg.norm(q, axis=1)
+            w = 1 - ss((r - 0.014) / 0.05)
+            up = st.get('open', 1.0) - 1      # extra lift of the upper lid: an awake, open look
+            D += w[:, None] * (P - c) * np.array([s - 1, (s - 1) * 0.3, s - 1 + up * (P[:, 2] > c[2])[:, None][:, 0:1].mean() * 0])
+            D[:, 2] += w * np.clip(P[:, 2] - c[2], 0, None) * up
+            wl = 1 - ss((r - 0.012) / 0.02)       # the lower lid only, not the cheek
+            D[:, 2] += wl * np.clip(P[:, 2] - c[2], None, 0) * (st.get('lower_open', 1.0) - 1)
+        n = st.get('nose', 1.0)     # nose: shrink toward its root
+        r = np.linalg.norm(P - (tip + root) / 2, axis=1)
+        w = 1 - ss((r - 0.008) / 0.04)
+        D += w[:, None] * (P - root) * (n - 1)
+        j = st.get('jaw', 1.0)      # lower face: narrower toward the chin
+        below = ss((mouth[2] + 0.02 - P[:, 2]) / 0.06) * (1 - ss((P[:, 1] - 0.02) / 0.04)) * (1 - ss((mouth[2] - 0.11 - P[:, 2]) / 0.02))
+        D[:, 0] += below * P[:, 0] * (j - 1)
+        c = st.get('chin', 1.0)     # shorter lower face: squeeze nose-to-chin toward the nose
+        if c != 1.0:
+            piv, chin = mouth[2] + 0.022, mouth[2] - 0.05
+            fr = 1 - ss((P[:, 1] - mouth[1] - 0.05) / 0.05)
+            z = np.clip(piv - P[:, 2], 0, piv - chin) * (1 - c)
+            z *= np.where(P[:, 2] < chin, 1 - ss((chin - P[:, 2]) / 0.06), 1)
+            D[:, 2] += z * fr
+        ch = st.get('cheek', 0.0)   # rounder cheeks
+        if ch:
+            for sg in (1, -1):
+                r = np.linalg.norm((P - np.array([sg * 0.042, mouth[1] + 0.03, mouth[2] + 0.025])) * np.array([1, 0.7, 0.9]), axis=1)
+                w = 1 - ss(r / 0.035)
+                D[:, 0] += w * sg * ch
+                D[:, 1] -= w * ch * 0.5
+        m = st.get('mouth', 1.0)    # mouth width
+        r = np.linalg.norm((P - mouth) * np.array([0.7, 1, 1.4]), axis=1)
+        w = 1 - ss((r - 0.02) / 0.025)
+        D[:, 0] += w * (P[:, 0] - mouth[0]) * (m - 1)
+        return D
+
+    D = field(rest)
+    sm = st.get('smooth', 0)
+    zone = None
+    if sm:   # iron out the realistic folds (nasolabial lines, cheek creases) on the face, away from eyes, lips
+        P = rest + D       # and nostrils, in the rest face and in every expression
+        edges = np.array([e.vertices[:] for e in me.edges])
+        deg = np.bincount(edges.ravel(), minlength=len(P)).astype(float)
+        front = 1 - ss((P[:, 1] - mouth[1] - 0.06) / 0.03)
+        zone = ss((P[:, 2] - (mouth[2] - 0.06)) / 0.02) * (1 - ss((P[:, 2] - (ez + 0.03)) / 0.02)) * front
+        for c in ecs:
+            zone *= ss((np.linalg.norm((P - c) * np.array([1, 0.6, 1.2]), axis=1) - 0.016) / 0.008)
+        zone *= ss((np.linalg.norm((P - mouth) * np.array([0.8, 1, 1.3]), axis=1) - 0.02) / 0.006)
+        zone *= ss((np.linalg.norm(P - tip, axis=1) - 0.013) / 0.006)
+        zone[np.abs(P[:, 0]) > 0.09] = 0
+
+        def smooth(Q):
+            for _ in range(int(sm)):
+                acc = np.zeros_like(Q)
+                np.add.at(acc, edges[:, 0], Q[edges[:, 1]]); np.add.at(acc, edges[:, 1], Q[edges[:, 0]])
+                Q = Q + (acc / np.maximum(deg, 1)[:, None] - Q) * 0.5 * zone[:, None]
+            return Q
+    for kb in kbs:
+        co = np.array([v.co[:] for v in kb.data]) + D
+        if zone is not None:
+            co = smooth(co)
+        kb.data.foreach_set('co', co.ravel())
+    D = np.array([v.co[:] for v in kbs[0].data]) - rest
+    for v, d in zip(me.vertices, D):
+        v.co = Vector(v.co) + Vector(d)
+    # the eyeballs scale with their sockets
+    s = st.get('eyes', 1.0)
+    for v in eyes.data.vertices:
+        c = ecs[0] if v.co.x > 0 else ecs[1]
+        v.co = Vector(c + (np.array(v.co) - c) * np.array([s, 1 + (s - 1) * 0.3, s]))
+    me.update()
 
 
 def sink_tongue(body, mask, teeth=None, back=0.02, down=0.01):
@@ -204,9 +314,43 @@ def iris_texture(spec, outdir):
     iris = ((sat > 0.25) & (lum < 0.4))[..., None]
     rec = tgt[None, None] * (lum[..., None] / 0.11) ** 0.8
     out = np.where(iris, np.clip(rec, 0, 1), im * np.array([0.97, 0.95, 0.94]))
+    k = spec.get('stylize', {}).get('iris')
+    if k:   # animated eyes: a larger iris with a dark rim and a big pupil on a clean white
+        out = _cartoon_iris(out, iris[..., 0], k, tgt)
     p = f"{outdir}/{spec['name']}_iris.png"
     Image.fromarray((out * 255).astype(np.uint8)).save(p)
     return p
+
+
+def _cartoon_iris(im, iris, k, tgt):
+    """Redraw each iris k times larger: the original's radial fibres resampled, a soft dark limbal
+    ring, a pupil ~45% of the iris, and the sclera cleaned of veins."""
+    H, W = iris.shape
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    out = im.copy()
+    for half in (xx > W / 2, xx <= W / 2):
+        sel = iris & half
+        cx, cy = xx[sel].mean(), yy[sel].mean()
+        R = np.sqrt(sel.sum() / np.pi)
+        r = np.hypot(xx - cx, yy - cy)
+        disc = r < R * 2.6          # the eyeball's own area in the texture
+        # sclera: the original's soft shading, minus the red veins
+        lum = out.mean(-1, keepdims=True)
+        sclera = np.array([0.96, 0.95, 0.93]) * (0.8 + 0.2 * np.clip(lum / 0.78, 0, 1))
+        out = np.where((disc & ~sel)[..., None], sclera, out)
+        Rn = R * k
+        src_r = np.clip(r / k, 0, R - 1)
+        sx = np.clip((cx + (xx - cx) / np.maximum(r, 1e-3) * src_r).astype(int), 0, W - 1)
+        sy = np.clip((cy + (yy - cy) / np.maximum(r, 1e-3) * src_r).astype(int), 0, H - 1)
+        fib = im[sy, sx].mean(-1, keepdims=True) / 0.11          # fibre brightness around 1
+        t = r / Rn
+        col = tgt[None, None] * (0.75 + 0.35 * np.clip(fib, 0.4, 1.6) ** 0.6) * (1.3 - 0.5 * t[..., None])
+        col = col * (1 - 0.75 * np.clip((t[..., None] - 0.78) / 0.2, 0, 1))      # limbal ring
+        pupil = np.clip((0.4 - t) / 0.03, 0, 1)[..., None]
+        col = col * (1 - pupil) + 0.02 * pupil
+        a = np.clip((1.0 - t) / 0.03, 0, 1)[..., None]          # anti-aliased edge
+        out = out * (1 - a) + col * a
+    return np.clip(out, 0, 1)
 
 
 def dress(spec, body, eyes, clothes, hairs, outdir):
@@ -238,9 +382,9 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
     body.data.materials.clear()
     S = skin.paint_skin(body, spec, texdir)
     body.data.materials.append(skin.material('Skin', tex=S, rough=0.5))
-    body.data.materials.append(skin.material('Teeth', base=(0.6, 0.58, 0.54), rough=0.35))   # sits in the mouth's shadow
+    body.data.materials.append(skin.material('Teeth', base=(0.78, 0.76, 0.72), rough=0.35))   # sits in the mouth's shadow
     body.data.materials.append(skin.material('Tongue', base=(0.55, 0.22, 0.24), rough=0.4))
-    body.data.materials.append(skin.material('Lashes', base=tuple(c * 0.5 for c in spec['hair']['color']), rough=0.6, double=True))
+    body.data.materials.append(skin.material('Lashes', base=tuple(c * 0.3 for c in spec['hair']['color']), rough=0.6, double=True))
     eimg = bpy.data.images.load(iris_texture(spec, texdir))
     skin.set_material(eyes, skin.material('Eye', tex=eimg, rough=0.05))
     rgb, alpha = __import__('hair').strand_texture(spec['hair']['color'])
@@ -269,7 +413,9 @@ if __name__ == '__main__':
     eyes = add_eyes(body)
     skin.tag_vertices(body, str(MPFB / 'data' / 'targets'))
     keys = unit_keys(body, spec.get('race_units', 'caucasian'))
-    bake_expressions(body, keys)
+    bake_expressions(body, keys, spec.get('base_units'))
+    if spec.get('stylize'):
+        stylize(body, eyes, spec['stylize'])
     info = garments.BodyInfo(body, rig)
     sink_tongue(body, info.groups['helper-tongue'], info.groups['helper-lower-teeth'])
     clothes, covered = garments.suit(info, spec.get('outfit', 'host'))
@@ -307,6 +453,8 @@ if __name__ == '__main__':
     vrmexport.bake_pose_as_rest(rig)
     spec['_head'] = list(np.array(rig.data.bones['head'].head_local) + np.array([0, 0, 0.09]))
     spec['_eyes'] = [list(rig.data.bones['eye_l'].head_local), list(rig.data.bones['eye_r'].head_local)]
+    E = np.array([v.co[:] for v in eyes.data.vertices]); E = E[E[:, 0] > 0]
+    spec['_eye_r'] = float(np.percentile(np.linalg.norm(E - E.mean(0), axis=1), 95))
     spec['_scalp'] = hair_region(body, rig, eyes, group_mask(body, 'head', 0.5), spec['hair'])[1]
     dress(spec, body, eyes, clothes, hairs, outdir)
     for o in bpy.data.objects:

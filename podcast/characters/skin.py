@@ -193,26 +193,54 @@ def paint_skin(body, spec, outdir, size=4096):
         # behind the lip line, inside the lip band (philtrum and chin are outside it)
         ny, nz = M['ny'][mask], M['nz'][mask]
         facing_in = np.clip((ny + 0.35) / 0.2, 0, 1) + np.clip((np.abs(nz) - 0.55) / 0.15, 0, 1) * (np.abs(d[:, 2]) < 0.009)
-        deep = (np.clip((p[:, 1] - front - 0.003) / 0.003, 0, 1) * np.clip((0.026 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.012)
+        deep = (np.clip((p[:, 1] - front - 0.003) / 0.003, 0, 1) * np.clip((0.02 - np.abs(d[:, 0])) / 0.006, 0, 1) * (np.abs(d[:, 2]) < 0.012)
                 * np.clip(facing_in, 0, 1))
         # the cavity itself: well behind the lips (gums, the back wall), which the face never is this close to the mouth
         behind = p[:, 1] - front
-        deep = np.maximum(deep, np.clip((behind - 0.011) / 0.003, 0, 1) * np.clip((0.022 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.013))
+        deep = np.maximum(deep, np.clip((behind - 0.011) / 0.003, 0, 1) * np.clip((0.016 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.009))
         deep = np.maximum(deep, np.clip((behind - 0.025) / 0.004, 0, 1) * np.clip((0.02 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.035))
         inner = np.clip(deep, 0, 1)[:, None]       # includes the wet inside of the lips
         col = col * (1 - inner * 0.85) + np.array((0.22, 0.07, 0.07)) * inner * 0.85
     # eyelid shadow / liner
     for e in (eyeL, eyeR):
         d = p - e
-        lid = np.exp(-((d[:, 0] / 0.02) ** 2 + ((d[:, 2] - 0.006) / 0.009) ** 2)) / (1 + np.exp((d[:, 1] + 0.005) / 0.003))
+        k = spec.get('stylize', {}).get('eyes', 1.0)
+        lid = np.exp(-((d[:, 0] / (0.02 * k)) ** 2 + ((d[:, 2] - 0.006 * k) / (0.009 * k)) ** 2)) / (1 + np.exp((d[:, 1] + 0.005) / 0.003))
         col *= (1 - lid * S.get('lid', 0.18))[:, None]
     # waterline: the shelf of the lower lid faces up into the light, so give it the wet, shaded
     # pink of a real lid rim instead of bright skin
     for e in (eyeL, eyeR):
         d = p - e
-        near = (np.abs(d[:, 0]) < 0.019) & (d[:, 2] < 0.001) & (d[:, 2] > -0.012) & (d[:, 1] < 0.004)
+        sm = lambda x: np.clip(x, 0, 1) ** 2 * (3 - 2 * np.clip(x, 0, 1))
+        near = sm((0.02 - np.abs(d[:, 0])) / 0.005) * sm((0.002 - d[:, 2]) / 0.002) * sm((d[:, 2] + 0.013) / 0.003) * (d[:, 1] < 0.004)
         shelf = (np.clip((M['nz'][mask] - 0.25) / 0.3, 0, 1) * near)[:, None]
-        col = col * (1 - shelf * 0.75) + np.array((0.52, 0.3, 0.28)) * shelf * 0.75
+        wl = S.get('waterline', 0.75)
+        col = col * (1 - shelf * wl) + np.array(S.get('waterline_col', (0.52, 0.3, 0.28))) * shelf * wl
+    # lash line: a dark rim along the upper lid margin (the lowest lid skin above the eyeball at
+    # each point across the eye), heavier toward the outer corner
+    if S.get('lash'):
+        R = spec.get('_eye_r', 0.012)
+        for e, sg in ((eyeL, 1), (eyeR, -1)):
+            d = p - e
+            dist = np.linalg.norm(d, axis=1)
+            u = sg * d[:, 0] / R                       # -1 inner corner .. +1 outer corner
+            lidp = (dist < R + 0.002) & (d[:, 1] < -0.3 * R) & (d[:, 2] > -0.2 * R) & (np.abs(u) < 1.1)
+            bins = np.linspace(-1.1, 1.1, 23)
+            zm = np.full(len(bins), np.nan)
+            for i, b0 in enumerate(bins):
+                s_ = lidp & (np.abs(u - b0) < 0.1)
+                if s_.any():
+                    zm[i] = d[s_, 2].min()
+            ok = ~np.isnan(zm)
+            if ok.sum() < 3:
+                continue
+            zmar = np.interp(u, bins[ok], zm[ok])
+            w = S.get('lash_w', 0.0026) * (0.6 + 0.8 * np.clip(u + 0.2, 0, 1))
+            h = d[:, 2] - zmar
+            band = np.clip((w - h) / 0.0005, 0, 1) * np.clip((h - 0.0002) / 0.0004, 0, 1)
+            band *= np.clip((u + 0.85) / 0.15, 0, 1) * (u < 1.05) * (d[:, 1] < 0) * (dist < R + 0.006)
+            ls = band[:, None] * S['lash']
+            col = col * (1 - ls) + np.array((0.06, 0.04, 0.035)) * ls
     # nails
     nails = np.clip(M['nails'][mask], 0, 1)[:, None]
     col = col * (1 - nails * 0.6) + np.array((0.88, 0.7, 0.68)) * nails * 0.6
@@ -223,13 +251,14 @@ def paint_skin(body, spec, outdir, size=4096):
         d = p - e
         u = sg * d[:, 0]                       # along the brow, + outward
         t = np.clip((u + 0.022) / 0.05, 0, 1)  # 0 inner end .. 1 tail
-        zc = S.get('brow_h', 0.021) + 0.007 * np.sin(np.pi * np.clip(t * 1.25, 0, 1)) - 0.006 * t ** 2
+        zc = S.get('brow_h', 0.021) + 0.007 * np.sin(np.pi * np.clip(t * 1.25, 0, 1)) - S.get('brow_drop', 0.006) * t ** 2
         th = S.get('brow_w', 0.0055) * (1.25 - 0.75 * t)
         inside = np.exp(-((d[:, 2] - zc) / th) ** 4) * (u > -0.024) * (u < 0.031) / (1 + np.exp(d[:, 1] / 0.003))
         ends = np.clip((u + 0.024) / 0.006, 0, 1) * np.clip((0.031 - u) / 0.012, 0, 1)
         br = np.maximum(br, inside * ends)
     strokes = vnoise(p * np.array([0.35, 1.0, 2.5]), 1400, seed=9)
-    br = np.clip(br * (0.45 + 0.75 * strokes), 0, 1)[:, None] * S.get('brow', 0.85)
+    soft = S.get('brow_soft', 0.0)     # 1: a clean drawn brow instead of hair strokes
+    br = np.clip(br * ((0.45 + 0.75 * strokes) * (1 - soft) + soft), 0, 1)[:, None] * S.get('brow', 0.85)
     col = col * (1 - br) + hair * br
     # stubble / scalp shade
     if S.get('stubble'):

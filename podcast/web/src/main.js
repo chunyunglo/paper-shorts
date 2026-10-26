@@ -300,6 +300,11 @@ async function loadHost(url) {
     o.castShadow = true; o.receiveShadow = true;
     for (const m of [].concat(o.material)) tuneMaterial(m, o);
     if (window.DEBUG && window.DEBUG.normals && o.material.name === 'Skin') o.material = new THREE.MeshNormalMaterial();
+    if (window.DEBUG && window.DEBUG.toon && !Array.isArray(o.material)) {
+      const g = new Uint8Array([90, 170, 235, 255]); const gt = new THREE.DataTexture(g, 4, 1, THREE.RedFormat); gt.needsUpdate = true; gt.minFilter = gt.magFilter = THREE.LinearFilter;
+      const om = o.material;
+      if (!om.name.startsWith('Hair') || om.name === 'HairCap' || om.name === 'HairBobMatte') o.material = new THREE.MeshToonMaterial({ name: om.name, map: om.map, color: om.color, gradientMap: gt, transparent: om.transparent, alphaTest: om.alphaTest, side: om.side });
+    }
     if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap' && o.material.name !== 'HairBobMatte') o.material = hairMaterial(o.material);
   });
   const root = new THREE.Group(); root.add(vrm.scene);

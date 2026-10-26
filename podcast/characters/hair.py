@@ -219,6 +219,9 @@ def bob(body, rig, head_c, eye_z, style, name='HairBob'):
             if front > 0:   # thin out towards the front hairline so the edge meets the forehead
                 edge = (p.z - (eye_z + style.get('open_top', 0.06))) / style.get('edge_band', 0.035)
                 thick *= min(1.0, max(style.get('edge_min', 0.12), edge)) ** (front * 1.5)
+            if style.get('quiff') and front > 0:   # a lift of volume over the front hairline, swept up and back
+                rise = (p.z - (eye_z + style.get('open_top', 0.06))) / 0.04
+                thick += style['quiff'] * front ** 3 * max(0.0, min(1.0, rise)) * max(0.0, min(1.0, (1.4 - rise) / 0.8))
             q = p + d * thick
             if style.get('drop') is not None and q.z < z_drop and prev is not None:
                 # fall straight down from where it left the head, with a soft inward curve at the ends
