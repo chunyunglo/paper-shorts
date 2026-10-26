@@ -1,8 +1,7 @@
 """Studio audience from real recordings, all CC0 from Freesound (see assets/crowd/CREDITS.md).
 
-Laughs: Kinoton's "Sitcom Laughter 9x, Small Audience", cut into its nine laughs. Each audience
-reaction uses the laugh whose length fits best (never the same one twice in a row), with a second
-laugh layered under it for big reactions, so the room sounds bigger and repeats are hard to spot.
+Laughs: the first of Kinoton's "Sitcom Laughter 9x, Small Audience", for every reaction, cut to
+length with a fade; big reactions layer a second, slightly retuned copy a beat later.
 
 Applause: nervousneal's "Applause, small audience" (about 50 people). A stretch of the steady part,
 a swell in, then the recording's own tail as people stop; two offset layers for a fuller house.
@@ -28,7 +27,7 @@ def _load(name):
 
 
 def _laughs():
-    return sorted(p.name for p in ASSETS.glob('laugh_*.flac'))
+    return ['laugh_1.flac']      # one laugh for the whole show, the one that sounds most like a live room
 
 
 def _pitch(x, ratio):
@@ -63,9 +62,7 @@ def laugh(dur, gain=1.0, rng=None):
     x = _fit(_load(main), total, 0.7)
     out[:len(x)] += x
     if gain > 0.8:   # a second group a beat later, a little lower: a bigger room
-        other = names[int(rng.integers(len(names)))]
-        if other == main:
-            other = names[(names.index(main) + 1) % len(names)]
+        other = main
         y = _pitch(_load(other), rng.uniform(0.97, 1.03))
         d = int(rng.uniform(0.08, 0.2) * SR)
         y = _fit(y, total - d, 0.7)

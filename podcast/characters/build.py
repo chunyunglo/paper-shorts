@@ -99,17 +99,24 @@ def bake_expressions(h, keys):
         h.shape_key_remove(k)
 
 
-def sink_tongue(body, mask, back=0.012, down=0.007):
+def sink_tongue(body, mask, teeth=None, back=0.012, down=0.007):
     """The tongue does not follow the jaw in the expression units, so when the mouth opens it shows
-    between the teeth. Sit it lower and further back in every shape key."""
+    between the teeth. Sit it lower and further back, and in every shape key move it with the lower
+    teeth so it stays inside the mouth."""
     idx = np.where(mask)[0]
-    for kb in body.data.shape_keys.key_blocks:
-        for i in idx:
-            kb.data[i].co.y += back
-            kb.data[i].co.z -= down
-    for i in idx:
-        body.data.vertices[i].co.y += back
-        body.data.vertices[i].co.z -= down
+    kbs = body.data.shape_keys.key_blocks
+    basis = kbs[0]
+    rest = np.array([basis.data[i].co[:] for i in idx]) + np.array([0, back, -down])
+    tid = np.where(teeth)[0] if teeth is not None else []
+    t0 = np.array([basis.data[i].co[:] for i in tid]) if len(tid) else None
+    for kb in kbs:
+        d = np.zeros(3)
+        if t0 is not None and kb != basis:
+            d = (np.array([kb.data[i].co[:] for i in tid]) - t0).mean(0)
+        for k, i in enumerate(idx):
+            kb.data[i].co = rest[k] + d
+    for k, i in enumerate(idx):
+        body.data.vertices[i].co = rest[k]
 
 
 def strip_body(info, covered):
@@ -245,7 +252,8 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
         elif o.name.startswith('HairBob'):
             rgb2, a2 = __import__('hair').long_strands(spec['hair']['color'])
             B = skin.to_image(f"{spec['name']}_bob", rgb2, f"{texdir}/{spec['name']}_bob.png", alpha=a2)
-            skin.set_material(o, skin.material('HairBob', tex=B, rough=0.68, alpha_tex='self', double=True))
+            matte = spec['hair'].get('bob', {}).get('classic')
+            skin.set_material(o, skin.material('HairBobMatte' if matte else 'HairBob', tex=B, rough=0.68, alpha_tex='self', double=True))
         else:
             skin.set_material(o, skin.material('Hair', tex=H, rough=0.62, alpha_tex='self', double=True))
 
@@ -263,7 +271,7 @@ if __name__ == '__main__':
     keys = unit_keys(body, spec.get('race_units', 'caucasian'))
     bake_expressions(body, keys)
     info = garments.BodyInfo(body, rig)
-    sink_tongue(body, info.groups['helper-tongue'])
+    sink_tongue(body, info.groups['helper-tongue'], info.groups['helper-lower-teeth'])
     clothes, covered = garments.suit(info, spec.get('outfit', 'host'))
     THICK = {'Shirt': 0.0016, 'Collar': 0.0025, 'CollarPoints': 0.002, 'Jacket': 0.0045, 'Lapels': 0.003,
              'Trousers': 0.0035, 'Belt': 0.004, 'Tie': 0.004, 'Flaps': 0.003, 'Welt': 0.002, 'PocketSquare': 0.002}
@@ -271,6 +279,10 @@ if __name__ == '__main__':
         if k in THICK:   # shirt and shoes are already dense; the rest get one level of rounding
             garments.finish(o, THICK[k], levels=0 if k in ('Shirt', 'Shoes') else 1)
     strip_body(info, covered)
+    for o in clothes.values():   # clothes follow the torso, never the jaw or head
+        vg = o.vertex_groups.get('head')
+        if vg is not None:
+            o.vertex_groups.remove(vg)
     # hair on the rest pose
     headm = group_mask(body, 'head', 0.5)
     scalp, _ = hair_region(body, rig, eyes, headm & ~group_mask(body, 'ears', 0.3), spec['hair'])
@@ -282,11 +294,12 @@ if __name__ == '__main__':
     if spec['hair'].get('bob'):
         ez = float(np.array([v.co[2] for v in eyes.data.vertices]).mean())
         hairs.append(hair.bob(body, rig, head_c, ez, spec['hair']['bob']))
-        hairs.append(hair.strips(rig, spec['hair']['bob']))
+        if not spec['hair']['bob'].get('classic'):   # classic: the plain sculpted bob, no strand strips
+            hairs.append(hair.strips(rig, spec['hair']['bob']))
     if spec['hair'].get('cards'):
         hairs.append(hair.grow(body, rig, scalp, collide, spec['hair'], head_c))
     for o in hairs:
-        if o.name.startswith('HairBob'):   # give the sculpted hair a rounded hem instead of a paper edge
+        if o.name.startswith('HairBob') and not spec['hair']['bob'].get('classic'):   # rounded hem instead of a paper edge
             garments.finish(o, 0.004, levels=1)
     vrmexport.add_eye_bones(rig, eyes)
     m = eyes.modifiers.get('Armature') or eyes.modifiers.new('Armature', 'ARMATURE'); m.object = rig

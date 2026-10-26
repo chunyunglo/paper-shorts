@@ -509,6 +509,35 @@ def surface_patch(target, name, corners, lift, info, n=8):
     return _grid_object(name, verts, faces, uvs, info)
 
 
+def trim_hidden(o, info, z_waist, z_neck, cuff_from=0.86):
+    """Drop the parts of an under-layer that the jacket always covers (sleeves up to the cuff, the
+    back and sides), so they can never poke through the jacket when the arms bend."""
+    idx = np.where(info.isbody)[0]
+    kd = kdtree.KDTree(len(idx))
+    for i in idx:
+        kd.insert(Vector(info.co[i]), int(i))
+    kd.balance()
+    a_l, a_r = info.along('lowerarm_l'), info.along('lowerarm_r')
+    bm = bmesh.new()
+    bm.from_mesh(o.data)
+    kill = []
+    for f in bm.faces:
+        c = f.calc_center_median()
+        _, i, _ = kd.find(c)
+        dom = info.dom[i]
+        if dom in ('upperarm_l', 'upperarm_r'):
+            kill.append(f)
+        elif dom in ('lowerarm_l', 'lowerarm_r'):
+            if (a_l if dom.endswith('l') else a_r)[i] < cuff_from:
+                kill.append(f)
+        elif z_waist + 0.02 < c.z < z_neck - 0.06 and (c.y > 0.03 or (abs(c.x) > 0.13 and c.y > -0.04)):
+            kill.append(f)
+    bmesh.ops.delete(bm, geom=kill, context='FACES')
+    bm.to_mesh(o.data)
+    bm.free()
+    o.data.update()
+
+
 def weights_from(obj, src, k=3):
     """Give obj the bone weights of the nearest vertices of src, so a patch moves with the cloth under it."""
     co = [v.co.copy() for v in src.data.vertices]
@@ -612,6 +641,7 @@ def suit(info, style):
         shirt_planes[1] = ((0, -0.1, z_neck - 0.08), _unit((0, -0.85, 1)), None)
     sm = info.smoothed(40)
     out['Shirt'] = cut(info, 'Shirt', upper, 0.003, smooth=2, planes=shirt_planes, subdiv=1, base=sm)
+    trim_hidden(out['Shirt'], info, z_waist, z_neck)
 
     if style == 'host':
         collar_m = isb & inset({'neck_01', 'spine_03', 'clavicle_l', 'clavicle_r'})

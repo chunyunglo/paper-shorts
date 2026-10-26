@@ -299,7 +299,7 @@ async function loadHost(url) {
     o.castShadow = true; o.receiveShadow = true;
     for (const m of [].concat(o.material)) tuneMaterial(m, o);
     if (window.DEBUG && window.DEBUG.normals && o.material.name === 'Skin') o.material = new THREE.MeshNormalMaterial();
-    if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap') o.material = hairMaterial(o.material);
+    if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap' && o.material.name !== 'HairBobMatte') o.material = hairMaterial(o.material);
   });
   const root = new THREE.Group(); root.add(vrm.scene);
   return { vrm, root, flip: vrm0 ? -1 : 1 };
@@ -343,7 +343,7 @@ function applyPose(h, t, st) {
     const g = side === near ? gs.main : gs.both;
     const lift = side === near ? gs.lift || 0 : (gs.lift2 || 0);
     let rest;
-    if (h.role === 'desk') rest = V(k(side) * 0.15, 0.8 - R.position.y + 0.04, h.L1 * 0.45 + h.L2 * 0.9 + (side === near ? 0.02 : 0));
+    if (h.role === 'desk') rest = V(k(side) * 0.15, 0.8 - R.position.y + 0.065, h.L1 * 0.45 + h.L2 * 0.9 + (side === near ? 0.02 : 0));
     else rest = V(k(side) * (side === near ? 0.05 : 0.09), h.lapY + 0.05, h.lapZ + (side === near ? 0.03 : 0));
     const up = V(k(side) * (0.2 + wob(51 + k(side)) * 0.07), shoulderY - h.L1 * 0.55 + wob(61 + k(side), 1.7) * 0.08, h.L1 * 0.35 + h.L2 * 0.8 + wob(71 + k(side)) * 0.05);
     // phrase gestures: a softer, lower version of the full gesture
@@ -356,6 +356,7 @@ function applyPose(h, t, st) {
       if (laughHand === 1) p.lerp(V(k(side) * 0.04, shoulderY - h.L1 * 0.45, 0.13), smooth(fold * 1.6));
       else if (laughHand === 2) { p.y += pump * 0.05; p.z += fold * 0.03; }
     }
+    if (h.role === 'desk') p.y = Math.max(p.y, 0.8 - R.position.y + 0.06);   // never through the desk top
     if (side === far && gs.wave > 0) p.lerp(V(k(side) * 0.32, shoulderY + 0.2, 0.22), gs.wave);
     const open = Math.max(g, side === far ? gs.wave : 0);
     set(side + 'Shoulder', 0, 0, -k(side) * (pump * 0.07 + burst * 0.04));
@@ -364,7 +365,7 @@ function applyPose(h, t, st) {
     const kk = k(side);
     const waving = side === far ? gs.wave : 0;
     set(side + 'Hand', kk * open * 0.7, kk * (0.1 + waving * Math.sin(t * 10) * 0.5), -kk * (h.role === 'desk' ? 0.12 : 0.3));
-    const curl = 0.45 - open * 0.38;
+    const curl = (h.role === 'desk' ? 0.28 : 0.45) - open * (h.role === 'desk' ? 0.22 : 0.38);
     for (const fn of ['Index', 'Middle', 'Ring', 'Little']) {
       const extra = (fn === 'Little' ? 0.12 : fn === 'Ring' ? 0.06 : 0) + wob(91 + fn.length, 0.7) * 0.05;
       for (const j of ['Proximal', 'Intermediate', 'Distal']) set(side + fn + j, 0, 0, -kk * (curl + extra));

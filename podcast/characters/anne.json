@@ -75,8 +75,7 @@
    "open_top": 0.055,
    "u_rep": 5,
    "seed": 3,
-   "strips": 1300,
-   "strip_w": 0.014
+   "classic": true
   }
  },
  "colors": {
