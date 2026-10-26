@@ -19,7 +19,7 @@ fi
 # MakeHuman base mesh and targets through MPFB2 (GPL code, CC0 assets), MakeHuman eyes (CC0),
 # VRM export through VRM-Addon-for-Blender (MIT). Clothes, hair and skin are procedural (characters/).
 if [ ! -f web/models/kai.vrm ]; then
-  [ -d .cache/bpyenv ] || { uv venv -q -p 3.13 .cache/bpyenv && uv pip install -q -p .cache/bpyenv bpy==5.1.2 numpy; }
+  [ -d .cache/bpyenv ] || { uv venv -q -p 3.13 .cache/bpyenv && uv pip install -q -p .cache/bpyenv bpy==5.1.2 numpy pillow; }
   [ -d .cache/mpfb2 ] || git clone -q --depth 1 https://github.com/makehumancommunity/mpfb2 .cache/mpfb2
   [ -d .cache/vrmaddon ] || git clone -q --depth 1 https://github.com/saturday06/VRM-Addon-for-Blender .cache/vrmaddon
   if [ ! -d .cache/makehuman ]; then

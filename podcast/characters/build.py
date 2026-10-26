@@ -76,9 +76,10 @@ EXPRESSIONS = {
     'blink': {'eye-left-closure': 1.0, 'eye-right-closure': 1.0},
     'blinkLeft': {'eye-left-closure': 1.0},
     'blinkRight': {'eye-right-closure': 1.0},
-    'happy': {'mouth-corner-puller': 0.9, 'eye-left-slit': 0.45, 'eye-right-slit': 0.45, 'mouth-upward-retraction': 0.2,
-              'eyebrows-left-extern-up': 0.2, 'eyebrows-right-extern-up': 0.2},
-    'relaxed': {'mouth-corner-puller': 0.45, 'eye-left-slit': 0.15, 'eye-right-slit': 0.15},
+    # a real smile narrows the eyes only a little (the cheeks push up), it does not close them
+    'happy': {'mouth-corner-puller': 0.8, 'eye-left-slit': 0.18, 'eye-right-slit': 0.18, 'mouth-upward-retraction': 0.15,
+              'eyebrows-left-extern-up': 0.12, 'eyebrows-right-extern-up': 0.12, 'nose-left-elevation': 0.15, 'nose-right-elevation': 0.15},
+    'relaxed': {'mouth-corner-puller': 0.4, 'eye-left-slit': 0.06, 'eye-right-slit': 0.06},
     'surprised': {'eyebrows-left-up': 0.9, 'eyebrows-right-up': 0.9, 'eye-left-opened-up': 0.6, 'eye-right-opened-up': 0.6,
                   'mouth-open': 0.35},
     'sad': {'eyebrows-left-inner-up': 0.8, 'eyebrows-right-inner-up': 0.8, 'mouth-depression': 0.5},
@@ -96,6 +97,19 @@ def bake_expressions(h, keys):
         sk.value = 0.0
     for k in list(keys.values()):
         h.shape_key_remove(k)
+
+
+def sink_tongue(body, mask, back=0.012, down=0.007):
+    """The tongue does not follow the jaw in the expression units, so when the mouth opens it shows
+    between the teeth. Sit it lower and further back in every shape key."""
+    idx = np.where(mask)[0]
+    for kb in body.data.shape_keys.key_blocks:
+        for i in idx:
+            kb.data[i].co.y += back
+            kb.data[i].co.z -= down
+    for i in idx:
+        body.data.vertices[i].co.y += back
+        body.data.vertices[i].co.z -= down
 
 
 def strip_body(info, covered):
@@ -170,6 +184,24 @@ def hair_region(body, rig, eyes, headm, hs):
     return headm & (d > 0), np.where(headm, np.clip(d / 0.015 + 1, 0, 1), 0)
 
 
+def iris_texture(spec, outdir):
+    """MakeHuman's brown eye recoloured: the iris to a natural dark brown (the stock one reads red on
+    screen), the sclera a touch off-white."""
+    from PIL import Image
+    import colorsys
+    im = np.asarray(Image.open(str(MH / 'eyes' / 'materials' / 'brown_eye.png')).convert('RGB')).astype(np.float32) / 255
+    mx, mn = im.max(-1), im.min(-1)
+    sat = (mx - mn) / (mx + 1e-6)
+    lum = im.mean(-1)
+    tgt = np.array(spec.get('iris', (0.30, 0.18, 0.10)), np.float32)       # brown at the iris' median brightness
+    iris = ((sat > 0.25) & (lum < 0.4))[..., None]
+    rec = tgt[None, None] * (lum[..., None] / 0.11) ** 0.8
+    out = np.where(iris, np.clip(rec, 0, 1), im * np.array([0.97, 0.95, 0.94]))
+    p = f"{outdir}/{spec['name']}_iris.png"
+    Image.fromarray((out * 255).astype(np.uint8)).save(p)
+    return p
+
+
 def dress(spec, body, eyes, clothes, hairs, outdir):
     import skin
     C = spec['colors']
@@ -187,9 +219,11 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
             'Collar': None, 'Belt': skin.material('Belt', base=C.get('belt', (0.03, 0.025, 0.02)), rough=0.35),
             'Shoes': skin.material('Shoes', base=C.get('shoes', (0.02, 0.02, 0.022)), rough=0.22),
             'Button': skin.material('Button', base=[c * 0.6 for c in C['suit']], rough=0.3)}
+    mats['Flaps'] = mats['Welt'] = suit
+    mats['PocketSquare'] = mats['Shirt']
     mats['Collar'] = mats['CollarPoints'] = mats['Shirt']
     if 'Tie' in clothes:
-        mats['Tie'] = mats['Knot'] = fab('Tie', 'twill', C['tie'], 30, 0.45, 4, 0.8)
+        mats['Tie'] = mats['Knot'] = fab('Tie', 'twill', C['tie'], 30, 0.62, 4, 0.8)
     for k, o in clothes.items():
         skin.set_material(o, mats[k])
     # body: painted skin + teeth, tongue, lashes
@@ -200,7 +234,7 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
     body.data.materials.append(skin.material('Teeth', base=(0.86, 0.84, 0.78), rough=0.3))
     body.data.materials.append(skin.material('Tongue', base=(0.55, 0.22, 0.24), rough=0.4))
     body.data.materials.append(skin.material('Lashes', base=tuple(c * 0.5 for c in spec['hair']['color']), rough=0.6, double=True))
-    eimg = bpy.data.images.load(str(MH / 'eyes' / 'materials' / 'brown_eye.png'))
+    eimg = bpy.data.images.load(iris_texture(spec, texdir))
     skin.set_material(eyes, skin.material('Eye', tex=eimg, rough=0.05))
     rgb, alpha = __import__('hair').strand_texture(spec['hair']['color'])
     H = skin.to_image(f"{spec['name']}_hair", rgb, f"{texdir}/{spec['name']}_hair.png", alpha=alpha)
@@ -229,9 +263,10 @@ if __name__ == '__main__':
     keys = unit_keys(body, spec.get('race_units', 'caucasian'))
     bake_expressions(body, keys)
     info = garments.BodyInfo(body, rig)
+    sink_tongue(body, info.groups['helper-tongue'])
     clothes, covered = garments.suit(info, spec.get('outfit', 'host'))
     THICK = {'Shirt': 0.0016, 'Collar': 0.0025, 'CollarPoints': 0.002, 'Jacket': 0.0045, 'Lapels': 0.003,
-             'Trousers': 0.0035, 'Belt': 0.004, 'Tie': 0.004}
+             'Trousers': 0.0035, 'Belt': 0.004, 'Tie': 0.004, 'Flaps': 0.003, 'Welt': 0.002, 'PocketSquare': 0.002}
     for k, o in clothes.items():
         if k in THICK:   # shirt and shoes are already dense; the rest get one level of rounding
             garments.finish(o, THICK[k], levels=0 if k in ('Shirt', 'Shoes') else 1)

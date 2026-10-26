@@ -17,7 +17,10 @@
   }
  },
  "race_units": "caucasian",
- "targets": {},
+ "targets": {
+  "l-eye-height2-incr": 0.3,
+  "r-eye-height2-incr": 0.3
+ },
  "skin": {
   "tone": [
    0.88,

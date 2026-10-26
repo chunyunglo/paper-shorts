@@ -158,7 +158,8 @@ def paint_skin(body, spec, outdir, size=4096):
     brow = np.zeros(len(me.vertices), np.float32)
     me.attributes['brow'].data.foreach_get('value', brow)
     attrs = {'brow': brow, 'lips': _group_weights(body, 'lips'), 'nails': np.maximum(_group_weights(body, 'fingernails'), _group_weights(body, 'toenails')),
-             'scalp': np.asarray(spec['_scalp'], np.float32), 'ears': _group_weights(body, 'ears')}
+             'scalp': np.asarray(spec['_scalp'], np.float32), 'ears': _group_weights(body, 'ears'),
+             'nz': np.array([v.normal.z for v in me.vertices], np.float32)}
     mask, P, M = rasterise(body, size, attrs, mat_index=0)
     p = P[mask]
     head = np.array(spec['_head'])          # head centre (rest)
@@ -187,6 +188,13 @@ def paint_skin(body, spec, outdir, size=4096):
         d = p - e
         lid = np.exp(-((d[:, 0] / 0.02) ** 2 + ((d[:, 2] - 0.006) / 0.009) ** 2)) / (1 + np.exp((d[:, 1] + 0.005) / 0.003))
         col *= (1 - lid * S.get('lid', 0.18))[:, None]
+    # waterline: the shelf of the lower lid faces up into the light, so give it the wet, shaded
+    # pink of a real lid rim instead of bright skin
+    for e in (eyeL, eyeR):
+        d = p - e
+        near = (np.abs(d[:, 0]) < 0.019) & (d[:, 2] < 0.001) & (d[:, 2] > -0.012) & (d[:, 1] < 0.004)
+        shelf = (np.clip((M['nz'][mask] - 0.25) / 0.3, 0, 1) * near)[:, None]
+        col = col * (1 - shelf * 0.75) + np.array((0.52, 0.3, 0.28)) * shelf * 0.75
     # nails
     nails = np.clip(M['nails'][mask], 0, 1)[:, None]
     col = col * (1 - nails * 0.6) + np.array((0.88, 0.7, 0.68)) * nails * 0.6

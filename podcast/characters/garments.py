@@ -129,10 +129,24 @@ def cut(info, name, vmask, offset, smooth=0, planes=(), drop=None, subdiv=0, bas
         inner = [v for v in bm.verts if not v.is_boundary]
         for _ in range(smooth):
             bmesh.ops.smooth_vert(bm, verts=inner, factor=0.5, use_axis_x=True, use_axis_y=True, use_axis_z=True)
+    _smooth_edges(bm, 4)
     bm.to_mesh(o.data)
     bm.free()
     o.data.update()
     return o
+
+
+def _smooth_edges(bm, iters):
+    """Relax open edges along themselves, so a cut through a coarse mesh reads as a clean seam."""
+    bverts = [v for v in bm.verts if v.is_boundary]
+    for _ in range(iters):
+        new = {}
+        for v in bverts:
+            nb = [e.other_vert(v) for e in v.link_edges if e.is_boundary]
+            if len(nb) == 2:
+                new[v] = v.co * 0.5 + (nb[0].co + nb[1].co) * 0.25
+        for v, c in new.items():
+            v.co = c
 
 
 def faces_mask_to_delete(info, vmask):
@@ -299,6 +313,24 @@ def drape(o, info, offset, iters=12, region=None, factor=0.6):
     bm.free()
 
 
+def hang(o, region, reach=0.14, slope=0.12):
+    """Let the front fall from the fullest point above instead of tucking under it: each vertex is
+    pulled forward to the cloth line hanging from the vertices up to reach above it."""
+    co = np.array([v.co[:] for v in o.data.vertices])
+    sel = np.array([region(c) for c in co])
+    idx = np.where(sel)[0]
+    if not len(idx):
+        return
+    P = co[idx]
+    dx = np.abs(P[:, None, 0] - P[None, :, 0]) < 0.012
+    dz = P[None, :, 2] - P[:, None, 2]
+    ok = dx & (dz > 0) & (dz < reach)
+    line = np.where(ok, P[None, :, 1] + slope * dz, np.inf).min(1)
+    newy = np.minimum(P[:, 1], line)
+    for k, i in enumerate(idx):
+        o.data.vertices[i].co.y = newy[k]
+
+
 def lapels_from(jacket, planes, lift=0.004):
     """The lapels: a band of the jacket front next to the V, copied and lifted a few mm."""
     o = jacket.copy()
@@ -454,6 +486,91 @@ def make_knot(info, front, z_neck, name='Knot'):
     return o
 
 
+def surface_patch(target, name, corners, lift, info, n=8):
+    """A small panel lying on the front of target (rays cast from the front): corners are
+    (x, z) for top-left, top-right, bottom-right, bottom-left."""
+    from mathutils.bvhtree import BVHTree
+    bvh = BVHTree.FromPolygons([v.co.copy() for v in target.data.vertices], [p.vertices[:] for p in target.data.polygons])
+    A, B, C, D = [np.array(c, float) for c in corners]
+    verts, faces, uvs = [], [], []
+    for i in range(n + 1):
+        for j in range(n + 1):
+            u, v = i / n, j / n
+            x, z = (A * (1 - u) + B * u) * (1 - v) + (D * (1 - u) + C * u) * v
+            hit = bvh.ray_cast(Vector((x, -1.0, z)), Vector((0, 1, 0)), 2.0)
+            y = hit[0].y if hit[0] is not None else -0.12
+            nrm = hit[1] if hit[0] is not None else Vector((0, -1, 0))
+            p = Vector((x, y, z)) + nrm * lift
+            verts.append(tuple(p)); uvs.append((u, v))
+    for i in range(n):
+        for j in range(n):
+            a = i * (n + 1) + j
+            faces.append((a, a + 1, a + n + 2, a + n + 1))
+    return _grid_object(name, verts, faces, uvs, info)
+
+
+def weights_from(obj, src, k=3):
+    """Give obj the bone weights of the nearest vertices of src, so a patch moves with the cloth under it."""
+    co = [v.co.copy() for v in src.data.vertices]
+    kd = kdtree.KDTree(len(co))
+    for i, c in enumerate(co):
+        kd.insert(c, i)
+    kd.balance()
+    names = [vg.name for vg in src.vertex_groups]
+    for vg in list(obj.vertex_groups):
+        obj.vertex_groups.remove(vg)
+    vgs = {}
+    for v in obj.data.vertices:
+        acc, tot = {}, 0.0
+        for c, i, d in kd.find_n(v.co, k):
+            w = 1.0 / (d + 1e-4)
+            tot += w
+            for g in src.data.vertices[i].groups:
+                acc[names[g.group]] = acc.get(names[g.group], 0.0) + g.weight * w
+        for nm, w in acc.items():
+            if w / tot > 0.01:
+                if nm not in vgs:
+                    vgs[nm] = obj.vertex_groups.new(name=nm)
+                vgs[nm].add([v.index], w / tot, 'REPLACE')
+
+
+def pockets(jacket, info, style, z_hem, z_btn):
+    """Flap pockets at the hips and, for the host, a breast-pocket welt with a folded white square."""
+    out = {}
+    zf = z_hem + 0.085
+    co = np.array([v.co[:] for v in jacket.data.vertices])
+    row = co[(np.abs(co[:, 2] - zf) < 0.015) & (co[:, 1] < 0)]
+    half = np.abs(row[:, 0]).max() if len(row) else 0.18
+    flaps = []
+    for s in (1, -1):
+        x0, x1 = s * 0.38 * half, s * 0.82 * half
+        flaps.append(surface_patch(jacket, 'Flap', [(x0, zf), (x1, zf), (x1 * 0.99, zf - 0.05), (x0, zf - 0.05)], 0.0025, info))
+    out['Flaps'] = _join(flaps, 'Flaps')
+    if style == 'host':
+        zb = z_btn + 0.2
+        x0, x1 = 0.105, 0.18
+        out['Welt'] = surface_patch(jacket, 'Welt', [(x0, zb + 0.01), (x1, zb + 0.016), (x1, zb), (x0, zb - 0.006)], 0.0025, info, 6)
+        sq = surface_patch(jacket, 'PocketSquare', [(x0 + 0.012, zb + 0.032), (x1 - 0.02, zb + 0.04), (x1 - 0.02, zb + 0.012), (x0 + 0.012, zb + 0.006)], 0.0015, info, 6)
+        for v in sq.data.vertices:          # two soft peaks
+            u = (v.co.x - x0) / (x1 - x0)
+            v.co.z += 0.008 * max(0.0, math.sin(u * 2 * math.pi)) * (v.co.z > zb + 0.012)
+        out['PocketSquare'] = sq
+    for o in out.values():
+        weights_from(o, jacket)
+    return out
+
+
+def _join(objs, name):
+    bpy.ops.object.select_all(action='DESELECT')
+    for o in objs:
+        o.select_set(True)
+    bpy.context.view_layer.objects.active = objs[0]
+    bpy.ops.object.join()
+    o = bpy.context.view_layer.objects.active
+    o.name = o.data.name = name
+    return o
+
+
 def _unit(v):
     v = np.asarray(v, float)
     return v / np.linalg.norm(v)
@@ -518,6 +635,12 @@ def suit(info, style):
                + v_planes(0.008, slope, z_btn, z_neck + 0.08) + cutaway)
     under = lambda c, n: abs(c[0]) < 0.075 and c[2] < info.z('pelvis') + 0.02 and n[2] < -0.3
     out['Jacket'] = cut(info, 'Jacket', jm, 0.013, smooth=4, planes=jplanes, drop=under, subdiv=0, base=sm)
+    # relax the front like cloth (bridges the chest instead of moulding to it), then clear the belt
+    front_chest = lambda c: c[1] < -0.02 and z_waist - 0.03 < c[2] < z_neck - 0.02
+    hang(out['Jacket'], lambda c: c[1] < -0.03 and z_waist - 0.08 < c[2] < z_neck - 0.04)
+    drape(out['Jacket'], info, 0.012, 10, front_chest, 0.5)
+    drape(out['Jacket'], info, 0.019, 1, lambda c: z_waist - 0.06 < c[2] < z_waist + 0.03, 0.0)
+    drape(out['Shirt'], info, 0.0025, 2, front_chest, 0.5)
     # lapels: a band just outside the V, a few mm proud of the jacket
     lap = v_planes(0.008, slope, z_btn + 0.015, z_neck + 0.08)
     outer = []
@@ -528,8 +651,6 @@ def suit(info, style):
                                                 ((0, -0.045, 0), (0, 1, 0), None)] + lap + outer)
     chest = lambda c: z_waist - 0.03 < c[2] < z_neck - 0.015
     drape(out['Shirt'], info, 0.002, 1, chest, 0.0)
-    drape(out['Jacket'], info, 0.009, 1, chest, 0.0)
-    drape(out['Jacket'], info, 0.019, 1, lambda c: z_waist - 0.06 < c[2] < z_waist + 0.03, 0.0)
     lm = isb & inset(LEGS)
     out['Trousers'] = cut(info, 'Trousers', lm, 0.009, smooth=4, subdiv=0, base=sm, planes=[
         ((0, 0, z_waist), (0, 0, 1), None), ((0, 0, z_ankle), (0, 0, -1), None)])
@@ -560,6 +681,8 @@ def suit(info, style):
         out['Knot'] = make_knot(info, front, z_neck)
         out['CollarPoints'] = collar_points(info, front, z_neck)
     out['Button'] = make_button(info, z_btn - 0.005)
+    out.update(pockets(out['Jacket'], info, style, z_hem, z_btn))
+    weights_from(out['Button'], out['Jacket'])
 
     # skin that is now hidden, kept a little inside the garment edges so no gap shows
     a_l, a_r = info.along('lowerarm_l'), info.along('lowerarm_r')

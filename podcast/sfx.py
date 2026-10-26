@@ -1,4 +1,4 @@
-"""Studio sound effects, all made in code: a band sting, and the audience (see crowd.py)."""
+"""Studio sound effects: a band sting made in code, and the audience from CC0 recordings (crowd.py)."""
 import numpy as np
 import crowd
 
@@ -40,11 +40,11 @@ def reverb(x, seconds=1.4, wet=0.3):
 
 
 def applause(dur, gain=1.0):
-    return crowd.applause(dur, gain, seed=int(rng.integers(1 << 30)))
+    return crowd.applause(dur, gain, rng)
 
 
-def laugh(bank, dur, gain=1.0):
-    return crowd.tts_laugh(bank, dur, gain, seed=int(rng.integers(1 << 30)))
+def laugh(dur, gain=1.0):
+    return crowd.laugh(dur, gain, rng)
 
 
 def sting(dur=3.2):

@@ -7,6 +7,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
+import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { VRMLoaderPlugin, VRMUtils } from '@pixiv/three-vrm';
 
 const W = 1920, H = 1080;
@@ -268,6 +269,7 @@ function tuneMaterial(m, o) {
   if (n === 'Lashes') { m.side = THREE.DoubleSide; }
   if (window.DEBUG && window.DEBUG.hide && window.DEBUG.hide.includes(o.name)) o.visible = false;
   if (window.DEBUG && window.DEBUG.hairopaque && n.startsWith('Hair') && n !== 'HairCap') { m.alphaTest = 0; m.alphaToCoverage = false; m.map = null; m.color = new THREE.Color(1, 0, 0); }
+  if (n === 'Skin' && window.DEBUG && window.DEBUG.skinflat) { m.map = null; }
   if (n === 'Skin') { m.emissive = new THREE.Color(0.22, 0.09, 0.06); m.emissiveMap = m.map; m.emissiveIntensity = 0.35; m.roughness = 0.55; }
   if (n === 'Eye') { m.roughness = 0.08; m.emissive = new THREE.Color(1, 1, 1); m.emissiveMap = m.map; m.emissiveIntensity = 0.08; }
   if (n === 'HairCap') { m.roughness = 0.9; }
@@ -276,8 +278,8 @@ function tuneMaterial(m, o) {
 // hair: anisotropic highlight running along the strands (UV v), strand texture doubling as a bump map
 function hairMaterial(m) {
   const h = new THREE.MeshPhysicalMaterial({
-    name: m.name, map: m.map, color: new THREE.Color(1.2, 1.15, 1.1), roughness: 0.55, metalness: 0, specularIntensity: 0.6,
-    bumpMap: m.map, bumpScale: 1.5, anisotropy: 0.6, anisotropyRotation: Math.PI / 2,
+    name: m.name, map: m.map, color: new THREE.Color(1.2, 1.15, 1.1), roughness: 0.68, metalness: 0, specularIntensity: 0.45,
+    bumpMap: m.map, bumpScale: 2.5, anisotropy: 0.4, anisotropyRotation: Math.PI / 2,
     sheen: 0.2, sheenRoughness: 0.5, sheenColor: new THREE.Color(0.3, 0.22, 0.16), alphaToCoverage: true,
     alphaTest: m.alphaTest, side: THREE.DoubleSide,
   });
@@ -296,6 +298,7 @@ async function loadHost(url) {
     if (!o.isMesh) return;
     o.castShadow = true; o.receiveShadow = true;
     for (const m of [].concat(o.material)) tuneMaterial(m, o);
+    if (window.DEBUG && window.DEBUG.normals && o.material.name === 'Skin') o.material = new THREE.MeshNormalMaterial();
     if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap') o.material = hairMaterial(o.material);
   });
   const root = new THREE.Group(); root.add(vrm.scene);
@@ -434,6 +437,10 @@ window.setup = async (tl) => {
   scene.background = new THREE.Color(0x05081c);
   scene.fog = new THREE.Fog(0x0b1030, 9, 20);
   const set = buildSet(scene);
+  // soft image-based light: gives eyes their catchlights and fabric/skin some sheen
+  const pmrem = new THREE.PMREMGenerator(renderer);
+  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+  scene.environmentIntensity = 0.22;
 
   // lights: warm key from front-left, cool rim from behind (city), fill
   scene.add(new THREE.HemisphereLight(0xffe9d6, 0x1a2040, 0.55));
@@ -688,8 +695,9 @@ window.renderAt = (t) => {
     em.setValue('ee', clamp(m[3] * 1.2 * ms + st.laugh * 0.15)); em.setValue('oh', clamp(m[4] * 1.4));
     em.setValue('happy', clamp(happy)); if (em.getExpression('surprised')) em.setValue('surprised', sur * (1 - st.speak * 0.4));
     em.setValue('relaxed', rel * 0.7); em.setValue('sad', sad * 0.5);
-    const squint = clamp(st.laugh * (0.35 + 0.25 * st.laughPulse));
+    const squint = clamp(st.laugh * (0.12 + 0.12 * st.laughPulse));   // eyes narrow while laughing, never shut
     em.setValue('blink', Math.max(squint, happy > 0.4 ? 0 : blinkAt(h.seed * 10, t)));
+    if (window.DEBUG && window.DEBUG.expr) { for (const n of ['aa','ih','ou','ee','oh','happy','relaxed','sad','surprised','angry','blink']) if (em.getExpression(n)) em.setValue(n, window.DEBUG.expr[n] || 0); }
     h.vrm.update(dt);
   }
   overlays(t, cur, shot);
@@ -702,12 +710,14 @@ window.debugBoxes = (k) => {
   out.head = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).toArray().map((x) => +x.toFixed(3));
   return out;
 };
+window.debugVis = (k) => { const r = []; S.hosts[k].vrm.scene.traverse((o) => { if (o.isMesh) r.push([o.name, o.visible, o.layers.mask, o.material.name, o.material.visible, o.material.opacity, o.geometry.attributes.position.count, o.geometry.drawRange.count]); }); return r; };
+window.debugHide = (k, names) => S.hosts[k].vrm.scene.traverse((o) => { if (o.isMesh && names.includes(o.name)) o.visible = false; });
 // debug: put the camera on one face and draw again
-window.closeup = (k, side = 0) => {
+window.closeup = (k, side = 0, dy = 0.06, dist = 0.55) => {
   const { camera, hosts, composer, renderer, scene } = S;
-  const h = hosts[k]; const p = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).add(V(0, 0.06, 0));
+  const h = hosts[k]; const p = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).add(V(0, dy, 0));
   const fwd = V(Math.sin(h.root.rotation.y + side), 0, Math.cos(h.root.rotation.y + side));
-  camera.position.copy(p.clone().add(fwd.multiplyScalar(0.55))); camera.fov = 30; camera.updateProjectionMatrix(); camera.lookAt(p);
+  camera.position.copy(p.clone().add(fwd.multiplyScalar(dist))); camera.fov = 30; camera.updateProjectionMatrix(); camera.lookAt(p);
   if (composer) composer.render(); else renderer.render(scene, camera);
 };
 
