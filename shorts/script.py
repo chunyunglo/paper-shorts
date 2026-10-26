@@ -170,12 +170,12 @@ def pick_icons(script: Script) -> None:
     text = (f"Video: {script.title_en}\n\nScenes (JSON):\n{json.dumps(scenes, ensure_ascii=False)}\n\n"
             f"Icon names:\n{' '.join(names)}")
     pick = None
-    for effort in ("low", "medium"):  # the answer is tiny; a runaway output fails fast and gets one retry
+    for attempt in (1, 2):  # the answer is tiny; a runaway output fails fast and gets one retry
         try:
-            pick = llm.ask(IconPick, ICON_SYSTEM, text, effort=effort, max_tokens=4000)
+            pick = llm.ask(IconPick, ICON_SYSTEM, text, effort="low", max_tokens=4000)
             break
         except Exception as exc:  # icons are decoration; never fail an episode over them
-            log(f"Icon pick failed ({effort}): {exc}")
+            log(f"Icon pick failed (try {attempt}): {exc}")
     out = []
     for i, s in enumerate(script.scenes):
         got = pick.scenes[i] if pick and i < len(pick.scenes) else []

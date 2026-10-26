@@ -237,7 +237,7 @@ def test_icon_pick_falls_back_to_keywords_when_claude_fails(monkeypatch):
     monkeypatch.setattr(llm, "ask", boom)
     monkeypatch.setattr(icons, "find", lambda w: "truck")
     scriptmod.pick_icons(script)
-    assert calls == ["low", "medium"]
+    assert calls == ["low", "low"]
     assert len(script.icons) == len(script.scenes)
     assert any(script.icons)
     for sc, ic in zip(script.scenes, script.icons):
