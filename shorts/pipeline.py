@@ -31,7 +31,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
     now = datetime.now(timezone.utc)
     if episode_json:
         old = json.loads(episode_json.read_text(encoding="utf-8"))
-        paper, reason = papers.Paper(**old["paper"]), old.get("pick_reason", "remake")
+        paper, reason = papers.enrich(papers.Paper(**old["paper"])), old.get("pick_reason", "remake")
         news = old.get("news")
         script = scriptmod.Script(**old["script"])
         ep_id = f"{old['episode']}-r{now:%H%M}"  # a new id, so it gets its own release and review
@@ -56,7 +56,7 @@ def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
     """Apply the owner's review feedback: Claude rewrites the script, then every video is
     re-rendered under the same episode id (so the same release and review issue)."""
     old = json.loads(episode_json.read_text(encoding="utf-8"))
-    paper = papers.Paper(**old["paper"])
+    paper = papers.enrich(papers.Paper(**old["paper"]))
     script, changes = scriptmod.revise(paper, scriptmod.Script(**old["script"]), feedback)
     return build(old["episode"], paper, script, old.get("pick_reason", ""), 0, old.get("news")), changes
 

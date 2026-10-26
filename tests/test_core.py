@@ -240,3 +240,10 @@ def test_old_scripts_render_without_icons():
     script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
     assert script.icons == []
     assert all(v.icons == [] for v in render.localize(script, "zh"))
+
+
+def test_garbled_rss_authors_are_dropped():
+    from shorts import papers
+    blob = "Tara MittelbergMarin E. Skidmoreahttps://ror.org/01y2jtd41Nelson Institute, Urbana, IL 61801"
+    assert papers.clean_authors([blob]) == []
+    assert papers.clean_authors(["Ada Lovelace", "Alan Turing"]) == ["Ada Lovelace", "Alan Turing"]
