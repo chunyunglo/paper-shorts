@@ -357,5 +357,435 @@
       }
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261025-petition-style-changes-with-ai-writing-s-r0206"
+  },
+  {
+    "episode": "20261026-laundering-and-evasion-in-response-to-an",
+    "created": "2026-10-26T08:29:20+00:00",
+    "paper": {
+      "id": "doi:10.1073/pnas.2532121123",
+      "title": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+      "abstract": "Proceedings of the National Academy of Sciences, Volume 123, Issue 42, October 2026. SignificanceGovernments and companies have worked to rid supply chains of modern slavery, but little is known about policy outcomes, including how perpetrators change their behavior in response to sanctions. With data on millions of cattle transactions in ...",
+      "authors": [
+        "Tara Mittelberg",
+        "Marin E. Skidmore",
+        "Juliana L. S. C. Brandão",
+        "Lisa L. Rausch",
+        "Holly K. Gibbs"
+      ],
+      "venue": "PNAS",
+      "url": "https://www.pnas.org/doi/abs/10.1073/pnas.2532121123?af=R",
+      "pdf_url": null,
+      "doi": "10.1073/pnas.2532121123",
+      "published": "2026-10-12",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "被制裁後，奴役牧場真的收手了嗎？",
+      "title_en": "Caught Using Slave Labor: Do Ranches Really Stop?",
+      "paper_title_zh": "巴西牛隻產業因應反奴役政策的洗白與規避行為",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "你以為",
+          "heading_en": "THINK AGAIN",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "被罰就收手？",
+          "big_text_en": "Punished = stopped?",
+          "lines": [
+            {
+              "zh": "奴役勞工被抓，牧場就收手了嗎？",
+              "en": "Caught using slave labor, do ranches just stop?"
+            },
+            {
+              "zh": "數百萬筆牛隻交易，揭穿他們怎麼繞路。",
+              "en": "Millions of cattle sales reveal how they work around it."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "威斯康辛大學等團隊，發表在PNAS。",
+              "en": "A University of Wisconsin–Madison team published this in PNAS."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "背景",
+          "heading_en": "THE BACKSTORY",
+          "labels": [
+            "牧場",
+            "政府",
+            "企業"
+          ],
+          "labels_en": [
+            "Ranches",
+            "Government",
+            "Companies"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "巴西有些牧場被查出奴役勞工。",
+              "en": "Some Brazilian ranches were caught using slave labor."
+            },
+            {
+              "zh": "政府制裁，企業也想避開他們。",
+              "en": "Governments sanction them, and companies try to avoid them."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "亮點",
+          "heading_en": "WHY IT MATTERS",
+          "labels": [
+            "訂了政策",
+            "業者反應"
+          ],
+          "labels_en": [
+            "Policies made",
+            "Real responses"
+          ],
+          "values": [],
+          "big_text": "後續幾乎沒人知",
+          "big_text_en": "The aftermath: unknown",
+          "lines": [
+            {
+              "zh": "但制裁後業者怎麼反應，",
+              "en": "But how operators react after sanctions"
+            },
+            {
+              "zh": "過去幾乎沒有證據。",
+              "en": "has had almost no evidence."
+            },
+            {
+              "zh": "這篇研究補的，就是這塊空白。",
+              "en": "That's the gap this study fills."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "牧場",
+            "買家"
+          ],
+          "labels_en": [
+            "Ranches",
+            "Buyers"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們分析巴西數百萬筆牛隻交易紀錄。",
+              "en": "They analyzed millions of cattle transaction records in Brazil."
+            },
+            {
+              "zh": "每筆都記下牛從哪賣到哪，串成一張網。",
+              "en": "Each logs who sold cattle to whom, forming a network."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "找出被制裁者",
+            "追蹤牛隻去向",
+            "比較前後"
+          ],
+          "labels_en": [
+            "Find sanctioned",
+            "Follow cattle",
+            "Before vs after"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "鎖定被制裁的業者，追蹤牛的去向。",
+              "en": "They tracked where sanctioned operators' cattle went."
+            },
+            {
+              "zh": "再比較制裁前後，交易怎麼改變。",
+              "en": "Then compared their trading before and after sanctions."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "洗白",
+            "規避"
+          ],
+          "labels_en": [
+            "Laundering",
+            "Evasion"
+          ],
+          "values": [],
+          "big_text": "不收手，換方式",
+          "big_text_en": "Adapt, not stop",
+          "lines": [
+            {
+              "zh": "結果：業者沒收手，而是換方式。",
+              "en": "The result: operators didn't stop, they adapted."
+            },
+            {
+              "zh": "洗白：讓問題牛看起來來源乾淨。",
+              "en": "Laundering: making problem cattle look clean."
+            },
+            {
+              "zh": "規避：改變做法，躲開制裁後果。",
+              "en": "Evasion: changing tactics to dodge the penalties."
+            },
+            {
+              "zh": "但沒被記錄的私下買賣，資料看不到。",
+              "en": "But off-the-record sales don't show up in the data."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "制裁要追到底",
+          "big_text_en": "Sanctions need follow-through",
+          "lines": [
+            {
+              "zh": "光制裁不夠，還要看業者怎麼繞路。",
+              "en": "Sanctions alone aren't enough; watch for the workarounds."
+            },
+            {
+              "zh": "追蹤行為解碼，看懂更多人類行為。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "巴西有些養牛牧場被查出奴役勞工，政府和企業紛紛制裁。但制裁之後業者怎麼反應，過去幾乎沒有證據。這篇PNAS研究用數百萬筆牛隻交易紀錄補上這塊空白，發現業者不是收手，而是以「洗白」和「規避」換方式繼續。",
+      "description_en": "Some ranches in Brazil's cattle industry were caught using slave labor, and governments and companies moved to sanction them. But there has been almost no evidence on how sanctioned operators actually respond. This PNAS study fills that gap with millions of cattle transaction records, documenting laundering and evasion instead of simply stopping.",
+      "hashtags": [
+        "行為解碼",
+        "現代奴役",
+        "供應鏈",
+        "巴西",
+        "BehaviorDecoded",
+        "ComputationalSocialScience",
+        "SupplyChains",
+        "PNAS"
+      ],
+      "method_summary": "The study (Mittelberg, Skidmore, Brandão, Rausch and Gibbs; University of Wisconsin–Madison and University of Illinois; PNAS 2026) asks how perpetrators of modern slavery in Brazil's cattle sector change their behavior after antislavery sanctions. Its key contribution: governments and companies have worked to rid supply chains of modern slavery, but little was known about policy outcomes, especially how perpetrators respond to sanctions. The authors use data on millions of cattle transactions in Brazil, which record cattle moving between properties and buyers, effectively forming a network of cattle flows. They examine the transactions of operators sanctioned under antislavery policies and how their selling behavior changes in response. The paper's title identifies two behavioral responses: laundering (making cattle linked to sanctioned operators appear clean as they move through the supply chain) and evasion (adjusting behavior to avoid the consequences of sanctions). The core message is that sanctioned actors adapt rather than simply stopping, which matters for designing supply-chain monitoring. Only the abstract's opening was available to us, so specific effect sizes, sample counts, the exact identification strategy, and how prevalent each response is were not provided and are not stated in the video.",
+      "limitations": "We only had a truncated abstract, so the video gives no effect sizes or prevalence figures. Transaction records only capture recorded sales; informal or unrecorded movements of cattle are invisible. The analysis is observational, so behavior changes are associated with sanctions rather than proven to be solely caused by them. The study focuses on Brazil's cattle sector and may not generalize to other countries or commodities, and it does not show which policy fixes would work best.",
+      "pt": {
+        "title": "Flagradas com trabalho escravo: as fazendas param?",
+        "paper_title": "Como produtores punidos por trabalho escravo reagem na cadeia do gado no Brasil",
+        "description": "Algumas fazendas da pecuária brasileira foram flagradas com trabalho escravo, e governo e empresas reagiram com punições. Mas quase não havia evidência de como esses produtores reagem depois. Esse é o grande diferencial deste estudo publicado na PNAS: com milhões de registros de venda de gado, ele mostra lavagem e evasão, em vez de simplesmente parar.",
+        "hashtags": [
+          "TrabalhoEscravo",
+          "CadeiaDeSuprimentos",
+          "Brasil",
+          "Pecuaria",
+          "BehaviorDecoded",
+          "CienciaSocialComputacional",
+          "PNAS"
+        ],
+        "scenes": [
+          {
+            "heading": "PENSE DE NOVO",
+            "labels": [],
+            "big_text": "Punido = parou?",
+            "lines": [
+              "Flagradas com trabalho escravo, fazendas param?",
+              "Milhões de vendas de gado mostram como elas driblam isso."
+            ]
+          },
+          {
+            "heading": "O ESTUDO",
+            "labels": [],
+            "big_text": "",
+            "lines": [
+              "Uma equipe da Universidade de Wisconsin–Madison publicou isso na PNAS."
+            ]
+          },
+          {
+            "heading": "O CONTEXTO",
+            "labels": [
+              "Fazendas",
+              "Governo",
+              "Empresas"
+            ],
+            "big_text": "",
+            "lines": [
+              "Algumas fazendas no Brasil foram flagradas com trabalho escravo.",
+              "O governo pune, e as empresas tentam evitar essas fazendas."
+            ]
+          },
+          {
+            "heading": "POR QUE IMPORTA",
+            "labels": [
+              "Políticas criadas",
+              "Reações reais"
+            ],
+            "big_text": "O depois: um mistério",
+            "lines": [
+              "Mas como esses produtores reagem depois da punição",
+              "quase não tinha evidência nenhuma.",
+              "E é aí que está o trunfo do estudo: preencher essa lacuna."
+            ]
+          },
+          {
+            "heading": "OS DADOS",
+            "labels": [
+              "Fazendas",
+              "Compradores"
+            ],
+            "big_text": "",
+            "lines": [
+              "Eles analisaram milhões de registros de venda de gado no Brasil.",
+              "Cada um mostra quem vendeu gado pra quem, formando uma rede."
+            ]
+          },
+          {
+            "heading": "O MÉTODO",
+            "labels": [
+              "Achar punidos",
+              "Seguir o gado",
+              "Antes vs depois"
+            ],
+            "big_text": "",
+            "lines": [
+              "Rastrearam pra onde ia o gado dos produtores punidos.",
+              "E compararam as vendas antes e depois da punição."
+            ]
+          },
+          {
+            "heading": "A DESCOBERTA",
+            "labels": [
+              "Lavagem",
+              "Evasão"
+            ],
+            "big_text": "Adaptar, não parar",
+            "lines": [
+              "Resultado: os produtores não pararam, eles se adaptaram.",
+              "Lavagem: fazer o gado problemático parecer limpo.",
+              "Evasão: mudar de tática pra fugir das penalidades.",
+              "Mas vendas por fora dos registros não aparecem nos dados."
+            ]
+          },
+          {
+            "heading": "LEMBRE-SE",
+            "labels": [],
+            "big_text": "Punir exige acompanhar",
+            "lines": [
+              "Só punir não basta: é preciso vigiar os atalhos.",
+              "Siga o Behavior Decoded pra ver mais!"
+            ]
+          }
+        ]
+      },
+      "icons": [
+        [],
+        [],
+        [
+          "fence",
+          "building-bank",
+          "building-factory"
+        ],
+        [
+          "file-text",
+          "eye"
+        ],
+        [
+          "fence",
+          "building-store"
+        ],
+        [
+          "search",
+          "truck",
+          "calendar"
+        ],
+        [
+          "wash",
+          "mask"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 52.51,
+        "cover_offset_ms": 6834,
+        "tts": "google cmn-CN-Chirp3-HD-Charon"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 46.72,
+        "cover_offset_ms": 5934,
+        "tts": "google en-US-Chirp3-HD-Aoede"
+      },
+      "pt": {
+        "file": "video_pt.mp4",
+        "duration": 53.84,
+        "cover_offset_ms": 6756,
+        "tts": "google pt-BR-Chirp3-HD-Charon"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "dzkB79epmBg",
+          "url": "https://youtube.com/shorts/dzkB79epmBg"
+        },
+        "instagram": {
+          "id": "18020363726734959",
+          "url": "https://www.instagram.com/reel/De9MUFRjLIZ/"
+        },
+        "threads": {
+          "id": "18472084015185576",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "l6unhYxCxGw",
+          "url": "https://youtube.com/shorts/l6unhYxCxGw"
+        },
+        "instagram": {
+          "id": "18118336720802920",
+          "url": "https://www.instagram.com/reel/De9MjXMCbng/"
+        },
+        "threads": {
+          "id": "18108678878147734",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261026-laundering-and-evasion-in-response-to-an"
   }
 ]
