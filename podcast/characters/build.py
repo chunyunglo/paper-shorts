@@ -68,11 +68,11 @@ def unit_keys(h, race):
 
 EXPRESSIONS = {
     # VRM preset: {unit: weight}
-    'aa': {'mouth-open': 0.75, 'mouth-part-later': 0.2},
+    'aa': {'mouth-open': 0.5, 'mouth-part-later': 0.25, 'mouth-retraction': 0.1},   # more open rolls the lower lip out
     'ih': {'mouth-open': 0.25, 'mouth-part-later': 0.6, 'mouth-retraction': 0.3},
     'ou': {'mouth-open': 0.25, 'mouth-pursing': 0.8, 'mouth-protusion': 0.5},
     'ee': {'mouth-open': 0.2, 'mouth-retraction': 0.7, 'mouth-upward-retraction': 0.3},
-    'oh': {'mouth-open': 0.55, 'mouth-pursing': 0.55},
+    'oh': {'mouth-open': 0.4, 'mouth-pursing': 0.55},
     'blink': {'eye-left-closure': 1.0, 'eye-right-closure': 1.0},
     'blinkLeft': {'eye-left-closure': 1.0},
     'blinkRight': {'eye-right-closure': 1.0},
@@ -99,7 +99,7 @@ def bake_expressions(h, keys):
         h.shape_key_remove(k)
 
 
-def sink_tongue(body, mask, teeth=None, back=0.012, down=0.007):
+def sink_tongue(body, mask, teeth=None, back=0.02, down=0.01):
     """The tongue does not follow the jaw in the expression units, so when the mouth opens it shows
     between the teeth. Sit it lower and further back, and in every shape key move it with the lower
     teeth so it stays inside the mouth."""
@@ -238,7 +238,7 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
     body.data.materials.clear()
     S = skin.paint_skin(body, spec, texdir)
     body.data.materials.append(skin.material('Skin', tex=S, rough=0.5))
-    body.data.materials.append(skin.material('Teeth', base=(0.86, 0.84, 0.78), rough=0.3))
+    body.data.materials.append(skin.material('Teeth', base=(0.6, 0.58, 0.54), rough=0.35))   # sits in the mouth's shadow
     body.data.materials.append(skin.material('Tongue', base=(0.55, 0.22, 0.24), rough=0.4))
     body.data.materials.append(skin.material('Lashes', base=tuple(c * 0.5 for c in spec['hair']['color']), rough=0.6, double=True))
     eimg = bpy.data.images.load(iris_texture(spec, texdir))

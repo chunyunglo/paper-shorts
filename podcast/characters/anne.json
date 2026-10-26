@@ -19,7 +19,9 @@
  "race_units": "caucasian",
  "targets": {
   "l-eye-height2-incr": 0.3,
-  "r-eye-height2-incr": 0.3
+  "r-eye-height2-incr": 0.3,
+  "mouth-lowerlip-volume-decr": 0.5,
+  "mouth-upperlip-volume-decr": 0.2
  },
  "skin": {
   "tone": [

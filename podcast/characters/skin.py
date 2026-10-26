@@ -159,7 +159,8 @@ def paint_skin(body, spec, outdir, size=4096):
     me.attributes['brow'].data.foreach_get('value', brow)
     attrs = {'brow': brow, 'lips': _group_weights(body, 'lips'), 'nails': np.maximum(_group_weights(body, 'fingernails'), _group_weights(body, 'toenails')),
              'scalp': np.asarray(spec['_scalp'], np.float32), 'ears': _group_weights(body, 'ears'),
-             'nz': np.array([v.normal.z for v in me.vertices], np.float32)}
+             'nz': np.array([v.normal.z for v in me.vertices], np.float32),
+             'ny': np.array([v.normal.y for v in me.vertices], np.float32)}
     mask, P, M = rasterise(body, size, attrs, mat_index=0)
     p = P[mask]
     head = np.array(spec['_head'])          # head centre (rest)
@@ -183,6 +184,17 @@ def paint_skin(body, spec, outdir, size=4096):
     lips = np.clip(M['lips'][mask] * 2.0 - 1.0, 0, 1)[:, None] * S.get('lip_amt', 0.7)
     lipc = np.array(S.get('lips', (0.62, 0.3, 0.3)))
     col = col * (1 - lips) + lipc * (0.9 + 0.1 * lo) * lips
+    # inside of the mouth: dark and red, not skin, so an open mouth reads as a mouth
+    lw = M['lips'][mask]
+    if (lw > 0.5).any():
+        lp = p[lw > 0.5]
+        mc = lp.mean(0); front = lp[:, 1].min()
+        d = p - mc
+        # behind the lip line, and facing away from the camera (the face itself faces -y)
+        deep = (np.clip((p[:, 1] - front - 0.004) / 0.004, 0, 1) * (np.abs(d[:, 0]) < 0.03) * (np.abs(d[:, 2]) < 0.02)
+                * np.clip((M['ny'][mask] + 0.5) / 0.3, 0, 1))
+        inner = np.clip(deep * (1 - np.clip(lw * 1.5 - 0.5, 0, 1)), 0, 1)[:, None]
+        col = col * (1 - inner * 0.85) + np.array((0.22, 0.07, 0.07)) * inner * 0.85
     # eyelid shadow / liner
     for e in (eyeL, eyeR):
         d = p - e
