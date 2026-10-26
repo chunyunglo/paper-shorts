@@ -190,10 +190,16 @@ def paint_skin(body, spec, outdir, size=4096):
         lp = p[lw > 0.5]
         mc = lp.mean(0); front = lp[:, 1].min()
         d = p - mc
-        # behind the lip line, and facing away from the camera (the face itself faces -y)
-        deep = (np.clip((p[:, 1] - front - 0.004) / 0.004, 0, 1) * (np.abs(d[:, 0]) < 0.03) * (np.abs(d[:, 2]) < 0.02)
-                * np.clip((M['ny'][mask] + 0.5) / 0.3, 0, 1))
-        inner = np.clip(deep * (1 - np.clip(lw * 1.5 - 0.5, 0, 1)), 0, 1)[:, None]
+        # behind the lip line, inside the lip band (philtrum and chin are outside it)
+        ny, nz = M['ny'][mask], M['nz'][mask]
+        facing_in = np.clip((ny + 0.35) / 0.2, 0, 1) + np.clip((np.abs(nz) - 0.55) / 0.15, 0, 1) * (np.abs(d[:, 2]) < 0.009)
+        deep = (np.clip((p[:, 1] - front - 0.003) / 0.003, 0, 1) * np.clip((0.026 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.012)
+                * np.clip(facing_in, 0, 1))
+        # the cavity itself: well behind the lips (gums, the back wall), which the face never is this close to the mouth
+        behind = p[:, 1] - front
+        deep = np.maximum(deep, np.clip((behind - 0.011) / 0.003, 0, 1) * np.clip((0.022 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.013))
+        deep = np.maximum(deep, np.clip((behind - 0.025) / 0.004, 0, 1) * np.clip((0.02 - np.abs(d[:, 0])) / 0.005, 0, 1) * (np.abs(d[:, 2]) < 0.035))
+        inner = np.clip(deep, 0, 1)[:, None]       # includes the wet inside of the lips
         col = col * (1 - inner * 0.85) + np.array((0.22, 0.07, 0.07)) * inner * 0.85
     # eyelid shadow / liner
     for e in (eyeL, eyeR):

@@ -273,6 +273,7 @@ function tuneMaterial(m, o) {
   if (n === 'Skin') { m.emissive = new THREE.Color(0.22, 0.09, 0.06); m.emissiveMap = m.map; m.emissiveIntensity = 0.35; m.roughness = 0.55; }
   if (n === 'Eye') { m.roughness = 0.08; m.emissive = new THREE.Color(1, 1, 1); m.emissiveMap = m.map; m.emissiveIntensity = 0.08; }
   if (n === 'HairCap') { m.roughness = 0.9; }
+  if (window.DEBUG && window.DEBUG.mouthcol && (n === 'Teeth' || n === 'Tongue')) { m.color = new THREE.Color(n === 'Teeth' ? 0x00ff00 : 0x0000ff); m.map = null; }
 }
 
 // hair: anisotropic highlight running along the strands (UV v), strand texture doubling as a bump map
