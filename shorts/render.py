@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 import subprocess
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -28,22 +28,24 @@ class SceneView:
     values: list[float]
     big_text: str
     lines: list[str]
+    icons: list[str] = field(default_factory=list)
 
 
 def localize(script: Script, lang: str) -> list[SceneView]:
+    icons = script.icons if len(script.icons) == len(script.scenes) else [[] for _ in script.scenes]
     if lang == "pt":
         if not script.pt:
             raise RuntimeError("Script has no Portuguese version")
-        return [SceneView(sc.visual, ls.heading.upper(), ls.labels, sc.values, ls.big_text, ls.lines)
-                for sc, ls in zip(script.scenes, script.pt.scenes)]
+        return [SceneView(sc.visual, ls.heading.upper(), ls.labels, sc.values, ls.big_text, ls.lines, ic)
+                for sc, ls, ic in zip(script.scenes, script.pt.scenes, icons)]
     out = []
-    for sc in script.scenes:
+    for sc, ic in zip(script.scenes, icons):
         if lang == "zh":
             out.append(SceneView(sc.visual, sc.heading_zh, sc.labels, sc.values, sc.big_text,
-                                 [l.zh for l in sc.lines]))
+                                 [l.zh for l in sc.lines], ic))
         else:
             out.append(SceneView(sc.visual, sc.heading_en.upper(), sc.labels_en or sc.labels, sc.values,
-                                 sc.big_text_en or sc.big_text, [l.en for l in sc.lines]))
+                                 sc.big_text_en or sc.big_text, [l.en for l in sc.lines], ic))
     return out
 
 

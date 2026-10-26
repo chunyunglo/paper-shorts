@@ -17,4 +17,4 @@ runs:
       shell: bash
       run: |
         sudo apt-get update -qq
-        sudo apt-get install -y -qq fonts-noto-cjk ffmpeg >/dev/null
+        sudo apt-get install -y -qq fonts-noto-cjk ffmpeg libcairo2 >/dev/null

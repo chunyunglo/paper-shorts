@@ -65,6 +65,8 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
           news: dict | None = None) -> Path:
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
+    if len(script.icons) != len(script.scenes):  # new, revised, or made before icons existed
+        scriptmod.pick_icons(script)
 
     videos = {}
     for lang in LANGS:
