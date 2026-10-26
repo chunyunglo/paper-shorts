@@ -80,7 +80,7 @@ class Canvas:
         if not name or alpha <= 0 or size < 4:
             return False
         q = max(1, round(alpha * 8))  # quantized so the tinted images cache well
-        img = _icon(name, int(size * S), color, q)
+        img = _icon(name, int(size * S) // 12 * 12 or 12, color, q)  # size steps keep the cache warm
         if img is None:
             return False
         self.img.alpha_composite(img, (int(cx * S - img.width / 2), int(cy * S - img.height / 2)))

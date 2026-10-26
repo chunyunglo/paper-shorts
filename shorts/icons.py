@@ -6,6 +6,8 @@ drawn, every lookup returns None and the visuals fall back to their icon-free ve
 """
 from __future__ import annotations
 
+import base64
+import hashlib
 import io
 import json
 import re
@@ -18,6 +20,7 @@ from .safelog import http, log
 
 VERSION = "3.24.0"
 URL = f"https://registry.npmjs.org/@tabler/icons/-/icons-{VERSION}.tgz"
+SHA512 = "qNis9e90QcdxAGV3wNIeX0Ba2R7ktm0cnqOToKHJfC2kj3fvJwEVLsw63K0/fm7NW8rSZjDSTQRmMnSg8g/wrg=="  # npm dist.integrity
 
 _svgs: dict[str, str] | None = None
 _tags: dict[str, list[str]] = {}
@@ -30,6 +33,8 @@ def _load() -> dict[str, str]:
     _svgs = {}
     try:
         data = http("icons", "download", "GET", URL).content
+        if base64.b64encode(hashlib.sha512(data).digest()).decode() != SHA512:
+            raise RuntimeError("icon package checksum mismatch")
         with tarfile.open(fileobj=io.BytesIO(data), mode="r:gz") as tar:
             for m in tar.getmembers():
                 if m.name == "package/icons.json":
