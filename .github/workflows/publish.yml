@@ -8,10 +8,19 @@
 name: Publish episode
 
 on:
+  # GitHub drops scheduled events under load, so each slot has two backups. Repeats are
+  # harmless: prepare skips once today's review issue exists, and publish only posts what is
+  # approved and not yet out.
   schedule:
     - cron: "0 6 * * 1-6"   # 14:00 Taiwan: prepare
+    - cron: "40 6 * * 1-6"  #   backup
+    - cron: "20 7 * * 1-6"  #   backup
     - cron: "0 11 * * 1-6"  # 19:00 Taiwan: publish zh + en
+    - cron: "25 11 * * 1-6" #   backup
+    - cron: "50 11 * * 1-6" #   backup
     - cron: "0 22 * * 1-6"  # 19:00 Brasília: publish pt
+    - cron: "25 22 * * 1-6" #   backup
+    - cron: "50 22 * * 1-6" #   backup
   workflow_dispatch:
     inputs:
       mode:
@@ -35,7 +44,7 @@ permissions:
 jobs:
   prepare:
     if: >-
-      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 1-6' && vars.AUTO_PUBLISH == 'true')
+      (github.event_name == 'schedule' && contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
       || (github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare')
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -47,11 +56,20 @@ jobs:
       TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
     steps:
       - uses: actions/checkout@v4
-      - name: Skip paused dates
+      - name: Skip paused dates and days already prepared
         if: github.event_name == 'schedule'
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
-          if grep -qx "$(TZ=Asia/Taipei date +%F)" data/skip_dates.txt; then
+          today=$(TZ=Asia/Taipei date +%F)
+          if grep -qx "$today" data/skip_dates.txt; then
             echo "Today is in data/skip_dates.txt; nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
+          # a backup slot, or a manual prepare earlier today, already opened today's review
+          since=$(date -u -d "$today 00:00 +0800" +%FT%TZ)
+          if [ -n "$(gh issue list -R "$GITHUB_REPOSITORY" --label review --state all --search "created:>=$since" --json number --jq '.[].number')" ]; then
+            echo "Today's review issue already exists; nothing to do."
             echo "SKIP=1" >> "$GITHUB_ENV"
           fi
       - uses: ./.github/actions/setup
@@ -86,12 +104,12 @@ jobs:
         if: env.SKIP != '1'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          PUBLISH_AT: ${{ github.event_name == 'schedule' && '中文、英文今晚 19:00；葡語巴西時間 19:00（台灣隔天早上 6:00）' || '確認後馬上上片（手動測試）' }}
+          PUBLISH_AT: '中文、英文今晚 19:00；葡語巴西時間 19:00（台灣隔天早上 6:00）'
         run: python -m shorts review-open "$EP_DIR" "$TAG"
 
   publish:
     if: >-
-      (github.event_name == 'schedule' && github.event.schedule != '0 6 * * 1-6' && vars.AUTO_PUBLISH == 'true')
+      (github.event_name == 'schedule' && !contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
       || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish')
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -99,7 +117,7 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
       GH_TOKEN: ${{ github.token }}
       # 11:00 UTC runs post zh + en; 22:00 UTC runs post pt and close the review.
-      LANGS: ${{ github.event_name == 'schedule' && (github.event.schedule == '0 11 * * 1-6' && 'zh en' || 'pt') || inputs.langs }}
+      LANGS: ${{ github.event_name == 'schedule' && (contains(fromJSON('["0 11 * * 1-6","25 11 * * 1-6","50 11 * * 1-6"]'), github.event.schedule) && 'zh en' || 'pt') || inputs.langs }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
