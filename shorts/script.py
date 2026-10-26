@@ -11,7 +11,7 @@ from .papers import Paper
 from .safelog import log
 
 Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timeline",
-                 "scatter", "contrast", "icons", "takeaway"]
+                 "scatter", "contrast", "icons", "journey", "spotlight", "funnel", "takeaway"]
 
 
 class Line(BaseModel):
@@ -99,9 +99,16 @@ crowd (people/participants/accounts, or many of the things studied), network (co
 spread, communities), pipeline (a 2-4 step process; labels = the step names), bars (comparing \
 groups), timeline (change over time), scatter (a relationship between two measures), contrast \
 (A vs B; labels = the two sides, big_text = the key difference), icons (2-4 concrete things or \
-actors in the study, e.g. ranchers, cattle, buyers, a court; labels = their names). Each scene \
-is later illustrated with simple icons of its labels, so make labels concrete nouns where you \
-can; use the icons visual at least once so the episode visibly shows its own subject.
+actors in the study, e.g. ranchers, cattle, buyers, a court; labels = their names), journey \
+(something moving or being traced from place to place, e.g. cattle from ranch to buyer, a post \
+from author to readers; labels = 2-4 stops in order), spotlight (one key thing zoomed in, e.g. \
+the main finding or the central actor; labels = that thing first, then up to 3 related things; \
+big_text = the point), funnel (lots of raw data filtered down to what matters; labels = what \
+goes in, what comes out). Each scene is later illustrated with simple icons of its labels, so \
+make labels concrete nouns where you can; use the icons visual at least once so the episode \
+visibly shows its own subject. Keep it lively: never the same visual in two scenes in a row, \
+use at least four different visuals between the paper and the takeaway, and favor journey, \
+spotlight and funnel whenever they fit the step.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
