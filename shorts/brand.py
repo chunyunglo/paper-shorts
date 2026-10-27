@@ -1,5 +1,6 @@
-"""The fixed opening and closing cards. They are identical in every episode (only the language
-changes), so the channel always opens and closes the same way, in the same palette."""
+"""The fixed closing card. It is identical in every episode (only the language changes), so the
+channel always closes the same way, in the same palette. There is no opening card: the first
+frame is the hook, because viewers decide in the first seconds whether to keep watching."""
 from __future__ import annotations
 
 import numpy as np
@@ -8,11 +9,8 @@ from PIL import Image, ImageDraw
 from .config import BRAND_EN, BRAND_ZH, CORAL, CREAM, HANDLE, INK_MUTED, NAVY, W
 from .fonts import font
 
-INTRO = 1.0   # seconds
-OUTRO = 2.4
+OUTRO = 2.4   # seconds
 
-TAGLINE = {"zh": "用數據讀懂人類行為", "en": "Human behavior, decoded by data",
-           "pt": "O comportamento humano, decifrado por dados"}
 FOLLOW = {"zh": "追蹤・週一到週六 每天一篇新論文", "en": "Follow · a new paper every Mon–Sat",
           "pt": "Siga · um estudo novo de segunda a sábado"}
 
@@ -47,15 +45,6 @@ class Cards:
         r = _ease((t - 0.3) / 0.35) * 220
         d.rounded_rectangle([W / 2 - r, top + 235, W / 2 + r + 1, top + 247], 6, fill=CORAL)
 
-    def intro(self, t: float) -> Image.Image:
-        img = self.bg.copy()
-        self._brand(img, t, 700)
-        d = ImageDraw.Draw(img)
-        a = _ease((t - 0.4) / 0.35)
-        d.text((W / 2, 1200), TAGLINE[self.lang], font=font("bold", 42 if self.lang == "pt" else 50),
-               fill=_mix(NAVY, a), anchor="mm")
-        return img
-
     def outro(self, t: float) -> Image.Image:
         img = self.bg.copy()
         self._brand(img, t, 660)
@@ -69,7 +58,7 @@ class Cards:
 
 
 def sting(sr: int, seconds: float, rising: bool) -> np.ndarray:
-    """A short fixed chime (C-E-G up for the intro, G-E-C down for the outro). Generated, not licensed."""
+    """A short fixed chime (C-E-G up, or G-E-C down for the outro). Generated, not licensed."""
     n = int(sr * seconds)
     out = np.zeros(n, dtype=np.float32)
     notes = [523.25, 659.25, 783.99]
@@ -87,4 +76,4 @@ def sting(sr: int, seconds: float, rising: bool) -> np.ndarray:
 
 
 def wrap_audio(a: np.ndarray, sr: int) -> np.ndarray:
-    return np.concatenate([sting(sr, INTRO, True), a, sting(sr, OUTRO, False)])
+    return np.concatenate([a, sting(sr, OUTRO, False)])

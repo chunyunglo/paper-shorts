@@ -1,0 +1,5 @@
+:root{--bg:#f6f0e6;--ink:#1d2a5c;--muted:#5b6380;--accent:#ef6c4a}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,"Segoe UI","Noto Sans TC",sans-serif}
+main{max-width:720px;margin:0 auto;padding:40px 16px}
+h1{font-size:28px;margin:0 0 4px}h2{font-size:20px;margin-top:32px;color:var(--accent)}
+p.meta{color:var(--muted);margin-top:0}a{color:var(--accent)}

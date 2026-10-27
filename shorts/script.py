@@ -11,7 +11,7 @@ from .papers import Paper
 from .safelog import log
 
 Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timeline",
-                 "scatter", "contrast", "takeaway"]
+                 "scatter", "contrast", "icons", "journey", "spotlight", "funnel", "takeaway"]
 
 
 class Line(BaseModel):
@@ -61,6 +61,11 @@ class Localized(BaseModel):
 
 class Script(ScriptDraft):
     pt: Localized | None = None
+    icons: list[list[str]] = []  # per scene, Tabler icon names (picked after the script is written)
+
+
+class IconPick(BaseModel):
+    scenes: list[list[str]] = Field(description="One list per scene, in scene order: the icon names for that scene")
 
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
@@ -74,16 +79,36 @@ short, concrete, conversational, no jargon without a plain-words gloss. The Engl
 the same thing as natural spoken English (not a word-for-word translation); it is the English \
 video's voiceover and subtitle. On-screen labels and big text also come in both languages.
 
-Structure (about 200-260 Chinese characters and 120-150 English words of narration in total; \
-each video should run about 40-50 seconds at a brisk pace):
-1. hook: a question or surprising fact that makes people stay (big_text = the hook in a few words).
+Structure (about 200-240 Chinese characters and 110-140 English words of narration in total; \
+each video should run about 45-55 seconds at a calm, unhurried pace):
+1. hook. Viewers decide in the first 3 seconds whether to keep watching, and the video starts \
+directly on this scene (no intro card), so it carries the episode. Two lines:
+   - Line 1 (spoken in under 3 seconds: at most ~15 Chinese characters / ~10 English words) lands \
+the most surprising, counterintuitive or personally relevant point at once: a direct question \
+about the viewer's own behavior ("你以為你滑手機是自己選的嗎？"), or the striking result stated \
+as a tension. Never open with "a new study", "researchers", the channel, the authors, a date, \
+or background.
+   - Line 2 opens a loop: promise what viewers will find out by the end (e.g. the twist is in how \
+they measured it), and pay it off in the finding scene.
+   big_text = the core of line 1 in at most 8 Chinese characters (a number or a sharp phrase), \
+readable at a glance; the English and pt big text are just as short.
 2. paper: who did this study and where it was published (keep it to one line).
 3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
 This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
-crowd (people/participants/accounts), network (connections, spread, communities), pipeline \
-(a 2-4 step process; labels = the step names), bars (comparing groups), timeline (change over \
-time), scatter (a relationship between two measures), contrast (A vs B; labels = the two sides, \
-big_text = the key difference).
+crowd (people/participants/accounts, or many of the things studied), network (connections, \
+spread, communities), pipeline (a 2-4 step process; labels = the step names), bars (comparing \
+groups), timeline (change over time), scatter (a relationship between two measures), contrast \
+(A vs B; labels = the two sides, big_text = the key difference), icons (2-4 concrete things or \
+actors in the study, e.g. ranchers, cattle, buyers, a court; labels = their names), journey \
+(something moving or being traced from place to place, e.g. cattle from ranch to buyer, a post \
+from author to readers; labels = 2-4 stops in order), spotlight (one key thing zoomed in, e.g. \
+the main finding or the central actor; labels = that thing first, then up to 3 related things; \
+big_text = the point), funnel (lots of raw data filtered down to what matters; labels = what \
+goes in, what comes out). Each scene is later illustrated with simple icons of its labels, so \
+make labels concrete nouns where you can; use the icons visual at least once so the episode \
+visibly shows its own subject. Keep it lively: never the same visual in two scenes in a row, \
+use at least four different visuals between the paper and the takeaway, and favor journey, \
+spotlight and funnel whenever they fit the step.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
@@ -128,6 +153,49 @@ def write(paper: Paper, news: dict | None = None) -> Script:
     return script
 
 
+ICON_SYSTEM = """You choose simple line icons to illustrate each scene of a short explainer video. \
+For each scene, return icon names taken EXACTLY from the provided list (never invent names):
+- scenes with labels: one icon per label, same order, picturing that label as concretely as \
+possible (a cow or meat for cattle, a truck for transport, a gavel for a court ruling);
+- crowd: one icon for what the many dots stand for (users for people, or the thing studied);
+- hook, paper and takeaway scenes: an empty list.
+Prefer literal, recognizable objects over abstract symbols. If nothing in the list fits a \
+label, use the closest general icon (e.g. users, building, chart-bar, file-text).
+Never more than 4 names for a scene; the whole answer is a few short lists."""
+
+
+def pick_icons(script: Script) -> None:
+    """Fill script.icons; leaves it empty when the icon set is unavailable."""
+    from . import icons
+
+    names = icons.catalog()
+    if not names:
+        script.icons = []
+        return
+    scenes = [{"index": i, "visual": s.visual, "heading": s.heading_en, "labels": s.labels_en or s.labels,
+               "narration": [l.en for l in s.lines]} for i, s in enumerate(script.scenes)]
+    text = (f"Video: {script.title_en}\n\nScenes (JSON):\n{json.dumps(scenes, ensure_ascii=False)}\n\n"
+            f"Icon names:\n{' '.join(names)}")
+    pick = None
+    for attempt in (1, 2):  # the answer is tiny; a runaway output fails fast and gets one retry
+        try:
+            pick = llm.ask(IconPick, ICON_SYSTEM, text, effort="low", max_tokens=4000)
+            break
+        except Exception as exc:  # icons are decoration; never fail an episode over them
+            log(f"Icon pick failed (try {attempt}): {exc}")
+    out = []
+    for i, s in enumerate(script.scenes):
+        got = pick.scenes[i] if pick and i < len(pick.scenes) else []
+        got = [n.strip() for n in got if icons.known(n.strip())]
+        if not got:  # keyword match on the English labels as a fallback
+            got = [n for n in map(icons.find, s.labels_en or s.labels or [s.heading_en]) if n]
+        if s.visual in ("hook", "paper", "takeaway"):
+            got = []
+        out.append(got[: max(1, len(s.labels))] if s.labels or s.visual == "crowd" else got[:1])
+    script.icons = out
+    log(f"Icons picked for {sum(1 for x in out if x)} scenes")
+
+
 def validate(script: Script) -> None:
     if not 5 <= len(script.scenes) <= 10:
         raise RuntimeError(f"Script has {len(script.scenes)} scenes")
@@ -147,11 +215,13 @@ def validate(script: Script) -> None:
 PT_SYSTEM = """You adapt a finished one-minute explainer video script for "Behavior Decoded" into \
 Brazilian Portuguese (pt-BR) for a Brazilian audience. You get the English and Chinese versions \
 scene by scene. Write natural spoken Brazilian Portuguese for the ear (você, not tu; Brazilian \
-spelling and vocabulary, e.g. "pesquisadores", "dados", "rede social", "celular"), brisk and \
+spelling and vocabulary, e.g. "pesquisadores", "dados", "rede social", "celular"), calm and \
 conversational, not a word-for-word translation. Keep every fact exactly as in the source; add \
 nothing. Keep scene count, label count, and line count identical to the source, in the same \
 order, so the lines match the visuals. Keep numbers, names, and the paper venue as they are. \
 Lines can be a little longer than the English but must stay short (at most 80 characters). \
+The first line of the hook decides whether people keep watching: keep it as short and punchy as \
+the English (spoken in under 3 seconds) and keep its big text just as short. \
 The last line of the last scene is a short invitation to follow the channel, with no schedule."""
 
 
@@ -201,7 +271,7 @@ feedback faithfully and change nothing else. The accuracy rules still win: if a 
 need facts that are not in the paper, do not invent them and say so in changes_zh. You can only \
 change the script (narration lines, headings, labels, big text, titles, descriptions, hashtags, \
 and which visual each scene uses); if the feedback is about something else (voice, music, colors, \
-the fixed intro/outro), say so in changes_zh."""
+the fixed end card), say so in changes_zh."""
 
 
 def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:

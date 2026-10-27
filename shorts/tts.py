@@ -64,7 +64,7 @@ EDGE_FALLBACK = {"zh": "zh-TW-YunJheNeural", "en": "en-US-AriaNeural", "pt": "pt
 
 
 def rate() -> float:
-    return float(config.env("TTS_RATE", "1.25"))
+    return float(config.env("TTS_RATE", "1.1"))  # 1.25 felt rushed to the owner
 
 
 def synth_google(text: str, voice: str) -> np.ndarray:
@@ -159,7 +159,7 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
 
     voice = np.concatenate(chunks)
     mixed = voice * 0.95 + music_bed(voice.size, [s.start for s in timings[1:]])
-    # The fixed intro/outro chimes go around it; timings stay relative to the narration.
+    # The fixed outro chime is appended; timings stay relative to the narration.
     write_wav(out_wav, brand.wrap_audio(mixed, SR))
     return timings, t
 
