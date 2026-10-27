@@ -8,3 +8,4 @@ podcast/web/models/
 podcast/web/bundle.js
 podcast/web/timeline.json
 podcast/web/stills/
+podcast/web/package-lock.json

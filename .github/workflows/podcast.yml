@@ -1,0 +1,150 @@
+# Weekly talk show "Behavior Decoded Tonight", fully automatic (no owner review):
+#   Friday 04:00 UTC (12:00 Taiwan): pick a paper (weighing channel analytics), write the
+#   dialogue, fact-check it against the paper with a second Claude pass, render (about
+#   1.5-2 h on a 4-core runner), check the video, and upload it to YouTube scheduled for
+#   PODCAST_DAY / PODCAST_HOUR_UTC (default Friday 12:00 UTC = 20:00 Taiwan).
+#   Scheduled runs need the repo variable PODCAST_AUTO=true.
+# Test run: push to a claude/* branch with [podcast] in the commit message, or run it by hand
+# with upload off. A test episode goes on a pre-release and is not posted anywhere.
+name: Podcast episode
+
+on:
+  schedule:
+    - cron: "0 4 * * 5"
+    - cron: "50 4 * * 5"  # backup: GitHub sometimes drops scheduled events; repeats skip themselves
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: "Upload to YouTube (off = test episode on a pre-release only)"
+        type: boolean
+        default: false
+  push:
+    branches: ["claude/**"]
+
+concurrency: podcast
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  episode:
+    if: >-
+      (github.event_name == 'schedule' && vars.PODCAST_AUTO == 'true')
+      || github.event_name == 'workflow_dispatch'
+      || (github.event_name == 'push' && contains(github.event.head_commit.message, '[podcast]'))
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      UPLOAD: ${{ (github.event_name == 'schedule' || inputs.upload) && 'true' || 'false' }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      STATE_DIR: state
+      PODCAST_DAY: ${{ vars.PODCAST_DAY }}
+      PODCAST_HOUR_UTC: ${{ vars.PODCAST_HOUR_UTC }}
+      UNPAYWALL_EMAIL: ${{ secrets.ALERT_EMAIL_TO }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Skip if this week's episode is already out
+        if: github.event_name == 'schedule'
+        run: |
+          python3 - <<'EOF' >> "$GITHUB_ENV"
+          import json, pathlib, datetime as d
+          p = pathlib.Path("data/podcast_history.json")
+          h = json.loads(p.read_text()) if p.exists() else []
+          week = (d.datetime.now(d.timezone.utc) - d.timedelta(days=5)).isoformat()
+          print("SKIP=1" if any(e["created"] > week for e in h) else "SKIP=0")
+          EOF
+      - name: Load analytics
+        if: env.SKIP != '1'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+      - uses: ./.github/actions/setup
+        if: env.SKIP != '1'
+        with:
+          render: "true"
+      - uses: actions/setup-node@v4
+        if: env.SKIP != '1'
+        with:
+          node-version: "22"
+      - uses: actions/cache@v4
+        if: env.SKIP != '1'
+        with:
+          path: |
+            podcast/.cache/sherpa-onnx-supertonic-3-tts-int8-2026-05-11
+            podcast/.cache/kokoro-multi-lang-v1_1
+            podcast/.cache/*.zip
+          key: podcast-models-v1
+      - name: Install the studio (TTS models, hosts, three.js, Chromium, Xvfb)
+        if: env.SKIP != '1'
+        run: |
+          for i in 1 2 3; do timeout 300 sudo apt-get install -y -qq xvfb >/dev/null && break; sleep 10; done
+          bash podcast/setup.sh
+          cd podcast/web && npm install --no-save --silent playwright@1.63.0 && npx playwright install --with-deps chromium >/dev/null
+
+      - name: Write the episode
+        if: env.SKIP != '1'
+        shell: bash
+        run: |
+          python -m shorts podcast-make | tee make.log
+          dir=$(tail -1 make.log)
+          echo "EP_DIR=$dir" >> "$GITHUB_ENV"
+          echo "SHOW_FILE=$(python -c "import json,sys;print(json.load(open(sys.argv[1]))['show_file'])" "$dir/meta.json")" >> "$GITHUB_ENV"
+      - name: Voices and timeline
+        if: env.SKIP != '1'
+        run: python podcast/build_audio.py "$SHOW_FILE"
+      - name: Render
+        if: env.SKIP != '1'
+        run: |
+          Xvfb :99 -screen 0 1920x1080x24 >/dev/null 2>&1 &
+          sleep 2
+          DISPLAY=:99 bash podcast/render.sh
+      - name: Check and upload
+        if: env.SKIP != '1'
+        env:
+          DISPLAY: ":99"
+          # a separate podcast channel, if its PODCAST_YOUTUBE_* secrets are set; otherwise the main channel
+          YOUTUBE_CLIENT_ID: ${{ secrets.PODCAST_YOUTUBE_CLIENT_ID || secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.PODCAST_YOUTUBE_CLIENT_SECRET || secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.PODCAST_YOUTUBE_REFRESH_TOKEN || secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          pgrep Xvfb >/dev/null || (Xvfb :99 -screen 0 1920x1080x24 >/dev/null 2>&1 & sleep 2)
+          if [ "$UPLOAD" = "true" ]; then
+            python -m shorts podcast-publish "$EP_DIR"
+          else
+            python -m shorts podcast-publish "$EP_DIR" --dry-run
+          fi
+      - name: Put the episode on a release
+        if: env.SKIP != '1'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          id=$(basename "$EP_DIR")
+          cp podcast/out/episode.mp4 "$EP_DIR/episode.mp4"
+          cp "$SHOW_FILE" "$EP_DIR/show.json"
+          files=("$EP_DIR/episode.mp4" "$EP_DIR/meta.json" "$EP_DIR/show.json")
+          for f in thumbnail.jpg description.txt; do [ -f "$EP_DIR/$f" ] && files+=("$EP_DIR/$f"); done
+          if [ "$UPLOAD" = "true" ]; then
+            gh release create "pod-$id" "${files[@]}" --title "Behavior Decoded Tonight: $(jq -r .title "$EP_DIR/meta.json")" \
+              --notes-file "$EP_DIR/description.txt" --latest=false
+          else
+            gh release create "pod-test-${{ github.run_number }}" "${files[@]}" --prerelease --target "${{ github.sha }}" \
+              --title "Podcast test #${{ github.run_number }} (not posted)" --notes "$(jq -r .title "$EP_DIR/meta.json")"
+          fi
+      - name: Record the episode
+        if: env.SKIP != '1' && env.UPLOAD == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$SHOW_FILE" data/podcast_history.json
+          git commit -qm "Record podcast episode $(basename "$EP_DIR")"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: Tell the owner it failed
+        if: failure() && env.UPLOAD == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create -R "$GITHUB_REPOSITORY" --title "Podcast 這週沒有上片 / This week's podcast failed" \
+            --body "自動流程在這裡停下，沒有上傳任何東西（事實查核或影片檢查沒過也會停在這裡）。The run stopped and nothing was uploaded: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

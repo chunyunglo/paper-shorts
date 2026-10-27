@@ -24,6 +24,8 @@ Monday to Saturday (Sunday off) this repo picks one new computational human-beha
 | `publish.yml` | 週一到六 14:00 做影片並開審核 issue；19:00 上中英文（台灣時間）；巴西 19:00（台灣隔天 06:00）上葡語。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。在審核 issue 回「OK」或「沒問題」才會上片，沒回就跳過 |
 | `comments.yml` | 每小時 | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
+| `podcast.yml` | 每週五 04:00 UTC | 長片 Behavior Decoded Tonight：自動選論文、寫對話、AI 查核、渲染、檢查、排程上 YouTube，不經人工審核。repo variable `PODCAST_AUTO=true` 才會自動跑，見 [podcast/README.md](podcast/README.md) |
+| `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 寫經營策略 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
 開關在 [Settings → Variables](../../settings/variables/actions)。

@@ -225,7 +225,7 @@ def main():
     sf.write(OUT / 'dialog.wav', mix[:int(total * SR)], SR)
     mouths = {k: np.round(mouth_track(v[:int(total * SR)]), 3).tolist() for k, v in tracks.items()}
     tl = {'fps': FPS, 'duration': round(total, 3), 'intro': round(intro, 3), 'outro': OUTRO, 'title': ep['title'],
-          'show': ep.get('show'), 'paper': ep['paper'], 'hosts': hosts, 'lines': lines, 'sfx': effects, 'mouth': mouths}
+          'show': ep.get('show'), 'paper': ep['paper'], 'cards': ep.get('cards', {}), 'hosts': hosts, 'lines': lines, 'sfx': effects, 'mouth': mouths}
     (ROOT / 'web' / 'timeline.json').write_text(json.dumps(tl, ensure_ascii=False))
     print(f"duration {total:.1f}s, {len(lines)} lines, {len(effects)} effects")
 

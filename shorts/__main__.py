@@ -10,6 +10,9 @@
   revise EP_JSON    apply the owner's feedback ($COMMENT): rewrite the script, re-render the videos
   voices            render one sentence in several voices for choosing (out/voices/)
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
+  podcast-make      pick a paper and write + fact-check the talk-show episode (podcast/episodes/)
+  podcast-publish   check the rendered talk show and upload it to YouTube for the weekly slot
+  analytics         read every post's numbers into state/analytics/ and refresh the strategy note
 """
 from __future__ import annotations
 
@@ -69,6 +72,15 @@ def main() -> None:
     rm = sub.add_parser("review-comment")
     rm.add_argument("number", type=int)
     rm.add_argument("--message", required=True)
+    pm = sub.add_parser("podcast-make")
+    pm.add_argument("--paper-json", type=Path)
+    pp = sub.add_parser("podcast-publish")
+    pp.add_argument("folder", type=Path, help="out/podcast/<episode>")
+    pp.add_argument("--video", type=Path, default=Path("podcast/out/episode.mp4"))
+    pp.add_argument("--dry-run", action="store_true", help="run the checks, upload nothing")
+    an = sub.add_parser("analytics")
+    an.add_argument("--strategy", action="store_true", help="rewrite the strategy note now")
+    an.add_argument("--print", action="store_true", help="print the digest")
     args = ap.parse_args()
 
     if args.cmd == "make":
@@ -146,6 +158,23 @@ def main() -> None:
         from .voices import render_all
 
         render_all(args.lang)
+    elif args.cmd == "podcast-make":
+        install_excepthook(strict=False)
+        from .podcast import make as podcast_make
+
+        print(podcast_make(args.paper_json))
+    elif args.cmd == "podcast-publish":
+        install_excepthook(strict=True)
+        from .podcast import publish as podcast_publish
+
+        podcast_publish(args.folder, args.video, args.dry_run)
+    elif args.cmd == "analytics":
+        install_excepthook(strict=True)
+        from . import analytics
+
+        analytics.run(True if args.strategy else None)
+        if args.print:
+            print((analytics.DIR / "report.md").read_text(encoding="utf-8"))
     elif args.cmd == "keepalive":
         install_excepthook(strict=True)
         from .tokens import keepalive

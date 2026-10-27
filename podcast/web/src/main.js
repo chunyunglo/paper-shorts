@@ -474,9 +474,24 @@ function solveArm(v, side, wrist, pole) {
 
 // ---------- overlays (HTML) ----------
 const $ = (id) => document.getElementById(id);
+// Cards written by the episode generator: { type: paper | big | stats | list | quote, ... } in timeline.cards
+const esc = (x) => String(x ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+function cardHTML(c, tl) {
+  const k = `<div class="kicker">${esc(c.kicker)}</div>`;
+  const rows = (c.rows || []).map((r) => `<div class="row">${esc(r)}</div>`).join('');
+  switch (c.type) {
+    case 'paper': return CARDS.paper(tl);
+    case 'big': return `${k}<div class="big">${esc(c.big)}</div><div class="sub">${esc(c.sub)}</div>${rows}`;
+    case 'stats': return k + (c.stats || []).map((s) => `<div class="stat"><span class="num ${s.tone === 'down' ? 'down' : s.tone === 'dim' ? 'dim' : ''}">${esc(s.num)}</span>`
+      + `<span class="lbl">${esc(s.label)}${s.note ? `<br><small>${esc(s.note)}</small>` : ''}</span></div>`).join('');
+    case 'quote': return `${k}<div class="ptitle">${esc(c.text)}</div>`;
+    default: return k + rows;
+  }
+}
+
 const CARDS = {
-  paper: (tl) => `<div class="kicker">TONIGHT'S PAPER</div><div class="ptitle">${tl.paper.title}</div>
-    <div class="meta">${tl.paper.venue}</div><div class="meta">${tl.paper.authors}</div><div class="meta dim">${tl.paper.affil}</div>`,
+  paper: (tl) => `<div class="kicker">TONIGHT'S PAPER</div><div class="ptitle">${esc(tl.paper.title)}</div>
+    <div class="meta">${esc(tl.paper.venue)}</div><div class="meta">${esc(tl.paper.authors)}</div>${tl.paper.affil ? `<div class="meta dim">${esc(tl.paper.affil)}</div>` : ''}`,
   data: () => `<div class="kicker">THE DATA</div><div class="big">1.5 million</div><div class="sub">petitions on Change.org</div>
     <div class="row"><span class="pill">Oct 2, 2023</span> “Write with AI” button launches</div>`,
   design: () => `<div class="kicker">THE TRICK · DIFFERENCE-IN-DIFFERENCES</div>
@@ -772,7 +787,7 @@ window.renderAt = (t) => {
     em.setValue('happy', clamp(happy)); if (em.getExpression('surprised')) em.setValue('surprised', sur * (1 - st.speak * 0.4));
     em.setValue('relaxed', rel * 0.7); em.setValue('sad', sad * 0.5);
     const squint = clamp(st.laugh * (0.12 + 0.12 * st.laughPulse));   // eyes narrow while laughing, never shut
-    em.setValue('blink', Math.max(squint, happy > 0.4 ? 0 : blinkAt(h.seed * 10, t)));
+    em.setValue('blink', Math.max(squint, happy > 0.4 || window.NOBLINK ? 0 : blinkAt(h.seed * 10, t)));
     if (window.DEBUG && window.DEBUG.expr) { for (const n of ['aa','ih','ou','ee','oh','happy','relaxed','sad','surprised','angry','blink']) if (em.getExpression(n)) em.setValue(n, window.DEBUG.expr[n] || 0); }
     h.vrm.update(dt);
   }
@@ -818,7 +833,7 @@ function overlays(t, cur, shot) {
   const ce = cs + 9.5;
   const cEl = $('card');
   if (card && t < ce) {
-    if (S.cardShown !== card) { cEl.innerHTML = CARDS[card](tl); S.cardShown = card; }
+    if (S.cardShown !== card) { cEl.innerHTML = tl.cards && tl.cards[card] ? cardHTML(tl.cards[card], tl) : CARDS[card](tl); S.cardShown = card; }
     const k = smooth((t - cs + 0.1) / 0.45) * (1 - smooth((t - ce + 0.5) / 0.5));
     cEl.className = 'card ' + (shot.kind.endsWith('host') ? 'left' : 'right');
     cEl.style.opacity = k; cEl.style.transform = `translateY(${(1 - k) * 24}px)`;
