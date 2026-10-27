@@ -269,3 +269,11 @@ def test_garbled_rss_authors_are_dropped():
     blob = "Tara MittelbergMarin E. Skidmoreahttps://ror.org/01y2jtd41Nelson Institute, Urbana, IL 61801"
     assert papers.clean_authors([blob]) == []
     assert papers.clean_authors(["Ada Lovelace", "Alan Turing"]) == ["Ada Lovelace", "Alan Turing"]
+
+
+def test_slug_never_ends_with_a_hyphen():
+    from shorts import pipeline
+
+    s = pipeline.slug("Decredentialed jobs and upward mobility among non-college workers in the USA")
+    assert s == "decredentialed-jobs-and-upward-mobility"
+    assert not s.endswith("-") and len(s) <= 40
