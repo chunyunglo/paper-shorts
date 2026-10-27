@@ -15,7 +15,7 @@ LANGS = ("zh", "en", "pt")
 
 
 def slug(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "episode"
+    return re.sub(r"[^a-z0-9]+", "-", text.lower())[:40].strip("-") or "episode"
 
 
 def spoken(script: scriptmod.Script, lang: str) -> list[list[str]]:
