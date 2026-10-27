@@ -1,0 +1,457 @@
+{
+  "show": "Behavior Decoded Tonight",
+  "title": "The AI button that made petitions worse",
+  "paper": {
+    "title": "Introducing AI to an online petition platform changed outputs but not outcomes",
+    "venue": "Nature Human Behaviour · 2026",
+    "authors": "Isabel Corpus, Eric Gilbert, Allison Koenecke, Mor Naaman",
+    "affil": "Cornell University · University of Michigan",
+    "doi": "10.1038/s41562-026-02579-1"
+  },
+  "lang": "en",
+  "hosts": {
+    "K": {
+      "name": "Kai",
+      "title": "Host",
+      "role": "desk",
+      "model": "kai.vrm",
+      "tts": "supertonic",
+      "voice": 5,
+      "seed": 7.7
+    },
+    "A": {
+      "name": "Anne",
+      "title": "Resident data scientist",
+      "role": "chair",
+      "model": "anne.vrm",
+      "tts": "supertonic",
+      "voice": 2,
+      "seed": 1.3,
+      "crossLegs": false
+    }
+  },
+  "lines": [
+    [
+      "SFX",
+      "sting",
+      {
+        "dur": 3.2
+      }
+    ],
+    [
+      "K",
+      "Good evening, good evening! Welcome to Behavior Decoded Tonight. I'm Kai.",
+      {
+        "emo": "happy",
+        "gest": "both",
+        "toCamera": true,
+        "gap": 0.2,
+        "applause": 3.0
+      }
+    ],
+    [
+      "K",
+      "Thank you. Please, sit down. You're making the AI nervous.",
+      {
+        "emo": "happy",
+        "toCamera": true,
+        "laugh": 0.7,
+        "gap": 0.4
+      }
+    ],
+    [
+      "K",
+      "So. Big news this week. Researchers looked at one and a half million online petitions.",
+      {
+        "gest": "open",
+        "toCamera": true,
+        "gap": 0.3
+      }
+    ],
+    [
+      "K",
+      "One and a half million! That is a lot of people who are very upset about a parking lot.",
+      {
+        "emo": "happy",
+        "gest": "both",
+        "toCamera": true,
+        "laugh": 1.0
+      }
+    ],
+    [
+      "K",
+      "Here to explain it, our resident data scientist, the woman who reads the methods section for fun. Anne!",
+      {
+        "emo": "happy",
+        "gest": "open",
+        "toCamera": true,
+        "gap": 0.3,
+        "applause": 2.2
+      }
+    ],
+    [
+      "A",
+      "Hi! Hi. For the record, I read the methods section because nobody else does.",
+      {
+        "emo": "happy",
+        "gest": "open",
+        "laugh": 0.5
+      }
+    ],
+    [
+      "K",
+      "And that is what makes you dangerous.",
+      {
+        "emo": "happy",
+        "gap": 0.15
+      }
+    ],
+    [
+      "A",
+      "Okay. So, in October twenty twenty-three, Change dot org added a button. It said, write with A.I.",
+      {
+        "card": "paper",
+        "gest": "explain",
+        "gap": 0.4
+      }
+    ],
+    [
+      "K",
+      "Oh, I love a button.",
+      {
+        "emo": "happy",
+        "gap": 0.1
+      }
+    ],
+    [
+      "A",
+      "You type a few bullet points, and it writes the whole petition for you.",
+      {
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "That's my dream. That's how I want to write everything. Birthday cards. Apologies.",
+      {
+        "emo": "relaxed",
+        "gest": "open"
+      }
+    ],
+    [
+      "A",
+      "Especially apologies.",
+      {
+        "emo": "happy",
+        "gap": 0.1,
+        "laugh": 0.9
+      }
+    ],
+    [
+      "A",
+      "So a team from Cornell and the University of Michigan asked a simple question. Did the button actually help?",
+      {
+        "card": "data",
+        "gest": "explain",
+        "gap": 0.3
+      }
+    ],
+    [
+      "K",
+      "And how do you even test that? You can't ask a million people, hey, did a robot write this?",
+      {
+        "gest": "open"
+      }
+    ],
+    [
+      "A",
+      "You don't have to. Here's the clever part. The button came out in the U.S., the U.K. and Canada on October second. But Australia got it eleven weeks later.",
+      {
+        "card": "design",
+        "gest": "explain",
+        "back": "Mm-hm."
+      }
+    ],
+    [
+      "K",
+      "Classic Australia. Always living in the future, except this one time.",
+      {
+        "emo": "happy",
+        "gest": "open",
+        "laugh": 0.9
+      }
+    ],
+    [
+      "A",
+      "Right! So for eleven weeks, Australia is the comparison group. You look at how petitions changed in the countries that got the button, and subtract how they changed in Australia, which didn't. It's called difference in differences.",
+      {
+        "emo": "happy",
+        "gest": "explain",
+        "back": "Okay."
+      }
+    ],
+    [
+      "K",
+      "Difference in differences. That's what my therapist calls my relationships.",
+      {
+        "emo": "happy",
+        "gest": "both",
+        "laugh": 1.0
+      }
+    ],
+    [
+      "A",
+      "Kai.",
+      {
+        "emo": "relaxed",
+        "gap": 0.1
+      }
+    ],
+    [
+      "K",
+      "Sorry. Go on. What happened?",
+      {
+        "gap": 0.1
+      }
+    ],
+    [
+      "A",
+      "The writing changed. A lot. The typical petition got about fifty words longer. That's half again as long.",
+      {
+        "card": "text",
+        "gest": "explain",
+        "gap": 0.3
+      }
+    ],
+    [
+      "K",
+      "Okay.",
+      {
+        "gap": 0.05
+      }
+    ],
+    [
+      "A",
+      "It got harder to read, about one and a half grade levels. And here's the weird one. The petitions started sounding like each other. Similarity went up about twenty-three percent.",
+      {
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "So now everybody's petition sounds like, dear decision makers, we humbly and urgently call upon you.",
+      {
+        "emo": "happy",
+        "gest": "both"
+      }
+    ],
+    [
+      "A",
+      "Exactly that voice.",
+      {
+        "emo": "happy",
+        "gap": 0.1
+      }
+    ],
+    [
+      "K",
+      "The LinkedIn voice.",
+      {
+        "emo": "happy",
+        "gap": 0.05
+      }
+    ],
+    [
+      "A",
+      "The LinkedIn voice!",
+      {
+        "emo": "happy",
+        "gap": 0.05,
+        "laugh": 1.0
+      }
+    ],
+    [
+      "K",
+      "But wait. Longer, fancier, more professional. That's good, right? That's what we want!",
+      {
+        "gest": "open",
+        "gap": 0.3
+      }
+    ],
+    [
+      "A",
+      "That's what you'd think. But then they looked at outcomes, signatures and comments. And petitions were about five percentage points less likely to get even ten signatures.",
+      {
+        "card": "outcome",
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "Ten! Ten signatures! I can get ten signatures by walking into a Costco.",
+      {
+        "emo": "surprised",
+        "gest": "both",
+        "laugh": 1.0,
+        "gap": 0.1
+      }
+    ],
+    [
+      "A",
+      "Comments dipped a little too, but that wasn't statistically significant, so we don't count it.",
+      {
+        "gest": "open"
+      }
+    ],
+    [
+      "K",
+      "Look at you. Responsible.",
+      {
+        "emo": "happy",
+        "gap": 0.15
+      }
+    ],
+    [
+      "A",
+      "Someone has to be. They also found about forty-six hundred people who wrote a petition before the button, and another one after. Same person, compared to themselves.",
+      {
+        "card": "repeat",
+        "gest": "explain",
+        "emo": "happy"
+      }
+    ],
+    [
+      "K",
+      "Oh, that's good. Like a before and after photo.",
+      {
+        "gest": "open"
+      }
+    ],
+    [
+      "A",
+      "And with A.I. available, their second petition was longer, and it did worse.",
+      {
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "Okay, so why? Why would a better written petition do worse?",
+      {
+        "gest": "open",
+        "gap": 0.35
+      }
+    ],
+    [
+      "A",
+      "The paper can't prove why. But the authors have some ideas. One. When everyone uses the same tool, everyone sounds the same. And a petition works because it sounds like a real person who really cares.",
+      {
+        "card": "why",
+        "gest": "explain",
+        "back": "Mm."
+      }
+    ],
+    [
+      "K",
+      "Right. Nobody signs a petition that sounds like a terms of service agreement.",
+      {
+        "emo": "happy",
+        "gest": "open",
+        "laugh": 0.7
+      }
+    ],
+    [
+      "A",
+      "Two. It got longer, and people read these on their phones. Nobody is scrolling through a wall of text to save a dog park.",
+      {
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "I would. For a dog park? I would.",
+      {
+        "emo": "relaxed",
+        "gest": "open",
+        "gap": 0.15
+      }
+    ],
+    [
+      "A",
+      "You would not.",
+      {
+        "emo": "happy",
+        "gap": 0.1
+      }
+    ],
+    [
+      "K",
+      "I would not.",
+      {
+        "emo": "happy",
+        "gap": 0.1,
+        "laugh": 1.0
+      }
+    ],
+    [
+      "K",
+      "Now, devil's advocate. This was twenty twenty-three. People are better with A.I. now. Maybe it's different.",
+      {
+        "gest": "explain",
+        "gap": 0.3
+      }
+    ],
+    [
+      "A",
+      "That's fair, and the authors say so too. It's one platform and one rollout window. And maybe back then people just didn't have their A.I. radar up yet.",
+      {
+        "card": "limits",
+        "gest": "explain"
+      }
+    ],
+    [
+      "K",
+      "So the lesson is not, A.I. bad.",
+      {
+        "gap": 0.15
+      }
+    ],
+    [
+      "A",
+      "No. The lesson is, a tool can change what we write without changing what happens. And it might make all of us sound a little more the same.",
+      {
+        "card": "takeaway",
+        "gest": "both"
+      }
+    ],
+    [
+      "K",
+      "So if you want to save the dog park.",
+      {
+        "emo": "happy",
+        "gap": 0.3
+      }
+    ],
+    [
+      "A",
+      "Write it yourself. Keep it short. Sound like you.",
+      {
+        "emo": "happy",
+        "gest": "open",
+        "gap": 0.1,
+        "applause": 1.6
+      }
+    ],
+    [
+      "K",
+      "That's our show! Anne, thank you. The paper is in Nature Human Behaviour, link in the description. I'm Kai, this has been Behavior Decoded Tonight. Good night, everybody!",
+      {
+        "emo": "happy",
+        "gest": "wave",
+        "toCamera": true,
+        "gap": 0.2,
+        "applause": 4.0
+      }
+    ]
+  ]
+}

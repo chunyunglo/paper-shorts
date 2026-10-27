@@ -1,0 +1,105 @@
+{
+ "name": "Anne",
+ "outfit": "guest",
+ "macro": {
+  "gender": 0.0,
+  "age": 0.48,
+  "muscle": 0.45,
+  "weight": 0.45,
+  "height": 0.5,
+  "proportions": 0.75,
+  "cupsize": 0.35,
+  "firmness": 0.6,
+  "race": {
+   "asian": 0.5,
+   "caucasian": 0.5,
+   "african": 0.0
+  }
+ },
+ "race_units": "caucasian",
+ "targets": {
+  "l-eye-height2-incr": 0.3,
+  "r-eye-height2-incr": 0.3,
+  "mouth-lowerlip-volume-decr": 0.5,
+  "mouth-upperlip-volume-decr": 0.2
+ },
+ "skin": {
+  "tone": [
+   0.88,
+   0.68,
+   0.58
+  ],
+  "lips": [
+   0.62,
+   0.27,
+   0.3
+  ],
+  "lip_amt": 0.45,
+  "blush": 0.45,
+  "brow": 0.65,
+  "brow_w": 0.0038,
+  "brow_h": 0.022,
+  "lid": 0.28
+ },
+ "hair": {
+  "color": [
+   0.1,
+   0.055,
+   0.035
+  ],
+  "cards": 0,
+  "top_len": 0.09,
+  "side_len": 0.06,
+  "fringe_len": 0.0,
+  "width": 0.012,
+  "hl_front": 0.072,
+  "hl_side": 0.025,
+  "hl_back": -0.06,
+  "part_x": 0.025,
+  "sideways": 0.9,
+  "backward": 0.25,
+  "gravity": 0.3,
+  "volume": 0.007,
+  "segs": 10,
+  "seed": 5,
+  "fringe_dir": [
+   -1.0,
+   0.1,
+   -0.4
+  ],
+  "face_top": 0.0,
+  "face_half": 0.072,
+  "bob": {
+   "thick_top": 0.014,
+   "thick_side": 0.022,
+   "bottom": -0.1,
+   "drop": -0.01,
+   "open_top": 0.055,
+   "u_rep": 5,
+   "seed": 3,
+   "classic": true
+  }
+ },
+ "colors": {
+  "suit": [
+   0.42,
+   0.07,
+   0.09
+  ],
+  "shirt": [
+   0.93,
+   0.9,
+   0.84
+  ],
+  "shoes": [
+   0.03,
+   0.02,
+   0.02
+  ],
+  "belt": [
+   0.04,
+   0.03,
+   0.025
+  ]
+ }
+}

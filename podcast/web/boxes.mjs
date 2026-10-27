@@ -1,0 +1,12 @@
+import http from 'node:http'; import fs from 'node:fs'; import path from 'node:path'; import { createRequire } from 'node:module';
+const { chromium } = createRequire('/home/claude/paper-shorts/podcast/web/')('playwright');
+const ROOT = '/home/claude/paper-shorts/podcast/web';
+const server = http.createServer((req, res) => { const p = path.join(ROOT, decodeURIComponent(req.url.split('?')[0])); fs.readFile(p, (e, d) => { if (e) { res.writeHead(404); res.end(); return; } res.writeHead(200, { 'content-type': p.endsWith('.html') ? 'text/html' : p.endsWith('.js') ? 'text/javascript' : 'application/octet-stream' }); res.end(d); }); });
+await new Promise((r) => server.listen(0, r));
+const browser = await chromium.launch({ headless: false, args: ['--use-gl=angle', '--use-angle=gl', '--ignore-gpu-blocklist', '--no-sandbox', '--window-size=1920,1080'] });
+const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
+await page.goto(`http://127.0.0.1:${server.address().port}/index.html`);
+await page.evaluate(() => window.boot());
+await page.evaluate(() => window.renderAt(34));
+console.log(JSON.stringify(await page.evaluate((k) => window.debugBoxes(k), process.argv[2]), null, 0));
+await browser.close(); server.close();

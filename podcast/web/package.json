@@ -1,0 +1,10 @@
+{
+  "name": "podcast-studio",
+  "private": true,
+  "description": "Virtual podcast studio rendered with three.js and three-vrm",
+  "dependencies": {
+    "@pixiv/three-vrm": "3.5.5",
+    "esbuild": "0.28.2",
+    "three": "0.170.0"
+  }
+}

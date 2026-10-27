@@ -1,0 +1,118 @@
+{
+ "name": "Kai",
+ "outfit": "host",
+ "macro": {
+  "gender": 1.0,
+  "age": 0.55,
+  "muscle": 0.6,
+  "weight": 0.5,
+  "height": 0.6,
+  "proportions": 0.7,
+  "cupsize": 0.5,
+  "firmness": 0.5,
+  "race": {
+   "asian": 0.6,
+   "caucasian": 0.4,
+   "african": 0.0
+  }
+ },
+ "race_units": "asian",
+ "targets": {
+  "l-eye-height2-incr": 0.3,
+  "l-eye-eyefold-up": 0.35,
+  "l-eye-scale-incr": 0.15,
+  "r-eye-height2-incr": 0.3,
+  "r-eye-eyefold-up": 0.35,
+  "r-eye-scale-incr": 0.15,
+  "l-eye-bag-decr": 0.7,
+  "l-eye-bag-height-decr": 0.5,
+  "r-eye-bag-decr": 0.7,
+  "r-eye-bag-height-decr": 0.5
+ },
+ "skin": {
+  "tone": [
+   0.84,
+   0.64,
+   0.53
+  ],
+  "lips": [
+   0.6,
+   0.36,
+   0.32
+  ],
+  "blush": 0.2,
+  "stubble": 0.5,
+  "brow": 0.8,
+  "brow_lo": 0.4,
+  "lid": 0.15,
+  "lip_amt": 0.35,
+  "brow_w": 0.0045
+ },
+ "hair": {
+  "color": [
+   0.075,
+   0.052,
+   0.04
+  ],
+  "cards": 0,
+  "top_len": 0.05,
+  "side_len": 0.015,
+  "fringe_len": 0.02,
+  "width": 0.008,
+  "part_x": 0.035,
+  "sideways": 0.5,
+  "backward": 0.8,
+  "gravity": 0.05,
+  "volume": 0.012,
+  "segs": 5,
+  "seed": 2,
+  "bob": {
+   "thick_top": 0.016,
+   "thick_side": 0.007,
+   "bottom": 0.035,
+   "bottom_back": -0.075,
+   "drop": null,
+   "open_top": 0.07,
+   "u_rep": 14,
+   "seed": 4,
+   "tip_scale": 0.4,
+   "strips": 1400,
+   "strip_w": 0.01,
+   "open_drop": 0.02,
+   "open_ramp": 0.7,
+   "open_w": 0.5
+  }
+ },
+ "colors": {
+  "suit": [
+   0.1,
+   0.13,
+   0.25
+  ],
+  "shirt": [
+   0.93,
+   0.94,
+   0.96
+  ],
+  "tie": [
+   0.42,
+   0.06,
+   0.09
+  ],
+  "tie2": [
+   0.62,
+   0.5,
+   0.3
+  ],
+  "shoes": [
+   0.02,
+   0.018,
+   0.016
+  ],
+  "belt": [
+   0.03,
+   0.022,
+   0.018
+  ]
+ }
+}
