@@ -326,11 +326,31 @@ function toonify(o) {
   shell.frustumCulled = false; shell.castShadow = false; shell.receiveShadow = false;
 }
 
-async function loadHost(url) {
+// swap a model's clothes for another VRoid model's (e.g. a skirt for trousers): VRoid models share bone names,
+// so the donor's meshes are rebound to the recipient's skeleton, keeping the donor's bind pose
+const outfitSlot = (o) => ((([].concat(o.material)[0] || {}).name || '').match(/_(Bottoms|Shoes|Tops)_/) || [])[1];
+async function swapOutfit(scene, url, slots) {
+  const donor = (await loader.loadAsync(url)).scene;
+  const bones = {}; scene.traverse((o) => { if (o.isBone) bones[o.name] = o; });
+  const drop = []; scene.traverse((o) => { if (o.isSkinnedMesh && slots.includes(outfitSlot(o))) drop.push(o); });
+  const parent = drop[0].parent;
+  drop.forEach((o) => o.removeFromParent());
+  donor.traverse((o) => {
+    if (!o.isSkinnedMesh || !slots.includes(outfitSlot(o))) return;
+    const g = o.geometry.clone(), pos = g.attributes.position, nrm = g.attributes.normal;
+    for (let i = 0; i < pos.count; i++) pos.setXYZ(i, pos.getX(i) + nrm.getX(i) * 0.006, pos.getY(i) + nrm.getY(i) * 0.006, pos.getZ(i) + nrm.getZ(i) * 0.006);
+    const m = new THREE.SkinnedMesh(g, o.material);
+    m.name = o.name; parent.add(m);
+    m.bind(new THREE.Skeleton(o.skeleton.bones.map((b) => bones[b.name] || bones['J_Bip_C_Hips']), o.skeleton.boneInverses), o.bindMatrix);
+  });
+}
+
+async function loadHost(url, outfit) {
   const gltf = await loader.loadAsync(url);
   const vrm = gltf.userData.vrm;
   VRMUtils.removeUnnecessaryVertices(gltf.scene);
   VRMUtils.combineSkeletons(gltf.scene);
+  if (outfit) await swapOutfit(gltf.scene, 'models/' + outfit.from, outfit.slots);
   const vrm0 = vrm.meta && vrm.meta.metaVersion === '0';
   if (vrm0) VRMUtils.rotateVRM0(vrm);
   vrm.scene.traverse((o) => {
@@ -494,8 +514,8 @@ window.setup = async (tl) => {
 
   const hosts = {};
   for (const [key_, cfg] of Object.entries(tl.hosts)) {
-    const h = await loadHost('models/' + cfg.model);
-    Object.assign(h, { key: key_, role: cfg.role, seed: cfg.seed || (key_ === 'A' ? 1.3 : 7.7), crossLegs: !!cfg.crossLegs });
+    const h = await loadHost('models/' + cfg.model, cfg.outfit);
+    Object.assign(h, { key: key_, role: cfg.role, seed: cfg.seed || (key_ === 'A' ? 1.3 : 7.7), crossLegs: !!cfg.crossLegs, mouth: cfg.mouth ?? 1 });
     scene.add(h.root); hosts[key_] = h;
   }
   const host = Object.values(hosts).find((h) => h.role === 'desk');
@@ -526,7 +546,7 @@ window.setup = async (tl) => {
     c.rotation.y = -0.3; scene.add(c);
   }
   host.nearArm = 'right'; guest.nearArm = 'left';
-  for (const h of Object.values(hosts)) { applyPose(h, 0, idleState()); h.vrm.update(0); h.headPos = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).add(V(0, 0.1, 0)); } // the cartoon head bone sits at the neck; aim at the eyes
+  for (const h of Object.values(hosts)) { applyPose(h, 0, idleState()); h.vrm.update(0); h.headPos = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)); }
 
   const camera = new THREE.PerspectiveCamera(32, W / H, 0.05, 60);
   let composer = null;
@@ -733,8 +753,9 @@ window.renderAt = (t) => {
     const happy = st.emo.happy || 0, sur = st.emo.surprised || 0, rel = st.emo.relaxed || 0, sad = st.emo.sad || 0;
     const laughOpen = st.laugh * (0.18 + 0.5 * st.laughPulse) * (0.6 + 0.4 * Math.exp(-st.laughT / 1.6));
     const ms = 1 - happy * 0.3;
-    em.setValue('aa', clamp(m[0] * 1.5 * ms + laughOpen)); em.setValue('ih', clamp(m[1] * 1.2)); em.setValue('ou', clamp(m[2] * 1.4));
-    em.setValue('ee', clamp(m[3] * 1.2 * ms + st.laugh * 0.15)); em.setValue('oh', clamp(m[4] * 1.4));
+    const mo = h.mouth;   // VRoid mouths open very wide at full weight, showing the whole tongue
+    em.setValue('aa', clamp(m[0] * 1.5 * ms + laughOpen) * mo); em.setValue('ih', clamp(m[1] * 1.2) * mo); em.setValue('ou', clamp(m[2] * 1.4) * mo);
+    em.setValue('ee', clamp(m[3] * 1.2 * ms + st.laugh * 0.15) * mo); em.setValue('oh', clamp(m[4] * 1.4) * mo);
     em.setValue('happy', clamp(happy)); if (em.getExpression('surprised')) em.setValue('surprised', sur * (1 - st.speak * 0.4));
     em.setValue('relaxed', rel * 0.7); em.setValue('sad', sad * 0.5);
     const squint = clamp(st.laugh * (0.12 + 0.12 * st.laughPulse));   // eyes narrow while laughing, never shut
