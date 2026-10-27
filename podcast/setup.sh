@@ -15,19 +15,13 @@ if [ ! -f web/models/AvatarSample_C.vrm ]; then
   git -C .cache/vrm-samples sparse-checkout set --no-cone 'vroid/stable/*.vrm'
   cp .cache/vrm-samples/vroid/stable/AvatarSample_A.vrm .cache/vrm-samples/vroid/stable/AvatarSample_C.vrm web/models/
 fi
-# Characters, built from scratch in Blender (bpy as a Python module):
-# MakeHuman base mesh and targets through MPFB2 (GPL code, CC0 assets), MakeHuman eyes (CC0),
-# VRM export through VRM-Addon-for-Blender (MIT). Clothes, hair and skin are procedural (characters/).
-if [ ! -f web/models/kai.vrm ]; then
-  [ -d .cache/bpyenv ] || { uv venv -q -p 3.13 .cache/bpyenv && uv pip install -q -p .cache/bpyenv bpy==5.1.2 numpy pillow; }
-  [ -d .cache/mpfb2 ] || git clone -q --depth 1 https://github.com/makehumancommunity/mpfb2 .cache/mpfb2
-  [ -d .cache/vrmaddon ] || git clone -q --depth 1 https://github.com/saturday06/VRM-Addon-for-Blender .cache/vrmaddon
-  if [ ! -d .cache/makehuman ]; then
-    git clone -q --depth 1 --filter=blob:none --sparse https://github.com/makehumancommunity/makehuman .cache/makehuman
-    git -C .cache/makehuman sparse-checkout set --no-cone 'makehuman/data/eyes/*'
-  fi
-  EXT=~/.config/blender/5.1/extensions/user_default; mkdir -p $EXT
-  ln -sfn "$PWD/.cache/mpfb2/src/mpfb" $EXT/mpfb; ln -sfn "$PWD/.cache/vrmaddon/src/io_scene_vrm" $EXT/vrm
-  (cd characters && for c in kai anne; do ../.cache/bpyenv/bin/python build.py $c.json "$PWD/../web/models/$c.vrm"; done)
-fi
+# Kai and Anne: VRoid Studio CC0 models (pixiv, via OpenGameArt). Anne borrows Kai's trousers and shoes at load time.
+OGA=https://opengameart.org/sites/default/files
+get_vroid() {
+  [ -f web/models/$3 ] && return
+  [ -f .cache/$1.zip ] || curl -sL -o .cache/$1.zip $OGA/$1.zip
+  unzip -q -o -j .cache/$1.zip "$2" -d .cache/vroid && cp ".cache/vroid/$2" web/models/$3
+}
+get_vroid sakurada_fumiriya 'Sakurada Fumiriya.vrm' kai.vrm
+get_vroid sendagaya_shino 'Sendagaya Shino.vrm' anne.vrm
 cd web && npm install --silent && npx esbuild src/main.js --bundle --outfile=bundle.js --format=iife --log-level=warning
