@@ -124,6 +124,7 @@ def test_shorts_publish_without_review_unless_owner_says_no(monkeypatch):
 
     def run(comments, required=""):
         monkeypatch.setenv("REVIEW_REQUIRED", required)
+        monkeypatch.setattr(review, "_gh", lambda: {})
         monkeypatch.setattr(review, "owner", lambda: "me")
         monkeypatch.setattr(review, "http", lambda *a, **k: R([{"user": {"login": u}, "body": b} for u, b in comments]))
         return review._is_approved({"comments_url": "x"})
