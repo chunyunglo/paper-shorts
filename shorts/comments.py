@@ -1,4 +1,4 @@
-"""Hourly comment triage on recent episodes.
+"""Twice-daily comment triage on recent episodes.
 
 For each new comment, Claude picks one of:
   question / praise  -> reply in the commenter's language, grounded in the episode's paper summary

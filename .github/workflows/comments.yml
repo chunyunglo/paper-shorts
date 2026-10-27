@@ -1,11 +1,11 @@
-# Hourly: triage new comments on episodes from the last 30 days.
+# Twice a day (09:23 and 21:23 Taiwan): triage new comments on episodes from the last 30 days.
 # Scheduled runs only act once the repo variable AUTO_REPLY is "true".
 # Logs show counts only. Never add steps that print comment data.
 name: Reply to comments
 
 on:
   schedule:
-    - cron: "23 * * * *"
+    - cron: "23 1,13 * * *"   # 09:23 and 21:23 Taiwan
   workflow_dispatch:
     inputs:
       dry_run:
