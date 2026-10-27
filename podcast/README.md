@@ -1,4 +1,4 @@
-# Behavior Decoded Tonight（試做）
+# Behavior Decoded Tonight
 
 把一篇論文做成深夜脫口秀風格的長影片：主持人 Kai 坐在主持桌，來賓 Anne 是「駐站資料科學家」，有開場獨白、觀眾笑聲、掌聲和樂隊音效。全部用開源工具在沒有 GPU 的雲端機器上跑，不用付費的虛擬人服務。每週自動做一集、自動上片，不經人工審核（見下方「自動經營」）。
 
@@ -12,7 +12,7 @@ A late-night-talk-show style video about one paper, built only with open tools o
 | 配音 | Supertonic 3（MIT，sherpa-onnx 在 CPU 上跑）：Kai 用 voice 5、Anne 用 voice 2。中文集可改用 Kokoro | `build_audio.py` |
 | 音效 | 觀眾聲用 Freesound 上的 CC0 錄音（可商用、免標示）：笑聲是 Kinoton 的九段情境喜劇笑聲，依長度挑最合適的一段、不連續重複，大笑時再疊一段錯開的；掌聲是 nervousneal 的小型觀眾掌聲，取穩定段落加上原錄音的收尾。樂隊開場是程式合成的鼓點加銅管 | `crowd.py`、`sfx.py`、`assets/crowd/` |
 | 嘴型 | 每位主持人自己的音軌，每格算音量和頻譜，換成 VRM 的 aa/ih/ou/ee/oh | `build_audio.py` |
-| 角色 | 自己在 Blender（bpy）裡做：MakeHuman 人體和表情（MPFB2），西裝、襯衫、領帶、皮鞋、頭髮和皮膚貼圖都是程式產生，再匯出成 VRM 1.0。外型設定在 `kai.json`、`anne.json` | `characters/build.py` |
+| 角色 | VRoid Studio 的 CC0 模型（pixiv，經 OpenGameArt）：Kai 是 Sakurada Fumiriya，Anne 是 Sendagaya Shino，載入時換上 Kai 的長褲和鞋子；`setup.sh` 會下載 | `setup.sh`、`web/src/main.js` |
 | 動作 | 坐姿、兩段式手臂 IK（Kai 手放桌上、Anne 手放腿上）、講話時跟著語音重音點頭和比手勢、長句自然抬手；觀眾笑時有自己的節奏（頭往後仰、身體前傾、肩膀抖、瞇眼、手摸胸口或拍桌）、對方說笑話時微笑、眨眼、看對方或看鏡頭、頭髮物理 | `web/src/main.js` |
 | 攝影棚 | three.js 程式建模：落地窗外三層城市夜景和橋、木條牆和 LED、霓虹招牌、燈架和光束、弧形主持桌、絲絨單人沙發、邊桌檯燈、地球儀和桌上麥克風，加上光暈後製 | `web/src/main.js` |
 | 鏡頭和字幕 | 開場搖臂鏡頭、獨白正面鏡頭、依講話的人切近景、短句和笑聲切全景；資料卡、字幕、名牌和片頭片尾用 HTML 疊上 | `web/src/main.js`、`web/index.html` |
@@ -50,7 +50,7 @@ podcast/render.sh                       # -> podcast/out/episode.mp4
 
 ## 授權 Credits
 
-- 角色：MakeHuman 基礎人體、表情和眼睛（CC0）；MPFB2（GPL-3.0，只在建模時用，不隨影片散布）；VRM Add-on for Blender（MIT）。
+- 角色：VRoid Studio 範例模型 Sakurada Fumiriya、Sendagaya Shino（pixiv，CC0）。`characters/` 裡是之前自己用 Blender／MakeHuman 做角色的程式，目前沒有使用。
 - 觀眾聲：Freesound CC0 1.0 錄音，來源與作者見 `assets/crowd/CREDITS.md`。
 - 配音：Supertonic 3 © Supertone Inc.（MIT）；Kokoro（Apache-2.0）；sherpa-onnx（Apache-2.0）。
 - three.js、three-vrm：MIT。

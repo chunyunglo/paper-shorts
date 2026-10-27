@@ -92,6 +92,13 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           PUBLISH_AT: ${{ github.event_name == 'schedule' && '中文、英文今晚 19:00；葡語巴西時間 19:00（台灣隔天早上 6:00）' || '確認後馬上上片（手動測試）' }}
         run: python -m shorts review-open "$EP_DIR" "$TAG"
+      - name: Tell the owner today's episode stopped
+        if: failure() && (github.event_name == 'schedule' || inputs.auto)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create -R "$GITHUB_REPOSITORY" --title "今天的短片沒有上 / Today's short stopped" \
+            --body "自動流程在這裡停下，今天不會上片（AI 查核或看畫面沒過也會停在這裡）。The run stopped; nothing will be posted today: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
   publish:
     if: >-
