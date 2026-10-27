@@ -158,3 +158,33 @@ def ig_insights(media_id: str) -> dict[str, int]:
 
 def th_insights(post_id: str) -> dict[str, int]:
     return _insights(th, post_id, ("views,likes,replies,reposts,quotes,shares", "views,likes,replies"))
+
+
+# ---------------------------------------------------------------- free posts (no video)
+
+def th_publish_text(text: str) -> tuple[str, str]:
+    container = th("POST", f"{config.require('THREADS_USER_ID')}/threads", "create text container",
+                   media_type="TEXT", text=text)["id"]
+    post_id = th_publish(container)
+    link = th("GET", post_id, "permalink", fields="permalink").get("permalink", "")
+    log(f"Threads: published text post {post_id}")
+    return post_id, link
+
+
+def ig_publish_images(image_urls: list[str], caption: str) -> tuple[str, str]:
+    """One image, or a carousel of 2-10 images, with a caption."""
+    uid = config.require("IG_USER_ID")
+    if len(image_urls) == 1:
+        container = ig("POST", f"{uid}/media", "create image container", image_url=image_urls[0], caption=caption)["id"]
+    else:
+        children = [ig("POST", f"{uid}/media", "create carousel item", image_url=u, is_carousel_item="true")["id"]
+                    for u in image_urls[:10]]
+        for c in children:
+            _wait(lambda c=c: ig("GET", c, "item status", fields="status_code").get("status_code"), "instagram")
+        container = ig("POST", f"{uid}/media", "create carousel", media_type="CAROUSEL",
+                       children=",".join(children), caption=caption)["id"]
+    _wait(lambda: ig("GET", container, "container status", fields="status_code").get("status_code"), "instagram")
+    media_id = ig("POST", f"{uid}/media_publish", "publish post", creation_id=container)["id"]
+    link = ig("GET", media_id, "permalink", fields="permalink").get("permalink", "")
+    log(f"Instagram: published image post {media_id}")
+    return media_id, link
