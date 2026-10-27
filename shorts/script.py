@@ -79,8 +79,8 @@ short, concrete, conversational, no jargon without a plain-words gloss. The Engl
 the same thing as natural spoken English (not a word-for-word translation); it is the English \
 video's voiceover and subtitle. On-screen labels and big text also come in both languages.
 
-Structure (about 200-260 Chinese characters and 120-150 English words of narration in total; \
-each video should run about 40-50 seconds at a brisk pace):
+Structure (about 200-240 Chinese characters and 110-140 English words of narration in total; \
+each video should run about 45-55 seconds at a calm, unhurried pace):
 1. hook. Viewers decide in the first 3 seconds whether to keep watching, and the video starts \
 directly on this scene (no intro card), so it carries the episode. Two lines:
    - Line 1 (spoken in under 3 seconds: at most ~15 Chinese characters / ~10 English words) lands \
@@ -215,7 +215,7 @@ def validate(script: Script) -> None:
 PT_SYSTEM = """You adapt a finished one-minute explainer video script for "Behavior Decoded" into \
 Brazilian Portuguese (pt-BR) for a Brazilian audience. You get the English and Chinese versions \
 scene by scene. Write natural spoken Brazilian Portuguese for the ear (você, not tu; Brazilian \
-spelling and vocabulary, e.g. "pesquisadores", "dados", "rede social", "celular"), brisk and \
+spelling and vocabulary, e.g. "pesquisadores", "dados", "rede social", "celular"), calm and \
 conversational, not a word-for-word translation. Keep every fact exactly as in the source; add \
 nothing. Keep scene count, label count, and line count identical to the source, in the same \
 order, so the lines match the visuals. Keep numbers, names, and the paper venue as they are. \
