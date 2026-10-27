@@ -28,7 +28,7 @@
       "tts": "supertonic",
       "voice": 2,
       "seed": 1.3,
-      "crossLegs": true,
+      "crossLegs": false,
       "mouth": 0.6,
       "outfit": {
         "from": "kai.vrm",
