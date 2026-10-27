@@ -133,3 +133,24 @@ def test_shorts_publish_without_review_unless_owner_says_no(monkeypatch):
     assert run([("me", "不要上")]) is False
     assert run([], "true") is False
     assert run([("me", "OK")], "true") is True
+
+
+@pytest.mark.skipif(not shutil.which("ffmpeg"), reason="needs ffmpeg")
+def test_look_frames_and_blocking_filter(tmp_path, monkeypatch):
+    from shorts import look
+
+    v = tmp_path / "v.mp4"
+    subprocess.run(["ffmpeg", "-v", "error", "-f", "lavfi", "-i", "testsrc2=size=1080x1920:rate=30", "-t", "3",
+                    "-c:v", "libx264", "-preset", "ultrafast", "-pix_fmt", "yuv420p", str(v)], check=True)
+    shots = look.frames(v, 4)
+    assert len(shots) == 4 and all(s[:2] == b"\xff\xd8" for s in shots)
+    seen = {}
+
+    def fake_ask(schema, system, content, **kw):
+        seen["images"] = sum(1 for c in content if c["type"] == "image")
+        return look.Look(issues=[look.Issue(frame=1, problem="title cut off", blocking=True),
+                                 look.Issue(frame=2, problem="slightly busy", blocking=False)])
+
+    monkeypatch.setattr(look.llm, "ask", fake_ask)
+    assert look.check({"zh": v}, "ctx", per_video=3) == ["frame 1: title cut off"]
+    assert seen["images"] == 3

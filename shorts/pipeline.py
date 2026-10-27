@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import brand, news as newsmod, papers, render, script as scriptmod, tts
+from . import brand, config, news as newsmod, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -90,6 +90,17 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
     }
     (out / "episode.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     (out / "script.md").write_text(script_markdown(meta), encoding="utf-8")
+    if config.env("ANTHROPIC_API_KEY") and config.env("VISUAL_CHECK") != "off":
+        from . import look
+
+        problems = look.check({f"{lang} ({v['duration']:.0f}s, 1080x1920 vertical short)": out / v["file"]
+                               for lang, v in videos.items()},
+                              "Each video is the same episode in one language (zh = Traditional Chinese, en = "
+                              "English, pt = Brazilian Portuguese): narration subtitles, scene headings, labels and "
+                              "numbers come from this script.\n\n" + script_markdown(meta))
+        if problems:
+            (out / "visual_problems.txt").write_text("\n".join(problems) + "\n", encoding="utf-8")
+            raise SystemExit("Videos failed the visual check, not posting: " + "; ".join(problems))
     log(f"Episode ready: {out.relative_to(OUT.parent)}")
     return out
 

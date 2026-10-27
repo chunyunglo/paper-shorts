@@ -529,6 +529,18 @@ def publish(folder: Path, video: Path, dry_run: bool = False) -> None:
     if errs := qa(video, tl["duration"]):
         raise SystemExit("Video failed the automatic checks, not publishing: " + "; ".join(errs))
     log("Video passed the automatic checks")
+    if config.env("ANTHROPIC_API_KEY") and config.env("VISUAL_CHECK") != "off":
+        from . import look
+
+        lines = "\n".join(f"{r[0]}: {r[2].get('sub', r[1])}" for r in show["lines"] if r[0] != "SFX")
+        problems = look.check({"talk show (1920x1080)": video},
+                              f"Late-night talk show '{SHOW}', episode '{meta['title']}'. Kai (host, at the desk) and "
+                              f"Anne (data scientist, in a red armchair) are anime-style 3D characters. Subtitles show "
+                              f"the line being spoken; cards show these contents:\n"
+                              + json.dumps(show.get("cards", {}), ensure_ascii=False) + "\n\nScript:\n" + lines,
+                              per_video=14)
+        if problems:
+            raise SystemExit("Video failed the visual check, not publishing: " + "; ".join(problems))
     marks = chapters(tl, show.get("cards", {}))
     desc = description(meta, marks)
     (folder / "description.txt").write_text(desc, encoding="utf-8")

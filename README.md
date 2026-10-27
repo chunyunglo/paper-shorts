@@ -1,6 +1,6 @@
 # 行為解碼 Behavior Decoded · paper-shorts
 
-每週一到週六（週日休息），自動挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文、巴西葡語三支直式短影音，下午由另一個 Claude 對照論文逐句查核（取代人工審核，查核不過就那天不上片）。中英文在台灣晚上 7 點、葡語在巴西晚上 7 點上傳到 YouTube Shorts、Instagram Reels 和 Threads，每支影片底下第一則留言會附上論文 citation，並每小時自動整理留言。
+每週一到週六（週日休息），自動挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文、巴西葡語三支直式短影音，下午由另一個 Claude 對照論文逐句查核（取代人工審核，查核不過就那天不上片）；影片做好後再抽畫面給 Claude 看（字被切掉、缺字、語言錯、數字和腳本不符、畫面壞掉），有明顯問題也不上片。中英文在台灣晚上 7 點、葡語在巴西晚上 7 點上傳到 YouTube Shorts、Instagram Reels 和 Threads，每支影片底下第一則留言會附上論文 citation，並每小時自動整理留言。
 
 Monday to Saturday (Sunday off) this repo picks one new computational human-behavior paper, makes Chinese, English and Brazilian Portuguese 9:16 explainers, fact-checks them against the paper with a second Claude pass instead of an owner review, posts zh/en at 19:00 Taiwan time and pt at 19:00 Brasília time, adds the full citation as the first comment under each post, and triages comments every hour.
 

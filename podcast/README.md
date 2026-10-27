@@ -28,7 +28,7 @@ A late-night-talk-show style video about one paper, built only with open tools o
 | 寫腳本 | Claude 讀全文寫 Kai 和 Anne 的對話、表情、手勢、笑聲、掌聲和資料卡（`big`、`stats`、`list`、`quote`、`paper` 五種卡，由腳本決定內容） | `write`、`to_show` |
 | 代替人工審核 | 先檢查格式（長度 650–1300 字、卡片都有用到、TTS 讀得出來），再由另一個 Claude 對照論文逐句查核：數字、因果說法、作者沒說過的話、不當玩笑。有問題就改，最多三輪；還不過就整集不上，開 issue 通知 | `validate`、`CHECK_SYSTEM` |
 | 渲染 | `build_audio.py` + `render.sh`，GitHub 4 核機器約 1.5–2 小時 | |
-| 影片檢查 | 長度和時間軸一致、1920×1080、有聲音且不是靜音、抽 5 格畫面不是黑畫面；沒過就不上 | `qa` |
+| 影片檢查 | 長度和時間軸一致、1920×1080、有聲音且不是靜音、抽 5 格畫面不是黑畫面；再抽 14 張畫面給 Claude 看（字幕和卡片有沒有被切掉、缺字、卡片數字和腳本不符、角色穿模或畫面壞掉）；有明顯問題就不上 | `qa` |
 | 上片 | 不帶字幕的乾淨畫面加標題做縮圖，描述含章節時間、論文 citation、AI 生成說明；用 `publishAt` 排程在 `PODCAST_DAY`／`PODCAST_HOUR_UTC`（預設週五 12:00 UTC＝台灣 20:00）公開；第一則留言放 citation；影片也放到 `pod-<集>` release | `publish` |
 | 留言 | 每小時的留言流程也會處理長片的留言 | `shorts/comments.py` |
 | 後台數據 | `analytics.yml` 每天讀所有短片和長片的數字（YouTube 觀看、讚、留言；有授權時加觀看時長、平均觀看百分比、新增訂閱；IG、Threads insights），存到 `state` 分支的 `analytics/`；每週 Claude 依數據寫 `strategy.md`，選論文和寫腳本時會讀 | `shorts/analytics.py` |
