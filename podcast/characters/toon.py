@@ -1,9 +1,10 @@
 """Build a stylized cartoon talk-show host from simple shapes in Blender (bpy module, headless) and
 export it as VRM 1.0: a big round head with drawn features, a rounded suit body, mitten-like hands.
 
-Everything is generated here: the head is a smooth union of ellipsoids, the eyes are textured spheres
-under skin lid shells, and the mouth is a dark shape laid on the face whose outline changes per
-expression (cartoon mouth shapes rather than a jaw), so every VRM expression is a shape key on one mesh.
+Everything is generated here: the head is a smooth union of ellipsoids, the eyes and mouth are drawn
+shapes laid on the face (eye white, iris, lash line; a dark mouth with teeth and tongue). Expressions move
+skin-coloured lid patches over the eye and redraw the mouth outline, so each VRM expression is a shape key
+on one mesh, and gaze turns the iris discs on two eye bones.
 
 Usage: python toon.py <toon_character.json> <out.vrm> [preview.png]
 """
@@ -31,14 +32,23 @@ C = SPEC['colors']
 
 
 # ---------- small helpers ----------
-def mat(name, col, rough=0.5, img=None):
+def mat(name, col, rough=0.5, img=None, glow=0.0, spec=0.5):
+    """glow: emission as a fraction of the base colour, so drawn parts stay bright away from the key light."""
     m = bpy.data.materials.new(name); m.use_nodes = True
     b = m.node_tree.nodes['Principled BSDF']
     b.inputs['Base Color'].default_value = (*col, 1)
     b.inputs['Roughness'].default_value = rough
+    b.inputs['Specular IOR Level'].default_value = spec
+    t = None
     if img:
         t = m.node_tree.nodes.new('ShaderNodeTexImage'); t.image = bpy.data.images.load(img)
         m.node_tree.links.new(t.outputs['Color'], b.inputs['Base Color'])
+    if glow:
+        b.inputs['Emission Strength'].default_value = glow
+        if t:
+            m.node_tree.links.new(t.outputs['Color'], b.inputs['Emission Color'])
+        else:
+            b.inputs['Emission Color'].default_value = (*col, 1)
     return m
 
 
@@ -177,92 +187,190 @@ ny = surface_y(0, -0.03)
 nose = ellipsoid('Nose', (0, ny + 0.002, -0.03), (P['nose'], P['nose'] * 1.1, P['nose'] * 0.9), 32)
 ears = [ellipsoid('Ear', (sg * 0.112, 0.01, -0.018), (0.014, 0.022, 0.03), 32) for sg in (1, -1)]
 
-# ---- eyes and lids ----
+# ---- eyes: drawn on the face, in layers just in front of the skin ----
+# Each eye is an outline (upper and lower curves meeting at the corners) filled with eye white, an iris
+# disc on its own bone for gaze, a lash line along the upper curve, and two skin-coloured lid patches that
+# are thin slivers at rest; closing the eye stretches them over it, so the eye is cut off cleanly.
 R = P['eye_r']
-OPEN = math.asin(P.get('open', 0.68)); LOW = -math.asin(P.get('low', 0.72))
+EW, EHU, EHL = P['eye_w'], P['eye_hu'], P['eye_hl']     # half width, height above / below the centre
+RI = P['iris_r']
+LASH = P['lash']
+TILT = P.get('eye_tilt', 0.002)                          # outer corner raised by this much
+L_WHITE, L_IRIS, L_LID, L_LASH = 0.0004, 0.0015, 0.0025, 0.0031
+NU = 48
+U = np.cos(np.linspace(math.pi, 0, NU + 1))           # -1 (inner corner) .. 1 (outer), denser at the corners
 
 
-def elev(p, c):
-    """Angle of p above the eye's forward (-y) direction, measured in the y-z plane, in (-pi, pi]."""
-    return math.atan2(p[2] - c[2], -(p[1] - c[1]))
+def eye_curves(key, side):
+    """Upper and lower curves (z offsets from the eye centre, over U) for one eye under an expression."""
+    up = EHU * (1 - U * U) ** 0.55 + TILT * U
+    lo = -EHL * (1 - U * U) ** 0.7 + TILT * U
+    rest = (up.copy(), lo.copy())
+    if key in ('blink', 'blink' + side):
+        up = lo + 0.0003
+    elif key == 'happy':                                  # a smiling squint: the lower lid pushes up
+        h = up - lo
+        up = up - 0.12 * h; lo = lo + 0.32 * h * (1 - U * U) ** 0.5
+    elif key == 'relaxed':
+        h = up - lo
+        up = up - 0.14 * h; lo = lo + 0.06 * h
+    elif key == 'sad':                                    # lid slants down toward the outer corner
+        up = up - (up - lo) * (0.06 + 0.22 * (1 + U) / 2)
+    elif key == 'angry':                                  # and toward the inner corner
+        h = up - lo
+        up = up - h * (0.05 + 0.3 * (1 - U) / 2); lo = lo + 0.08 * h
+    return up, lo, rest
 
 
-def open_ang(p, c, sg):   # the upper lid dips a little toward the outer corner
-    return OPEN - math.radians(14) * min(1, max(0, (p[0] - c[0]) * sg / R))
+def eye_xz(sg, cx, cz, u, dz):
+    return cx + sg * EW * u, cz + dz
 
 
-def open_ang_a(al, sg):
-    # al runs along the eye from x=+r (al=0) to x=-r (al=pi); the outer corner is +x on the left eye
-    xo = math.cos(al) * sg
-    return OPEN - math.radians(14) * min(1, max(0, xo))
+def onface_pts(xs, zs, lift):
+    return np.array([[x, surface_y(x, z) - lift, z] for x, z in zip(xs, zs)])
 
 
-def lid_band(name, c, r, th0, th1, na=64, nt=20):
-    """A band of the sphere (c, r) between elevations th0(al) and th1(al): elevation is the angle about the
-    x axis from the forward (-y) direction, so the band's edges are smooth curves and a blink is a rotation."""
-    bm = bmesh.new(); rows = []
-    for i in range(nt + 1):
-        row = []
-        for j in range(na + 1):
-            al = 0.08 + (math.pi - 0.16) * j / na
-            t0, t1 = th0(al), th1(al)
-            th = t0 + (t1 - t0) * (i / nt) ** 1.4         # denser near the lid's edge
-            q = (r * math.cos(al), -r * math.sin(al) * math.cos(th), r * math.sin(al) * math.sin(th))
-            row.append(bm.verts.new(Vector(c) + Vector(q)))
-        rows.append(row)
-    for i in range(nt):
-        for j in range(na):
-            bm.faces.new((rows[i][j], rows[i][j + 1], rows[i + 1][j + 1], rows[i + 1][j]))
-    bm.faces.ensure_lookup_table()
-    f0 = bm.faces[len(bm.faces) // 2]
-    if f0.normal.dot(f0.calc_center_median() - Vector(c)) < 0:
-        bmesh.ops.reverse_faces(bm, faces=bm.faces)
-    o = new_obj(name, bm)
-    o['edge_rows'] = na * 3      # faces in the first two rows (the lash line on the upper lid)
-    return o
+def strip(name, n_u, n_v):
+    bm = bmesh.new()
+    vs = [[bm.verts.new((0, 0, 0)) for _ in range(n_u)] for _ in range(n_v)]
+    for i in range(n_v - 1):
+        for j in range(n_u - 1):
+            bm.faces.new((vs[i][j], vs[i][j + 1], vs[i + 1][j + 1], vs[i + 1][j]))
+    return new_obj(name, bm)
 
 
-eye_c = []
-lids_up, lids_lo = [], []
+def eye_strip(sg, cx, cz, bottom, top, lift, nv, us=U):
+    rows = []
+    for i in range(nv):
+        f = i / (nv - 1)
+        z = bottom + (top - bottom) * f
+        x = cx + sg * EW * us
+        rows.append(onface_pts(x, cz + z, lift))
+    return np.concatenate(rows)
+
+
+eye_c, eye_parts = [], []        # eye_c: the gaze pivot of each eye
+EYE_KEYS = ['blink', 'blinkLeft', 'blinkRight', 'happy', 'relaxed', 'sad', 'angry']
+
+
+def face_toward_camera(o):
+    """Flip a drawn layer's faces if they point into the head (they are built in arbitrary winding)."""
+    me = o.data; me.update()
+    ny = np.mean([p.normal.y for p in me.polygons])
+    if ny > 0:
+        bm = bmesh.new(); bm.from_mesh(me); bmesh.ops.reverse_faces(bm, faces=bm.faces); bm.to_mesh(me); bm.free()
+
+
+def make_eye(sg):
+    side = 'Left' if sg > 0 else 'Right'                  # character's left is +x
+    cx, cz = sg * P['eye_x'], P['eye_z']
+    up0, lo0, _ = eye_curves('rest', side)
+    # eye white: a fan from the centre to the outline
+    xs = np.concatenate([cx + sg * EW * U, cx + sg * EW * U[::-1][1:-1]])
+    zs = np.concatenate([cz + up0, cz + lo0[::-1][1:-1]])
+    n = len(xs); bm = bmesh.new()
+    ctr = bm.verts.new(onface_pts([cx], [cz], L_WHITE)[0])
+    rings = []
+    for r in (0.35, 0.7, 1.0):
+        rings.append([bm.verts.new(q) for q in onface_pts(cx + (xs - cx) * r, cz + (zs - cz) * r, L_WHITE)])
+    for j in range(n):
+        bm.faces.new((ctr, rings[0][j], rings[0][(j + 1) % n]))
+    for a, b in zip(rings[:-1], rings[1:]):
+        for j in range(n):
+            bm.faces.new((a[j], b[j], b[(j + 1) % n], a[(j + 1) % n]))
+    white = new_obj('EyeWhite', bm)
+    # iris: a polar disc, clipped to the outline, on the eye bone
+    ic = np.array([cx - sg * 0.0008, cz - 0.0012])
+    bm = bmesh.new(); NA, NR_ = 48, 10
+    c0 = bm.verts.new((0, 0, 0)); ring_prev = None; uvs = {c0: (0.5, 0.5)}
+    grid = []
+    for r in range(1, NR_ + 1):
+        ring = []
+        for a in range(NA):
+            th = 2 * math.pi * a / NA
+            v = bm.verts.new((0, 0, 0)); uvs[v] = (0.5 + 0.5 * r / NR_ * math.cos(th), 0.5 + 0.5 * r / NR_ * math.sin(th))
+            ring.append(v)
+        grid.append(ring)
+    for a in range(NA):
+        bm.faces.new((c0, grid[0][a], grid[0][(a + 1) % NA]))
+    for ra, rb in zip(grid[:-1], grid[1:]):
+        for a in range(NA):
+            bm.faces.new((ra[a], rb[a], rb[(a + 1) % NA], ra[(a + 1) % NA]))
+    for v in bm.verts:
+        du, dv = uvs[v]
+        x = ic[0] + (du - 0.5) * 2 * RI; z = ic[1] + (dv - 0.5) * 2 * RI
+        u = np.clip((x - cx) * sg / EW, -0.97, 0.97)
+        z = np.clip(z, cz + np.interp(u, U, lo0) + 0.0004, cz + np.interp(u, U, up0) - 0.0004)
+        x = cx + sg * EW * u if abs((x - cx) / EW) > 0.97 else x
+        v.co = Vector(onface_pts([x], [z], L_IRIS)[0])
+    uvl = bm.loops.layers.uv.new('UVMap')
+    for f in bm.faces:
+        for l in f.loops:
+            l[uvl].uv = uvs[l.vert]
+    iris = new_obj('Iris', bm)
+    tag(iris, f'eye_{"l" if sg > 0 else "r"}')
+    # lid patches and lash lines, all reshaped per expression
+    NV = 6
+    m_ = 0.0006
+    lid_u = strip('LidU', NU + 1, NV); lid_l = strip('LidL', NU + 1, NV)
+    UL = np.concatenate([[-1.0], U[1:], [1.08, 1.16]])      # the lash runs a little past the outer corner
+    lash = strip('Lash', len(UL), 3); lash_lo = strip('LashLo', NU + 1, 2)
+
+    def curves(k):
+        up, lo, _ = eye_curves(k, side)
+        return up, lo
+
+    def lid_u_co(k):
+        up, lo = curves(k)
+        return eye_strip(sg, cx, cz, up, up0 + m_, L_LID, NV)
+
+    def lid_l_co(k):
+        up, lo = curves(k)
+        return eye_strip(sg, cx, cz, lo0 - m_, lo, L_LID, NV)
+
+    def lash_co(k):
+        up, lo = curves(k)
+        ue = np.concatenate([up, [up[-1] + 0.2 * EHU * 0.08, up[-1] + 0.2 * EHU * 0.22]])
+        w = (0.45 + 0.55 * np.clip((UL + 1) / 2, 0, 1) ** 1.3) * np.clip((UL + 1) / 0.25, 0.25, 1)
+        w[-2:] = [0.75, 0.25]
+        th = LASH * w
+        return eye_strip(sg, cx, cz, ue - 0.25 * th, ue + 0.75 * th, L_LASH, 3, us=UL)
+
+    def lash_lo_co(k):
+        up, lo = curves(k)
+        th = LASH * 0.28 * np.clip((U + 0.2) / 1.2, 0, 1)
+        return eye_strip(sg, cx, cz, lo - th * 0.5, lo + th * 0.5, L_LASH, 2)
+
+    for o, fn in ((lid_u, lid_u_co), (lid_l, lid_l_co), (lash, lash_co), (lash_lo, lash_lo_co)):
+        o.data.vertices.foreach_set('co', fn('rest').ravel()); o.data.update()
+        face_toward_camera(o)
+        eye_parts.append((o, fn))
+    face_toward_camera(white); face_toward_camera(iris)
+    eye_parts.append((white, None)); eye_parts.append((iris, None))
+    # both eyes pivot about the middle of the head, so gaze slides each iris along the curved face
+    eye_c.append(np.array([sg * 0.001, 0.0, cz]))
+
+
 for sg in (1, -1):
-    x, z = sg * P['eye_x'], P['eye_z']
-    c = np.array([x, surface_y(x, z) + R * 0.55, z])
-    eye_c.append(c)
-    cut = ellipsoid('cut', c, (R * 1.04,) * 3, 48); boolean(head, cut)
-    # lids are spherical bands just outside the eyeball, cut by elevation (angle above the forward
-    # direction); a blink rotates the upper band down over the eye until it meets the lower one
-    lids_up.append(lid_band('LidU', c, R * 1.07, lambda al, sg=sg: open_ang_a(al, sg), lambda al: OPEN + 2.6))
-    lids_lo.append(lid_band('LidL', c, R * 1.05, lambda al: LOW - 2.6, lambda al: LOW))
+    make_eye(sg)
 
 
 def eye_texture():
     S = 512
-    im = Image.new('RGBA', (S, S), (245, 242, 238, 255)); d = ImageDraw.Draw(im)
-    c = S / 2; ri = S * 0.36
+    im = Image.new('RGBA', (S, S), (0, 0, 0, 255)); d = ImageDraw.Draw(im)
+    c = S / 2; ri = S * 0.5
     ir = np.array(P['iris']) * 255
-    for k in range(60):
-        t = k / 59; r = ri * (1 - t)
-        col = ir * (0.55 + 0.75 * t ** 0.7)
-        d.ellipse((c - r, c - r + t * 6, c + r, c + r + t * 6), fill=tuple(int(min(255, x)) for x in col) + (255,))
-    rp = ri * 0.48
-    d.ellipse((c - rp, c - rp, c + rp, c + rp), fill=(12, 8, 6, 255))
-    hr = ri * 0.2; hx_, hy_ = c - ri * 0.38, c - ri * 0.38
+    for k in range(80):          # dark rim, warm lighter lower half
+        t = k / 79; r = ri * (1 - t)
+        col = ir * (0.35 + 0.95 * t ** 0.6)
+        d.ellipse((c - r, c - r + t * S * 0.06, c + r, c + r + t * S * 0.06), fill=tuple(int(min(255, x)) for x in col) + (255,))
+    rp = ri * 0.5
+    d.ellipse((c - rp, c - rp, c + rp, c + rp), fill=(14, 9, 7, 255))
+    hr = ri * 0.24; hx_, hy_ = c - ri * 0.36, c - ri * 0.36
     d.ellipse((hx_ - hr, hy_ - hr, hx_ + hr, hy_ + hr), fill=(255, 255, 255, 255))
-    hr2 = ri * 0.09; d.ellipse((c + ri * 0.35 - hr2, c + ri * 0.3 - hr2, c + ri * 0.35 + hr2, c + ri * 0.3 + hr2), fill=(255, 255, 255, 255))
-    im = im.filter(ImageFilter.GaussianBlur(1.2)).convert('RGB')
+    hr2 = ri * 0.1; d.ellipse((c + ri * 0.38 - hr2, c + ri * 0.34 - hr2, c + ri * 0.38 + hr2, c + ri * 0.34 + hr2), fill=(255, 255, 255, 255))
+    im = im.filter(ImageFilter.GaussianBlur(1.0)).convert('RGB')
     p = f'{OUTDIR}/{NAME}_eye.png'; im.save(p); return p
-
-
-eye_objs = []
-for c in eye_c:
-    e = ellipsoid('Eye', c, (R,) * 3, 48)
-    me = e.data; uv = me.uv_layers.new(name='UVMap')
-    for l in me.loops:   # front projection: the iris sits on the -Y pole
-        co = np.array(me.vertices[l.vertex_index].co) - c
-        uv.data[l.index].uv = (0.5 + co[0] / (2 * R) * 0.95, 0.5 + co[2] / (2 * R) * 0.95)
-    eye_objs.append(e)
-eyes = join(eye_objs, 'Eyes')
-eyes.data.materials.append(mat('Eye', (1, 1, 1), 0.08, img=eye_texture()))
 
 
 # ---- brows ----
@@ -425,9 +533,6 @@ def rot_x(co, c, ang):
     return np.stack([q[:, 0], y, z], 1) + c
 
 
-LID_UP = {'blink': 1.0, 'happy': 0.32, 'relaxed': 0.2, 'surprised': -0.12, 'sad': 0.22, 'angry': 0.28}
-LID_LO = {'happy': -0.45, 'relaxed': -0.15, 'angry': -0.1}
-BLINK = OPEN - LOW + math.radians(4)
 BROW = {'surprised': (0.009, 0.0), 'sad': (0.003, 0.25), 'angry': (-0.004, -0.3), 'happy': (0.003, 0.0), 'relaxed': (0.0, 0.0)}
 
 
@@ -440,18 +545,8 @@ def add_keys(o, fn):
         sk.data.foreach_set('co', np.asarray(fn(k, rest), float).ravel())
 
 
-for i, (lid, c) in enumerate(zip(lids_up, eye_c)):
-    side = 'Left' if c[0] > 0 else 'Right'      # character's left is +x
-    def f(k, rest, c=c, side=side):
-        a = LID_UP.get(k, 0.0)
-        if k == 'blink' + side:
-            a = 1.0
-        elif k.startswith('blink') and k != 'blink':
-            a = 0.0
-        return rot_x(rest, c, a * BLINK)
-    add_keys(lid, f)
-for lid, c in zip(lids_lo, eye_c):
-    add_keys(lid, lambda k, rest, c=c: rot_x(rest, c, LID_LO.get(k, 0.0) * BLINK))
+for o, fn in eye_parts:
+    add_keys(o, (lambda k, rest, fn=fn: fn(k) if k in EYE_KEYS else rest) if fn else (lambda k, rest: rest))
 for b, c in zip(brows, eye_c):
     def f(k, rest, c=c):
         up, tilt = BROW.get(k, (0.0, 0.0))
@@ -475,12 +570,14 @@ M = {'Skin': mat('Skin', (1, 1, 1), 0.5, img=skin_tex), 'Lash': mat('Lash', (0.0
 for o in (head, nose, *ears):     # (booleans leave empty material slots behind: clear them)
     uv_spherical(o); o.data.materials.clear(); o.data.materials.append(M['Skin'])
     o.data.polygons.foreach_set('material_index', [0] * len(o.data.polygons))
-for lid in lids_up:
-    uv_flat(lid); lid.data.materials.append(M['Skin']); lid.data.materials.append(M['Lash'])
-    for p in lid.data.polygons[:lid['edge_rows']]:
-        p.material_index = 1
-for lid in lids_lo:
-    uv_flat(lid); lid.data.materials.append(M['Skin'])
+EYE_MAT = {'LidU': 'Skin', 'LidL': 'Skin', 'Lash': 'Lash', 'LashLo': 'Lash', 'EyeWhite': 'EyeWhite', 'Iris': 'Eye'}
+M['EyeWhite'] = mat('EyeWhite', (0.97, 0.96, 0.95), 0.9, glow=0.12, spec=0.1)
+M['Eye'] = mat('Iris', (1, 1, 1), 0.9, img=eye_texture(), glow=0.1, spec=0.1)
+for o, _ in eye_parts:
+    kind = o.name.split('.')[0]
+    if kind != 'Iris':
+        uv_flat(o)
+    o.data.materials.append(M[EYE_MAT[kind]])
 for b in brows:
     uv_flat(b); b.data.materials.clear(); b.data.materials.append(M['Brow'])
 for o, k in ((mouth, 'Mouth'), (teeth, 'Teeth'), (tongue, 'Tongue')):
@@ -509,8 +606,8 @@ for side, sg in (('l', 1), ('r', -1)):
 J.update(SPEC.get('joints', {}))
 NECK_TOP = np.array(J['head'])
 Mx = Matrix.Translation(Vector(NECK_TOP)) @ Matrix.Scale(HS, 4) @ Matrix.Translation(Vector(-PIV))
-face_objs = [head, nose, *ears, *lids_up, *lids_lo, *brows, mouth, teeth, tongue]
-for o in face_objs + [hair, eyes]:
+face_objs = [head, nose, *ears, *[o for o, _ in eye_parts], *brows, mouth, teeth, tongue]
+for o in face_objs + [hair]:
     o.data.transform(Mx, shape_keys=True); o.data.update()
 eye_c = [np.array(Mx @ Vector(c)) for c in eye_c]
 
@@ -643,6 +740,8 @@ for s in 'lr':
                   f'thigh_{s}': (f'thigh_{s}', f'calf_{s}', 'pelvis'), f'calf_{s}': (f'calf_{s}', f'foot_{s}', f'thigh_{s}'),
                   f'foot_{s}': (f'foot_{s}', f'ball_{s}', f'calf_{s}'), f'ball_{s}': (f'ball_{s}', f'toe_{s}', f'foot_{s}')})
 BONES.update(FING)
+for s_, c in zip('lr', eye_c):
+    BONES[f'eye_{s_}'] = (list(c), list(c + np.array([0, -0.02, 0])), 'head')
 for n, (h, t, par) in BONES.items():
     b = arm.edit_bones.new(n)
     b.head = Vector(J[h] if isinstance(h, str) else h); b.tail = Vector(J[t] if isinstance(t, str) else t)
@@ -679,7 +778,8 @@ def skin_to(o, bones, sigma=0.05, top=3, radii=None):
 
 SPINE = ['pelvis', 'spine_01', 'spine_02', 'spine_03']
 for o in face_objs + [hair]:
-    skin_to(o, ['head'])
+    if not o.vertex_groups:          # (the irises already ride on their eye bones)
+        skin_to(o, ['head'])
 skin_to(neck, ['spine_03', 'neck_01', 'head'], 0.04)
 TORSO_R = {b: 0.12 for b in SPINE} | {'clavicle_l': 0.03, 'clavicle_r': 0.03}
 skin_to(parts_cloth['Jacket'], SPINE + ['clavicle_l', 'clavicle_r', 'upperarm_l', 'upperarm_r'], 0.05, radii=TORSO_R)
@@ -699,11 +799,9 @@ for side in ('l', 'r'):
     skin_to(th, [f'hand_{side}', f'thumb_01_{side}', f'thumb_02_{side}', f'thumb_03_{side}'], 0.012, 2)
 
 body = join(face_objs + body_skin, 'Body')
-for o in [body, hair, eyes] + list(parts_cloth.values()):
+for o in [body, hair] + list(parts_cloth.values()):
     o.parent = rig
     m = o.modifiers.new('Armature', 'ARMATURE'); m.object = rig
-vrmexport.add_eye_bones(rig, eyes)
-m = eyes.modifiers.get('Armature'); m.object = rig
 
 bpy.ops.wm.save_as_mainfile(filepath=OUT.replace('.vrm', '.blend'))
 for k, v in list(vrmexport.HUMANOID.items()):     # cartoon hands have no ring finger
@@ -712,5 +810,10 @@ for k, v in list(vrmexport.HUMANOID.items()):     # cartoon hands have no ring f
 vrmexport.setup_vrm(rig, body, {'name': NAME})
 eye_mid = (eye_c[0] + eye_c[1]) / 2 - np.array(rig.data.bones['head'].head_local)
 ext = __import__('bl_ext.user_default.vrm.editor.extension_accessor', fromlist=['x']).get_armature_extension(rig.data)
-ext.vrm1.look_at.offset_from_head_bone = (0.0, float(eye_mid[2]), float(-eye_mid[1]))
+la = ext.vrm1.look_at
+la.offset_from_head_bone = (0.0, float(eye_mid[2]), float(-eye_mid[1]))
+# the eye bones pivot in the middle of the head, so a small turn slides the drawn iris across the eye
+for rm, deg in ((la.range_map_horizontal_inner, 2.5), (la.range_map_horizontal_outer, 2.5),
+                (la.range_map_vertical_down, 1.2), (la.range_map_vertical_up, 0.8)):
+    rm.input_max_value = 90.0; rm.output_scale = deg
 print(vrmexport.export(OUT))
