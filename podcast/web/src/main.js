@@ -367,14 +367,19 @@ async function loadHost(url, outfit) {
 }
 
 // seated pose plus layered animation; targets are in the host root frame (+Z forward, +X = host's left)
+// right leg over left: thigh lifted and pulled across, shin angled back toward the chair, foot off the floor
+const CROSS = { lu: [-1.45, 0.1, 0.05], ll: [1.45, 0, 0], ru: [-1.8, -0.2, 0.35], rl: [1.7, 0, -0.15], rf: [0.3, 0, 0] };
 function applyPose(h, t, st) {
   const v = h.vrm, f = h.flip;
   const set = (n, x, y, z) => { const b = bone(v, n); if (b) b.rotation.set(x * f, y, z * f); };
   const sp = st.speak, gs = st.gesture, seed = h.seed;
   set('leftUpperLeg', -1.45, 0.1, 0.05); set('rightUpperLeg', -1.45, -0.1, -0.05);
   set('leftLowerLeg', 1.45, 0, 0); set('rightLowerLeg', 1.45, 0, 0);
-  if (h.crossLegs) { set('rightUpperLeg', -1.5, -0.25, 0.25); set('rightLowerLeg', 1.2, 0, 0.1); }
-  set('leftFoot', -0.1, 0, 0); set('rightFoot', -0.1, 0, 0);
+  if (h.crossLegs) {
+    const c = (window.DEBUG && window.DEBUG.cross) || CROSS;
+    set('leftUpperLeg', ...c.lu); set('leftLowerLeg', ...c.ll); set('rightUpperLeg', ...c.ru); set('rightLowerLeg', ...c.rl); set('rightFoot', ...c.rf);
+  }
+  set('leftFoot', -0.1, 0, 0); if (!h.crossLegs) set('rightFoot', -0.1, 0, 0);
   const breath = Math.sin(t * 1.6 + seed) * 0.5 + 0.5;
   const sway = fbm(t * 0.35, seed) * 0.05 + fbm(t * 1.2, seed + 3) * 0.05 * sp;
   // laughing: head snaps back on the burst, then the body folds forward and pumps with each "ha"
