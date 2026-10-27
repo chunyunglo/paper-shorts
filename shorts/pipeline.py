@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import brand, config, news as newsmod, papers, render, script as scriptmod, tts
+from . import config, news as newsmod, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -15,7 +15,7 @@ LANGS = ("zh", "en", "pt")
 
 
 def slug(text: str) -> str:
-    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:40] or "episode"
+    return re.sub(r"[^a-z0-9]+", "-", text.lower())[:40].strip("-") or "episode"
 
 
 def spoken(script: scriptmod.Script, lang: str) -> list[list[str]]:
@@ -31,7 +31,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
     now = datetime.now(timezone.utc)
     if episode_json:
         old = json.loads(episode_json.read_text(encoding="utf-8"))
-        paper, reason = papers.Paper(**old["paper"]), old.get("pick_reason", "remake")
+        paper, reason = papers.enrich(papers.Paper(**old["paper"])), old.get("pick_reason", "remake")
         news = old.get("news")
         script = scriptmod.Script(**old["script"])
         ep_id = f"{old['episode']}-r{now:%H%M}"  # a new id, so it gets its own release and review
@@ -57,7 +57,7 @@ def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
     """Apply the owner's review feedback: Claude rewrites the script, then every video is
     re-rendered under the same episode id (so the same release and review issue)."""
     old = json.loads(episode_json.read_text(encoding="utf-8"))
-    paper = papers.Paper(**old["paper"])
+    paper = papers.enrich(papers.Paper(**old["paper"]))
     script, changes = scriptmod.revise(paper, scriptmod.Script(**old["script"]), feedback)
     return build(old["episode"], paper, script, old.get("pick_reason", ""), 0, old.get("news")), changes
 
@@ -66,6 +66,8 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
           news: dict | None = None) -> Path:
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
+    if len(script.icons) != len(script.scenes):  # new, revised, or made before icons existed
+        scriptmod.pick_icons(script)
 
     videos = {}
     for lang in LANGS:
@@ -74,7 +76,7 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
         log(f"Voiceover ({lang}): {total:.1f}s")
         r = render.Renderer(script, paper.model_dump(), timings, total, lang)
         render.encode(r, audio, out / f"video_{lang}.mp4", preview_every=preview_every)
-        cover_at = brand.INTRO + timings[1 if len(timings) > 1 else 0].start + 1.2
+        cover_at = timings[1 if len(timings) > 1 else 0].start + 1.2
         r.frame(int(cover_at * 30)).convert("RGB").save(out / f"cover_{lang}.jpg", quality=90)
         videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(r.duration, 2),
                         "cover_offset_ms": int(cover_at * 1000), "tts": " ".join(tts.choose(lang)).strip()}

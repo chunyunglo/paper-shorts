@@ -2,7 +2,7 @@
 
 refresh_all: Instagram and Threads long-lived tokens last 60 days. Refreshing returns a new
 60-day token, which we store back into the repo's Actions secrets with GH_PAT (a fine-grained
-token with Secrets: read and write on this repo). Run weekly.
+token with Secrets: read and write on this repo). Run a few times a week.
 
 keepalive: GitHub disables scheduled workflows in public repos after 60 days without repo
 activity. Re-enabling them through the API resets that clock.

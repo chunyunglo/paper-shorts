@@ -204,3 +204,77 @@ def test_latest_episode_needs_recent_posts():
     assert engage.latest_episode([{"created": now, "posts": {}}]) is None
     assert engage.latest_episode([{"created": "2020-01-01T00:00:00+00:00", "posts": {"zh": {}}}]) is None
     assert engage.latest_episode([{"created": now, "posts": {"zh": {}}}])["created"] == now
+
+
+def test_icon_pick_keeps_only_real_names(monkeypatch):
+    from shorts import icons, llm
+
+    script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
+    monkeypatch.setattr(icons, "catalog", lambda: ["users", "truck", "gavel"])
+    monkeypatch.setattr(icons, "known", lambda n: n in {"users", "truck", "gavel"})
+    picked = [["truck"]] + [["gavel", "made-up", "truck", "users", "truck"] for _ in script.scenes[1:]]
+    monkeypatch.setattr(llm, "ask", lambda *a, **k: scriptmod.IconPick(scenes=picked))
+    scriptmod.pick_icons(script)
+    assert len(script.icons) == len(script.scenes)
+    for sc, ic in zip(script.scenes, script.icons):
+        assert "made-up" not in ic
+        if sc.visual in ("hook", "paper", "takeaway"):
+            assert ic == []
+        else:
+            assert len(ic) <= max(1, len(sc.labels))
+
+
+def test_icon_pick_falls_back_to_keywords_when_claude_fails(monkeypatch):
+    from shorts import icons, llm
+
+    script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
+    monkeypatch.setattr(icons, "catalog", lambda: ["users", "truck"])
+    calls = []
+
+    def boom(*a, **k):
+        calls.append(k.get("effort"))
+        raise RuntimeError("Claude output incomplete (stop_reason=max_tokens)")
+
+    monkeypatch.setattr(llm, "ask", boom)
+    monkeypatch.setattr(icons, "find", lambda w: "truck")
+    scriptmod.pick_icons(script)
+    assert calls == ["low", "low"]
+    assert len(script.icons) == len(script.scenes)
+    assert any(script.icons)
+    for sc, ic in zip(script.scenes, script.icons):
+        if sc.visual in ("hook", "paper", "takeaway"):
+            assert ic == []
+
+
+def test_scenes_draw_without_icons(monkeypatch):
+    from shorts import icons, visuals
+
+    monkeypatch.setattr(icons, "image", lambda *a, **k: None)
+    visuals._icon.cache_clear()
+    view = render.SceneView("icons", "THE DATA", ["Ranches", "Buyers", "Cattle"], [], "", ["x"],
+                            ["tractor", "building-store", "truck"])
+    ctx = {"seed": 1, "t": 1.0, "lang": "en"}
+    for visual in ("icons", "crowd", "pipeline", "contrast", "bars", "journey", "spotlight", "funnel"):
+        view.visual = visual
+        assert visuals.draw(view, 0.8, ctx).size == (visuals.VW, visuals.VH)
+
+
+def test_old_scripts_render_without_icons():
+    script = scriptmod.Script.model_validate_json((FIX / "script.json").read_text())
+    assert script.icons == []
+    assert all(v.icons == [] for v in render.localize(script, "zh"))
+
+
+def test_garbled_rss_authors_are_dropped():
+    from shorts import papers
+    blob = "Tara MittelbergMarin E. Skidmoreahttps://ror.org/01y2jtd41Nelson Institute, Urbana, IL 61801"
+    assert papers.clean_authors([blob]) == []
+    assert papers.clean_authors(["Ada Lovelace", "Alan Turing"]) == ["Ada Lovelace", "Alan Turing"]
+
+
+def test_slug_never_ends_with_a_hyphen():
+    from shorts import pipeline
+
+    s = pipeline.slug("Decredentialed jobs and upward mobility among non-college workers in the USA")
+    assert s == "decredentialed-jobs-and-upward-mobility"
+    assert not s.endswith("-") and len(s) <= 40

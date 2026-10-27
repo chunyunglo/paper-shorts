@@ -1,10 +1,9 @@
-# 19:30 Taiwan, Mon-Sat (after the zh/en posts): email the owner drafted replies for related
-# public Threads posts. Nothing is posted. Logs show counts only; never print post data.
+# On demand only (the owner paused the daily schedule): email the owner drafted replies for
+# related public Threads posts. Nothing is posted. Logs show counts only; never print post data.
+# To resume daily emails at 19:30 Taiwan Mon-Sat, add back: schedule: - cron: "30 11 * * 1-6"
 name: Suggest replies
 
 on:
-  schedule:
-    - cron: "30 11 * * 1-6"
   workflow_dispatch:
     inputs:
       dry_run:

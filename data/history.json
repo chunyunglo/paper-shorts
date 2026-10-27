@@ -357,5 +357,888 @@
       }
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261025-petition-style-changes-with-ai-writing-s-r0206"
+  },
+  {
+    "episode": "20261026-laundering-and-evasion-in-response-to-an",
+    "created": "2026-10-26T08:29:20+00:00",
+    "paper": {
+      "id": "doi:10.1073/pnas.2532121123",
+      "title": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+      "abstract": "Proceedings of the National Academy of Sciences, Volume 123, Issue 42, October 2026. SignificanceGovernments and companies have worked to rid supply chains of modern slavery, but little is known about policy outcomes, including how perpetrators change their behavior in response to sanctions. With data on millions of cattle transactions in ...",
+      "authors": [
+        "Tara Mittelberg",
+        "Marin E. Skidmore",
+        "Juliana L. S. C. Brandão",
+        "Lisa L. Rausch",
+        "Holly K. Gibbs"
+      ],
+      "venue": "PNAS",
+      "url": "https://www.pnas.org/doi/abs/10.1073/pnas.2532121123?af=R",
+      "pdf_url": null,
+      "doi": "10.1073/pnas.2532121123",
+      "published": "2026-10-12",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "被制裁後，奴役牧場真的收手了嗎？",
+      "title_en": "Caught Using Slave Labor: Do Ranches Really Stop?",
+      "paper_title_zh": "巴西牛隻產業因應反奴役政策的洗白與規避行為",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "你以為",
+          "heading_en": "THINK AGAIN",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "被罰就收手？",
+          "big_text_en": "Punished = stopped?",
+          "lines": [
+            {
+              "zh": "奴役勞工被抓，牧場就收手了嗎？",
+              "en": "Caught using slave labor, do ranches just stop?"
+            },
+            {
+              "zh": "數百萬筆牛隻交易，揭穿他們怎麼繞路。",
+              "en": "Millions of cattle sales reveal how they work around it."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "威斯康辛大學等團隊，發表在PNAS。",
+              "en": "A University of Wisconsin–Madison team published this in PNAS."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "背景",
+          "heading_en": "THE BACKSTORY",
+          "labels": [
+            "牧場",
+            "政府",
+            "企業"
+          ],
+          "labels_en": [
+            "Ranches",
+            "Government",
+            "Companies"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "巴西有些牧場被查出奴役勞工。",
+              "en": "Some Brazilian ranches were caught using slave labor."
+            },
+            {
+              "zh": "政府制裁，企業也想避開他們。",
+              "en": "Governments sanction them, and companies try to avoid them."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "亮點",
+          "heading_en": "WHY IT MATTERS",
+          "labels": [
+            "訂了政策",
+            "業者反應"
+          ],
+          "labels_en": [
+            "Policies made",
+            "Real responses"
+          ],
+          "values": [],
+          "big_text": "後續幾乎沒人知",
+          "big_text_en": "The aftermath: unknown",
+          "lines": [
+            {
+              "zh": "但制裁後業者怎麼反應，",
+              "en": "But how operators react after sanctions"
+            },
+            {
+              "zh": "過去幾乎沒有證據。",
+              "en": "has had almost no evidence."
+            },
+            {
+              "zh": "這篇研究補的，就是這塊空白。",
+              "en": "That's the gap this study fills."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "牧場",
+            "買家"
+          ],
+          "labels_en": [
+            "Ranches",
+            "Buyers"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們分析巴西數百萬筆牛隻交易紀錄。",
+              "en": "They analyzed millions of cattle transaction records in Brazil."
+            },
+            {
+              "zh": "每筆都記下牛從哪賣到哪，串成一張網。",
+              "en": "Each logs who sold cattle to whom, forming a network."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "找出被制裁者",
+            "追蹤牛隻去向",
+            "比較前後"
+          ],
+          "labels_en": [
+            "Find sanctioned",
+            "Follow cattle",
+            "Before vs after"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "鎖定被制裁的業者，追蹤牛的去向。",
+              "en": "They tracked where sanctioned operators' cattle went."
+            },
+            {
+              "zh": "再比較制裁前後，交易怎麼改變。",
+              "en": "Then compared their trading before and after sanctions."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "洗白",
+            "規避"
+          ],
+          "labels_en": [
+            "Laundering",
+            "Evasion"
+          ],
+          "values": [],
+          "big_text": "不收手，換方式",
+          "big_text_en": "Adapt, not stop",
+          "lines": [
+            {
+              "zh": "結果：業者沒收手，而是換方式。",
+              "en": "The result: operators didn't stop, they adapted."
+            },
+            {
+              "zh": "洗白：讓問題牛看起來來源乾淨。",
+              "en": "Laundering: making problem cattle look clean."
+            },
+            {
+              "zh": "規避：改變做法，躲開制裁後果。",
+              "en": "Evasion: changing tactics to dodge the penalties."
+            },
+            {
+              "zh": "但沒被記錄的私下買賣，資料看不到。",
+              "en": "But off-the-record sales don't show up in the data."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "制裁要追到底",
+          "big_text_en": "Sanctions need follow-through",
+          "lines": [
+            {
+              "zh": "光制裁不夠，還要看業者怎麼繞路。",
+              "en": "Sanctions alone aren't enough; watch for the workarounds."
+            },
+            {
+              "zh": "追蹤行為解碼，看懂更多人類行為。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "巴西有些養牛牧場被查出奴役勞工，政府和企業紛紛制裁。但制裁之後業者怎麼反應，過去幾乎沒有證據。這篇PNAS研究用數百萬筆牛隻交易紀錄補上這塊空白，發現業者不是收手，而是以「洗白」和「規避」換方式繼續。",
+      "description_en": "Some ranches in Brazil's cattle industry were caught using slave labor, and governments and companies moved to sanction them. But there has been almost no evidence on how sanctioned operators actually respond. This PNAS study fills that gap with millions of cattle transaction records, documenting laundering and evasion instead of simply stopping.",
+      "hashtags": [
+        "行為解碼",
+        "現代奴役",
+        "供應鏈",
+        "巴西",
+        "BehaviorDecoded",
+        "ComputationalSocialScience",
+        "SupplyChains",
+        "PNAS"
+      ],
+      "method_summary": "The study (Mittelberg, Skidmore, Brandão, Rausch and Gibbs; University of Wisconsin–Madison and University of Illinois; PNAS 2026) asks how perpetrators of modern slavery in Brazil's cattle sector change their behavior after antislavery sanctions. Its key contribution: governments and companies have worked to rid supply chains of modern slavery, but little was known about policy outcomes, especially how perpetrators respond to sanctions. The authors use data on millions of cattle transactions in Brazil, which record cattle moving between properties and buyers, effectively forming a network of cattle flows. They examine the transactions of operators sanctioned under antislavery policies and how their selling behavior changes in response. The paper's title identifies two behavioral responses: laundering (making cattle linked to sanctioned operators appear clean as they move through the supply chain) and evasion (adjusting behavior to avoid the consequences of sanctions). The core message is that sanctioned actors adapt rather than simply stopping, which matters for designing supply-chain monitoring. Only the abstract's opening was available to us, so specific effect sizes, sample counts, the exact identification strategy, and how prevalent each response is were not provided and are not stated in the video.",
+      "limitations": "We only had a truncated abstract, so the video gives no effect sizes or prevalence figures. Transaction records only capture recorded sales; informal or unrecorded movements of cattle are invisible. The analysis is observational, so behavior changes are associated with sanctions rather than proven to be solely caused by them. The study focuses on Brazil's cattle sector and may not generalize to other countries or commodities, and it does not show which policy fixes would work best.",
+      "pt": {
+        "title": "Flagradas com trabalho escravo: as fazendas param?",
+        "paper_title": "Como produtores punidos por trabalho escravo reagem na cadeia do gado no Brasil",
+        "description": "Algumas fazendas da pecuária brasileira foram flagradas com trabalho escravo, e governo e empresas reagiram com punições. Mas quase não havia evidência de como esses produtores reagem depois. Esse é o grande diferencial deste estudo publicado na PNAS: com milhões de registros de venda de gado, ele mostra lavagem e evasão, em vez de simplesmente parar.",
+        "hashtags": [
+          "TrabalhoEscravo",
+          "CadeiaDeSuprimentos",
+          "Brasil",
+          "Pecuaria",
+          "BehaviorDecoded",
+          "CienciaSocialComputacional",
+          "PNAS"
+        ],
+        "scenes": [
+          {
+            "heading": "PENSE DE NOVO",
+            "labels": [],
+            "big_text": "Punido = parou?",
+            "lines": [
+              "Flagradas com trabalho escravo, fazendas param?",
+              "Milhões de vendas de gado mostram como elas driblam isso."
+            ]
+          },
+          {
+            "heading": "O ESTUDO",
+            "labels": [],
+            "big_text": "",
+            "lines": [
+              "Uma equipe da Universidade de Wisconsin–Madison publicou isso na PNAS."
+            ]
+          },
+          {
+            "heading": "O CONTEXTO",
+            "labels": [
+              "Fazendas",
+              "Governo",
+              "Empresas"
+            ],
+            "big_text": "",
+            "lines": [
+              "Algumas fazendas no Brasil foram flagradas com trabalho escravo.",
+              "O governo pune, e as empresas tentam evitar essas fazendas."
+            ]
+          },
+          {
+            "heading": "POR QUE IMPORTA",
+            "labels": [
+              "Políticas criadas",
+              "Reações reais"
+            ],
+            "big_text": "O depois: um mistério",
+            "lines": [
+              "Mas como esses produtores reagem depois da punição",
+              "quase não tinha evidência nenhuma.",
+              "E é aí que está o trunfo do estudo: preencher essa lacuna."
+            ]
+          },
+          {
+            "heading": "OS DADOS",
+            "labels": [
+              "Fazendas",
+              "Compradores"
+            ],
+            "big_text": "",
+            "lines": [
+              "Eles analisaram milhões de registros de venda de gado no Brasil.",
+              "Cada um mostra quem vendeu gado pra quem, formando uma rede."
+            ]
+          },
+          {
+            "heading": "O MÉTODO",
+            "labels": [
+              "Achar punidos",
+              "Seguir o gado",
+              "Antes vs depois"
+            ],
+            "big_text": "",
+            "lines": [
+              "Rastrearam pra onde ia o gado dos produtores punidos.",
+              "E compararam as vendas antes e depois da punição."
+            ]
+          },
+          {
+            "heading": "A DESCOBERTA",
+            "labels": [
+              "Lavagem",
+              "Evasão"
+            ],
+            "big_text": "Adaptar, não parar",
+            "lines": [
+              "Resultado: os produtores não pararam, eles se adaptaram.",
+              "Lavagem: fazer o gado problemático parecer limpo.",
+              "Evasão: mudar de tática pra fugir das penalidades.",
+              "Mas vendas por fora dos registros não aparecem nos dados."
+            ]
+          },
+          {
+            "heading": "LEMBRE-SE",
+            "labels": [],
+            "big_text": "Punir exige acompanhar",
+            "lines": [
+              "Só punir não basta: é preciso vigiar os atalhos.",
+              "Siga o Behavior Decoded pra ver mais!"
+            ]
+          }
+        ]
+      },
+      "icons": [
+        [],
+        [],
+        [
+          "fence",
+          "building-bank",
+          "building-factory"
+        ],
+        [
+          "file-text",
+          "eye"
+        ],
+        [
+          "fence",
+          "building-store"
+        ],
+        [
+          "search",
+          "truck",
+          "calendar"
+        ],
+        [
+          "wash",
+          "mask"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 52.51,
+        "cover_offset_ms": 6834,
+        "tts": "google cmn-CN-Chirp3-HD-Charon"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 46.72,
+        "cover_offset_ms": 5934,
+        "tts": "google en-US-Chirp3-HD-Aoede"
+      },
+      "pt": {
+        "file": "video_pt.mp4",
+        "duration": 53.84,
+        "cover_offset_ms": 6756,
+        "tts": "google pt-BR-Chirp3-HD-Charon"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "dzkB79epmBg",
+          "url": "https://youtube.com/shorts/dzkB79epmBg"
+        },
+        "instagram": {
+          "id": "18020363726734959",
+          "url": "https://www.instagram.com/reel/De9MUFRjLIZ/"
+        },
+        "threads": {
+          "id": "18472084015185576",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "l6unhYxCxGw",
+          "url": "https://youtube.com/shorts/l6unhYxCxGw"
+        },
+        "instagram": {
+          "id": "18118336720802920",
+          "url": "https://www.instagram.com/reel/De9MjXMCbng/"
+        },
+        "threads": {
+          "id": "18108678878147734",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5"
+        }
+      },
+      "pt": {
+        "youtube": {
+          "id": "4kqijXYKbUc",
+          "url": "https://youtube.com/shorts/4kqijXYKbUc"
+        },
+        "instagram": {
+          "id": "18346592749248617",
+          "url": "https://www.instagram.com/reel/De-T7yvinWl/"
+        },
+        "threads": {
+          "id": "18606994711064121",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De-UAejCGHg"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261026-laundering-and-evasion-in-response-to-an"
+  },
+  {
+    "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+    "created": "2026-10-27T08:26:36+00:00",
+    "paper": {
+      "id": "doi:10.1038/s41562-026-02610-5",
+      "title": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+      "abstract": "Nature Human Behaviour, Published online: 26 October 2026; doi:10.1038/s41562-026-02610-5 Linking job postings to US Census earnings records from 2011 to 2021, Lyttelton et al. find that non-college workers hired into jobs that dropped degree requirements earned around US$4,600 more per year, yet employers rarely hired non-college workers after decredentialing.",
+      "authors": [
+        "Thomas Lyttelton",
+        "Dylan K. Nelson",
+        "Nathan Wilmers"
+      ],
+      "venue": "Nature Human Behaviour",
+      "url": "https://www.nature.com/articles/s41562-026-02610-5",
+      "pdf_url": null,
+      "doi": "10.1038/s41562-026-02610-5",
+      "published": "2026-10-26",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "不看學歷的工作，真的會錄取你嗎？",
+      "title_en": "Jobs Dropped the Degree. So Who Got Hired?",
+      "paper_title_zh": "去文憑化職缺與美國非大學學歷勞工的向上流動",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "學歷門檻",
+          "heading_en": "NO DEGREE?",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "不看學歷？",
+          "big_text_en": "No degree needed?",
+          "lines": [
+            {
+              "zh": "徵才不看學歷，你就有機會嗎？",
+              "en": "The job dropped the degree. Did you get hired?"
+            },
+            {
+              "zh": "看到最後，你會發現好處和現實差很多。",
+              "en": "The payoff is real, but stick around for the catch."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "自然人類行為"
+          ],
+          "labels_en": [
+            "Nature Human Behaviour"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "這是Lyttelton等人登在《自然人類行為》的研究。",
+              "en": "Lyttelton and colleagues published this in Nature Human Behaviour."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "徵才廣告",
+            "薪資紀錄",
+            "勞工"
+          ],
+          "labels_en": [
+            "Job postings",
+            "Earnings records",
+            "Workers"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們結合兩種資料：徵才廣告，",
+              "en": "They combined two kinds of data: job postings,"
+            },
+            {
+              "zh": "和美國人口普查局的薪資紀錄。",
+              "en": "and US Census earnings records."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "篩選",
+          "heading_en": "FILTER",
+          "labels": [
+            "所有職缺",
+            "拿掉學位要求"
+          ],
+          "labels_en": [
+            "All job postings",
+            "Degree dropped"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "先從大量職缺裡，找出拿掉學位要求的工作。",
+              "en": "First, they found jobs that dropped a degree requirement."
+            },
+            {
+              "zh": "這就叫做「去文憑化」。",
+              "en": "That's called decredentialing."
+            }
+          ]
+        },
+        {
+          "visual": "journey",
+          "heading_zh": "連結",
+          "heading_en": "LINKING",
+          "labels": [
+            "職缺",
+            "錄取的人",
+            "年收入"
+          ],
+          "labels_en": [
+            "Job posting",
+            "Person hired",
+            "Yearly pay"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再把這些職缺和薪資紀錄連起來，",
+              "en": "Then they linked those jobs to earnings records,"
+            },
+            {
+              "zh": "看誰被錄取、有沒有大學學歷、賺多少。",
+              "en": "to see who got hired, who had no degree, and what they earned."
+            }
+          ]
+        },
+        {
+          "visual": "timeline",
+          "heading_zh": "十年追蹤",
+          "heading_en": "TEN YEARS",
+          "labels": [
+            "2011",
+            "2021"
+          ],
+          "labels_en": [
+            "2011",
+            "2021"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "資料從2011橫跨到2021年。",
+              "en": "The records run from 2011 to 2021."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "收入增加",
+            "很少錄取"
+          ],
+          "labels_en": [
+            "Higher pay",
+            "Rarely hired"
+          ],
+          "values": [],
+          "big_text": "年多賺約4600美元",
+          "big_text_en": "About $4600 more a year",
+          "lines": [
+            {
+              "zh": "沒大學學歷的人進了這些職位，",
+              "en": "Non-college workers hired into these jobs"
+            },
+            {
+              "zh": "一年多賺大約4600美元。",
+              "en": "earned about $4600 more per year."
+            },
+            {
+              "zh": "但問題是，雇主拿掉門檻後，",
+              "en": "The catch: after dropping the requirement,"
+            },
+            {
+              "zh": "其實很少真的錄取他們。",
+              "en": "employers rarely hired non-college workers."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "改條件不等於改錄取",
+          "big_text_en": "Dropping the rule isn't hiring",
+          "lines": [
+            {
+              "zh": "門檻拿掉了，但走進門的人很少。",
+              "en": "The door opened, but few people got through it."
+            },
+            {
+              "zh": "追蹤行為解碼，看更多研究怎麼做。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "很多公司宣布徵才不再要求大學學歷，但沒學歷的人真的因此被錄取了嗎？Lyttelton等人把徵才廣告和美國人口普查薪資紀錄連起來，追蹤2011到2021年。被錄取的非大學勞工一年多賺約4600美元，但雇主拿掉門檻後其實很少錄取他們。",
+      "description_en": "Many employers say they no longer require a college degree, but do non-college workers actually get those jobs? Lyttelton and colleagues linked job postings to US Census earnings records from 2011 to 2021. Non-college workers hired into decredentialed jobs earned about $4600 more a year, yet employers rarely hired them after dropping the requirement.",
+      "hashtags": [
+        "行為解碼",
+        "學歷",
+        "勞動市場",
+        "求職",
+        "BehaviorDecoded",
+        "SkillsBasedHiring",
+        "FutureOfWork",
+        "ComputationalSocialScience"
+      ],
+      "method_summary": "Thomas Lyttelton, Dylan K. Nelson and Nathan Wilmers, in Nature Human Behaviour (2026), studied 'decredentialing': employers dropping college-degree requirements from job postings. They linked job postings data to US Census Bureau earnings records covering 2011 to 2021. This linkage let them identify jobs whose postings dropped degree requirements and connect those jobs to the workers hired into them, including whether those workers lacked a college degree, and to their earnings. Main findings as reported in the abstract: non-college workers who were hired into jobs that had dropped degree requirements earned around US$4600 more per year, suggesting such jobs can be a path to upward mobility. However, employers rarely hired non-college workers after decredentialing, meaning that removing the requirement on paper did not usually translate into actually hiring people without degrees. The video only describes the study at the level of detail available in the abstract; exact linkage procedures, sample sizes and comparison groups are not stated there.",
+      "limitations": "Based on the abstract only, details such as sample size, how postings were matched to employers and workers, and what comparison group defines the $4600 gain are not available. The earnings difference should not be read as a guaranteed causal effect for any individual. The study covers the USA from 2011 to 2021 and may not generalize to other countries or periods. It does not explain why employers rarely hired non-college workers after dropping requirements.",
+      "pt": {
+        "title": "A vaga dispensou o diploma. E quem foi contratado?",
+        "paper_title": "Os efeitos da retirada da exigência de diploma nas contratações e nos salários",
+        "description": "Muitas empresas dizem que não exigem mais diploma universitário, mas quem não tem faculdade consegue mesmo essas vagas? Lyttelton e colegas cruzaram anúncios de vagas com registros de renda do Censo dos EUA, de 2011 a 2021. Quem não tinha faculdade e foi contratado nessas vagas ganhou cerca de 4600 dólares a mais por ano, mas as empresas raramente contrataram essas pessoas depois de retirar a exigência.",
+        "hashtags": [
+          "BehaviorDecoded",
+          "Diploma",
+          "MercadoDeTrabalho",
+          "Emprego",
+          "Carreira",
+          "SkillsBasedHiring",
+          "FutureOfWork",
+          "ComputationalSocialScience"
+        ],
+        "scenes": [
+          {
+            "heading": "SEM DIPLOMA?",
+            "labels": [],
+            "big_text": "Sem diploma?",
+            "lines": [
+              "A vaga dispensou o diploma. Você foi contratado?",
+              "O ganho é real, mas fica até o fim pra ver o porém."
+            ]
+          },
+          {
+            "heading": "O ESTUDO",
+            "labels": [
+              "Nature Human Behaviour"
+            ],
+            "big_text": "",
+            "lines": [
+              "Lyttelton e colegas publicaram isso na Nature Human Behaviour."
+            ]
+          },
+          {
+            "heading": "OS DADOS",
+            "labels": [
+              "Anúncios de vagas",
+              "Registros de renda",
+              "Trabalhadores"
+            ],
+            "big_text": "",
+            "lines": [
+              "Eles juntaram dois tipos de dados: anúncios de vagas",
+              "e registros de renda do Censo dos Estados Unidos."
+            ]
+          },
+          {
+            "heading": "FILTRO",
+            "labels": [
+              "Todas as vagas",
+              "Sem diploma"
+            ],
+            "big_text": "",
+            "lines": [
+              "Primeiro, acharam as vagas que deixaram de exigir diploma.",
+              "Isso se chama desdiplomação."
+            ]
+          },
+          {
+            "heading": "CRUZAMENTO",
+            "labels": [
+              "Vaga",
+              "Contratado",
+              "Salário anual"
+            ],
+            "big_text": "",
+            "lines": [
+              "Depois, ligaram essas vagas aos registros de renda,",
+              "pra ver quem foi contratado, quem não tinha diploma e quanto ganhou."
+            ]
+          },
+          {
+            "heading": "DEZ ANOS",
+            "labels": [
+              "2011",
+              "2021"
+            ],
+            "big_text": "",
+            "lines": [
+              "Os registros vão de 2011 a 2021."
+            ]
+          },
+          {
+            "heading": "O RESULTADO",
+            "labels": [
+              "Salário maior",
+              "Pouco contratados"
+            ],
+            "big_text": "Cerca de 4600 dólares a mais por ano",
+            "lines": [
+              "Quem não tinha faculdade e entrou nessas vagas",
+              "ganhou cerca de 4600 dólares a mais por ano.",
+              "O porém: depois de retirar a exigência,",
+              "as empresas raramente contrataram quem não tinha faculdade."
+            ]
+          },
+          {
+            "heading": "CONCLUSÃO",
+            "labels": [],
+            "big_text": "Tirar a regra não é contratar",
+            "lines": [
+              "A porta se abriu, mas pouca gente passou por ela.",
+              "Siga o Behavior Decoded pra ver mais."
+            ]
+          }
+        ]
+      },
+      "icons": [
+        [],
+        [],
+        [
+          "news",
+          "receipt-dollar",
+          "users"
+        ],
+        [
+          "briefcase",
+          "school"
+        ],
+        [
+          "briefcase",
+          "user-check",
+          "cash"
+        ],
+        [
+          "calendar",
+          "calendar"
+        ],
+        [
+          "trending-up",
+          "user-x"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 51.45,
+        "cover_offset_ms": 7542,
+        "tts": "google cmn-CN-Chirp3-HD-Charon"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 45.04,
+        "cover_offset_ms": 7026,
+        "tts": "google en-US-Chirp3-HD-Aoede"
+      },
+      "pt": {
+        "file": "video_pt.mp4",
+        "duration": 50.94,
+        "cover_offset_ms": 7153,
+        "tts": "google pt-BR-Chirp3-HD-Charon"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "pwq_zfcaHyw",
+          "url": "https://youtube.com/shorts/pwq_zfcaHyw"
+        },
+        "instagram": {
+          "id": "17894588055615543",
+          "url": "https://www.instagram.com/reel/De_tNpJjKGU/"
+        },
+        "threads": {
+          "id": "17876837457584608",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "IEalILCeCbs",
+          "url": "https://youtube.com/shorts/IEalILCeCbs"
+        },
+        "instagram": {
+          "id": "17955861042281412",
+          "url": "https://www.instagram.com/reel/De_tacHiG1W/"
+        },
+        "threads": {
+          "id": "17991727911116608",
+          "url": "https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X"
+        }
+      },
+      "pt": {
+        "youtube": {
+          "id": "I5rjoNK0K8g",
+          "url": "https://youtube.com/shorts/I5rjoNK0K8g"
+        },
+        "instagram": {
+          "id": "17943124542099756",
+          "url": "https://www.instagram.com/reel/DfA43F_DoBt/"
+        },
+        "threads": {
+          "id": "18114406583150787",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfA48JFEtvf"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261027-decredentialed-jobs-and-upward-mobility"
   }
 ]

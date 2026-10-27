@@ -28,7 +28,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | Workflow | 時間 | 開關 |
 |---|---|---|
 | `revise.yml` | 你在「今晚上片」issue 留言寫修改意見時（不是 OK、也不是「不要上」）自動觸發：Claude 改腳本、重做三支影片，在 issue 貼新版本 | 只有 repo 擁有者的留言會觸發 |
-| `suggest.yml` | 週一到週六 19:30（台灣）：找和當天論文相關的中文和英文公開 Threads 貼文，各起草最多 3 則以研究發現為主的留言，寄到你的信箱。**不會自動貼**，你自己決定要不要貼 | 需要 Threads 的 `threads_keyword_search` 權限才會自動找貼文；沒有的話信裡會附搜尋連結和通用草稿 |
+| `suggest.yml` | （目前暫停，只能手動執行）原本週一到週六 19:30（台灣）：找和當天論文相關的中文和英文公開 Threads 貼文，各起草最多 3 則以研究發現為主的留言，寄到你的信箱。**不會自動貼**，你自己決定要不要貼 | 需要 Threads 的 `threads_keyword_search` 權限才會自動找貼文；沒有的話信裡會附搜尋連結和通用草稿 |
 | `publish.yml` | 週一到六 14:00 做影片（含 AI 查核和看畫面）並開「今晚上片」issue；19:00 上中英文（台灣時間）；巴西 19:00（台灣隔天 06:00）上葡語。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。預設不用審核：每天開一則「今晚上片」issue 當紀錄，沒回覆就照常上片，回「不要上」才會擋下。想恢復人工審核，設 variable `REVIEW_REQUIRED=true` |
 | `comments.yml` | 每天 09:23、21:23（台灣） | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
