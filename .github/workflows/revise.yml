@@ -33,13 +33,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
-        with:
-          render: "true"
       - name: Is it feedback?
         run: |
           kind=$(python -m shorts review-kind)
           echo "Comment kind: $kind"
           echo "KIND=$kind" >> "$GITHUB_ENV"
+      # fonts and ffmpeg only when re-rendering, so an OK never waits on (or fails at) apt-get
+      - uses: ./.github/actions/setup
+        if: env.KIND == 'feedback'
+        with:
+          render: "true"
       - name: Revise and re-render
         if: env.KIND == 'feedback'
         env:
