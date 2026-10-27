@@ -225,3 +225,47 @@ def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
     new.pt = translate_pt(new, feedback)
     log("Script revised")
     return new, rev.changes_zh.strip()
+
+
+CHECK_SYSTEM = """You fact-check a one-minute explainer script (Chinese and English lines, on-screen \
+labels and numbers) against the research paper it explains. It is published with no human review, \
+so list every material problem:
+- a number, sample, place, date, name or method detail not in the paper or different from it;
+- a finding stated more strongly than the paper supports (causal wording for a correlational \
+design, generalizing beyond the sample, dropped hedges), or a finding the paper does not report;
+- a Chinese line and its English line that say different things;
+- a news hook that adds facts not in the headline or implies the study examined that event;
+- anything defamatory, hateful, partisan, or mocking real people or groups.
+Do not nitpick style. If there is nothing material, return an empty list."""
+
+
+class Check(BaseModel):
+    problems: list[str] = Field(description="Each material problem: quote the line, say what is wrong and what the "
+                                            "paper says. Empty if none")
+
+
+def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: int = 2) -> Script:
+    """Stands in for the owner's review: check against the paper, fix what is wrong, give up if it stays wrong."""
+    meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
+            f"Abstract:\n{paper.abstract}" + (f"\n\nNews headline used as the hook: {news['title']}" if news else ""))
+    docs = [{"type": "document", "source": {"type": "url", "url": paper.pdf_url}}] if paper.pdf_url else []
+
+    def check(s: Script) -> list[str]:
+        text = meta + "\n\nScript (JSON):\n" + json.dumps(s.model_dump(exclude={"pt", "icons"}), ensure_ascii=False)
+        try:
+            return llm.ask(Check, CHECK_SYSTEM, docs + [{"type": "text", "text": text}], effort="high").problems
+        except RuntimeError:
+            if not docs:
+                raise
+            return llm.ask(Check, CHECK_SYSTEM, text, effort="high").problems
+
+    for i in range(rounds + 1):
+        problems = check(script)
+        if not problems:
+            log(f"Fact check passed (round {i})")
+            return script
+        if i == rounds:
+            break
+        log(f"Fact check round {i}: {len(problems)} problems; revising")
+        script, _ = revise(paper, script, "Fix these fact-check problems and nothing else:\n- " + "\n- ".join(problems))
+    raise SystemExit(f"Script still fails the fact check ({len(problems)} problems); no episode today")

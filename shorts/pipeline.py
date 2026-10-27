@@ -46,6 +46,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
             scriptmod.validate(script)
         else:
             script = scriptmod.write(paper, news)
+            script = scriptmod.fact_check(paper, script, news)
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
     if "pt" in LANGS and not script.pt:
         script.pt = scriptmod.translate_pt(script)

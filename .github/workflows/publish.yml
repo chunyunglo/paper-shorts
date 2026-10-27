@@ -26,6 +26,10 @@ on:
         description: "prepare: remake this published episode instead of picking a new paper; delete: the episode to remove"
         default: ""
 
+env:
+  # empty or anything but "true": no owner review, episodes post unless the owner replies "不要上"
+  REVIEW_REQUIRED: ${{ vars.REVIEW_REQUIRED }}
+
 concurrency: publish
 
 permissions:

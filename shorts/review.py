@@ -74,20 +74,26 @@ def open_review(folder: Path, tag: str) -> int:
     s, p = ep["script"], ep["paper"]
     base = f"https://github.com/{config.GITHUB_REPO}/releases/download/{tag}"
     when = os.environ.get("PUBLISH_AT", "今晚 19:00")
-    body = (f"## {s['title_zh']} / {s['title_en']}\n\n"
-            f"回覆 **OK** 或 **沒問題**，就會上片到 YouTube、Instagram、Threads：{when}。\n"
-            f"想修改就直接留言寫要改什麼（例如「第三段講太快」「標題換成…」），"
-            f"Claude 會改腳本、重做三支影片，約 10 分鐘後在這裡貼新版本，你再回 OK。\n"
-            f"回「不要上」或不回覆，這集就不上片。\n\n"
-            f"Reply **OK** to publish ({when}). Write what to change and a revised version is posted here. "
-            f"No reply means no post.\n\n"
+    head = f"## {s['title_zh']} / {s['title_en']}\n\n"
+    if config.env("REVIEW_REQUIRED") == "true":
+        head += (f"回覆 **OK** 或 **沒問題**，就會上片到 YouTube、Instagram、Threads：{when}。\n"
+                 f"想修改就直接留言寫要改什麼（例如「第三段講太快」「標題換成…」），"
+                 f"Claude 會改腳本、重做三支影片，約 10 分鐘後在這裡貼新版本，你再回 OK。\n"
+                 f"回「不要上」或不回覆，這集就不上片。\n\n"
+                 f"Reply **OK** to publish ({when}). Write what to change and a revised version is posted here. "
+                 f"No reply means no post.\n\n")
+    else:
+        head += (f"這集已通過 AI 事實查核，會自動上片：{when}，不用回覆。"
+                 f"想擋下就回「不要上」；想修改就留言寫要改什麼，Claude 會改好重做。\n\n"
+                 f"Fact-checked by AI; posts automatically ({when}). Reply \"不要上\" to stop it.\n\n")
+    body = (head +
             f"### 影片 Videos\n{videos_md(ep, base)}\n\n"
             f"### 論文 Paper\n[{p['title']}]({p['url']}), {p['venue']} ({p['published']})\n\n"
             f"{news_md(ep.get('news'))}"
             f"<details><summary>腳本 Script</summary>\n\n{(folder / 'script.md').read_text(encoding='utf-8')}\n</details>\n\n"
             f"<!-- release: {tag} -->\n")
     resp = http("github", "open review issue", "POST", f"https://api.github.com/repos/{inbox()}/issues",
-                headers=_gh(), json={"title": f"[審核] {s['title_zh']}", "body": body,
+                headers=_gh(), json={"title": f"{'[審核]' if config.env('REVIEW_REQUIRED') == 'true' else '[今晚上片]'} {s['title_zh']}", "body": body,
                                      "labels": ["review"], "assignees": [owner()]})
     number = resp.json()["number"]
     log(f"Review issue opened: #{number}")
@@ -105,6 +111,9 @@ def _is_approved(issue: dict) -> bool:
     comments = http("github", "list review comments", "GET", issue["comments_url"], headers=_gh(),
                     params={"per_page": 100}).json()
     mine = [c for c in comments if c["user"]["login"] == owner()]
+    if not config.env("REVIEW_REQUIRED") == "true":
+        # no review needed: the episode goes out unless the owner's latest word is "don't post"
+        return not mine or kind(mine[-1].get("body", "")) != "reject"
     return bool(mine) and kind(mine[-1].get("body", "")) == "approve"
 
 

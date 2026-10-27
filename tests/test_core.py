@@ -116,6 +116,7 @@ def test_review_comment_kind(text, kind):
 
 def test_latest_owner_comment_decides(monkeypatch):
     from shorts import review
+    monkeypatch.setenv("REVIEW_REQUIRED", "true")  # the opt-in owner-review mode
 
     class Resp:
         def __init__(self, data):

@@ -113,3 +113,23 @@ def test_qa_passes_good_video_and_flags_black_silent_one(tmp_path):
     assert podcast.qa(good, 4.0) == []
     errs = " ".join(podcast.qa(bad, 60.0))
     assert "1280x720" in errs and "timeline" in errs and "quiet" in errs and "blank" in errs
+
+
+def test_shorts_publish_without_review_unless_owner_says_no(monkeypatch):
+    from shorts import review
+
+    class R:
+        def __init__(self, data): self.data = data
+        def json(self): return self.data
+
+    def run(comments, required=""):
+        monkeypatch.setenv("REVIEW_REQUIRED", required)
+        monkeypatch.setattr(review, "owner", lambda: "me")
+        monkeypatch.setattr(review, "http", lambda *a, **k: R([{"user": {"login": u}, "body": b} for u, b in comments]))
+        return review._is_approved({"comments_url": "x"})
+
+    assert run([]) is True
+    assert run([("me", "第三段講太快")]) is True
+    assert run([("me", "不要上")]) is False
+    assert run([], "true") is False
+    assert run([("me", "OK")], "true") is True
