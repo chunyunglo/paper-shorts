@@ -348,6 +348,9 @@ def _cartoon_iris(im, iris, k, tgt):
         col = col * (1 - 0.75 * np.clip((t[..., None] - 0.78) / 0.2, 0, 1))      # limbal ring
         pupil = np.clip((0.4 - t) / 0.03, 0, 1)[..., None]
         col = col * (1 - pupil) + 0.02 * pupil
+        hl = np.hypot(xx - (cx - 0.38 * Rn), yy - (cy - 0.38 * Rn)) / (0.2 * Rn)   # painted catchlight
+        hl = np.clip((1 - hl) / 0.15, 0, 1)[..., None]
+        col = col * (1 - hl) + 0.97 * hl
         a = np.clip((1.0 - t) / 0.03, 0, 1)[..., None]          # anti-aliased edge
         out = out * (1 - a) + col * a
     return np.clip(out, 0, 1)
@@ -380,6 +383,21 @@ def dress(spec, body, eyes, clothes, hairs, outdir):
     # body: painted skin + teeth, tongue, lashes
     face_groups(body)
     body.data.materials.clear()
+    # the lid rims: the open boundary of the skin around each eye, plus two rings of neighbours (for the lash line)
+    E = np.array([v.co[:] for v in eyes.data.vertices])
+    ecs = [E[E[:, 0] > 0].mean(0), E[E[:, 0] < 0].mean(0)]
+    bm = bmesh.new(); bm.from_mesh(body.data); bm.verts.ensure_lookup_table()
+    rim = np.zeros(len(bm.verts), np.float32)
+    ring = {v.index for v in bm.verts if any(e.is_boundary for e in v.link_edges)
+            and min(np.linalg.norm(np.array(v.co) - c) for c in ecs) < 0.03}
+    seen = set(ring)
+    for w in (1.0, 0.75, 0.4):
+        for i in ring:
+            rim[i] = max(rim[i], w)
+        ring = {o.index for i in ring for e in bm.verts[i].link_edges for o in e.verts if o.index not in seen}
+        seen |= ring
+    bm.free()
+    spec['_rim'] = rim
     S = skin.paint_skin(body, spec, texdir)
     body.data.materials.append(skin.material('Skin', tex=S, rough=0.5))
     body.data.materials.append(skin.material('Teeth', base=(0.78, 0.76, 0.72), rough=0.35))   # sits in the mouth's shadow

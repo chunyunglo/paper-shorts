@@ -159,6 +159,7 @@ def paint_skin(body, spec, outdir, size=4096):
     me.attributes['brow'].data.foreach_get('value', brow)
     attrs = {'brow': brow, 'lips': _group_weights(body, 'lips'), 'nails': np.maximum(_group_weights(body, 'fingernails'), _group_weights(body, 'toenails')),
              'scalp': np.asarray(spec['_scalp'], np.float32), 'ears': _group_weights(body, 'ears'),
+             'rim': np.asarray(spec.get('_rim', np.zeros(len(me.vertices))), np.float32),
              'nz': np.array([v.normal.z for v in me.vertices], np.float32),
              'ny': np.array([v.normal.y for v in me.vertices], np.float32)}
     mask, P, M = rasterise(body, size, attrs, mat_index=0)
@@ -216,31 +217,21 @@ def paint_skin(body, spec, outdir, size=4096):
         shelf = (np.clip((M['nz'][mask] - 0.25) / 0.3, 0, 1) * near)[:, None]
         wl = S.get('waterline', 0.75)
         col = col * (1 - shelf * wl) + np.array(S.get('waterline_col', (0.52, 0.3, 0.28))) * shelf * wl
-    # lash line: a dark rim along the upper lid margin (the lowest lid skin above the eyeball at
-    # each point across the eye), heavier toward the outer corner
+    # lash line: ink along the upper lid rim (the skin's open edge around the eye and the first rings next to it),
+    # heavier toward the outer corner
     if S.get('lash'):
+        rim = M['rim'][mask]
         R = spec.get('_eye_r', 0.012)
         for e, sg in ((eyeL, 1), (eyeR, -1)):
             d = p - e
-            dist = np.linalg.norm(d, axis=1)
-            u = sg * d[:, 0] / R                       # -1 inner corner .. +1 outer corner
-            lidp = (dist < R + 0.002) & (d[:, 1] < -0.3 * R) & (d[:, 2] > -0.2 * R) & (np.abs(u) < 1.1)
-            bins = np.linspace(-1.1, 1.1, 23)
-            zm = np.full(len(bins), np.nan)
-            for i, b0 in enumerate(bins):
-                s_ = lidp & (np.abs(u - b0) < 0.1)
-                if s_.any():
-                    zm[i] = d[s_, 2].min()
-            ok = ~np.isnan(zm)
-            if ok.sum() < 3:
+            if not (np.linalg.norm(d, axis=1) < 2 * R).any():
                 continue
-            zmar = np.interp(u, bins[ok], zm[ok])
-            w = S.get('lash_w', 0.0026) * (0.6 + 0.8 * np.clip(u + 0.2, 0, 1))
-            h = d[:, 2] - zmar
-            band = np.clip((w - h) / 0.0005, 0, 1) * np.clip((h - 0.0002) / 0.0004, 0, 1)
-            band *= np.clip((u + 0.85) / 0.15, 0, 1) * (u < 1.05) * (d[:, 1] < 0) * (dist < R + 0.006)
+            u = sg * d[:, 0] / R
+            near = np.linalg.norm(d, axis=1) < 2 * R
+            up = np.clip((d[:, 2] + 0.1 * R + 0.25 * R * np.clip(u, 0, 1)) / (0.12 * R), 0, 1)
+            band = np.clip((rim - S.get('lash_t', 0.5)) / 0.15, 0, 1) * up * near * (0.8 + 0.2 * np.clip(u, 0, 1))
             ls = band[:, None] * S['lash']
-            col = col * (1 - ls) + np.array((0.06, 0.04, 0.035)) * ls
+            col = col * (1 - ls) + np.array((0.08, 0.05, 0.04)) * ls
     # nails
     nails = np.clip(M['nails'][mask], 0, 1)[:, None]
     col = col * (1 - nails * 0.6) + np.array((0.88, 0.7, 0.68)) * nails * 0.6

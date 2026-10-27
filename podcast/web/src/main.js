@@ -287,6 +287,45 @@ function hairMaterial(m) {
   return h;
 }
 
+// animated look: cel shading in three soft bands, and an ink outline drawn as an inflated back-face shell
+// that shares the mesh's skeleton and expression morphs
+const TOON = !(window.DEBUG && window.DEBUG.pbr);
+let toonRamp = null;
+function toonify(o) {
+  if (!toonRamp) {
+    toonRamp = new THREE.DataTexture(new Uint8Array([120, 120, 200, 200, 255, 255]), 6, 1, THREE.RedFormat);
+    toonRamp.needsUpdate = true; toonRamp.minFilter = toonRamp.magFilter = THREE.LinearFilter;
+  }
+  const om = o.material, n = om.name || '';
+  const hair = n.startsWith('Hair');
+  const m = new THREE.MeshToonMaterial({ name: n, map: om.map, color: om.color, gradientMap: toonRamp,
+    transparent: false, alphaTest: om.alphaTest, alphaToCoverage: om.alphaToCoverage, side: om.side });
+  if (n === 'Skin') { m.emissive = new THREE.Color(0.16, 0.07, 0.05); m.emissiveMap = om.map; m.emissiveIntensity = 0.5; }
+  if (n === 'Eye') { m.emissive = new THREE.Color(1, 1, 1); m.emissiveMap = om.map; m.emissiveIntensity = 0.35; }
+  if (hair) m.color = new THREE.Color(1.25, 1.2, 1.15);
+  if (window.DEBUG && window.DEBUG.matcol) { m.map = null; m.emissiveMap = null; m.emissive = new THREE.Color(0, 0, 0); m.color = new THREE.Color({ Skin: 0xffcc99, Eye: 0x3333ff, Lashes: 0xff00ff, Teeth: 0x00ff00, Tongue: 0xff0000 }[n] || 0x00ffff); }
+  o.material = m;
+  const ink = { Skin: 0.0008, Eye: 0.0007, Lashes: 0, Teeth: 0, Tongue: 0, HairCap: 0 }[n];
+  const w = ink === undefined ? 0.0016 : ink;
+  if (!w || (hair && n !== 'HairBobMatte' && n !== 'HairBob')) return;
+  const om2 = new THREE.MeshBasicMaterial({ color: n === 'Skin' ? 0x3a2219 : n === 'Eye' ? 0x1a0e0a : 0x111018, side: THREE.BackSide });
+  om2.onBeforeCompile = (sh) => {
+    sh.vertexShader = sh.vertexShader.replace('#include <skinning_vertex>',
+      `#include <skinning_vertex>\n#ifdef USE_SKINNING\n  transformed += normalize(objectNormal) * ${w.toFixed(5)};\n#else\n  transformed += normalize(normal) * ${w.toFixed(5)};\n#endif`);
+  };
+  let shell;
+  if (o.isSkinnedMesh) {
+    shell = new THREE.SkinnedMesh(o.geometry, om2);
+    shell.bind(o.skeleton, o.bindMatrix);
+    o.parent.add(shell); shell.position.copy(o.position); shell.quaternion.copy(o.quaternion); shell.scale.copy(o.scale);
+  } else {
+    shell = new THREE.Mesh(o.geometry, om2); o.add(shell);
+  }
+  shell.userData.ink = true;
+  shell.morphTargetInfluences = o.morphTargetInfluences; shell.morphTargetDictionary = o.morphTargetDictionary;
+  shell.frustumCulled = false; shell.castShadow = false; shell.receiveShadow = false;
+}
+
 async function loadHost(url) {
   const gltf = await loader.loadAsync(url);
   const vrm = gltf.userData.vrm;
@@ -296,16 +335,12 @@ async function loadHost(url) {
   if (vrm0) VRMUtils.rotateVRM0(vrm);
   vrm.scene.traverse((o) => {
     o.frustumCulled = false;
-    if (!o.isMesh) return;
+    if (!o.isMesh || o.userData.ink) return;
     o.castShadow = true; o.receiveShadow = true;
     for (const m of [].concat(o.material)) tuneMaterial(m, o);
     if (window.DEBUG && window.DEBUG.normals && o.material.name === 'Skin') o.material = new THREE.MeshNormalMaterial();
-    if (window.DEBUG && window.DEBUG.toon && !Array.isArray(o.material)) {
-      const g = new Uint8Array([90, 170, 235, 255]); const gt = new THREE.DataTexture(g, 4, 1, THREE.RedFormat); gt.needsUpdate = true; gt.minFilter = gt.magFilter = THREE.LinearFilter;
-      const om = o.material;
-      if (!om.name.startsWith('Hair') || om.name === 'HairCap' || om.name === 'HairBobMatte') o.material = new THREE.MeshToonMaterial({ name: om.name, map: om.map, color: om.color, gradientMap: gt, transparent: om.transparent, alphaTest: om.alphaTest, side: om.side });
-    }
-    if (!Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap' && o.material.name !== 'HairBobMatte') o.material = hairMaterial(o.material);
+    if (TOON && !Array.isArray(o.material)) toonify(o);
+    if (!TOON && !Array.isArray(o.material) && o.material.name.startsWith('Hair') && o.material.name !== 'HairCap' && o.material.name !== 'HairBobMatte') o.material = hairMaterial(o.material);
   });
   const root = new THREE.Group(); root.add(vrm.scene);
   return { vrm, root, flip: vrm0 ? -1 : 1 };
