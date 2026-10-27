@@ -289,7 +289,7 @@ function hairMaterial(m) {
 
 // animated look: cel shading in three soft bands, and an ink outline drawn as an inflated back-face shell
 // that shares the mesh's skeleton and expression morphs
-const TOON = !(window.DEBUG && window.DEBUG.pbr);
+const TOON = !!(window.DEBUG && window.DEBUG.toon);
 let toonRamp = null;
 function toonify(o) {
   if (!toonRamp) {
@@ -526,7 +526,7 @@ window.setup = async (tl) => {
     c.rotation.y = -0.3; scene.add(c);
   }
   host.nearArm = 'right'; guest.nearArm = 'left';
-  for (const h of Object.values(hosts)) { applyPose(h, 0, idleState()); h.vrm.update(0); h.headPos = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)); }
+  for (const h of Object.values(hosts)) { applyPose(h, 0, idleState()); h.vrm.update(0); h.headPos = bone(h.vrm, 'head').getWorldPosition(V(0, 0, 0)).add(V(0, 0.1, 0)); } // the cartoon head bone sits at the neck; aim at the eyes
 
   const camera = new THREE.PerspectiveCamera(32, W / H, 0.05, 60);
   let composer = null;
