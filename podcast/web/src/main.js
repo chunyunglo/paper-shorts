@@ -328,6 +328,7 @@ function toonify(o) {
 
 // swap a model's clothes for another VRoid model's (e.g. a skirt for trousers): VRoid models share bone names,
 // so the donor's meshes are rebound to the recipient's skeleton, keeping the donor's bind pose
+const INFL = (window.DEBUG && window.DEBUG.infl) ?? 0.006;
 const outfitSlot = (o) => ((([].concat(o.material)[0] || {}).name || '').match(/_(Bottoms|Shoes|Tops)_/) || [])[1];
 async function swapOutfit(scene, url, slots) {
   const donor = (await loader.loadAsync(url)).scene;
@@ -338,8 +339,15 @@ async function swapOutfit(scene, url, slots) {
   donor.traverse((o) => {
     if (!o.isSkinnedMesh || !slots.includes(outfitSlot(o))) return;
     const g = o.geometry.clone(), pos = g.attributes.position, nrm = g.attributes.normal;
-    for (let i = 0; i < pos.count; i++) pos.setXYZ(i, pos.getX(i) + nrm.getX(i) * 0.006, pos.getY(i) + nrm.getY(i) * 0.006, pos.getZ(i) + nrm.getZ(i) * 0.006);
-    const m = new THREE.SkinnedMesh(g, o.material);
+    // inflate a little so the recipient's hips don't poke through, along normals averaged over UV seams
+    // (split normals would open the seams into light lines)
+    const key = (i) => `${pos.getX(i).toFixed(4)},${pos.getY(i).toFixed(4)},${pos.getZ(i).toFixed(4)}`;
+    const avg = new Map();
+    for (let i = 0; i < pos.count; i++) { const k = key(i), n = avg.get(k) || V(0, 0, 0); avg.set(k, n.add(V(nrm.getX(i), nrm.getY(i), nrm.getZ(i)))); }
+    for (let i = 0; i < pos.count; i++) { const n = avg.get(key(i)).clone().normalize().multiplyScalar(INFL); pos.setXYZ(i, pos.getX(i) + n.x, pos.getY(i) + n.y, pos.getZ(i) + n.z); }
+    // the donor's rim light and matcap catch the studio's warm back lights as a gold streak down the legs
+    const mat = [].concat(o.material).map((x) => { x = x.clone(); if (x.isMToonMaterial) { x.parametricRimColorFactor.setRGB(0, 0, 0); x.matcapFactor.setRGB(0, 0, 0); x.rimLightingMixFactor = 0; } return x; });
+    const m = new THREE.SkinnedMesh(g, mat.length > 1 ? mat : mat[0]);
     m.name = o.name; parent.add(m);
     m.bind(new THREE.Skeleton(o.skeleton.bones.map((b) => bones[b.name] || bones['J_Bip_C_Hips']), o.skeleton.boneInverses), o.bindMatrix);
   });
