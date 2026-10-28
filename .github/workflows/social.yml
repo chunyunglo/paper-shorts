@@ -13,6 +13,12 @@ on:
         description: "Post for real (off = plan and draw only)"
         type: boolean
         default: false
+      threads:
+        description: "Threads posts allowed this run (blank = MAX_THREADS_PER_DAY)"
+        default: ""
+      instagram:
+        description: "Instagram posts allowed this run (blank = MAX_IG_PER_WEEK)"
+        default: ""
 
 concurrency: social
 
@@ -30,8 +36,8 @@ jobs:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       STATE_DIR: state
       VISUAL_CHECK: ${{ vars.VISUAL_CHECK }}
-      MAX_THREADS_PER_DAY: ${{ vars.MAX_THREADS_PER_DAY }}
-      MAX_IG_PER_WEEK: ${{ vars.MAX_IG_PER_WEEK }}
+      MAX_THREADS_PER_DAY: ${{ inputs.threads || vars.MAX_THREADS_PER_DAY }}
+      MAX_IG_PER_WEEK: ${{ inputs.instagram || vars.MAX_IG_PER_WEEK }}
     steps:
       - uses: actions/checkout@v4
       - name: Load analytics
