@@ -1,11 +1,12 @@
-# Twice a day (09:23 and 21:23 Taiwan): triage new comments on episodes from the last 30 days.
+# Every 4 hours: triage new comments on episodes from the last 30 days, then add one line of
+# counts to the "留言檢查紀錄" issue so the owner gets a notice that the check ran.
 # Scheduled runs only act once the repo variable AUTO_REPLY is "true".
 # Logs show counts only. Never add steps that print comment data.
 name: Reply to comments
 
 on:
   schedule:
-    - cron: "23 1,13 * * *"   # 09:23 and 21:23 Taiwan
+    - cron: "23 */4 * * *"   # 08:23, 12:23, 16:23, 20:23, 00:23, 04:23 Taiwan
   workflow_dispatch:
     inputs:
       dry_run:
@@ -52,6 +53,7 @@ jobs:
           ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
           ALERT_REPO: ${{ vars.ALERT_REPO }}
+          COMMENT_REPORT: report.txt
         run: python -m shorts comments ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
 
       - name: Save comment state
@@ -70,3 +72,21 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -qm "Update comment state"
           git push -q origin HEAD:state
+
+      - name: Tell the owner the check ran
+        if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="留言檢查紀錄 / Comment check log"
+          num=$(gh issue list -R "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number,title \
+                --jq ".[] | select(.title == \"$title\") | .number" | head -1)
+          if [ -z "$num" ]; then
+            url=$(gh issue create -R "$GITHUB_REPOSITORY" --title "$title" \
+                  --body "每次自動檢查留言後，bot 會在這裡留一行數字（不含留言內容）。訂閱這則 issue 就會收到通知。")
+            num=${url##*/}
+          fi
+          when=$(TZ=Asia/Taipei date "+%m/%d %H:%M")
+          if [ -f report.txt ]; then line=$(cat report.txt); else line="⚠️ 這次檢查沒有跑完"; fi
+          gh issue comment "$num" -R "$GITHUB_REPOSITORY" --body "**$when** $line · [紀錄]($RUN_URL)"

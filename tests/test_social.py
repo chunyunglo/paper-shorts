@@ -66,3 +66,11 @@ def test_feedback_saved_and_read_back(tmp_path, monkeypatch):
     comments.save_feedback([{"day": today, "episode": "e1", "platform": "youtube", "note": "wants sleep research"},
                             {"day": "2020-01-01", "episode": "e0", "platform": "threads", "note": "old"}])
     assert [r["note"] for r in comments.recent_feedback()] == ["wants sleep research"]
+
+
+def test_comment_report_line_has_counts_only():
+    from shorts.comments import report_line
+
+    line = report_line(8, {"threads/praise": 1, "youtube/spam": 2, "youtube/failed": 1}, 0, False)
+    assert line == "檢查 8 則貼文；新留言 3 則（threads 1、youtube 2）；回覆 1、隱藏垃圾 2、需要你看 0；⚠️ 失敗 1"
+    assert report_line(4, {}, 0, True).startswith("檢查 4 則貼文；新留言 0 則；")
