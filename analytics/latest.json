@@ -1,9 +1,9 @@
 {
- "collected_at": "2026-10-27T22:50:45+00:00",
+ "collected_at": "2026-10-28T07:16:03+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 2,
-   "viewCount": 44,
+   "viewCount": 89,
    "videoCount": 9
   }
  },
@@ -196,6 +196,412 @@
     "reposts": 0,
     "quotes": 0,
     "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "dzkB79epmBg",
+   "url": "https://youtube.com/shorts/dzkB79epmBg",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT53S",
+    "privacy": "public",
+    "published": "2026-10-26T11:38:07Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18020363726734959",
+   "url": "https://www.instagram.com/reel/De9MUFRjLIZ/",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 103,
+    "reach": 99,
+    "likes": 2,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 3
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18472084015185576",
+   "url": "https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 19,
+    "likes": 1,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "l6unhYxCxGw",
+   "url": "https://youtube.com/shorts/l6unhYxCxGw",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT47S",
+    "privacy": "public",
+    "published": "2026-10-26T11:40:04Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18118336720802920",
+   "url": "https://www.instagram.com/reel/De9MjXMCbng/",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 29,
+    "reach": 27,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18108678878147734",
+   "url": "https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 7,
+    "likes": 1,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "pt",
+   "platform": "youtube",
+   "id": "4kqijXYKbUc",
+   "url": "https://youtube.com/shorts/4kqijXYKbUc",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT54S",
+    "privacy": "public",
+    "published": "2026-10-26T22:04:08Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "pt",
+   "platform": "instagram",
+   "id": "18346592749248617",
+   "url": "https://www.instagram.com/reel/De-T7yvinWl/",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 7,
+    "reach": 6,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261026-laundering-and-evasion-in-response-to-an",
+   "title": "Caught Using Slave Labor: Do Ranches Really Stop?",
+   "lang": "pt",
+   "platform": "threads",
+   "id": "18606994711064121",
+   "url": "https://www.threads.com/@human__behavior__decode/post/De-UAejCGHg",
+   "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
+   "created": "2026-10-26T08:29:20+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 1,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "pwq_zfcaHyw",
+   "url": "https://youtube.com/shorts/pwq_zfcaHyw",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 51,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT52S",
+    "privacy": "public",
+    "published": "2026-10-27T11:04:42Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17894588055615543",
+   "url": "https://www.instagram.com/reel/De_tNpJjKGU/",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 84,
+    "reach": 77,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17876837457584608",
+   "url": "https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "IEalILCeCbs",
+   "url": "https://youtube.com/shorts/IEalILCeCbs",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 14,
+    "likes": 2,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-10-27T11:06:03Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "17955861042281412",
+   "url": "https://www.instagram.com/reel/De_tacHiG1W/",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 29,
+    "reach": 21,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17991727911116608",
+   "url": "https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "pt",
+   "platform": "youtube",
+   "id": "I5rjoNK0K8g",
+   "url": "https://youtube.com/shorts/I5rjoNK0K8g",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT51S",
+    "privacy": "public",
+    "published": "2026-10-27T22:05:17Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "pt",
+   "platform": "instagram",
+   "id": "17943124542099756",
+   "url": "https://www.instagram.com/reel/DfA43F_DoBt/",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 1,
+    "reach": 1,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261027-decredentialed-jobs-and-upward-mobility",
+   "title": "Jobs Dropped the Degree. So Who Got Hired?",
+   "lang": "pt",
+   "platform": "threads",
+   "id": "18114406583150787",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfA48JFEtvf",
+   "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
+   "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {
+    "views": 3,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-0",
+   "title": "職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？\n\n我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18109042712459942",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc",
+   "paper": "20261027-decredentialed-jobs-and-upward-mobility",
+   "created": "2026-10-28T06:48:20+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 1,
+    "replies": 1,
+    "reposts": 1,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-1",
+   "title": "In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.\n\nA st",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18011776958996238",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO",
+   "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206",
+   "created": "2026-10-28T06:51:44+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-2",
+   "title": "本週我們介紹了三篇關於人類行為的新研究，每篇一個重點：\n\n1️⃣ AI幫忙寫請願書（Nature Human Behaviour, 2026）\nChange.o",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18145930750589699",
+   "url": "https://www.instagram.com/p/DfB1Nj-luRP/",
+   "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206, 20261027-decredentialed-jobs-and-upward-mobility, 20261026-laundering-and-evasion-in-response-to-an",
+   "created": "2026-10-28T06:51:44+00:00",
+   "metrics": {
+    "views": 0,
+    "reach": 0,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0
    }
   }
  ]
