@@ -30,6 +30,7 @@ from .state import load_history
 
 STATE_DIR = Path(os.environ.get("STATE_DIR", config.ROOT / "state"))
 STATE_FILE = STATE_DIR / "comments.json"
+FEEDBACK_FILE = STATE_DIR / "feedback.jsonl"
 WINDOW_DAYS = int(os.environ.get("COMMENT_WINDOW_DAYS", "30"))
 MAX_ACTIONS = int(os.environ.get("MAX_COMMENT_ACTIONS", "40"))
 
@@ -48,6 +49,10 @@ class Decision(BaseModel):
     category: Literal["question", "praise", "spam", "sensitive", "ignore"]
     reply: str = Field(description="The reply to post (question/praise), or a suggested reply for the owner (sensitive); empty otherwise")
     note: str = Field(description="For sensitive: one short sentence for the owner on why it needs a human; else empty")
+    feedback: str = Field(default="", description="If the comment tells us something worth remembering for future episodes (a topic "
+                                      "request, what confused or interested people, a sharp angle, a complaint about "
+                                      "the format), one short paraphrase in English with no names, quotes or personal "
+                                      "details; else empty")
 
 
 class Triage(BaseModel):
@@ -76,7 +81,10 @@ Replies (question/praise): write in the commenter's language (Traditional Chines
 never Simplified unless they wrote Simplified). Friendly, humble, 1-3 sentences, at most 280 \
 characters. Only state what the summary supports; if the paper does not say, say so and point \
 to the paper. No hashtags. Do not claim to be human; signing is not needed. For sensitive, put a \
-suggested reply the owner could use in `reply`, and the reason in `note`."""
+suggested reply the owner could use in `reply`, and the reason in `note`.
+
+Separately from the category, fill `feedback` only for comments that would help us choose or \
+write future episodes. Most comments have none."""
 
 
 # ---------------------------------------------------------------- state
@@ -228,12 +236,16 @@ def run(dry_run: bool = False) -> None:
     counts: dict[str, int] = {}
     alerts: list[tuple[Comment, Decision, dict]] = []
     budget = MAX_ACTIONS
+    notes: list[dict] = []
     for ep in episodes:
         new = collect(ep, done, me_ig)[:budget]
         if not new:
             continue
         decisions = triage(ep, new)
         for c, d in zip(new, decisions):
+            if d.feedback.strip() and d.category != "spam":
+                notes.append({"day": datetime.now(timezone.utc).date().isoformat(), "episode": ep["episode"],
+                              "platform": c.platform, "note": d.feedback.strip()[:300]})
             counts[f"{c.platform}/{d.category}"] = counts.get(f"{c.platform}/{d.category}", 0) + 1
             if dry_run:
                 continue
@@ -263,6 +275,26 @@ def run(dry_run: bool = False) -> None:
     log(f"Episodes checked: {len(episodes)}; {summary}{' (dry run)' if dry_run else ''}")
     if not dry_run:
         save_done(done)
+        save_feedback(notes)
+
+
+def save_feedback(notes: list[dict]) -> None:
+    """Paraphrased audience feedback (no comment text, no names) for picking and writing later."""
+    if not notes:
+        return
+    STATE_DIR.mkdir(parents=True, exist_ok=True)
+    with FEEDBACK_FILE.open("a", encoding="utf-8") as fh:
+        for n in notes:
+            fh.write(json.dumps(n, ensure_ascii=False) + "\n")
+    log(f"Saved {len(notes)} audience feedback note(s)")
+
+
+def recent_feedback(days: int = 60, limit: int = 40) -> list[dict]:
+    if not FEEDBACK_FILE.exists():
+        return []
+    cutoff = (datetime.now(timezone.utc) - timedelta(days=days)).date().isoformat()
+    rows = [json.loads(x) for x in FEEDBACK_FILE.read_text(encoding="utf-8").splitlines() if x.strip()]
+    return [r for r in rows if r["day"] >= cutoff][-limit:]
 
 
 def link_of_post(c: Comment) -> str:

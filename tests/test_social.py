@@ -55,3 +55,14 @@ def test_failed_slide_drops_only_its_post(monkeypatch, tmp_path):
 
 def test_failed_frames_parses_look_output():
     assert social.failed_frames(["frame 0: x", "frame 12: y", "odd"]) == {0, 12}
+
+
+def test_feedback_saved_and_read_back(tmp_path, monkeypatch):
+    from shorts import comments
+
+    monkeypatch.setattr(comments, "STATE_DIR", tmp_path)
+    monkeypatch.setattr(comments, "FEEDBACK_FILE", tmp_path / "feedback.jsonl")
+    today = datetime.now(timezone.utc).date().isoformat()
+    comments.save_feedback([{"day": today, "episode": "e1", "platform": "youtube", "note": "wants sleep research"},
+                            {"day": "2020-01-01", "episode": "e0", "platform": "threads", "note": "old"}])
+    assert [r["note"] for r in comments.recent_feedback()] == ["wants sleep research"]

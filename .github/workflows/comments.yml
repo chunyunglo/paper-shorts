@@ -66,7 +66,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add comments.json
+          git add comments.json $( [ -f feedback.jsonl ] && echo feedback.jsonl )
           git diff --cached --quiet && exit 0
           git commit -qm "Update comment state"
           git push -q origin HEAD:state
