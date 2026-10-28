@@ -292,7 +292,7 @@ def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
         rev = llm.ask(Revision, REVISE_SYSTEM, content[1:], effort="high")
     new = Script(**rev.script.model_dump())
     validate(new)
-    new.pt = translate_pt(new, feedback)
+    new.pt = translate_pt(new, feedback) if script.pt else None
     log("Script revised")
     return new, rev.changes_zh.strip()
 
