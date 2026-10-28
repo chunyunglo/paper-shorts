@@ -14,6 +14,7 @@ Caps: MAX_THREADS_PER_DAY (2) and MAX_IG_PER_WEEK (3), counted from the history.
 from __future__ import annotations
 
 import json
+import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Literal
@@ -47,7 +48,9 @@ class Slide(BaseModel):
     heading: str = Field(description="Heading, at most 40 characters (Chinese: at most 18)")
     big: str = Field(description="stat: the number as shown (only numbers the paper states), at most 10 characters; "
                                  "otherwise empty")
-    lines: list[str] = Field(description="Body lines, each at most 60 characters (Chinese: at most 26); 0-4")
+    lines: list[str] = Field(description="Body lines, each at most 60 characters (Chinese: at most 26); 0-4. "
+                                         "Each line is its own bullet and reads on its own: never "
+                                         "split one sentence across two lines")
 
 
 class Post(BaseModel):
@@ -203,12 +206,27 @@ def make(now: datetime | None = None) -> Path | None:
     if images and config.env("VISUAL_CHECK") != "off":
         from . import look
 
-        if bad := look.check_images(images, "Instagram slides for a science channel; the text on each slide:\n"
-                                    + json.dumps([r["slides"] for r in out], ensure_ascii=False)):
-            raise SystemExit("Slides failed the visual check: " + "; ".join(bad))
+        bad = look.check_images(images, "Instagram slides for a science channel; the text on each slide:\n"
+                                + json.dumps([r["slides"] for r in out], ensure_ascii=False))
+        # a bad slide drops only its own post; the day's other posts still go out
+        labels = list(images)
+        broken = {int(labels[f].split()[1]) for f in failed_frames(bad) if f < len(labels)}
+        if bad and not broken:  # can't tell which post: drop every Instagram post
+            broken = {i for i, r in enumerate(out) if r["images"]}
+        if broken:
+            log(f"Social: dropped {len(broken)} Instagram post(s) that failed the visual check: " + "; ".join(bad))
+            out = [r for i, r in enumerate(out) if i not in broken]
+        if not out:
+            log("Social: nothing left to post today")
+            return None
     (folder / "plan.json").write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     log(f"Social: planned {len(out)} post(s): " + ", ".join(f"{r['platform']}/{r['lang']}" for r in out))
     return folder
+
+
+def failed_frames(problems: list[str]) -> set[int]:
+    """Frame numbers named by look's blocking problems ("frame 3: ...")."""
+    return {int(m.group(1)) for p in problems if (m := re.match(r"frame (\d+)", p))}
 
 
 def _check_context(plan: Plan, eps: dict[str, dict], heads: list) -> str:
