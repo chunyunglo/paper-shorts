@@ -1,4 +1,4 @@
-"""Hourly comment triage on recent episodes.
+"""Twice-daily comment triage on recent episodes.
 
 For each new comment, Claude picks one of:
   question / praise  -> reply in the commenter's language, grounded in the episode's paper summary
@@ -160,6 +160,16 @@ def collect(ep: dict, done: set[str], me_ig: str | None) -> list[Comment]:
     return found
 
 
+def podcast_episodes() -> list[dict]:
+    """Talk-show episodes in the shape of a short's history entry, so their comments get the same care."""
+    from .analytics import load_podcast_history
+
+    return [{"episode": e["episode"], "created": e["created"], "paper": e["paper"],
+             "script": {"title_zh": e["title"], "title_en": e["title"], "method_summary": e.get("method_summary", ""),
+                        "limitations": e.get("limitations", "")},
+             "posts": {"en": {"youtube": e["youtube"]}}} for e in load_podcast_history() if e.get("youtube")]
+
+
 # ---------------------------------------------------------------- main
 
 def triage(ep: dict, comments: list[Comment]) -> list[Decision]:
@@ -186,7 +196,7 @@ def act(c: Comment, d: Decision) -> None:
 
 def run(dry_run: bool = False) -> None:
     cutoff = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
-    episodes = [ep for ep in load_history() if any(ep.get("posts", {}).values())
+    episodes = [ep for ep in load_history() + podcast_episodes() if any(ep.get("posts", {}).values())
                 and datetime.fromisoformat(ep["created"]) >= cutoff]
     done = load_done()
     try:

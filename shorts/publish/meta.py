@@ -128,3 +128,33 @@ def th_delete(post_id: str) -> None:
 
 def th_hide(reply_id: str) -> None:
     th("POST", f"{reply_id}/manage_reply", "hide reply", hide="true")
+
+
+# ---------------------------------------------------------------- insights (read-only)
+
+def _insights(call, post_id: str, metric_sets: tuple[str, ...]) -> dict[str, int]:
+    """Try metric sets from newest to oldest naming; the first the API accepts wins."""
+    for metrics in metric_sets:
+        try:
+            data = call("GET", f"{post_id}/insights", "insights", metric=metrics).get("data", [])
+        except ApiError:
+            continue
+        out = {}
+        for m in data:
+            vals = m.get("values") or [{}]
+            v = vals[0].get("value") if vals else None
+            if v is None:
+                v = (m.get("total_value") or {}).get("value")
+            if isinstance(v, (int, float)):
+                out[m["name"]] = int(v)
+        return out
+    return {}
+
+
+def ig_insights(media_id: str) -> dict[str, int]:
+    return _insights(ig, media_id, ("views,reach,likes,comments,saved,shares,total_interactions",
+                                    "reach,likes,comments,saved,shares", "likes,comments"))
+
+
+def th_insights(post_id: str) -> dict[str, int]:
+    return _insights(th, post_id, ("views,likes,replies,reposts,quotes,shares", "views,likes,replies"))

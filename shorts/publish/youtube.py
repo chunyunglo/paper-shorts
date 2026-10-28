@@ -33,13 +33,18 @@ def _auth() -> dict:
     return {"Authorization": f"Bearer {access_token()}"}
 
 
-def upload(video: Path, title: str, description: str, tags: list[str], lang: str = "zh") -> str:
+def upload(video: Path, title: str, description: str, tags: list[str], lang: str = "zh",
+           publish_at: str | None = None) -> str:
+    """publish_at (RFC 3339, UTC): upload as private and let YouTube make it public then."""
     language = {"zh": ("zh-Hant", "zh-TW"), "en": ("en", "en"), "pt": ("pt-BR", "pt-BR")}[lang]
+    status = {"privacyStatus": config.env("YOUTUBE_PRIVACY", "public"),
+              "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True}
+    if publish_at:
+        status |= {"privacyStatus": "private", "publishAt": publish_at}
     meta = {
         "snippet": {"title": title, "description": description, "tags": tags[:15], "categoryId": "27",
                     "defaultLanguage": language[0], "defaultAudioLanguage": language[1]},
-        "status": {"privacyStatus": config.env("YOUTUBE_PRIVACY", "public"),
-                   "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True},
+        "status": status,
     }
     size = video.stat().st_size
     start = http("youtube", "upload init", "POST",
@@ -98,3 +103,57 @@ def hide(comment_id: str) -> None:
     # "heldForReview" removes it from public view but keeps it in YouTube Studio for a manual check.
     http("youtube", "comments.setModerationStatus", "POST", f"{API}/comments/setModerationStatus",
          headers=_auth(), params={"id": comment_id, "moderationStatus": "heldForReview"}, ok=(200, 204))
+
+
+def set_thumbnail(video_id: str, image: Path) -> None:
+    """Needs a phone-verified channel; callers treat a failure as non-fatal."""
+    http("youtube", "thumbnails.set", "POST", "https://www.googleapis.com/upload/youtube/v3/thumbnails/set",
+         params={"videoId": video_id}, headers=_auth() | {"Content-Type": "image/jpeg"}, data=image.read_bytes())
+
+
+def video_stats(video_ids: list[str]) -> dict[str, dict]:
+    """Public counters (views, likes, comments) and length, by video id. Any YouTube scope works."""
+    out: dict[str, dict] = {}
+    for i in range(0, len(video_ids), 50):
+        resp = http("youtube", "videos.list", "GET", f"{API}/videos", headers=_auth(),
+                    params={"part": "statistics,contentDetails,status,snippet", "id": ",".join(video_ids[i:i + 50]),
+                            "maxResults": 50})
+        for v in resp.json().get("items", []):
+            st = v.get("statistics", {})
+            out[v["id"]] = {"views": int(st.get("viewCount", 0)), "likes": int(st.get("likeCount", 0)),
+                            "comments": int(st.get("commentCount", 0)),
+                            "duration": v.get("contentDetails", {}).get("duration"),
+                            "privacy": v.get("status", {}).get("privacyStatus"),
+                            "published": v.get("snippet", {}).get("publishedAt")}
+    return out
+
+
+def channel_stats() -> dict:
+    resp = http("youtube", "channels.list", "GET", f"{API}/channels", headers=_auth(),
+                params={"part": "statistics", "mine": "true"})
+    st = resp.json()["items"][0].get("statistics", {})
+    return {k: int(st.get(k, 0)) for k in ("subscriberCount", "viewCount", "videoCount")}
+
+
+ANALYTICS_METRICS = ("views,estimatedMinutesWatched,averageViewDuration,averageViewPercentage,"
+                     "likes,comments,shares,subscribersGained")
+
+
+def analytics_by_video(video_ids: list[str], start: str, end: str) -> dict[str, dict] | None:
+    """YouTube Analytics (watch time, retention, subscribers gained) per video.
+    Returns None when the refresh token was made without the yt-analytics.readonly scope."""
+    out: dict[str, dict] = {}
+    for i in range(0, len(video_ids), 200):
+        resp = http("youtube", "analytics reports", "GET", "https://youtubeanalytics.googleapis.com/v2/reports",
+                    headers=_auth(), ok=(200, 401, 403),
+                    params={"ids": "channel==MINE", "startDate": start, "endDate": end, "dimensions": "video",
+                            "metrics": ANALYTICS_METRICS, "filters": "video==" + ",".join(video_ids[i:i + 200]),
+                            "maxResults": 200})
+        if resp.status_code in (401, 403):
+            return None
+        data = resp.json()
+        names = [h["name"] for h in data.get("columnHeaders", [])]
+        for row in data.get("rows", []):
+            rec = dict(zip(names, row))
+            out[rec.pop("video")] = rec
+    return out

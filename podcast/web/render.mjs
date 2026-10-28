@@ -1,6 +1,6 @@
 // Render the studio frame by frame in Chromium and pipe JPEGs to ffmpeg.
 // With DISPLAY set (Xvfb), Chromium draws with Mesa llvmpipe; without it, SwiftShader (about 2x slower).
-// node render.mjs stills 10 20.5 ...      -> stills/t_<sec>.jpg
+// node render.mjs stills 10 20.5 ...      -> stills/t_<sec>.jpg   (CLEAN=1: no overlays)
 // node render.mjs video <start> <end> out.mp4
 import http from 'node:http';
 import fs from 'node:fs';
@@ -25,10 +25,13 @@ const browser = process.env.DISPLAY
 const page = await browser.newPage({ viewport: { width: 1920, height: 1080 } });
 page.on('console', (m) => { if (m.type() === 'error' || m.type() === 'warning') console.error('[page]', m.text()); });
 page.on('pageerror', (e) => console.error('[pageerror]', e.message));
+if (process.env.CLEAN) await page.addInitScript('window.NOBLINK = true;');
 await page.addInitScript(`window.QUALITY = ${process.env.QUALITY || '{"aa":true,"shadow":2048,"scale":1,"bloom":true}'};`);
 await page.goto(`http://127.0.0.1:${port}/index.html`);
 const tl = await page.evaluate(() => window.boot());
 await page.evaluate(() => document.fonts.ready);
+// CLEAN=1: picture only (no subtitles, name tags or cards), for thumbnails
+if (process.env.CLEAN) await page.addStyleTag({ content: '#sub,.lt,#card,#title,#outro{display:none!important}' });
 
 const [mode, ...rest] = process.argv.slice(2);
 const FPS = tl.fps;
