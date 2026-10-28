@@ -50,6 +50,24 @@ def frames(video: Path, n: int, width: int = 720, skip_edges: float = 0.04) -> l
     return shots
 
 
+def check_images(images: dict[str, Path], context: str) -> list[str]:
+    """Same check for still images (label -> jpeg file)."""
+    content: list = []
+    for i, (label, path) in enumerate(images.items()):
+        content.append({"type": "text", "text": f"Frame {i} ({label})"})
+        content.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
+                                                     "data": base64.b64encode(path.read_bytes()).decode()}})
+    return _ask(content, context, len(images))
+
+
+def _ask(content: list, context: str, n: int) -> list[str]:
+    content = content + [{"type": "text", "text": "What should be shown:\n<context>\n" + context + "\n</context>"}]
+    result = llm.ask(Look, SYSTEM, content, effort="medium", max_tokens=8000)
+    blocking = [f"frame {x.frame}: {x.problem}" for x in result.issues if x.blocking]
+    log(f"Visual check: {n} frames, {len(result.issues)} notes, {len(blocking)} blocking")
+    return blocking
+
+
 def check(videos: dict[str, Path], context: str, per_video: int = 8) -> list[str]:
     """videos: label -> file. Returns the blocking problems (empty means OK to post)."""
     content: list = []
@@ -61,8 +79,4 @@ def check(videos: dict[str, Path], context: str, per_video: int = 8) -> list[str
             content.append({"type": "image", "source": {"type": "base64", "media_type": "image/jpeg",
                                                          "data": base64.b64encode(jpg).decode()}})
             i += 1
-    content.append({"type": "text", "text": "What the videos should show:\n<context>\n" + context + "\n</context>"})
-    result = llm.ask(Look, SYSTEM, content, effort="medium", max_tokens=8000)
-    blocking = [f"frame {x.frame}: {x.problem}" for x in result.issues if x.blocking]
-    log(f"Visual check: {i} frames, {len(result.issues)} notes, {len(blocking)} blocking")
-    return blocking
+    return _ask(content, context, i)

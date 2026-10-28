@@ -5,6 +5,7 @@
 - **短片**（週一到週六）：每天挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文、巴西葡語三支直式短影音。中英文在台灣晚上 7 點、葡語在巴西晚上 7 點上到 YouTube Shorts、Instagram Reels 和 Threads。
 - **長片 Behavior Decoded Tonight**（每週五）：主持人 Kai 和來賓 Anne 的深夜脫口秀，5–8 分鐘講一篇論文，上到同一個 YouTube 頻道，見 [podcast/README.md](podcast/README.md)。
 - **把關**（取代人工審核）：另一個 Claude 對照論文逐句查核腳本；影片做好後檢查長度、聲音、黑畫面，再抽畫面給 Claude 看（字被切掉、缺字、語言錯、數字和腳本不符、角色或畫面壞掉）。任何一關沒過，那天就不上片，並開 issue 通知你。
+- **自由發文**：每天由 Claude 決定要不要發，把已經做過的論文接上時事或補充重點：Threads 純文字（每天最多 2 則）、IG 圖文輪播（每週最多 3 則）。同樣先查核、圖片先給 Claude 看過才發。
 - **經營**：每支影片底下第一則留言附論文 citation；每 12 小時自動回覆留言；每天讀後台數據（觀看、觀看時長、留存、新增訂閱、IG／Threads insights），每週由 Claude 寫經營策略，選論文和寫腳本時會參考。
 
 The channel runs itself with no human review: daily trilingual shorts (Mon–Sat) and a weekly English talk show, each script fact-checked against the paper by a second Claude pass and each video checked by Claude looking at its frames, with comments answered twice a day and channel analytics read daily to steer what comes next.
@@ -34,9 +35,10 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
 | `podcast.yml` | 每週五 04:00 UTC | 長片 Behavior Decoded Tonight：自動選論文、寫對話、AI 查核、渲染、檢查、排程上 YouTube，不經人工審核。repo variable `PODCAST_AUTO=true` 才會自動跑，見 [podcast/README.md](podcast/README.md) |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 寫經營策略 |
+| `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
-開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
+開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
 
 ## Secrets
 

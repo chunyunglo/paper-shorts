@@ -50,6 +50,13 @@ def _posts() -> list[dict]:
             rows.append({"kind": "podcast", "episode": ep["episode"], "title": ep["title"], "lang": "en",
                          "platform": "youtube", "id": yt["id"], "url": yt.get("url", ""),
                          "paper": ep["paper"]["title"], "created": ep.get("created", "")})
+    from .social import load as load_social
+
+    for i, sp in enumerate(load_social()):
+        if sp.get("id"):
+            rows.append({"kind": "social", "episode": f"social-{i}", "title": sp["text"][:80], "lang": sp["lang"],
+                         "platform": sp["platform"], "id": sp["id"], "url": sp.get("url", ""),
+                         "paper": ", ".join(sp.get("episodes") or []), "created": sp["posted"]})
     return rows
 
 

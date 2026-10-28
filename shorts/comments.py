@@ -170,6 +170,24 @@ def podcast_episodes() -> list[dict]:
              "posts": {"en": {"youtube": e["youtube"]}}} for e in load_podcast_history() if e.get("youtube")]
 
 
+def social_episodes(known: list[dict]) -> list[dict]:
+    """Free posts, answered with the context of the episode(s) they point to."""
+    from .social import load as load_social
+
+    by_id = {e["episode"]: e for e in known}
+    out = []
+    for i, sp in enumerate(load_social()):
+        src = next((by_id[x] for x in sp.get("episodes") or [] if x in by_id), None)
+        if not sp.get("id") or not src:
+            continue
+        s = src["script"]
+        out.append({"episode": f"social-{i}", "created": sp["posted"], "paper": src["paper"],
+                    "script": s | {"title_zh": sp["text"][:80], "title_en": sp["text"][:80],
+                                   "method_summary": s["method_summary"] + "\n\nOur post said:\n" + sp["text"]},
+                    "posts": {sp["lang"]: {sp["platform"]: {"id": sp["id"], "url": sp.get("url", "")}}}})
+    return out
+
+
 # ---------------------------------------------------------------- main
 
 def triage(ep: dict, comments: list[Comment]) -> list[Decision]:
@@ -196,7 +214,8 @@ def act(c: Comment, d: Decision) -> None:
 
 def run(dry_run: bool = False) -> None:
     cutoff = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
-    episodes = [ep for ep in load_history() + podcast_episodes() if any(ep.get("posts", {}).values())
+    known = load_history() + podcast_episodes()
+    episodes = [ep for ep in known + social_episodes(known) if any(ep.get("posts", {}).values())
                 and datetime.fromisoformat(ep["created"]) >= cutoff]
     done = load_done()
     try:

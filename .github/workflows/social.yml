@@ -1,0 +1,82 @@
+# Daily free posts (no owner review): Claude writes Threads text posts and Instagram image
+# posts that tie our published episodes to what's in the news, fact-checks them against the
+# papers, draws the slides and looks at them, then posts. Caps: Threads 2/day, Instagram 3/week
+# (repo variables MAX_THREADS_PER_DAY / MAX_IG_PER_WEEK). Needs the repo variable SOCIAL_AUTO=true.
+name: Free posts
+
+on:
+  schedule:
+    - cron: "30 3 * * *"   # 11:30 Taiwan
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "Post for real (off = plan and draw only)"
+        type: boolean
+        default: false
+
+concurrency: social
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  social:
+    if: (github.event_name == 'schedule' && vars.SOCIAL_AUTO == 'true') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      POST: ${{ (github.event_name == 'schedule' || inputs.post) && 'true' || 'false' }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      STATE_DIR: state
+      VISUAL_CHECK: ${{ vars.VISUAL_CHECK }}
+      MAX_THREADS_PER_DAY: ${{ vars.MAX_THREADS_PER_DAY }}
+      MAX_IG_PER_WEEK: ${{ vars.MAX_IG_PER_WEEK }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load analytics
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+      - uses: ./.github/actions/setup
+      - name: Plan, check and draw
+        shell: bash
+        run: |
+          python -m shorts social-make | tee make.log
+          echo "DIR=$(tail -1 make.log)" >> "$GITHUB_ENV"
+      - name: Put the slides on a release
+        if: env.DIR != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="social-$(basename "$DIR")"
+          [ "$POST" = "true" ] || tag="social-test-${{ github.run_number }}"
+          gh release create "$tag" "$DIR"/* --prerelease --target "${{ github.sha }}" \
+            --title "Free posts $(basename "$DIR")" --notes "Images for Instagram posts." --latest=false
+          echo "BASE=${{ github.server_url }}/${{ github.repository }}/releases/download/$tag" >> "$GITHUB_ENV"
+      - name: Post
+        if: env.DIR != '' && env.POST == 'true'
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+        run: python -m shorts social-publish "$DIR" --image-base-url "$BASE"
+      - name: Record the posts
+        if: always() && env.DIR != '' && env.POST == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/social_history.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Record free posts $(basename "$DIR")"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: Tell the owner it failed
+        if: failure() && env.POST == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create -R "$GITHUB_REPOSITORY" --title "自由發文失敗 / Free posts failed" \
+            --body "今天的自由發文在這裡停下（查核或看圖沒過也會停）。Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
