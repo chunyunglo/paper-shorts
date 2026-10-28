@@ -273,9 +273,29 @@ def run(dry_run: bool = False) -> None:
 
     summary = ", ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "no new comments"
     log(f"Episodes checked: {len(episodes)}; {summary}{' (dry run)' if dry_run else ''}")
+    if out := os.environ.get("COMMENT_REPORT"):
+        Path(out).write_text(report_line(len(episodes), counts, len(alerts), dry_run) + "\n", encoding="utf-8")
     if not dry_run:
         save_done(done)
         save_feedback(notes)
+
+
+def report_line(n_episodes: int, counts: dict[str, int], n_alerts: int, dry_run: bool) -> str:
+    """One line for the owner's check log: counts only, never comment text or names."""
+    def total(*cats: str) -> int:
+        return sum(v for k, v in counts.items() if k.split("/")[1] in cats)
+
+    new = sum(v for k, v in counts.items() if not k.endswith("/failed"))
+    by_platform = {}
+    for k, v in counts.items():
+        if not k.endswith("/failed"):
+            by_platform[k.split("/")[0]] = by_platform.get(k.split("/")[0], 0) + v
+    where = "、".join(f"{p} {n}" for p, n in sorted(by_platform.items()))
+    line = (f"檢查 {n_episodes} 則貼文；新留言 {new} 則" + (f"（{where}）" if where else "")
+            + f"；回覆 {total('question', 'praise')}、隱藏垃圾 {total('spam')}、需要你看 {n_alerts}")
+    if failed := total("failed"):
+        line += f"；⚠️ 失敗 {failed}"
+    return line + ("（只分類，沒有動作）" if dry_run else "")
 
 
 def save_feedback(notes: list[dict]) -> None:
