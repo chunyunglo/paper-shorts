@@ -9,7 +9,7 @@ A late-night-talk-show style video about one paper, built only with open tools o
 | 步驟 | 做法 | 檔案 |
 |---|---|---|
 | 腳本 | 每句一列：誰講、台詞，加上表情（`emo`）、手勢（`gest`）、和上一句的間隔（`gap`）、對方附和（`back`）、觀眾笑聲（`laugh`，0–1）、掌聲（`applause`，秒）、對鏡頭講（`toCamera`）、畫面資料卡（`card`）；`["SFX", "sting", …]` 是樂隊開場 | `episodes/ep01_en.json` |
-| 配音 | Supertonic 3（MIT，sherpa-onnx 在 CPU 上跑）：Kai 用 voice 5、Anne 用 voice 2。中文集可改用 Kokoro | `build_audio.py` |
+| 配音 | Gemini 3.8 Flash TTS（secret `GEMINI_API_KEY`）：Kai 用 Achird（和短片同一個聲音）、Anne 用 Erinome。沒有 key 時改用 Supertonic 3（MIT，sherpa-onnx 在 CPU 上跑）的 voice 5 和 voice 2 | `build_audio.py` |
 | 音效 | 觀眾聲用 Freesound 上的 CC0 錄音（可商用、免標示）：笑聲是 Kinoton 的九段情境喜劇笑聲，依長度挑最合適的一段、不連續重複，大笑時再疊一段錯開的；掌聲是 nervousneal 的小型觀眾掌聲，取穩定段落加上原錄音的收尾。樂隊開場是程式合成的鼓點加銅管 | `crowd.py`、`sfx.py`、`assets/crowd/` |
 | 嘴型 | 每位主持人自己的音軌，每格算音量和頻譜，換成 VRM 的 aa/ih/ou/ee/oh | `build_audio.py` |
 | 角色 | VRoid Studio 的 CC0 模型（pixiv，經 OpenGameArt）：Kai 是 Sakurada Fumiriya，Anne 是 Sendagaya Shino，載入時換上 Kai 的長褲和鞋子；`setup.sh` 會下載 | `setup.sh`、`web/src/main.js` |

@@ -4,11 +4,14 @@ per-frame mouth shapes, subtitles and screen cards for the renderer.
 Usage: python podcast/build_audio.py podcast/episodes/ep01_en.json
 Writes podcast/out/dialog.wav and podcast/web/timeline.json.
 
-TTS engines (all run on CPU through sherpa-onnx):
+TTS engines:
+  gemini      Gemini 3.8 Flash TTS over the API (needs GEMINI_API_KEY); Kai is Achird, Anne is Erinome.
+              Without the key, each host uses its "fallback" engine and voice.
+On CPU through sherpa-onnx:
   supertonic  Supertonic 3, English, 10 voices (0-4 female, 5-9 male)
   kokoro      Kokoro v1.1 Chinese+English (used for the Chinese episode)
 """
-import json, os, re, sys, hashlib
+import base64, io, json, os, re, sys, hashlib, time, urllib.error, urllib.request
 from pathlib import Path
 import numpy as np, soundfile as sf
 import sherpa_onnx
@@ -47,6 +50,28 @@ def engine(name):
     return _engines[name]
 
 
+GEMINI_MODEL = os.environ.get('GEMINI_TTS_MODEL', 'gemini-3.8-flash-tts')
+
+
+def gemini(text, voice):
+    body = json.dumps({"contents": [{"role": "user", "parts": [{"text": text}]}],
+                       "generationConfig": {"responseModalities": ["AUDIO"],
+                                            "speechConfig": {"voiceConfig": {"voice": voice}}}}).encode()
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
+    for attempt in range(6):
+        req = urllib.request.Request(url, body, {"x-goog-api-key": os.environ["GEMINI_API_KEY"],
+                                                 "Content-Type": "application/json"})
+        try:
+            d = json.load(urllib.request.urlopen(req, timeout=180))
+            break
+        except urllib.error.HTTPError as e:  # 429 rate limit or 5xx: wait and retry; never print the URL or key
+            if (e.code != 429 and e.code < 500) or attempt == 5:
+                sys.exit(f"Gemini TTS failed (status {e.code})")
+            time.sleep(15 * (attempt + 1))
+    x, sr = sf.read(io.BytesIO(base64.b64decode(d['candidates'][0]['content']['parts'][0]['inlineData']['data'])), dtype='float32')
+    return x, sr
+
+
 # spoken forms for the TTS: "A.I." makes it pause between the letters, so say it as one word
 SAY = {'A.I.': 'Ay Eye', 'AI': 'Ay Eye'}
 
@@ -57,14 +82,17 @@ def synth(text, eng, sid, speed, steps=10):
     key = hashlib.sha1(f"{eng}|{text}|{sid}|{speed}|{steps}".encode()).hexdigest()[:16]
     p = CACHE / f"{key}.wav"
     if not p.exists():
-        if eng == 'kokoro':
-            a = engine(eng).generate(text, sid=sid, speed=speed)
+        if eng == 'gemini':
+            x, rate = gemini(text, sid)
         else:
-            g = sherpa_onnx.GenerationConfig(); g.sid = sid; g.num_steps = steps; g.speed = speed; g.extra["lang"] = "en"
-            a = engine(eng).generate(text, g)
-        x = np.array(a.samples, dtype=np.float32)
-        if a.sample_rate != SR:
-            x = np.interp(np.arange(0, len(x), a.sample_rate / SR), np.arange(len(x)), x).astype(np.float32)
+            if eng == 'kokoro':
+                a = engine(eng).generate(text, sid=sid, speed=speed)
+            else:
+                g = sherpa_onnx.GenerationConfig(); g.sid = sid; g.num_steps = steps; g.speed = speed; g.extra["lang"] = "en"
+                a = engine(eng).generate(text, g)
+            x, rate = np.array(a.samples, dtype=np.float32), a.sample_rate
+        if rate != SR:
+            x = np.interp(np.arange(0, len(x), rate / SR), np.arange(len(x)), x).astype(np.float32)
         sf.write(p, x, SR)
     x, sr = sf.read(p, dtype='float32')
     # trim silence, keep a few ms of breath
@@ -155,6 +183,10 @@ def main():
     CACHE.mkdir(parents=True, exist_ok=True); OUT.mkdir(exist_ok=True)
     ep = json.loads(Path(sys.argv[1]).read_text())
     hosts = ep['hosts']
+    if not os.environ.get('GEMINI_API_KEY'):
+        for h in hosts.values():
+            if h.get('tts') == 'gemini':
+                h['tts'], h['voice'] = h['fallback']
     en = ep.get('lang', 'zh') == 'en'
     speed0 = 1.05 if en else 1.15
     t = 0.0

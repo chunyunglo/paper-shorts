@@ -1,7 +1,8 @@
 """Voiceover: synthesize each subtitle line, then lay them on one timeline.
 
 Providers:
-  google  Google Cloud Text-to-Speech (needs GOOGLE_TTS_API_KEY). Default when the key exists.
+  gemini  Gemini 3.8 Flash TTS (needs GEMINI_API_KEY). Default when the key exists.
+  google  Google Cloud Text-to-Speech (needs GOOGLE_TTS_API_KEY). Fallback, or default without a Gemini key.
   edge    Microsoft Edge neural voices via the edge-tts package (no key). Fallback.
   silent  Silence sized to the text, for offline tests.
 """
@@ -12,6 +13,7 @@ import base64
 import io
 import subprocess
 import tempfile
+import time
 import wave
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -19,7 +21,7 @@ from pathlib import Path
 import numpy as np
 
 from . import brand, config
-from .safelog import http, log
+from .safelog import ApiError, http, log
 
 SR = 24000
 GAP_LINE = 0.07
@@ -58,6 +60,9 @@ def _trim(a: np.ndarray, thresh: float = 0.01) -> np.ndarray:
 
 # Chosen by the owner from the voice samples (2026-10-25): zh #07 Chirp3 Charon, en #13 Chirp3 Aoede.
 DEFAULT_VOICES = {"zh": "cmn-CN-Chirp3-HD-Charon", "en": "en-US-Chirp3-HD-Aoede", "pt": "pt-BR-Chirp3-HD-Charon"}
+# Chosen by the owner (2026-10-28): Kai's voice, shared by the shorts and the podcast host, in every language.
+GEMINI_MODEL = "gemini-3.8-flash-tts"
+GEMINI_VOICE = "Achird"
 # Used if the chosen voice fails (Edge TTS is an unofficial service and may break).
 GOOGLE_FALLBACK = {"zh": "cmn-TW-Wavenet-C", "en": "en-US-Neural2-J", "pt": "pt-BR-Neural2-B"}
 EDGE_FALLBACK = {"zh": "zh-TW-YunJheNeural", "en": "en-US-AriaNeural", "pt": "pt-BR-AntonioNeural"}
@@ -77,6 +82,38 @@ def synth_google(text: str, voice: str) -> np.ndarray:
                 "https://texttospeech.googleapis.com/v1/text:synthesize",
                 headers={"X-Goog-Api-Key": config.require("GOOGLE_TTS_API_KEY")}, json=body)
     return _wav_to_array(base64.b64decode(resp.json()["audioContent"]))
+
+
+def synth_gemini(text: str, voice: str) -> np.ndarray:
+    body = {
+        "contents": [{"role": "user", "parts": [{"text": text}]}],
+        "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": {"voiceConfig": {"voice": voice}}},
+    }
+    model = config.env("GEMINI_TTS_MODEL", GEMINI_MODEL)
+    for attempt in range(5):  # per-minute rate limits answer 429; wait them out
+        try:
+            resp = http("gemini-tts", "generate", "POST",
+                        f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                        headers={"x-goog-api-key": config.require("GEMINI_API_KEY")}, json=body)
+            break
+        except ApiError as exc:
+            if exc.status != 429 or attempt == 4:
+                raise
+            time.sleep(15 * (attempt + 1))
+    audio = _wav_to_array(base64.b64decode(resp.json()["candidates"][0]["content"]["parts"][0]["inlineData"]["data"]))
+    return _tempo(audio, rate())
+
+
+def _tempo(a: np.ndarray, factor: float) -> np.ndarray:
+    """Speed up without changing pitch (Gemini has no speaking-rate setting)."""
+    if abs(factor - 1) < 0.01:
+        return a
+    with tempfile.TemporaryDirectory() as tmp:
+        src, dst = Path(tmp) / "a.wav", Path(tmp) / "b.wav"
+        write_wav(src, a)
+        subprocess.run(["ffmpeg", "-loglevel", "error", "-y", "-i", str(src), "-filter:a", f"atempo={factor}",
+                        "-ac", "1", "-ar", str(SR), "-sample_fmt", "s16", str(dst)], check=True)
+        return _wav_to_array(dst.read_bytes())
 
 
 def synth_edge(text: str, voice: str) -> np.ndarray:
@@ -100,6 +137,8 @@ def choose(lang: str) -> tuple[str, str]:
     """(provider, voice) for a language. Voice names ending in 'Neural' are Edge voices."""
     if config.env("TTS_PROVIDER") == "silent":
         return "silent", ""
+    if config.env("GEMINI_API_KEY") and config.env("TTS_PROVIDER", "gemini") == "gemini":
+        return "gemini", config.env("GEMINI_VOICE", GEMINI_VOICE)
     voice = config.env(f"TTS_VOICE_{lang.upper()}", DEFAULT_VOICES[lang])
     if voice.endswith("Neural"):
         return "edge", voice
@@ -108,7 +147,7 @@ def choose(lang: str) -> tuple[str, str]:
     return "edge", EDGE_FALLBACK[lang]
 
 
-SYNTH = {"google": synth_google, "edge": synth_edge, "silent": synth_silent}
+SYNTH = {"gemini": synth_gemini, "google": synth_google, "edge": synth_edge, "silent": synth_silent}
 
 
 def voiceover(scenes: list[list[str]], out_wav: Path, lang: str) -> tuple[list[SceneTiming], float]:

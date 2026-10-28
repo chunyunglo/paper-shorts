@@ -54,6 +54,7 @@ jobs:
     timeout-minutes: 60
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
       TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
       TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}

@@ -95,6 +95,8 @@ jobs:
           echo "SHOW_FILE=$(python -c "import json,sys;print(json.load(open(sys.argv[1]))['show_file'])" "$dir/meta.json")" >> "$GITHUB_ENV"
       - name: Voices and timeline
         if: env.SKIP != '1'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python podcast/build_audio.py "$SHOW_FILE"
       - name: Render
         if: env.SKIP != '1'
