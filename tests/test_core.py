@@ -24,6 +24,14 @@ def test_wrap_does_not_split_english_words():
     assert " ".join(lines).split() == words
 
 
+def test_wrap_does_not_split_accented_words():
+    f = fonts.font("regular", 54)
+    text = "Assista ao nosso vídeo sobre a pecuária e a opinião pública no Brasil"
+    for width in range(300, 900, 10):
+        lines = fonts.wrap(text, f, width, max_lines=99)
+        assert " ".join(lines).split() == text.split(), width
+
+
 def test_http_error_hides_url_and_body(monkeypatch):
     import requests
 
