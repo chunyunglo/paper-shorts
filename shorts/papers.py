@@ -153,7 +153,7 @@ def enrich(paper: Paper) -> Paper:
 
 # ---------------------------------------------------------------- full text
 
-MAX_PDF = 30 * 1024 * 1024
+MAX_PDF = 20 * 1024 * 1024  # base64 grows it by a third; the API takes 32 MB a request
 _pdfs: dict[str, bytes | None] = {}
 
 
