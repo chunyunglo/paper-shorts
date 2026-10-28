@@ -38,7 +38,8 @@ def font(weight: str, size: int) -> ImageFont.FreeTypeFont:
     raise SystemExit("Noto Sans CJK not found; install fonts-noto-cjk")
 
 
-_TOKEN = re.compile(r"[A-Za-z0-9][A-Za-z0-9.,:;%'’&+\-/]*\s*|\s+|.")
+# Latin words, accents included (pecuária, vídeo), stay whole; CJK breaks per character
+_TOKEN = re.compile(r"[A-Za-z0-9À-ÖØ-öø-ɏ][A-Za-z0-9À-ÖØ-öø-ɏ.,:;%'’&+\-/]*\s*|\s+|.")
 _NO_LINE_START = set("，。、！？：；）」』,.!?:;)%")
 
 
