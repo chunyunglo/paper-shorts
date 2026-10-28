@@ -45,7 +45,8 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | 名稱 | 用途 |
 |---|---|
 | `ANTHROPIC_API_KEY` | 選論文、寫腳本、查核、看畫面、分類與回覆留言、寫經營策略 |
-| `GOOGLE_TTS_API_KEY` | 配音 |
+| `GEMINI_API_KEY` | 配音（Gemini 3.8 Flash TTS，要開付費；免費方案一天只有 10 次） |
+| `GOOGLE_TTS_API_KEY` | 選用：Gemini 配音失敗時的備用配音 |
 | `YOUTUBE_CLIENT_ID` / `YOUTUBE_CLIENT_SECRET` / `YOUTUBE_REFRESH_TOKEN` | YouTube 上傳、留言和後台數據（refresh token 要有 `youtube.force-ssl` 和 `yt-analytics.readonly` 兩個權限） |
 | `PODCAST_YOUTUBE_*` | 選用：長片要上到另一個頻道時才設，沒設就用上面那組 |
 | `IG_USER_ID` / `IG_ACCESS_TOKEN` | Instagram Reels 與留言 |
@@ -55,7 +56,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 
 敏感留言：詳細內容放在私人 repo `paper-shorts-inbox` 的 issue（或 email），再由 Actions bot 在這個 repo 開一則只含連結的 issue，GitHub 才會通知你（自己的 token 開的 issue 不會通知自己）。私人 repo 名稱可用 variable `ALERT_REPO` 改。
 
-配音聲音用 repo variable `TTS_VOICE_ZH`、`TTS_VOICE_EN` 設定（Google 聲音名稱，或結尾是 `Neural` 的 Edge 聲音）。
+有 `GEMINI_API_KEY` 時，短片中英文都用 Gemini 的 Achird（和 podcast 主持人 Kai 同一個聲音）。沒有這把 key 時，才用 repo variable `TTS_VOICE_ZH`、`TTS_VOICE_EN` 設定的聲音（Google 聲音名稱，或結尾是 `Neural` 的 Edge 聲音）。
 
 ## 隱私 Privacy
 
