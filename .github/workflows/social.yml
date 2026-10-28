@@ -41,6 +41,8 @@ jobs:
           ref: state
           path: state
       - uses: ./.github/actions/setup
+        with:
+          render: "true"   # fonts-noto-cjk for drawing the slides
       - name: Plan, check and draw
         shell: bash
         run: |
