@@ -202,6 +202,11 @@ def pick(papers: list[Paper], history: list[dict],
     headlines = headlines or []
     prompt += ("\n\nThis week's news headlines:\n<headlines>\n" + (newsmod.listing(headlines) or "(none available)")
                + "\n</headlines>")
+    from .comments import recent_feedback
+
+    if fb := recent_feedback(limit=20):
+        prompt += ("\n\nWhat viewers told us in comments (paraphrased; a tiebreaker, not a rule):\n<feedback>\n"
+                   + "\n".join(f"- {r['note']}" for r in fb) + "\n</feedback>")
     choice = llm.ask(Pick, PICK_SYSTEM, prompt, effort="medium")
     if not 0 <= choice.index < len(papers):
         raise RuntimeError("Claude picked an index outside the list")

@@ -76,6 +76,13 @@ jobs:
             echo "Today's review issue already exists; nothing to do."
             echo "SKIP=1" >> "$GITHUB_ENV"
           fi
+      - name: Load channel notes (analytics, viewer feedback)
+        if: env.SKIP != '1'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
       - uses: ./.github/actions/setup
         if: env.SKIP != '1'
         with:

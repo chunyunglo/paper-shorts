@@ -179,6 +179,11 @@ def guidance() -> str:
         parts.append((DIR / "strategy.md").read_text(encoding="utf-8").strip())
     if (DIR / "latest.json").exists():
         parts.append(summary(json.loads((DIR / "latest.json").read_text(encoding="utf-8"))))
+    from .comments import recent_feedback
+
+    if fb := recent_feedback():
+        parts.append("What viewers told us in comments (paraphrased, newest last):\n"
+                     + "\n".join(f"- {r['day']} ({r['episode']}): {r['note']}" for r in fb))
     return "\n\n".join(parts)
 
 
