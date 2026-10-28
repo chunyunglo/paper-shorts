@@ -1,9 +1,7 @@
 # Monday to Saturday (Sunday off):
-#   14:00 Taiwan   prepare: pick a paper, make the Chinese, English and Brazilian Portuguese
-#                  videos, put them on a pre-release, and open a review issue (GitHub
-#                  emails/pushes the owner).
-#   19:00 Taiwan   publish zh + en, if the owner replied "OK" / "沒問題" on the review issue.
-#   19:00 Brasília publish pt (22:00 UTC, 06:00 Taiwan the next day), then close the issue.
+#   14:00 Taiwan   prepare: pick a paper, make the Chinese and English videos, put them on
+#                  a pre-release, and open a review issue (GitHub emails/pushes the owner).
+#   19:00 Taiwan   publish zh + en, then close the issue.
 # Unapproved reviews are closed as skipped. Scheduled runs need the variable AUTO_PUBLISH=true.
 name: Publish episode
 
@@ -19,9 +17,6 @@ on:
     - cron: "0 11 * * 1-6"  # 19:00 Taiwan: publish zh + en
     - cron: "25 11 * * 1-6" #   backup
     - cron: "50 11 * * 1-6" #   backup
-    - cron: "0 22 * * 1-6"  # 19:00 Brasília: publish pt
-    - cron: "25 22 * * 1-6" #   backup
-    - cron: "50 22 * * 1-6" #   backup
   workflow_dispatch:
     inputs:
       mode:
@@ -30,8 +25,8 @@ on:
         options: [prepare, publish, delete]
         default: prepare
       langs:
-        description: "publish: which videos (space-separated: zh en pt)"
-        default: "zh en pt"
+        description: "publish: which videos (space-separated: zh en)"
+        default: "zh en"
       episode:
         description: "prepare: remake this published episode instead of picking a new paper; delete: the episode to remove"
         default: ""
@@ -132,8 +127,8 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ github.token }}
       GH_TOKEN: ${{ github.token }}
-      # 11:00 UTC runs post zh + en; 22:00 UTC runs post pt and close the review.
-      LANGS: ${{ github.event_name == 'schedule' && (contains(fromJSON('["0 11 * * 1-6","25 11 * * 1-6","50 11 * * 1-6"]'), github.event.schedule) && 'zh en' || 'pt') || inputs.langs }}
+      # scheduled runs post zh + en (Portuguese was dropped; older episodes' pt videos are not posted)
+      LANGS: ${{ github.event_name == 'schedule' && 'zh en' || inputs.langs }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
@@ -157,15 +152,15 @@ jobs:
             # shellcheck disable=SC2086
             if python -m shorts publish "$dir" --video-base-url "$base" --langs $LANGS; then
               # the review stays open until every video in the episode is out
-              if python -c "import json,sys;e=json.load(open(sys.argv[1]));sys.exit(0 if all(e.get('posts',{}).get(l) for l in e['videos']) else 1)" "$dir/episode.json"; then
+              if python -c "import json,sys;e=json.load(open(sys.argv[1]));sys.exit(0 if all(e.get('posts',{}).get(l) for l in e['videos'] if l != 'pt') else 1)" "$dir/episode.json"; then
                 gh release edit "$tag" --prerelease=false --latest
                 links=$(python -c "import json,sys;e=json.load(open(sys.argv[1]));print('\n'.join(f'- {l} {p}: {v[\"url\"]}' for l,ps in e['posts'].items() for p,v in ps.items()))" "$dir/episode.json")
                 python -m shorts review-close "$number" --published --message "$(printf '已上片 Published:\n%s' "$links")"
               fi
             else
               status=1
-              # keep the review open: the episode is still approved, and later runs (e.g. pt at
-              # 22:00 UTC) or a manual re-run can finish it; posts already made are not repeated
+              # keep the review open: the episode is still approved, and a later run or a manual
+              # re-run can finish it; posts already made are not repeated
               python -m shorts review-close "$number" --keep-open --message "上片時有平台失敗，請看 Actions 紀錄；修好後重跑 publish 會補上沒上成功的。Some platforms failed; see the Actions run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" || true
             fi
           done < approved.txt

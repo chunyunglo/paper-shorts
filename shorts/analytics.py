@@ -159,7 +159,7 @@ class Strategy(BaseModel):
 
 
 STRATEGY_SYSTEM = """You run the YouTube/Instagram/Threads channel "Behavior Decoded" (1-minute \
-shorts in Chinese, English and Portuguese, each explaining one computational human-behavior paper) \
+shorts in Chinese and English, each explaining one computational human-behavior paper) \
 and its weekly English late-night-style talk show "Behavior Decoded Tonight" (hosts Kai and Anne). \
 Read the channel numbers and write short, practical guidance for the next episodes. Be honest about \
 small samples: with a handful of posts, say so rather than inventing trends. Never suggest \

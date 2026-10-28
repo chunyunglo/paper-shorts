@@ -11,7 +11,7 @@ from .config import OUT
 from .safelog import log
 from .state import load_history
 
-LANGS = ("zh", "en", "pt")
+LANGS = ("zh", "en")  # add "pt" to bring back the Brazilian Portuguese video
 
 
 def slug(text: str) -> str:

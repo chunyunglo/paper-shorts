@@ -52,8 +52,7 @@ class Slide(BaseModel):
 
 class Post(BaseModel):
     platform: Literal["threads", "instagram"]
-    lang: Literal["zh", "en", "pt"] = Field(description="zh = Traditional Chinese (Taiwan), en = English, "
-                                                        "pt = Brazilian Portuguese")
+    lang: Literal["zh", "en"] = Field(description="zh = Traditional Chinese (Taiwan), en = English")
     kind: Literal["news_link", "follow_up", "roundup", "question"] = Field(
         description="news_link = today's news meets a paper we covered; follow_up = more on one episode; "
                     "roundup = this week's papers; question = ask the audience something the research raises")
@@ -70,8 +69,8 @@ class Plan(BaseModel):
 
 
 SYSTEM = """You run the social accounts of "行為解碼 Behavior Decoded", a channel explaining new \
-computational research on human behavior (Taiwan, US and Brazil audiences; Chinese, English, \
-Portuguese). Between video episodes you write free posts: Threads text posts and Instagram image \
+computational research on human behavior (Taiwan and US \
+audiences; Chinese and English). Between video episodes you write free posts: Threads text posts and Instagram image \
 posts (carousels of simple text slides that a program draws in the channel's colours).
 
 Decide what, if anything, is worth posting today. Good posts:
