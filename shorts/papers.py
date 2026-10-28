@@ -1,6 +1,7 @@
 """Find candidate papers and let Claude pick this episode's paper."""
 from __future__ import annotations
 
+import base64
 import html
 import re
 from datetime import datetime, timedelta, timezone
@@ -9,8 +10,8 @@ from typing import Literal
 import feedparser
 from pydantic import BaseModel, Field
 
-from . import llm, news as newsmod
-from .safelog import http, log
+from . import config, llm, news as newsmod
+from .safelog import ApiError, http, log
 from .state import norm_title, seen_keys
 
 ARXIV_CATS = ["cs.SI", "cs.CY", "physics.soc-ph", "econ.GN", "cs.HC"]
@@ -150,6 +151,60 @@ def enrich(paper: Paper) -> Paper:
     return paper
 
 
+# ---------------------------------------------------------------- full text
+
+MAX_PDF = 20 * 1024 * 1024  # base64 grows it by a third; the API takes 32 MB a request
+_pdfs: dict[str, bytes | None] = {}
+
+
+def unpaywall_pdfs(doi: str | None) -> list[str]:
+    """Open-access PDF links for a journal paper (publisher first, then repositories like PMC)."""
+    if not doi:
+        return []
+    email = config.env("UNPAYWALL_EMAIL", "paper.shorts.bot@gmail.com")
+    try:
+        resp = http("unpaywall", "lookup", "GET", f"https://api.unpaywall.org/v2/{doi}", params={"email": email},
+                    ok=(200, 404), retries=1)
+    except ApiError:
+        return []
+    if resp.status_code != 200:
+        return []
+    j = resp.json()
+    urls = [loc.get("url_for_pdf") for loc in [j.get("best_oa_location") or {}] + (j.get("oa_locations") or [])]
+    return list(dict.fromkeys(u for u in urls if u))
+
+
+def pdf_bytes(url: str) -> bytes | None:
+    """Download a PDF once; None if the link is not really a PDF (paywall or landing page)."""
+    if url not in _pdfs:
+        try:
+            resp = http("pdf", "download", "GET", url, headers=UA, retries=1, timeout=90)
+            data = resp.content
+            _pdfs[url] = data if data[:5] == b"%PDF-" and len(data) <= MAX_PDF else None
+        except ApiError:
+            _pdfs[url] = None
+    return _pdfs[url]
+
+
+def attach_full_text(paper: Paper) -> bool:
+    """Set paper.pdf_url to a PDF we can actually read (arXiv or open access). False if there is none."""
+    for url in [paper.pdf_url] + unpaywall_pdfs(paper.doi):
+        if url and pdf_bytes(url):
+            paper.pdf_url = url
+            return True
+    paper.pdf_url = None
+    return False
+
+
+def pdf_doc(url: str) -> dict:
+    """The paper as a document block for Claude: the downloaded file, so publisher sites that
+    block fetchers still work; the plain link only if the download failed."""
+    if data := pdf_bytes(url):
+        return {"type": "document", "source": {"type": "base64", "media_type": "application/pdf",
+                                               "data": base64.b64encode(data).decode()}}
+    return {"type": "document", "source": {"type": "url", "url": url}}
+
+
 class Pick(BaseModel):
     index: int = Field(description="Index of the chosen paper in the list")
     reason: str = Field(description="One sentence on why this paper fits best")
@@ -207,11 +262,23 @@ def pick(papers: list[Paper], history: list[dict],
     if fb := recent_feedback(limit=20):
         prompt += ("\n\nWhat viewers told us in comments (paraphrased; a tiebreaker, not a rule):\n<feedback>\n"
                    + "\n".join(f"- {r['note']}" for r in fb) + "\n</feedback>")
-    choice = llm.ask(Pick, PICK_SYSTEM, prompt, effort="medium")
-    if not 0 <= choice.index < len(papers):
-        raise RuntimeError("Claude picked an index outside the list")
-    chosen = enrich(papers[choice.index])
-    log(f"Picked: {chosen.title} [{chosen.venue}]")
+    # the script is written from the full paper, so skip picks we cannot read in full
+    skipped: set[int] = set()
+    for _ in range(6):
+        note = ("" if not skipped else "\n\nThese candidates have no open full text, do not pick them: "
+                + ", ".join(map(str, sorted(skipped))))
+        choice = llm.ask(Pick, PICK_SYSTEM, prompt + note, effort="medium")
+        if not 0 <= choice.index < len(papers) or choice.index in skipped:
+            skipped.add(choice.index)
+            continue
+        chosen = enrich(papers[choice.index])
+        if attach_full_text(chosen):
+            break
+        log(f"No open full text for pick {choice.index}; picking again")
+        skipped.add(choice.index)
+    else:
+        raise SystemExit("Could not find a good paper with open full text today")
+    log(f"Picked (full text): {chosen.title} [{chosen.venue}]")
     news = None
     if 0 <= choice.news_index < len(headlines) and choice.news_link.strip():
         news = {**headlines[choice.news_index].model_dump(), "link": choice.news_link.strip()}

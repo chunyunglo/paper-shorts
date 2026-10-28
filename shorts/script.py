@@ -6,7 +6,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from . import llm
+from . import llm, papers
 from .papers import Paper
 from .safelog import log
 
@@ -133,18 +133,10 @@ normal hook."""
 def write(paper: Paper, news: dict | None = None) -> Script:
     meta = (f"Title: {paper.title}\nAuthors: {', '.join(paper.authors[:12])}\n"
             f"Venue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\nAbstract:\n{paper.abstract}")
-    content: list = []
-    if paper.pdf_url:
-        content.append({"type": "document", "source": {"type": "url", "url": paper.pdf_url}})
+    content: list = [papers.pdf_doc(paper.pdf_url)] if paper.pdf_url else []
     hook = NEWS_HOOK.format(**news) if news else ""
     content.append({"type": "text", "text": meta + hook + "\n\nWrite the episode script."})
-    try:
-        draft = llm.ask(ScriptDraft, SYSTEM, content, effort="high")
-    except RuntimeError:
-        if not paper.pdf_url:
-            raise
-        log("Script with full PDF failed; retrying from the abstract only")
-        draft = llm.ask(ScriptDraft, SYSTEM, content[1:], effort="high")
+    draft = llm.ask(ScriptDraft, SYSTEM, content, effort="high")
     script = Script(**draft.model_dump())
     validate(script)
     n = sum(len(l.zh) for s in script.scenes for l in s.lines)
@@ -280,16 +272,9 @@ def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
     current = script.model_dump(exclude={"pt"})
     text = (meta + "\n\nCurrent script (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
             "\n\nOwner feedback:\n<feedback>" + feedback + "</feedback>\n\nReturn the revised script.")
-    content: list = []
-    if paper.pdf_url:
-        content.append({"type": "document", "source": {"type": "url", "url": paper.pdf_url}})
+    content: list = [papers.pdf_doc(paper.pdf_url)] if paper.pdf_url else []
     content.append({"type": "text", "text": text})
-    try:
-        rev = llm.ask(Revision, REVISE_SYSTEM, content, effort="high")
-    except RuntimeError:
-        if not paper.pdf_url:
-            raise
-        rev = llm.ask(Revision, REVISE_SYSTEM, content[1:], effort="high")
+    rev = llm.ask(Revision, REVISE_SYSTEM, content, effort="high")
     new = Script(**rev.script.model_dump())
     validate(new)
     new.pt = translate_pt(new, feedback) if script.pt else None
@@ -318,16 +303,11 @@ def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: i
     """Stands in for the owner's review: check against the paper, fix what is wrong, give up if it stays wrong."""
     meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
             f"Abstract:\n{paper.abstract}" + (f"\n\nNews headline used as the hook: {news['title']}" if news else ""))
-    docs = [{"type": "document", "source": {"type": "url", "url": paper.pdf_url}}] if paper.pdf_url else []
+    docs = [papers.pdf_doc(paper.pdf_url)] if paper.pdf_url else []
 
     def check(s: Script) -> list[str]:
         text = meta + "\n\nScript (JSON):\n" + json.dumps(s.model_dump(exclude={"pt", "icons"}), ensure_ascii=False)
-        try:
-            return llm.ask(Check, CHECK_SYSTEM, docs + [{"type": "text", "text": text}], effort="high").problems
-        except RuntimeError:
-            if not docs:
-                raise
-            return llm.ask(Check, CHECK_SYSTEM, text, effort="high").problems
+        return llm.ask(Check, CHECK_SYSTEM, docs + [{"type": "text", "text": text}], effort="high").problems
 
     for i in range(rounds + 1):
         problems = check(script)

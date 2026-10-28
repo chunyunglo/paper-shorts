@@ -74,3 +74,28 @@ def test_comment_report_line_has_counts_only():
     line = report_line(8, {"threads/praise": 1, "youtube/spam": 2, "youtube/failed": 1}, 0, False)
     assert line == "檢查 8 則貼文；新留言 3 則（threads 1、youtube 2）；回覆 1、隱藏垃圾 2、需要你看 0；⚠️ 失敗 1"
     assert report_line(4, {}, 0, True).startswith("檢查 4 則貼文；新留言 0 則；")
+
+
+def test_full_text_skips_links_that_are_not_pdfs(monkeypatch):
+    from shorts import papers
+
+    class R:
+        def __init__(self, content=b"", status=200, js=None):
+            self.content, self.status_code, self._js = content, status, js
+
+        def json(self):
+            return self._js
+
+    def fake_http(service, what, method, url, **kw):
+        if service == "unpaywall":
+            return R(js={"best_oa_location": {"url_for_pdf": "https://pub/x.pdf"},
+                         "oa_locations": [{"url_for_pdf": "https://pub/x.pdf"}, {"url_for_pdf": "https://pmc/x.pdf"}]})
+        return R(b"<html>paywall" if "pub" in url else b"%PDF-1.7 ...")
+
+    monkeypatch.setattr(papers, "http", fake_http)
+    monkeypatch.setattr(papers, "_pdfs", {})
+    p = papers.Paper(id="x", title="t", abstract="a", url="u", venue="v", doi="10.1/x", source="journal")
+    assert papers.attach_full_text(p) and p.pdf_url == "https://pmc/x.pdf"
+    assert papers.pdf_doc(p.pdf_url)["source"]["type"] == "base64"
+    q = papers.Paper(id="y", title="t", abstract="a", url="u", venue="v", source="journal")
+    assert not papers.attach_full_text(q) and q.pdf_url is None

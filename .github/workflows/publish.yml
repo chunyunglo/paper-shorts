@@ -58,6 +58,7 @@ jobs:
       TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
       TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
       TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
+      UNPAYWALL_EMAIL: ${{ secrets.ALERT_EMAIL_TO }}
     steps:
       - uses: actions/checkout@v4
       - name: Skip paused dates and days already prepared

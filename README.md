@@ -15,7 +15,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | 步驟 | 做法 | 程式 |
 |---|---|---|
 | 選論文 | arXiv（cs.SI、cs.CY、physics.soc-ph、econ.GN、cs.HC）＋ Nature Human Behaviour、Nature Computational Science、PNAS、Science Advances、EPJ Data Science、Journal of Computational Social Science 的 RSS，去掉做過的，由 Claude 挑一篇；也讀本週新聞頭條（台灣、美國、巴西、科技、科學），品質相近時優先挑和時事有關的 | `shorts/papers.py`、`shorts/news.py` |
-| 寫腳本 | Claude 讀論文（arXiv 讀全文 PDF，期刊讀摘要），寫 6–9 個場景，每句都有中文旁白和英文字幕，並指定畫面類型；有連到時事時，開場從那則新聞切入（只講到標題的程度，不編細節） | `shorts/script.py` |
+| 寫腳本 | Claude 讀論文全文 PDF（arXiv，或透過 Unpaywall 找到的開放取用版本；讀不到全文的論文不選），寫 6–9 個場景，每句都有中文旁白和英文字幕，並指定畫面類型；有連到時事時，開場從那則新聞切入（只講到標題的程度，不編細節） | `shorts/script.py` |
 | 配音 | 中文：Google Chirp3 HD Charon（`cmn-CN-Chirp3-HD-Charon`）；英文：Google Chirp3 HD Aoede（`en-US-Chirp3-HD-Aoede`）。選定的聲音失敗時整支改用備援聲音；再疊一層程式產生的背景音 | `shorts/tts.py` |
 | 畫面 | 依頭像配色的「資料軌跡」風格：人群點陣、網路擴散、步驟流程、長條、時間線、散佈圖、對比卡，逐格繪製後用 ffmpeg 輸出 1080×1920 | `shorts/visuals.py`、`shorts/render.py` |
 | 查核 | 另一個 Claude 對照論文逐句查核（數字、因果說法、中英文一致、時事連結），有問題就改，最多兩輪；還不過就那天不上片 | `shorts/script.py` `fact_check` |
