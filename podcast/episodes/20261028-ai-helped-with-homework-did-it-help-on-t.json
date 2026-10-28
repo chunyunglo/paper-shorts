@@ -1,0 +1,837 @@
+{
+ "show": "Behavior Decoded Tonight",
+ "title": "AI Helped With Homework. Did It Help on the Exam?",
+ "paper": {
+  "title": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
+  "venue": "arXiv cs.HC · 2026",
+  "authors": "Eason Chen, Sophia Judicke, Kayla Beigh, Xinyi Tang et al.",
+  "affil": "Carnegie Mellon University · The University of Hong Kong",
+  "doi": ""
+ },
+ "lang": "en",
+ "hosts": {
+  "K": {
+   "name": "Kai",
+   "title": "Host",
+   "role": "desk",
+   "model": "kai.vrm",
+   "tts": "supertonic",
+   "voice": 5,
+   "seed": 7.7,
+   "mouth": 0.6
+  },
+  "A": {
+   "name": "Anne",
+   "title": "Resident data scientist",
+   "role": "chair",
+   "model": "anne.vrm",
+   "tts": "supertonic",
+   "voice": 2,
+   "seed": 1.3,
+   "crossLegs": false,
+   "mouth": 0.6,
+   "outfit": {
+    "from": "kai.vrm",
+    "slots": [
+     "Bottoms",
+     "Shoes"
+    ]
+   }
+  }
+ },
+ "cards": {
+  "paper": {
+   "type": "paper",
+   "kicker": "TONIGHT'S PAPER"
+  },
+  "data": {
+   "type": "stats",
+   "kicker": "THE DATA",
+   "stats": [
+    {
+     "num": "153",
+     "label": "Students in the study",
+     "note": "undergraduate proof-based math course",
+     "tone": "normal"
+    },
+    {
+     "num": "659",
+     "label": "Chatbot sessions labeled",
+     "note": "from 106 users",
+     "tone": "normal"
+    },
+    {
+     "num": "19",
+     "label": "Students interviewed",
+     "note": "volunteers",
+     "tone": "normal"
+    }
+   ]
+  },
+  "design": {
+   "type": "list",
+   "kicker": "THE COIN FLIP",
+   "rows": [
+    "After Midterm 1: random assignment",
+    "75 students: A.I. tools right away",
+    "78 students: wait until after Midterm 2",
+    "All exams: no A.I. allowed"
+   ]
+  },
+  "homework": {
+   "type": "stats",
+   "kicker": "HOMEWORK VS. EXAM",
+   "stats": [
+    {
+     "num": "+2.56",
+     "label": "Homework points, early access group",
+     "note": "adjusted for earlier homework",
+     "tone": "normal"
+    },
+    {
+     "num": "−2.47",
+     "label": "Midterm 2 points, early access group",
+     "note": "not significant",
+     "tone": "dim"
+    }
+   ]
+  },
+  "chat": {
+   "type": "big",
+   "kicker": "MORE CHATTING, LOWER SCORES",
+   "big": "−3.02",
+   "sub": "Midterm 3 points per 100 chatbot messages",
+   "rows": [
+    "Adjusted for Midterm 2 and confidence",
+    "Usage was self-chosen: a correlation"
+   ]
+  },
+  "confidence": {
+   "type": "stats",
+   "kicker": "WHO CHATTED MOST",
+   "stats": [
+    {
+     "num": "−39%",
+     "label": "Chatbot messages, +1 confidence point",
+     "note": "same Midterm 2 score",
+     "tone": "down"
+    },
+    {
+     "num": "−31%",
+     "label": "Feedback requests, +1 confidence point",
+     "note": "same Midterm 2 score",
+     "tone": "down"
+    },
+    {
+     "num": "0.62",
+     "label": "Exam points linked via chatbot use",
+     "note": "per confidence point, 1 to 7 scale",
+     "tone": "normal"
+    }
+   ]
+  },
+  "tools": {
+   "type": "list",
+   "kicker": "TWO TOOLS, TWO PATTERNS",
+   "rows": [
+    "Chatbot: ask anything, no attempt needed",
+    "Feedback tool: submit your proof first",
+    "More chatbot use: lower exam scores",
+    "Feedback tool use: no negative link"
+   ]
+  },
+  "limits": {
+   "type": "list",
+   "kicker": "FINE PRINT",
+   "rows": [
+    "One course, volunteers only",
+    "Usage was chosen, not assigned",
+    "Offloading is an interpretation",
+    "Outside A.I. use not measured"
+   ]
+  },
+  "takeaway": {
+   "type": "quote",
+   "kicker": "THE TAKEAWAY",
+   "text": "A better grade with A.I. isn't the same as what you can do alone."
+  }
+ },
+ "lines": [
+  [
+   "SFX",
+   "sting",
+   {
+    "dur": 3.2
+   }
+  ],
+  [
+   "K",
+   "Good evening, everybody! Welcome to Behavior Decoded Tonight. I'm Kai.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "toCamera": true,
+    "gap": 0.2,
+    "applause": 3.0
+   }
+  ],
+  [
+   "K",
+   "Thank you, thank you. Look at you all, clapping like you finished your homework.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "toCamera": true,
+    "gap": 0.4,
+    "laugh": 0.6
+   }
+  ],
+  [
+   "K",
+   "Speaking of homework. Tonight's question. If an A.I. helps you get a better grade on your homework, does that mean you actually learned the stuff?",
+   {
+    "gest": "explain",
+    "toCamera": true,
+    "gap": 0.3
+   }
+  ],
+  [
+   "K",
+   "Because I got a lot of good grades on homework in my life, and I still have no idea what a cosine is.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "toCamera": true,
+    "gap": 0.2,
+    "laugh": 0.8
+   }
+  ],
+  [
+   "K",
+   "Here to explain it, our resident data scientist, the only person I know who double checks the appendix. Anne!",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "toCamera": true,
+    "gap": 0.3,
+    "applause": 2.2
+   }
+  ],
+  [
+   "A",
+   "Hi! Thank you. And Kai, the cosine is still out there. It's waiting for you.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.2,
+    "laugh": 0.5
+   }
+  ],
+  [
+   "K",
+   "Let it wait.",
+   {
+    "emo": "relaxed",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "So tonight's paper was just posted on archive, by a team from Carnegie Mellon and the University of Hong Kong.",
+   {
+    "gest": "explain",
+    "gap": 0.3,
+    "card": "paper",
+    "sub": "So tonight's paper was just posted on arXiv, by a team from Carnegie Mellon and the University of Hong Kong."
+   }
+  ],
+  [
+   "K",
+   "And what did they look at?",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "A real university math course. Proof writing. Logic, sets, relations.",
+   {
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "Relations! Finally, a math class that helps with my love life.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.1,
+    "laugh": 0.9
+   }
+  ],
+  [
+   "A",
+   "Wrong kind of relations.",
+   {
+    "emo": "relaxed",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "They studied one hundred fifty-three students who agreed to take part. And those students got an A.I. support system with two tools.",
+   {
+    "gest": "explain",
+    "gap": 0.3,
+    "card": "data",
+    "sub": "They studied 153 students who agreed to take part. And those students got an A.I. support system with two tools."
+   }
+  ],
+  [
+   "K",
+   "Two tools. Okay.",
+   {
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Tool one is a chatbot. You can ask it any math question. It was instructed not to give final answers, only hints and questions back.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "back": "Mm-hm."
+   }
+  ],
+  [
+   "K",
+   "Like a wise old teacher on a mountain.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Tool two gives homework feedback. But here's the catch. You have to paste in your own proof attempt first. Then it critiques it.",
+   {
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "So one says, ask me anything. The other says, show me what you've got.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Exactly. And everything was logged. Every message, every feedback request. Plus interviews with nineteen students.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1,
+    "sub": "Exactly. And everything was logged. Every message, every feedback request. Plus interviews with 19 students."
+   }
+  ],
+  [
+   "K",
+   "So how do you test whether it helps? Just give it to everybody and see?",
+   {
+    "gest": "open",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "That's the clever part. After the first midterm, every student was randomly assigned. Basically a coin flip.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "card": "design"
+   }
+  ],
+  [
+   "A",
+   "Seventy-five students got the A.I. tools right away. Seventy-eight had to wait until after the second midterm.",
+   {
+    "gest": "explain",
+    "gap": 0.1,
+    "sub": "75 students got the A.I. tools right away. 78 had to wait until after the second midterm."
+   }
+  ],
+  [
+   "K",
+   "Oof. Team Wait.",
+   {
+    "emo": "surprised",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Team Wait. So for a few weeks you have two groups that are the same on average, except one has A.I. help. It's a randomized experiment with staggered access. Everyone gets the tool, just not at the same time.",
+   {
+    "emo": "happy",
+    "gest": "explain",
+    "gap": 0.1,
+    "back": "Okay."
+   }
+  ],
+  [
+   "K",
+   "Like when your friend gets the new phone first and you just have to watch.",
+   {
+    "emo": "relaxed",
+    "gest": "open",
+    "gap": 0.2
+   }
+  ],
+  [
+   "A",
+   "Pretty much. And on the exams, no A.I. allowed. Just you and your brain.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "Okay, so what happened? Did Team A.I. crush it?",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "On homework, yes. During those weeks, the early group scored about two and a half points higher, even after accounting for how they did on earlier homework.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "card": "homework",
+    "sub": "On homework, yes. During those weeks, the early group scored 2.56 points higher, even after accounting for how they did on earlier homework."
+   }
+  ],
+  [
+   "K",
+   "Gold star!",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.08
+   }
+  ],
+  [
+   "A",
+   "Then came the second midterm. No A.I. And the two groups were basically tied. The early group was even a little lower, but that gap was not statistically significant.",
+   {
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "Wait. The homework got better, but the test didn't?",
+   {
+    "emo": "surprised",
+    "gest": "both",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "No detectable gain on the exam. And the exam is what you can do on your own.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "So what does that mean for me?",
+   {
+    "gest": "open",
+    "gap": 0.2
+   }
+  ],
+  [
+   "A",
+   "It means a better homework score with A.I. doesn't automatically mean you'll do better without it. You have to check both.",
+   {
+    "gest": "explain",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Now part two. After the second midterm, everybody got access. And students could choose how much to use it.",
+   {
+    "gest": "explain",
+    "gap": 0.3
+   }
+  ],
+  [
+   "K",
+   "Freedom!",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.08
+   }
+  ],
+  [
+   "A",
+   "So they counted messages to the chatbot and compared that to the third midterm. Every extra hundred messages was linked to about three points lower on that exam.",
+   {
+    "gest": "explain",
+    "gap": 0.1,
+    "card": "chat",
+    "sub": "So they counted messages to the chatbot and compared that to the third midterm. Every extra 100 messages was linked to about 3 points lower on that exam."
+   }
+  ],
+  [
+   "K",
+   "A hundred messages? Who sends a hundred messages to a chatbot?",
+   {
+    "emo": "surprised",
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "You send a hundred messages to your group chat before lunch.",
+   {
+    "emo": "relaxed",
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "That's different. That's community.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.1,
+    "laugh": 0.8
+   }
+  ],
+  [
+   "A",
+   "And that's after accounting for each student's earlier midterm score and their confidence. It also held up in a couple of extra checks.",
+   {
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "So the chatbot made them worse at math!",
+   {
+    "emo": "surprised",
+    "gest": "both",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Careful. This part is not a coin flip. Students chose how much to chat. So it's a correlation, not proof the chatbot caused it.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "Okay. Then who were the heavy chatters?",
+   {
+    "gest": "open",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "At the start, students rated their confidence on a scale of one to seven. Statements like, I expect to do very well in this class.",
+   {
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "I'd give myself a four. A very confident four.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1,
+    "laugh": 0.5
+   }
+  ],
+  [
+   "A",
+   "Researchers call it self-efficacy. For each point higher, students sent about thirty-nine percent fewer chatbot messages, even comparing students with the same midterm score.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "card": "confidence",
+    "sub": "Researchers call it self-efficacy. For each point higher, students sent about 39% fewer chatbot messages, even comparing students with the same midterm score."
+   }
+  ],
+  [
+   "K",
+   "So the less confident students leaned on it more.",
+   {
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Yes. Then a mediation analysis asks: does confidence connect to exam scores through chatbot use? It does, modestly. About point six two exam points per confidence point, through that route.",
+   {
+    "gest": "explain",
+    "gap": 0.1,
+    "back": "Mm.",
+    "sub": "Yes. Then a mediation analysis asks: does confidence connect to exam scores through chatbot use? It does, modestly. About 0.62 exam points per confidence point, through that route."
+   }
+  ],
+  [
+   "K",
+   "So lower confidence, more chatting, lower scores.",
+   {
+    "gest": "explain",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "That's the pattern. The authors' interpretation is cognitive offloading. Handing the thinking over to the tool.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Think of a gym. If a robot lifts the weights for you, your workout log looks fantastic. Your arms don't change.",
+   {
+    "emo": "happy",
+    "gest": "explain",
+    "gap": 0.2
+   }
+  ],
+  [
+   "K",
+   "Honestly? That's my dream gym.",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.1,
+    "laugh": 0.9
+   }
+  ],
+  [
+   "A",
+   "In one example in the paper, a student types, I don't know, tell me. Then, tell me the answer. And the chatbot hands over more and more of the steps.",
+   {
+    "gest": "explain",
+    "gap": 0.3
+   }
+  ],
+  [
+   "K",
+   "That's me with my GPS. I don't know, just tell me where to turn.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1,
+    "laugh": 0.7
+   }
+  ],
+  [
+   "K",
+   "What about the other tool? The show me your attempt one?",
+   {
+    "gest": "open",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "That's the contrast. Using the feedback tool, where you had to try first, was not linked to lower exam scores.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "card": "tools"
+   }
+  ],
+  [
+   "K",
+   "So the try first tool wins!",
+   {
+    "emo": "happy",
+    "gest": "both",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "We can't say that. The study wasn't built to compare the two tools head to head. It just didn't show the same warning sign.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "But the authors do recommend against using an open-ended chatbot as a tutor, and suggest exploring tools that ask students to attempt first.",
+   {
+    "gest": "explain",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "Okay, fine print time. What can't this study tell us?",
+   {
+    "gest": "open",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "It's one course at one university, with students who volunteered. Other subjects, newer models, or different prompts might look different.",
+   {
+    "gest": "explain",
+    "gap": 0.2,
+    "back": "Mm-hm.",
+    "card": "limits"
+   }
+  ],
+  [
+   "A",
+   "And the usage results are correlations. Maybe students who were already struggling simply asked for more help. The authors flag that themselves.",
+   {
+    "gest": "explain",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "So the chatting might be a symptom, not the cause.",
+   {
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Could be. Offloading is an interpretation. They didn't measure how hard students were thinking, or whether they used other A.I. tools outside the system.",
+   {
+    "gest": "explain",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "A secret second chatbot.",
+   {
+    "emo": "surprised",
+    "gap": 0.1
+   }
+  ],
+  [
+   "A",
+   "Possibly. And the final exam isn't in the study. Data collection stopped at the third midterm because of budget.",
+   {
+    "emo": "relaxed",
+    "gest": "open",
+    "gap": 0.1
+   }
+  ],
+  [
+   "K",
+   "Even science runs out of snack money.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1,
+    "laugh": 0.5
+   }
+  ],
+  [
+   "K",
+   "So the lesson is not, A.I. bad.",
+   {
+    "gest": "open",
+    "gap": 0.3
+   }
+  ],
+  [
+   "A",
+   "No. The lesson is, a better grade with A.I. isn't the same as what you can do alone.",
+   {
+    "gest": "both",
+    "gap": 0.2,
+    "card": "takeaway"
+   }
+  ],
+  [
+   "K",
+   "So what do I actually do?",
+   {
+    "gest": "open",
+    "gap": 0.2
+   }
+  ],
+  [
+   "A",
+   "Try the problem yourself first. Then ask for feedback on your attempt. And if A.I. gives you a step, explain it back in your own words.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.1,
+    "applause": 1.6
+   }
+  ],
+  [
+   "K",
+   "Explain it back. Got it. I'll start with the cosine.",
+   {
+    "emo": "happy",
+    "gest": "open",
+    "gap": 0.2
+   }
+  ],
+  [
+   "A",
+   "It's been waiting.",
+   {
+    "emo": "happy",
+    "gap": 0.1,
+    "laugh": 0.6
+   }
+  ],
+  [
+   "K",
+   "That's our show! Anne, thank you. The paper is on archive, link in the description. I'm Kai, this has been Behavior Decoded Tonight. Good night, everybody!",
+   {
+    "emo": "happy",
+    "gest": "wave",
+    "toCamera": true,
+    "gap": 0.2,
+    "applause": 4.0,
+    "sub": "That's our show! Anne, thank you. The paper is on arXiv, link in the description. I'm Kai, this has been Behavior Decoded Tonight. Good night, everybody!"
+   }
+  ]
+ ]
+}

@@ -1,0 +1,49 @@
+[
+  {
+    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
+    "created": "2026-10-28T07:27:11+00:00",
+    "title": "AI Helped With Homework. Did It Help on the Exam?",
+    "paper": {
+      "id": "arxiv:2610.31481",
+      "title": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
+      "abstract": "We studied 153 students in an undergraduate proof-based mathematics course with staggered-access to an AI support system. Students were randomly assigned to receive an AI chatbot and a homework-feedback interface earlier or later in the course. During the period when only the early-access group had access, their homework scores were 2.56 points higher, but exam performance did not differ significantly between groups, suggesting that improved AI-supported homework performance did not translate into detectable gains on a subsequent exam. After all students received access, every additional 100 messages sent to the AI chatbot was associated with a 3.02-point lower score on the subsequent exam. A mediation analysis showed a significant indirect association linking lower baseline self-efficacy to greater chatbot use and, in turn, lower exam scores: a one-point decrease in self-efficacy corresponded to 0.62 fewer exam points through chatbot use. These findings raise concerns that students may use the chatbot to offload their cognitive reasoning. Use of the homework-feedback interface, which required students to submit their proof attempts before receiving feedback, was not negatively associated with exam performance. We recommend against using a chatbot for AI tutoring and suggest exploring a tutor embedded in the course activities.",
+      "authors": [
+        "Eason Chen",
+        "Sophia Judicke",
+        "Kayla Beigh",
+        "Xinyi Tang",
+        "Isabel Wang",
+        "Nina Yuan",
+        "Zimo Xiao",
+        "Chuangji Li",
+        "Shizhuo Li",
+        "Reed Luttmer",
+        "Shreya Singh",
+        "Maria Yampolsky",
+        "Naman Parikh",
+        "Yvonne Zhao",
+        "Meiyi Chen",
+        "Scarlett Huang",
+        "Anishka Mohanty",
+        "Gregory Johnson",
+        "John Mackey",
+        "Jionghao Lin",
+        "Ken Koedinger"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2610.31481",
+      "pdf_url": "https://arxiv.org/pdf/2610.31481v1",
+      "doi": null,
+      "published": "2026-10-22",
+      "source": "arxiv"
+    },
+    "show_file": "podcast/episodes/20261028-ai-helped-with-homework-did-it-help-on-t.json",
+    "method_summary": "The study took place in an undergraduate proof-based math course at Carnegie Mellon University covering logic, sets, relations and proof writing. Of 155 consenting students, 153 had grade and usage records. After Midterm 1, students were randomly assigned to early access (75) or later access (78) to an A.I. support system with two interfaces: an open-ended GPT-4o chatbot prompted to give hints rather than final answers, and a homework-feedback interface that required students to submit a proof attempt before receiving critique. Exams were taken without A.I. During the period when only the early group had access, the early group scored 2.56 points higher on homework (Homework 5 to 6), adjusted for earlier homework, but Midterm 2 showed no significant difference (estimate minus 2.47, p = .122). After Midterm 2 everyone had access and use was self-selected. Negative-binomial models showed that each one-point increase in baseline self-efficacy (1 to 7 scale) was associated with 39 percent fewer chatbot messages and 31 percent fewer feedback requests at the same Midterm 2 score. In an OLS model controlling for self-efficacy, Midterm 2 and feedback use, every 100 additional chatbot messages was associated with 3.02 points lower on Midterm 3 (N = 148); this held in robustness checks. Feedback requests were not negatively associated with Midterm 3. A mediation analysis found an indirect association of 0.62 exam points per self-efficacy point through chatbot use. Human coders and a GPT-5.2 classifier labeled chatbot session intent; dialogue examples and 19 interviews helped interpret results.",
+    "limitations": "The study covers one proof-oriented course at one university, with consenting students who may differ from others, and used specific models and prompts. Random assignment applied only to access timing for both tools together, so it cannot separate the effects of the chatbot and the feedback tool. Usage after Midterm 2 was self-chosen, so the link between chatbot use and lower exam scores is correlational and may reflect unmeasured differences such as struggling students seeking more help. Cognitive offloading is an interpretation; mental effort, time on task and outside A.I. use were not measured. The final exam was not analyzed, and the intent classifier was checked on the same sessions used to develop it.",
+    "publish_at": "2026-10-30T12:00:00Z",
+    "youtube": {
+      "id": "5z3lpCLmj6M",
+      "url": "https://www.youtube.com/watch?v=5z3lpCLmj6M"
+    }
+  }
+]
