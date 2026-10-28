@@ -1240,5 +1240,441 @@
       }
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261027-decredentialed-jobs-and-upward-mobility"
+  },
+  {
+    "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+    "created": "2026-10-28T06:13:33+00:00",
+    "paper": {
+      "id": "arxiv:2610.32461",
+      "title": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+      "abstract": "The rapid diffusion of generative artificial intelligence has raised concerns that knowledge work may become less dependent on human-to-human interaction. Yet because AI-generated outputs require interpretation, verification, and social legitimation, generative AI may instead increase collaboration among workers. We test these competing predictions using passively collected behavioral data from more than 12,000 knowledge workers observed over 13 months during the staged organizational rollout of an AI-powered assistant (Microsoft Copilot). Using two complementary quasi-experimental designs -- a staggered difference-in-differences model and a fixed-effects instrumental-variable approach -- we estimate the effects of generative AI on workers' collaboration behavior and social network structure. We estimate that generative AI increased collaboration time across communication channels and reshaped individual networks. Those using generative AI interacted with more colleagues and their networks became less clustered, indicating broadening in collaboration structures. At the same time, they also concentrated more of their collaboration on ties with stronger prior histories, deepening reliance on already trusted colleagues. Together, these findings suggest that, while generative AI changes how people work, it may not displace human-to-human interactions.",
+      "authors": [
+        "Giuseppe Soda",
+        "Alessandro Iorio",
+        "Leonardo Rizzo"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2610.32461",
+      "pdf_url": "https://arxiv.org/pdf/2610.32461v1",
+      "doi": null,
+      "published": "2026-10-23",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "AI進辦公室，你反而更常找同事？",
+      "title_en": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+      "paper_title_zh": "生成式AI對知識工作者協作與社會網路的影響",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "AI與同事",
+          "heading_en": "AI AT WORK",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI來了，同事呢？",
+          "big_text_en": "AI's here. Coworkers?",
+          "lines": [
+            {
+              "zh": "Apple把AI放進Pages，你會更孤單？",
+              "en": "Apple's adding AI to Pages. Will work get lonelier?"
+            },
+            {
+              "zh": "一萬兩千人的資料，答案出乎意料。",
+              "en": "Data on 12,000 workers gave a surprising answer."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究來源",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "博科尼大學",
+            "arXiv"
+          ],
+          "labels_en": [
+            "Bocconi University",
+            "arXiv"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "博科尼大學團隊，2026年發表於arXiv。",
+              "en": "A Bocconi University team posted it on arXiv in 2026."
+            }
+          ]
+        },
+        {
+          "visual": "crowd",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "員工",
+            "AI助理"
+          ],
+          "labels_en": [
+            "Employees",
+            "AI assistant"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "追蹤跨國公司一萬兩千名員工13個月，",
+              "en": "They tracked 12,000 staff at a multinational firm for 13 months,"
+            },
+            {
+              "zh": "期間AI助理Copilot分批開放。",
+              "en": "while the AI assistant Copilot rolled out in stages."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "怎麼量",
+          "heading_en": "HOW THEY MEASURED",
+          "labels": [
+            "會議",
+            "通話",
+            "郵件",
+            "聊天"
+          ],
+          "labels_en": [
+            "Meetings",
+            "Calls",
+            "Emails",
+            "Chats"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "不用問卷，也不看內容，",
+              "en": "No surveys, and no reading what people wrote or said."
+            },
+            {
+              "zh": "只從紀錄算會議、通話、郵件、聊天時間。",
+              "en": "Activity logs showed time spent in meetings, calls, emails and chats."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "合作網路",
+          "heading_en": "THE NETWORK",
+          "labels": [
+            "合作人數",
+            "圈子封閉度",
+            "老同事"
+          ],
+          "labels_en": [
+            "Contacts",
+            "Closed circle",
+            "Old ties"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "一個月合作滿一小時，就連一條線。",
+              "en": "An hour together in a month counts as a link in the network."
+            },
+            {
+              "zh": "再看：找幾人、圈子多封閉、多靠老同事。",
+              "en": "Then: how many contacts, how closed the circle, how much on old ties?"
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "比較",
+          "heading_en": "THE TEST",
+          "labels": [
+            "採用者",
+            "未採用者"
+          ],
+          "labels_en": [
+            "AI adopters",
+            "Non-users"
+          ],
+          "values": [
+            1992.0,
+            9876.0
+          ],
+          "big_text": "比前後變化",
+          "big_text_en": "Before vs. after",
+          "lines": [
+            {
+              "zh": "比較1992位使用者和9876位非使用者。",
+              "en": "They compared 1,992 AI adopters with 9,876 non-users, before and after."
+            },
+            {
+              "zh": "還用新功能上線時機再驗一次。",
+              "en": "Then double-checked using the timing of new feature releases."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "AI使用者",
+            "新同事",
+            "老同事"
+          ],
+          "labels_en": [
+            "AI user",
+            "New contacts",
+            "Trusted peers"
+          ],
+          "values": [],
+          "big_text": "多2.2位同事",
+          "big_text_en": "+2.2 colleagues",
+          "lines": [
+            {
+              "zh": "用AI後合作變多，平均多找約2.2位同事。",
+              "en": "After adopting AI, people collaborated more, with about 2.2 more contacts."
+            },
+            {
+              "zh": "圈子更開放，也更依賴信任的老同事。",
+              "en": "Circles got more open, yet they leaned more on trusted colleagues."
+            },
+            {
+              "zh": "但只有一家公司、三個月，也不知聊什麼。",
+              "en": "Caveat: one company, three months, and no idea what they discussed."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住這句",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI重組了合作",
+          "big_text_en": "AI reshaped teamwork",
+          "lines": [
+            {
+              "zh": "在這家公司，AI沒讓人更孤單，而是重組合作。",
+              "en": "Here, AI didn't make work lonelier. It reshaped it."
+            },
+            {
+              "zh": "追蹤行為解碼，看更多研究。",
+              "en": "Follow Behavior Decoded for more studies like this."
+            }
+          ]
+        }
+      ],
+      "description_zh": "Apple要把AI聊天機器人加進Pages、Keynote和Numbers，AI助理進了辦公室，同事還重要嗎？博科尼大學團隊分析一家跨國公司一萬兩千多名員工13個月的會議、通話、郵件紀錄，發現開始用Copilot的人合作時間變多、接觸更多同事，同時也更依賴原本信任的老同事。研究只涵蓋一家公司、採用後頭三個月。",
+      "description_en": "Apple is adding an AI chatbot to Pages, Keynote, and Numbers, so does an office AI assistant make us need coworkers less? A Bocconi University team analyzed 13 months of meeting, call and email logs from over 12,000 employees at one multinational firm during a staged Copilot rollout. Adopters collaborated more, reached more colleagues, and leaned harder on trusted ones. The study covers one company and the first three months after adoption.",
+      "hashtags": [
+        "行為解碼",
+        "生成式AI",
+        "職場協作",
+        "社會網路",
+        "BehaviorDecoded",
+        "GenerativeAI",
+        "FutureOfWork"
+      ],
+      "method_summary": "The authors used passively collected Microsoft Viva Insights data on 12,040 employees in one business unit of a large multinational consumer-products company, observed monthly from September 2024 to September 2025 during a staged rollout of Microsoft Copilot. Collaboration was measured from logs of meetings, calls, emails and chats; Copilot use was logged by a separate system as monthly actions. Each month they built a directed, weighted collaboration network, keeping ties of at least about one hour. Three network measures: out-degree (number of distinct people a worker reaches), clustering (how much a worker's contacts know each other), and preferential reinforcement (correlation between current time with each contact and past cumulative time). Adoption was defined as exceeding the 25th percentile of use for two consecutive months; after dropping 172 always-adopters, 1,992 adopters were compared with 9,876 never-adopters using a staggered difference-in-differences design (Callaway and Sant'Anna), with no pre-trends detected. A second design used a shift-share instrumental variable: monthly Copilot feature-release intensity times each worker's baseline share of collaborators already using Copilot. Findings: adoption was followed by more self-initiated collaboration hours (about 1.43 hours/month on average over the first three months), both synchronous and asynchronous; about 2.2 more collaborators (overall ATT); lower clustering; and more time concentrated on historically strong ties. The IV results pointed the same way.",
+      "limitations": "The study covers a single business unit in one company, so results may not generalize to other industries or less interdependent jobs (e.g., software development). Data show who interacted and for how long, not what they discussed, so the proposed explanation (validating AI output) is not directly observed; alternatives include using saved time to interact or talking about the tool itself. Effects are measured only in the first three months after adoption. Causal claims rest on parallel-trends and instrument-validity assumptions; some overall ATT estimates were not statistically significant.",
+      "pt": {
+        "title": "IA no trabalho não isolou ninguém: mudou as equipes",
+        "paper_title": "IA generativa no trabalho e as redes de colaboração entre funcionários",
+        "description": "A Apple está colocando um chatbot de IA no Pages, no Keynote e no Numbers. Então, um assistente de IA no escritório faz a gente precisar menos dos colegas? Uma equipe da Universidade Bocconi analisou 13 meses de registros de reuniões, chamadas e e-mails de mais de 12.000 funcionários de uma multinacional durante a liberação gradual do Copilot. Quem adotou a IA colaborou mais, falou com mais colegas e se apoiou mais nos colegas de confiança. O estudo cobre uma única empresa e os três primeiros meses após a adoção.",
+        "hashtags": [
+          "BehaviorDecoded",
+          "IAGenerativa",
+          "GenerativeAI",
+          "FuturoDoTrabalho",
+          "Colaboração",
+          "RedesSociais",
+          "Ciência"
+        ],
+        "scenes": [
+          {
+            "heading": "IA NO TRABALHO",
+            "labels": [],
+            "big_text": "Chegou a IA. E os colegas?",
+            "lines": [
+              "A Apple pôs IA no Pages. Vai ficar mais solitário?",
+              "Dados de 12.000 trabalhadores deram uma resposta surpreendente."
+            ]
+          },
+          {
+            "heading": "O ESTUDO",
+            "labels": [
+              "Univ. Bocconi",
+              "arXiv"
+            ],
+            "big_text": "",
+            "lines": [
+              "Uma equipe da Universidade Bocconi publicou no arXiv em 2026."
+            ]
+          },
+          {
+            "heading": "OS DADOS",
+            "labels": [
+              "Funcionários",
+              "Assistente de IA"
+            ],
+            "big_text": "",
+            "lines": [
+              "Acompanharam 12.000 funcionários de uma multinacional por 13 meses,",
+              "enquanto o assistente de IA Copilot era liberado aos poucos."
+            ]
+          },
+          {
+            "heading": "COMO MEDIRAM",
+            "labels": [
+              "Reuniões",
+              "Chamadas",
+              "E-mails",
+              "Chats"
+            ],
+            "big_text": "",
+            "lines": [
+              "Sem questionários, e sem ler o que as pessoas escreviam ou diziam.",
+              "Os registros mostraram o tempo em reuniões, chamadas, e-mails e chats."
+            ]
+          },
+          {
+            "heading": "A REDE",
+            "labels": [
+              "Contatos",
+              "Círculo fechado",
+              "Laços antigos"
+            ],
+            "big_text": "",
+            "lines": [
+              "Uma hora juntos no mês já conta como uma ligação na rede.",
+              "Depois: quantos contatos, quão fechado o círculo, quanto de laços antigos?"
+            ]
+          },
+          {
+            "heading": "O TESTE",
+            "labels": [
+              "Usuários de IA",
+              "Não usuários"
+            ],
+            "big_text": "Antes e depois",
+            "lines": [
+              "Compararam 1.992 usuários de IA com 9.876 não usuários, antes e depois.",
+              "E conferiram de novo usando o momento dos lançamentos de novos recursos."
+            ]
+          },
+          {
+            "heading": "O RESULTADO",
+            "labels": [
+              "Usuário de IA",
+              "Novos contatos",
+              "Colegas confiáveis"
+            ],
+            "big_text": "+2,2 colegas",
+            "lines": [
+              "Depois da IA, colaboraram mais, com cerca de 2,2 contatos a mais.",
+              "Os círculos ficaram mais abertos, mas com mais apoio em colegas confiáveis.",
+              "Ressalva: uma empresa, três meses, e sem saber o que conversaram."
+            ]
+          },
+          {
+            "heading": "CONCLUSÃO",
+            "labels": [],
+            "big_text": "A IA reorganizou o trabalho em equipe",
+            "lines": [
+              "Aqui, a IA não deixou o trabalho mais solitário. Ela o reorganizou.",
+              "Siga o Behavior Decoded para mais estudos como este."
+            ]
+          }
+        ]
+      },
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "presentation",
+          "phone-call",
+          "mail",
+          "messages"
+        ],
+        [
+          "address-book",
+          "circles-relation",
+          "heart-handshake"
+        ],
+        [
+          "robot",
+          "user-x"
+        ],
+        [
+          "robot",
+          "user-plus",
+          "heart-handshake"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 61.67,
+        "cover_offset_ms": 7445,
+        "tts": "google cmn-CN-Chirp3-HD-Charon"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 65.75,
+        "cover_offset_ms": 6995,
+        "tts": "google en-US-Chirp3-HD-Aoede"
+      },
+      "pt": {
+        "file": "video_pt.mp4",
+        "duration": 71.71,
+        "cover_offset_ms": 8124,
+        "tts": "google pt-BR-Chirp3-HD-Charon"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "NIgmSuPHtns",
+          "url": "https://youtube.com/shorts/NIgmSuPHtns"
+        },
+        "instagram": {
+          "id": "17975927984990984",
+          "url": "https://www.instagram.com/reel/DfCSh6jjrjG/"
+        },
+        "threads": {
+          "id": "17991332844026168",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "9MExpUEuD7o",
+          "url": "https://youtube.com/shorts/9MExpUEuD7o"
+        },
+        "instagram": {
+          "id": "18475002217141400",
+          "url": "https://www.instagram.com/reel/DfCStp0EasQ/"
+        },
+        "threads": {
+          "id": "18638692477028670",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261028-the-effects-of-generative-ai-on-collabor"
   }
 ]
