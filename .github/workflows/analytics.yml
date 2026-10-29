@@ -1,6 +1,7 @@
 # Daily: read every post's numbers (YouTube, Instagram, Threads) into the state branch:
 # analytics/latest.json, history.jsonl, report.md, and a weekly strategy.md written by Claude
-# (every past note is kept in strategy_log.md)
+# (every past note is kept in strategy_log.md), preceded by a self-review of past decisions against
+# their results (lessons.md, history in lessons_log.md)
 # that the podcast picks and writes from. Read-only on every platform. Logs show counts only.
 name: Channel analytics
 
@@ -10,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       strategy:
-        description: Rewrite the strategy note now
+        description: Rewrite the self-review and strategy note now
         type: boolean
         default: false
 

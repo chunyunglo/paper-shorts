@@ -214,8 +214,8 @@ def with_signals(reason: str, signals: str) -> str:
 class Pick(BaseModel):
     index: int = Field(description="Index of the chosen paper in the list")
     reason: str = Field(description="One sentence on why this paper fits best")
-    signals: str = Field("", description="One sentence on which channel numbers, strategy notes, viewer feedback or "
-                                         "news (if any) shaped this pick, paraphrased without quoting or naming "
+    signals: str = Field("", description="One sentence on which channel numbers, strategy notes, lessons, past "
+                                         "posts' results, viewer feedback or news (if any) shaped this pick, paraphrased without quoting or naming "
                                          "anyone; 'none' if the paper alone decided it")
     news_index: int = Field(-1, description="Index <n> of the headline this paper genuinely connects to, "
                                             "or -1 if none fits naturally")
