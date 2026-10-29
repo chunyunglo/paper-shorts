@@ -24,3 +24,12 @@ def test_log_lists_every_post_newest_first(tmp_path, monkeypatch):
     assert md.index("## 2026-10-29") < md.index("## 2026-10-28")
     assert "Fits the channel." in md and "https://yt/1" in md
     assert journal.MISSING in md  # the free post has no reason recorded
+
+
+def test_digest_covers_free_posts_and_own_comments():
+    from shorts.analytics import summary
+
+    report = {"collected_at": "2026-10-29", "posts": [
+        {"kind": "social", "platform": "threads", "lang": "zh", "title": "t", "metrics": {"views": 5}}]}
+    text = summary(report)
+    assert "social on threads" in text and "paper citation" in text

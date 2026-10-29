@@ -117,7 +117,7 @@ jobs:
         if: env.SKIP != '1'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          PUBLISH_AT: '中文、英文今晚 19:00；葡語巴西時間 19:00（台灣隔天早上 6:00）'
+          PUBLISH_AT: '中文、英文今晚 19:00'
         run: python -m shorts review-open "$EP_DIR" "$TAG"
       - name: Tell the owner today's episode stopped
         if: failure() && (github.event_name == 'schedule' || inputs.auto)

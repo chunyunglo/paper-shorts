@@ -9,12 +9,11 @@ from pydantic import BaseModel
 
 from .safelog import http, log
 
-# Top stories for each audience (Taiwan, US/international, Brazil), plus tech and science,
+# Top stories for each audience (Taiwan, US/international), plus tech and science,
 # where most computational behavior papers find their link.
 FEEDS = {
     "TW": "https://news.google.com/rss?hl=zh-TW&gl=TW&ceid=TW:zh-Hant",
     "US": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en",
-    "BR": "https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419",
     "tech": "https://news.google.com/rss/headlines/section/topic/TECHNOLOGY?hl=en-US&gl=US&ceid=US:en",
     "science": "https://news.google.com/rss/headlines/section/topic/SCIENCE?hl=en-US&gl=US&ceid=US:en",
 }
