@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-10-29T07:36:09+00:00",
+ "collected_at": "2026-10-29T22:21:29+00:00",
  "channel": {
   "youtube": {
-   "subscriberCount": 2,
-   "viewCount": 214,
-   "videoCount": 11
+   "subscriberCount": 4,
+   "viewCount": 239,
+   "videoCount": 13
   }
  },
  "notes": [],
@@ -27,8 +27,8 @@
     "privacy": "public",
     "published": "2026-10-25T02:18:41Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 13,
-    "averageViewPercentage": 31.739999999999995,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 34.32,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -83,15 +83,15 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 3,
+    "views": 1,
     "likes": 0,
     "comments": 0,
     "duration": "PT41S",
     "privacy": "public",
     "published": "2026-10-25T02:20:17Z",
     "estimatedMinutesWatched": 0,
-    "averageViewDuration": 7,
-    "averageViewPercentage": 18.88,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -194,7 +194,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 7,
+    "views": 13,
     "likes": 0,
     "comments": 0,
     "duration": "PT53S",
@@ -202,7 +202,7 @@
     "published": "2026-10-26T11:38:07Z",
     "estimatedMinutesWatched": 0,
     "averageViewDuration": 5,
-    "averageViewPercentage": 11.23,
+    "averageViewPercentage": 10.44,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -257,7 +257,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 0,
+    "views": 1,
     "likes": 0,
     "comments": 1,
     "duration": "PT47S",
@@ -296,7 +296,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 8,
+    "views": 9,
     "likes": 1,
     "replies": 1,
     "reposts": 0,
@@ -315,7 +315,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 4,
+    "views": 3,
     "likes": 0,
     "comments": 1,
     "duration": "PT54S",
@@ -358,12 +358,17 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 107,
+    "views": 57,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
-    "published": "2026-10-27T11:04:42Z"
+    "published": "2026-10-27T11:04:42Z",
+    "estimatedMinutesWatched": 7,
+    "averageViewDuration": 27,
+    "averageViewPercentage": 53.010000000000005,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -397,7 +402,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -416,12 +421,17 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 17,
+    "views": 15,
     "likes": 2,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-10-27T11:06:03Z"
+    "published": "2026-10-27T11:06:03Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 16,
+    "averageViewPercentage": 34.78,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -474,7 +484,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 16,
+    "views": 19,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -517,7 +527,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 24,
+    "views": 57,
     "likes": 0,
     "comments": 1,
     "duration": "PT1M2S",
@@ -556,7 +566,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 27,
+    "views": 30,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -575,7 +585,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 15,
+    "views": 18,
     "likes": 0,
     "comments": 1,
     "duration": "PT1M6S",
@@ -614,7 +624,123 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 11,
+    "views": 12,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "dLVVioAFTVQ",
+   "url": "https://youtube.com/shorts/dLVVioAFTVQ",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT58S",
+    "privacy": "public",
+    "published": "2026-10-29T11:04:42Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18107757569214073",
+   "url": "https://www.instagram.com/reel/DfE24wVFD3J/",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 21,
+    "reach": 19,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18115695674116881",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 19,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "nHROFRQuyuY",
+   "url": "https://youtube.com/shorts/nHROFRQuyuY",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT59S",
+    "privacy": "public",
+    "published": "2026-10-29T11:06:49Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18240722287318574",
+   "url": "https://www.instagram.com/reel/DfE3H1dDZhs/",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 7,
+    "reach": 7,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "title": "When Politicians Lean on the Fed, Do Markets Listen?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17967061503198994",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x",
+   "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+   "created": "2026-10-29T06:14:48+00:00",
+   "metrics": {
+    "views": 4,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -652,7 +778,7 @@
    "paper": "20261027-decredentialed-jobs-and-upward-mobility",
    "created": "2026-10-28T06:48:20+00:00",
    "metrics": {
-    "views": 179,
+    "views": 180,
     "likes": 1,
     "replies": 2,
     "reposts": 1,
@@ -689,6 +815,64 @@
    "url": "https://www.instagram.com/p/DfB1Nj-luRP/",
    "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206, 20261027-decredentialed-jobs-and-upward-mobility, 20261026-laundering-and-evasion-in-response-to-an",
    "created": "2026-10-28T06:51:44+00:00",
+   "metrics": {
+    "views": 0,
+    "reach": 0,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-3",
+   "title": "ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？\n\n我們英文 podcast 介紹過一篇研究（arX",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18080776229724899",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfExt8eoOGz",
+   "paper": "20261028-ai-helped-with-homework-did-it-help-on-t",
+   "created": "2026-10-29T10:19:18+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-4",
+   "title": "Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18055297214817737",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4",
+   "paper": "20261028-the-effects-of-generative-ai-on-collabor",
+   "created": "2026-10-29T10:19:18+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-5",
+   "title": "AI幫你寫作業，考試就會變好嗎？\n\n一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17992576928862881",
+   "url": "https://www.instagram.com/p/DfEx0i-oKHy/",
+   "paper": "20261028-ai-helped-with-homework-did-it-help-on-t",
+   "created": "2026-10-29T10:19:18+00:00",
    "metrics": {
     "views": 0,
     "reach": 0,

@@ -1,0 +1,17 @@
+Written 2026-10-29
+
+**Did past strategy pay off?** There were no earlier strategy notes or lessons, so there was no advice to follow or test. All the posts were made without a prior playbook. Every case is 1-4 days old with tiny view counts, so each observation below is a hypothesis to recheck, not a finding.
+
+**Lessons:**
+- [language_and_platform, medium, new] Keep treating Chinese as the main language on YouTube Shorts, and keep checking whether English holds up better on Instagram than on YouTube. (evidence: youtube/zh beat youtube/en on all 5 shorts: 33 vs 1, 13 vs 1, 57 vs 15, 57 vs 18, 12 vs 4. On Instagram the gap was smaller and once vanished (petition: zh 55, en 53). youtube/pt stayed at 3-19 views.)
+- [other, medium, new] Check whether Instagram free posts are actually being published and distributed before judging their content. (evidence: Both Instagram free posts (the 10-28 roundup and the 10-29 follow_up) show 0 views. Instagram shorts from the same days got 20-103 views. Exactly 0 points to a posting or tracking problem rather than weak content.)
+- [free_posts, low, new] Try more Chinese Threads follow-ups that restate the paper's concrete design and finding the day after the short, and compare them with news_link posts at the same post age. (evidence: The Threads zh follow_up on decredentialed jobs got 180 views and 1 share. The three Threads news_link posts got 8, 5 and 5 views. This is one follow-up against three link posts, and two of those are less than a day old.)
+- [topic, low, new] Favour papers with direct personal stakes for viewers (jobs, hiring, everyday AI use) and recheck this as more data comes in. (evidence: Decredentialed jobs was the strongest short: youtube/zh 57 views at 53% watched, youtube/en 15 at 35%, and the 180-view follow-up. Brazil cattle laundering, a more distant topic, got youtube/zh 13 views at 10% watched, though instagram/zh was 103. This rests on one strong and one weak case.)
+- [title_and_hook, low, new] Second-person openings that put the viewer in the situation ('did you get hired?') may help retention, so try them again on varied papers and check. (evidence: Retention went 53% (decredentialed, 'you' framing), 34% (petition, 'you' framing), 10% (cattle, third-person ranches). These are three data points with topic confounded.)
+- [title_and_hook, low, new] Do not judge yet whether news-peg openings (e.g. Apple adding AI to Pages) beat plain question openings, and record retention so they can be compared. (evidence: The AI-at-work short opened on Apple news: youtube/zh 57 but instagram/zh only 20 and instagram/en 5. No retention figure was recorded, and the post is 1 day old.)
+- [talk_show, low, new] Do not draw conclusions about the talk show until it has several episodes, each at least a week old. (evidence: There is one episode (AI homework/exam) at 2 youtube/en views, and it is brand new.)
+
+**Try next:**
+- For the next 3 shorts, post a Threads zh follow_up the next day (concrete design and finding, no news peg). Compare views at day 3 against Threads news_link posts of the same age.
+- On two papers of similar personal relevance, open one with a recent news peg and one with a direct second-person question that accurately reflects the finding. Compare youtube/zh % watched at day 3.
+- Republish or verify one Instagram free post and confirm it is visible to non-followers, to find out whether the 0-view results are a delivery problem.
