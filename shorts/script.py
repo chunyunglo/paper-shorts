@@ -12,7 +12,8 @@ from .safelog import log
 
 Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timeline",
                  "scatter", "contrast", "icons", "journey", "spotlight", "funnel", "takeaway",
-                 "waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey"]
+                 "waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey",
+                 "race", "cascade", "balance", "chat", "geo", "ranking", "swipe", "clock", "echo", "predict"]
 
 
 class Line(BaseModel):
@@ -26,7 +27,7 @@ class Scene(BaseModel):
     heading_en: str = Field(description="1-3 word English label, e.g. THE DATA")
     labels: list[str] = Field(description="0-4 very short Chinese on-screen labels (each at most 10 characters) used by the visual")
     labels_en: list[str] = Field(description="The same labels in English (each at most 18 characters), same order")
-    values: list[float] = Field(description="Numbers for bars/contrast/timeline/waffle/gauge/counter/experiment ONLY if stated in the paper, same order as labels; otherwise empty")
+    values: list[float] = Field(description="Numbers for bars/contrast/timeline/waffle/gauge/counter/experiment/race/balance/predict ONLY if stated in the paper, same order as labels; otherwise empty")
     big_text: str = Field(description="Optional big Chinese text for hook/contrast/spotlight/counter/survey/takeaway (a number like '3.2倍', a short phrase, or the survey question); empty if unused")
     big_text_en: str = Field(description="The same big text in English (at most 40 characters); empty if unused")
     lines: list[Line] = Field(description="1-4 narration lines spoken during this scene")
@@ -118,13 +119,27 @@ group, treated group; values = their two outcomes only if given), feed (social m
 scrolling past while the computer reads and tags them, e.g. text or image classification, \
 sentiment; labels = 1-2 tag names), magnify (searching lots of text or records for something \
 specific, e.g. keywords, hate speech, mentions; labels = one label for what is found), survey (a \
-questionnaire item with a 1-5 answer scale; big_text = the question, labels = the two scale ends). \
+questionnaire item with a 1-5 answer scale; big_text = the question, labels = the two scale ends), \
+race (2-4 groups racing to a finish line, the biggest or fastest wins; labels = the groups, values \
+= their numbers only if given), cascade (one post spreading out level by level, e.g. shares or \
+retweets; labels = one label for what spreads), balance (a scale weighing two things and tipping \
+toward the heavier, e.g. a trade-off; labels = the two sides, values only if given), chat (a \
+conversation, messages popping in after typing dots, e.g. chats, replies, a chatbot; labels = 2-4 \
+very short messages), geo (places on a map lighting up and linked by arcs, e.g. location or \
+mobility data; labels = 1-2 place types), ranking (a ranked list reshuffling and the last label \
+climbing to the top, e.g. recommendations or search results; labels = 3-4 items, the climber \
+last), swipe (cards swiped left or right, e.g. dating apps or accept/reject choices; labels = \
+left choice, right choice), clock (a 24-hour clock with activity bars around it, daily rhythms; \
+labels = 1 short note on the busiest time), echo (an echo chamber: like-minded dots inside a \
+bubble, other views bouncing off; labels = inside, outside), predict (inputs flowing into a \
+model that outputs a prediction; labels = 1-2 inputs then the predicted thing last, values = \
+[accuracy percent] only if given and only with a single label). \
 Each scene is later illustrated with simple icons of its labels, so \
 make labels concrete nouns where you can; use the icons visual at least once so the episode \
 visibly shows its own subject. Keep it lively: never the same visual in two scenes in a row, \
 use at least four different visuals between the paper and the takeaway, and favor the more \
 animated visuals (journey, spotlight, funnel, clusters, experiment, feed, magnify, counter, \
-waffle) whenever they fit the step. Never use a visual that would show something the study did \
+waffle, race, cascade, chat, ranking, swipe, echo, predict) whenever they fit the step. Never use a visual that would show something the study did \
 not do: experiment only for a real randomized design, survey only for a real questionnaire.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).

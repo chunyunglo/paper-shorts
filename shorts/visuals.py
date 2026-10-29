@@ -1003,12 +1003,450 @@ def v_survey(c: Canvas, sc, p, ctx):
         c.text((xs[-1] + 40, base + 110), sc.labels[-1], "bold", 34, NAVY + (int(255 * b),), anchor="rm")
 
 
+
+def v_race(c: Canvas, sc, p, ctx):
+    """Two to four groups race to the finish line; the fastest (or largest value) wins and gets the trophy."""
+    rnd = random.Random(ctx["seed"])
+    labels = sc.labels[:4] or ["", "", ""]
+    n = max(2, len(labels))
+    real = len(sc.values) == len(labels) and len(labels) >= 2
+    vals = [abs(v) for v in sc.values] if real else [rnd.uniform(0.55, 0.85) for _ in range(n)]
+    win = max(range(n), key=lambda i: vals[i])
+    if not real:
+        vals[win] = 1.0
+    vmax = max(vals) or 1
+    x0, x1 = 110, VW - 160
+    lane = min(240, 640 / n)
+    top = (VH - lane * n) / 2 + 10
+    a = stage(p, 0.0, 0.15)
+    for k in range(14):  # checkered finish line
+        for j in (0, 1):
+            if (k + j) % 2 == 0:
+                y = top - 10 + k * (lane * n + 20) / 14
+                c.d.rectangle([(x1 + j * 14) * S, y * S, (x1 + 14 + j * 14) * S, (y + (lane * n + 20) / 14) * S],
+                              fill=NAVY + (int(255 * a),))
+    t = ctx["t"]
+    for i in range(n):
+        y = top + i * lane + lane / 2
+        c.line([(x0, y + 34), (x1 - 10, y + 34)], NAVY_40[:3] + (int(120 * a),), 4)
+        k = stage(p, 0.12, 0.6) * vals[i] / vmax
+        x = x0 + (x1 - x0 - 50) * k
+        running = 0 < k < vals[i] / vmax - 0.01
+        hop = abs(math.sin(t * 11 + i)) * 14 if running else 0
+        hot = i == win and p > 0.72
+        col = CORAL if i == win else NAVY
+        for g in range(3):  # speed lines
+            if running:
+                c.line([(x - 70 - g * 26, y - 16 + g * 16), (x - 46 - g * 26, y - 16 + g * 16)], col + (120,), 5)
+        icon = sc.icons[i] if i < len(sc.icons) else ""
+        if not c.icon(icon, x, y - hop, 96, col, a):
+            person(c, x, y - hop + 6, 34, col + (int(255 * a),))
+        if labels[i]:
+            f, lines = fit(labels[i], "bold", 360, [34, 30, 26], 1)
+            c.text((x0 - 20, y - 100), lines[0], "bold", f.size, NAVY + (int(255 * a),), anchor="lt")
+        if real and k > 0.02:
+            c.text((x + 56, y), _fmt(sc.values[i] * min(1, k * vmax / vals[i])), "black", 36, col, anchor="lm")
+        if hot:
+            b = stage(p, 0.72, 0.12)
+            c.circle(x1 + 70, y, 42 * back((p - 0.72) / 0.12), fill=CORAL)
+            c.icon("trophy", x1 + 70, y, 50 * b, CREAM, b)
+
+
+def v_cascade(c: Canvas, sc, p, ctx):
+    """One post spreads: it branches out level by level to more and more people (a share or retweet cascade)."""
+    rnd = random.Random(ctx["seed"])
+    levels = [[(None, 0)]]
+    for d in range(1, 5):
+        kids = []
+        for pi_, _ in enumerate(levels[-1]):
+            for _ in range(rnd.choice((1, 2, 2, 3)) if len(levels[-1]) < 12 else rnd.choice((0, 1, 2))):
+                kids.append((pi_, d))
+        if len(kids) > 14:  # thin out evenly so the tree stays balanced
+            kids = [kids[int(i * len(kids) / 14)] for i in range(14)]
+        levels.append(kids)
+    pos = []
+    for d, lvl in enumerate(levels):
+        n = len(lvl)
+        pos.append([(VW / 2 + (j - (n - 1) / 2) * min(110, (VW - 80) / max(n, 1)), 80 + d * 140) for j in range(n)])
+    grow = stage(p, 0.05, 0.65) * (len(levels) - 1)
+    count = 0
+    for d in range(1, len(levels)):
+        k = clamp(grow - (d - 1))
+        if k <= 0:
+            break
+        for j, (pi_, _) in enumerate(levels[d]):
+            (xa, ya), (xb, yb) = pos[d - 1][pi_], pos[d][j]
+            hot = d == len(levels) - 1 or (d >= 3)
+            c.line([(xa, ya), (xa + (xb - xa) * ease(k), ya + (yb - ya) * ease(k))], CORAL if hot else NAVY_40, 5)
+    for d, lvl in enumerate(levels):
+        k = clamp(grow - (d - 1)) if d else stage(p, 0.0, 0.1)
+        if k < 0.95 and d:
+            continue
+        for j, (x, y) in enumerate(pos[d]):
+            r = (40 if d == 0 else 18) * back(k if d == 0 else clamp((grow - d + 1 - 0.95) * 8))
+            if d == 0:
+                c.circle(x, y, r + 8, fill=CREAM)
+                c.circle(x, y, r, fill=CORAL)
+                c.icon(sc.icons[0] if sc.icons else "share", x, y, r * 1.1, CREAM)
+            else:
+                count += 1
+                c.circle(x, y, r + 5, fill=CREAM)
+                c.circle(x, y, r, fill=CORAL if d >= 3 else NAVY)
+    if sc.labels:
+        _tag(c, VW / 2, 760, f"{sc.labels[0]}  ×{count}" if count else sc.labels[0], True, stage(p, 0.1, 0.15),
+             size=38, max_w=VW - 160)
+
+
+def v_balance(c: Canvas, sc, p, ctx):
+    """Two things weighed against each other on a scale; it wobbles and tips toward the heavier one."""
+    labels = (sc.labels + ["", ""])[:2]
+    real = len(sc.values) >= 2
+    left, right = (abs(sc.values[0]), abs(sc.values[1])) if real else (0.4, 1.0)
+    target = 14 * clamp((right - left) / (max(left, right) or 1) * 1.5, -1, 1)
+    q = clamp((p - 0.2) / 0.6)
+    ang = math.radians(target * (1 - math.exp(-5 * q) * math.cos(12 * q)) if p > 0.2 else 0)
+    cx, cy, L = VW / 2, 270, 310
+    a = stage(p, 0.0, 0.15)
+    c.d.polygon([(cx * S, cy * S), ((cx - 90) * S, 640 * S), ((cx + 90) * S, 640 * S)], fill=NAVY + (int(255 * a),))
+    c.rrect((cx - 200, 640, cx + 200, 670), 15, fill=NAVY + (int(255 * a),))
+    ends = [(cx - L * math.cos(ang), cy - L * math.sin(ang)), (cx + L * math.cos(ang), cy + L * math.sin(ang))]
+    c.line(ends, NAVY + (int(255 * a),), 16)
+    c.circle(cx, cy, 22, fill=CORAL)
+    for side, (ex, ey) in enumerate(ends):
+        b = stage(p, 0.08 + 0.08 * side, 0.15)
+        col = CORAL if (right > left) == bool(side) else NAVY
+        py = ey + 150
+        c.line([(ex, ey), (ex - 90, py)], NAVY + (int(200 * a),), 4)
+        c.line([(ex, ey), (ex + 90, py)], NAVY + (int(200 * a),), 4)
+        c.d.chord([(ex - 120) * S, (py - 50) * S, (ex + 120) * S, (py + 50) * S], 0, 180, fill=col + (int(255 * a),))
+        icon = sc.icons[side] if side < len(sc.icons) else ""
+        if not c.icon(icon, ex, py - 46, 90 * back((p - 0.08 - 0.08 * side) / 0.15), col, b):
+            c.circle(ex, py - 34, 34 * b, fill=col + (int(255 * b),))
+        if labels[side]:
+            f, lines = fit(labels[side], "bold", 300, [40, 34, 28], 1)
+            c.text((ex, py + 90), lines[0], "bold", f.size, col + (int(255 * b),), anchor="mm")
+        if real:
+            c.text((ex, py + 140), _fmt(sc.values[side]), "black", 44, col + (int(255 * stage(p, 0.5, 0.2)),), anchor="mm")
+
+
+def v_chat(c: Canvas, sc, p, ctx):
+    """A conversation: messages pop in one by one, each after a typing indicator (chats, chatbots, replies)."""
+    msgs = sc.labels[:4] or ["", "", ""]
+    n = len(msgs)
+    t = ctx["t"]
+    step = min(170, 680 / n)
+    for k, msg in enumerate(msgs):
+        right = k % 2 == 1
+        start = 0.05 + 0.75 * k / n
+        y = 70 + k * step
+        col = CORAL if right else WHITE
+        fg = CREAM if right else NAVY
+        ax = VW - 80 if right else 80
+        icon = sc.icons[k] if k < len(sc.icons) else ("robot" if right else "user")
+        a = stage(p, start - 0.08, 0.06)
+        if a <= 0:
+            continue
+        c.circle(ax, y + 50, 40, fill=(CORAL if right else NAVY) + (int(255 * a),))
+        if not c.icon(icon, ax, y + 50, 48, CREAM, a):
+            c.circle(ax, y + 50, 14, fill=CREAM)
+        b = stage(p, start, 0.1)
+        if b <= 0:  # typing dots
+            bx = ax + (-200 if right else 70)
+            c.rrect((bx, y + 14, bx + 130, y + 86), 36, fill=col + (255,), outline=None if right else NAVY, width=4)
+            for d in range(3):
+                h = abs(math.sin(t * 8 - d * 0.8)) * 10
+                c.circle(bx + 35 + d * 30, y + 50 - h, 9, fill=fg)
+            continue
+        text = msg or "…"
+        f, lines = fit(text, "bold", 520, [40, 36, 32], 2)
+        w = max(f.getlength(ln) for ln in lines) + 64
+        h = len(lines) * f.size * 1.3 + 40
+        bx = ax - 70 - w if right else ax + 70
+        pop = back(b)
+        cxm, cym = bx + w / 2, y + 14 + h / 2
+        box = (cxm - w / 2 * pop, cym - h / 2 * pop, cxm + w / 2 * pop, cym + h / 2 * pop)
+        if right:
+            c.rrect(box, 34, fill=col + (255,))
+        else:
+            c.rrect((box[0] + 6, box[1] + 8, box[2] + 6, box[3] + 8), 34, fill=NAVY_20)
+            c.rrect(box, 34, fill=col + (255,), outline=NAVY, width=4)
+        if b > 0.6:
+            c.text_block(bx + 32, y + 34, lines, "bold", f.size, fg, gap=1.3)
+
+
+def v_geo(c: Canvas, sc, p, ctx):
+    """Places on a map light up and get linked by arcs (location data, mobility, migration)."""
+    rnd = random.Random(ctx["seed"])
+    blobs = [(rnd.uniform(200, 720), rnd.uniform(180, 460), rnd.uniform(140, 260), rnd.uniform(90, 170)) for _ in range(4)]
+    a = stage(p, 0.0, 0.3)
+    land = []
+    for y in range(50, 620, 26):
+        for x in range(40, VW - 40, 26):
+            if any(((x - bx) / rx) ** 2 + ((y - by) / ry) ** 2 < 1 for bx, by, rx, ry in blobs):
+                land.append((x, y))
+    for i, (x, y) in enumerate(land):
+        if rnd.random() < a * 1.2:
+            c.circle(x, y, 6, fill=NAVY_40[:3] + (110,))
+    spots = rnd.sample(land, 6) if len(land) >= 6 else land
+    t = ctx["t"]
+    for i, (x, y) in enumerate(spots):
+        b = stage(p, 0.15 + 0.05 * i, 0.12)
+        if b <= 0:
+            continue
+        hot = i == len(spots) - 1
+        ph = (t * 0.8 + i * 0.3) % 1
+        c.circle(x, y, 18 + 50 * ph, outline=(CORAL if hot else NAVY) + (int(160 * (1 - ph) * b),), width=4)
+        c.circle(x, y, 16 * back((p - 0.15 - 0.05 * i) / 0.12), fill=CORAL if hot else NAVY)
+    for i in range(len(spots) - 1):
+        (xa, ya), (xb, yb) = spots[i], spots[-1] if i % 2 == 0 else spots[i + 1]
+        k = stage(p, 0.4 + 0.06 * i, 0.25)
+        if k <= 0:
+            continue
+        mx, my = (xa + xb) / 2, min(ya, yb) - 90 - 0.2 * abs(xa - xb)
+        pts = [((1 - u) ** 2 * xa + 2 * (1 - u) * u * mx + u * u * xb, (1 - u) ** 2 * ya + 2 * (1 - u) * u * my + u * u * yb)
+               for u in [j / 30 * k for j in range(31)]]
+        c.line(pts, CORAL if i % 2 == 0 else NAVY, 5)
+        if k < 1:
+            c.circle(*pts[-1], 12, fill=CORAL)
+    chips(c, sc.labels, 690, p, start=0.5, accent=len(sc.labels) - 1 if len(sc.labels) > 1 else -1)
+
+
+def v_ranking(c: Canvas, sc, p, ctx):
+    """A ranked list reshuffles and one item climbs to the top (rankings, recommendations, search results)."""
+    labels = sc.labels[:4] or ["", "", "", ""]
+    n = max(3, len(labels)) if sc.labels else 4
+    labels = (labels + [""] * n)[:n]
+    order0 = list(range(n))
+    final = [n - 1] + list(range(n - 1))  # the last item climbs to the top
+    k = stage(p, 0.35, 0.35)
+    row, top = min(150, 680 / n), 0
+    top = (VH - row * n) / 2
+    for i in range(n):
+        a = stage(p, 0.05 * i, 0.15)
+        if a <= 0:
+            continue
+        y = top + (order0.index(i) + (final.index(i) - order0.index(i)) * k) * row
+        climb = i == n - 1
+        dx = math.sin(math.pi * k) * 70 if climb else 0
+        hot = climb and k > 0.5
+        x0, x1 = 90 + dx, VW - 90 + dx
+        c.rrect((x0 + 6, y + 18, x1 + 6, y + row - 6), 28, fill=NAVY_20)
+        c.rrect((x0, y + 10, x1, y + row - 14), 28, fill=(CORAL if hot else WHITE) + (int(255 * a),), outline=NAVY, width=4)
+        rank = round(order0.index(i) + (final.index(i) - order0.index(i)) * k) + 1
+        c.text((x0 + 60, y + row / 2 - 2), f"#{rank}", "black", 46, (CREAM if hot else CORAL) + (int(255 * a),), anchor="mm")
+        icon = sc.icons[i] if i < len(sc.icons) else ""
+        lx = x0 + 130
+        if c.icon(icon, lx + 30, y + row / 2 - 2, 62, CREAM if hot else NAVY, a):
+            lx += 80
+        if labels[i]:
+            f, lines = fit(labels[i], "bold", int(x1 - lx - 100), [42, 36, 30], 1)
+            c.text((lx, y + row / 2 - 2), lines[0], "bold", f.size, (CREAM if hot else NAVY) + (int(255 * a),), anchor="lm")
+        else:
+            c.rrect((lx, y + row / 2 - 14, lx + 160 + 60 * ((i * 37) % 5), y + row / 2 + 10), 12,
+                    fill=(CREAM if hot else NAVY_40[:3]) + (int(200 * a),))
+        if climb and 0 < k < 1:
+            c.icon("arrow-big-up-lines", x1 - 50, y + row / 2 - 2, 60, CREAM if hot else CORAL)
+
+
+def v_swipe(c: Canvas, sc, p, ctx):
+    """Cards get swiped left or right, one after another (choices, dating apps, accept or reject decisions)."""
+    rnd = random.Random(ctx["seed"])
+    labels = (sc.labels + ["", ""])[:2]
+    dirs = [rnd.choice((-1, 1)) for _ in range(5)]
+    dirs[-1] = 1
+    cw, ch = 400, 520
+    cx, cy = VW / 2, 330
+    count = [0, 0]
+    swipes = 4  # the fifth card stays on the pile
+    for k in range(swipes, -1, -1):  # back to front
+        start = 0.1 + 0.18 * k
+        q = clamp((p - start) / 0.14) if k < swipes else 0.0
+        if q >= 1:
+            count[dirs[k] > 0] += 1
+            continue
+        depth = max(0, k - sum(1 for j in range(k) if p >= 0.1 + 0.18 * j + 0.14))
+        if depth > 2:
+            continue
+        card = Canvas.__new__(Canvas)
+        card.img = Image.new("RGBA", ((cw + 40) * S, (ch + 40) * S), (0, 0, 0, 0))
+        card.d = ImageDraw.Draw(card.img, "RGBA")
+        card.rrect((20, 20, 20 + cw, 20 + ch), 36, fill=WHITE + (255,), outline=NAVY, width=5)
+        crnd = random.Random(k * 13 + ctx["seed"])
+        card.rrect((50, 50, cw - 10, 300), 26, fill=mix((226, 216, 199), NAVY, crnd.uniform(0.1, 0.35)) + (255,))
+        card.circle(20 + cw / 2, 175, 70, fill=CREAM + (255,))
+        for j, wd in enumerate((0.7, 0.5, 0.6)):
+            card.rrect((60, 340 + j * 50, 60 + (cw - 80) * wd * crnd.uniform(0.7, 1), 364 + j * 50), 12, fill=NAVY_40)
+        if q > 0:
+            stamp = labels[dirs[k] > 0] or ("✓" if dirs[k] > 0 else "✕")
+            col = CORAL if dirs[k] > 0 else NAVY
+            card.rrect((cw / 2 - 130, 120, cw / 2 + 170, 220), 20, outline=col + (int(255 * min(1, q * 3)),), width=8)
+            f, lines = fit(stamp, "black", 280, [52, 44, 36], 1)
+            card.text((20 + cw / 2, 170), lines[0], "black", f.size, col + (int(255 * min(1, q * 3)),), anchor="mm")
+        img = card.img
+        rot = -dirs[k] * 22 * q
+        if rot:
+            img = img.rotate(rot, resample=Image.BICUBIC, expand=True)
+        scale = 1 - 0.05 * depth
+        if scale < 1:
+            img = img.resize((int(img.width * scale), int(img.height * scale)), Image.BILINEAR)
+        x = cx + dirs[k] * 700 * ease(q) ** 1.5
+        y = cy + depth * 26 + 60 * q
+        c.img.alpha_composite(img, (int(x * S - img.width / 2), int(y * S - img.height / 2)))
+    for side in (0, 1):
+        col = CORAL if side else NAVY
+        x = 150 if side == 0 else VW - 150
+        c.circle(x, 700, 52, fill=col)
+        icon = sc.icons[side] if side < len(sc.icons) else ("heart" if side else "x")
+        c.icon(icon, x, 700, 56, CREAM)
+        c.text((x + (75 if side == 0 else -75), 700), f"{labels[side]} {count[side]}".strip(), "black", 40, col,
+               anchor="lm" if side == 0 else "rm")
+
+
+def v_clock(c: Canvas, sc, p, ctx):
+    """A 24-hour clock: the hand sweeps round and activity bars grow at each hour; the busiest hour glows."""
+    rnd = random.Random(ctx["seed"])
+    peak = rnd.choice((21, 22, 23, 8, 12))
+    vals = [0.15 + 0.85 * math.exp(-min(abs(h - peak), 24 - abs(h - peak)) ** 2 / 10) + rnd.uniform(0, 0.12) for h in range(24)]
+    cx, cy, r = VW / 2, 360, 170
+    a = stage(p, 0.0, 0.15)
+    c.circle(cx, cy, r, fill=WHITE + (int(255 * a),), outline=NAVY, width=6)
+    for h in range(24):
+        ang = math.radians(-90 + h * 15)
+        inner = r - (24 if h % 6 == 0 else 14)
+        c.line([(cx + math.cos(ang) * inner, cy + math.sin(ang) * inner),
+                (cx + math.cos(ang) * (r - 6), cy + math.sin(ang) * (r - 6))], NAVY + (int(255 * a),), 5 if h % 6 == 0 else 3)
+    for h, lab in ((0, "0"), (6, "6"), (12, "12"), (18, "18")):
+        ang = math.radians(-90 + h * 15)
+        c.text((cx + math.cos(ang) * (r - 56), cy + math.sin(ang) * (r - 56)), lab, "bold", 30, NAVY + (int(255 * a),), anchor="mm")
+    c.icon("sun", cx, cy + 70, 44, CORAL, a * 0.8)
+    c.icon("moon", cx, cy - 70, 44, NAVY, a * 0.8)
+    sweep = stage(p, 0.08, 0.6) * 24
+    for h in range(24):
+        k = clamp((sweep - h) * 1.5)
+        if k <= 0:
+            continue
+        ang = math.radians(-90 + h * 15 + 7.5)
+        hot = h == max(range(24), key=lambda i: vals[i])
+        ln = 120 * vals[h] * back(k)
+        c.line([(cx + math.cos(ang) * (r + 18), cy + math.sin(ang) * (r + 18)),
+                (cx + math.cos(ang) * (r + 18 + ln), cy + math.sin(ang) * (r + 18 + ln))],
+               CORAL if hot or vals[h] > 0.8 else NAVY, 16)
+    hand = math.radians(-90 + sweep * 15)
+    c.line([(cx, cy), (cx + math.cos(hand) * (r - 30), cy + math.sin(hand) * (r - 30))], CORAL + (int(255 * a),), 10)
+    c.circle(cx, cy, 16 * a, fill=NAVY)
+    chips(c, sc.labels, 720, p, start=0.6, accent=0 if len(sc.labels) == 1 else -1)
+
+
+def v_echo(c: Canvas, sc, p, ctx):
+    """An echo chamber: like-minded dots drift inside a bubble while outside views bounce off its wall."""
+    rnd = random.Random(ctx["seed"])
+    t = ctx["t"]
+    cx, cy = VW / 2, 360
+    a = stage(p, 0.0, 0.2)
+    R = (230 + 6 * math.sin(t * 3)) * back(p / 0.25)
+    c.circle(cx, cy, R, fill=(255, 252, 246, int(200 * a)), outline=NAVY + (int(255 * a),), width=6)
+    if R > 40:
+        c.arc(cx, cy, R - 26, 200, 250, (255, 255, 255, int(255 * a)), 10)  # a glint so it reads as a bubble
+    for i in range(22):
+        rr = rnd.uniform(20, 180)
+        w = rnd.uniform(0.3, 0.8) * rnd.choice((-1, 1))
+        ph = rnd.uniform(0, 2 * math.pi)
+        b = stage(p, 0.05 + 0.01 * i, 0.1)
+        if b > 0:
+            c.circle(cx + math.cos(w * t + ph) * rr, cy + math.sin(w * t + ph) * rr * 0.9, 14 * b, fill=NAVY)
+    out = stage(p, 0.3, 0.15)
+    for i in range(10):
+        ang = 2 * math.pi * i / 10 + rnd.uniform(-0.2, 0.2) + t * 0.05
+        speed, ph = rnd.uniform(0.5, 0.8), rnd.uniform(0, 2)
+        d = R + 26 + abs((t * speed + ph) % 2 - 1) * 200
+        x, y = cx + math.cos(ang) * d, cy + math.sin(ang) * d * 0.85
+        if -20 < x < VW + 20 and -20 < y < VH - 60 and out > 0:
+            c.circle(x, y, 14 * out, fill=CORAL)
+            near = clamp(1 - (d - R - 26) / 40)
+            if near > 0:  # a little flash where it hits the wall
+                c.circle(cx + math.cos(ang) * R, cy + math.sin(ang) * R * 0.85, 10 + 16 * near, fill=CORAL_30)
+    if sc.labels:
+        _tag(c, cx, cy + R - 50, sc.labels[0], False, stage(p, 0.3, 0.15), sc.icons[0] if sc.icons else "")
+    if len(sc.labels) > 1:
+        _tag(c, cx, 760, sc.labels[1], True, stage(p, 0.45, 0.15), sc.icons[1] if len(sc.icons) > 1 else "")
+
+
+def _gear(c: Canvas, cx, cy, r, teeth, ang, col):
+    pts = []
+    for k in range(teeth * 4):
+        th = ang + 2 * math.pi * k / (teeth * 4)
+        rr = r if k % 4 in (0, 1) else r * 0.78
+        pts.append(((cx + math.cos(th) * rr) * S, (cy + math.sin(th) * rr) * S))
+    c.d.polygon(pts, fill=col)
+    c.circle(cx, cy, r * 0.34, fill=WHITE)
+
+
+def v_predict(c: Canvas, sc, p, ctx):
+    """Inputs flow into a model (whirring gears) and a prediction comes out with a confidence bar."""
+    t = ctx["t"]
+    labels = sc.labels or []
+    ins = labels[:-1] if len(labels) > 1 else labels
+    out = labels[-1] if len(labels) > 1 else ""
+    names = sc.icons[: len(ins)] if len(labels) > 1 else sc.icons[:1]
+    n = max(1, min(3, len(ins)))
+    a = stage(p, 0.0, 0.15)
+    bx0, by0, bx1, by1 = 330, 240, 590, 500
+    c.rrect((bx0 + 8, by0 + 12, bx1 + 8, by1 + 12), 36, fill=NAVY_20)
+    c.rrect((bx0, by0, bx1, by1), 36, fill=NAVY + (int(255 * a),))
+    spin = t * 2.2 * (0.3 + stage(p, 0.15, 0.3))
+    _gear(c, 425, 340, 70, 9, spin, CREAM + (int(255 * a),))
+    _gear(c, 515, 420, 50, 7, -spin * 1.3 + 0.2, CORAL + (int(255 * a),))
+    for i in range(n):
+        y = 370 + (i - (n - 1) / 2) * 190
+        b = stage(p, 0.05 + 0.06 * i, 0.15)
+        if b <= 0:
+            continue
+        c.circle(130, y, 70 * back((p - 0.05 - 0.06 * i) / 0.15), fill=WHITE + (int(255 * b),), outline=NAVY, width=4)
+        if not c.icon(names[i] if i < len(names) else "", 130, y, 76, NAVY, b):
+            c.circle(130, y, 22, fill=NAVY)
+        if i < len(ins) and ins[i]:
+            f, lines = fit(ins[i], "bold", 220, [30, 26, 22], 1)
+            c.text((130, y + 98), lines[0], "bold", f.size, NAVY + (int(255 * b),), anchor="mm")
+        for j in range(3):  # data packets flowing into the model
+            u = (t * 0.9 + j / 3 + i * 0.2) % 1
+            if p > 0.15:
+                x = 205 + (bx0 - 215) * u
+                yy = y + (370 - y) * u
+                c.circle(x, yy, 9, fill=NAVY + (int(255 * (1 - abs(2 * u - 1) ** 3)),))
+    k = stage(p, 0.45, 0.15)
+    if k > 0:
+        for j in range(2):
+            u = (t * 0.9 + j / 2) % 1
+            c.circle(bx1 + 10 + 50 * u, 370, 9, fill=CORAL)
+        x0, y0 = 660, 290
+        c.rrect((x0 + 6, y0 + 10, x0 + 230 + 6, y0 + 170), 28, fill=NAVY_20)
+        c.rrect((x0, y0, x0 + 230, y0 + 160), 28, fill=CORAL + (int(255 * k),))
+        text = out or (sc.big_text or "")
+        if text:
+            f, lines = fit(text, "black", 200, [40, 34, 28, 24], 2)
+            c.text_block(x0 + 115, y0 + 30, lines, "black", f.size, CREAM + (int(255 * k),), anchor="ma")
+        conf, real = _share(sc, 0.0)
+        if real or not sc.values:
+            fill = conf if real else 0.8
+            q = stage(p, 0.55, 0.3)
+            c.rrect((x0, y0 + 190, x0 + 230, y0 + 216), 13, fill=(226, 216, 199, 255))
+            c.rrect((x0, y0 + 190, x0 + max(26, 230 * fill * q), y0 + 216), 13, fill=CORAL + (255,))
+            if real:
+                c.text((x0 + 115, y0 + 260), f"{round(fill * 100 * q)}%", "black", 44, CORAL, anchor="mm")
+    if sc.big_text and out:
+        b = stage(p, 0.6, 0.2)
+        f, lines = fit(sc.big_text, "black", VW - 100, [60, 50, 42], 1)
+        c.text((VW / 2, 720), lines[0], "black", f.size, NAVY + (int(255 * b),), anchor="mm")
+
+
 DRAW = {"hook": v_hook, "paper": v_paper, "crowd": v_crowd, "network": v_network,
         "pipeline": v_pipeline, "bars": v_bars, "timeline": v_timeline, "scatter": v_scatter,
         "contrast": v_contrast, "icons": v_icons, "journey": v_journey, "spotlight": v_spotlight,
         "funnel": v_funnel, "takeaway": v_takeaway, "waffle": v_waffle, "gauge": v_gauge,
         "counter": v_counter, "clusters": v_clusters, "heatmap": v_heatmap, "experiment": v_experiment,
-        "feed": v_feed, "magnify": v_magnify, "survey": v_survey}
+        "feed": v_feed, "magnify": v_magnify, "survey": v_survey, "race": v_race, "cascade": v_cascade,
+        "balance": v_balance, "chat": v_chat, "geo": v_geo, "ranking": v_ranking, "swipe": v_swipe,
+        "clock": v_clock, "echo": v_echo, "predict": v_predict}
 
 
 def draw(sc, p: float, ctx: dict) -> Image.Image:

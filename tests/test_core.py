@@ -296,7 +296,8 @@ def test_new_visuals_draw_with_and_without_data():
     bare = render.SceneView("x", "THE DATA", [], [], "", ["x"], [])
     full = render.SceneView("x", "THE DATA", ["Control", "Labelled"], [12, 0.4], "Do you trust the news?", ["x"],
                             ["user", "tag"])
-    for visual in ("waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey"):
+    for visual in ("waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey",
+                   "race", "cascade", "balance", "chat", "geo", "ranking", "swipe", "clock", "echo", "predict"):
         for view in (bare, full):
             view.visual = visual
             for p in (0.0, 0.5, 1.0):
