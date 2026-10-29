@@ -302,3 +302,52 @@ def test_new_visuals_draw_with_and_without_data():
             view.visual = visual
             for p in (0.0, 0.5, 1.0):
                 assert visuals.draw(view, p, ctx).size == (visuals.VW, visuals.VH)
+
+
+def test_outreach_posts_once_a_day(tmp_path, monkeypatch):
+    from datetime import datetime, timezone
+    from shorts import outreach
+    from shorts.safelog import ApiError
+    monkeypatch.setattr(outreach, "STATE_DIR", tmp_path)
+    monkeypatch.setattr(outreach, "STATE_FILE", tmp_path / "outreach.json")
+    monkeypatch.setenv("OUTREACH_REPORT", str(tmp_path / "report.txt"))
+    ep = {"created": datetime.now(timezone.utc).isoformat(), "posts": {"zh": {}},
+          "script": {"method_summary": "m", "limitations": "l"},
+          "paper": {"title": "T", "venue": "V", "published": "2026", "url": "u", "authors": ["A"]}}
+    monkeypatch.setattr(outreach, "load_history", lambda: [ep])
+    monkeypatch.setattr(outreach, "context", lambda ep: "ctx")
+    found = [{"platform": "threads", "id": "1", "text": "a", "author": "x", "url": "p1", "lang": "zh"},
+             {"platform": "threads", "id": "2", "text": "b", "author": "y", "url": "p2", "lang": "zh"}]
+    monkeypatch.setattr(outreach, "threads_candidates", lambda q: list(found))
+    monkeypatch.setattr(outreach, "youtube_candidates", lambda q: [])
+    monkeypatch.setattr(outreach.notify, "email", lambda *a: True)
+
+    def ask(schema, *a, **k):
+        if schema is outreach.Queries:
+            return outreach.Queries(zh=["q"], en=["q"])
+        return outreach.Picks(picks=[outreach.Pick(index=0, why="w", reply="first"),
+                                     outreach.Pick(index=1, why="w", reply="second")])
+    monkeypatch.setattr(outreach.llm, "ask", ask)
+    posted = []
+
+    def post(c, text):
+        if c["id"] == "1":
+            raise ApiError("threads", "create reply", 400, "x")
+        posted.append(text)
+    monkeypatch.setattr(outreach, "post", post)
+
+    outreach.run()
+    assert posted == ["second"]  # the first pick failed, so the next one was used, and only one
+    assert "second" in (tmp_path / "report.txt").read_text()
+    rows = outreach.load_state()
+    assert len(rows) == 1 and all(len(rows[0][k]) == 32 for k in ("target", "author"))  # hashes, not ids
+
+    outreach.run()  # same day: nothing more
+    assert posted == ["second"] and "已經留過" in (tmp_path / "report.txt").read_text()
+
+    # Another day: the post and its author we already commented on are skipped.
+    rows[0]["day"] = "2000-01-01"
+    outreach.save_state(rows)
+    monkeypatch.setattr(outreach, "post", lambda c, text: posted.append(c["id"]))
+    outreach.run()
+    assert posted[-1] == "1"
