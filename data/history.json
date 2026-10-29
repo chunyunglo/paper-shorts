@@ -1676,5 +1676,325 @@
       }
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261028-the-effects-of-generative-ai-on-collabor"
+  },
+  {
+    "episode": "20261029-jawboning-the-fed-do-markets-listen-when",
+    "created": "2026-10-29T06:14:48+00:00",
+    "paper": {
+      "id": "arxiv:2610.32300",
+      "title": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
+      "abstract": "We provide the first systematic evidence on whether financial markets price political pressure on the Federal Reserve as a signal of future monetary policy. Using approximately four decades of Reuters newswire articles from 1988 to 2025, classified by an open-weight large language model ensemble into dovish and hawkish pressure, we estimate the daily response of interest rate expectations across the term structure, the US dollar, inflation compensation, and market volatility. Dovish pressure lowers near-term rate expectations by roughly one basis point per pressure event---equivalent to a four-percent increase in the implied probability of a rate cut at the next FOMC meeting---with the effect decaying monotonically and vanishing beyond the three-month horizon. Hawkish pressure has no detectable effect. Furthermore, excluding the Trump presidencies does not weaken the estimate, ruling out the possibility that the result is confined to an idiosyncratic recent episode. The response is accompanied by dollar depreciation, with stable inflation compensation and market volatility. We interpret the pattern as markets pricing anticipated monetary accommodation, rather than a credibility tax on the nominal anchor.",
+      "authors": [
+        "Michela Baretti",
+        "Umberto Collodel",
+        "Jacopo Zacché"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2610.32300",
+      "pdf_url": "https://arxiv.org/pdf/2610.32300v1",
+      "doi": null,
+      "published": "2026-10-23",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "政客喊降息，市場真的會聽嗎？",
+      "title_en": "When Politicians Lean on the Fed, Do Markets Listen?",
+      "paper_title_zh": "對聯準會喊話：政府開口時，市場會聽嗎？",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "關鍵問題",
+          "heading_en": "THE QUESTION",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "政治喊話有用嗎",
+          "big_text_en": "Do markets hear politics?",
+          "lines": [
+            {
+              "zh": "政客喊降息，市場真的會聽嗎？",
+              "en": "Politicians demand rate cuts. Do markets listen?"
+            },
+            {
+              "zh": "答案藏在四十年的新聞裡，結果有點意外",
+              "en": "The answer is hiding in 40 years of news, and it's surprising."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "馬爾他央行",
+            "阿利坎特大學"
+          ],
+          "labels_en": [
+            "Central Bank Malta",
+            "Univ. of Alicante"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "馬爾他央行與阿利坎特大學學者的預印本",
+              "en": "Economists from Malta's central bank and Alicante wrote this preprint."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "路透社新聞",
+            "施壓事件"
+          ],
+          "labels_en": [
+            "Reuters articles",
+            "Pressure events"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "路透社1988到2025年的新聞",
+              "en": "They took Reuters news from 1988 to 2025."
+            },
+            {
+              "zh": "一萬多篇，最後篩出666次施壓事件",
+              "en": "Over 11,000 articles shrank to 666 pressure events."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "AI評審團",
+          "heading_en": "AI JURY",
+          "labels": [
+            "Qwen",
+            "Llama",
+            "DeepSeek"
+          ],
+          "labels_en": [
+            "Qwen",
+            "Llama",
+            "DeepSeek"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "篩選交給三個AI語言模型",
+              "en": "Three AI language models did the sorting."
+            },
+            {
+              "zh": "要求降息還是升息？至少兩個同意才算",
+              "en": "Pushing for cuts or hikes? At least two had to agree."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "施壓方向",
+          "heading_en": "WHICH WAY",
+          "labels": [
+            "喊降息",
+            "喊升息"
+          ],
+          "labels_en": [
+            "Push for cuts",
+            "Push for hikes"
+          ],
+          "values": [
+            579.0,
+            87.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "喊降息579次，喊升息只有87次",
+              "en": "579 events pushed for cuts; only 87 pushed for hikes."
+            }
+          ]
+        },
+        {
+          "visual": "journey",
+          "heading_zh": "比對市場",
+          "heading_en": "MATCHING",
+          "labels": [
+            "政治喊話",
+            "新聞報導",
+            "利率期貨"
+          ],
+          "labels_en": [
+            "Political remark",
+            "News report",
+            "Rate futures"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "接著比對：施壓當天，利率期貨怎麼動？",
+              "en": "Then: on pressure days, how did rate futures move?"
+            },
+            {
+              "zh": "期貨價格反映市場預期的未來利率",
+              "en": "Futures prices show where traders expect rates to go."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "喊降息",
+            "近期利率",
+            "降息機率"
+          ],
+          "labels_en": [
+            "Cut demands",
+            "Near-term rates",
+            "Cut odds"
+          ],
+          "values": [],
+          "big_text": "約1個基點",
+          "big_text_en": "~1 basis point",
+          "lines": [
+            {
+              "zh": "每次喊降息，近期利率預期約降1基點",
+              "en": "Each cut demand nudged near-term rate bets down about 1 basis point."
+            },
+            {
+              "zh": "等於降息機率高約4%，只出現在三個月內的期貨",
+              "en": "About 4% higher cut odds, seen only in contracts up to 3 months out."
+            },
+            {
+              "zh": "喊升息效果不明確；扣掉川普時期效果更大",
+              "en": "Hike calls: no clear effect. Excluding Trump years, the effect grew."
+            },
+            {
+              "zh": "但政客常在經濟轉弱時喊，未必是因果",
+              "en": "Caveat: politicians push when the economy weakens, so it's not proof."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "喊降息，市場有感",
+          "big_text_en": "Cut calls nudge rate bets",
+          "lines": [
+            {
+              "zh": "喊降息讓利率預期小降，喊升息效果不明確",
+              "en": "Cut calls nudge rate bets down; hike calls show no clear effect."
+            },
+            {
+              "zh": "追蹤我們，看更多研究",
+              "en": "Follow for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "政治人物對聯準會喊話，市場會有反應嗎？這篇研究用三個AI模型讀了近四十年的路透社新聞，發現喊降息會讓近期利率預期小幅下降，且主要來自總統的喊話；喊升息則看不出效果。",
+      "description_en": "Do markets react when politicians lean on the Fed? This study used three AI models to read nearly 40 years of Reuters news and found that calls for rate cuts slightly lower near-term rate expectations, driven by presidential statements, while calls for hikes show no clear effect.",
+      "hashtags": [
+        "行為解碼",
+        "聯準會",
+        "FederalReserve",
+        "政治施壓",
+        "AI",
+        "利率",
+        "MonetaryPolicy",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "The authors collected Reuters newswire articles from 1988 to 2025 that mention a U.S. political actor, the Federal Reserve, and monetary policy (roughly 11,500 articles). A three-stage pipeline run in parallel on three open-weight LLMs (Qwen, Llama, DeepSeek; temperature zero, majority vote of at least two) merged duplicate articles into events, kept only attributable statements by incumbent U.S. politicians directed at the Fed, and labeled each as dovish (easier policy) or hawkish (tighter policy). This produced 666 events: 579 dovish and 87 hawkish. Human raters agreed with the LLM majority on about 81% of a validation sample, with almost no dovish/hawkish confusion. Daily counts of pressure events were regressed on daily changes in fed funds futures, Treasury futures, the dollar, inflation swaps and volatility indices, controlling for FOMC days, data releases, inflation and unemployment gaps and other predictors. Each dovish event lowered near-term rate expectations by about 0.9 basis points (roughly 4 percentage points higher implied cut probability), significant for contracts up to three months ahead and insignificant for longer maturities; hawkish pressure had no significant effect. Excluding Trump periods, the effect was larger (about 1.58 bps). The dollar weakened, while inflation expectations and volatility did not move. Effects were larger when the Fed Board majority shared the president's party, and were driven by presidential statements. Placebo tests and many alternative controls supported the result.",
+      "limitations": "The estimates are reduced-form associations: politicians may push for cuts when the economy is already weakening, so some effect could reflect shared economic news rather than pressure itself, despite controls and the Board-alignment test. The LLM classification is imperfect and tends to over-label irrelevant articles. Counts reflect Reuters' editorial coverage choices. Daily, not intraday, data limit precision. Hawkish events are rare, so their null result is imprecise. The paper does not show effects on actual inflation or welfare, and it predates and did not study this week's Fed meeting or whether politics influenced Fed decisions.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "news",
+          "speakerphone"
+        ],
+        [
+          "robot",
+          "robot-face",
+          "ai"
+        ],
+        [
+          "trending-down",
+          "trending-up"
+        ],
+        [
+          "microphone",
+          "news",
+          "chart-candle"
+        ],
+        [
+          "speakerphone",
+          "percentage",
+          "chart-pie"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 57.0,
+        "cover_offset_ms": 7716,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 58.45,
+        "cover_offset_ms": 7839,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "dLVVioAFTVQ",
+          "url": "https://youtube.com/shorts/dLVVioAFTVQ"
+        },
+        "instagram": {
+          "id": "18107757569214073",
+          "url": "https://www.instagram.com/reel/DfE24wVFD3J/"
+        },
+        "threads": {
+          "id": "18115695674116881",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "nHROFRQuyuY",
+          "url": "https://youtube.com/shorts/nHROFRQuyuY"
+        },
+        "instagram": {
+          "id": "18240722287318574",
+          "url": "https://www.instagram.com/reel/DfE3H1dDZhs/"
+        },
+        "threads": {
+          "id": "17967061503198994",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261029-jawboning-the-fed-do-markets-listen-when"
   }
 ]
