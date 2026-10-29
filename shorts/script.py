@@ -11,7 +11,8 @@ from .papers import Paper
 from .safelog import log
 
 Visual = Literal["hook", "paper", "crowd", "network", "pipeline", "bars", "timeline",
-                 "scatter", "contrast", "icons", "journey", "spotlight", "funnel", "takeaway"]
+                 "scatter", "contrast", "icons", "journey", "spotlight", "funnel", "takeaway",
+                 "waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey"]
 
 
 class Line(BaseModel):
@@ -25,8 +26,8 @@ class Scene(BaseModel):
     heading_en: str = Field(description="1-3 word English label, e.g. THE DATA")
     labels: list[str] = Field(description="0-4 very short Chinese on-screen labels (each at most 10 characters) used by the visual")
     labels_en: list[str] = Field(description="The same labels in English (each at most 18 characters), same order")
-    values: list[float] = Field(description="Numbers for bars/contrast/timeline ONLY if stated in the paper, same order as labels; otherwise empty")
-    big_text: str = Field(description="Optional big Chinese text for hook/contrast/takeaway (a number like '3.2倍' or a short phrase); empty if unused")
+    values: list[float] = Field(description="Numbers for bars/contrast/timeline/waffle/gauge/counter/experiment ONLY if stated in the paper, same order as labels; otherwise empty")
+    big_text: str = Field(description="Optional big Chinese text for hook/contrast/spotlight/counter/survey/takeaway (a number like '3.2倍', a short phrase, or the survey question); empty if unused")
     big_text_en: str = Field(description="The same big text in English (at most 40 characters); empty if unused")
     lines: list[Line] = Field(description="1-4 narration lines spoken during this scene")
 
@@ -104,11 +105,27 @@ actors in the study, e.g. ranchers, cattle, buyers, a court; labels = their name
 from author to readers; labels = 2-4 stops in order), spotlight (one key thing zoomed in, e.g. \
 the main finding or the central actor; labels = that thing first, then up to 3 related things; \
 big_text = the point), funnel (lots of raw data filtered down to what matters; labels = what \
-goes in, what comes out). Each scene is later illustrated with simple icons of its labels, so \
+goes in, what comes out), waffle (a share of a group as 100 little people; labels = one label \
+for who the share is, values = [the percent] only if the paper gives it), gauge (one score on a \
+dial, e.g. a model's accuracy or an agreement rate; labels = one label, values = [the percent] \
+only if given), counter (one big count, e.g. how many posts, people or records; labels = one \
+label for the unit, values = [the count] if given, else big_text = the number as the paper states \
+it, e.g. '數百萬筆'), clusters (data points sorting themselves into 2-4 groups or types, e.g. \
+clustering or classifying users; labels = the group names), heatmap (when or where something \
+happens most, e.g. activity by hour and day; labels = 1-2 short notes on the pattern), experiment \
+(a randomized experiment or A/B test: one pool split at random into two groups; labels = control \
+group, treated group; values = their two outcomes only if given), feed (social media posts \
+scrolling past while the computer reads and tags them, e.g. text or image classification, \
+sentiment; labels = 1-2 tag names), magnify (searching lots of text or records for something \
+specific, e.g. keywords, hate speech, mentions; labels = one label for what is found), survey (a \
+questionnaire item with a 1-5 answer scale; big_text = the question, labels = the two scale ends). \
+Each scene is later illustrated with simple icons of its labels, so \
 make labels concrete nouns where you can; use the icons visual at least once so the episode \
 visibly shows its own subject. Keep it lively: never the same visual in two scenes in a row, \
-use at least four different visuals between the paper and the takeaway, and favor journey, \
-spotlight and funnel whenever they fit the step.
+use at least four different visuals between the paper and the takeaway, and favor the more \
+animated visuals (journey, spotlight, funnel, clusters, experiment, feed, magnify, counter, \
+waffle) whenever they fit the step. Never use a visual that would show something the study did \
+not do: experiment only for a real randomized design, survey only for a real questionnaire.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 

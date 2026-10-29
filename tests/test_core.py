@@ -262,7 +262,8 @@ def test_scenes_draw_without_icons(monkeypatch):
     view = render.SceneView("icons", "THE DATA", ["Ranches", "Buyers", "Cattle"], [], "", ["x"],
                             ["tractor", "building-store", "truck"])
     ctx = {"seed": 1, "t": 1.0, "lang": "en"}
-    for visual in ("icons", "crowd", "pipeline", "contrast", "bars", "journey", "spotlight", "funnel"):
+    for visual in ("icons", "crowd", "pipeline", "contrast", "bars", "journey", "spotlight", "funnel",
+                   "waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey"):
         view.visual = visual
         assert visuals.draw(view, 0.8, ctx).size == (visuals.VW, visuals.VH)
 
@@ -286,3 +287,17 @@ def test_slug_never_ends_with_a_hyphen():
     s = pipeline.slug("Decredentialed jobs and upward mobility among non-college workers in the USA")
     assert s == "decredentialed-jobs-and-upward-mobility"
     assert not s.endswith("-") and len(s) <= 40
+
+
+def test_new_visuals_draw_with_and_without_data():
+    from shorts import visuals
+
+    ctx = {"seed": 3, "t": 2.0, "lang": "en"}
+    bare = render.SceneView("x", "THE DATA", [], [], "", ["x"], [])
+    full = render.SceneView("x", "THE DATA", ["Control", "Labelled"], [12, 0.4], "Do you trust the news?", ["x"],
+                            ["user", "tag"])
+    for visual in ("waffle", "gauge", "counter", "clusters", "heatmap", "experiment", "feed", "magnify", "survey"):
+        for view in (bare, full):
+            view.visual = visual
+            for p in (0.0, 0.5, 1.0):
+                assert visuals.draw(view, p, ctx).size == (visuals.VW, visuals.VH)
