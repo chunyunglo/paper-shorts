@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timedelta, timezone
 from functools import lru_cache
 from pathlib import Path
 
@@ -88,18 +87,6 @@ def comment(video_id: str, text: str) -> None:
     http("youtube", "commentThreads.insert", "POST", f"{API}/commentThreads", params={"part": "snippet"},
          headers=_auth(), json={"snippet": {"videoId": video_id,
                                             "topLevelComment": {"snippet": {"textOriginal": text}}}})
-
-
-def search_videos(q: str, lang: str, days: int = 30, limit: int = 10) -> list[dict]:
-    """Recent public videos for a search phrase (100 quota units per call)."""
-    after = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%dT%H:%M:%SZ")
-    resp = http("youtube", "search.list", "GET", f"{API}/search", headers=_auth(),
-                params={"part": "snippet", "q": q, "type": "video", "maxResults": limit, "order": "relevance",
-                        "publishedAfter": after, "safeSearch": "strict",
-                        "relevanceLanguage": {"zh": "zh-Hant", "en": "en"}.get(lang, lang)})
-    return [{"id": it["id"]["videoId"], "title": it["snippet"].get("title", ""),
-             "description": it["snippet"].get("description", ""), "channel": it["snippet"].get("channelId", "")}
-            for it in resp.json().get("items", []) if it.get("id", {}).get("videoId")]
 
 
 def delete(video_id: str) -> None:

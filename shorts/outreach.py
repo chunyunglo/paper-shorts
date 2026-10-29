@@ -1,8 +1,8 @@
-"""At most one comment a day under someone else's public post (Threads first, then YouTube).
+"""At most one comment a day under someone else's public Threads post.
 
 Finds posts on the everyday topic of a recent episode's paper, lets Claude pick the one where the
 study genuinely adds something, and posts one short, non-promotional comment from our account.
-Instagram is not covered: its API cannot comment on other people's media.
+Threads only, by the owner's choice. Instagram's API cannot comment on other people's media.
 
 Privacy: other people's posts and names go only to the Anthropic API and the owner's private
 email. The public log gets the platform and our own comment text. The state stores HMAC hashes
@@ -14,7 +14,6 @@ import hashlib
 import hmac
 import json
 import os
-import re
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -22,7 +21,7 @@ from pydantic import BaseModel, Field
 
 from . import config, llm, notify
 from .engage import QUERY_SYSTEM, Queries, context, find_posts
-from .publish import meta, youtube
+from .publish import meta
 from .safelog import ApiError, log
 from .state import load_history
 
@@ -46,7 +45,7 @@ class Picks(BaseModel):
 
 
 PICK_SYSTEM = """You write comments that the account of "行為解碼 Behavior Decoded" posts \
-automatically under other people's public Threads posts and YouTube videos, at most one a day. \
+automatically under other people's public Threads posts, at most one a day. \
 The channel's purpose: help people understand human behavior through what careful research \
 actually found, and how it was measured. A comment is only worth posting if it adds that to the \
 conversation.
@@ -60,8 +59,7 @@ English for English posts;
 overstate causality, never invent numbers, use only facts given below;
 - you may name the study (authors/venue/year); no links, no hashtags, no "follow us", no mention \
 of the channel, its videos or this account; it must read as a helpful person, not an ad;
-- never argue, correct someone harshly, or take sides on partisan issues;
-- for a YouTube video you only see its title and description, so respond only to what they say.
+- never argue, correct someone harshly, or take sides on partisan issues.
 Skip posts that are personal hardship, grief, health crises, harassment, minors, ads, or anything \
 where a research fact would feel cold or intrusive. Skip posts with no real link to the paper. An \
 empty list is the right answer whenever nothing fits well.
@@ -103,47 +101,21 @@ def blocked(rows: list[dict]) -> set[str]:
 
 # ---------------------------------------------------------------- finding posts
 
-def threads_candidates(queries: Queries) -> list[dict]:
+def threads_candidates(queries: Queries) -> tuple[list[dict], bool]:
+    """Returns (posts, search_available)."""
     try:
         own = meta.th_username()
     except (ApiError, SystemExit):
-        return []
+        return [], False
     posts, available = find_posts(queries, own)
     if not available:
         log("Outreach: Threads search unavailable (needs threads_keyword_search)")
     return [{"platform": "threads", "id": p["id"], "text": p["text"], "author": p.get("username", ""),
-             "url": p.get("permalink", ""), "lang": p["query_lang"]} for p in posts]
-
-
-def youtube_candidates(queries: Queries) -> list[dict]:
-    try:
-        me = youtube.my_channel_id()
-    except (ApiError, SystemExit) as exc:
-        log(f"Outreach: YouTube unavailable - {exc}")
-        return []
-    out, seen = [], set()
-    for lang in LANGS:
-        for q in getattr(queries, lang)[:2]:  # search.list costs 100 quota units per call
-            try:
-                found = youtube.search_videos(q, lang)
-            except ApiError as exc:
-                log(f"Outreach: YouTube search failed - {exc}")
-                return out
-            for v in found:
-                text = f"{v['title']}\n{v['description']}"
-                if v["id"] in seen or v["channel"] == me or (lang == "zh") != bool(re.search(r"[一-鿿]", text)):
-                    continue
-                seen.add(v["id"])
-                out.append({"platform": "youtube", "id": v["id"], "text": text, "author": v["channel"],
-                            "url": f"https://www.youtube.com/watch?v={v['id']}", "lang": lang})
-    return out
+             "url": p.get("permalink", ""), "lang": p["query_lang"]} for p in posts], available
 
 
 def post(c: dict, text: str) -> None:
-    if c["platform"] == "threads":
-        meta.th_reply(c["id"], text)
-    else:
-        youtube.comment(c["id"], text)
+    meta.th_reply(c["id"], text)
 
 
 # ---------------------------------------------------------------- main
@@ -169,12 +141,11 @@ def run(dry_run: bool = False) -> None:
     queries = llm.ask(Queries, QUERY_SYSTEM, context(ep) + f"\n\nWrite phrases for: {', '.join(LANGS)}",
                       effort="low")
     skip = blocked(rows)
-    found = threads_candidates(queries)
+    found, available = threads_candidates(queries)
     found = [c for c in found if _hash(f"threads:{c['id']}") not in skip and _hash(f"threads@{c['author']}") not in skip]
-    if not found:  # YouTube only when Threads had nothing, to spend search quota only when needed
-        found = [c for c in youtube_candidates(queries)
-                 if _hash(f"youtube:{c['id']}") not in skip and _hash(f"youtube@{c['author']}") not in skip]
     found = [c for lang in LANGS for c in [x for x in found if x["lang"] == lang][:15]]
+    if not available:
+        return done("主動留言：Threads 搜尋還不能用（需要 threads_keyword_search 權限），今天跳過")
     if not found:
         return done("主動留言：沒找到相關的貼文，今天跳過")
 

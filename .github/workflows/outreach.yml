@@ -1,5 +1,5 @@
 # Daily at 20:47 Taiwan: leave at most ONE comment under someone else's public post that today's
-# paper speaks to (Threads first, YouTube if Threads has nothing), then add one line to the
+# paper speaks to (Threads only), then add one line to the
 # "留言檢查紀錄" issue. Details (the post we commented on) go only to the owner's private email.
 # Scheduled runs need AUTO_REPLY=true; set the repo variable OUTREACH_AUTO=false to stop just this.
 # Logs show counts only. Never add steps that print post data.
@@ -40,9 +40,7 @@ jobs:
         env:
           STATE_DIR: state
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}  # only as the state hash key
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
           ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
