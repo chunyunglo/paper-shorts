@@ -1,5 +1,6 @@
 # Daily: read every post's numbers (YouTube, Instagram, Threads) into the state branch:
 # analytics/latest.json, history.jsonl, report.md, and a weekly strategy.md written by Claude
+# (every past note is kept in strategy_log.md)
 # that the podcast picks and writes from. Read-only on every platform. Logs show counts only.
 name: Channel analytics
 

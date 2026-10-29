@@ -22,7 +22,8 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | 看畫面 | 每種語言抽 8 張畫面給 Claude 看，有明顯問題就不上片（`VISUAL_CHECK=off` 可關掉） | `shorts/look.py` |
 | 上傳 | 影片先放到 GitHub Release，IG 和 Threads 從那個網址抓；YouTube 直接上傳並標示 AI 生成內容 | `shorts/publish/` |
 | 留言 | 一般問答／稱讚：用留言者的語言根據論文摘要回覆；垃圾留言：隱藏；敏感或學術爭議：不回覆，私下通知（長片和自由發文的留言也一起處理）。值得參考的回饋（想看的主題、看不懂的地方、有趣的角度）由 Claude 改寫成一句摘要存到 `state` 分支 `feedback.jsonl`（不存原文和留言者），選論文、寫腳本和自由發文時會參考 | `shorts/comments.py` |
-| 後台數據 | 每天讀所有貼文的數字存到 `state` 分支 `analytics/`（`report.md` 可直接看），每週 Claude 寫 `strategy.md`，選論文和寫腳本時會讀 | `shorts/analytics.py` |
+| 後台數據 | 每天讀所有貼文的數字存到 `state` 分支 `analytics/`（`report.md` 可直接看），每週 Claude 寫 `strategy.md`，選論文和寫腳本時會讀；舊的策略都留在 `strategy_log.md` | `shorts/analytics.py` |
+| 決策紀錄 | 每次發文後重寫 [`data/decisions.md`](data/decisions.md)：每篇短影音、脫口秀、自由發文為什麼發、參考了哪些數據或觀眾回饋（改寫，不引用原文），最新的在最上面 | `shorts/journal.py` |
 
 ## 排程 Workflows
 

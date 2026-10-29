@@ -205,9 +205,18 @@ def pdf_doc(url: str) -> dict:
     return {"type": "document", "source": {"type": "url", "url": url}}
 
 
+def with_signals(reason: str, signals: str) -> str:
+    """The pick reason as it goes into history and the decision log."""
+    signals = signals.strip()
+    return reason.strip() + (f" Signals: {signals}" if signals and signals.lower().rstrip(".") != "none" else "")
+
+
 class Pick(BaseModel):
     index: int = Field(description="Index of the chosen paper in the list")
     reason: str = Field(description="One sentence on why this paper fits best")
+    signals: str = Field("", description="One sentence on which viewer feedback or news (if any) shaped this "
+                                         "pick, paraphrased without quoting or naming anyone; 'none' if the "
+                                         "paper alone decided it")
     news_index: int = Field(-1, description="Index <n> of the headline this paper genuinely connects to, "
                                             "or -1 if none fits naturally")
     news_link: str = Field("", description="If news_index is set: one sentence on how the paper speaks to "
@@ -283,4 +292,4 @@ def pick(papers: list[Paper], history: list[dict],
     if 0 <= choice.news_index < len(headlines) and choice.news_link.strip():
         news = {**headlines[choice.news_index].model_dump(), "link": choice.news_link.strip()}
         log("Linked to a news headline")
-    return chosen, choice.reason, news
+    return chosen, with_signals(choice.reason, choice.signals), news

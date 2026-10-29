@@ -25,6 +25,9 @@ def load_history() -> list[dict[str, Any]]:
 def save_history(items: list[dict[str, Any]]) -> None:
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     HISTORY_FILE.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    from . import journal
+
+    journal.write()
 
 
 def norm_title(title: str) -> str:

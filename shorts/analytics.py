@@ -202,7 +202,12 @@ def run(strategy: bool | None = None) -> None:
     stale = written < (datetime.now(timezone.utc) - timedelta(days=6)).date().isoformat()
     if strategy or (strategy is None and stale and config.env("ANTHROPIC_API_KEY")):
         if any(r.get("metrics") for r in report["posts"]):
-            sfile.write_text(f"Written {day}\n\n" + write_strategy(report) + "\n", encoding="utf-8")
+            note = write_strategy(report)
+            sfile.write_text(f"Written {day}\n\n" + note + "\n", encoding="utf-8")
+            # strategy.md is replaced each week; the log keeps every note so past reasoning stays readable
+            logfile = DIR / "strategy_log.md"
+            old = logfile.read_text(encoding="utf-8") if logfile.exists() else "# 經營策略紀錄 Strategy log\n"
+            logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
             log("Strategy note updated")
     text = sfile.read_text(encoding="utf-8") if sfile.exists() else ""
     (DIR / "report.md").write_text(report_md(report, text), encoding="utf-8")
