@@ -1,43 +1,46 @@
 # Channel analytics 頻道數據
 
-Updated 2026-10-28T07:16:03+00:00
+Updated 2026-10-29T07:36:09+00:00
 
 ```
-Collected 2026-10-28T07:16:03+00:00
-YouTube channel: 2 subscribers, 89 total views, 9 videos
+Collected 2026-10-29T07:36:09+00:00
+YouTube channel: 2 subscribers, 214 total views, 11 videos
 
-short on youtube: 9 posts, average 13 views
-  by language: zh 32, en 5, pt 1
-  - 51 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
+short on youtube: 11 posts, average 21 views
+  by language: zh 43, en 9, pt 8
+  - 107 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 33 views, 0 likes, 0 comments, avg watched 32%, +1 subs | zh | AI Wrote the Petitions. Did They Win More?
-  - 14 views, 2 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
-  - 13 views, 0 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 2 views, 0 likes, 0 comments, avg watched 19%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
+  - 24 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
+  - 17 views, 2 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
+  - 16 views, 0 likes, 1 comments | pt | Jobs Dropped the Degree. So Who Got Hired?
+  - 4 views, 0 likes, 1 comments | pt | Caught Using Slave Labor: Do Ranches Really Stop?
+  - 3 views, 0 likes, 0 comments, avg watched 19%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
   - 0 views, 0 likes, 1 comments | en | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 0 views, 0 likes, 1 comments | pt | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 0 views, 0 likes, 1 comments | pt | Jobs Dropped the Degree. So Who Got Hired?
 
-short on instagram: 9 posts, average 44 views
-  by language: zh 81, en 37, pt 14
+short on instagram: 8 posts, average 48 views
+  by language: zh 66, en 29
   - 103 views, 2 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 84 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
+  - 88 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 55 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
   - 53 views, 1 likes, 1 comments | en | AI Wrote the Petitions. Did They Win More?
-  - 33 views, 1 likes, 1 comments | pt | AI Wrote the Petitions. Did They Win More?
-  - 29 views, 0 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
-  - 7 views, 0 likes, 1 comments | pt | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 1 views, 0 likes, 1 comments | pt | Jobs Dropped the Degree. So Who Got Hired?
+  - 30 views, 0 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
+  - 29 views, 1 likes, 1 comments | en | Caught Using Slave Labor: Do Ranches Really Stop?
+  - 20 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
+  - 5 views, 0 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
 
-short on threads: 9 posts, average 7 views
-  by language: zh 17, en 4, pt 1
+short on threads: 8 posts, average 13 views
+  by language: zh 20, en 6
+  - 27 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 19 views, 1 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 18 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
+  - 19 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 15 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
-  - 7 views, 1 likes, 1 comments | en | Caught Using Slave Labor: Do Ranches Really Stop?
-  - 4 views, 1 likes, 1 comments | en | AI Wrote the Petitions. Did They Win More?
+  - 11 views, 0 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
+  - 8 views, 1 likes, 1 comments | en | Caught Using Slave Labor: Do Ranches Really Stop?
+  - 5 views, 1 likes, 1 comments | en | AI Wrote the Petitions. Did They Win More?
   - 1 views, 0 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
-  - 0 views, 1 likes, 1 comments | pt | AI Wrote the Petitions. Did They Win More?
-  - 0 views, 1 likes, 1 comments | pt | Caught Using Slave Labor: Do Ranches Really Stop?
+
+podcast on youtube: 1 posts, average 2 views
+  - 2 views, 0 likes, 0 comments | en | AI Helped With Homework. Did It Help on the Exam?
 ```
 
 ## Strategy 經營策略 (written by Claude)
@@ -62,39 +65,40 @@ _With one topic, 9 posts and 44 total YouTube views (plus engagement that looks 
 
 | kind | platform | lang | views | likes | comments | title |
 |---|---|---|---|---|---|---|
-| short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
-| short | instagram | zh | 84 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
-| short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
-| short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
-| short | youtube | zh | 51 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
-| short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
-| short | instagram | pt | 33 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5n4dyG5HM/) |
-| short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
-| short | instagram | en | 29 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
-| short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
-| short | threads | zh | 18 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
-| short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
-| short | youtube | en | 14 | 2 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
-| short | youtube | zh | 13 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
-| social | threads | zh | 13 | 1 | 1 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
+| social | threads | zh | 179 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
-| short | threads | en | 7 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
-| short | instagram | pt | 7 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De-T7yvinWl/) |
-| short | threads | en | 4 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nxS2DZN6) |
-| short | threads | pt | 3 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/DfA48JFEtvf) |
-| short | youtube | en | 2 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
-| short | youtube | pt | 2 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/-ozetwZih0k) |
-| short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
-| short | instagram | pt | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/DfA43F_DoBt/) |
-| short | threads | pt | 0 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5n9hdAqhz) |
-| short | youtube | en | 0 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
-| short | youtube | pt | 0 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/4kqijXYKbUc) |
-| short | threads | pt | 0 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De-UAejCGHg) |
-| short | youtube | pt | 0 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
-| social | threads | en | 0 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
+| short | youtube | zh | 107 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
+| short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
+| short | instagram | zh | 88 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
+| short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
+| short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
+| short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
+| short | instagram | en | 30 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
+| short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
+| short | threads | zh | 27 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
+| short | youtube | zh | 24 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
+| short | instagram | zh | 20 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
+| short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
+| short | threads | zh | 19 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
+| short | youtube | en | 17 | 2 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
+| short | youtube | pt | 16 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
+| short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
+| short | youtube | en | 15 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/9MExpUEuD7o) |
+| short | threads | en | 11 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
+| short | threads | en | 8 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
+| social | threads | en | 8 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
+| short | youtube | zh | 7 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
+| short | threads | en | 5 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nxS2DZN6) |
+| short | instagram | en | 5 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCStp0EasQ/) |
+| short | youtube | pt | 4 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/-ozetwZih0k) |
+| short | youtube | pt | 4 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/4kqijXYKbUc) |
+| short | youtube | en | 3 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
+| podcast | youtube | en | 2 | 0 | 0 | [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M) |
+| short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
+| short | youtube | en | 0 | 0 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
 | social | instagram | zh | 0 | 0 | 0 | [本週我們介紹了三篇關於人類行為的新研究，每篇一個重點：
 
 1️⃣ AI幫忙寫請願書（Nature Human Behaviour, 2026）

@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-10-28T07:16:03+00:00",
+ "collected_at": "2026-10-29T07:36:09+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 2,
-   "viewCount": 89,
-   "videoCount": 9
+   "viewCount": 214,
+   "videoCount": 11
   }
  },
  "notes": [],
@@ -83,7 +83,7 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 2,
+    "views": 3,
     "likes": 0,
     "comments": 0,
     "duration": "PT41S",
@@ -127,7 +127,7 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 4,
+    "views": 5,
     "likes": 1,
     "replies": 1,
     "reposts": 0,
@@ -146,15 +146,15 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 2,
+    "views": 4,
     "likes": 0,
     "comments": 0,
     "duration": "PT45S",
     "privacy": "public",
     "published": "2026-10-25T02:22:01Z",
     "estimatedMinutesWatched": 0,
-    "averageViewDuration": 5,
-    "averageViewPercentage": 11.64,
+    "averageViewDuration": 9,
+    "averageViewPercentage": 20.16,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -169,15 +169,7 @@
    "url": "https://www.instagram.com/reel/De5n4dyG5HM/",
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
-   "metrics": {
-    "views": 33,
-    "reach": 28,
-    "likes": 1,
-    "comments": 1,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 2
-   }
+   "metrics": {}
   },
   {
    "kind": "short",
@@ -189,14 +181,7 @@
    "url": "https://www.threads.com/@human__behavior__decode/post/De5n9hdAqhz",
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
-   "metrics": {
-    "views": 0,
-    "likes": 1,
-    "replies": 1,
-    "reposts": 0,
-    "quotes": 0,
-    "shares": 0
-   }
+   "metrics": {}
   },
   {
    "kind": "short",
@@ -209,12 +194,17 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 13,
+    "views": 7,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT53S",
     "privacy": "public",
-    "published": "2026-10-26T11:38:07Z"
+    "published": "2026-10-26T11:38:07Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 5,
+    "averageViewPercentage": 11.23,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -306,7 +296,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 7,
+    "views": 8,
     "likes": 1,
     "replies": 1,
     "reposts": 0,
@@ -325,7 +315,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 0,
+    "views": 4,
     "likes": 0,
     "comments": 1,
     "duration": "PT54S",
@@ -343,15 +333,7 @@
    "url": "https://www.instagram.com/reel/De-T7yvinWl/",
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
-   "metrics": {
-    "views": 7,
-    "reach": 6,
-    "likes": 0,
-    "comments": 1,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1
-   }
+   "metrics": {}
   },
   {
    "kind": "short",
@@ -363,14 +345,7 @@
    "url": "https://www.threads.com/@human__behavior__decode/post/De-UAejCGHg",
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
-   "metrics": {
-    "views": 0,
-    "likes": 1,
-    "replies": 1,
-    "reposts": 0,
-    "quotes": 0,
-    "shares": 0
-   }
+   "metrics": {}
   },
   {
    "kind": "short",
@@ -383,7 +358,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 51,
+    "views": 107,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
@@ -402,8 +377,8 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 84,
-    "reach": 77,
+    "views": 88,
+    "reach": 81,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -422,7 +397,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 18,
+    "views": 19,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -441,7 +416,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 14,
+    "views": 17,
     "likes": 2,
     "comments": 1,
     "duration": "PT46S",
@@ -460,8 +435,8 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 29,
-    "reach": 21,
+    "views": 30,
+    "reach": 22,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -499,7 +474,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 0,
+    "views": 16,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -517,15 +492,7 @@
    "url": "https://www.instagram.com/reel/DfA43F_DoBt/",
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
-   "metrics": {
-    "views": 1,
-    "reach": 1,
-    "likes": 0,
-    "comments": 1,
-    "saved": 0,
-    "shares": 0,
-    "total_interactions": 1
-   }
+   "metrics": {}
   },
   {
    "kind": "short",
@@ -537,13 +504,141 @@
    "url": "https://www.threads.com/@human__behavior__decode/post/DfA48JFEtvf",
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
+   "metrics": {}
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "NIgmSuPHtns",
+   "url": "https://youtube.com/shorts/NIgmSuPHtns",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 3,
+    "views": 24,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M2S",
+    "privacy": "public",
+    "published": "2026-10-28T11:08:33Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17975927984990984",
+   "url": "https://www.instagram.com/reel/DfCSh6jjrjG/",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
+   "metrics": {
+    "views": 20,
+    "reach": 22,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17991332844026168",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
+   "metrics": {
+    "views": 27,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
     "quotes": 0,
     "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "9MExpUEuD7o",
+   "url": "https://youtube.com/shorts/9MExpUEuD7o",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
+   "metrics": {
+    "views": 15,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M6S",
+    "privacy": "public",
+    "published": "2026-10-28T11:10:11Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18475002217141400",
+   "url": "https://www.instagram.com/reel/DfCStp0EasQ/",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
+   "metrics": {
+    "views": 5,
+    "reach": 5,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261028-the-effects-of-generative-ai-on-collabor",
+   "title": "AI at Work Didn't Isolate People. It Rewired Their Teams",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18638692477028670",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c",
+   "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
+   "created": "2026-10-28T06:13:33+00:00",
+   "metrics": {
+    "views": 11,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "podcast",
+   "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
+   "title": "AI Helped With Homework. Did It Help on the Exam?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "5z3lpCLmj6M",
+   "url": "https://www.youtube.com/watch?v=5z3lpCLmj6M",
+   "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
+   "created": "2026-10-28T07:27:11+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "comments": 0,
+    "duration": "PT7M4S",
+    "privacy": "private",
+    "published": "2026-10-28T09:17:08Z"
    }
   },
   {
@@ -557,9 +652,9 @@
    "paper": "20261027-decredentialed-jobs-and-upward-mobility",
    "created": "2026-10-28T06:48:20+00:00",
    "metrics": {
-    "views": 13,
+    "views": 179,
     "likes": 1,
-    "replies": 1,
+    "replies": 2,
     "reposts": 1,
     "quotes": 0,
     "shares": 0
@@ -576,7 +671,7 @@
    "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206",
    "created": "2026-10-28T06:51:44+00:00",
    "metrics": {
-    "views": 0,
+    "views": 8,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
