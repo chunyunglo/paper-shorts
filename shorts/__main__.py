@@ -12,7 +12,8 @@
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
   podcast-make      pick a paper and write + fact-check the talk-show episode (podcast/episodes/)
   podcast-publish   check the rendered talk show and upload it to YouTube for the weekly slot
-  analytics         read every post's numbers into state/analytics/; weekly self-review + strategy note
+  analytics         read every post's numbers into state/analytics/; weekly self-review + strategy note,
+                    emailed to the owner
   recall QUERY      print the past posts most like QUERY and how they did (what the pickers see)
   social-make       plan today's free posts (Threads text, Instagram slides), fact-check, draw (out/social/)
   social-publish D  post a planned folder; images are fetched from --image-base-url
@@ -86,6 +87,8 @@ def main() -> None:
     rc = sub.add_parser("recall")
     rc.add_argument("query", nargs="?", default="")
     an.add_argument("--print", action="store_true", help="print the digest")
+    an.add_argument("--email", action="store_true", help="email the weekly report now (it is also sent "
+                                                         "whenever the strategy is rewritten)")
     sub.add_parser("social-make")
     sp = sub.add_parser("social-publish")
     sp.add_argument("folder", type=Path)
@@ -181,7 +184,7 @@ def main() -> None:
         install_excepthook(strict=True)
         from . import analytics
 
-        analytics.run(True if args.strategy else None)
+        analytics.run(True if args.strategy else None, args.email)
         if args.print:
             print((analytics.DIR / "report.md").read_text(encoding="utf-8"))
     elif args.cmd == "recall":
