@@ -39,5 +39,44 @@
     "news": null,
     "id": "18145930750589699",
     "url": "https://www.instagram.com/p/DfB1Nj-luRP/"
+  },
+  {
+    "posted": "2026-10-29T10:19:18+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "news_link",
+    "episodes": [
+      "20261028-ai-helped-with-homework-did-it-help-on-t"
+    ],
+    "text": "ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？\n\n我們英文 podcast 介紹過一篇研究（arXiv, 2026），在卡內基美隆大學一門數學證明課進行：\n・隨機提早拿到AI工具的學生，作業高了2.56分\n・但不能用AI的期中考，兩組差異不顯著\n・之後自由使用時，聊天訊息每多100則，下次期中考約低3.02分\n\n這是相關不是因果：可能是比較吃力的同學更常求助。另一個「先交證明草稿才給回饋」的工具，就沒有這種負相關。\n\n你用AI讀書時，會先自己試一次嗎？",
+    "news": "OpenAI expanding ChatGPT dot access to iMessage and RCS",
+    "id": "18080776229724899",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfExt8eoOGz"
+  },
+  {
+    "posted": "2026-10-29T10:19:18+00:00",
+    "platform": "threads",
+    "lang": "en",
+    "kind": "news_link",
+    "episodes": [
+      "20261028-the-effects-of-generative-ai-on-collabor"
+    ],
+    "text": "Adam Mosseri says negativity around AI is 'going to get worse.' One common fear: AI at work makes us talk to each other less.\n\nA study we covered (arXiv, 2026) tracked 12,040 staff in one company unit during a Copilot rollout. Adopters then logged ~1.43 more self-initiated collaboration hours a month and ~2.2 more contacts.\n\nCaveats: one company, first 3 months only; logs show who talked, not about what; some estimates weren't significant.\n\nhttps://arxiv.org/abs/2610.32461",
+    "news": "Adam Mosseri says negativity around AI is ‘going to get worse’",
+    "id": "18055297214817737",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4"
+  },
+  {
+    "posted": "2026-10-29T10:19:18+00:00",
+    "platform": "instagram",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261028-ai-helped-with-homework-did-it-help-on-t"
+    ],
+    "text": "AI幫你寫作業，考試就會變好嗎？\n\n一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚一點」拿到AI輔助工具：一個是被設定成只給提示的聊天機器人，另一個是要先交證明草稿才給回饋的工具。考試全程不能用AI。\n\n幾個發現：\n📈 提早拿到工具的那組，作業分數高了2.56分\n📝 但期中考2，兩組沒有顯著差異\n💬 之後大家自由使用，聊天訊息每多100則，期中考3約低3.02分\n✅ 「先交草稿再給回饋」的工具，和考試成績沒有負相關\n\n要小心的地方：自由使用階段是相關、不是因果，可能只是比較吃力的同學更常求助。實驗也無法分開兩個工具各自的效果，而且只是一門課、一所學校。\n\n完整討論在我們的英文 podcast，論文連結：https://arxiv.org/abs/2610.31481\n\n#行為解碼 #AI學習 #教育研究 #ChatGPT #科學傳播",
+    "news": null,
+    "id": "17992576928862881",
+    "url": "https://www.instagram.com/p/DfEx0i-oKHy/"
   }
 ]
