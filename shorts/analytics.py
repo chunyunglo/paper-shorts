@@ -206,7 +206,26 @@ def guidance() -> str:
     return "\n\n".join(parts)
 
 
-def run(strategy: bool | None = None) -> None:
+def weekly_email(report: dict, strategy: str, lessons: str) -> bool:
+    """The owner's weekly letter: the self-review, the new strategy and the numbers, by private email."""
+    from . import notify
+
+    day = report.get("collected_at", "")[:10]
+    url = f"https://github.com/{config.GITHUB_REPO}/blob/state/analytics/report.md"
+    body = "\n\n".join([
+        f"行為解碼 每週檢討與策略 Weekly review and strategy, {day}",
+        "== 自我檢討 Self-review (past decisions vs. results) ==\n\n" + (lessons or "(還沒有：貼文太新，無法評估)"),
+        "== 經營策略 Strategy ==\n\n" + (strategy or "(none yet)"),
+        "== 數據摘要 Numbers ==\n\n" + summary(report),
+        f"完整報告 Full report: {url}\n決策紀錄 Decision log: https://github.com/{config.GITHUB_REPO}"
+        "/blob/main/data/decisions.md"])
+    ok = notify.email(f"[行為解碼] 每週檢討與策略 {day}", body)
+    log("Weekly report emailed" if ok else "Weekly report not emailed (check the ALERT_EMAIL_* secrets)")
+    return ok
+
+
+def run(strategy: bool | None = None, email: bool = False) -> None:
+    """email: send the weekly letter even if the strategy was not rewritten this run."""
     report = collect()
     DIR.mkdir(parents=True, exist_ok=True)
     (DIR / "latest.json").write_text(json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -234,7 +253,10 @@ def run(strategy: bool | None = None) -> None:
             old = logfile.read_text(encoding="utf-8") if logfile.exists() else "# 經營策略紀錄 Strategy log\n"
             logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
             log("Strategy note updated")
+            email = True  # a new weekly note goes to the owner
     text = sfile.read_text(encoding="utf-8") if sfile.exists() else ""
     from . import memory
 
     (DIR / "report.md").write_text(report_md(report, text, memory.lessons()), encoding="utf-8")
+    if email:
+        weekly_email(report, "\n".join(text.split("\n")[2:]).strip(), memory.lessons())

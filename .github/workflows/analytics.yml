@@ -1,7 +1,8 @@
 # Daily: read every post's numbers (YouTube, Instagram, Threads) into the state branch:
 # analytics/latest.json, history.jsonl, report.md, and a weekly strategy.md written by Claude
 # (every past note is kept in strategy_log.md), preceded by a self-review of past decisions against
-# their results (lessons.md, history in lessons_log.md)
+# their results (lessons.md, history in lessons_log.md). Each new weekly note is emailed to the owner
+# (ALERT_EMAIL_* secrets) with the self-review and the numbers.
 # that the podcast picks and writes from. Read-only on every platform. Logs show counts only.
 name: Channel analytics
 
@@ -12,6 +13,10 @@ on:
     inputs:
       strategy:
         description: Rewrite the self-review and strategy note now
+        type: boolean
+        default: false
+      email:
+        description: Email the weekly report now (it is also sent whenever the strategy is rewritten)
         type: boolean
         default: false
 
@@ -44,7 +49,10 @@ jobs:
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
           THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
-        run: python -m shorts analytics ${{ inputs.strategy && '--strategy' || '' }}
+          ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
+          ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+        run: python -m shorts analytics ${{ inputs.strategy && '--strategy' || '' }} ${{ inputs.email && '--email' || '' }}
       - name: Save to the state branch
         env:
           GH_TOKEN: ${{ github.token }}

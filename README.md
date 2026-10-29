@@ -36,7 +36,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | `comments.yml` | 每 4 小時（台灣 00:23、04:23、08:23、12:23、16:23、20:23）；每次跑完在「留言檢查紀錄」issue 留一行數字通知你（不含留言內容） | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
 | `podcast.yml` | 每週五 04:00 UTC | 長片 Behavior Decoded Tonight：自動選論文、寫對話、AI 查核、渲染、檢查、排程上 YouTube，不經人工審核。repo variable `PODCAST_AUTO=true` 才會自動跑，見 [podcast/README.md](podcast/README.md) |
-| `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。手動執行勾 `strategy` 可立刻重寫兩者 |
+| `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
