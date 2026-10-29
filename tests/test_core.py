@@ -318,8 +318,7 @@ def test_outreach_posts_once_a_day(tmp_path, monkeypatch):
     monkeypatch.setattr(outreach, "context", lambda ep: "ctx")
     found = [{"platform": "threads", "id": "1", "text": "a", "author": "x", "url": "p1", "lang": "zh"},
              {"platform": "threads", "id": "2", "text": "b", "author": "y", "url": "p2", "lang": "zh"}]
-    monkeypatch.setattr(outreach, "threads_candidates", lambda q: list(found))
-    monkeypatch.setattr(outreach, "youtube_candidates", lambda q: [])
+    monkeypatch.setattr(outreach, "threads_candidates", lambda q: (list(found), True))
     monkeypatch.setattr(outreach.notify, "email", lambda *a: True)
 
     def ask(schema, *a, **k):
