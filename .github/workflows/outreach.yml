@@ -1,0 +1,87 @@
+# Daily at 20:47 Taiwan: leave at most ONE comment under someone else's public post that today's
+# paper speaks to (Threads first, YouTube if Threads has nothing), then add one line to the
+# "留言檢查紀錄" issue. Details (the post we commented on) go only to the owner's private email.
+# Scheduled runs need AUTO_REPLY=true; set the repo variable OUTREACH_AUTO=false to stop just this.
+# Logs show counts only. Never add steps that print post data.
+name: Comment on others' posts
+
+on:
+  schedule:
+    - cron: "47 12 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Find and pick only (no comment)
+        type: boolean
+        default: true
+
+concurrency: comments  # shares the state branch with comments.yml
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  outreach:
+    if: github.event_name != 'schedule' || (vars.AUTO_REPLY == 'true' && vars.OUTREACH_AUTO != 'false')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load state
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+      - uses: ./.github/actions/setup
+
+      - name: Comment once
+        env:
+          STATE_DIR: state
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+          ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
+          ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
+          ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          OUTREACH_REPORT: report.txt
+        run: python -m shorts outreach ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
+
+      - name: Save state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -f state/outreach.json ] || exit 0
+          cd state
+          if [ ! -d .git ]; then
+            git init -q -b state
+            git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add outreach.json
+          git diff --cached --quiet && exit 0
+          git commit -qm "Update outreach state"
+          git push -q origin HEAD:state
+
+      - name: Log to the comment check issue
+        if: always() && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run))
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          title="留言檢查紀錄 / Comment check log"
+          num=$(gh issue list -R "$GITHUB_REPOSITORY" --state open --search "\"$title\" in:title" --json number,title \
+                --jq ".[] | select(.title == \"$title\") | .number" | head -1)
+          if [ -z "$num" ]; then
+            url=$(gh issue create -R "$GITHUB_REPOSITORY" --title "$title" \
+                  --body "每次自動檢查留言後，bot 會在這裡留一行數字（不含留言內容）。訂閱這則 issue 就會收到通知。")
+            num=${url##*/}
+          fi
+          when=$(TZ=Asia/Taipei date "+%m/%d %H:%M")
+          if [ -f report.txt ]; then line=$(cat report.txt); else line="⚠️ 主動留言這次沒有跑完"; fi
+          gh issue comment "$num" -R "$GITHUB_REPOSITORY" --body "**$when** $line · [紀錄]($RUN_URL)"

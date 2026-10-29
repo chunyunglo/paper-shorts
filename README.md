@@ -31,6 +31,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | `revise.yml` | 你在「今晚上片」issue 留言寫修改意見時（不是 OK、也不是「不要上」）自動觸發：Claude 改腳本、重做三支影片，在 issue 貼新版本 | 只有 repo 擁有者的留言會觸發 |
 | `suggest.yml` | （目前暫停，只能手動執行）原本週一到週六 19:30（台灣）：找和當天論文相關的中文和英文公開 Threads 貼文，各起草最多 3 則以研究發現為主的留言，寄到你的信箱。**不會自動貼**，你自己決定要不要貼 | 需要 Threads 的 `threads_keyword_search` 權限才會自動找貼文；沒有的話信裡會附搜尋連結和通用草稿 |
 | `publish.yml` | 週一到六 14:00 做影片（含 AI 查核和看畫面）並開「今晚上片」issue；19:00 上中英文（台灣時間）；巴西 19:00（台灣隔天 06:00）上葡語。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。預設不用審核：每天開一則「今晚上片」issue 當紀錄，沒回覆就照常上片，回「不要上」才會擋下。想恢復人工審核，設 variable `REVIEW_REQUIRED=true` |
+| `outreach.yml` | 每天 20:47（台灣） | 主動留言：找一則和最近論文相關的**別人的**公開貼文，自動留**最多一則**以研究發現為主、不打廣告的留言（一天總共一則，同一則貼文不會留兩次，同一個人 90 天內不會再留）。先找 Threads，Threads 沒有才找 YouTube；Instagram 的 API 不能留言在別人的貼文，所以不支援。留在哪裡和原文寄到你的信箱，「留言檢查紀錄」issue 只記平台和我們自己的留言。跟著 `AUTO_REPLY=true` 自動跑；只想關掉這個，設 variable `OUTREACH_AUTO=false`。Threads 需要 `threads_keyword_search` 權限才搜得到別人的貼文 |
 | `comments.yml` | 每 4 小時（台灣 00:23、04:23、08:23、12:23、16:23、20:23）；每次跑完在「留言檢查紀錄」issue 留一行數字通知你（不含留言內容） | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
 | `podcast.yml` | 每週五 04:00 UTC | 長片 Behavior Decoded Tonight：自動選論文、寫對話、AI 查核、渲染、檢查、排程上 YouTube，不經人工審核。repo variable `PODCAST_AUTO=true` 才會自動跑，見 [podcast/README.md](podcast/README.md) |
@@ -38,7 +39,7 @@ The channel runs itself with no human review: daily trilingual shorts (Mon–Sat
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
-開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
+開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO` 設成 `true` 才會自動跑；`OUTREACH_AUTO=false` 關掉主動留言；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
 
 ## Secrets
 
