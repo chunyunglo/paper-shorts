@@ -55,7 +55,8 @@ def render() -> str:
     md = ["# 發文決策紀錄 Decision log", "",
           "每次發文後自動更新：每篇為什麼發、參考了哪些數據或觀眾回饋。最新的在最上面。",
           "Rebuilt after every post from data/*.json: why each post went out. Newest first.",
-          "Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch.", ""]
+          "Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of "
+          "these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).", ""]
     day = None
     for ts, lines in sorted(entries(), key=lambda e: e[0], reverse=True):
         if ts[:10] != day:

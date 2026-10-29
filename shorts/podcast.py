@@ -20,7 +20,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from . import analytics, config, journal, llm, papers
+from . import analytics, config, journal, llm, memory, papers
 from .papers import Paper
 from .pipeline import slug
 from .safelog import ApiError, log
@@ -278,9 +278,9 @@ def to_show(ep: Episode, paper: Paper) -> dict:
 class Pick(BaseModel):
     ranking: list[int] = Field(description="Indices of the best 5 candidates for the talk show, best first")
     reason: str = Field(description="One sentence on why the first one is the best pick")
-    signals: str = Field("", description="One sentence on which channel numbers, strategy notes or viewer feedback "
-                                         "(if any) shaped this pick, paraphrased without quoting or naming anyone; "
-                                         "'none' if the paper alone decided it")
+    signals: str = Field("", description="One sentence on which channel numbers, strategy notes, lessons, past "
+                                         "posts' results or viewer feedback (if any) shaped this pick, paraphrased "
+                                         "without quoting or naming anyone; 'none' if the paper alone decided it")
 
 
 PICK_SYSTEM = """You pick the paper for this week's "Behavior Decoded Tonight", a 5-8 minute \
@@ -356,8 +356,10 @@ def make(paper_json: Path | None = None) -> Path:
             raise SystemExit("That paper has no open full text we can read")
         reason, pdf = "given", paper.pdf_url
     else:
-        paper, reason, pdf = pick(pod_history, report, guidance)
-    ep = write(paper, pdf, guidance)
+        paper, reason, pdf = pick(pod_history, report,
+                                  "\n\n".join(filter(None, [guidance, memory.context(kinds=("talk show", "short"))])))
+    ep = write(paper, pdf, "\n\n".join(filter(None, [guidance, memory.context(
+        f"{paper.title} {paper.abstract}", ("talk show", "short"))])))
     now = datetime.now(timezone.utc)
     ep_id = f"{now:%Y%m%d}-{slug(ep.title)}"
     show = to_show(ep, paper)

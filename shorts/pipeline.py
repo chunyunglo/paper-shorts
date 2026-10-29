@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import analytics, config, news as newsmod, papers, render, script as scriptmod, tts
+from . import analytics, config, memory, news as newsmod, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -41,7 +41,10 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
             paper = papers.Paper.model_validate_json(paper_json.read_text(encoding="utf-8"))
             reason, news = "given", None
         else:
-            paper, reason, news = papers.pick(papers.candidates(history), history, newsmod.headlines(), notes)
+            paper, reason, news = papers.pick(papers.candidates(history), history, newsmod.headlines(),
+                                              "\n\n".join(filter(None, [notes, memory.context(kinds=("short",))])))
+        # the writer also sees how past shorts on similar topics did (their titles and opening lines)
+        notes = "\n\n".join(filter(None, [notes, memory.context(f"{paper.title} {paper.abstract}", ("short",))]))
         if script_json:
             script = scriptmod.Script.model_validate_json(script_json.read_text(encoding="utf-8"))
             scriptmod.validate(script)

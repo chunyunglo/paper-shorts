@@ -7,6 +7,7 @@ collect()  pulls per-post numbers for every published short and podcast episode:
 Writes STATE_DIR/analytics/latest.json, appends a compact daily row per post to
 history.jsonl, writes a readable report.md, and (weekly) asks Claude for strategy.md:
 what has worked, which the paper pickers, the script writers and the free-post planner read.
+The same weekly run first writes a self-review of past decisions against their results (memory.py).
 
 Only numbers about our own posts are stored; no viewer or commenter data.
 """
@@ -138,12 +139,14 @@ def summary(report: dict, top: int = 5) -> str:
     return "\n".join(out)
 
 
-def report_md(report: dict, strategy: str = "") -> str:
+def report_md(report: dict, strategy: str = "", lessons: str = "") -> str:
     rows = sorted((r for r in report.get("posts", []) if r.get("metrics")), key=views, reverse=True)
     md = ["# Channel analytics 頻道數據", "", f"Updated {report.get('collected_at', '?')}", "",
           "```", summary(report), "```", ""]
     if strategy:
         md += ["## Strategy 經營策略 (written by Claude)", "", strategy, ""]
+    if lessons:
+        md += ["## Self-review 自我檢討 (past decisions vs. results)", "", lessons, ""]
     md += ["## All posts", "", "| kind | platform | lang | views | likes | comments | title |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         m = r["metrics"]
@@ -172,7 +175,12 @@ clickbait that misstates a paper, and never suggest changing the scientific cont
 
 
 def write_strategy(report: dict) -> str:
-    s = llm.ask(Strategy, STRATEGY_SYSTEM, summary(report, top=8), effort="medium", max_tokens=4000)
+    from . import memory
+
+    prompt = summary(report, top=8)
+    if lessons := memory.lessons():
+        prompt += "\n\nThis week's self-review of our past decisions (build on it):\n<lessons>\n" + lessons + "\n</lessons>"
+    s = llm.ask(Strategy, STRATEGY_SYSTEM, prompt, effort="medium", max_tokens=4000)
     return ("\n".join(f"- {o}" for o in s.observations)
             + f"\n\n**Shorts:** {s.shorts_advice}\n\n**Podcast:** {s.podcast_advice}"
             + (f"\n\n**Free posts:** {s.social_advice}" if s.social_advice.strip() else "")
@@ -181,7 +189,11 @@ def write_strategy(report: dict) -> str:
 
 def guidance() -> str:
     """What the pipelines read before picking or writing: the latest digest and strategy, if any."""
+    from . import memory
+
     parts = []
+    if lessons := memory.lessons():
+        parts.append("Lessons from our weekly self-review of past posts and their results:\n" + lessons)
     if (DIR / "strategy.md").exists():
         parts.append((DIR / "strategy.md").read_text(encoding="utf-8").strip())
     if (DIR / "latest.json").exists():
@@ -209,6 +221,12 @@ def run(strategy: bool | None = None) -> None:
     stale = written < (datetime.now(timezone.utc) - timedelta(days=6)).date().isoformat()
     if strategy or (strategy is None and stale and config.env("ANTHROPIC_API_KEY")):
         if any(r.get("metrics") for r in report["posts"]):
+            from . import memory
+
+            try:  # look back at what worked first, so the new strategy builds on it
+                memory.retrospect()
+            except RuntimeError as exc:
+                log(f"Retrospective skipped: {exc}")
             note = write_strategy(report)
             sfile.write_text(f"Written {day}\n\n" + note + "\n", encoding="utf-8")
             # strategy.md is replaced each week; the log keeps every note so past reasoning stays readable
@@ -217,4 +235,6 @@ def run(strategy: bool | None = None) -> None:
             logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
             log("Strategy note updated")
     text = sfile.read_text(encoding="utf-8") if sfile.exists() else ""
-    (DIR / "report.md").write_text(report_md(report, text), encoding="utf-8")
+    from . import memory
+
+    (DIR / "report.md").write_text(report_md(report, text, memory.lessons()), encoding="utf-8")

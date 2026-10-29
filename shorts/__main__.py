@@ -12,7 +12,8 @@
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
   podcast-make      pick a paper and write + fact-check the talk-show episode (podcast/episodes/)
   podcast-publish   check the rendered talk show and upload it to YouTube for the weekly slot
-  analytics         read every post's numbers into state/analytics/ and refresh the strategy note
+  analytics         read every post's numbers into state/analytics/; weekly self-review + strategy note
+  recall QUERY      print the past posts most like QUERY and how they did (what the pickers see)
   social-make       plan today's free posts (Threads text, Instagram slides), fact-check, draw (out/social/)
   social-publish D  post a planned folder; images are fetched from --image-base-url
 """
@@ -81,7 +82,9 @@ def main() -> None:
     pp.add_argument("--video", type=Path, default=Path("podcast/out/episode.mp4"))
     pp.add_argument("--dry-run", action="store_true", help="run the checks, upload nothing")
     an = sub.add_parser("analytics")
-    an.add_argument("--strategy", action="store_true", help="rewrite the strategy note now")
+    an.add_argument("--strategy", action="store_true", help="rewrite the self-review and strategy note now")
+    rc = sub.add_parser("recall")
+    rc.add_argument("query", nargs="?", default="")
     an.add_argument("--print", action="store_true", help="print the digest")
     sub.add_parser("social-make")
     sp = sub.add_parser("social-publish")
@@ -181,6 +184,10 @@ def main() -> None:
         analytics.run(True if args.strategy else None)
         if args.print:
             print((analytics.DIR / "report.md").read_text(encoding="utf-8"))
+    elif args.cmd == "recall":
+        from . import memory
+
+        print(memory.context(args.query) or "No posts yet")
     elif args.cmd == "social-make":
         install_excepthook(strict=False)
         from .social import make as social_make

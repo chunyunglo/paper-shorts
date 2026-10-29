@@ -22,7 +22,7 @@ from typing import Literal
 from PIL import Image, ImageDraw
 from pydantic import BaseModel, Field
 
-from . import analytics, config, fonts, journal, llm, news as newsmod
+from . import analytics, config, fonts, journal, llm, memory, news as newsmod
 from .safelog import ApiError, log
 from .state import load_history
 
@@ -64,8 +64,8 @@ class Post(BaseModel):
     text: str = Field(description="Threads: the whole post, at most 480 characters, no hashtags spam (0-2). "
                                   "Instagram: the caption, at most 1500 characters, ending with 3-6 hashtags")
     slides: list[Slide] = Field(description="Instagram: 1-6 slides (first is cover). Threads: empty")
-    why: str = Field(description="One sentence on why this is worth posting today, including which channel notes "
-                                 "or viewer feedback (if any) pointed to it, paraphrased without quoting anyone")
+    why: str = Field(description="One sentence on why this is worth posting today, including which channel notes, "
+                                 "past posts' results or viewer feedback (if any) pointed to it, paraphrased without quoting anyone")
 
 
 class Plan(BaseModel):
@@ -173,9 +173,11 @@ def make(now: datetime | None = None) -> Path | None:
     heads = newsmod.headlines()
     recent = "\n".join(f"- {p['posted'][:10]} {p['platform']} {p['lang']} {p['kind']}: {p['text'][:140]}"
                        for p in history[-15:]) or "(none yet)"
+    # how earlier free posts on similar news did, and the best and worst so far, so the plan learns from them
+    past = memory.context(newsmod.listing(heads), ("free post",))
     prompt = (f"Today: {now:%A %Y-%m-%d} (UTC). Room left: threads {cap['threads']} today, instagram "
               f"{cap['instagram']} this week.\n\nOur recent free posts (don't repeat):\n{recent}\n\n"
-              f"Channel notes:\n<notes>\n{analytics.guidance() or '(no data yet)'}\n</notes>\n\n"
+              f"Channel notes:\n<notes>\n{analytics.guidance() or '(no data yet)'}\n\n{past}\n</notes>\n\n"
               f"Episodes we published:\n<episodes>\n{episodes_listing(list(eps.values()))}\n</episodes>\n\n"
               f"Today's headlines:\n<headlines>\n{newsmod.listing(heads) or '(none)'}\n</headlines>")
     plan = validate(llm.ask(Plan, SYSTEM, prompt, effort="high"), eps, cap, len(heads))
