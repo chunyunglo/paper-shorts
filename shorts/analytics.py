@@ -6,7 +6,7 @@ collect()  pulls per-post numbers for every published short and podcast episode:
            Instagram and Threads insights (if the tokens allow; otherwise skipped).
 Writes STATE_DIR/analytics/latest.json, appends a compact daily row per post to
 history.jsonl, writes a readable report.md, and (weekly) asks Claude for strategy.md:
-what has worked, which the paper picker and the podcast writer read before each episode.
+what has worked, which the paper pickers, the script writers and the free-post planner read.
 
 Only numbers about our own posts are stored; no viewer or commenter data.
 """
@@ -112,7 +112,9 @@ def summary(report: dict, top: int = 5) -> str:
         out.append(f"YouTube channel: {ch['subscriberCount']} subscribers, {ch['viewCount']} total views, "
                    f"{ch['videoCount']} videos")
     out += [f"Note: {n}" for n in report.get("notes", [])]
-    for kind in ("short", "podcast"):
+    out.append("Note: every short and talk show has one comment from us (the paper citation), and our replies "
+               "to viewers count too, so comment counts overstate viewer comments; likes may include our own.")
+    for kind in ("short", "podcast", "social"):
         for platform in ("youtube", "instagram", "threads"):
             rs = [r for r in rows if r["kind"] == kind and r["platform"] == platform and r.get("metrics")]
             if not rs:
@@ -155,12 +157,15 @@ class Strategy(BaseModel):
     shorts_advice: str = Field(description="2-4 sentences: which topics, hooks, titles and languages to favor for shorts")
     podcast_advice: str = Field(description="2-4 sentences: which papers and angles to favor for the weekly talk show, "
                                             "and what to change in its format if the numbers suggest it")
+    social_advice: str = Field("", description="1-3 sentences on the free Threads text posts and Instagram slide posts "
+                                               "(kind, language, platform), or empty if there are no numbers yet")
     caveat: str = Field(description="One sentence on how much to trust this given the sample size")
 
 
 STRATEGY_SYSTEM = """You run the YouTube/Instagram/Threads channel "Behavior Decoded" (1-minute \
 shorts in Chinese and English, each explaining one computational human-behavior paper) \
-and its weekly English late-night-style talk show "Behavior Decoded Tonight" (hosts Kai and Anne). \
+and its weekly English late-night-style talk show "Behavior Decoded Tonight" (hosts Kai and Anne), \
+plus free posts between episodes (Threads text, Instagram slides; "social" in the numbers). \
 Read the channel numbers and write short, practical guidance for the next episodes. Be honest about \
 small samples: with a handful of posts, say so rather than inventing trends. Never suggest \
 clickbait that misstates a paper, and never suggest changing the scientific content to chase views."""
@@ -169,7 +174,9 @@ clickbait that misstates a paper, and never suggest changing the scientific cont
 def write_strategy(report: dict) -> str:
     s = llm.ask(Strategy, STRATEGY_SYSTEM, summary(report, top=8), effort="medium", max_tokens=4000)
     return ("\n".join(f"- {o}" for o in s.observations)
-            + f"\n\n**Shorts:** {s.shorts_advice}\n\n**Podcast:** {s.podcast_advice}\n\n_{s.caveat}_")
+            + f"\n\n**Shorts:** {s.shorts_advice}\n\n**Podcast:** {s.podcast_advice}"
+            + (f"\n\n**Free posts:** {s.social_advice}" if s.social_advice.strip() else "")
+            + f"\n\n_{s.caveat}_")
 
 
 def guidance() -> str:
@@ -202,7 +209,12 @@ def run(strategy: bool | None = None) -> None:
     stale = written < (datetime.now(timezone.utc) - timedelta(days=6)).date().isoformat()
     if strategy or (strategy is None and stale and config.env("ANTHROPIC_API_KEY")):
         if any(r.get("metrics") for r in report["posts"]):
-            sfile.write_text(f"Written {day}\n\n" + write_strategy(report) + "\n", encoding="utf-8")
+            note = write_strategy(report)
+            sfile.write_text(f"Written {day}\n\n" + note + "\n", encoding="utf-8")
+            # strategy.md is replaced each week; the log keeps every note so past reasoning stays readable
+            logfile = DIR / "strategy_log.md"
+            old = logfile.read_text(encoding="utf-8") if logfile.exists() else "# 經營策略紀錄 Strategy log\n"
+            logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
             log("Strategy note updated")
     text = sfile.read_text(encoding="utf-8") if sfile.exists() else ""
     (DIR / "report.md").write_text(report_md(report, text), encoding="utf-8")

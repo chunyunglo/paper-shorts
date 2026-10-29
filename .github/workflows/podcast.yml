@@ -141,7 +141,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "$SHOW_FILE" data/podcast_history.json
+          git add "$SHOW_FILE" data/podcast_history.json data/decisions.md
           git commit -qm "Record podcast episode $(basename "$EP_DIR")"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
       - name: Tell the owner it failed

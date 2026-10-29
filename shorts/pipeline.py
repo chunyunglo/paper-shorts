@@ -6,7 +6,7 @@ import re
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import config, news as newsmod, papers, render, script as scriptmod, tts
+from . import analytics, config, news as newsmod, papers, render, script as scriptmod, tts
 from .config import OUT
 from .safelog import log
 from .state import load_history
@@ -36,16 +36,17 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
         script = scriptmod.Script(**old["script"])
         ep_id = f"{old['episode']}-r{now:%H%M}"  # a new id, so it gets its own release and review
     else:
+        notes = analytics.guidance()
         if paper_json:
             paper = papers.Paper.model_validate_json(paper_json.read_text(encoding="utf-8"))
             reason, news = "given", None
         else:
-            paper, reason, news = papers.pick(papers.candidates(history), history, newsmod.headlines())
+            paper, reason, news = papers.pick(papers.candidates(history), history, newsmod.headlines(), notes)
         if script_json:
             script = scriptmod.Script.model_validate_json(script_json.read_text(encoding="utf-8"))
             scriptmod.validate(script)
         else:
-            script = scriptmod.write(paper, news)
+            script = scriptmod.write(paper, news, notes)
             script = scriptmod.fact_check(paper, script, news)
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
     if "pt" in LANGS and not script.pt:

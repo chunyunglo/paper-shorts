@@ -20,7 +20,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from . import analytics, config, llm, papers
+from . import analytics, config, journal, llm, papers
 from .papers import Paper
 from .pipeline import slug
 from .safelog import ApiError, log
@@ -278,6 +278,9 @@ def to_show(ep: Episode, paper: Paper) -> dict:
 class Pick(BaseModel):
     ranking: list[int] = Field(description="Indices of the best 5 candidates for the talk show, best first")
     reason: str = Field(description="One sentence on why the first one is the best pick")
+    signals: str = Field("", description="One sentence on which channel numbers, strategy notes or viewer feedback "
+                                         "(if any) shaped this pick, paraphrased without quoting or naming anyone; "
+                                         "'none' if the paper alone decided it")
 
 
 PICK_SYSTEM = """You pick the paper for this week's "Behavior Decoded Tonight", a 5-8 minute \
@@ -335,7 +338,9 @@ def pick(pod_history: list[dict], report: dict | None, guidance: str) -> tuple[P
         paper = papers.enrich(cands[i][0])
         if papers.attach_full_text(paper):
             log(f"Picked (rank {ranked.index(i) + 1}, full text): {paper.title} [{paper.venue}]")
-            reason = choice.reason if i == ranked[0] else f"Best-ranked paper with open full text. {choice.reason}"
+            reason = papers.with_signals(choice.reason, choice.signals)
+            if i != ranked[0]:
+                reason = f"Best-ranked paper with open full text. {reason}"
             return paper, reason, paper.pdf_url
     raise SystemExit("None of the ranked papers has open full text; no episode this week")
 
@@ -549,8 +554,9 @@ def publish(folder: Path, video: Path, dry_run: bool = False) -> None:
     hist = [h for h in load_podcast_history() if h["episode"] != meta["episode"]]
     hist.append({"episode": meta["episode"], "created": meta["created"], "title": title, "paper": meta["paper"],
                  "show_file": meta["show_file"], "method_summary": meta["method_summary"],
-                 "limitations": meta["limitations"], "publish_at": publish_at or now.isoformat(timespec="seconds"),
+                 "limitations": meta["limitations"], "pick_reason": meta.get("pick_reason", ""), "publish_at": publish_at or now.isoformat(timespec="seconds"),
                  "youtube": {"id": vid, "url": f"https://www.youtube.com/watch?v={vid}"}})
     analytics.PODCAST_HISTORY.write_text(json.dumps(hist, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    journal.write()
     log(f"Podcast uploaded: {vid}" + (f", goes public {publish_at}" if publish_at else ", public now"))
 

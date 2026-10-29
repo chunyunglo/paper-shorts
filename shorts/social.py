@@ -22,7 +22,7 @@ from typing import Literal
 from PIL import Image, ImageDraw
 from pydantic import BaseModel, Field
 
-from . import analytics, config, fonts, llm, news as newsmod
+from . import analytics, config, fonts, journal, llm, news as newsmod
 from .safelog import ApiError, log
 from .state import load_history
 
@@ -64,7 +64,8 @@ class Post(BaseModel):
     text: str = Field(description="Threads: the whole post, at most 480 characters, no hashtags spam (0-2). "
                                   "Instagram: the caption, at most 1500 characters, ending with 3-6 hashtags")
     slides: list[Slide] = Field(description="Instagram: 1-6 slides (first is cover). Threads: empty")
-    why: str = Field(description="One sentence on why this is worth posting today")
+    why: str = Field(description="One sentence on why this is worth posting today, including which channel notes "
+                                 "or viewer feedback (if any) pointed to it, paraphrased without quoting anyone")
 
 
 class Plan(BaseModel):
@@ -112,6 +113,7 @@ def load() -> list[dict]:
 def save(items: list[dict]) -> None:
     HISTORY.parent.mkdir(parents=True, exist_ok=True)
     HISTORY.write_text(json.dumps(items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    journal.write()
 
 
 def room(history: list[dict], now: datetime) -> dict[str, int]:
@@ -319,7 +321,8 @@ def publish(folder: Path, image_base_url: str) -> None:
         cap[rec["platform"]] -= 1
         history.append({"posted": now.isoformat(timespec="seconds"), "platform": rec["platform"], "lang": rec["lang"],
                         "kind": rec["kind"], "episodes": rec["episodes"], "text": rec["text"],
-                        "news": (rec.get("news") or {}).get("title"), "id": pid, "url": url})
+                        "news": (rec.get("news") or {}).get("title"), "why": rec.get("why", ""),
+                        "id": pid, "url": url})
         save(history)
     if failed:
         raise SystemExit(f"{failed} social post(s) failed")

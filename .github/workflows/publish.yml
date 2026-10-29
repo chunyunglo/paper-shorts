@@ -117,7 +117,7 @@ jobs:
         if: env.SKIP != '1'
         env:
           GITHUB_TOKEN: ${{ github.token }}
-          PUBLISH_AT: '中文、英文今晚 19:00；葡語巴西時間 19:00（台灣隔天早上 6:00）'
+          PUBLISH_AT: '中文、英文今晚 19:00'
         run: python -m shorts review-open "$EP_DIR" "$TAG"
       - name: Tell the owner today's episode stopped
         if: failure() && (github.event_name == 'schedule' || inputs.auto)
@@ -180,7 +180,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history.json
+          git add data/history.json data/decisions.md
           git diff --cached --quiet && exit 0
           git commit -qm "Record published episodes"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
@@ -208,7 +208,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history.json
+          git add data/history.json data/decisions.md
           git diff --cached --quiet && exit 0
           git commit -qm "Remove deleted episode posts"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

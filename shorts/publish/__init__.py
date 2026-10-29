@@ -107,7 +107,8 @@ def publish_episode(folder: Path, video_base_url: str, only: list[str] | None = 
     (folder / "episode.json").write_text(json.dumps(ep, ensure_ascii=False, indent=2), encoding="utf-8")
     if any(posts.values()):
         history = [h for h in load_history() if h["episode"] != ep["episode"]]
-        history.append({k: ep[k] for k in ("episode", "created", "paper", "script", "videos", "posts", "video_base_url")})
+        history.append({k: ep[k] for k in ("episode", "created", "paper", "script", "videos", "posts", "video_base_url")}
+                       | {k: ep[k] for k in ("pick_reason", "news") if ep.get(k)})
         save_history(history)
         log("History updated: " + ", ".join(f"{l}:{'+'.join(sorted(v))}" for l, v in posts.items()))
     if failed:
