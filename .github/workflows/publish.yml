@@ -1,4 +1,4 @@
-# Monday to Saturday (Sunday off):
+# Every day:
 #   14:00 Taiwan   prepare: pick a paper, make the Chinese and English videos, put them on
 #                  a pre-release, and open a review issue (GitHub emails/pushes the owner).
 #   19:00 Taiwan   publish zh + en, then close the issue.
@@ -11,12 +11,12 @@ on:
   # harmless: prepare skips once today's review issue exists, and publish only posts what is
   # approved and not yet out.
   schedule:
-    - cron: "0 6 * * 1-6"   # 14:00 Taiwan: prepare
-    - cron: "40 6 * * 1-6"  #   backup
-    - cron: "20 7 * * 1-6"  #   backup
-    - cron: "0 11 * * 1-6"  # 19:00 Taiwan: publish zh + en
-    - cron: "25 11 * * 1-6" #   backup
-    - cron: "50 11 * * 1-6" #   backup
+    - cron: "0 6 * * *"   # 14:00 Taiwan: prepare
+    - cron: "40 6 * * *"  #   backup
+    - cron: "20 7 * * *"  #   backup
+    - cron: "0 11 * * *"  # 19:00 Taiwan: publish zh + en
+    - cron: "25 11 * * *" #   backup
+    - cron: "50 11 * * *" #   backup
   workflow_dispatch:
     inputs:
       mode:
@@ -48,7 +48,7 @@ permissions:
 jobs:
   prepare:
     if: >-
-      (github.event_name == 'schedule' && contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
+      (github.event_name == 'schedule' && contains(fromJSON('["0 6 * * *","40 6 * * *","20 7 * * *"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
       || (github.event_name == 'workflow_dispatch' && inputs.mode == 'prepare' && (!inputs.auto || vars.AUTO_PUBLISH == 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 60
@@ -129,7 +129,7 @@ jobs:
 
   publish:
     if: >-
-      (github.event_name == 'schedule' && !contains(fromJSON('["0 6 * * 1-6","40 6 * * 1-6","20 7 * * 1-6"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
+      (github.event_name == 'schedule' && !contains(fromJSON('["0 6 * * *","40 6 * * *","20 7 * * *"]'), github.event.schedule) && vars.AUTO_PUBLISH == 'true')
       || (github.event_name == 'workflow_dispatch' && inputs.mode == 'publish' && (!inputs.auto || vars.AUTO_PUBLISH == 'true'))
     runs-on: ubuntu-latest
     timeout-minutes: 60
