@@ -18,6 +18,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 內容 Text: AI進辦公室，大家會不會越來越少跟同事講話？ 我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在2024年9月到2025年9月Microsoft Copilot分批導入期間，用會議、通…
   - 為什麼 Why: This was our best-viewed YouTube zh short (everyday AI use, a personal-stakes topic the notes favour) and it has no Chinese design-and-finding follow-up yet, matching the format that drew far more Threads views than news links.
   - 根據的集數 Based on: 20261028-the-effects-of-generative-ai-on-collabor
+- **短影音 Short** · [網友押你達標，押得有點太樂觀 / Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U)
+  - 論文 Paper: [Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals](https://arxiv.org/abs/2610.40324) (arXiv cs.HC)
+  - 為什麼 Why: The study rebuilds every order in more than 6,000 Manifold prediction markets and finds that crowds betting on people's own goals ('Will I…?') are too optimistic, while markets on outside events stay nearly calibrated; that is a surprising, visual, computational finding about everyday goal-setting. Signals: Early, very tentative channel numbers suggest papers with direct personal stakes and second-person hooks may hold attention better, and this paper fits a 'will you hit your goal?' opening; it also avoids the AI-at-work theme that recent episodes covered.
 
 ## 2026-10-29
 

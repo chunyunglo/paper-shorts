@@ -1996,5 +1996,320 @@
       }
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261029-jawboning-the-fed-do-markets-listen-when"
+  },
+  {
+    "episode": "20261030-crowds-believe-in-you-online-prediction",
+    "created": "2026-10-30T06:16:11+00:00",
+    "paper": {
+      "id": "arxiv:2610.40324",
+      "title": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+      "abstract": "People increasingly share personal goals online and invite others to forecast them. Research on the planning fallacy finds that observers predict a person's behavior less optimistically than the person does, and prediction markets aggregate such judgments, harnessing the wisdom of crowds. We study 6,150 prediction markets on Manifold in which 1,660 users asked about their own futures (\"Will I ...?\"), reconstruct every order and execution, and compare these self-markets with markets about external events. Self-markets resolved YES 4.4 percentage points less often than their final prices implied, whereas external markets were nearly calibrated (0.9 points); the difference was 2.2 points at the same price level and 1.9 points within creators who made both kinds of market. Absent when markets opened, the overstatement emerged within a day of trading, even where the person never traded, and peaked in the week before close. In a market's first day, observers moved external-market prices down toward the base rate, but moved self-market prices 3.6 points further toward YES, except in markets naming an outcome the person would not want, which were not overpriced. The correction came late and largely from the person, whose orders supplied 38% of the eventual movement toward the outcome in self-markets, against 9% in external markets. Because self-market prices mainly failed to separate successes from failures, a recalibration learned from earlier markets improved later forecasts by only 1.5%. Crowds believe in the futures people pose for themselves, and the information that would correct them lies with the person.",
+      "authors": [
+        "Zihan Chen",
+        "Lei Nico Zheng",
+        "Di Zhu"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2610.40324",
+      "pdf_url": "https://arxiv.org/pdf/2610.40324v1",
+      "doi": null,
+      "published": "2026-10-29",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "網友押你達標，押得有點太樂觀",
+      "title_en": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+      "paper_title_zh": "群眾相信你：線上預測市場高估人們達成自身目標的頻率",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "你的目標",
+          "heading_en": "YOUR GOALS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "目標被高估",
+          "big_text_en": "Goals get overrated",
+          "lines": [
+            {
+              "zh": "在下注網站立目標，網友偏看好你。",
+              "en": "On one betting site, people's goals got overrated."
+            },
+            {
+              "zh": "想避免的壞事卻沒被高估。最後誰拉回現實？",
+              "en": "Not outcomes people dread, though. So who pulls the odds back?"
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "史蒂文斯理工等團隊，2026年刊於arXiv。",
+              "en": "A Stevens Tech and UMass Boston team, on arXiv in 2026."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "場景",
+          "heading_en": "THE SETTING",
+          "labels": [
+            "提問者",
+            "下注網友",
+            "遊戲幣"
+          ],
+          "labels_en": [
+            "Goal setter",
+            "Bettors",
+            "Play money"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "在預測市場Manifold，有人開盤問：我會做到嗎？",
+              "en": "On the betting site Manifold, people ask: will I hit the gym?"
+            },
+            {
+              "zh": "網友用遊戲幣下注，價格就是機率。",
+              "en": "Others bet play money, and the price acts as a probability."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "19萬個市場",
+            "「我會…嗎」市場"
+          ],
+          "labels_en": [
+            "194K markets",
+            "\"Will I\" markets"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "從十九萬多個市場裡，",
+              "en": "From over 194,000 markets,"
+            },
+            {
+              "zh": "篩出1660人開的6150個「我會…嗎」市場。",
+              "en": "they pulled 6,150 'Will I' bets made by 1,660 users."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "下單紀錄",
+            "價格走勢",
+            "真實結果"
+          ],
+          "labels_en": [
+            "Order records",
+            "Price path",
+            "Real outcome"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們重建每一筆下單與成交，",
+              "en": "They rebuilt every single order and trade,"
+            },
+            {
+              "zh": "再把收盤價和真實結果逐一對照。",
+              "en": "then checked the final odds against what really happened."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "比一比",
+          "heading_en": "THE GAP",
+          "labels": [
+            "市場預測",
+            "實際做到"
+          ],
+          "labels_en": [
+            "Market odds",
+            "Actually did it"
+          ],
+          "values": [
+            49.4,
+            45.0
+          ],
+          "big_text": "高估4.4點",
+          "big_text_en": "4.4 points too high",
+          "lines": [
+            {
+              "zh": "市場平均喊49%，實際只有45%做到。",
+              "en": "Markets priced success at about 49%. Only 45% made it."
+            },
+            {
+              "zh": "選舉、體育等外部事件，卻幾乎猜準。",
+              "en": "Bets on outside events, like elections or sports, were nearly spot on."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "誰修正價格",
+          "heading_en": "WHO FIXED IT",
+          "labels": [
+            "自我目標市場",
+            "外部事件市場"
+          ],
+          "labels_en": [
+            "Goal markets",
+            "Event markets"
+          ],
+          "values": [
+            38.0,
+            9.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "誰把價格拉回現實？當事人出了很大一份力。",
+              "en": "Who pulled the odds back? The person did a big share of it."
+            },
+            {
+              "zh": "他的下單貢獻38%修正，外部市場僅9%。",
+              "en": "Their trades made 38% of the correction, versus 9% for event markets."
+            },
+            {
+              "zh": "但這是遊戲幣平台，網友為何樂觀仍不確定。",
+              "en": "Caveat: it's play money, and why bettors were so hopeful is unclear."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住這句",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "關鍵資訊在你身上",
+          "big_text_en": "Key info lies largely with you",
+          "lines": [
+            {
+              "zh": "群眾看好你，但關鍵資訊大多在你身上。",
+              "en": "The crowd bets on you, but the key information is largely yours."
+            },
+            {
+              "zh": "追蹤行為解碼，一起看懂人類行為。",
+              "en": "Follow Behavior Decoded for more on how we behave."
+            }
+          ]
+        }
+      ],
+      "description_zh": "在預測市場Manifold上，有人開盤問「我這週會去健身房嗎？」讓網友下注。研究分析1660人開的6150個這類市場，發現價格平均高估成功率4.4個百分點，而選舉、體育等外部事件幾乎猜得準。修正來得很晚，當事人自己的下單貢獻了其中38%，遠高於外部市場的9%。",
+      "description_en": "On the prediction market Manifold, people open bets like \"Will I go to the gym this week?\" A new study of 6,150 such markets from 1,660 users finds prices overstated success by 4.4 points, while bets on outside events were nearly accurate. The correction came late, and the person's own trades supplied a large share of it: 38%, versus 9% in event markets.",
+      "hashtags": [
+        "行為解碼",
+        "預測市場",
+        "目標設定",
+        "群眾智慧",
+        "BehaviorDecoded",
+        "PredictionMarkets",
+        "WisdomOfCrowds",
+        "PlanningFallacy"
+      ],
+      "method_summary": "The authors retrieved all 194,347 markets on Manifold, a play-money prediction market, created 2021-2026. They kept binary, mana-denominated markets resolved YES or NO with at least one observer purchase, and identified 6,150 'self-markets' where 1,660 creators asked forward-looking first-person questions ('Will I...?'). Benchmarks were 6,272 external markets (no first-person reference) from other creators and 4,486 external markets from the self-market creators. They reconstructed every order and execution from order records (validated: reconstructed final price matched platform in 99.4% of markets; research assistants checked 40 markets and recomputed 23 estimates). Main measure: calibration gap = outcome minus price. Self-markets resolved YES 45.0% vs mean final price 49.4% (gap -4.4 pp); external markets -0.9 pp. Difference was 2.2 pp at the same price level and 1.9 pp within creators. The overstatement was absent at opening, appeared within a day of trading, even where the person never traded, and peaked a week before close. In the first day observers moved self-market prices 3.6 pp further toward YES than external ones; markets naming unwanted outcomes were not overpriced. The person's own orders supplied 38% of movement toward the outcome in self-markets (10.6 of 27.8 pp; human observers supplied 18.7 pp) vs 9% for creators of external markets, mostly late. A recalibration from earlier markets improved later Brier scores by only 1.5%, because prices mainly failed to separate successes from failures.",
+      "limitations": "Observational design: it cannot say why observers were optimistic (shared hopes vs. lack of information). Markets use play money on one niche online community, so results may differ with real money or mainstream apps. Only markets resolved YES/NO are analyzed. Keyword rules for unwanted outcomes and encouragement catch only about half of cases, and goal type was coded unreliably; those analyses are exploratory. Prior interaction measures platform contact, not friendship. The person usually reports the outcome, so late trades may reflect progress, control, or resolution practice. Analyses were not preregistered.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "target",
+          "users",
+          "poker-chip"
+        ],
+        [
+          "database",
+          "user-question"
+        ],
+        [
+          "receipt",
+          "chart-line",
+          "flag-check"
+        ],
+        [
+          "chart-pie",
+          "barbell"
+        ],
+        [
+          "user",
+          "world"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 56.68,
+        "cover_offset_ms": 8530,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 64.3,
+        "cover_offset_ms": 8473,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "rM83WVFkW5U",
+          "url": "https://youtube.com/shorts/rM83WVFkW5U"
+        },
+        "instagram": {
+          "id": "18128906938849655",
+          "url": "https://www.instagram.com/reel/DfHbmtGDgCS/"
+        },
+        "threads": {
+          "id": "17915609433510549",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfHbuBGEfnt"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "t2OiX4v7Sug",
+          "url": "https://youtube.com/shorts/t2OiX4v7Sug"
+        },
+        "instagram": {
+          "id": "18098837213448416",
+          "url": "https://www.instagram.com/reel/DfHb30UEx6g/"
+        },
+        "threads": {
+          "id": "18220022500345318",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfHb_iMDUzF"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261030-crowds-believe-in-you-online-prediction",
+    "pick_reason": "The study rebuilds every order in more than 6,000 Manifold prediction markets and finds that crowds betting on people's own goals ('Will I…?') are too optimistic, while markets on outside events stay nearly calibrated; that is a surprising, visual, computational finding about everyday goal-setting. Signals: Early, very tentative channel numbers suggest papers with direct personal stakes and second-person hooks may hold attention better, and this paper fits a 'will you hit your goal?' opening; it also avoids the AI-at-work theme that recent episodes covered."
   }
 ]
