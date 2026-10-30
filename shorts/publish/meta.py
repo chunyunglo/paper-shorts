@@ -90,8 +90,16 @@ def th(method: str, path: str, what: str, **params) -> dict:
 
 def th_publish(container: str) -> str:
     _wait(lambda: th("GET", container, "container status", fields="status").get("status"), "threads")
-    return th("POST", f"{config.require('THREADS_USER_ID')}/threads_publish", "publish",
-              creation_id=container)["id"]
+    # Threads sometimes says "FINISHED" and then answers code 24 ("resource does not exist") to
+    # the publish; the container shows up a few seconds later, so wait and try again
+    for attempt in range(4):
+        try:
+            return th("POST", f"{config.require('THREADS_USER_ID')}/threads_publish", "publish",
+                      creation_id=container)["id"]
+        except ApiError as exc:
+            if attempt == 3 or not str(exc.code or "").startswith("24/"):
+                raise
+            time.sleep(15 * (attempt + 1))
 
 
 def th_publish_video(video_url: str, text: str) -> tuple[str, str]:
