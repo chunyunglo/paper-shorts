@@ -92,5 +92,19 @@
     "why": "This was our best-viewed YouTube zh short (everyday AI use, a personal-stakes topic the notes favour) and it has no Chinese design-and-finding follow-up yet, matching the format that drew far more Threads views than news links.",
     "id": "18085319759329100",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T"
+  },
+  {
+    "posted": "2026-10-30T10:29:43+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261029-jawboning-the-fed-do-markets-listen-when"
+    ],
+    "text": "政治人物公開喊話要降息，市場真的會聽嗎？\n\n我們介紹過的一篇研究（arXiv, 2026）蒐集了1988到2025年約11,500篇路透社報導。研究者讓三個開源大型語言模型投票，挑出美國在任政治人物對聯準會喊話的事件，共666件：579件喊「放鬆」，87件喊「收緊」。人工抽查的結果和模型約81%一致。\n\n發現：\n・每多一次喊降息，市場對近期利率的預期平均降約0.9個基點（隱含降息機率高約4個百分點）\n・只在3個月內的合約顯著，更長期就看不到\n・喊升息沒有顯著影響\n・效果主要來自總統的發言\n\n要注意：這是關聯，不是因果證明。政治人物可能在經濟已經轉弱時才喊話，市場也許是在反應同一批經濟消息。\n\n你覺得這樣的影響算大還是小？\n論文：arxiv.org/abs/2610.32300",
+    "news": null,
+    "why": "The Fed jawboning episode is our newest short and has no Chinese follow-up yet. The channel notes ask for Chinese Threads follow-ups that restate design and findings without a news peg, since that format drew far more views than news-link posts. None of today's headlines can be linked responsibly, so this uses the last Threads slot.",
+    "id": "18110996606337668",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfHXtIcEYrZ"
   }
 ]
