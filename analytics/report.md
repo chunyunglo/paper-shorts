@@ -1,25 +1,25 @@
 # Channel analytics 頻道數據
 
-Updated 2026-10-29T22:21:29+00:00
+Updated 2026-10-30T07:40:02+00:00
 
 ```
-Collected 2026-10-29T22:21:29+00:00
+Collected 2026-10-30T07:40:02+00:00
 YouTube channel: 4 subscribers, 239 total views, 13 videos
 Note: every short and talk show has one comment from us (the paper citation), and our replies to viewers count too, so comment counts overstate viewer comments; likes may include our own.
 
-short on youtube: 13 posts, average 18 views
-  by language: zh 34, pt 9, en 8
+short on youtube: 13 posts, average 19 views
+  by language: zh 37, pt 9, en 8
+  - 68 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 57 views, 0 likes, 0 comments, avg watched 53%, +0 subs | zh | Jobs Dropped the Degree. So Who Got Hired?
-  - 57 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 33 views, 0 likes, 0 comments, avg watched 34%, +1 subs | zh | AI Wrote the Petitions. Did They Win More?
-  - 19 views, 0 likes, 1 comments | pt | Jobs Dropped the Degree. So Who Got Hired?
+  - 20 views, 0 likes, 1 comments | pt | Jobs Dropped the Degree. So Who Got Hired?
   - 18 views, 0 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 3 views, 0 likes, 1 comments | pt | Caught Using Slave Labor: Do Ranches Really Stop?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
   - 1 views, 0 likes, 1 comments | en | Caught Using Slave Labor: Do Ranches Really Stop?
 
-short on instagram: 10 posts, average 41 views
-  by language: zh 57, en 25
+short on instagram: 10 posts, average 42 views
+  by language: zh 59, en 25
   - 103 views, 2 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
   - 88 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 55 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
@@ -29,10 +29,10 @@ short on instagram: 10 posts, average 41 views
   - 7 views, 0 likes, 1 comments | en | When Politicians Lean on the Fed, Do Markets Listen?
   - 5 views, 0 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
 
-short on threads: 10 posts, average 13 views
+short on threads: 10 posts, average 14 views
   by language: zh 21, en 6
-  - 30 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
-  - 20 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
+  - 31 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
+  - 21 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 19 views, 1 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
   - 19 views, 0 likes, 1 comments | zh | When Politicians Lean on the Fed, Do Markets Listen?
   - 15 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
@@ -53,8 +53,8 @@ Change.o
 一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚
 
 social on threads: 4 posts, average 50 views
-  by language: zh 92, en 6
-  - 180 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
+  by language: zh 93, en 6
+  - 181 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局
   - 8 views, 0 likes, 0 comments | en | In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
@@ -110,31 +110,31 @@ Written 2026-10-29
 
 | kind | platform | lang | views | likes | comments | title |
 |---|---|---|---|---|---|---|
-| social | threads | zh | 180 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
+| social | threads | zh | 181 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
 | short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
 | short | instagram | zh | 88 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
+| short | youtube | zh | 68 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
 | short | youtube | zh | 57 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
-| short | youtube | zh | 57 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
 | short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
 | short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
 | short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
+| short | threads | zh | 31 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
 | short | instagram | en | 30 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
-| short | threads | zh | 30 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
 | short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
-| short | instagram | zh | 21 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE24wVFD3J/) |
-| short | threads | zh | 20 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
+| short | instagram | zh | 27 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE24wVFD3J/) |
+| short | threads | zh | 21 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
+| short | youtube | pt | 20 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | instagram | zh | 20 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
 | short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
-| short | youtube | pt | 19 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | threads | zh | 19 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb) |
 | short | youtube | en | 18 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/9MExpUEuD7o) |
 | short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
 | short | youtube | en | 15 | 2 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
+| short | youtube | zh | 15 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
 | short | youtube | zh | 13 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
 | short | threads | en | 12 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
-| short | youtube | zh | 12 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
 | short | threads | en | 9 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
 | social | threads | en | 8 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
