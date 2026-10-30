@@ -78,5 +78,19 @@
     "news": null,
     "id": "17992576928862881",
     "url": "https://www.instagram.com/p/DfEx0i-oKHy/"
+  },
+  {
+    "posted": "2026-10-30T10:20:57+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261028-the-effects-of-generative-ai-on-collabor"
+    ],
+    "text": "AI進辦公室，大家會不會越來越少跟同事講話？\n\n我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在2024年9月到2025年9月Microsoft Copilot分批導入期間，用會議、通話、email和聊天紀錄畫出每月的合作網絡。\n\n結果和擔心的相反：\n・開始用Copilot後的前三個月，平均每月主動發起的合作多了約1.43小時\n・平均多聯絡約2.2位同事\n・時間更集中在原本就熟的人身上\n\n但要注意：資料只看得到誰跟誰互動多久，看不到聊什麼。作者推測是在確認AI的產出，但也可能是把省下的時間拿去交流，或在討論工具本身。只有一家公司、只看前三個月，部分整體估計也不顯著。\n\n詳情在我們的影片裡。",
+    "news": null,
+    "why": "This was our best-viewed YouTube zh short (everyday AI use, a personal-stakes topic the notes favour) and it has no Chinese design-and-finding follow-up yet, matching the format that drew far more Threads views than news links.",
+    "id": "18085319759329100",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T"
   }
 ]

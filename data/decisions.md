@@ -10,6 +10,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 - **脫口秀 Talk show** · [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M)
   - 論文 Paper: [Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning](https://arxiv.org/abs/2610.31481)
   - 為什麼 Why: （沒有記錄：這篇在開始記錄理由之前發的 / posted before reasons were kept）
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T)
+  - 內容 Text: AI進辦公室，大家會不會越來越少跟同事講話？ 我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在2024年9月到2025年9月Microsoft Copilot分批導入期間，用會議、通…
+  - 為什麼 Why: This was our best-viewed YouTube zh short (everyday AI use, a personal-stakes topic the notes favour) and it has no Chinese design-and-finding follow-up yet, matching the format that drew far more Threads views than news links.
+  - 根據的集數 Based on: 20261028-the-effects-of-generative-ai-on-collabor
 
 ## 2026-10-29
 
