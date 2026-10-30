@@ -11,8 +11,8 @@ from .fonts import font
 
 OUTRO = 2.4   # seconds
 
-FOLLOW = {"zh": "追蹤・週一到週六 每天一篇新論文", "en": "Follow · a new paper every Mon–Sat",
-          "pt": "Siga · um estudo novo de segunda a sábado"}
+FOLLOW = {"zh": "追蹤・每天一篇新論文", "en": "Follow · a new paper every day",
+          "pt": "Siga · um estudo novo todo dia"}
 
 
 def _ease(x: float) -> float:
