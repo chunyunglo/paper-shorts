@@ -302,3 +302,41 @@ def test_new_visuals_draw_with_and_without_data():
             view.visual = visual
             for p in (0.0, 0.5, 1.0):
                 assert visuals.draw(view, p, ctx).size == (visuals.VW, visuals.VH)
+
+
+def test_threads_publish_retries_when_container_not_found_yet(monkeypatch):
+    from shorts.publish import meta
+    from shorts.safelog import ApiError
+
+    calls = []
+
+    def fake_th(method, path, what, **params):
+        calls.append(what)
+        if what == "container status":
+            return {"status": "FINISHED"}
+        if calls.count("publish") == 1:
+            raise ApiError("threads", "publish", 400, "24/4279009/OAuthException")
+        return {"id": "123"}
+
+    monkeypatch.setattr(meta, "th", fake_th)
+    monkeypatch.setattr(meta.time, "sleep", lambda s: None)
+    monkeypatch.setenv("THREADS_USER_ID", "1")
+    assert meta.th_publish("c1") == "123"
+    assert calls.count("publish") == 2
+
+
+def test_threads_publish_does_not_retry_other_errors(monkeypatch):
+    import pytest
+    from shorts.publish import meta
+    from shorts.safelog import ApiError
+
+    def fake_th(method, path, what, **params):
+        if what == "container status":
+            return {"status": "FINISHED"}
+        raise ApiError("threads", "publish", 400, "190/463/OAuthException")
+
+    monkeypatch.setattr(meta, "th", fake_th)
+    monkeypatch.setattr(meta.time, "sleep", lambda s: (_ for _ in ()).throw(AssertionError("slept")))
+    monkeypatch.setenv("THREADS_USER_ID", "1")
+    with pytest.raises(ApiError):
+        meta.th_publish("c1")
