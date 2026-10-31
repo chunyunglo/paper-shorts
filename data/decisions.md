@@ -5,6 +5,17 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-10-31
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8)
+  - 內容 Text: 如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？ 我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在2021到2026年的資料，找出6,150個「我會不會…？」的自我目標市場。 結果： ・…
+  - 為什麼 Why: The prediction-market short is our newest episode and has no Chinese follow-up yet, and the channel notes recommend a Chinese Threads follow-up restating design and findings without a news peg, the format that has drawn the most views so far.
+  - 根據的集數 Based on: 20261030-crowds-believe-in-you-online-prediction
+- **自由發文 Free post** · instagram/en · follow_up · [link](https://www.instagram.com/p/DfJ4cRJFS-W/)
+  - 內容 Text: Would strangers bet that you'll hit your goal? A new study says: yes, a little too often. Researchers looked at Manifold…
+  - 為什麼 Why: The notes say English has held up close to Chinese on Instagram and that an Instagram free post should be published to check whether the 0-view results are a delivery problem, and our newest paper has clean, stated numbers that suit stat slides.
+  - 根據的集數 Based on: 20261030-crowds-believe-in-you-online-prediction
+
 ## 2026-10-30
 
 - **脫口秀 Talk show** · [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M)

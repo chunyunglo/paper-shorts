@@ -106,5 +106,33 @@
     "why": "The Fed jawboning episode is our newest short and has no Chinese follow-up yet. The channel notes ask for Chinese Threads follow-ups that restate design and findings without a news peg, since that format drew far more views than news-link posts. None of today's headlines can be linked responsibly, so this uses the last Threads slot.",
     "id": "18110996606337668",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfHXtIcEYrZ"
+  },
+  {
+    "posted": "2026-10-31T09:53:43+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261030-crowds-believe-in-you-online-prediction"
+    ],
+    "text": "如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？\n\n我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在2021到2026年的資料，找出6,150個「我會不會…？」的自我目標市場。\n\n結果：\n・這些目標實際達成的比例是45.0%\n・但市場最後的平均價格是49.4%，大約多押了4.4個百分點\n・對照沒提到自己的一般市場，落差只有0.9個百分點\n\n更有意思的是：開盤時並沒有高估，交易一天內就出現了，就算當事人自己從沒下注也一樣。\n\n限制也要說：這是觀察研究，說不出網友為什麼樂觀（是共同的期待，還是資訊不夠？）。而且用的是遊戲幣、一個小眾社群，換成真錢不一定一樣。\n\n你會希望別人押你成功，還是押得準一點？\n論文：https://arxiv.org/abs/2610.40324",
+    "news": null,
+    "why": "The prediction-market short is our newest episode and has no Chinese follow-up yet, and the channel notes recommend a Chinese Threads follow-up restating design and findings without a news peg, the format that has drawn the most views so far.",
+    "id": "18135225736681154",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8"
+  },
+  {
+    "posted": "2026-10-31T09:53:43+00:00",
+    "platform": "instagram",
+    "lang": "en",
+    "kind": "follow_up",
+    "episodes": [
+      "20261030-crowds-believe-in-you-online-prediction"
+    ],
+    "text": "Would strangers bet that you'll hit your goal? A new study says: yes, a little too often.\n\nResearchers looked at Manifold, a play-money prediction market, from 2021 to 2026. They found 6,150 \"self-markets\", where people asked first-person questions like \"Will I...?\"\n\nWhat they found:\n- These goals came true 45.0% of the time.\n- But final market prices averaged 49.4%, about 4.4 points too high.\n- Markets with no first-person reference were off by only 0.9 points.\n\nThe timing is interesting. The overstatement wasn't there at opening. It showed up within a day of trading, even in markets where the person never traded. Markets about outcomes people didn't want were not overpriced.\n\nWhat it can't tell us: this is observational, so it can't say why bettors were optimistic (shared hopes or missing information). It's play money in one niche online community, so real-money markets or mainstream apps may differ.\n\nMore in our video. Paper: https://arxiv.org/abs/2610.40324\n\n#BehavioralScience #PredictionMarkets #Psychology #ComputationalSocialScience #Research",
+    "news": null,
+    "why": "The notes say English has held up close to Chinese on Instagram and that an Instagram free post should be published to check whether the 0-view results are a delivery problem, and our newest paper has clean, stated numbers that suit stat slides.",
+    "id": "18638937274015989",
+    "url": "https://www.instagram.com/p/DfJ4cRJFS-W/"
   }
 ]
