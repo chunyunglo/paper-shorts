@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-10-30T07:40:02+00:00",
+ "collected_at": "2026-10-31T07:26:09+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 239,
-   "videoCount": 13
+   "viewCount": 342,
+   "videoCount": 16
   }
  },
  "notes": [],
@@ -317,10 +317,15 @@
    "metrics": {
     "views": 3,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT54S",
     "privacy": "public",
-    "published": "2026-10-26T22:04:08Z"
+    "published": "2026-10-26T22:04:08Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -358,15 +363,15 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 57,
+    "views": 107,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
     "published": "2026-10-27T11:04:42Z",
-    "estimatedMinutesWatched": 7,
-    "averageViewDuration": 27,
-    "averageViewPercentage": 53.010000000000005,
+    "estimatedMinutesWatched": 11,
+    "averageViewDuration": 22,
+    "averageViewPercentage": 42.73,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -384,11 +389,11 @@
    "metrics": {
     "views": 88,
     "reach": 81,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -421,7 +426,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 15,
+    "views": 18,
     "likes": 2,
     "comments": 0,
     "duration": "PT46S",
@@ -447,11 +452,11 @@
    "metrics": {
     "views": 30,
     "reach": 22,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -484,12 +489,17 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 20,
+    "views": 16,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT51S",
     "privacy": "public",
-    "published": "2026-10-27T22:05:17Z"
+    "published": "2026-10-27T22:05:17Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 40,
+    "averageViewPercentage": 79.28,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -527,12 +537,17 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 68,
+    "views": 28,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT1M2S",
     "privacy": "public",
-    "published": "2026-10-28T11:08:33Z"
+    "published": "2026-10-28T11:08:33Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 6,
+    "averageViewPercentage": 10.59,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -548,11 +563,11 @@
    "metrics": {
     "views": 20,
     "reach": 22,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -585,12 +600,17 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 18,
+    "views": 15,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT1M6S",
     "privacy": "public",
-    "published": "2026-10-28T11:10:11Z"
+    "published": "2026-10-28T11:10:11Z",
+    "estimatedMinutesWatched": 3,
+    "averageViewDuration": 32,
+    "averageViewPercentage": 48.97,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -606,11 +626,11 @@
    "metrics": {
     "views": 5,
     "reach": 5,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -643,8 +663,8 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 15,
-    "likes": 0,
+    "views": 41,
+    "likes": 1,
     "comments": 1,
     "duration": "PT58S",
     "privacy": "public",
@@ -662,13 +682,13 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 27,
-    "reach": 25,
-    "likes": 0,
+    "views": 28,
+    "reach": 26,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -701,7 +721,7 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 4,
+    "views": 13,
     "likes": 0,
     "comments": 1,
     "duration": "PT59S",
@@ -720,13 +740,13 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 7,
-    "reach": 7,
-    "likes": 0,
+    "views": 8,
+    "reach": 8,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -740,7 +760,123 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 4,
+    "views": 6,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "rM83WVFkW5U",
+   "url": "https://youtube.com/shorts/rM83WVFkW5U",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT57S",
+    "privacy": "public",
+    "published": "2026-10-30T11:04:10Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18128906938849655",
+   "url": "https://www.instagram.com/reel/DfHbmtGDgCS/",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 3,
+    "reach": 5,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17915609433510549",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfHbuBGEfnt",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 15,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "t2OiX4v7Sug",
+   "url": "https://youtube.com/shorts/t2OiX4v7Sug",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M5S",
+    "privacy": "public",
+    "published": "2026-10-30T11:06:30Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18098837213448416",
+   "url": "https://www.instagram.com/reel/DfHb30UEx6g/",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 5,
+    "reach": 4,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261030-crowds-believe-in-you-online-prediction",
+   "title": "Strangers Bet on Your Goals, a Bit Too Hopefully",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18220022500345318",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfHb_iMDUzF",
+   "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
+   "created": "2026-10-30T06:16:11+00:00",
+   "metrics": {
+    "views": 3,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -763,8 +899,13 @@
     "likes": 0,
     "comments": 0,
     "duration": "PT7M4S",
-    "privacy": "private",
-    "published": "2026-10-28T09:17:08Z"
+    "privacy": "public",
+    "published": "2026-10-30T12:00:12Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 32,
+    "averageViewPercentage": 7.6499999999999995,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -778,7 +919,7 @@
    "paper": "20261027-decredentialed-jobs-and-upward-mobility",
    "created": "2026-10-28T06:48:20+00:00",
    "metrics": {
-    "views": 181,
+    "views": 183,
     "likes": 1,
     "replies": 2,
     "reposts": 1,
@@ -818,11 +959,11 @@
    "metrics": {
     "views": 0,
     "reach": 0,
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0
+    "total_interactions": 1
    }
   },
   {
@@ -855,7 +996,7 @@
    "paper": "20261028-the-effects-of-generative-ai-on-collabor",
    "created": "2026-10-29T10:19:18+00:00",
    "metrics": {
-    "views": 5,
+    "views": 6,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -876,11 +1017,49 @@
    "metrics": {
     "views": 0,
     "reach": 0,
-    "likes": 0,
+    "likes": 1,
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 0
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-6",
+   "title": "AI進辦公室，大家會不會越來越少跟同事講話？\n\n我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18085319759329100",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T",
+   "paper": "20261028-the-effects-of-generative-ai-on-collabor",
+   "created": "2026-10-30T10:20:57+00:00",
+   "metrics": {
+    "views": 8,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-7",
+   "title": "政治人物公開喊話要降息，市場真的會聽嗎？\n\n我們介紹過的一篇研究（arXiv, 2026）蒐集了1988到2025年約11,500篇路透社報導。研究者讓三個開源",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18110996606337668",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfHXtIcEYrZ",
+   "paper": "20261029-jawboning-the-fed-do-markets-listen-when",
+   "created": "2026-10-30T10:29:43+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
    }
   }
  ]
