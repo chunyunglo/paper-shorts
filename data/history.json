@@ -2311,5 +2311,323 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261030-crowds-believe-in-you-online-prediction",
     "pick_reason": "The study rebuilds every order in more than 6,000 Manifold prediction markets and finds that crowds betting on people's own goals ('Will I…?') are too optimistic, while markets on outside events stay nearly calibrated; that is a surprising, visual, computational finding about everyday goal-setting. Signals: Early, very tentative channel numbers suggest papers with direct personal stakes and second-person hooks may hold attention better, and this paper fits a 'will you hit your goal?' opening; it also avoids the AI-at-work theme that recent episodes covered."
+  },
+  {
+    "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+    "created": "2026-10-31T06:12:44+00:00",
+    "paper": {
+      "id": "arxiv:2610.38113",
+      "title": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+      "abstract": "Generative AI now produces images and poems that people cannot reliably distinguish from human-made work, so people often judge for themselves who made a work. We examine how these perceived-authorship judgments relate to aesthetic preference. In a public online AI Art Turing Test, 11,123 people judged whether each of 50 pictures (26 AI-generated) was made by a human and were asked for their favourite. Among the 9,152 respondents who judged their favourite, a picture was 22.1 percentage points more likely to be judged human-made when it was the respondent's favourite, holding respondent and picture fixed. The association was similar for AI-generated and human-made favourites, was positive for all 50 pictures, and appeared under every reported detection strategy. Respondents most negative about AI art chose fewer AI-generated favourites (47% against 60% among the most positive) but more often believed them human-made, partly because others also judged those pictures human. As a result, in every opinion group a third to two fifths of respondents named an AI-generated favourite they believed human-made. A reanalysis of a published experiment on AI-generated poetry, in which 230 people rated each poem before judging its authorship, found the same pattern, although the AI poems were rated higher. When provenance is hidden, liking and perceived human authorship travel together, consistent with aesthetic response serving as evidence of a human maker and with beliefs about the maker shaping enjoyment. The findings qualify research on bias against AI art, which typically uses explicit labels, and inform AI disclosure policy.",
+      "authors": [
+        "Zihan Chen",
+        "Di Zhu",
+        "Lei Nico Zheng"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2610.38113",
+      "pdf_url": "https://arxiv.org/pdf/2610.38113v1",
+      "doi": null,
+      "published": "2026-10-28",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "你最愛的那張圖，真的是人做的嗎？",
+      "title_en": "Your Favorite Picture: Are You Sure a Human Made It?",
+      "paper_title_zh": "美即人性：當人們喜愛AI生成藝術，便以為是人類所作",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "你的最愛",
+          "heading_en": "YOUR FAVORITE",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "最愛＝人畫的？",
+          "big_text_en": "Favorite = human-made?",
+          "lines": [
+            {
+              "zh": "你最愛的那幅畫，真的是人畫的嗎？",
+              "en": "Your favorite painting: are you sure a human made it?"
+            },
+            {
+              "zh": "最後看討厭AI的人，結果最意外。",
+              "en": "Stay for the AI haters. Their result is the twist."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "史蒂文斯理工等團隊，發表在arXiv。",
+              "en": "A team from Stevens Institute and UMass Boston, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "人類名畫",
+            "AI畫作",
+            "網友"
+          ],
+          "labels_en": [
+            "Human art",
+            "AI art",
+            "Test takers"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "一個部落格貼出五十幅畫，二十六幅是AI。",
+              "en": "A popular blog posted fifty pictures. Twenty-six were made by AI."
+            },
+            {
+              "zh": "一萬一千多人上網來猜。",
+              "en": "Over eleven thousand people took the test."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "逐張猜",
+            "選最愛",
+            "同畫比對"
+          ],
+          "labels_en": [
+            "Guess each",
+            "Pick favorite",
+            "Compare"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "每人逐張猜人或AI，最後選出最愛。",
+              "en": "Each person guessed human or AI, then named one favorite."
+            },
+            {
+              "zh": "再拿同一幅畫，比粉絲和其他人的判斷。",
+              "en": "Then the team compared fans and non-fans on the same picture."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "比對",
+          "heading_en": "FANS VS OTHERS",
+          "labels": [
+            "粉絲",
+            "其他人"
+          ],
+          "labels_en": [
+            "Fans",
+            "Everyone else"
+          ],
+          "values": [
+            76.6,
+            54.6
+          ],
+          "big_text": "多22個百分點",
+          "big_text_en": "+22 points",
+          "lines": [
+            {
+              "zh": "粉絲說是人畫的：76.6%。",
+              "en": "Fans called their favorite human-made 76.6% of the time."
+            },
+            {
+              "zh": "同一幅畫，其他人只有54.6%。",
+              "en": "For the same picture, everyone else said so 54.6% of the time."
+            },
+            {
+              "zh": "扣掉個人習慣和畫本身，還差22個百分點。",
+              "en": "Even accounting for each person and each picture, a 22-point gap."
+            }
+          ]
+        },
+        {
+          "visual": "race",
+          "heading_zh": "態度",
+          "heading_en": "OPINIONS",
+          "labels": [
+            "最討厭AI",
+            "最喜歡AI"
+          ],
+          "labels_en": [
+            "Hate AI art",
+            "Love AI art"
+          ],
+          "values": [
+            47.0,
+            60.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "最討厭AI的人，只有47%選AI畫當最愛。",
+              "en": "Only 47% of AI art haters picked an AI favorite."
+            },
+            {
+              "zh": "最喜歡AI藝術的人，則是60%。",
+              "en": "Among those who love AI art, it was 60%."
+            }
+          ]
+        },
+        {
+          "visual": "waffle",
+          "heading_zh": "轉折",
+          "heading_en": "THE TWIST",
+          "labels": [
+            "最討厭AI的人"
+          ],
+          "labels_en": [
+            "AI art haters"
+          ],
+          "values": [
+            37.3
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但選了，反而更常以為是人畫的。",
+              "en": "But when they did, they more often thought a human made it."
+            },
+            {
+              "zh": "結果37.3%最愛AI畫，卻以為是人畫。",
+              "en": "So 37.3% loved an AI picture they believed was human."
+            },
+            {
+              "zh": "但這只是相關，樣本也來自部落格讀者。",
+              "en": "Caveat: it's a correlation, and from one blog's readers."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "這次測試：最愛常被猜是人畫",
+          "big_text_en": "Here, favorites were often guessed human",
+          "lines": [
+            {
+              "zh": "看不到作者時，喜歡和「人畫的」常一起出現。",
+              "en": "When the maker is hidden, liking and 'a human made it' go together."
+            },
+            {
+              "zh": "追蹤行為解碼，看更多研究怎麼做。",
+              "en": "Follow Behavior Decoded for more studies like this."
+            }
+          ]
+        }
+      ],
+      "description_zh": "一個AI藝術圖靈測試裡，一萬一千多人逐張猜50幅畫是人畫還是AI畫，再選出最愛。研究者拿同一幅畫比較粉絲和其他人：粉絲更常說是人畫的，AI畫也一樣。連最討厭AI的人，也有37.3%最愛的是AI畫卻以為是人畫。這是相關研究，樣本來自一個部落格的讀者。",
+      "description_en": "In an online AI Art Turing Test, over 11,000 people guessed whether 50 pictures were human- or AI-made, then picked a favorite. Comparing fans and non-fans on the same picture, fans called it human-made far more often, even for AI art. Among people who most disliked AI art, 37.3% loved an AI picture they believed was human. It's a correlation, from one blog's readers.",
+      "hashtags": [
+        "行為解碼",
+        "AI藝術",
+        "生成式AI",
+        "AIart",
+        "GenerativeAI",
+        "BehaviorDecoded",
+        "心理學",
+        "Psychology"
+      ],
+      "method_summary": "Study 1 reanalyzes the public response file of an AI Art Turing Test posted on the Astral Codex Ten blog in autumn 2024: 11,123 people judged whether each of 50 pictures (24 well-regarded human works, 26 AI-made, obvious defects screened out) was human- or AI-made, then named a favorite, a detection strategy, art familiarity, and a 1-5 opinion of AI art. The analysis sample is 9,152 respondents who named and judged a favorite (453,865 judgments). Linear probability models with respondent and picture fixed effects compare how a person judged their favorite against their general tendency and the picture's general appearance. Fans called their favorite human 76.6% of the time vs 54.6% for others judging the same picture; the adjusted association was 22.1 percentage points, positive for all 50 pictures, similar for AI-made (21.8) and human-made (22.4) favorites, robust to style clusters, recognition, and every reported strategy. Respondents most negative about AI art picked AI favorites less often (47% vs 60%) but believed them human more often (80% vs 56%), so 33.5%-40.8% in every opinion group (37.3% among the most negative) had an AI favorite they thought human. Study 2 reanalyzed a poetry experiment (230 participants rated poems before guessing): each rating point went with 11.5 pp more 'human' judgments, even though AI poems were rated higher. Exploratory keyword coding of explanations showed merit words usually accompanied 'human' judgments.",
+      "limitations": "The data are observational: neither study manipulates liking, so it cannot say whether liking causes belief in a human maker or the reverse; response consistency and shared perceptions cannot be ruled out. Study 1 respondents were self-selected readers of one blog, likely more interested in AI than the public, and the 50 pictures were curated to be hard. Opinions, strategies and familiarity were self-reported after the test. Duplicate participation couldn't be checked. No purchases or real choices were measured. The keyword coding of explanations was not validated. Nothing was preregistered.'",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "palette",
+          "photo-ai",
+          "users"
+        ],
+        [
+          "help-circle",
+          "heart",
+          "scale"
+        ],
+        [
+          "user-heart",
+          "users"
+        ],
+        [
+          "thumb-down",
+          "thumb-up"
+        ],
+        [
+          "mood-angry"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 55.92,
+        "cover_offset_ms": 6575,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 62.98,
+        "cover_offset_ms": 7563,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "YxYLOOt3LPA",
+          "url": "https://youtube.com/shorts/YxYLOOt3LPA"
+        },
+        "instagram": {
+          "id": "18146391940596944",
+          "url": "https://www.instagram.com/reel/DfKAYT6jTDG/"
+        },
+        "threads": {
+          "id": "18139580819506996",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfKAelwD2Kh"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "Mqje8Ha4bv8",
+          "url": "https://youtube.com/shorts/Mqje8Ha4bv8"
+        },
+        "instagram": {
+          "id": "18029564738701011",
+          "url": "https://www.instagram.com/reel/DfKAla1jFvW/"
+        },
+        "threads": {
+          "id": "18070186298788148",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfKArppge5h"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261031-beauty-is-human-when-people-love-ai-gene",
+    "pick_reason": "A large public AI-art Turing test with over 11,000 people yields a concrete, surprising finding: people are 22 points more likely to call their favourite picture human-made, whether or not it was AI-generated. The within-person design is easy to show in a few visual steps. Signals: Channel notes suggest favouring everyday-AI topics with personal stakes and second-person hooks ('which picture would you pick?'). I avoided the knowledge-worker AI trial and the Polymarket paper because they sit too close to recent episodes."
   }
 ]

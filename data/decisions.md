@@ -15,6 +15,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 內容 Text: Would strangers bet that you'll hit your goal? A new study says: yes, a little too often. Researchers looked at Manifold…
   - 為什麼 Why: The notes say English has held up close to Chinese on Instagram and that an Instagram free post should be published to check whether the 0-view results are a delivery problem, and our newest paper has clean, stated numbers that suit stat slides.
   - 根據的集數 Based on: 20261030-crowds-believe-in-you-online-prediction
+- **短影音 Short** · [你最愛的那張圖，真的是人做的嗎？ / Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA)
+  - 論文 Paper: [Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It](https://arxiv.org/abs/2610.38113) (arXiv cs.HC)
+  - 為什麼 Why: A large public AI-art Turing test with over 11,000 people yields a concrete, surprising finding: people are 22 points more likely to call their favourite picture human-made, whether or not it was AI-generated. The within-person design is easy to show in a few visual steps. Signals: Channel notes suggest favouring everyday-AI topics with personal stakes and second-person hooks ('which picture would you pick?'). I avoided the knowledge-worker AI trial and the Polymarket paper because they sit too close to recent episodes.
 
 ## 2026-10-30
 
