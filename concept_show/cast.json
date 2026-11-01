@@ -5,21 +5,13 @@
   "K": {
    "name": "Una",
    "title": "主持人",
-   "voice": {
-    "design": "一位二十多歲的台灣女生，說話帶自然的台灣國語口音，聲音明亮、親切、反應快，像在跟朋友聊天的 podcast 主持人。",
-    "language": "zh-TW",
-    "gender": "female"
-   },
+   "voice": "Despina",
    "persona": "好奇、反應快，代替聽眾提問、做比喻、偶爾開玩笑"
   },
   "A": {
    "name": "Natasha",
    "title": "資料科學家",
-   "voice": {
-    "design": "一位三十出頭的台灣女性資料科學家，說話帶自然的台灣國語口音，聲音沉穩、清楚、溫和，偶爾帶點冷幽默。",
-    "language": "zh-TW",
-    "gender": "female"
-   },
+   "voice": "Erinome",
    "persona": "資料科學家，清楚、精準、有一點冷幽默"
   }
  }
