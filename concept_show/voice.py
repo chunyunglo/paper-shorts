@@ -128,8 +128,11 @@ def frames(wav_bytes: bytes) -> tuple[bytes, tuple]:
 
 def main(show_path: str, out_path: str) -> None:
     show = json.loads(Path(show_path).read_text(encoding="utf-8"))
-    if "style" not in show:  # scripts saved before cast.json had a style line
-        show["style"] = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))["style"]
+    # Voices and style always come from the current cast.json, so a saved script can be re-voiced after a change
+    cast = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))
+    show["style"] = cast.get("style", "")
+    for k, h in show["hosts"].items():
+        h["voice"] = cast["hosts"][k]["voice"]
     resolve_voices(show["hosts"])
     rows = [r for r in show["lines"] if r[0] in SPEAKERS]
     if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply
