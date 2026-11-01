@@ -37,7 +37,7 @@ jobs:
         shell: bash
         run: |
           python -m shorts audioshow-make | tee make.log
-          echo "EP_DIR=$(tail -1 make.log)" >> "$GITHUB_ENV"
+          echo "EP_DIR=$(grep -E '^/.*/out/audioshow/[^ ]+$' make.log | tail -1)" >> "$GITHUB_ENV"
       - name: Voices
         run: python podcast/build_audio.py "$EP_DIR/show.json"
       - name: MP3
