@@ -163,7 +163,11 @@ many"). If a number needs a statistics term to make sense, describe the size in 
 found, what it means for the viewer. Link lines with plain connectives (所以、結果、但是、也就是說 / \
 so, it turned out, but).
 - On-screen labels and big text must be understandable without the narration: plain words, no \
-abbreviations or jargon.
+abbreviations or jargon. Keep their length limits: a heading is 2-6 Chinese characters and 1-3 \
+English words, never a sentence.
+- Clear does not mean longer: stay inside the narration budget above. Get clarity by telling \
+fewer things well; drop secondary details (extra groups, sub-results, exact statistics) rather \
+than squeezing them in.
 - Before finishing, reread the script as a friend who has never heard of this study: could they \
 retell what was done and what was found after one viewing? If not, simplify, even if it means \
 dropping a detail.
