@@ -12,6 +12,10 @@
 | 輸出 | 放在 GitHub pre-release `concept-demo-N`，**不發布到任何平台** |
 
 執行：Actions → **Concept podcast demo** → Run workflow（可填主題 id，例如 `s1e03`），
-或在 `claude/*` 分支的 commit 訊息加 `[concept-show]`。本機：`python -m concept_show make --topic s1e01`。
+或在 `claude/*` 分支的 commit 訊息加 `[concept-show]`。本機寫稿：`python -m concept_show make --topic s1e01`。
+
+寫稿和配音是兩個分開的 job，自動接著跑：`script` 寫好稿子先存到 pre-release，`voice` 再從 pre-release 拿稿子配音。
+配音失敗時只重跑 `voice`（Re-run failed jobs，或 Run workflow 填 `release=concept-demo-N`），不會再花一次寫稿的錢；
+已經配好的句子有快取，重跑會從停下的地方接著配。
 
 需要的 Secrets：`ANTHROPIC_API_KEY`、`GEMINI_API_KEY`。

@@ -1,8 +1,12 @@
-# Chinese concept podcast (working title 生意有數): a demo episode, never published.
-#   Claude writes one topic from concept_show/topics.json as a two-host Traditional Chinese talk,
-#   a second Claude pass checks concepts and forbids invented facts, Gemini TTS voices it,
-#   and the MP3 and script go on a pre-release. Separate from the shorts pipeline.
-# Run it by hand (pick a topic), or push to a claude/* branch with [concept-show] in the commit message.
+# Chinese concept podcast (working title 生意有數): demo episodes, never published.
+# Two separate jobs that run back to back, with the script saved in between:
+#   script  Claude writes one topic from concept_show/topics.json as a two-host Traditional Chinese talk,
+#           a second Claude pass checks concepts and forbids invented facts, and the script is saved on
+#           a pre-release concept-demo-N.
+#   voice   Fetches that saved script, voices it with Gemini TTS, and adds the MP3 to the same pre-release.
+#           No Claude calls. If it fails, re-run only this job (or run the workflow with release=concept-demo-N):
+#           the script is not written again.
+# Run it by hand, or push to a claude/* branch with [concept-show] in the commit message.
 name: Concept podcast demo
 
 on:
@@ -11,8 +15,8 @@ on:
       topic:
         description: "Topic id from concept_show/topics.json (blank = s1e01)"
         default: ""
-      reuse:
-        description: "Voice the script of an earlier run instead of writing a new one (e.g. concept-demo-1)"
+      release:
+        description: "Only voice the script already saved on this pre-release (e.g. concept-demo-2); skips writing"
         default: ""
   push:
     branches: ["claude/**"]
@@ -21,18 +25,18 @@ permissions:
   contents: write
 
 jobs:
-  episode:
+  script:
     if: >-
-      github.event_name == 'workflow_dispatch'
+      (github.event_name == 'workflow_dispatch' && github.event.inputs.release == '')
       || (github.event_name == 'push' && contains(github.event.head_commit.message, '[concept-show]'))
-    concurrency: concept-show
+    concurrency: concept-show-script
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 30
+    outputs:
+      release: ${{ steps.save.outputs.release }}
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       TOPIC: ${{ github.event.inputs.topic }}
-      REUSE: ${{ github.event.inputs.reuse }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -42,28 +46,48 @@ jobs:
       - name: Dependencies
         run: |
           [ -n "$ANTHROPIC_API_KEY" ] || { echo "ANTHROPIC_API_KEY is not set"; exit 1; }
-          [ -n "$GEMINI_API_KEY" ] || { echo "GEMINI_API_KEY is not set"; exit 1; }
-          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-          pip install -q anthropic==2.3.0 pydantic==2.13.5 numpy==2.5.3 soundfile scipy sherpa-onnx
-      - name: Write the episode (or fetch an earlier run's script)
+          pip install -q anthropic==2.3.0 pydantic==2.13.5
+      - name: Write the script
         shell: bash
         run: |
-          if [ -n "$REUSE" ]; then
-            d="$PWD/out/concept_show/$REUSE"; mkdir -p "$d"
-            gh release download "$REUSE" -D "$d" -p show.json -p script.md -p meta.json
-            echo "EP_DIR=$d" >> "$GITHUB_ENV"; echo "RELEASE=$REUSE" >> "$GITHUB_ENV"
-            exit 0
-          fi
           python -m concept_show make ${TOPIC:+--topic "$TOPIC"} | tee make.log
           grep -m1 '^EP_DIR=' make.log >> "$GITHUB_ENV"
-          echo "RELEASE=concept-demo-${{ github.run_number }}" >> "$GITHUB_ENV"
-      - name: Put the script on a pre-release
-        if: env.REUSE == ''
+      - name: Save it on a pre-release
+        id: save
         run: |
-          gh release create "$RELEASE" "$EP_DIR/script.md" "$EP_DIR/meta.json" "$EP_DIR/show.json" \
-            --prerelease --target "${{ github.sha }}" \
-            --title "Concept podcast demo #${{ github.run_number }} (not posted)" \
+          tag="concept-demo-${{ github.run_number }}"
+          gh release create "$tag" "$EP_DIR/script.md" "$EP_DIR/meta.json" "$EP_DIR/show.json" \
+            --prerelease --target "${{ github.sha }}" --title "Concept podcast demo #${{ github.run_number }} (not posted)" \
             --notes "$(jq -r '.title + "：" + .one_liner' "$EP_DIR/meta.json")"
+          echo "release=$tag" >> "$GITHUB_OUTPUT"
+
+  voice:
+    needs: script
+    if: >-
+      always() && (needs.script.result == 'success'
+      || (needs.script.result == 'skipped' && github.event_name == 'workflow_dispatch' && github.event.inputs.release != ''))
+    concurrency: concept-show-voice
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      RELEASE: ${{ needs.script.outputs.release || github.event.inputs.release }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        run: |
+          [ -n "$GEMINI_API_KEY" ] || { echo "GEMINI_API_KEY is not set"; exit 1; }
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q numpy==2.5.3 soundfile scipy sherpa-onnx
+      - name: Fetch the saved script
+        run: |
+          d="$PWD/out/concept_show/$RELEASE"; mkdir -p "$d"
+          gh release download "$RELEASE" -D "$d" -p show.json
+          echo "EP_DIR=$d" >> "$GITHUB_ENV"
       # Voiced lines are cached by text and voice, so a rerun after a Gemini rate limit picks up where it stopped
       - uses: actions/cache/restore@v4
         with:
@@ -77,7 +101,7 @@ jobs:
         with:
           path: podcast/.cache/tts
           key: concept-tts-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: MP3
+      - name: MP3 onto the same pre-release
         run: |
           ffmpeg -v error -y -i podcast/out/dialog.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 \
             -ac 1 -ar 44100 -b:a 96k "$EP_DIR/episode.mp3"
