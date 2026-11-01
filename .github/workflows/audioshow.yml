@@ -1,0 +1,54 @@
+# Chinese audio podcast (working title 生意有數): a test episode, never published.
+#   Picks a paper with open full text, writes and fact-checks the two-host Traditional Chinese
+#   dialogue, voices it with Gemini TTS, and puts the MP3 and the script on a pre-release.
+# Run it by hand, or push to a claude/* branch with [audioshow] in the commit message.
+name: Audio podcast test episode
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  episode:
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event_name == 'push' && contains(github.event.head_commit.message, '[audioshow]'))
+    concurrency: audioshow
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      UNPAYWALL_EMAIL: ${{ secrets.ALERT_EMAIL_TO }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - name: Audio dependencies
+        run: |
+          [ -n "$GEMINI_API_KEY" ] || { echo "GEMINI_API_KEY is not set"; exit 1; }
+          pip install -q sherpa-onnx soundfile scipy
+      - name: Write the episode
+        shell: bash
+        run: |
+          python -m shorts audioshow-make | tee make.log
+          echo "EP_DIR=$(tail -1 make.log)" >> "$GITHUB_ENV"
+      - name: Voices
+        run: python podcast/build_audio.py "$EP_DIR/show.json"
+      - name: MP3
+        run: |
+          ffmpeg -v error -y -i podcast/out/dialog.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 \
+            -ac 1 -ar 44100 -b:a 96k "$EP_DIR/episode.mp3"
+          ffprobe -v error -show_entries format=duration -of csv=p=0 "$EP_DIR/episode.mp3"
+      - name: Put it on a pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "audio-test-${{ github.run_number }}" "$EP_DIR/episode.mp3" "$EP_DIR/script.md" \
+            "$EP_DIR/meta.json" "$EP_DIR/show.json" --prerelease --target "${{ github.sha }}" \
+            --title "生意有數 test #${{ github.run_number }} (not posted)" --notes "$(jq -r .title "$EP_DIR/meta.json")"
