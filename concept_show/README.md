@@ -9,7 +9,7 @@
 | 主題 | `topics.json` 的第一季主題清單，每集一個概念。直接改這個檔案就能換題目或加題目 |
 | 寫稿 | Claude 寫阿凱和安妮兩人的對談（討論夥伴，不是一問一答），15–20 分鐘，有固定的「展開維度」段落 |
 | 查核 | 另一個 Claude 檢查觀念有沒有講錯，以及有沒有編造的數字、研究、公司或人說的話；例子裡的數字必須標明是假設。有問題就改，最多三輪，還不過就不出 |
-| 配音 | `concept_show/voice.py`，Gemini 3.8 Flash TTS 雙人模式（Una：Despina、Natasha：Erinome），整集 2 到 3 次請求，每次至少間隔 8 秒，一次執行最多 25 次。Flash Lite 口音會跑掉，不用。也可以在 `cast.json` 用文字設計聲音，但那樣要一句一次請求 |
+| 配音 | `concept_show/voice.py`，Gemini 3.8 Flash-Lite TTS 雙人模式（Una：Despina、Natasha：Erinome），整集 2 到 3 次請求，每次至少間隔 8 秒，一次執行最多 25 次。也可以在 `cast.json` 用文字設計聲音，但那樣要一句一次請求 |
 | 輸出 | 放在 GitHub pre-release `concept-demo-N`，**不發布到任何平台** |
 
 執行：Actions → **Concept podcast demo** → Run workflow（可填主題 id，例如 `s1e03`），
