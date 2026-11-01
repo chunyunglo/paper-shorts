@@ -32,6 +32,7 @@ MAX_REQUESTS = int(os.environ.get("TTS_MAX_REQUESTS", "25"))
 CACHE = Path(os.environ.get("TTS_CACHE", Path(__file__).resolve().parent.parent / "out" / "concept_show" / ".tts"))
 SPEAKERS = {"K": "Kai", "A": "Anne"}  # ASCII labels for the request; the spoken names are in the text
 GAP = 0.45  # seconds of silence between chunks
+TURN_GAP = 0.3  # between single turns, when each turn is its own request
 
 
 def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
@@ -46,14 +47,18 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
 
 
 def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
-    meta = lambda s: {"speaker": SPEAKERS[s], **({"style": style} if style else {})}
-    parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
-    voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"voice": hosts[k].get("voice_id", hosts[k]["voice"])}}
-              for k in ("K", "A")]
+    vid = lambda k: hosts[k].get("voice_id", hosts[k]["voice"])
+    if any(h.get("designed") for h in hosts.values()):  # one turn, one voice (designed voices can't be mixed)
+        (spk, text), = chunk
+        parts = [{"text": text, **({"speech_metadata": {"style": style}} if style else {})}]
+        speech = {"voiceConfig": {"voice": vid(spk)}}
+    else:
+        meta = lambda s: {"speaker": SPEAKERS[s], **({"style": style} if style else {})}
+        parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
+        speech = {"multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
+            {"speaker": SPEAKERS[k], "voiceConfig": {"voice": vid(k)}} for k in ("K", "A")]}}
     return json.dumps({"contents": [{"role": "user", "parts": parts}],
-                       "generationConfig": {"responseModalities": ["AUDIO"],
-                                            "speechConfig": {"multiSpeakerVoiceConfig": {
-                                                "speakerVoiceConfigs": voices}}}},
+                       "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": speech}},
                       ensure_ascii=False).encode()
 
 
@@ -121,6 +126,42 @@ def _f(v: dict, *names: str) -> str:
     return str(next((v[n] for n in names if v.get(n)), ""))
 
 
+PREVIEWS = Path(os.environ.get("TTS_PREVIEWS", CACHE.parent / "previews"))
+
+
+def _api(method: str, path: str, payload: dict | None = None) -> dict:
+    url = "https://generativelanguage.googleapis.com/v1beta/" + path
+    req = urllib.request.Request(url, json.dumps(payload, ensure_ascii=False).encode() if payload else None,
+                                 {"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"},
+                                 method=method)
+    try:
+        return json.load(urllib.request.urlopen(req, timeout=120))
+    except urllib.error.HTTPError as e:
+        why, _ = _quota(e)
+        sys.exit(f"Voices API {method} failed (status {e.code}{': ' + why if why else ''})")
+
+
+def designed_voice(name: str, spec: dict) -> str:
+    """A voice designed from spec["design"] and stored in the Gemini project (one-year lifetime). Reused by
+    display name, so it is designed once and every later run sounds the same."""
+    display = f"{name} {hashlib.sha1(spec['design'].encode()).hexdigest()[:8]}"
+    listing = _api("GET", "voices?type=prompted&page_size=200")
+    for v in listing.get("voices", []):
+        if _f(v, "displayName", "display_name") == display:
+            print(f"{name}: designed voice {_f(v, 'id')} (reused)", flush=True)
+            return _f(v, "id")
+    made = _api("POST", "voices", {"store": True, "voice": {
+        "model": MODEL, "type": "prompted", "display_name": display, "gender": spec.get("gender", "female"),
+        "language_code": spec.get("language", "zh-TW"), "prompted": {"input": spec["design"]}}})
+    vid = _f(made, "id")
+    sample = (made.get("sample_audio") or made.get("sampleAudio") or {}).get("data")
+    if sample:
+        PREVIEWS.mkdir(parents=True, exist_ok=True)
+        (PREVIEWS / f"voice-preview-{name}.wav").write_bytes(base64.b64decode(sample))
+    print(f"{name}: designed voice {vid} (new)", flush=True)
+    return vid
+
+
 def resolve_voices(hosts: dict) -> None:
     """A host's voice is a prebuilt name ("Achird") or a filter {"language": "TW", "gender": "female",
     "pick": 0}: the pick-th matching library voice, in id order, so every run picks the same one.
@@ -130,6 +171,9 @@ def resolve_voices(hosts: dict) -> None:
         v = h["voice"]
         if isinstance(v, str):
             h["voice_id"] = v
+            continue
+        if "design" in v:
+            h["voice_id"], h["designed"] = designed_voice(h["name"], v), True
             continue
         lib = lib if lib is not None else _library()
         match = sorted((x for x in lib
@@ -170,7 +214,9 @@ def main(show_path: str, out_path: str) -> None:
     rows = [r for r in show["lines"] if r[0] in SPEAKERS]
     if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply
         rows = rows[:int(a)]
-    parts = chunks(rows)
+    # Designed voices cannot share a multi-speaker request, so each turn is its own request
+    per_turn = any(h.get("designed") for h in show["hosts"].values())
+    parts = [[(r[0], r[1])] for r in rows] if per_turn else chunks(rows)
     CACHE.mkdir(parents=True, exist_ok=True)
     todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'], show.get('style', ''))}.wav").exists())
     print(f"{len(parts)} chunks, {todo} to voice with {MODEL}", flush=True)
@@ -186,7 +232,7 @@ def main(show_path: str, out_path: str) -> None:
         fmt = fmt or fmt_i
         if fmt_i != fmt:
             sys.exit("Chunks came back in different audio formats")
-        pcm += [f, b"\0" * int(GAP * fmt[2]) * fmt[0] * fmt[1]]
+        pcm += [f, b"\0" * int((TURN_GAP if per_turn else GAP) * fmt[2]) * fmt[0] * fmt[1]]
     with wave.open(out_path, "wb") as w:
         w.setnchannels(fmt[0])
         w.setsampwidth(fmt[1])

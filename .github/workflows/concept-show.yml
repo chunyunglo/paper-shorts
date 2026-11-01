@@ -21,6 +21,9 @@ on:
       sample_lines:
         description: "Voice only the first N lines, to try a voice change cheaply (blank = whole episode)"
         default: ""
+      max_requests:
+        description: "Most Gemini TTS requests this run may send (the key allows 100 a day)"
+        default: "25"
   push:
     branches: ["claude/**"]
 
@@ -76,6 +79,7 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       RELEASE: ${{ needs.script.outputs.release || github.event.inputs.release }}
       TTS_SAMPLE_LINES: ${{ github.event.inputs.sample_lines }}
+      TTS_MAX_REQUESTS: ${{ github.event.inputs.max_requests || '25' }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -112,3 +116,4 @@ jobs:
           ffprobe -v error -show_entries format=duration -of csv=p=0 "$EP_DIR/episode.mp3"
           name=episode.mp3; [ -n "$TTS_SAMPLE_LINES" ] && name="sample-${{ github.run_number }}.mp3" && mv "$EP_DIR/episode.mp3" "$EP_DIR/$name"
           gh release upload "$RELEASE" "$EP_DIR/$name" --clobber
+          for f in out/concept_show/previews/*.wav; do [ -f "$f" ] && gh release upload "$RELEASE" "$f" --clobber; done; true
