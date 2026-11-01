@@ -145,7 +145,7 @@ def _meta(paper: Paper) -> str:
 
 
 def _ask(schema, system: str, docs: list, text: str):
-    return llm.ask(schema, system, docs + [{"type": "text", "text": text}], effort="high", max_tokens=32000)
+    return llm.ask(schema, system, docs + [{"type": "text", "text": text}], effort="high", max_tokens=20000)
 
 
 def write(paper: Paper) -> Episode:
