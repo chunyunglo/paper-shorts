@@ -48,7 +48,7 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
 def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
     meta = lambda s: {"speaker": SPEAKERS[s], **({"style": style} if style else {})}
     parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
-    voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"voice": hosts[k].get("voice_id") or hosts[k]["voice"]}}
+    voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"voice": hosts[k].get("voice_id", hosts[k]["voice"])}}
               for k in ("K", "A")]
     return json.dumps({"contents": [{"role": "user", "parts": parts}],
                        "generationConfig": {"responseModalities": ["AUDIO"],
@@ -99,29 +99,51 @@ class Budget:
         raise AssertionError
 
 
-def resolve_voices(hosts: dict) -> None:
-    """Look up each host's voice by name in the voice library (prebuilt and Extended Voice Library) and
-    store its id. A read-only list call; prints only the id, language and gender it found."""
-    for h in hosts.values():
-        url = ("https://generativelanguage.googleapis.com/v1beta/voices?page_size=50&search="
-               + urllib.parse.quote(h["voice"]))
+def _library() -> list[dict]:
+    """Every voice in the library (prebuilt, Extended Voice Library, and this project's own). Read-only."""
+    voices, token = [], ""
+    for _ in range(10):
+        url = "https://generativelanguage.googleapis.com/v1beta/voices?page_size=1000" + (
+            "&page_token=" + urllib.parse.quote(token) if token else "")
         req = urllib.request.Request(url, headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]})
         try:
-            found = json.load(urllib.request.urlopen(req, timeout=60)).get("voices", [])
+            d = json.load(urllib.request.urlopen(req, timeout=60))
         except urllib.error.HTTPError as e:
-            sys.exit(f"Voice lookup failed (status {e.code})")
-        name = h["voice"].lower()
-        match = [v for v in found if name in (str(v.get("displayName", "")) + " " + str(v.get("id", ""))
-                                              + " " + str(v.get("name", ""))).lower()]
-        if not match:
-            print(f"Search for {h['voice']!r} returned {len(found)} voices:", flush=True)
-            for v in found[:25]:
-                print("  ", {k: v.get(k) for k in ("id", "name", "displayName", "languageCode", "gender")}, flush=True)
-            sys.exit(f"No voice named {h['voice']!r} in the voice library")
-        v = match[0]
-        h["voice_id"] = v.get("id") or v.get("name", "").split("/")[-1]
-        print(f"Voice {h['voice']}: {h['voice_id']} ({v.get('languageCode', '?')}, {v.get('gender', '?')})",
-              flush=True)
+            sys.exit(f"Voice list failed (status {e.code})")
+        voices += d.get("voices", [])
+        token = d.get("nextPageToken") or d.get("next_page_token") or ""
+        if not token:
+            break
+    return voices
+
+
+def _f(v: dict, *names: str) -> str:
+    return str(next((v[n] for n in names if v.get(n)), ""))
+
+
+def resolve_voices(hosts: dict) -> None:
+    """A host's voice is a prebuilt name ("Achird") or a filter {"language": "TW", "gender": "female",
+    "pick": 0}: the pick-th matching library voice, in id order, so every run picks the same one.
+    Prints only ids, languages and genders."""
+    lib = None
+    for h in hosts.values():
+        v = h["voice"]
+        if isinstance(v, str):
+            h["voice_id"] = v
+            continue
+        lib = lib if lib is not None else _library()
+        match = sorted((x for x in lib
+                        if v["language"].lower() in _f(x, "languageCode", "language_code").lower()
+                        and _f(x, "gender").lower().startswith(v["gender"].lower())),
+                       key=lambda x: _f(x, "id", "name"))
+        if len(match) <= v.get("pick", 0):
+            langs = sorted({_f(x, "languageCode", "language_code") for x in lib})
+            sys.exit(f"{len(match)} library voices match {v}; {len(lib)} voices in all, languages: "
+                     + ", ".join(langs[:80]))
+        x = match[v.get("pick", 0)]
+        h["voice_id"] = _f(x, "id", "name").split("/")[-1]
+        print(f"{h['name']}: voice {h['voice_id']} ({_f(x, 'languageCode', 'language_code')}, "
+              f"{_f(x, 'gender')}); {len(match)} voices matched", flush=True)
 
 
 def frames(wav_bytes: bytes) -> tuple[bytes, tuple]:
@@ -134,8 +156,16 @@ def main(show_path: str, out_path: str) -> None:
     # Voices and style always come from the current cast.json, so a saved script can be re-voiced after a change
     cast = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))
     show["style"] = cast.get("style", "")
+    renames = {show.get("show", ""): cast["show"]}
     for k, h in show["hosts"].items():
-        h["voice"] = cast["hosts"][k]["voice"]
+        renames[h["name"]] = cast["hosts"][k]["name"]
+        h.update(voice=cast["hosts"][k]["voice"], name=cast["hosts"][k]["name"])
+    renames = {a: b for a, b in renames.items() if a and a != b}
+    if renames:  # a script saved before a rename still says the old names; speak the current ones
+        print("Renaming in the saved script: " + ", ".join(f"{a} -> {b}" for a, b in renames.items()), flush=True)
+        for r in show["lines"]:
+            for a, b in renames.items():
+                r[1] = r[1].replace(a, b)
     resolve_voices(show["hosts"])
     rows = [r for r in show["lines"] if r[0] in SPEAKERS]
     if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply

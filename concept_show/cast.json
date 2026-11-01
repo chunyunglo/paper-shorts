@@ -3,15 +3,23 @@
  "style": "自然、輕鬆的對話語氣",
  "hosts": {
   "K": {
-   "name": "（主持人待定）",
+   "name": "Una",
    "title": "主持人",
-   "voice": "Una",
+   "voice": {
+    "language": "TW",
+    "gender": "female",
+    "pick": 0
+   },
    "persona": "好奇、反應快，代替聽眾提問、做比喻、偶爾開玩笑"
   },
   "A": {
-   "name": "（來賓待定）",
+   "name": "Natasha",
    "title": "資料科學家",
-   "voice": "Natasha",
+   "voice": {
+    "language": "TW",
+    "gender": "female",
+    "pick": 1
+   },
    "persona": "資料科學家，清楚、精準、有一點冷幽默"
   }
  }
