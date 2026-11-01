@@ -6,12 +6,15 @@
 #   Scheduled runs need the repo variable PODCAST_AUTO=true.
 # Test run: push to a claude/* branch with [podcast] in the commit message, or run it by hand
 # with upload off. A test episode goes on a pre-release and is not posted anywhere.
+#
+# PAUSED (2026-11-01, owner's call): the weekly schedule is commented out, so nothing runs on its
+# own. To resume, uncomment the two cron lines below (and keep PODCAST_AUTO=true).
 name: Podcast episode
 
 on:
-  schedule:
-    - cron: "0 4 * * 5"
-    - cron: "50 4 * * 5"  # backup: GitHub sometimes drops scheduled events; repeats skip themselves
+  # schedule:
+  #   - cron: "0 4 * * 5"
+  #   - cron: "50 4 * * 5"  # backup: GitHub sometimes drops scheduled events; repeats skip themselves
   workflow_dispatch:
     inputs:
       upload:
