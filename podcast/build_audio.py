@@ -77,7 +77,8 @@ SAY = {'A.I.': 'Ay Eye', 'AI': 'Ay Eye'}
 
 
 def synth(text, eng, sid, speed, steps=10):
-    for k, v in SAY.items():
+    # Chinese lines keep "AI" as written: Gemini reads it naturally there, and "Ay Eye" would not be
+    for k, v in ({} if re.search(r'[\u4e00-\u9fff]', text) else SAY).items():
         text = re.sub(r'(?<![\w.])' + re.escape(k) + r'(?![\w])', v, text)
     key = hashlib.sha1(f"{eng}|{text}|{sid}|{speed}|{steps}".encode()).hexdigest()[:16]
     p = CACHE / f"{key}.wav"

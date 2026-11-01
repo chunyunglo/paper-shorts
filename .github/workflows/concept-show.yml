@@ -1,0 +1,62 @@
+# Chinese concept podcast (working title 生意有數): a demo episode, never published.
+#   Claude writes one topic from concept_show/topics.json as a two-host Traditional Chinese talk,
+#   a second Claude pass checks concepts and forbids invented facts, Gemini TTS voices it,
+#   and the MP3 and script go on a pre-release. Separate from the shorts pipeline.
+# Run it by hand (pick a topic), or push to a claude/* branch with [concept-show] in the commit message.
+name: Concept podcast demo
+
+on:
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: "Topic id from concept_show/topics.json (blank = s1e01)"
+        default: ""
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  episode:
+    if: >-
+      github.event_name == 'workflow_dispatch'
+      || (github.event_name == 'push' && contains(github.event.head_commit.message, '[concept-show]'))
+    concurrency: concept-show
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      TOPIC: ${{ github.event.inputs.topic }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        run: |
+          [ -n "$ANTHROPIC_API_KEY" ] || { echo "ANTHROPIC_API_KEY is not set"; exit 1; }
+          [ -n "$GEMINI_API_KEY" ] || { echo "GEMINI_API_KEY is not set"; exit 1; }
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          pip install -q anthropic==2.3.0 pydantic==2.13.5 numpy==2.5.3 soundfile scipy sherpa-onnx
+      - name: Write the episode
+        shell: bash
+        run: |
+          python -m concept_show make ${TOPIC:+--topic "$TOPIC"} | tee make.log
+          grep -m1 '^EP_DIR=' make.log >> "$GITHUB_ENV"
+      - name: Voices
+        run: python podcast/build_audio.py "$EP_DIR/show.json"
+      - name: MP3
+        run: |
+          ffmpeg -v error -y -i podcast/out/dialog.wav -af loudnorm=I=-16:TP=-1.5:LRA=11 \
+            -ac 1 -ar 44100 -b:a 96k "$EP_DIR/episode.mp3"
+          ffprobe -v error -show_entries format=duration -of csv=p=0 "$EP_DIR/episode.mp3"
+      - name: Put it on a pre-release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "concept-demo-${{ github.run_number }}" "$EP_DIR/episode.mp3" "$EP_DIR/script.md" \
+            "$EP_DIR/meta.json" "$EP_DIR/show.json" --prerelease --target "${{ github.sha }}" \
+            --title "Concept podcast demo #${{ github.run_number }} (not posted)" \
+            --notes "$(jq -r '.title + "：" + .one_liner' "$EP_DIR/meta.json")"
