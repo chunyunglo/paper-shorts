@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-10-31T07:26:09+00:00",
+ "collected_at": "2026-11-01T07:59:07+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 342,
-   "videoCount": 16
+   "viewCount": 408,
+   "videoCount": 18
   }
  },
  "notes": [],
@@ -259,10 +259,15 @@
    "metrics": {
     "views": 1,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT47S",
     "privacy": "public",
-    "published": "2026-10-26T11:40:04Z"
+    "published": "2026-10-26T11:40:04Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -363,15 +368,15 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 107,
+    "views": 110,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
     "published": "2026-10-27T11:04:42Z",
-    "estimatedMinutesWatched": 11,
-    "averageViewDuration": 22,
-    "averageViewPercentage": 42.73,
+    "estimatedMinutesWatched": 12,
+    "averageViewDuration": 21,
+    "averageViewPercentage": 42.22,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -426,15 +431,15 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 18,
+    "views": 17,
     "likes": 2,
     "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-10-27T11:06:03Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 16,
-    "averageViewPercentage": 34.78,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 37.19,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -489,15 +494,15 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 16,
+    "views": 20,
     "likes": 0,
     "comments": 0,
     "duration": "PT51S",
     "privacy": "public",
     "published": "2026-10-27T22:05:17Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 40,
-    "averageViewPercentage": 79.28,
+    "averageViewDuration": 26,
+    "averageViewPercentage": 52.94,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -537,17 +542,17 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 28,
+    "views": 68,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M2S",
     "privacy": "public",
     "published": "2026-10-28T11:08:33Z",
-    "estimatedMinutesWatched": 1,
-    "averageViewDuration": 6,
-    "averageViewPercentage": 10.59,
+    "estimatedMinutesWatched": 7,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 27.99,
     "shares": 0,
-    "subscribersGained": 0
+    "subscribersGained": 1
    }
   },
   {
@@ -581,7 +586,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 31,
+    "views": 32,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -600,15 +605,15 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 15,
+    "views": 19,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M6S",
     "privacy": "public",
     "published": "2026-10-28T11:10:11Z",
     "estimatedMinutesWatched": 3,
-    "averageViewDuration": 32,
-    "averageViewPercentage": 48.97,
+    "averageViewDuration": 28,
+    "averageViewPercentage": 43.14,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -663,12 +668,17 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 41,
-    "likes": 1,
-    "comments": 1,
+    "views": 15,
+    "likes": 0,
+    "comments": 0,
     "duration": "PT58S",
     "privacy": "public",
-    "published": "2026-10-29T11:04:42Z"
+    "published": "2026-10-29T11:04:42Z",
+    "estimatedMinutesWatched": 4,
+    "averageViewDuration": 51,
+    "averageViewPercentage": 88.78,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -721,12 +731,17 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 13,
+    "views": 10,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT59S",
     "privacy": "public",
-    "published": "2026-10-29T11:06:49Z"
+    "published": "2026-10-29T11:06:49Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 50,
+    "averageViewPercentage": 86.15,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -779,7 +794,7 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 12,
+    "views": 22,
     "likes": 0,
     "comments": 1,
     "duration": "PT57S",
@@ -798,8 +813,8 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 3,
-    "reach": 5,
+    "views": 5,
+    "reach": 7,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -837,7 +852,7 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 2,
+    "views": 3,
     "likes": 0,
     "comments": 1,
     "duration": "PT1M5S",
@@ -856,8 +871,8 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 5,
-    "reach": 4,
+    "views": 6,
+    "reach": 5,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -885,6 +900,122 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "YxYLOOt3LPA",
+   "url": "https://youtube.com/shorts/YxYLOOt3LPA",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 35,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT56S",
+    "privacy": "public",
+    "published": "2026-10-31T11:03:55Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18146391940596944",
+   "url": "https://www.instagram.com/reel/DfKAYT6jTDG/",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 501,
+    "reach": 436,
+    "likes": 6,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 8
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18139580819506996",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfKAelwD2Kh",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 3,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "Mqje8Ha4bv8",
+   "url": "https://youtube.com/shorts/Mqje8Ha4bv8",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M3S",
+    "privacy": "public",
+    "published": "2026-10-31T11:05:51Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18029564738701011",
+   "url": "https://www.instagram.com/reel/DfKAla1jFvW/",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 19,
+    "reach": 17,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "title": "Your Favorite Picture: Are You Sure a Human Made It?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18070186298788148",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfKArppge5h",
+   "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
+   "created": "2026-10-31T06:12:44+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -895,15 +1026,15 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 2,
+    "views": 4,
     "likes": 0,
     "comments": 0,
     "duration": "PT7M4S",
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
     "estimatedMinutesWatched": 1,
-    "averageViewDuration": 32,
-    "averageViewPercentage": 7.6499999999999995,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 4.14,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1060,6 +1191,45 @@
     "reposts": 0,
     "quotes": 0,
     "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-8",
+   "title": "如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？\n\n我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在202",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18135225736681154",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8",
+   "paper": "20261030-crowds-believe-in-you-online-prediction",
+   "created": "2026-10-31T09:53:43+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-9",
+   "title": "Would strangers bet that you'll hit your goal? A new study says: yes, a little t",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18638937274015989",
+   "url": "https://www.instagram.com/p/DfJ4cRJFS-W/",
+   "paper": "20261030-crowds-believe-in-you-online-prediction",
+   "created": "2026-10-31T09:53:43+00:00",
+   "metrics": {
+    "views": 0,
+    "reach": 0,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
    }
   }
  ]
