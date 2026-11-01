@@ -18,12 +18,15 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import wave
 from pathlib import Path
 
 MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-lite-tts")
-CHUNK_CHARS = int(os.environ.get("TTS_CHUNK_CHARS", "800"))  # about 3 minutes per request; fewer voice drifts at seams
+# One request can return at most 16,384 output tokens, roughly 10 minutes of audio, so a 13-20 minute
+# episode needs 2-3 requests; 2000 characters is about 7 minutes of speech.
+CHUNK_CHARS = int(os.environ.get("TTS_CHUNK_CHARS", "2000"))
 PACE = float(os.environ.get("TTS_PACE_SECONDS", "8"))  # 10 requests a minute at most; stay under it
 MAX_REQUESTS = int(os.environ.get("TTS_MAX_REQUESTS", "25"))
 CACHE = Path(os.environ.get("TTS_CACHE", Path(__file__).resolve().parent.parent / "out" / "concept_show" / ".tts"))
@@ -45,7 +48,7 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
 def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
     meta = lambda s: {"speaker": SPEAKERS[s], **({"style": style} if style else {})}
     parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
-    voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": hosts[k]["voice"]}}}
+    voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"voice": hosts[k].get("voice_id") or hosts[k]["voice"]}}
               for k in ("K", "A")]
     return json.dumps({"contents": [{"role": "user", "parts": parts}],
                        "generationConfig": {"responseModalities": ["AUDIO"],
@@ -56,9 +59,12 @@ def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
 
 def _quota(err: urllib.error.HTTPError) -> tuple[str, int]:
     try:
-        details = json.load(err).get("error", {}).get("details", [])
+        e = json.load(err).get("error", {})
     except Exception:
         return "", 0
+    details = e.get("details", [])
+    if err.code == 400:  # say why (e.g. a voice the multi-speaker mode rejects); the message never holds the key
+        return re.sub(r"[^\w .,:;'()/-]", "", str(e.get("message", "")))[:200], 0
     quota, wait = "", 0
     for d in details:
         for v in d.get("violations", []):
@@ -87,10 +93,32 @@ class Budget:
             except urllib.error.HTTPError as e:
                 quota, wait = _quota(e)
                 if (e.code != 429 and e.code < 500) or "PerDay" in quota or attempt == 2:
-                    sys.exit(f"Gemini TTS failed (status {e.code}{', quota ' + quota if quota else ''}) "
+                    sys.exit(f"Gemini TTS failed (status {e.code}{': ' + quota if quota else ''}) "
                              f"after {self.sent} requests")
                 time.sleep(max(wait, 20))
         raise AssertionError
+
+
+def resolve_voices(hosts: dict) -> None:
+    """Look up each host's voice by name in the voice library (prebuilt and Extended Voice Library) and
+    store its id. A read-only list call; prints only the id, language and gender it found."""
+    for h in hosts.values():
+        url = ("https://generativelanguage.googleapis.com/v1beta/voices?page_size=50&search="
+               + urllib.parse.quote(h["voice"]))
+        req = urllib.request.Request(url, headers={"x-goog-api-key": os.environ["GEMINI_API_KEY"]})
+        try:
+            found = json.load(urllib.request.urlopen(req, timeout=60)).get("voices", [])
+        except urllib.error.HTTPError as e:
+            sys.exit(f"Voice lookup failed (status {e.code})")
+        name = h["voice"].lower()
+        match = [v for v in found if name in (str(v.get("displayName", "")) + " " + str(v.get("id", ""))
+                                              + " " + str(v.get("name", ""))).lower()]
+        if not match:
+            sys.exit(f"No voice named {h['voice']!r} in the voice library")
+        v = match[0]
+        h["voice_id"] = v.get("id") or v.get("name", "").split("/")[-1]
+        print(f"Voice {h['voice']}: {h['voice_id']} ({v.get('languageCode', '?')}, {v.get('gender', '?')})",
+              flush=True)
 
 
 def frames(wav_bytes: bytes) -> tuple[bytes, tuple]:
@@ -102,6 +130,7 @@ def main(show_path: str, out_path: str) -> None:
     show = json.loads(Path(show_path).read_text(encoding="utf-8"))
     if "style" not in show:  # scripts saved before cast.json had a style line
         show["style"] = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))["style"]
+    resolve_voices(show["hosts"])
     rows = [r for r in show["lines"] if r[0] in SPEAKERS]
     if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply
         rows = rows[:int(a)]
