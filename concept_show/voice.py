@@ -114,6 +114,9 @@ def resolve_voices(hosts: dict) -> None:
         match = [v for v in found if name in (str(v.get("displayName", "")) + " " + str(v.get("id", ""))
                                               + " " + str(v.get("name", ""))).lower()]
         if not match:
+            print(f"Search for {h['voice']!r} returned {len(found)} voices:", flush=True)
+            for v in found[:25]:
+                print("  ", {k: v.get(k) for k in ("id", "name", "displayName", "languageCode", "gender")}, flush=True)
             sys.exit(f"No voice named {h['voice']!r} in the voice library")
         v = match[0]
         h["voice_id"] = v.get("id") or v.get("name", "").split("/")[-1]
