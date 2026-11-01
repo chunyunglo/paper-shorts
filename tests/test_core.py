@@ -372,3 +372,12 @@ def test_write_shortens_a_script_over_the_narration_budget(monkeypatch):
     out = sm.write(paper)
     assert len(asked) == 1 and "Too long" in asked[0]
     assert sm.length(out)[0] <= sm.MAX_ZH
+
+
+def test_claude_cost_counts_input_output_and_cache_reads():
+    from types import SimpleNamespace
+    from shorts import llm
+
+    usage = SimpleNamespace(input_tokens=1_000_000, output_tokens=100_000,
+                            cache_creation_input_tokens=0, cache_read_input_tokens=1_000_000)
+    assert abs(llm.cost("claude-opus-5-5", usage) - (4.0 + 2.0 + 0.2)) < 1e-9
