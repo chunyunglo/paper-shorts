@@ -15,6 +15,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 內容 Text: 本週介紹的研究，每篇一個重點： 1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有顯著差異。 2️⃣ 政治人物向聯準會喊話（arXiv, 2026）：每一次喊「放鬆…
   - 為什麼 Why: It is Sunday and this week's four papers have not been rounded up yet; Instagram has no room left this week, so a short Chinese Threads roundup fills the weekly slot in our strongest language without a news peg.
   - 根據的集數 Based on: 20261028-ai-helped-with-homework-did-it-help-on-t, 20261029-jawboning-the-fed-do-markets-listen-when, 20261030-crowds-believe-in-you-online-prediction, 20261031-beauty-is-human-when-people-love-ai-gene
+- **短影音 Short** · [吵政治前，先跟AI聊7分鐘？ / Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA)
+  - 論文 Paper: [Improving Group Deliberation through AI-Guided Self-Reflection](https://arxiv.org/abs/2610.37862) (arXiv cs.HC)
+  - 為什麼 Why: A large randomized experiment (1,173 people in 391 small groups) found that a brief, non-directive AI chatbot prompting self-reflection before a group discussion measurably improved deliberation quality, and the design is easy to show in a few steps: reflect, deliberate, score. Signals: Notes suggesting everyday AI use and personal stakes hold viewers nudged this over the social-media simulation paper, while AI-at-work and AI-homework topics were skipped as too close to recent episodes.
 
 ## 2026-10-31
 
