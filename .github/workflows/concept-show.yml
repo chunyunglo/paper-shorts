@@ -18,6 +18,9 @@ on:
       release:
         description: "Only voice the script already saved on this pre-release (e.g. concept-demo-2); skips writing"
         default: ""
+      sample_lines:
+        description: "Voice only the first N lines, to try a voice change cheaply (blank = whole episode)"
+        default: ""
   push:
     branches: ["claude/**"]
 
@@ -72,6 +75,7 @@ jobs:
     env:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       RELEASE: ${{ needs.script.outputs.release || github.event.inputs.release }}
+      TTS_SAMPLE_LINES: ${{ github.event.inputs.sample_lines }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -106,4 +110,5 @@ jobs:
           ffmpeg -v error -y -i "$EP_DIR/episode.wav" -af loudnorm=I=-16:TP=-1.5:LRA=11 \
             -ac 1 -ar 44100 -b:a 96k "$EP_DIR/episode.mp3"
           ffprobe -v error -show_entries format=duration -of csv=p=0 "$EP_DIR/episode.mp3"
-          gh release upload "$RELEASE" "$EP_DIR/episode.mp3" --clobber
+          name=episode.mp3; [ -n "$TTS_SAMPLE_LINES" ] && name="sample-${{ github.run_number }}.mp3" && mv "$EP_DIR/episode.mp3" "$EP_DIR/$name"
+          gh release upload "$RELEASE" "$EP_DIR/$name" --clobber

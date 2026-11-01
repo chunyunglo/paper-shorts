@@ -40,7 +40,7 @@ def test_prompt_and_show_file():
     assert s["lang"] == "zh" and set(s["hosts"]) == {"K", "A"}
     assert all(len(r) == 3 and r[0] in "KA" for r in s["lines"])
     md = show.script_md(episode(), topic)
-    assert "**阿凱**" in md and "**安妮**" in md
+    assert f"**{show.K}**" in md and f"**{show.A}**" in md
 
 
 def test_voice_groups_lines_into_few_paced_requests():

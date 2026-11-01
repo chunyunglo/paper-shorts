@@ -23,14 +23,12 @@ from . import llm
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE.parent / "out" / "concept_show"
-SHOW = os.environ.get("CONCEPT_SHOW_NAME", "生意有數")
+CAST = json.loads((HERE / "cast.json").read_text(encoding="utf-8"))  # show name, hosts, voices: edit cast.json
+SHOW = CAST["show"]
 MIN_CHARS, MAX_CHARS = 3000, 5200  # spoken characters, about 13-22 minutes at the voices' pace
 MIN_LINES, MAX_LINES = 70, 200
-
-HOSTS = {
-    "K": {"name": "阿凱", "title": "主持人", "tts": "gemini", "voice": "Achird", "fallback": ["kokoro", 50]},
-    "A": {"name": "安妮", "title": "資料科學家", "tts": "gemini", "voice": "Erinome", "fallback": ["kokoro", 3]},
-}
+HOSTS = {k: {"tts": "gemini", **h} for k, h in CAST["hosts"].items()}
+K, A = HOSTS["K"]["name"], HOSTS["A"]["name"]
 
 
 class Topic(BaseModel):
@@ -45,7 +43,7 @@ def topics() -> tuple[str, list[Topic]]:
 
 
 class Line(BaseModel):
-    spk: Literal["K", "A"] = Field(description="K = 阿凱, A = 安妮")
+    spk: Literal["K", "A"] = Field(description="K = the host, A = the data scientist")
     text: str = Field(description="What is spoken, Traditional Chinese as used in Taiwan, written for "
                                   "text-to-speech, at most 120 characters")
 
@@ -69,18 +67,18 @@ SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲
 這一集的概念：「{title}」。要講清楚的核心：{idea}
 
 怎麼講：
-1. 開場：阿凱用一個日常、具體的畫面帶出今天的概念，一兩句介紹節目和安妮。不要從「老闆的煩惱」開始。
+1. 開場：{k}用一個日常、具體的畫面帶出今天的概念，一兩句介紹節目和{a}。不要從「老闆的煩惱」開始。
 2. 先讓直覺說話：用一兩個變數的想法去理解這個情境，聽起來很合理。
 3. 展開維度（招牌段落）：一次加一個維度，讓聽眾聽到結論怎麼跟著變，直到直覺跟不上。用聲音就聽得懂的比喻，\
 例如房間、地圖、調音台的旋鈕、找路，不要用需要看圖才懂的說法。
 4. 把概念說清楚：用白話定義，再講一個常見的誤解，以及它錯在哪。
 5. 這和自動化的關係：這個概念放進一個持續運作的系統裡，會變成什麼樣子；是探索自動化還是規則自動化。\
 可以舉不同領域的例子（生活、零售、餐飲、製造、交通、醫療排班、內容平台等），生意情境只是其中一種例子。
-6. 有來有往的討論：兩人可以有不同看法，例如阿凱覺得經驗也很重要，安妮同意經驗在什麼時候有用、什麼時候會騙人。\
+6. 有來有往的討論：兩人可以有不同看法，例如{k}覺得經驗也很重要，{a}同意經驗在什麼時候有用、什麼時候會騙人。\
 讓討論有張力，但最後回到同一個理解。
 7. 收尾：一句帶得走的想法，預告這一季會繼續從不同角度談同一個理念（不要承諾具體的下一集題目）。
 
-角色：阿凱好奇、反應快，代替聽眾提問、做比喻、偶爾開玩笑；安妮是資料科學家，清楚、精準、有一點冷幽默。\
+角色：{k}{k_persona}；{a}是{a_persona}。\
 兩人是一起討論的夥伴，常互相接話、補充、反駁，不是一問一答。
 
 事實的規則（最重要）：
@@ -92,7 +90,7 @@ SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲
 
 語言規則：台灣用語、繁體中文、口語。句子要短，有來有往；多數句子在 40 字以內，偶爾到 100 字。\
 寫給語音合成讀：不要表情符號、括號、項目符號、網址、英文縮寫堆疊；百分比寫成「百分之 30」；\
-必要的英文術語第一次出現時用中文解釋。全集口語字數 {min_c} 到 {max_c} 字（不含標點），{min_l} 到 {max_l} 句，阿凱開場。\
+必要的英文術語第一次出現時用中文解釋。全集口語字數 {min_c} 到 {max_c} 字（不含標點），{min_l} 到 {max_l} 句，{k}開場。\
 不開涉及真實人物、政治、族群、悲劇的玩笑。"""
 
 CHECK_SYSTEM = """你負責查核一集中文理念型 podcast 的腳本。這集沒有參考文獻，所以任何具體的事實宣稱都沒有出處。\
@@ -129,7 +127,7 @@ def validate(ep: Episode) -> list[str]:
     if {l.spk for l in ep.lines} != {"K", "A"}:
         errs.append("both hosts must speak")
     if ep.lines and ep.lines[0].spk != "K":
-        errs.append("阿凱 opens the episode")
+        errs.append("the host (K) opens the episode")
     for i, l in enumerate(ep.lines):
         if len(l.text) > 140:
             errs.append(f"line {i} is too long for one breath ({len(l.text)} characters)")
@@ -142,7 +140,8 @@ def validate(ep: Episode) -> list[str]:
 
 
 def system_prompt(topic: Topic, theme: str) -> str:
-    return SYSTEM.format(show=SHOW, theme=theme, title=topic.title, idea=topic.idea, min_c=MIN_CHARS,
+    return SYSTEM.format(show=SHOW, k=K, a=A, k_persona=HOSTS["K"]["persona"], a_persona=HOSTS["A"]["persona"],
+                         theme=theme, title=topic.title, idea=topic.idea, min_c=MIN_CHARS,
                          max_c=MAX_CHARS, min_l=MIN_LINES, max_l=MAX_LINES)
 
 
@@ -169,7 +168,7 @@ def write(topic: Topic, theme: str) -> tuple[Episode, int]:
 
 def to_show(ep: Episode, topic: Topic) -> dict:
     """The saved script: [speaker, text, options] rows, in the same shape as podcast/episodes."""
-    return {"show": SHOW, "title": ep.title, "lang": "zh", "hosts": HOSTS, "cards": {},
+    return {"show": SHOW, "title": ep.title, "lang": "zh", "hosts": HOSTS, "style": CAST.get("style", ""), "cards": {},
             "paper": {"title": topic.title, "venue": SHOW, "authors": "", "doi": ""},
             "lines": [[l.spk, l.text.strip(), {"gap": 0.35}] for l in ep.lines]}
 

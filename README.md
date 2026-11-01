@@ -4,7 +4,7 @@
 
 - **短片**（每天）：每天挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文兩支直式短影音，台灣晚上 7 點上到 YouTube Shorts、Instagram Reels 和 Threads。
 - **長片 Behavior Decoded Tonight**（**暫停中**，原本每週五）：主持人 Kai 和來賓 Anne 的深夜脫口秀，5–8 分鐘講一篇論文，上到同一個 YouTube 頻道，見 [podcast/README.md](podcast/README.md)。
-- **中文理念 podcast 生意有數（暫定，demo 中）**：獨立的一條線，每集講一個資料科學概念，不從論文出發，見 [concept_show/README.md](concept_show/README.md)。
+- **中文理念 podcast（名稱待定，demo 中）**：獨立的一條線，每集講一個資料科學概念，不從論文出發，見 [concept_show/README.md](concept_show/README.md)。
 - **把關**（取代人工審核）：另一個 Claude 對照論文逐句查核腳本；影片做好後檢查長度、聲音、黑畫面，再抽畫面給 Claude 看（字被切掉、缺字、語言錯、數字和腳本不符、角色或畫面壞掉）。任何一關沒過，那天就不上片，並開 issue 通知你。
 - **自由發文**：每天由 Claude 決定要不要發，把已經做過的論文接上時事或補充重點：Threads 純文字（每天最多 2 則）、IG 圖文輪播（每週最多 3 則）。同樣先查核、圖片先給 Claude 看過才發。
 - **經營**：每支影片底下第一則留言附論文 citation；每 4 小時自動回覆留言（每次都會通知你檢查結果）；每天讀後台數據（觀看、觀看時長、留存、新增訂閱、IG／Threads insights），每週由 Claude 寫經營策略，選論文、寫腳本和自由發文時會參考；每篇為什麼發都記在 [`data/decisions.md`](data/decisions.md)；每週 Claude 拿過去的決策對照實際成效自我檢討，寫成「學到的教訓」，之後做決定時會先找出類似的過去貼文和它們的成效再決定。

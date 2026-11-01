@@ -23,7 +23,7 @@ import wave
 from pathlib import Path
 
 MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-lite-tts")
-CHUNK_CHARS = int(os.environ.get("TTS_CHUNK_CHARS", "450"))  # about 2 minutes of speech per request
+CHUNK_CHARS = int(os.environ.get("TTS_CHUNK_CHARS", "800"))  # about 3 minutes per request; fewer voice drifts at seams
 PACE = float(os.environ.get("TTS_PACE_SECONDS", "8"))  # 10 requests a minute at most; stay under it
 MAX_REQUESTS = int(os.environ.get("TTS_MAX_REQUESTS", "25"))
 CACHE = Path(os.environ.get("TTS_CACHE", Path(__file__).resolve().parent.parent / "out" / "concept_show" / ".tts"))
@@ -42,8 +42,9 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
     return out + ([cur] if cur else [])
 
 
-def body(chunk: list[tuple[str, str]], hosts: dict) -> bytes:
-    parts = [{"text": t, "speech_metadata": {"speaker": SPEAKERS[s]}} for s, t in chunk]
+def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
+    meta = lambda s: {"speaker": SPEAKERS[s], **({"style": style} if style else {})}
+    parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
     voices = [{"speaker": SPEAKERS[k], "voiceConfig": {"prebuiltVoiceConfig": {"voiceName": hosts[k]["voice"]}}}
               for k in ("K", "A")]
     return json.dumps({"contents": [{"role": "user", "parts": parts}],
@@ -99,17 +100,22 @@ def frames(wav_bytes: bytes) -> tuple[bytes, tuple]:
 
 def main(show_path: str, out_path: str) -> None:
     show = json.loads(Path(show_path).read_text(encoding="utf-8"))
-    parts = chunks([r for r in show["lines"] if r[0] in SPEAKERS])
+    if "style" not in show:  # scripts saved before cast.json had a style line
+        show["style"] = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))["style"]
+    rows = [r for r in show["lines"] if r[0] in SPEAKERS]
+    if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply
+        rows = rows[:int(a)]
+    parts = chunks(rows)
     CACHE.mkdir(parents=True, exist_ok=True)
-    todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'])}.wav").exists())
+    todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'], show.get('style', ''))}.wav").exists())
     print(f"{len(parts)} chunks, {todo} to voice with {MODEL}", flush=True)
     if todo > MAX_REQUESTS:
         sys.exit(f"{todo} requests needed, more than the cap of {MAX_REQUESTS}; raise TTS_CHUNK_CHARS")
     budget, pcm, fmt = Budget(), [], None
     for i, c in enumerate(parts):
-        p = CACHE / f"{_key(c, show['hosts'])}.wav"
+        p = CACHE / f"{_key(c, show['hosts'], show.get('style', ''))}.wav"
         if not p.exists():
-            p.write_bytes(budget.request(body(c, show["hosts"])))
+            p.write_bytes(budget.request(body(c, show["hosts"], show.get("style", ""))))
             print(f"voiced chunk {i + 1}/{len(parts)}", flush=True)
         f, fmt_i = frames(p.read_bytes())
         fmt = fmt or fmt_i
@@ -124,5 +130,5 @@ def main(show_path: str, out_path: str) -> None:
     print(f"Wrote {out_path} from {len(parts)} chunks; {budget.sent} Gemini requests this run", flush=True)
 
 
-def _key(chunk, hosts) -> str:
-    return hashlib.sha1(body(chunk, hosts) + MODEL.encode()).hexdigest()[:16]
+def _key(chunk, hosts, style="") -> str:
+    return hashlib.sha1(body(chunk, hosts, style) + MODEL.encode()).hexdigest()[:16]
