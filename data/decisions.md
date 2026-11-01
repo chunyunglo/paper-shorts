@@ -5,6 +5,20 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-01
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq)
+  - 內容 Text: 你最喜歡的那張圖，你覺得是人畫的嗎？ 我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI藝術圖靈測試」。11,123人判斷50張圖是人做的還是AI做的，再選出自己最喜歡的…
+  - 為什麼 Why: The AI-art short is our newest episode with no Chinese follow-up yet, its Instagram zh version is by far our most-viewed post, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg.
+  - 根據的集數 Based on: 20261031-beauty-is-human-when-people-love-ai-gene
+- **自由發文 Free post** · threads/zh · roundup · [link](https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W)
+  - 內容 Text: 本週介紹的研究，每篇一個重點： 1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有顯著差異。 2️⃣ 政治人物向聯準會喊話（arXiv, 2026）：每一次喊「放鬆…
+  - 為什麼 Why: It is Sunday and this week's four papers have not been rounded up yet; Instagram has no room left this week, so a short Chinese Threads roundup fills the weekly slot in our strongest language without a news peg.
+  - 根據的集數 Based on: 20261028-ai-helped-with-homework-did-it-help-on-t, 20261029-jawboning-the-fed-do-markets-listen-when, 20261030-crowds-believe-in-you-online-prediction, 20261031-beauty-is-human-when-people-love-ai-gene
+- **短影音 Short** · [吵政治前，先跟AI聊7分鐘？ / Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA)
+  - 論文 Paper: [Improving Group Deliberation through AI-Guided Self-Reflection](https://arxiv.org/abs/2610.37862) (arXiv cs.HC)
+  - 為什麼 Why: A large randomized experiment (1,173 people in 391 small groups) found that a brief, non-directive AI chatbot prompting self-reflection before a group discussion measurably improved deliberation quality, and the design is easy to show in a few steps: reflect, deliberate, score. Signals: Notes suggesting everyday AI use and personal stakes hold viewers nudged this over the social-media simulation paper, while AI-at-work and AI-homework topics were skipped as too close to recent episodes.
+
 ## 2026-10-31
 
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8)

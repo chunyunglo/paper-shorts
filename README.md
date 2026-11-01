@@ -3,7 +3,7 @@
 這個 repo 讓 AI 自己經營一個頻道，不需要人工審核：
 
 - **短片**（每天）：每天挑一篇「用計算方法研究人類行為」的新論文，做成中文、英文兩支直式短影音，台灣晚上 7 點上到 YouTube Shorts、Instagram Reels 和 Threads。
-- **長片 Behavior Decoded Tonight**（每週五）：主持人 Kai 和來賓 Anne 的深夜脫口秀，5–8 分鐘講一篇論文，上到同一個 YouTube 頻道，見 [podcast/README.md](podcast/README.md)。
+- **長片 Behavior Decoded Tonight**（**暫停中**，原本每週五）：主持人 Kai 和來賓 Anne 的深夜脫口秀，5–8 分鐘講一篇論文，上到同一個 YouTube 頻道，見 [podcast/README.md](podcast/README.md)。
 - **把關**（取代人工審核）：另一個 Claude 對照論文逐句查核腳本；影片做好後檢查長度、聲音、黑畫面，再抽畫面給 Claude 看（字被切掉、缺字、語言錯、數字和腳本不符、角色或畫面壞掉）。任何一關沒過，那天就不上片，並開 issue 通知你。
 - **自由發文**：每天由 Claude 決定要不要發，把已經做過的論文接上時事或補充重點：Threads 純文字（每天最多 2 則）、IG 圖文輪播（每週最多 3 則）。同樣先查核、圖片先給 Claude 看過才發。
 - **經營**：每支影片底下第一則留言附論文 citation；每 4 小時自動回覆留言（每次都會通知你檢查結果）；每天讀後台數據（觀看、觀看時長、留存、新增訂閱、IG／Threads insights），每週由 Claude 寫經營策略，選論文、寫腳本和自由發文時會參考；每篇為什麼發都記在 [`data/decisions.md`](data/decisions.md)；每週 Claude 拿過去的決策對照實際成效自我檢討，寫成「學到的教訓」，之後做決定時會先找出類似的過去貼文和它們的成效再決定。
@@ -35,7 +35,7 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 | `publish.yml` | 週一到六 14:00 做影片（含 AI 查核和看畫面）並開「今晚上片」issue；19:00 上中英文（台灣時間）。手動：`mode=delete` 刪掉某集的貼文，`episode=` 重做某集 | repo variable `AUTO_PUBLISH=true` 才會自動跑。預設不用審核：每天開一則「今晚上片」issue 當紀錄，沒回覆就照常上片，回「不要上」才會擋下。想恢復人工審核，設 variable `REVIEW_REQUIRED=true` |
 | `comments.yml` | 每 4 小時（台灣 00:23、04:23、08:23、12:23、16:23、20:23）；每次跑完在「留言檢查紀錄」issue 留一行數字通知你（不含留言內容） | repo variable `AUTO_REPLY=true` 才會自動跑；手動執行預設只分類不動作 |
 | `maintenance.yml` | 每週一 | 續期 IG/Threads token 並寫回 Secrets；重新啟用排程，避免 GitHub 60 天無活動自動停用 |
-| `podcast.yml` | 每週五 04:00 UTC | 長片 Behavior Decoded Tonight：自動選論文、寫對話、AI 查核、渲染、檢查、排程上 YouTube，不經人工審核。repo variable `PODCAST_AUTO=true` 才會自動跑，見 [podcast/README.md](podcast/README.md) |
+| `podcast.yml` | **暫停中**（原本每週五 04:00 UTC） | 長片 Behavior Decoded Tonight 已暫停：排程拿掉了，程式都保留。要恢復，把 `podcast.yml` 裡兩行 cron 的註解拿掉即可。手動執行仍然可以跑 |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
