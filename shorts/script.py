@@ -26,7 +26,7 @@ class Scene(BaseModel):
     heading_zh: str = Field(description="2-6 character label shown above the visual, e.g. 資料、方法、發現")
     heading_en: str = Field(description="1-3 word English label, e.g. THE DATA")
     labels: list[str] = Field(description="0-4 very short Chinese on-screen labels (each at most 10 characters) used by the visual")
-    labels_en: list[str] = Field(description="The same labels in English (each at most 18 characters), same order")
+    labels_en: list[str] = Field(description="The same labels in English (each at most 14 characters, so they fit their boxes), same order")
     values: list[float] = Field(description="Numbers for bars/contrast/timeline/waffle/gauge/counter/experiment/race/balance/predict ONLY if stated in the paper, same order as labels; otherwise empty")
     big_text: str = Field(description="Optional big Chinese text for hook/contrast/spotlight/counter/survey/takeaway (a number like '3.2倍', a short phrase, or the survey question); empty if unused")
     big_text_en: str = Field(description="The same big text in English (at most 40 characters); empty if unused")
@@ -72,7 +72,9 @@ class IconPick(BaseModel):
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
 Each episode explains HOW one new study used a computational method to learn something about \
-human behavior. Audience: curious Taiwanese and international viewers, not specialists.
+human behavior. Audience: curious Taiwanese and international viewers scrolling on a phone. \
+They have never read the paper, know nothing about the field, and hear each line only once, so \
+being easy to follow matters more than covering every detail (see Clarity below).
 
 Each episode is made as TWO videos from the same scene plan: a Chinese video narrated in \
 Traditional Chinese (Taiwan usage and vocabulary, e.g. 資料 not 数据, 網路, 演算法, 影片) and an \
@@ -144,6 +146,32 @@ not do: experiment only for a real randomized design, survey only for a real que
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
+Clarity (the most common problem so far: viewers said the videos were hard to understand):
+- Every line must make sense heard once, on its own, by someone who has never heard of the study. \
+No shorthand that only makes sense if you read the paper: say who "they" are, and spell out what \
+a step was (not "三種暖身" but what people actually did).
+- Use everyday words. Leave out research terms (median, effect size, d, percentile, significant, \
+regression, model, classifier, sample, condition, deliberation quality, index); say what they \
+mean instead, e.g. "另一個AI讀每則留言，看有沒有講理由、有沒有尊重對方" rather than "AI評分說理與尊重". \
+If a term cannot be avoided, explain it in plain words in the same line.
+- Say how things were measured in concrete, picturable terms: who was asked what, what was \
+counted, what "better" meant.
+- Numbers: use only ones a viewer can picture at once (people, counts, "about 6 in 10", "twice as \
+many"). If a number needs a statistics term to make sense, describe the size in words instead \
+("a small but real difference") or leave it out.
+- One idea per line. The scenes must read as one story: the question, what they did, what they \
+found, what it means for the viewer. Link lines with plain connectives (所以、結果、但是、也就是說 / \
+so, it turned out, but).
+- On-screen labels and big text must be understandable without the narration: plain words, no \
+abbreviations or jargon. Keep their length limits: a heading is 2-6 Chinese characters and 1-3 \
+English words, never a sentence.
+- Clear does not mean longer: stay inside the narration budget above. Get clarity by telling \
+fewer things well; drop secondary details (extra groups, sub-results, exact statistics) rather \
+than squeezing them in.
+- Before finishing, reread the script as a friend who has never heard of this study: could they \
+retell what was done and what was found after one viewing? If not, simplify, even if it means \
+dropping a detail.
+
 Accuracy rules: use only facts from the provided paper. Never invent numbers, sample sizes, or \
 effects; values must be empty unless the exact numbers are in the paper. Do not overstate \
 causality. Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
@@ -183,10 +211,26 @@ def write(paper: Paper, news: dict | None = None, notes: str = "") -> Script:
     draft = llm.ask(ScriptDraft, SYSTEM, content, effort="high")
     script = Script(**draft.model_dump())
     validate(script)
-    n = sum(len(l.zh) for s in script.scenes for l in s.lines)
-    w = sum(len(l.en.split()) for s in script.scenes for l in s.lines)
+    n, w = length(script)
     log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters, {w} English words")
+    if n > MAX_ZH or w > MAX_EN:
+        # a script written for clarity tends to run long; past the budget the voiceover nears a minute
+        script, _ = revise(paper, script, (
+            f"Too long: {n} Chinese characters and {w} English words of narration. Cut to at most "
+            f"{MAX_ZH - 20} characters and {MAX_EN - 10} words by dropping secondary details, not by "
+            "making lines harder to follow. Keep every line clear to someone who never read the paper."))
+        n, w = length(script)
+        log(f"Script shortened: {n} Chinese characters, {w} English words")
     return script
+
+
+MAX_ZH, MAX_EN = 250, 150   # narration budget, a little over the prompt's 200-240 / 110-140
+
+
+def length(script: Script) -> tuple[int, int]:
+    """Narration size: Chinese characters and English words."""
+    return (sum(len(l.zh) for s in script.scenes for l in s.lines),
+            sum(len(l.en.split()) for s in script.scenes for l in s.lines))
 
 
 ICON_SYSTEM = """You choose simple line icons to illustrate each scene of a short explainer video. \

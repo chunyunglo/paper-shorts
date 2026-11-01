@@ -340,3 +340,44 @@ def test_threads_publish_does_not_retry_other_errors(monkeypatch):
     monkeypatch.setenv("THREADS_USER_ID", "1")
     with pytest.raises(ApiError):
         meta.th_publish("c1")
+
+
+def test_write_shortens_a_script_over_the_narration_budget(monkeypatch):
+    from shorts import script as sm
+
+    long_line = sm.Line(zh="這" * 22, en=" ".join(["word"] * 12))
+    short_line = sm.Line(zh="這" * 10, en="a short line")
+
+    def scene(visual, line):
+        return sm.Scene(visual=visual, heading_zh="發現", heading_en="FINDING", labels=[], labels_en=[],
+                        values=[], big_text="", big_text_en="", lines=[line, line])
+
+    def draft(line):
+        return sm.ScriptDraft(title_zh="t", title_en="t", paper_title_zh="t",
+                              scenes=[scene("hook", line), scene("paper", line)] +
+                                     [scene("icons", line) for _ in range(4)] + [scene("takeaway", line)],
+                              description_zh="d", description_en="d", hashtags=["a"],
+                              method_summary="m", limitations="l")
+
+    monkeypatch.setattr(sm.llm, "ask", lambda *a, **k: draft(long_line))
+    asked = []
+
+    def fake_revise(paper, script, feedback):
+        asked.append(feedback)
+        return sm.Script(**draft(short_line).model_dump()), ""
+
+    monkeypatch.setattr(sm, "revise", fake_revise)
+    paper = type("P", (), {"title": "t", "authors": [], "venue": "v", "published": "2026", "url": "u",
+                           "abstract": "a", "pdf_url": ""})()
+    out = sm.write(paper)
+    assert len(asked) == 1 and "Too long" in asked[0]
+    assert sm.length(out)[0] <= sm.MAX_ZH
+
+
+def test_claude_cost_counts_input_output_and_cache_reads():
+    from types import SimpleNamespace
+    from shorts import llm
+
+    usage = SimpleNamespace(input_tokens=1_000_000, output_tokens=100_000,
+                            cache_creation_input_tokens=0, cache_read_input_tokens=1_000_000)
+    assert abs(llm.cost("claude-opus-5-5", usage) - (4.0 + 2.0 + 0.2)) < 1e-9

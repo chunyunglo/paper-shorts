@@ -1,16 +1,35 @@
 """Thin wrapper over the Anthropic SDK for structured (Pydantic) outputs."""
 from __future__ import annotations
 
+import atexit
 from typing import TypeVar
 
 import anthropic
 from pydantic import BaseModel
 
 from . import config
+from .safelog import log
 
 T = TypeVar("T", bound=BaseModel)
 
 _client: anthropic.Anthropic | None = None
+
+# US$ per million tokens (input, output, cache read), for the cost line in each run's log
+PRICES = {"claude-opus-5-5": (4.0, 20.0, 0.20)}
+_spent = {"calls": 0, "usd": 0.0}
+
+
+def cost(model: str, usage) -> float:
+    inp, out, cached = PRICES.get(model, PRICES["claude-opus-5-5"])
+    fresh = (usage.input_tokens or 0) + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
+    return (fresh * inp + (usage.output_tokens or 0) * out
+            + (getattr(usage, "cache_read_input_tokens", 0) or 0) * cached) / 1e6
+
+
+@atexit.register
+def _report() -> None:
+    if _spent["calls"]:
+        log(f"Claude cost this run: {_spent['calls']} calls, about US${_spent['usd']:.2f}")
 
 
 def client() -> anthropic.Anthropic:
@@ -42,6 +61,10 @@ def ask(schema: type[T], system: str, content: list | str, *, effort: str = "hig
         raise RuntimeError(f"Claude API error status={exc.status_code}") from None
     except anthropic.APIConnectionError:
         raise RuntimeError("Claude API connection error") from None
+    usd = cost(config.MODEL, resp.usage)
+    _spent["calls"] += 1
+    _spent["usd"] += usd
+    log(f"Claude call: {resp.usage.input_tokens} in, {resp.usage.output_tokens} out, about US${usd:.3f}")
     if resp.stop_reason == "refusal":
         raise RuntimeError("Claude declined the request")
     if resp.stop_reason == "max_tokens" or resp.parsed_output is None:
