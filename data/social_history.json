@@ -134,5 +134,36 @@
     "why": "The notes say English has held up close to Chinese on Instagram and that an Instagram free post should be published to check whether the 0-view results are a delivery problem, and our newest paper has clean, stated numbers that suit stat slides.",
     "id": "18638937274015989",
     "url": "https://www.instagram.com/p/DfJ4cRJFS-W/"
+  },
+  {
+    "posted": "2026-11-01T10:44:32+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261031-beauty-is-human-when-people-love-ai-gene"
+    ],
+    "text": "你最喜歡的那張圖，你覺得是人畫的嗎？\n\n我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI藝術圖靈測試」。11,123人判斷50張圖是人做的還是AI做的，再選出自己最喜歡的一張。\n\n結果：\n・人們把自己最愛的那張判斷成「人做的」，比例是76.6%\n・其他人看同一張圖，只有54.6%\n・對AI藝術最反感的那群人裡，也有37.3%最愛的其實是AI圖，卻以為是人畫的\n\n要注意的限制：這是觀察資料，沒辦法確定是「喜歡，所以以為是人做的」，還是反過來。受訪者是單一部落格的自願讀者，比一般人更關心AI，圖片也特別挑過、很難分辨。\n\n下次很喜歡一張圖時，你會先問它是誰做的嗎？",
+    "news": null,
+    "why": "The AI-art short is our newest episode with no Chinese follow-up yet, its Instagram zh version is by far our most-viewed post, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg.",
+    "id": "18199357798355244",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq"
+  },
+  {
+    "posted": "2026-11-01T10:44:32+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "roundup",
+    "episodes": [
+      "20261028-ai-helped-with-homework-did-it-help-on-t",
+      "20261029-jawboning-the-fed-do-markets-listen-when",
+      "20261030-crowds-believe-in-you-online-prediction",
+      "20261031-beauty-is-human-when-people-love-ai-gene"
+    ],
+    "text": "本週介紹的研究，每篇一個重點：\n\n1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有顯著差異。\n\n2️⃣ 政治人物向聯準會喊話（arXiv, 2026）：每一次喊「放鬆」，近期利率預期約降0.9個基點。這是相關，可能也混著經濟消息本身。\n\n3️⃣ 網友押你達標（arXiv, 2026）：「我會不會…？」的目標實際達成45.0%，市場最終價格平均卻是49.4%。\n\n4️⃣ 你最愛的圖（arXiv, 2026）：人們較常把自己最愛的圖判斷成人做的，不論它其實是不是AI做的。\n\n論文出處都放在各集影片裡，週末慢慢看。",
+    "news": null,
+    "why": "It is Sunday and this week's four papers have not been rounded up yet; Instagram has no room left this week, so a short Chinese Threads roundup fills the weekly slot in our strongest language without a news peg.",
+    "id": "18422227504152146",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W"
   }
 ]
