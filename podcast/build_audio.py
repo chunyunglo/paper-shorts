@@ -53,38 +53,21 @@ def engine(name):
 GEMINI_MODEL = os.environ.get('GEMINI_TTS_MODEL', 'gemini-3.8-flash-tts')
 
 
-def _quota(err):
-    """The quota a 429 names (e.g. GenerateRequestsPerMinutePerProjectPerModel) and the retry delay it asks for.
-    Only these two fields are read from the error body; nothing else from it is printed."""
-    try:
-        details = json.load(err).get('error', {}).get('details', [])
-    except Exception:
-        return '', 0
-    quota, wait = '', 0
-    for d in details:
-        for v in d.get('violations', []):
-            quota = quota or re.sub(r'[^A-Za-z]', '', str(v.get('quotaId', '')))[:80]
-        m = re.fullmatch(r'(\d+)(?:\.\d+)?s', str(d.get('retryDelay', '')))
-        wait = int(m.group(1)) + 2 if m else wait
-    return quota, min(wait, 120)
-
-
 def gemini(text, voice):
     body = json.dumps({"contents": [{"role": "user", "parts": [{"text": text}]}],
                        "generationConfig": {"responseModalities": ["AUDIO"],
                                             "speechConfig": {"voiceConfig": {"voice": voice}}}}).encode()
     url = f"https://generativelanguage.googleapis.com/v1beta/models/{GEMINI_MODEL}:generateContent"
-    for attempt in range(10):
+    for attempt in range(6):
         req = urllib.request.Request(url, body, {"x-goog-api-key": os.environ["GEMINI_API_KEY"],
                                                  "Content-Type": "application/json"})
         try:
             d = json.load(urllib.request.urlopen(req, timeout=180))
             break
         except urllib.error.HTTPError as e:  # 429 rate limit or 5xx: wait and retry; never print the URL or key
-            quota, wait = _quota(e)
-            if (e.code != 429 and e.code < 500) or attempt == 9 or 'PerDay' in quota:
-                sys.exit(f"Gemini TTS failed (status {e.code}{', quota ' + quota if quota else ''})")
-            time.sleep(max(wait, 15 * (attempt + 1)))
+            if (e.code != 429 and e.code < 500) or attempt == 5:
+                sys.exit(f"Gemini TTS failed (status {e.code})")
+            time.sleep(15 * (attempt + 1))
     x, sr = sf.read(io.BytesIO(base64.b64decode(d['candidates'][0]['content']['parts'][0]['inlineData']['data'])), dtype='float32')
     return x, sr
 
@@ -94,8 +77,7 @@ SAY = {'A.I.': 'Ay Eye', 'AI': 'Ay Eye'}
 
 
 def synth(text, eng, sid, speed, steps=10):
-    # Chinese lines keep "AI" as written: Gemini reads it naturally there, and "Ay Eye" would not be
-    for k, v in ({} if re.search(r'[\u4e00-\u9fff]', text) else SAY).items():
+    for k, v in SAY.items():
         text = re.sub(r'(?<![\w.])' + re.escape(k) + r'(?![\w])', v, text)
     key = hashlib.sha1(f"{eng}|{text}|{sid}|{speed}|{steps}".encode()).hexdigest()[:16]
     p = CACHE / f"{key}.wav"
@@ -223,8 +205,6 @@ def main():
         x = synth(text, h.get('tts', 'kokoro'), h['voice'], round(opt.get('speed', 1.0) * speed0, 3))
         t += opt.get('gap', 0.3)
         placed.append((spk, text, opt, t, x))
-        if len(placed) % 25 == 0:
-            print(f"voiced {len(placed)} lines", flush=True)
         t += len(x) / SR
         if opt.get('laugh'):
             d = 1.0 + 1.6 * opt['laugh']

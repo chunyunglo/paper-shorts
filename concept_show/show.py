@@ -3,8 +3,9 @@ topic list (topics.json): no paper, no news hook. Two hosts talk it through as d
 
 make   Claude writes the two-host Traditional Chinese episode for one topic. A second Claude pass checks
        it for wrong concepts and invented specifics (numbers, companies, studies, quotes); the writer
-       fixes what it finds, up to three rounds. Writes out/concept_show/<id>/show.json for
-       podcast/build_audio.py (Gemini TTS), plus script.md and meta.json. Nothing here publishes.
+       fixes what it finds, up to three rounds. Writes out/concept_show/<id>/show.json, script.md and
+       meta.json. Nothing here publishes.
+voice  see voice.py: Gemini multi-speaker TTS, a few turns per request.
 """
 from __future__ import annotations
 
@@ -167,7 +168,7 @@ def write(topic: Topic, theme: str) -> tuple[Episode, int]:
 
 
 def to_show(ep: Episode, topic: Topic) -> dict:
-    """The episode format of podcast/build_audio.py (no studio audience, no sting)."""
+    """The saved script: [speaker, text, options] rows, in the same shape as podcast/episodes."""
     return {"show": SHOW, "title": ep.title, "lang": "zh", "hosts": HOSTS, "cards": {},
             "paper": {"title": topic.title, "venue": SHOW, "authors": "", "doi": ""},
             "lines": [[l.spk, l.text.strip(), {"gap": 0.35}] for l in ep.lines]}
@@ -212,10 +213,14 @@ def make(topic_id: str | None = None) -> Path:
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m concept_show")
-    ap.add_argument("cmd", choices=["make", "topics"])
+    ap.add_argument("cmd", choices=["make", "topics", "voice"])
+    ap.add_argument("files", nargs="*", help="voice: <show.json> <out.wav>")
     ap.add_argument("--topic", help="topic id from topics.json, e.g. s1e01 (default: the first)")
     a = ap.parse_args()
-    if a.cmd == "topics":
+    if a.cmd == "voice":
+        from . import voice
+        voice.main(*a.files)
+    elif a.cmd == "topics":
         for t in topics()[1]:
             print(f"{t.id}  {t.title}")
     else:

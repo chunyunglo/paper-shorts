@@ -41,3 +41,15 @@ def test_prompt_and_show_file():
     assert all(len(r) == 3 and r[0] in "KA" for r in s["lines"])
     md = show.script_md(episode(), topic)
     assert "**阿凱**" in md and "**安妮**" in md
+
+
+def test_voice_groups_lines_into_few_paced_requests():
+    import json
+    from concept_show import voice
+    lines = [["K" if i % 2 == 0 else "A", "維" * 26, {"gap": 0.35}] for i in range(145)]
+    parts = voice.chunks(lines)
+    assert len(parts) <= 10 and sum(len(c) for c in parts) == 145
+    assert all(sum(len(t) for _, t in c) <= voice.CHUNK_CHARS for c in parts)
+    b = json.loads(voice.body(parts[0], show.HOSTS))
+    names = {v["speaker"] for v in b["generationConfig"]["speechConfig"]["multiSpeakerVoiceConfig"]["speakerVoiceConfigs"]}
+    assert names == {"Kai", "Anne"} and b["contents"][0]["parts"][0]["speech_metadata"]["speaker"] == "Kai"
