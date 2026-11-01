@@ -69,7 +69,7 @@ EDGE_FALLBACK = {"zh": "zh-TW-YunJheNeural", "en": "en-US-AriaNeural", "pt": "pt
 
 
 def rate() -> float:
-    return float(config.env("TTS_RATE", "1.1"))  # 1.25 felt rushed to the owner
+    return float(config.env("TTS_RATE", "1.0"))  # normal speed; 1.1 and 1.25 felt rushed to the owner
 
 
 def synth_google(text: str, voice: str) -> np.ndarray:
