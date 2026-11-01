@@ -26,7 +26,7 @@ class Scene(BaseModel):
     heading_zh: str = Field(description="2-6 character label shown above the visual, e.g. 資料、方法、發現")
     heading_en: str = Field(description="1-3 word English label, e.g. THE DATA")
     labels: list[str] = Field(description="0-4 very short Chinese on-screen labels (each at most 10 characters) used by the visual")
-    labels_en: list[str] = Field(description="The same labels in English (each at most 18 characters), same order")
+    labels_en: list[str] = Field(description="The same labels in English (each at most 14 characters, so they fit their boxes), same order")
     values: list[float] = Field(description="Numbers for bars/contrast/timeline/waffle/gauge/counter/experiment/race/balance/predict ONLY if stated in the paper, same order as labels; otherwise empty")
     big_text: str = Field(description="Optional big Chinese text for hook/contrast/spotlight/counter/survey/takeaway (a number like '3.2倍', a short phrase, or the survey question); empty if unused")
     big_text_en: str = Field(description="The same big text in English (at most 40 characters); empty if unused")
@@ -211,10 +211,26 @@ def write(paper: Paper, news: dict | None = None, notes: str = "") -> Script:
     draft = llm.ask(ScriptDraft, SYSTEM, content, effort="high")
     script = Script(**draft.model_dump())
     validate(script)
-    n = sum(len(l.zh) for s in script.scenes for l in s.lines)
-    w = sum(len(l.en.split()) for s in script.scenes for l in s.lines)
+    n, w = length(script)
     log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters, {w} English words")
+    if n > MAX_ZH or w > MAX_EN:
+        # a script written for clarity tends to run long; past the budget the voiceover nears a minute
+        script, _ = revise(paper, script, (
+            f"Too long: {n} Chinese characters and {w} English words of narration. Cut to at most "
+            f"{MAX_ZH - 20} characters and {MAX_EN - 10} words by dropping secondary details, not by "
+            "making lines harder to follow. Keep every line clear to someone who never read the paper."))
+        n, w = length(script)
+        log(f"Script shortened: {n} Chinese characters, {w} English words")
     return script
+
+
+MAX_ZH, MAX_EN = 250, 150   # narration budget, a little over the prompt's 200-240 / 110-140
+
+
+def length(script: Script) -> tuple[int, int]:
+    """Narration size: Chinese characters and English words."""
+    return (sum(len(l.zh) for s in script.scenes for l in s.lines),
+            sum(len(l.en.split()) for s in script.scenes for l in s.lines))
 
 
 ICON_SYSTEM = """You choose simple line icons to illustrate each scene of a short explainer video. \
