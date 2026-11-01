@@ -46,7 +46,7 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
     return out + ([cur] if cur else [])
 
 
-def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
+def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "", language: str = "") -> bytes:
     vid = lambda k: hosts[k].get("voice_id", hosts[k]["voice"])
     if any(h.get("designed") for h in hosts.values()):  # one turn, one voice (designed voices can't be mixed)
         (spk, text), = chunk
@@ -57,6 +57,8 @@ def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "") -> bytes:
         parts = [{"text": t, "speech_metadata": meta(s)} for s, t in chunk]
         speech = {"multiSpeakerVoiceConfig": {"speakerVoiceConfigs": [
             {"speaker": SPEAKERS[k], "voiceConfig": {"voice": vid(k)}} for k in ("K", "A")]}}
+    if language:  # e.g. cmn-TW: speak Taiwan Mandarin rather than whatever the voice defaults to
+        speech["languageCode"] = language
     return json.dumps({"contents": [{"role": "user", "parts": parts}],
                        "generationConfig": {"responseModalities": ["AUDIO"], "speechConfig": speech}},
                       ensure_ascii=False).encode()
@@ -200,6 +202,7 @@ def main(show_path: str, out_path: str) -> None:
     # Voices and style always come from the current cast.json, so a saved script can be re-voiced after a change
     cast = json.loads((Path(__file__).resolve().parent / "cast.json").read_text(encoding="utf-8"))
     show["style"] = cast.get("style", "")
+    show["language"] = os.environ.get("TTS_LANGUAGE", cast.get("language", ""))
     renames = {show.get("show", ""): cast["show"]}
     for k, h in show["hosts"].items():
         renames[h["name"]] = cast["hosts"][k]["name"]
@@ -218,15 +221,15 @@ def main(show_path: str, out_path: str) -> None:
     per_turn = any(h.get("designed") for h in show["hosts"].values())
     parts = [[(r[0], r[1])] for r in rows] if per_turn else chunks(rows)
     CACHE.mkdir(parents=True, exist_ok=True)
-    todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'], show.get('style', ''))}.wav").exists())
+    todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'], show.get('style', ''), show['language'])}.wav").exists())
     print(f"{len(parts)} chunks, {todo} to voice with {MODEL}", flush=True)
     if todo > MAX_REQUESTS:
         sys.exit(f"{todo} requests needed, more than the cap of {MAX_REQUESTS}; raise TTS_CHUNK_CHARS")
     budget, pcm, fmt = Budget(), [], None
     for i, c in enumerate(parts):
-        p = CACHE / f"{_key(c, show['hosts'], show.get('style', ''))}.wav"
+        p = CACHE / f"{_key(c, show['hosts'], show.get('style', ''), show['language'])}.wav"
         if not p.exists():
-            p.write_bytes(budget.request(body(c, show["hosts"], show.get("style", ""))))
+            p.write_bytes(budget.request(body(c, show["hosts"], show.get("style", ""), show["language"])))
             print(f"voiced chunk {i + 1}/{len(parts)}", flush=True)
         f, fmt_i = frames(p.read_bytes())
         fmt = fmt or fmt_i
@@ -241,5 +244,5 @@ def main(show_path: str, out_path: str) -> None:
     print(f"Wrote {out_path} from {len(parts)} chunks; {budget.sent} Gemini requests this run", flush=True)
 
 
-def _key(chunk, hosts, style="") -> str:
-    return hashlib.sha1(body(chunk, hosts, style) + MODEL.encode()).hexdigest()[:16]
+def _key(chunk, hosts, style="", language="") -> str:
+    return hashlib.sha1(body(chunk, hosts, style, language) + MODEL.encode()).hexdigest()[:16]
