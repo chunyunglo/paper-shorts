@@ -72,7 +72,9 @@ class IconPick(BaseModel):
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
 Each episode explains HOW one new study used a computational method to learn something about \
-human behavior. Audience: curious Taiwanese and international viewers, not specialists.
+human behavior. Audience: curious Taiwanese and international viewers scrolling on a phone. \
+They have never read the paper, know nothing about the field, and hear each line only once, so \
+being easy to follow matters more than covering every detail (see Clarity below).
 
 Each episode is made as TWO videos from the same scene plan: a Chinese video narrated in \
 Traditional Chinese (Taiwan usage and vocabulary, e.g. 資料 not 数据, 網路, 演算法, 影片) and an \
@@ -143,6 +145,28 @@ waffle, race, cascade, chat, ranking, swipe, echo, predict) whenever they fit th
 not do: experiment only for a real randomized design, survey only for a real questionnaire.
 7. the finding, and one honest caveat.
 8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
+
+Clarity (the most common problem so far: viewers said the videos were hard to understand):
+- Every line must make sense heard once, on its own, by someone who has never heard of the study. \
+No shorthand that only makes sense if you read the paper: say who "they" are, and spell out what \
+a step was (not "三種暖身" but what people actually did).
+- Use everyday words. Leave out research terms (median, effect size, d, percentile, significant, \
+regression, model, classifier, sample, condition, deliberation quality, index); say what they \
+mean instead, e.g. "另一個AI讀每則留言，看有沒有講理由、有沒有尊重對方" rather than "AI評分說理與尊重". \
+If a term cannot be avoided, explain it in plain words in the same line.
+- Say how things were measured in concrete, picturable terms: who was asked what, what was \
+counted, what "better" meant.
+- Numbers: use only ones a viewer can picture at once (people, counts, "about 6 in 10", "twice as \
+many"). If a number needs a statistics term to make sense, describe the size in words instead \
+("a small but real difference") or leave it out.
+- One idea per line. The scenes must read as one story: the question, what they did, what they \
+found, what it means for the viewer. Link lines with plain connectives (所以、結果、但是、也就是說 / \
+so, it turned out, but).
+- On-screen labels and big text must be understandable without the narration: plain words, no \
+abbreviations or jargon.
+- Before finishing, reread the script as a friend who has never heard of this study: could they \
+retell what was done and what was found after one viewing? If not, simplify, even if it means \
+dropping a detail.
 
 Accuracy rules: use only facts from the provided paper. Never invent numbers, sample sizes, or \
 effects; values must be empty unless the exact numbers are in the paper. Do not overstate \
