@@ -11,10 +11,10 @@
 | 查核 | 另一個 Claude 檢查觀念有沒有講錯，以及有沒有編造的數字、研究、公司或人說的話；例子裡的數字必須標明是假設。有問題就改，最多三輪，還不過就不出 |
 | 配音 | `concept_show/voice.py`，Gemini 3.8 Flash TTS 雙人模式（Una：Despina、Natasha：Sulafat），整集 2 到 3 次請求，每次至少間隔 8 秒，一次執行最多 25 次。也可以在 `cast.json` 用文字設計聲音，但那樣要一句一次請求 |
 | 輸出 | 放在 GitHub pre-release `concept-demo-N`：稿子、`plan.md`（為什麼選這一集）、`strategy.md`（更新後的策略筆記）、MP3。這一步不會公開任何東西 |
-| 上架 | 手動執行 **Publish podcast episode**（填 `concept-demo-N`）：建立正式 release `boring-epNN`，重建 `docs/boring-stats/feed.xml`（GitHub Pages）。RSS 送到 Spotify、Apple Podcasts、KKBOX 一次之後，新集數會自動同步。`cast.json` 的 `feed` 還沒填聯絡信箱和封面圖之前，這個流程會拒絕執行 |
+| 上架 | 每週自動：配音完成後接著建立正式 release `boring-epNN`，重建 `docs/boring-stats/feed.xml`（GitHub Pages，封面 `docs/boring-stats/cover.png`）。RSS 送到 Spotify、Apple Podcasts、KKBOX 一次之後，新集數會自動同步。`cast.json` 的 `feed` 還沒填聯絡信箱之前，這一步會跳過（不算失敗） |
 | 數據 | 每集 MP3 在 release 上的下載次數。寫稿前流程會讀回來，連同上架天數一起給決定下一集的那一步參考 |
 
-執行：Actions → **Concept podcast demo** → Run workflow（可在 request 填這集想講的方向，空白就讓流程自己決定），
+執行：每週一 16:30（台灣時間）自動跑完整條：決定下一集、寫稿、查核、配音、上架。也可以手動 Actions → **Concept podcast demo** → Run workflow（可在 request 填這集想講的方向，空白就讓流程自己決定），
 或在 `claude/*` 分支的 commit 訊息加 `[concept-show]`。本機：`python -m concept_show plan` 只看下一集的決定，`python -m concept_show make` 決定並寫稿。
 
 寫稿和配音是兩個分開的 job，自動接著跑：`script` 寫好稿子先存到 pre-release，`voice` 再從 pre-release 拿稿子配音。
