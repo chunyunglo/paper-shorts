@@ -13,7 +13,7 @@ def test_strategy_prompt_and_history(tmp_path):
     p = show.plan_prompt(st)
     assert show.SHOW in p and "{" not in p
     assert show.history(tmp_path / "none") == ([], "")
-    for tag, created, notes in [("concept-demo-2", "2026-11-01T10:00", "old"), ("concept-demo-5", "2026-11-08T10:00", "new")]:
+    for tag, created, notes in [("concept-demo-2", "2026-11-03T10:00", "old"), ("concept-demo-5", "2026-11-08T10:00", "new"), ("before-restart", "2026-11-02T10:00", "x")]:
         (tmp_path / tag).mkdir()
         (tmp_path / tag / "meta.json").write_text(json.dumps({"created": created, "title": tag, "plan_reason": "r"}))
         (tmp_path / tag / "strategy.md").write_text(notes)

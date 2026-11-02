@@ -75,9 +75,11 @@ def history(d: Path | None) -> tuple[list[dict], str]:
     """Earlier episodes' meta.json files under d (one folder per release) and the newest strategy notes."""
     if not d or not d.is_dir():
         return [], ""
-    # Only planned episodes count: the early demos written from a fixed list are left out
+    # Only planned episodes made after strategy.json "since" count: earlier demos are left out
+    since = strategy().get("since", "")
     found = sorted(((m, f.parent) for f in d.glob("*/meta.json")
-                    if "plan_reason" in (m := json.loads(f.read_text(encoding="utf-8")))),
+                    if "plan_reason" in (m := json.loads(f.read_text(encoding="utf-8")))
+                    and m.get("created", "") >= since),
                    key=lambda mf: mf[0].get("created", ""))
     notes = next((f.read_text(encoding="utf-8") for _, p in reversed(found) if (f := p / "strategy.md").exists()), "")
     return [m for m, _ in found], notes
@@ -131,40 +133,36 @@ class Episode(BaseModel):
 
 SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲音，就是兩個朋友在聊天，大約 15 到 20 分鐘。
 
-節目要傳達的理念：{theme}。人的直覺一次只看得到兩三個變數，資料可以同時看幾百個；能在這麼多維度裡快速探索、\
-找到人想不到的組合，才是資料科學真正的力量。只是把固定規則做得更快的自動化（例如照腳本回答的客服機器人）\
-是規則自動化；讓系統自己在大量組合裡一直搜尋、一直調整的，才是探索自動化。這個節目是一檔理念節目：\
-每集把一個概念講透，讓聽眾換一種方式看待資料和 AI。不是教學課、不是問答服務，也不是論文介紹。
+為什麼有這個節目：{why}
+節目的核心：{theme}
 
-這一集的概念：「{title}」。要講清楚的核心：{idea}
+這一集只講懂一件事：「{title}」。{idea}
+整集都圍繞這一件事。節目其他的想法、之後才要講的概念，這集不要提前講；最多在結尾用一句話帶到下一步。
 
 怎麼講：
-1. 開場：{k}用一個日常、具體的畫面帶出今天的概念，一兩句帶到節目，像朋友打招呼一樣自然。不要從「老闆的煩惱」開始。
-2. 先讓直覺說話：用一兩個變數的想法去理解這個情境，聽起來很合理。
-3. 展開維度（招牌段落）：一次加一個維度，讓聽眾聽到結論怎麼跟著變，直到直覺跟不上。用聲音就聽得懂的比喻，\
-例如房間、地圖、調音台的旋鈕、找路，不要用需要看圖才懂的說法。
-4. 把概念說清楚：用白話定義，再講一個常見的誤解，以及它錯在哪。
-5. 這和自動化的關係：這個概念放進一個持續運作的系統裡，會變成什麼樣子；是探索自動化還是規則自動化。\
-可以舉不同領域的例子（生活、零售、餐飲、製造、交通、醫療排班、內容平台等），生意情境只是其中一種例子。
-6. 有來有往的討論：兩人可以有不同看法，例如{k}覺得經驗也很重要，{a}同意經驗在什麼時候有用、什麼時候會騙人。\
-讓討論有張力，但最後回到同一個理解。
-7. 收尾：一句帶得走的想法，說節目會繼續從不同角度談同一個理念（不要承諾具體的下一集題目）。
+- {k}開場，用一個日常、具體的情境帶進今天的問題，自然地帶到節目，像朋友打招呼。不要從老闆或生意的煩惱開始。
+- 先讓大家習慣的想法說話：例如直接比兩組平均、看差異顯不顯著，聽起來很合理。再讓兩人一起發現它看漏了什麼，換成「這個結果背後是怎麼產生的」的想法來看同一件事。
+- 用一到兩個例子講透就好，同一個例子可以反覆延伸，不要換很多個領域。
+- 模型方程式可以用口語講出來，例如「結果等於一個基準，加上每個因素各自的影響，再加上一塊每次都不一樣的隨機部分」，不要念符號或公式。
+- 兩人可以有不同看法、互相追問，但最後回到同一個理解。
+- 收尾：一句帶得走的想法。
 
 兩個人：{k}{k_persona}；{a}{a_persona}。\
 她們是朋友，沒有主持人和專家之分，不要用職稱介紹彼此；兩人輪流發問、輪流解釋，常互相接話、補充、反駁，不是一問一答。\
-要淺：聽眾沒有統計背景，一集只講懂一件事，不用公式和符號，術語能不用就不用。
+要淺：聽眾沒有統計背景，術語能不用就不用，用到時馬上用白話解釋。
 
 事實的規則（最重要）：
 - 不要引用任何具體的研究、論文、調查、統計數字或百分比，也不要說「研究顯示」「有數據指出」。
-- 不要說出任何真實公司、品牌、產品或真實人物的具體做法、數字或內部細節；也不要編造任何人說過的話。\
-可以用泛稱，例如「影音平台」「連鎖超商」「外送平台」。
-- 需要數字時，只能用明確標示為假設的情境（「假設一家店有……」「舉個例子，如果……」），而且數字要簡單、合理。
-- 數學和統計的概念要正確，例如組合數怎麼成長、巧合為什麼會出現、相關不等於因果，不要為了好懂而講錯。
+- 不要說出任何真實公司、品牌、產品或真實人物的具體做法、數字或內部細節；也不要編造任何人說過的話。
+- 需要數字時，只能用明確標示為假設的情境（「假設……」「舉個例子，如果……」），而且數字要簡單、合理。
+- 統計概念要正確，不要為了好懂而講錯。例如兩組比較的檢定其實可以看成一個很簡單的模型的特例；\
+不要把檢定或信賴區間說成錯的或沒用，重點是換一個更完整的角度去看。
 
 語言規則：台灣用語、繁體中文、口語。句子要短，有來有往；多數句子在 40 字以內，偶爾到 100 字。\
 寫給語音合成讀：不要表情符號、括號、項目符號、網址、英文縮寫堆疊；百分比寫成「百分之 30」；\
 必要的英文術語第一次出現時用中文解釋。全集口語字數 {min_c} 到 {max_c} 字（不含標點），{min_l} 到 {max_l} 句，{k}開場。\
 不開涉及真實人物、政治、族群、悲劇的玩笑。"""
+
 
 CHECK_SYSTEM = """你負責查核一集中文理念型 podcast 的腳本。這集沒有參考文獻，所以任何具體的事實宣稱都沒有出處。\
 列出每一個實質問題：
@@ -213,7 +211,7 @@ def validate(ep: Episode) -> list[str]:
 
 
 def system_prompt(topic: Topic, theme: str) -> str:
-    return SYSTEM.format(show=SHOW, k=K, a=A, k_persona=HOSTS["K"]["persona"], a_persona=HOSTS["A"]["persona"],
+    return SYSTEM.format(show=SHOW, why=strategy()["why"], k=K, a=A, k_persona=HOSTS["K"]["persona"], a_persona=HOSTS["A"]["persona"],
                          theme=theme, title=topic.title, idea=topic.idea, min_c=MIN_CHARS,
                          max_c=MAX_CHARS, min_l=MIN_LINES, max_l=MAX_LINES)
 
