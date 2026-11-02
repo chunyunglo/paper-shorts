@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-02
+
+- **短影音 Short** · [動態照時間排，真能拆同溫層？ / Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8)
+  - 論文 Paper: [Counterfactual assessment of social media interventions by separating exposure from engagement](https://arxiv.org/abs/2610.37864) (arXiv physics.soc-ph)
+  - 為什麼 Why: It fits a model to four years of real Italian Twitter activity that separates what users see from how they engage, then tests prebunking, accuracy prompts and a chronological feed for collective effects on engagement, attention diversity and segregation, making for a clear, visual, computational story about social media behavior. Signals: Recent episodes already covered AI at work, AI and learning and prediction markets, so I skipped the upskilling and Polymarket papers; the notes' preference for everyday stakes favored a topic about viewers' own social feeds.
+
 ## 2026-11-01
 
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq)
