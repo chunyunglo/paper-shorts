@@ -39,8 +39,8 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 | `podcast.yml` | **暫停中**（原本每週五 04:00 UTC） | 長片 Behavior Decoded Tonight 已暫停：排程拿掉了，程式都保留。要恢復，把 `podcast.yml` 裡兩行 cron 的註解拿掉即可。手動執行仍然可以跑 |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
-| `concept-publish.yml` | 每週由 `concept-show.yml` 接著呼叫，或手動 | 把一集 podcast 放上公開 RSS（release `boring-epNN` + `docs/boring-stats/feed.xml`） |
-| `concept-show.yml` | 每週一 08:30 UTC，或手動，或 commit 訊息含 `[concept-show]` | 中文理念 podcast 的 demo：決定下一集、寫稿、查核、配音，MP3 放在 pre-release，不發布 |
+| `concept-publish.yml` | 每集由 `concept-show.yml` 接著呼叫，或手動 | 把一集 podcast 放上公開 RSS（release `boring-epNN` + `docs/boring-stats/feed.xml`） |
+| `concept-show.yml` | 每週一、四 08:30 UTC，或手動，或 commit 訊息含 `[concept-show]` | 無聊統計學 podcast：決定下一集、寫稿、查核、配音，排程執行時接著上架 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
 開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
