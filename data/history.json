@@ -3272,5 +3272,351 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261102-counterfactual-assessment-of-social-medi",
     "pick_reason": "It fits a model to four years of real Italian Twitter activity that separates what users see from how they engage, then tests prebunking, accuracy prompts and a chronological feed for collective effects on engagement, attention diversity and segregation, making for a clear, visual, computational story about social media behavior. Signals: Recent episodes already covered AI at work, AI and learning and prediction markets, so I skipped the upskilling and Polymarket papers; the notes' preference for everyday stakes favored a topic about viewers' own social feeds."
+  },
+  {
+    "episode": "20261102-a-prospective-randomized-study-of-patien",
+    "created": "2026-11-02T17:25:26+00:00",
+    "paper": {
+      "id": "arxiv:2610.41437",
+      "title": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+      "abstract": "Patients often arrive at brief, time-constrained clinical visits unsure of what to expect or ask, and millions of adults now turn to general-purpose AI chatbots to prepare beforehand. Yet whether conversational AI improves visit readiness remains unclear. We designed a large language model (LLM)-based visit preparation agent to guide patients before an appointment by gathering clinical context, setting visit expectations, providing relevant health information, building a prioritized list of questions for their clinician, and generating a summary. In a prospective consented randomized study in the Google Health app, 802 U.S. adults held 866 health-related conversations with the visit preparation agent (standard or concise variant) or a minimally prompted control chatbot built on the same LLM. The visit preparation agent significantly outperformed the control across blinded clinician evaluations and patient self-reports. In clinician reviews of completed sessions (n = 272), the agent achieved a 16.6% higher rate of comprehensive preparation (67.2% vs. 50.6%; P < 0.05) and an 8.5% higher rate of alignment with patients' health context (98.9% vs. 90.4%; P < 0.01), while maintaining high medical safety and appropriateness across all study arms. Patient post-surveys (n = 460) showed 16.8% higher visit preparedness (73.8% vs. 57.0%; P < 0.01), 14.3% higher confidence in knowing what to ask (81.4% vs. 67.1%; P < 0.01), and 12.0% higher overall satisfaction (74.0% vs. 62.0%; P < 0.05). Clinician and participant metrics were not significantly correlated, indicating that expert review and patient self-assessment capture complementary dimensions of patient-facing AI. These findings suggest that LLM chatbots can safely help patients prepare for clinical visits, with greater benefit when following a structured workflow, and motivate future studies on in-visit communication and clinical outcomes.",
+      "authors": [
+        "Xincheng Tan",
+        "Matthew Thompson",
+        "Xiang Ji",
+        "Angelica Willis",
+        "Will Vaughan",
+        "Roma Ruparel",
+        "Michael A. Sanchez",
+        "Sean Chang",
+        "Joseph Xu",
+        "Bhavna Daryani",
+        "Preeti Singh",
+        "Pinal Bavishi",
+        "Kejia Chen",
+        "Fan Zhang",
+        "Priya Gupta",
+        "Ernest Lim",
+        "Christina Chen",
+        "Bob Lou",
+        "Dimitrios Antos",
+        "Zach Wasson",
+        "Ray Luo",
+        "Fadi Yousif",
+        "Florence Thng",
+        "Mark Malhotra",
+        "Joseph Breda",
+        "Daniel McDuff",
+        "Kavi Goel",
+        "Katherine Chou",
+        "Dale R. Webster",
+        "Avinatan Hassidim",
+        "Yossi Matias",
+        "Po-Hsuan Cameron Chen",
+        "Yun Liu",
+        "Mike Schaekermann",
+        "Quang Duong",
+        "Jackie M. Barr"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2610.41437",
+      "pdf_url": "https://arxiv.org/pdf/2610.41437v1",
+      "doi": null,
+      "published": "2026-10-30",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "看醫生前問AI，真的比較有準備嗎？",
+      "title_en": "Asking AI Before a Doctor Visit: Does It Help?",
+      "paper_title_zh": "以病人為中心的AI協助看診準備：一項前瞻性隨機研究",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "看診前",
+          "heading_en": "BEFORE THE VISIT",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "看病前先問AI？",
+          "big_text_en": "Ask AI before the doctor?",
+          "lines": [
+            {
+              "zh": "看醫生前，你會先問AI嗎？",
+              "en": "Do you ask AI before seeing a doctor?"
+            },
+            {
+              "zh": "有沒有用，關鍵在你看不到的地方。",
+              "en": "Whether it helps hinges on something you never see."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究來源",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "Google團隊發表在arXiv。",
+              "en": "It's from a Google Research team, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "experiment",
+          "heading_zh": "隨機分組",
+          "heading_en": "RANDOM SPLIT",
+          "labels": [
+            "一般AI",
+            "看診準備AI"
+          ],
+          "labels_en": [
+            "Plain AI",
+            "Visit-prep AI"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "近六千位美國人在健康App報名，",
+              "en": "Nearly 6,000 Americans signed up in a health app"
+            },
+            {
+              "zh": "被隨機分到一般AI或兩種準備AI。",
+              "en": "and were randomly given a plain AI or one of two prep AIs."
+            },
+            {
+              "zh": "最後有802人真的聊了健康問題。",
+              "en": "In the end, 802 of them actually chatted about their health."
+            }
+          ]
+        },
+        {
+          "visual": "chat",
+          "heading_zh": "看不見的指示",
+          "heading_en": "HIDDEN SCRIPT",
+          "labels": [
+            "你要看哪一科？",
+            "醫生可能會驗血",
+            "要問醫生的三題"
+          ],
+          "labels_en": [
+            "Which doctor?",
+            "Likely tests",
+            "3 questions"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "每組都用同一個AI，只差背後的指示。",
+              "en": "Every group got the same AI, with different hidden instructions."
+            },
+            {
+              "zh": "「準備AI」會帶你列出要問醫生的問題。",
+              "en": "The 'prep AI' helped you list questions for your doctor."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "兩邊評分",
+          "heading_en": "TWO JUDGES",
+          "labels": [
+            "病人",
+            "醫生"
+          ],
+          "labels_en": [
+            "Patients",
+            "Doctors"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "聊完，病人填問卷說準備好了沒；",
+              "en": "After chatting, patients rated how prepared they felt."
+            },
+            {
+              "zh": "醫生不知道是哪組，讀對話打分。",
+              "en": "Doctors, not told which group, graded the chats."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "一般AI",
+            "看診準備AI"
+          ],
+          "labels_en": [
+            "Plain AI",
+            "Visit-prep AI"
+          ],
+          "values": [
+            57.0,
+            73.8
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果準備AI組七成四覺得準備好；",
+              "en": "It turned out about 74% of the prep-AI group felt ready,"
+            },
+            {
+              "zh": "另一組只有五成七。",
+              "en": "versus 57% in the other group."
+            },
+            {
+              "zh": "醫生也評它更完整，一樣安全。",
+              "en": "Doctors rated it more thorough, and just as safe."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "但是",
+          "heading_en": "THE CATCH",
+          "labels": [
+            "病人的感覺",
+            "醫生的評分"
+          ],
+          "labels_en": [
+            "Patient feel",
+            "Doctor grade"
+          ],
+          "values": [],
+          "big_text": "兩者對不上",
+          "big_text_en": "They didn't match",
+          "lines": [
+            {
+              "zh": "但病人感覺跟醫生分數對不上。",
+              "en": "But how patients felt didn't match the doctors' grades."
+            },
+            {
+              "zh": "也還沒證明健康因此變好。",
+              "en": "And it hasn't shown that health actually improved."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住這句",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "關鍵在AI怎麼帶你",
+          "big_text_en": "It's how the AI guides you",
+          "lines": [
+            {
+              "zh": "同一個AI，換個帶法就差很多。",
+              "en": "Same AI, different guidance, big difference."
+            },
+            {
+              "zh": "追蹤我們，看更多行為研究。",
+              "en": "Follow for more on how people behave."
+            }
+          ]
+        }
+      ],
+      "description_zh": "看醫生前先問AI，真的會讓你更有準備嗎？Google研究團隊在健康App裡，把近六千位報名的美國人隨機分到一般AI或兩種會一步步帶你準備看診的AI，最後有802人真的聊了健康問題——其實都是同一個AI，只差在背後的指示。結果準備AI組更多人覺得準備好了，醫生也評它更完整且一樣安全，但病人的感覺和醫生的評分對不上。",
+      "description_en": "Does asking AI before a doctor visit actually help? A Google Research team randomly assigned nearly 6,000 U.S. adults in a health app to a plain chatbot or one of two visit-prep chatbots, all the same AI with different hidden instructions; 802 went on to chat about their health. More prep-AI users felt ready, and blinded doctors rated it more thorough and just as safe, but patients' feelings and doctors' grades didn't line up.",
+      "hashtags": [
+        "行為解碼",
+        "AI看診",
+        "醫病溝通",
+        "聊天機器人",
+        "HealthAI",
+        "AIinHealthcare",
+        "BehaviorDecoded",
+        "RandomizedTrial"
+      ],
+      "method_summary": "Google Research ran a prospective randomized study in the Google Health app (US, Nov 2025 to May 2026). 5,960 adults consented and were randomized 1:2:2 to a minimally prompted control chatbot or one of two structured visit-preparation agents (standard or concise); all used the same model (Gemini 2.5 Flash) and interface and differed only in hidden system prompts. The structured agents followed a workflow: gather context, set visit expectations, give plain-language health information, build a prioritized list of questions for the clinician, and keep a running summary (prep sheet). After exclusions, 802 participants contributed 866 health-related conversations. Patients completed a 1-5 survey right after chatting (460 responses): 73.8% of prep-agent users felt prepared vs 57.0% control; 81.4% vs 67.1% felt confident knowing what to ask; satisfaction 74.0% vs 62.0%. Three board-certified primary care clinicians, blinded to arm, rated 272 completed sessions on safety, appropriateness, comprehensiveness and patient alignment: comprehensive 67.2% vs 50.6%, aligned with patient context 98.9% vs 90.4%, safety and appropriateness high (>90%) in both with no significant difference. Patient ratings and clinician ratings were not significantly correlated. The two prep variants did not differ from each other. A 14-day follow-up showed no significant differences, with few respondents.",
+      "limitations": "About 42% of conversations ended before completing the flow, and clinician review covered only completed sessions, so absolute quality may be overstated. The 14-day follow-up had only 59 respondents who actually saw a doctor, so effects on real visits are unknown. No health outcomes or clinician feedback on visits were measured. Participants were Android Google Health app users who opted in, likely more tech-savvy and health-literate than average; people with mental health conditions, STIs or pregnancy were excluded. The study was funded and run by Google/Alphabet.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "robot",
+          "clipboard-list"
+        ],
+        [
+          "stethoscope",
+          "test-pipe",
+          "help-circle"
+        ],
+        [
+          "user",
+          "nurse"
+        ],
+        [
+          "robot",
+          "clipboard-check"
+        ],
+        [
+          "mood-smile",
+          "report-medical"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 51.25,
+        "cover_offset_ms": 6232,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 54.29,
+        "cover_offset_ms": 6116,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "b0vIKagxvLU",
+          "url": "https://youtube.com/shorts/b0vIKagxvLU"
+        },
+        "instagram": {
+          "id": "18107347127637396",
+          "url": "https://www.instagram.com/reel/DfQLtP_guS3/"
+        },
+        "threads": {
+          "id": "18107799011348928",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfQLxpakmyh"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "QyuzKp_UWgQ",
+          "url": "https://youtube.com/shorts/QyuzKp_UWgQ"
+        },
+        "instagram": {
+          "id": "17930231367183559",
+          "url": "https://www.instagram.com/reel/DfQL6n7lITb/"
+        },
+        "threads": {
+          "id": "18413264014089399",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfQMBG6jOZs"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261102-a-prospective-randomized-study-of-patien",
+    "pick_reason": "A prospective randomized study inside the Google Health app with 802 U.S. adults tests whether an LLM visit-preparation agent changes how real patients get ready for doctor visits. It studies everyday human behavior with AI, uses a computational field-experiment design that can be shown in a few steps, and has clear personal stakes for viewers. Signals: The channel's early hypothesis favoring papers with direct personal stakes and everyday AI use tipped this over the similarly strong AI-hiring audit, which studies model behavior more than human behavior."
   }
 ]

@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-02
 
+- **短影音 Short** · [看醫生前問AI，真的比較有準備嗎？ / Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU)
+  - 論文 Paper: [A prospective randomized study of patient-centered AI for clinical visit preparation](https://arxiv.org/abs/2610.41437) (arXiv cs.HC)
+  - 為什麼 Why: A prospective randomized study inside the Google Health app with 802 U.S. adults tests whether an LLM visit-preparation agent changes how real patients get ready for doctor visits. It studies everyday human behavior with AI, uses a computational field-experiment design that can be shown in a few steps, and has clear personal stakes for viewers. Signals: The channel's early hypothesis favoring papers with direct personal stakes and everyday AI use tipped this over the similarly strong AI-hiring audit, which studies model behavior more than human behavior.
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3)
   - 內容 Text: 跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？ 我們昨天介紹的研究（arXiv, 2026）找了1,173位美國線上受試者，組成391個三人小組，討論一項美國政策。討論前，大家被隨機分配做7分鐘暖身： ・看一段無關的影片 ・自己…
   - 為什麼 Why: The AI-guided deliberation short (our newest before today, decent YouTube zh views) has no Chinese follow-up yet, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg; today's political headlines are partisan or tragic, so no responsible news link fits.
