@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-01T07:59:07+00:00",
+ "collected_at": "2026-11-02T08:07:06+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 408,
-   "videoCount": 18
+   "viewCount": 436,
+   "videoCount": 20
   }
  },
  "notes": [],
@@ -194,7 +194,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "comments": 0,
     "duration": "PT53S",
@@ -431,7 +431,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 17,
+    "views": 16,
     "likes": 2,
     "comments": 0,
     "duration": "PT46S",
@@ -542,13 +542,13 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 68,
+    "views": 70,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M2S",
     "privacy": "public",
     "published": "2026-10-28T11:08:33Z",
-    "estimatedMinutesWatched": 7,
+    "estimatedMinutesWatched": 8,
     "averageViewDuration": 17,
     "averageViewPercentage": 27.99,
     "shares": 0,
@@ -605,13 +605,13 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 19,
+    "views": 18,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M6S",
     "privacy": "public",
     "published": "2026-10-28T11:10:11Z",
-    "estimatedMinutesWatched": 3,
+    "estimatedMinutesWatched": 2,
     "averageViewDuration": 28,
     "averageViewPercentage": 43.14,
     "shares": 0,
@@ -668,15 +668,15 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 15,
-    "likes": 0,
+    "views": 49,
+    "likes": 1,
     "comments": 0,
     "duration": "PT58S",
     "privacy": "public",
     "published": "2026-10-29T11:04:42Z",
-    "estimatedMinutesWatched": 4,
-    "averageViewDuration": 51,
-    "averageViewPercentage": 88.78,
+    "estimatedMinutesWatched": 9,
+    "averageViewDuration": 37,
+    "averageViewPercentage": 64.02,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -731,15 +731,15 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 10,
+    "views": 13,
     "likes": 0,
     "comments": 0,
     "duration": "PT59S",
     "privacy": "public",
     "published": "2026-10-29T11:06:49Z",
-    "estimatedMinutesWatched": 2,
-    "averageViewDuration": 50,
-    "averageViewPercentage": 86.15,
+    "estimatedMinutesWatched": 3,
+    "averageViewDuration": 35,
+    "averageViewPercentage": 59.9,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -794,12 +794,17 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 22,
+    "views": 12,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT57S",
     "privacy": "public",
-    "published": "2026-10-30T11:04:10Z"
+    "published": "2026-10-30T11:04:10Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 11,
+    "averageViewPercentage": 19.64,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -852,12 +857,17 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 3,
+    "views": 2,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT1M5S",
     "privacy": "public",
-    "published": "2026-10-30T11:06:30Z"
+    "published": "2026-10-30T11:06:30Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -871,8 +881,8 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 6,
-    "reach": 5,
+    "views": 7,
+    "reach": 6,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -910,7 +920,7 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 35,
+    "views": 59,
     "likes": 0,
     "comments": 1,
     "duration": "PT56S",
@@ -929,13 +939,13 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 501,
-    "reach": 436,
-    "likes": 6,
+    "views": 1373,
+    "reach": 1196,
+    "likes": 22,
     "comments": 1,
-    "saved": 1,
+    "saved": 5,
     "shares": 0,
-    "total_interactions": 8
+    "total_interactions": 28
    }
   },
   {
@@ -987,8 +997,8 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 19,
-    "reach": 17,
+    "views": 27,
+    "reach": 24,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1016,6 +1026,122 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "LQQu8Wod-wA",
+   "url": "https://youtube.com/shorts/LQQu8Wod-wA",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 43,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT48S",
+    "privacy": "public",
+    "published": "2026-11-01T11:04:06Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17990755647117003",
+   "url": "https://www.instagram.com/reel/DfMlKMnlfkY/",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 94,
+    "reach": 93,
+    "likes": 1,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 3
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18024584936717172",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfMlRs4jdCh",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "8hR_5Y3olQk",
+   "url": "https://youtube.com/shorts/8hR_5Y3olQk",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 8,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT55S",
+    "privacy": "public",
+    "published": "2026-11-01T11:05:37Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18121162745089239",
+   "url": "https://www.instagram.com/reel/DfMlXX_HQK6/",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 105,
+    "reach": 97,
+    "likes": 1,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 3
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261101-improving-group-deliberation-through-ai",
+   "title": "Chat With AI Before You Argue? The Debate Got Better",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18128517454870062",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfMlet6AeSJ",
+   "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
+   "created": "2026-11-01T06:11:50+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -1026,15 +1152,15 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 4,
-    "likes": 0,
+    "views": 5,
+    "likes": 1,
     "comments": 0,
     "duration": "PT7M4S",
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
-    "estimatedMinutesWatched": 1,
-    "averageViewDuration": 17,
-    "averageViewPercentage": 4.14,
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 13,
+    "averageViewPercentage": 3.1300000000000003,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1050,7 +1176,7 @@
    "paper": "20261027-decredentialed-jobs-and-upward-mobility",
    "created": "2026-10-28T06:48:20+00:00",
    "metrics": {
-    "views": 183,
+    "views": 185,
     "likes": 1,
     "replies": 2,
     "reposts": 1,
@@ -1230,6 +1356,44 @@
     "saved": 0,
     "shares": 0,
     "total_interactions": 1
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-10",
+   "title": "你最喜歡的那張圖，你覺得是人畫的嗎？\n\n我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18199357798355244",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq",
+   "paper": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "created": "2026-11-01T10:44:32+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-11",
+   "title": "本週介紹的研究，每篇一個重點：\n\n1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18422227504152146",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W",
+   "paper": "20261028-ai-helped-with-homework-did-it-help-on-t, 20261029-jawboning-the-fed-do-markets-listen-when, 20261030-crowds-believe-in-you-online-prediction, 20261031-beauty-is-human-when-people-love-ai-gene",
+   "created": "2026-11-01T10:44:32+00:00",
+   "metrics": {
+    "views": 8,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
    }
   }
  ]

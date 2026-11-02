@@ -1,47 +1,47 @@
 # Channel analytics 頻道數據
 
-Updated 2026-11-01T07:59:07+00:00
+Updated 2026-11-02T08:07:06+00:00
 
 ```
-Collected 2026-11-01T07:59:07+00:00
-YouTube channel: 4 subscribers, 408 total views, 18 videos
+Collected 2026-11-02T08:07:06+00:00
+YouTube channel: 4 subscribers, 436 total views, 20 videos
 Note: every short and talk show has one comment from us (the paper citation), and our replies to viewers count too, so comment counts overstate viewer comments; likes may include our own.
 
-short on youtube: 17 posts, average 23 views
-  by language: zh 42, pt 9, en 9
+short on youtube: 19 posts, average 26 views
+  by language: zh 49, pt 9, en 9
   - 110 views, 0 likes, 0 comments, avg watched 42%, +0 subs | zh | Jobs Dropped the Degree. So Who Got Hired?
-  - 68 views, 0 likes, 0 comments, avg watched 28%, +1 subs | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
-  - 35 views, 0 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
-  - 33 views, 0 likes, 0 comments, avg watched 34%, +1 subs | zh | AI Wrote the Petitions. Did They Win More?
-  - 22 views, 0 likes, 1 comments | zh | Strangers Bet on Your Goals, a Bit Too Hopefully
-  - 3 views, 0 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
+  - 70 views, 0 likes, 0 comments, avg watched 28%, +1 subs | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
+  - 59 views, 0 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
+  - 49 views, 1 likes, 0 comments, avg watched 64%, +0 subs | zh | When Politicians Lean on the Fed, Do Markets Listen?
+  - 43 views, 0 likes, 1 comments | zh | Chat With AI Before You Argue? The Debate Got Better
+  - 2 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | Strangers Bet on Your Goals, a Bit Too Hopefully
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | Caught Using Slave Labor: Do Ranches Really Stop?
 
-short on instagram: 14 posts, average 68 views
-  by language: zh 114, en 21
-  - 501 views, 6 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
+short on instagram: 16 posts, average 127 views
+  by language: zh 221, en 33
+  - 1373 views, 22 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
+  - 105 views, 1 likes, 1 comments | en | Chat With AI Before You Argue? The Debate Got Better
   - 103 views, 2 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
+  - 94 views, 1 likes, 1 comments | zh | Chat With AI Before You Argue? The Debate Got Better
   - 88 views, 1 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
-  - 55 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
-  - 53 views, 1 likes, 1 comments | en | AI Wrote the Petitions. Did They Win More?
-  - 6 views, 1 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
+  - 7 views, 1 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
   - 5 views, 1 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 5 views, 1 likes, 1 comments | zh | Strangers Bet on Your Goals, a Bit Too Hopefully
 
-short on threads: 14 posts, average 12 views
-  by language: zh 18, en 6
+short on threads: 16 posts, average 10 views
+  by language: zh 16, en 5
   - 32 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 21 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 19 views, 1 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
   - 19 views, 0 likes, 1 comments | zh | When Politicians Lean on the Fed, Do Markets Listen?
   - 15 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
-  - 3 views, 0 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
-  - 3 views, 0 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
+  - 2 views, 0 likes, 1 comments | en | Chat With AI Before You Argue? The Debate Got Better
   - 1 views, 0 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
+  - 1 views, 0 likes, 1 comments | zh | Chat With AI Before You Argue? The Debate Got Better
 
-podcast on youtube: 1 posts, average 4 views
-  - 4 views, 0 likes, 0 comments, avg watched 4%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
+podcast on youtube: 1 posts, average 5 views
+  - 5 views, 1 likes, 0 comments, avg watched 3%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
 
 social on instagram: 3 posts, average 0 views
   by language: zh 0, en 0
@@ -54,18 +54,23 @@ Change.o
 一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚
   - 0 views, 1 likes, 0 comments | en | Would strangers bet that you'll hit your goal? A new study says: yes, a little t
 
-social on threads: 7 posts, average 30 views
-  by language: zh 39, en 7
-  - 183 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
+social on threads: 9 posts, average 27 views
+  by language: zh 32, en 7
+  - 185 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局
+  - 18 views, 0 likes, 0 comments | zh | 你最喜歡的那張圖，你覺得是人畫的嗎？
+
+我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI
   - 8 views, 0 likes, 0 comments | en | In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st
   - 8 views, 0 likes, 0 comments | zh | AI進辦公室，大家會不會越來越少跟同事講話？
 
 我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202
-  - 6 views, 0 likes, 0 comments | en | Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:
+  - 8 views, 0 likes, 0 comments | zh | 本週介紹的研究，每篇一個重點：
+
+1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有
   - 5 views, 0 likes, 0 comments | zh | ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？
 
 我們英文 podcast 介紹過一篇研究（arX
@@ -121,65 +126,77 @@ Written 2026-10-29
 
 | kind | platform | lang | views | likes | comments | title |
 |---|---|---|---|---|---|---|
-| short | instagram | zh | 501 | 6 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAYT6jTDG/) |
-| social | threads | zh | 183 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
+| short | instagram | zh | 1373 | 22 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAYT6jTDG/) |
+| social | threads | zh | 185 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
 | short | youtube | zh | 110 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
+| short | instagram | en | 105 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlXX_HQK6/) |
 | short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
+| short | instagram | zh | 94 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlKMnlfkY/) |
 | short | instagram | zh | 88 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
-| short | youtube | zh | 68 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
+| short | youtube | zh | 70 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
+| short | youtube | zh | 59 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
 | short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
 | short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
-| short | youtube | zh | 35 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
+| short | youtube | zh | 49 | 1 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
+| short | youtube | zh | 43 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA) |
 | short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
 | short | threads | zh | 32 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
 | short | instagram | en | 30 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
 | short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
 | short | instagram | zh | 28 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE24wVFD3J/) |
-| short | youtube | zh | 22 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U) |
+| short | instagram | en | 27 | 1 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAla1jFvW/) |
 | short | threads | zh | 21 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
 | short | youtube | pt | 20 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | instagram | zh | 20 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
 | short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
-| short | youtube | en | 19 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/9MExpUEuD7o) |
 | short | threads | zh | 19 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb) |
-| short | instagram | en | 19 | 1 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAla1jFvW/) |
-| short | youtube | en | 17 | 2 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
+| short | youtube | en | 18 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/9MExpUEuD7o) |
+| social | threads | zh | 18 | 0 | 0 | [你最喜歡的那張圖，你覺得是人畫的嗎？
+
+我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI](https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq) |
+| short | youtube | en | 16 | 2 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
 | short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
-| short | youtube | zh | 15 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
 | short | threads | zh | 15 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHbuBGEfnt) |
-| short | youtube | zh | 13 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
+| short | youtube | zh | 14 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
+| short | youtube | en | 13 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/nHROFRQuyuY) |
 | short | threads | en | 12 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
+| short | youtube | zh | 12 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U) |
 | short | youtube | en | 12 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/Mqje8Ha4bv8) |
-| short | youtube | en | 10 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/nHROFRQuyuY) |
 | short | threads | en | 9 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
 | short | instagram | en | 8 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE3H1dDZhs/) |
+| short | youtube | en | 8 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/8hR_5Y3olQk) |
 | social | threads | en | 8 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 | social | threads | zh | 8 | 0 | 0 | [AI進辦公室，大家會不會越來越少跟同事講話？
 
 我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T) |
+| social | threads | zh | 8 | 0 | 0 | [本週介紹的研究，每篇一個重點：
+
+1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有](https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W) |
+| short | instagram | en | 7 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHb30UEx6g/) |
 | short | threads | en | 6 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x) |
-| short | instagram | en | 6 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHb30UEx6g/) |
 | social | threads | en | 6 | 0 | 0 | [Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:](https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4) |
 | short | threads | en | 5 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nxS2DZN6) |
 | short | instagram | en | 5 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCStp0EasQ/) |
 | short | instagram | zh | 5 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHbmtGDgCS/) |
 | short | threads | en | 5 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKArppge5h) |
+| podcast | youtube | en | 5 | 1 | 0 | [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M) |
 | social | threads | zh | 5 | 0 | 0 | [ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？
 
 我們英文 podcast 介紹過一篇研究（arX](https://www.threads.com/@human__behavior__decode/post/DfExt8eoOGz) |
 | short | youtube | pt | 4 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/-ozetwZih0k) |
-| podcast | youtube | en | 4 | 0 | 0 | [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M) |
 | short | youtube | pt | 3 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/4kqijXYKbUc) |
-| short | youtube | en | 3 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/t2OiX4v7Sug) |
 | short | threads | en | 3 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHb_iMDUzF) |
 | short | threads | zh | 3 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKAelwD2Kh) |
+| short | youtube | en | 2 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/t2OiX4v7Sug) |
+| short | threads | en | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlet6AeSJ) |
 | short | youtube | en | 1 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
 | short | youtube | en | 1 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
 | short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
+| short | threads | zh | 1 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlRs4jdCh) |
 | social | threads | zh | 1 | 0 | 0 | [如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？
 
 我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在202](https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8) |
