@@ -165,5 +165,19 @@
     "why": "It is Sunday and this week's four papers have not been rounded up yet; Instagram has no room left this week, so a short Chinese Threads roundup fills the weekly slot in our strongest language without a news peg.",
     "id": "18422227504152146",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W"
+  },
+  {
+    "posted": "2026-11-02T11:49:34+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261101-improving-group-deliberation-through-ai"
+    ],
+    "text": "跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？\n\n我們昨天介紹的研究（arXiv, 2026）找了1,173位美國線上受試者，組成391個三人小組，討論一項美國政策。討論前，大家被隨機分配做7分鐘暖身：\n・看一段無關的影片\n・自己寫下三個反思問題的答案\n・跟一個被設定成中立、不帶方向的AI聊：你的主要理由是什麼？哪些是你知道的、哪些是假設？另一方可能怎麼想？\n\n結果：\n・AI組的討論品質比看影片組高（d=0.31），也比自己寫組高（d=0.27）\n・自己寫的那組，和看影片組沒有差別\n・好處主要出現在小組裡本來就有不同意見的時候\n\n要注意：效果是小到中等；討論品質由AI評分，跟人工標註的總分一致程度只算中等。這是特別設定的中立模型，不是一般聊天機器人。自評的同理心提升，討論後也大多消退了。\n\n同樣是反思，自己寫沒差、跟AI聊卻有差。你覺得差在哪？",
+    "news": null,
+    "why": "The AI-guided deliberation short (our newest before today, decent YouTube zh views) has no Chinese follow-up yet, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg; today's political headlines are partisan or tragic, so no responsible news link fits.",
+    "id": "18647129860025219",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3"
   }
 ]

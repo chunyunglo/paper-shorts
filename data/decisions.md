@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-02
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3)
+  - 內容 Text: 跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？ 我們昨天介紹的研究（arXiv, 2026）找了1,173位美國線上受試者，組成391個三人小組，討論一項美國政策。討論前，大家被隨機分配做7分鐘暖身： ・看一段無關的影片 ・自己…
+  - 為什麼 Why: The AI-guided deliberation short (our newest before today, decent YouTube zh views) has no Chinese follow-up yet, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg; today's political headlines are partisan or tragic, so no responsible news link fits.
+  - 根據的集數 Based on: 20261101-improving-group-deliberation-through-ai
 - **短影音 Short** · [動態照時間排，真能拆同溫層？ / Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8)
   - 論文 Paper: [Counterfactual assessment of social media interventions by separating exposure from engagement](https://arxiv.org/abs/2610.37864) (arXiv physics.soc-ph)
   - 為什麼 Why: It fits a model to four years of real Italian Twitter activity that separates what users see from how they engage, then tests prebunking, accuracy prompts and a chronological feed for collective effects on engagement, attention diversity and segregation, making for a clear, visual, computational story about social media behavior. Signals: Recent episodes already covered AI at work, AI and learning and prediction markets, so I skipped the upskilling and Polymarket papers; the notes' preference for everyday stakes favored a topic about viewers' own social feeds.
