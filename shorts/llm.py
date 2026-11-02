@@ -1,7 +1,6 @@
 """Thin wrapper over the Anthropic SDK for structured (Pydantic) outputs."""
 from __future__ import annotations
 
-import atexit
 from typing import TypeVar
 
 import anthropic
@@ -24,12 +23,6 @@ def cost(model: str, usage) -> float:
     fresh = (usage.input_tokens or 0) + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
     return (fresh * inp + (usage.output_tokens or 0) * out
             + (getattr(usage, "cache_read_input_tokens", 0) or 0) * cached) / 1e6
-
-
-@atexit.register
-def _report() -> None:
-    if _spent["calls"]:
-        log(f"Claude cost this run: {_spent['calls']} calls, about US${_spent['usd']:.2f}")
 
 
 def client() -> anthropic.Anthropic:
@@ -64,7 +57,9 @@ def ask(schema: type[T], system: str, content: list | str, *, effort: str = "hig
     usd = cost(config.MODEL, resp.usage)
     _spent["calls"] += 1
     _spent["usd"] += usd
-    log(f"Claude call: {resp.usage.input_tokens} in, {resp.usage.output_tokens} out, about US${usd:.3f}")
+    # No summary line at exit: some workflows read the last line of output as the episode folder.
+    log(f"Claude call: {resp.usage.input_tokens} in, {resp.usage.output_tokens} out, about US${usd:.3f} "
+        f"(run so far: {_spent['calls']} calls, US${_spent['usd']:.2f})")
     if resp.stop_reason == "refusal":
         raise RuntimeError("Claude declined the request")
     if resp.stop_reason == "max_tokens" or resp.parsed_output is None:
