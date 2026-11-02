@@ -1,7 +1,10 @@
-"""The Chinese concept podcast (working title 生意有數). Each episode explains one idea from the season
-topic list (topics.json): no paper, no news hook. Two hosts talk it through as discussion partners.
+"""The Chinese concept podcast 無聊統計學. There is no fixed season: before each episode a planning pass
+reads the show's strategy (strategy.json), the feedback notes (feedback.md) and the record of every earlier
+episode, picks the next topic, and updates the running strategy notes. No paper, no news hook. Two friends
+talk it through.
 
-make   Claude writes the two-host Traditional Chinese episode for one topic. A second Claude pass checks
+plan   Claude decides the next episode from the strategy, the feedback and the history.
+make   plan, then Claude writes the two-host Traditional Chinese episode for one topic. A second Claude pass checks
        it for wrong concepts and invented specifics (numbers, companies, studies, quotes); the writer
        fixes what it finds, up to three rounds. Writes out/concept_show/<id>/show.json, script.md and
        meta.json. Nothing here publishes.
@@ -37,13 +40,71 @@ class Topic(BaseModel):
     idea: str
 
 
-def topics() -> tuple[str, list[Topic]]:
-    d = json.loads((HERE / "topics.json").read_text(encoding="utf-8"))
-    return d["theme"], [Topic(**t) for t in d["topics"]]
+def strategy() -> dict:
+    return json.loads((HERE / "strategy.json").read_text(encoding="utf-8"))
+
+
+class Plan(BaseModel):
+    topic: Topic = Field(description="The next episode. id: leave as given; title: a short Traditional Chinese "
+                                     "title; idea: the one thing the episode makes clear, 1-3 sentences")
+    reason: str = Field(description="Why this topic now, in Traditional Chinese, 2-4 sentences: what the history "
+                                    "and feedback show and whether this episode builds on, repairs, or explores")
+    notes: str = Field(description="The updated running strategy notes in Traditional Chinese, at most 15 short "
+                                   "lines: what has been covered, what listeners should already know, what to "
+                                   "try or avoid next. Replaces the previous notes")
+
+
+PLAN_SYSTEM = """你是 podcast《{show}》的節目策劃。這個節目沒有固定的一季清單，每一集開工前由你決定下一集講什麼。你的做法本身就是節目要講的理念：看過去的紀錄和回饋，在「延續有效的方向」和「試一個新的方向」之間取捨，一步一步調整節目的經營策略。
+
+節目要傳達的理念：{theme}
+為什麼做這個節目：{why}
+
+原則（必須遵守）：
+{principles}
+
+可以參考的方向（不是清單，不必照順序，也可以提出新的）：{ideas}
+
+決定時：
+- 回饋裡越新的意見越優先，回饋和原則都比上一次的策略筆記優先。
+- 不要重複已經講過的概念，除非是刻意回頭補強，並在 reason 說明。
+- 這一集要建立在聽眾已經聽過的內容上，不要跳過還沒講的基礎。"""
+
+
+def history(d: Path | None) -> tuple[list[dict], str]:
+    """Earlier episodes' meta.json files under d (one folder per release) and the newest strategy notes."""
+    if not d or not d.is_dir():
+        return [], ""
+    # Only planned episodes count: the early demos written from a fixed list are left out
+    found = sorted(((m, f.parent) for f in d.glob("*/meta.json")
+                    if "plan_reason" in (m := json.loads(f.read_text(encoding="utf-8")))),
+                   key=lambda mf: mf[0].get("created", ""))
+    notes = next((f.read_text(encoding="utf-8") for _, p in reversed(found) if (f := p / "strategy.md").exists()), "")
+    return [m for m, _ in found], notes
+
+
+def plan_prompt(st: dict) -> str:
+    return PLAN_SYSTEM.format(show=SHOW, theme=st["theme"], why=st["why"],
+                              principles="\n".join(f"- {p}" for p in st["principles"]),
+                              ideas="、".join(st.get("ideas", [])))
+
+
+def plan(hist_dir: Path | None = None, request: str = "") -> Plan:
+    st = strategy()
+    metas, notes = history(hist_dir)
+    feedback = (HERE / "feedback.md").read_text(encoding="utf-8") if (HERE / "feedback.md").exists() else ""
+    n = len({m.get("title") for m in metas}) + 1
+    past = "\n".join(f"- {m.get('created', '')[:10]}《{m.get('title')}》概念：{m.get('topic', {}).get('title')}；"
+                      f"帶走的一句話：{m.get('one_liner', '')}" for m in metas) or "（還沒有任何一集）"
+    text = (f"已經做過的集數：\n{past}\n\n上一次的策略筆記：\n{notes or '（沒有）'}\n\n回饋：\n{feedback or '（沒有）'}"
+            + (f"\n\n這次的指定要求（優先）：{request}" if request else "")
+            + f"\n\n請決定第 {n} 集。topic.id 填 ep{n:02d}。")
+    p = llm.ask(Plan, plan_prompt(st), text)
+    p.topic.id = f"ep{n:02d}"
+    return p
 
 
 class Line(BaseModel):
-    spk: Literal["K", "A"] = Field(description="K = the host, A = the data scientist")
+    spk: Literal["K", "A"] = Field(description="K = Una, A = Natasha")
     text: str = Field(description="What is spoken, Traditional Chinese as used in Taiwan, written for "
                                   "text-to-speech, at most 120 characters")
 
@@ -76,7 +137,7 @@ SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲
 可以舉不同領域的例子（生活、零售、餐飲、製造、交通、醫療排班、內容平台等），生意情境只是其中一種例子。
 6. 有來有往的討論：兩人可以有不同看法，例如{k}覺得經驗也很重要，{a}同意經驗在什麼時候有用、什麼時候會騙人。\
 讓討論有張力，但最後回到同一個理解。
-7. 收尾：一句帶得走的想法，預告這一季會繼續從不同角度談同一個理念（不要承諾具體的下一集題目）。
+7. 收尾：一句帶得走的想法，說節目會繼續從不同角度談同一個理念（不要承諾具體的下一集題目）。
 
 兩個人：{k}{k_persona}；{a}{a_persona}。\
 她們是朋友，沒有主持人和專家之分，不要用職稱介紹彼此；兩人輪流發問、輪流解釋，常互相接話、補充、反駁，不是一問一答。\
@@ -128,7 +189,7 @@ def validate(ep: Episode) -> list[str]:
     if {l.spk for l in ep.lines} != {"K", "A"}:
         errs.append("both hosts must speak")
     if ep.lines and ep.lines[0].spk != "K":
-        errs.append("the host (K) opens the episode")
+        errs.append("K opens the episode")
     for i, l in enumerate(ep.lines):
         if len(l.text) > 140:
             errs.append(f"line {i} is too long for one breath ({len(l.text)} characters)")
@@ -183,18 +244,9 @@ def script_md(ep: Episode, topic: Topic) -> str:
             f"{len(ep.lines)} 句\n\n---\n\n{body}\n")
 
 
-def pick(topic_id: str | None) -> tuple[Topic, str]:
-    theme, ts = topics()
-    if not topic_id:
-        return ts[0], theme
-    for t in ts:
-        if t.id == topic_id:
-            return t, theme
-    raise SystemExit(f"No topic {topic_id!r} in topics.json")
-
-
-def make(topic_id: str | None = None) -> Path:
-    topic, theme = pick(topic_id)
+def make(hist_dir: Path | None = None, request: str = "") -> Path:
+    p = plan(hist_dir, request)
+    topic, theme = p.topic, strategy()["theme"]
     print(f"Topic: {topic.id} {topic.title}", flush=True)
     ep, rounds = write(topic, theme)
     now = datetime.now(timezone.utc)
@@ -206,6 +258,10 @@ def make(topic_id: str | None = None) -> Path:
     meta = {"topic": topic.model_dump(), "created": now.isoformat(timespec="seconds"), "title": ep.title,
             "one_liner": ep.one_liner, "description": ep.description, "examples": ep.examples,
             "chars": spoken_chars(ep), "lines": len(ep.lines), "rewrite_rounds": rounds, "model": llm.MODEL}
+    (out / "plan.md").write_text(f"# 第 {topic.id[2:]} 集的決定\n\n**{topic.title}**：{topic.idea}\n\n{p.reason}\n",
+                                 encoding="utf-8")
+    (out / "strategy.md").write_text(p.notes.strip() + "\n", encoding="utf-8")
+    meta["plan_reason"] = p.reason
     (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"EP_DIR={out}", flush=True)
     return out
@@ -213,15 +269,17 @@ def make(topic_id: str | None = None) -> Path:
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m concept_show")
-    ap.add_argument("cmd", choices=["make", "topics", "voice"])
+    ap.add_argument("cmd", choices=["make", "plan", "voice"])
     ap.add_argument("files", nargs="*", help="voice: <show.json> <out.wav>")
-    ap.add_argument("--topic", help="topic id from topics.json, e.g. s1e01 (default: the first)")
+    ap.add_argument("--history", type=Path, help="folder with one sub-folder per earlier episode (meta.json, "
+                                                 "strategy.md)")
+    ap.add_argument("--request", default="", help="an instruction for this episode's topic, e.g. a concept to cover")
     a = ap.parse_args()
     if a.cmd == "voice":
         from . import voice
         voice.main(*a.files)
-    elif a.cmd == "topics":
-        for t in topics()[1]:
-            print(f"{t.id}  {t.title}")
+    elif a.cmd == "plan":
+        p = plan(a.history, a.request)
+        print(f"{p.topic.id} {p.topic.title}\n{p.topic.idea}\n\n{p.reason}\n\n{p.notes}")
     else:
-        make(a.topic)
+        make(a.history, a.request)

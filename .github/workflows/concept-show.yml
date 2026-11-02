@@ -1,8 +1,10 @@
 # Chinese concept podcast 無聊統計學: demo episodes, never published.
 # Two separate jobs that run back to back, with the script saved in between:
-#   script  Claude writes one topic from concept_show/topics.json as a two-host Traditional Chinese talk,
-#           a second Claude pass checks concepts and forbids invented facts, and the script is saved on
-#           a pre-release concept-demo-N.
+#   script  There is no fixed season. Claude first reads concept_show/strategy.json, concept_show/feedback.md
+#           and every earlier episode (meta.json and strategy notes on the concept-demo-* pre-releases),
+#           decides the next topic and updates the strategy notes. Then it writes the two-friend Traditional
+#           Chinese talk, a second Claude pass checks concepts and forbids invented facts, and the script, the
+#           plan and the notes are saved on a pre-release concept-demo-N.
 #   voice   Fetches that saved script, voices it with Gemini Flash TTS (2-3 requests an episode), and adds the MP3 to the same pre-release.
 #           No Claude calls. If it fails, re-run only this job (or run the workflow with release=concept-demo-N):
 #           the script is not written again.
@@ -12,8 +14,8 @@ name: Concept podcast demo
 on:
   workflow_dispatch:
     inputs:
-      topic:
-        description: "Topic id from concept_show/topics.json (blank = s1e01)"
+      request:
+        description: "Optional instruction for this episode's topic (blank = let the planner decide)"
         default: ""
       release:
         description: "Only voice the script already saved on this pre-release (e.g. concept-demo-2); skips writing"
@@ -45,7 +47,7 @@ jobs:
       release: ${{ steps.save.outputs.release }}
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      TOPIC: ${{ github.event.inputs.topic }}
+      REQUEST: ${{ github.event.inputs.request }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v4
@@ -56,16 +58,24 @@ jobs:
         run: |
           [ -n "$ANTHROPIC_API_KEY" ] || { echo "ANTHROPIC_API_KEY is not set"; exit 1; }
           pip install -q anthropic==2.3.0 pydantic==2.13.5
-      - name: Write the script
+      - name: Earlier episodes (records and strategy notes from the concept-demo pre-releases)
+        run: |
+          mkdir -p history
+          for tag in $(gh release list --limit 200 --json tagName -q '.[].tagName | select(startswith("concept-demo-"))'); do
+            gh release download "$tag" -D "history/$tag" -p meta.json -p strategy.md 2>/dev/null || true
+          done
+          ls history | wc -l
+      - name: Plan and write the script
         shell: bash
         run: |
-          python -m concept_show make ${TOPIC:+--topic "$TOPIC"} | tee make.log
+          python -m concept_show make --history history ${REQUEST:+--request "$REQUEST"} | tee make.log
           grep -m1 '^EP_DIR=' make.log >> "$GITHUB_ENV"
       - name: Save it on a pre-release
         id: save
         run: |
           tag="concept-demo-${{ github.run_number }}"
           gh release create "$tag" "$EP_DIR/script.md" "$EP_DIR/meta.json" "$EP_DIR/show.json" \
+            "$EP_DIR/plan.md" "$EP_DIR/strategy.md" \
             --prerelease --target "${{ github.sha }}" --title "Concept podcast demo #${{ github.run_number }} (not posted)" \
             --notes "$(jq -r '.title + "：" + .one_liner' "$EP_DIR/meta.json")"
           echo "release=$tag" >> "$GITHUB_OUTPUT"

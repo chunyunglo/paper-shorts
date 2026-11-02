@@ -6,11 +6,21 @@ def episode(n_lines=90, chars=40):
     return show.Episode(title="t", one_liner="o", lines=lines, description="d", examples=["假設：一家店"])
 
 
-def test_topics_load_and_are_unique():
-    theme, ts = show.topics()
-    assert theme and len(ts) >= 8
-    assert len({t.id for t in ts}) == len(ts)
-    assert show.pick(None)[0].id == ts[0].id and show.pick("s1e03")[0].title == ts[2].title
+def test_strategy_prompt_and_history(tmp_path):
+    import json
+    st = show.strategy()
+    assert st["theme"] and st["why"] and st["principles"]
+    p = show.plan_prompt(st)
+    assert show.SHOW in p and "{" not in p
+    assert show.history(tmp_path / "none") == ([], "")
+    for tag, created, notes in [("concept-demo-2", "2026-11-01T10:00", "old"), ("concept-demo-5", "2026-11-08T10:00", "new")]:
+        (tmp_path / tag).mkdir()
+        (tmp_path / tag / "meta.json").write_text(json.dumps({"created": created, "title": tag, "plan_reason": "r"}))
+        (tmp_path / tag / "strategy.md").write_text(notes)
+    (tmp_path / "old-demo").mkdir()
+    (tmp_path / "old-demo" / "meta.json").write_text(json.dumps({"created": "2026-11-09", "title": "fixed list"}))
+    metas, notes = show.history(tmp_path)
+    assert [m["title"] for m in metas] == ["concept-demo-2", "concept-demo-5"] and notes == "new"
 
 
 def test_valid_episode_has_no_errors():
@@ -33,7 +43,7 @@ def test_unsourced_claims_and_tts_hostile_text_are_flagged():
 
 
 def test_prompt_and_show_file():
-    topic, theme = show.pick("s1e01")
+    topic, theme = show.Topic(id="ep01", title="什麼是隨機變數", idea="不確定的事可以用一個數字描述"), show.strategy()["theme"]
     p = show.system_prompt(topic, theme)
     assert topic.title in p and "{" not in p
     s = show.to_show(episode(), topic)
