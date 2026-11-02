@@ -11,6 +11,7 @@
   voices            render one sentence in several voices for choosing (out/voices/)
   keepalive         re-enable scheduled workflows so GitHub never auto-disables them
   podcast-make      pick a paper and write + fact-check the talk-show episode (podcast/episodes/)
+  audioshow-make    write + fact-check one episode of the Chinese audio podcast (out/audioshow/)
   podcast-publish   check the rendered talk show and upload it to YouTube for the weekly slot
   analytics         read every post's numbers into state/analytics/; weekly self-review + strategy note,
                     emailed to the owner
@@ -78,6 +79,8 @@ def main() -> None:
     rm.add_argument("--message", required=True)
     pm = sub.add_parser("podcast-make")
     pm.add_argument("--paper-json", type=Path)
+    am = sub.add_parser("audioshow-make", help="write + fact-check one episode of the Chinese audio podcast")
+    am.add_argument("--paper-json", type=Path)
     pp = sub.add_parser("podcast-publish")
     pp.add_argument("folder", type=Path, help="out/podcast/<episode>")
     pp.add_argument("--video", type=Path, default=Path("podcast/out/episode.mp4"))
@@ -175,6 +178,11 @@ def main() -> None:
         from .podcast import make as podcast_make
 
         print(podcast_make(args.paper_json))
+    elif args.cmd == "audioshow-make":
+        install_excepthook(strict=False)
+        from .audioshow import make as audioshow_make
+
+        print(audioshow_make(args.paper_json))
     elif args.cmd == "podcast-publish":
         install_excepthook(strict=True)
         from .podcast import publish as podcast_publish
