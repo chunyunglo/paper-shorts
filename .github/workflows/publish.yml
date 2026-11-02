@@ -6,7 +6,8 @@
 name: Publish episode
 
 on:
-  # GitHub drops scheduled events under load (on this repo it has never fired publish at all),
+  # GitHub drops or delays scheduled events (a 06:00 UTC run once arrived at 15:13), so both jobs
+  # check the Taiwan clock before acting. GitHub drops scheduled events under load,
   # so a Claude scheduled task also dispatches each slot with auto=true. Repeats are
   # harmless: prepare skips once today's review issue exists, and publish only posts what is
   # approved and not yet out.
@@ -68,6 +69,12 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           today=$(TZ=Asia/Taipei date +%F)
+          # GitHub sometimes delivers a scheduled run hours late; only prepare in the afternoon
+          hour=$(TZ=Asia/Taipei date +%-H)
+          if [ "$hour" -lt 13 ] || [ "$hour" -gt 18 ]; then
+            echo "It is ${hour}:00 in Taiwan, outside the 13:00-18:59 prepare window; nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
           if grep -qx "$today" data/skip_dates.txt; then
             echo "Today is in data/skip_dates.txt; nothing to do."
             echo "SKIP=1" >> "$GITHUB_ENV"
@@ -139,9 +146,20 @@ jobs:
       # scheduled runs post zh + en (Portuguese was dropped; older episodes' pt videos are not posted)
       LANGS: ${{ github.event_name == 'schedule' && 'zh en' || inputs.langs }}
     steps:
+      - name: Only post in the evening
+        if: github.event_name == 'schedule' || inputs.auto
+        run: |
+          # GitHub sometimes delivers a scheduled run hours late (once at 04:37 Taiwan)
+          hour=$(TZ=Asia/Taipei date +%-H)
+          if [ "$hour" -lt 19 ]; then
+            echo "It is ${hour}:00 in Taiwan, outside the 19:00-23:59 publish window; nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
+        if: env.SKIP != '1'
       - name: Publish approved episodes
+        if: env.SKIP != '1'
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
