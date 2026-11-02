@@ -64,6 +64,9 @@ jobs:
           for tag in $(gh release list --limit 200 --json tagName -q '.[].tagName | select(startswith("concept-demo-"))'); do
             gh release download "$tag" -D "history/$tag" -p meta.json -p strategy.md 2>/dev/null || true
           done
+          # Download counts of the published episodes (boring-ep* releases), for the planner
+          gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" > releases.json
+          python -c "import json; from concept_show import feed; json.dump(feed.published(json.load(open('releases.json'))), open('history/stats.json', 'w'), ensure_ascii=False)"
           ls history | wc -l
       - name: Plan and write the script
         shell: bash

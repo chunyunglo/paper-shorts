@@ -67,7 +67,8 @@ PLAN_SYSTEM = """你是 podcast《{show}》的節目策劃。這個節目沒有�
 決定時：
 - 回饋裡越新的意見越優先，回饋和原則都比上一次的策略筆記優先。
 - 不要重複已經講過的概念，除非是刻意回頭補強，並在 reason 說明。
-- 這一集要建立在聽眾已經聽過的內容上，不要跳過還沒講的基礎。"""
+- 這一集要建立在聽眾已經聽過的內容上，不要跳過還沒講的基礎。
+- 有下載數時，拿上架天數相近的集數比較；集數少、差距小時不要過度解讀，數字只是訊號之一。"""
 
 
 def history(d: Path | None) -> tuple[list[dict], str]:
@@ -82,6 +83,13 @@ def history(d: Path | None) -> tuple[list[dict], str]:
     return [m for m, _ in found], notes
 
 
+def reach(e: dict | None) -> str:
+    if not e:
+        return "還沒上架"
+    days = (datetime.now(timezone.utc) - datetime.fromisoformat(e["date"].replace("Z", "+00:00"))).days
+    return f"上架 {days} 天，下載 {e['downloads']} 次"
+
+
 def plan_prompt(st: dict) -> str:
     return PLAN_SYSTEM.format(show=SHOW, theme=st["theme"], why=st["why"],
                               principles="\n".join(f"- {p}" for p in st["principles"]),
@@ -93,8 +101,11 @@ def plan(hist_dir: Path | None = None, request: str = "") -> Plan:
     metas, notes = history(hist_dir)
     feedback = (HERE / "feedback.md").read_text(encoding="utf-8") if (HERE / "feedback.md").exists() else ""
     n = len({m.get("title") for m in metas}) + 1
+    stats = {e["title"]: e for e in json.loads((hist_dir / "stats.json").read_text(encoding="utf-8"))} \
+        if hist_dir and (hist_dir / "stats.json").exists() else {}
     past = "\n".join(f"- {m.get('created', '')[:10]}《{m.get('title')}》概念：{m.get('topic', {}).get('title')}；"
-                      f"帶走的一句話：{m.get('one_liner', '')}" for m in metas) or "（還沒有任何一集）"
+                      f"帶走的一句話：{m.get('one_liner', '')}；{reach(stats.get(m.get('title')))}"
+                      for m in metas) or "（還沒有任何一集）"
     text = (f"已經做過的集數：\n{past}\n\n上一次的策略筆記：\n{notes or '（沒有）'}\n\n回饋：\n{feedback or '（沒有）'}"
             + (f"\n\n這次的指定要求（優先）：{request}" if request else "")
             + f"\n\n請決定第 {n} 集。topic.id 填 ep{n:02d}。")
@@ -269,8 +280,8 @@ def make(hist_dir: Path | None = None, request: str = "") -> Path:
 
 def main() -> None:
     ap = argparse.ArgumentParser(prog="python -m concept_show")
-    ap.add_argument("cmd", choices=["make", "plan", "voice"])
-    ap.add_argument("files", nargs="*", help="voice: <show.json> <out.wav>")
+    ap.add_argument("cmd", choices=["make", "plan", "voice", "feed"])
+    ap.add_argument("files", nargs="*", help="voice: <show.json> <out.wav>; feed: <releases.json> <feed.xml>")
     ap.add_argument("--history", type=Path, help="folder with one sub-folder per earlier episode (meta.json, "
                                                  "strategy.md)")
     ap.add_argument("--request", default="", help="an instruction for this episode's topic, e.g. a concept to cover")
@@ -278,6 +289,9 @@ def main() -> None:
     if a.cmd == "voice":
         from . import voice
         voice.main(*a.files)
+    elif a.cmd == "feed":
+        from . import feed
+        feed.main(*a.files)
     elif a.cmd == "plan":
         p = plan(a.history, a.request)
         print(f"{p.topic.id} {p.topic.title}\n{p.topic.idea}\n\n{p.reason}\n\n{p.notes}")

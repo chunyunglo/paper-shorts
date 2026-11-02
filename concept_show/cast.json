@@ -12,5 +12,14 @@
    "voice": "Sulafat",
    "persona": "想事情很有條理、講話清楚、有一點冷幽默；也會被Una問倒、反過來問她"
   }
+ },
+ "feed": {
+  "url": "https://chunyunglo.github.io/paper-shorts/boring-stats/feed.xml",
+  "site": "https://github.com/chunyunglo/paper-shorts/tree/main/concept_show",
+  "description": "兩個朋友用聊天的方式，從隨機變數開始，聊資料科學怎麼在很多可能性裡快速探索，以及這為什麼是 AI 轉型的本質。不用公式，只用生活例子。",
+  "author": "無聊統計學",
+  "email": "",
+  "cover": "",
+  "category": "Science"
  }
 }

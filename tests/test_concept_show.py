@@ -63,3 +63,22 @@ def test_voice_groups_lines_into_few_paced_requests():
     b = json.loads(voice.body(parts[0], show.HOSTS))
     names = {v["speaker"] for v in b["generationConfig"]["speechConfig"]["multiSpeakerVoiceConfig"]["speakerVoiceConfigs"]}
     assert names == {"Kai", "Anne"} and b["contents"][0]["parts"][0]["speech_metadata"]["speaker"] == "Kai"
+
+
+def test_feed_lists_only_published_episodes_and_planner_reads_downloads():
+    import xml.etree.ElementTree as ET
+    from concept_show import feed
+    mp3 = lambda n: {"name": "episode.mp3", "browser_download_url": f"https://x/{n}.mp3", "size": 9, "download_count": n}
+    releases = [
+        {"tag_name": "boring-ep02", "name": "第二集", "body": "b", "published_at": "2026-11-16T00:00:00Z", "assets": [mp3(3)]},
+        {"tag_name": "boring-ep01", "name": "第一集 & 為什麼", "body": "a", "published_at": "2026-11-09T00:00:00Z", "assets": [mp3(7)]},
+        {"tag_name": "concept-demo-9", "name": "demo", "published_at": "2026-11-10T00:00:00Z", "prerelease": True, "assets": [mp3(1)]},
+        {"tag_name": "boring-ep03", "name": "no audio yet", "published_at": "2026-11-20T00:00:00Z", "assets": []},
+    ]
+    eps = feed.published(releases)
+    assert [e["tag"] for e in eps] == ["boring-ep01", "boring-ep02"] and eps[0]["downloads"] == 7
+    root = ET.fromstring(feed.rss(eps))
+    items = root.findall("./channel/item")
+    assert [i.findtext("title") for i in items] == ["第二集", "第一集 & 為什麼"]
+    assert items[1].find("enclosure").get("url") == "https://x/7.mp3"
+    assert "上架" in show.reach(eps[0]) and "7" in show.reach(eps[0]) and show.reach(None) == "還沒上架"
