@@ -23,7 +23,7 @@ import urllib.request
 import wave
 from pathlib import Path
 
-MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-lite-tts")
+MODEL = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts")
 # One request can return at most 16,384 output tokens, roughly 10 minutes of audio, so a 13-20 minute
 # episode needs 2-3 requests; 2000 characters is about 7 minutes of speech.
 CHUNK_CHARS = int(os.environ.get("TTS_CHUNK_CHARS", "2000"))

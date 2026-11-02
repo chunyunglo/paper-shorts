@@ -1,9 +1,9 @@
-# Chinese concept podcast (working title 生意有數): demo episodes, never published.
+# Chinese concept podcast 無聊統計學: demo episodes, never published.
 # Two separate jobs that run back to back, with the script saved in between:
 #   script  Claude writes one topic from concept_show/topics.json as a two-host Traditional Chinese talk,
 #           a second Claude pass checks concepts and forbids invented facts, and the script is saved on
 #           a pre-release concept-demo-N.
-#   voice   Fetches that saved script, voices it with Gemini Flash-Lite TTS (2-3 requests an episode), and adds the MP3 to the same pre-release.
+#   voice   Fetches that saved script, voices it with Gemini Flash TTS (2-3 requests an episode), and adds the MP3 to the same pre-release.
 #           No Claude calls. If it fails, re-run only this job (or run the workflow with release=concept-demo-N):
 #           the script is not written again.
 # Run it by hand, or push to a claude/* branch with [concept-show] in the commit message.
@@ -105,7 +105,7 @@ jobs:
           path: out/concept_show/.tts
           key: concept-tts-${{ github.run_id }}
           restore-keys: concept-tts-
-      - name: Voices (Gemini Flash-Lite TTS, whole episode in 2-3 requests, paced under 10 a minute)
+      - name: Voices (Gemini Flash TTS, whole episode in 2-3 requests, paced under 10 a minute)
         run: python -m concept_show voice "$EP_DIR/show.json" "$EP_DIR/episode.wav"
       - if: always()
         uses: actions/cache/save@v4

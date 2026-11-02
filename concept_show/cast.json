@@ -4,15 +4,13 @@
  "hosts": {
   "K": {
    "name": "Una",
-   "title": "主持人",
    "voice": "Despina",
-   "persona": "好奇、反應快，代替聽眾提問、做比喻、偶爾開玩笑"
+   "persona": "好奇、反應快、愛用生活比喻，偶爾開玩笑；也會自己解釋她懂的部分"
   },
   "A": {
    "name": "Natasha",
-   "title": "資料科學家",
    "voice": "Sulafat",
-   "persona": "資料科學家，清楚、精準、有一點冷幽默"
+   "persona": "想事情很有條理、講話清楚、有一點冷幽默；也會被Una問倒、反過來問她"
   }
  }
 }
