@@ -2969,5 +2969,308 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261101-improving-group-deliberation-through-ai",
     "pick_reason": "A large randomized experiment (1,173 people in 391 small groups) found that a brief, non-directive AI chatbot prompting self-reflection before a group discussion measurably improved deliberation quality, and the design is easy to show in a few steps: reflect, deliberate, score. Signals: Notes suggesting everyday AI use and personal stakes hold viewers nudged this over the social-media simulation paper, while AI-at-work and AI-homework topics were skipped as too close to recent episodes."
+  },
+  {
+    "episode": "20261102-counterfactual-assessment-of-social-medi",
+    "created": "2026-11-02T08:27:35+00:00",
+    "paper": {
+      "id": "arxiv:2610.37864",
+      "title": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+      "abstract": "Social media interventions are usually evaluated in individual-level experiments, which are costly to scale and often miss collective effects. We propose the Exposure--Engagement model, whose parameters separately control what social media users are exposed to (recommendation) and how they engage (behaviour). After fitting it to the Italian Twitter debate (2018--2022), we validate it at individual and collective levels. We simulate behavioural interventions (prebunking and accuracy prompts), calibrated on effect sizes, and a recommender-system intervention (chronological feed), comparing effects on engagement, attention diversity, and segregation. All three reduce engagement. Behavioural interventions slightly reduce diversity, leaving segregation unchanged, whereas the chronological feed increases diversity and reduces segregation. For these interventions, changing recommendation does more for the debate's structure than changing behaviour. We design a recommender-system intervention that increases engagement and diversity while reducing segregation, although with about a tenth of the chronological feed's gains, showing the framework's potential for pro-social intervention design.",
+      "authors": [
+        "Tommaso Pisani",
+        "Pietro Gravino",
+        "Giulio Prevedello"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2610.37864",
+      "pdf_url": "https://arxiv.org/pdf/2610.37864v1",
+      "doi": null,
+      "published": "2026-10-27",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "動態照時間排，真能拆同溫層？",
+      "title_en": "Can a Time-Ordered Feed Break Echo Chambers?",
+      "paper_title_zh": "分離曝光與互動：社群媒體介入措施的反事實評估",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "同溫層",
+          "heading_en": "ECHO CHAMBERS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "照時間排序",
+          "big_text_en": "Time-ordered feed",
+          "lines": [
+            {
+              "zh": "動態照時間排，能拆同溫層？",
+              "en": "Could a time-ordered feed break echo chambers?"
+            },
+            {
+              "zh": "答案藏在一個仿造的推特裡。",
+              "en": "The answer comes from a simulated Twitter."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "Sony巴黎團隊，發表在arXiv。",
+              "en": "Sony CSL Paris researchers posted it on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "政治人物",
+            "新聞媒體",
+            "一般網友"
+          ],
+          "labels_en": [
+            "Politicians",
+            "News outlets",
+            "Users"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "五年義大利推特，誰轉推了哪些政治人物和媒體。",
+              "en": "Five years of Italian Twitter: who retweeted which politicians and outlets."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "仿造推特",
+          "heading_en": "FAKE TWITTER",
+          "labels": [
+            "貼文",
+            "推給你看",
+            "你轉推嗎"
+          ],
+          "labels_en": [
+            "Posts",
+            "Shown to you",
+            "Retweet?"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們用紀錄仿造推特，分兩步：",
+              "en": "From that, they built a fake Twitter in two steps:"
+            },
+            {
+              "zh": "平台推什麼給你，你轉不轉推。",
+              "en": "what the platform shows you, then whether you retweet."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "先驗證",
+          "heading_en": "TEST FIRST",
+          "labels": [
+            "個月猜得更準"
+          ],
+          "labels_en": [
+            "months better"
+          ],
+          "values": [
+            54.0
+          ],
+          "big_text": "55個月中54個",
+          "big_text_en": "54 of 55 months",
+          "lines": [
+            {
+              "zh": "猜下個月轉推，54個月比照抄上個月準。",
+              "en": "Guessing next month's retweets, it beat copying last month 54 of 55 times."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "三種做法",
+          "heading_en": "THREE FIXES",
+          "labels": [
+            "改你的反應",
+            "改你看到的"
+          ],
+          "labels_en": [
+            "How you react",
+            "What you see"
+          ],
+          "values": [],
+          "big_text": "反應 vs 看到",
+          "big_text_en": "React vs. See",
+          "lines": [
+            {
+              "zh": "接著試兩招改反應：防騙短片、查證提醒。",
+              "en": "Then two fixes for how you react: anti-fake videos and accuracy reminders."
+            },
+            {
+              "zh": "一招改看到的：動態只照時間排。",
+              "en": "One fix for what you see: a feed in time order only."
+            }
+          ]
+        },
+        {
+          "visual": "echo",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "同一圈",
+            "其他聲音"
+          ],
+          "labels_en": [
+            "Same camp",
+            "Other voices"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們看轉推的人有沒有各自成群。",
+              "en": "They checked if each account's retweeters split into separate camps."
+            },
+            {
+              "zh": "結果兩種提醒幾乎沒改變分群。",
+              "en": "The two reminders barely changed those camps."
+            },
+            {
+              "zh": "人人都用時，每次模擬分群都變少。",
+              "en": "With everyone on the time-ordered feed, camps shrank every run."
+            },
+            {
+              "zh": "但轉推變少，而且只是模擬。",
+              "en": "But retweets dipped, and it's only a simulation."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "模擬中：改看到的勝過改反應",
+          "big_text_en": "Model: what you see beat how you react",
+          "lines": [
+            {
+              "zh": "在模擬裡，改看到的比改反應有用。",
+              "en": "In the simulation, changing what you see beat changing reactions."
+            },
+            {
+              "zh": "追蹤我們，看更多研究。",
+              "en": "Follow for more Behavior Decoded."
+            }
+          ]
+        }
+      ],
+      "description_zh": "動態改成照時間排，能不能讓大家不再各自圈在同溫層？研究團隊用義大利推特2018到2022年的轉推紀錄，打造一個仿造的推特，把「平台給你看什麼」和「你轉不轉推」拆開來模擬。結果防騙短片和查證提醒幾乎沒改變分群，照時間排的動態卻在模擬中明顯降低分群，只是轉推略少。這是模擬結果，不是真實平台實驗。",
+      "description_en": "Would a time-ordered feed pull people out of their echo chambers? Researchers used five years of Italian Twitter retweets to build a simulated Twitter that separates what the platform shows you from whether you retweet. Anti-fake-news videos and accuracy reminders barely changed how split the debate was, while a time-ordered feed reduced the split in every simulation, at a small cost in retweets. These are model results, not a real platform test.",
+      "hashtags": [
+        "行為解碼",
+        "同溫層",
+        "社群媒體",
+        "演算法",
+        "EchoChamber",
+        "SocialMedia",
+        "ComputationalSocialScience"
+      ],
+      "method_summary": "The authors built the Exposure–Engagement model, a probabilistic simulation with six interpretable parameters that separates exposure (what the recommender shows each user, driven by similar users' preferences and leaders' posting volume) from engagement (whether a user retweets what they see, based on last month's retweet rates). They fitted it month by month to the Italian Twitter debate 2018–2022: 583 'leaders' (politicians, parties, news outlets) and accounts retweeting them, filtered to a consistently active core of roughly 7,400–9,400 users per month. The model beat a copy-last-month baseline in 54 of 55 months and tracked engagement, attention diversity, and segregation (modularity of a leader network built from shared retweeters) across months. They then simulated interventions by changing parameters: prebunking and accuracy prompts (calibrated on published effect sizes, applied to 99 non-trustworthy sources) and a chronological feed. All three reduced engagement. Behavioural ones slightly reduced diversity and left segregation essentially unchanged; the chronological feed raised diversity and lowered segregation in every simulation at full coverage, and already lowered segregation in 86% of runs at 10% coverage. A designed tweak (halving two recommender parameters) improved all three metrics, but with about a tenth of the chronological feed's diversity and segregation gains.",
+      "limitations": "Everything is simulated, not a real platform experiment; the model holds leaders' posts fixed and captures only immediate, one-month responses, not longer-term changes in who people follow. It cannot create new user–leader links, which biases it toward more segregation and less engagement. It covers only a highly active core of Italian Twitter users, struggled in March 2020 (COVID onset), and assumes effect sizes from other studies and platforms transfer to Twitter. Coverage was random, unlike real opt-in or regulation-based rollouts. The see-vs-react contrast holds only for the interventions tested and may partly reflect the behavioural fixes' small effect sizes and narrow reach (non-trustworthy sources only).",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "building-bank",
+          "news",
+          "users"
+        ],
+        [
+          "message",
+          "device-mobile",
+          "repeat"
+        ],
+        [
+          "calendar"
+        ],
+        [
+          "mood-smile",
+          "eye"
+        ],
+        [
+          "users-group",
+          "speakerphone"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 49.3,
+        "cover_offset_ms": 6942,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 57.15,
+        "cover_offset_ms": 6525,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "RVl_p7qwrP8",
+          "url": "https://youtube.com/shorts/RVl_p7qwrP8"
+        },
+        "instagram": {
+          "id": "18119942851769914",
+          "url": "https://www.instagram.com/reel/DfPKM3iCiE8/"
+        },
+        "threads": {
+          "id": "18131115265845809",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "wipIJOAG3Vg",
+          "url": "https://youtube.com/shorts/wipIJOAG3Vg"
+        },
+        "instagram": {
+          "id": "17988770513886481",
+          "url": "https://www.instagram.com/reel/DfPKcKSDqUK/"
+        },
+        "threads": {
+          "id": "18100783088417591",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfPKgt9mYnM"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261102-counterfactual-assessment-of-social-medi",
+    "pick_reason": "It fits a model to four years of real Italian Twitter activity that separates what users see from how they engage, then tests prebunking, accuracy prompts and a chronological feed for collective effects on engagement, attention diversity and segregation, making for a clear, visual, computational story about social media behavior. Signals: Recent episodes already covered AI at work, AI and learning and prediction markets, so I skipped the upskilling and Polymarket papers; the notes' preference for everyday stakes favored a topic about viewers' own social feeds."
   }
 ]
