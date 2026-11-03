@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-02T08:07:06+00:00",
+ "collected_at": "2026-11-03T08:27:51+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 436,
-   "videoCount": 20
+   "viewCount": 573,
+   "videoCount": 24
   }
  },
  "notes": [],
@@ -146,7 +146,7 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 4,
+    "views": 5,
     "likes": 0,
     "comments": 0,
     "duration": "PT45S",
@@ -412,7 +412,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 21,
+    "views": 22,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -586,7 +586,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 32,
+    "views": 33,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -668,15 +668,15 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 49,
+    "views": 56,
     "likes": 1,
     "comments": 0,
     "duration": "PT58S",
     "privacy": "public",
     "published": "2026-10-29T11:04:42Z",
     "estimatedMinutesWatched": 9,
-    "averageViewDuration": 37,
-    "averageViewPercentage": 64.02,
+    "averageViewDuration": 35,
+    "averageViewPercentage": 60.36,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -794,15 +794,15 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 12,
+    "views": 22,
     "likes": 0,
     "comments": 0,
     "duration": "PT57S",
     "privacy": "public",
     "published": "2026-10-30T11:04:10Z",
     "estimatedMinutesWatched": 1,
-    "averageViewDuration": 11,
-    "averageViewPercentage": 19.64,
+    "averageViewDuration": 9,
+    "averageViewPercentage": 16.54,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -857,7 +857,7 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 2,
+    "views": 3,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M5S",
@@ -920,12 +920,17 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 59,
+    "views": 36,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT56S",
     "privacy": "public",
-    "published": "2026-10-31T11:03:55Z"
+    "published": "2026-10-31T11:03:55Z",
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 22,
+    "averageViewPercentage": 41.04,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -939,8 +944,8 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 1373,
-    "reach": 1196,
+    "views": 1374,
+    "reach": 1200,
     "likes": 22,
     "comments": 1,
     "saved": 5,
@@ -980,10 +985,15 @@
    "metrics": {
     "views": 12,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT1M3S",
     "privacy": "public",
-    "published": "2026-10-31T11:05:51Z"
+    "published": "2026-10-31T11:05:51Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 10,
+    "averageViewPercentage": 15.960000000000003,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1036,7 +1046,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 43,
+    "views": 105,
     "likes": 0,
     "comments": 1,
     "duration": "PT48S",
@@ -1055,8 +1065,8 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 94,
-    "reach": 93,
+    "views": 96,
+    "reach": 95,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1075,7 +1085,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 1,
+    "views": 2,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1094,7 +1104,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 8,
+    "views": 12,
     "likes": 0,
     "comments": 1,
     "duration": "PT55S",
@@ -1113,8 +1123,8 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 105,
-    "reach": 97,
+    "views": 106,
+    "reach": 98,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1142,6 +1152,238 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "RVl_p7qwrP8",
+   "url": "https://youtube.com/shorts/RVl_p7qwrP8",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 15,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT50S",
+    "privacy": "public",
+    "published": "2026-11-02T11:05:57Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18119942851769914",
+   "url": "https://www.instagram.com/reel/DfPKM3iCiE8/",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 73,
+    "reach": 67,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18131115265845809",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "wipIJOAG3Vg",
+   "url": "https://youtube.com/shorts/wipIJOAG3Vg",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 3,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT58S",
+    "privacy": "public",
+    "published": "2026-11-02T11:08:18Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "17988770513886481",
+   "url": "https://www.instagram.com/reel/DfPKcKSDqUK/",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 80,
+    "reach": 80,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-counterfactual-assessment-of-social-medi",
+   "title": "Can a Time-Ordered Feed Break Echo Chambers?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18100783088417591",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfPKgt9mYnM",
+   "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
+   "created": "2026-11-02T08:27:35+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "b0vIKagxvLU",
+   "url": "https://youtube.com/shorts/b0vIKagxvLU",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 20,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT52S",
+    "privacy": "public",
+    "published": "2026-11-02T20:38:11Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18107347127637396",
+   "url": "https://www.instagram.com/reel/DfQLtP_guS3/",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 75,
+    "reach": 68,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18107799011348928",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfQLxpakmyh",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "QyuzKp_UWgQ",
+   "url": "https://youtube.com/shorts/QyuzKp_UWgQ",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT55S",
+    "privacy": "public",
+    "published": "2026-11-02T20:39:51Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "17930231367183559",
+   "url": "https://www.instagram.com/reel/DfQL6n7lITb/",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 10,
+    "reach": 10,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261102-a-prospective-randomized-study-of-patien",
+   "title": "Asking AI Before a Doctor Visit: Does It Help?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18413264014089399",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfQMBG6jOZs",
+   "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
+   "created": "2026-11-02T17:25:26+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -1152,15 +1394,15 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 5,
+    "views": 4,
     "likes": 1,
     "comments": 0,
     "duration": "PT7M4S",
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
     "estimatedMinutesWatched": 0,
-    "averageViewDuration": 13,
-    "averageViewPercentage": 3.1300000000000003,
+    "averageViewDuration": 12,
+    "averageViewPercentage": 3.03,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1389,6 +1631,25 @@
    "created": "2026-11-01T10:44:32+00:00",
    "metrics": {
     "views": 8,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-12",
+   "title": "跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？\n\n我們昨天介紹的研究（arXiv, 2026）找了1,173位美國線上受試者，組成391個三人小組，",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18647129860025219",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3",
+   "paper": "20261101-improving-group-deliberation-through-ai",
+   "created": "2026-11-02T11:49:34+00:00",
+   "metrics": {
+    "views": 4,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
