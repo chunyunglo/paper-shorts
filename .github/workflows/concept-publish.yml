@@ -1,0 +1,70 @@
+# 無聊統計學: put one finished episode (a concept-demo-N pre-release with episode.mp3) on the public feed.
+# It becomes release boring-epNN, and docs/boring-stats/feed.xml on main (GitHub Pages) is rebuilt, so
+# Spotify, Apple Podcasts and KKBOX pick it up once the feed has been submitted to them.
+# Runs automatically after every scheduled weekly episode (called from concept-show.yml); can also be run
+# by hand for a given pre-release. Skips, without failing, until cast.json "feed" has the owner email and
+# cover art the directories require.
+name: Publish podcast episode
+
+on:
+  workflow_call:
+    inputs:
+      release:
+        type: string
+        required: true
+  workflow_dispatch:
+    inputs:
+      release:
+        description: "The pre-release holding the finished episode, e.g. concept-demo-7"
+        required: true
+
+concurrency: concept-publish
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE: ${{ inputs.release }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Dependencies
+        id: ready
+        run: |
+          pip install -q anthropic==2.3.0 pydantic==2.13.5
+          missing=$(python -c "from concept_show import feed; print(', '.join(feed.missing()))")
+          if [ -n "$missing" ]; then
+            echo "::warning::Not published: cast.json feed is missing $missing"
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: New release boring-epNN
+        if: steps.ready.outputs.ok == 'true'
+        run: |
+          mkdir ep && gh release download "$RELEASE" -D ep -p episode.mp3 -p meta.json
+          n=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" -q '[.[] | select(.tag_name | startswith("boring-ep"))] | length')
+          tag=$(printf 'boring-ep%02d' $((n + 1)))
+          gh release create "$tag" ep/episode.mp3 ep/meta.json --target main \
+            --title "$(jq -r .title ep/meta.json)" --notes "$(jq -r .description ep/meta.json)"
+          echo "Published $tag from $RELEASE"
+      - name: Rebuild the feed on main
+        if: steps.ready.outputs.ok == 'true'
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" > releases.json
+          python -m concept_show feed releases.json docs/boring-stats/feed.xml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/boring-stats/feed.xml
+          git pull -q --rebase origin main
+          git commit -m "Podcast feed: publish from $RELEASE [skip ci]"
+          git push origin HEAD:main

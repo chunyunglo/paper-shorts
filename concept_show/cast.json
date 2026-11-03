@@ -1,0 +1,24 @@
+{
+ "show": "無聊統計學",
+ "style": "像真人在跟朋友聊天，不是在念稿。整體語速中等偏慢、從容；帶過的地方稍快一點，講到重點和關鍵字時明顯放慢、加重；句子之間自然停頓，想事情時停久一點，遇到逗號和「……」就真的停一下。語調有起伏：疑問句尾上揚，覺得有趣時語氣輕快帶笑。不要趕，不要每句同一個速度、同一個音高。",
+ "hosts": {
+  "K": {
+   "name": "Una",
+   "voice": {
+    "design": "一位三十歲左右的台灣女性，說自然的台灣華語，有台灣口音但咬字清楚。音高中等，不高不低；音色飽滿、溫暖、圓潤，有厚度，不尖、不薄。像在安靜的錄音室裡近距離收音，聲音乾淨清楚。整體語速中等偏慢、從容不趕，但講話像真人聊天：會時快時慢、想事情時停頓，語調自然起伏，問句尾上揚，講到有趣的地方會帶笑。不像新聞主播、廣告配音或念稿，不嗲、不做作，也不平板。",
+    "gender": "female",
+    "language": "zh-TW"
+   },
+   "persona": "講話清楚、有條理、很仔細，會先想到聽的人可能卡住的地方並停下來說清楚；語氣像跟朋友聊天，偶爾一點冷幽默"
+  }
+ },
+ "feed": {
+  "url": "https://chunyunglo.github.io/paper-shorts/boring-stats/feed.xml",
+  "site": "https://github.com/chunyunglo/paper-shorts/tree/main/concept_show",
+  "description": "這個世界並不是分組這麼簡單。Una 從隨機變數開始，一步一步講到模型、高維度、神經網路和更進階的統計模型，每個概念都講清楚、講仔細。",
+  "author": "無聊統計學",
+  "email": "",
+  "cover": "https://chunyunglo.github.io/paper-shorts/boring-stats/cover.png",
+  "category": "Science"
+ }
+}

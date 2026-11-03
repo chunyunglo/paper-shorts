@@ -1,0 +1,89 @@
+from concept_show import show
+
+
+def episode(n_lines=90, chars=40):
+    lines = [show.Line(text="維" * chars + "。") for i in range(n_lines)]
+    return show.Episode(title="t", one_liner="o", lines=lines, description="d", examples=["假設：一家店"])
+
+
+def test_strategy_prompt_and_history(tmp_path):
+    import json
+    st = show.strategy()
+    assert st["theme"] and st["why"] and st["principles"]
+    p = show.plan_prompt(st)
+    assert show.SHOW in p and "{" not in p
+    assert show.history(tmp_path / "none") == ([], "")
+    for tag, created, notes in [("concept-demo-2", "2026-11-03T10:00", "old"), ("concept-demo-5", "2026-11-08T10:00", "new"), ("before-restart", "2026-11-02T10:00", "x")]:
+        (tmp_path / tag).mkdir()
+        (tmp_path / tag / "meta.json").write_text(json.dumps({"created": created, "title": tag, "plan_reason": "r"}))
+        (tmp_path / tag / "strategy.md").write_text(notes)
+    (tmp_path / "old-demo").mkdir()
+    (tmp_path / "old-demo" / "meta.json").write_text(json.dumps({"created": "2026-11-09", "title": "fixed list"}))
+    metas, notes = show.history(tmp_path)
+    assert [m["title"] for m in metas] == ["concept-demo-2", "concept-demo-5"] and notes == "new"
+
+
+def test_valid_episode_has_no_errors():
+    assert show.validate(episode()) == []
+
+
+def test_length_is_checked():
+    assert any("spoken length" in e for e in show.validate(episode(n_lines=80, chars=10)))
+    assert any("lines" in e for e in show.validate(episode(n_lines=20, chars=200)))
+
+
+def test_unsourced_claims_and_tts_hostile_text_are_flagged():
+    ep = episode()
+    ep.lines[3].text = "研究顯示百分之 80 的人都這樣"
+    ep.lines[5].text = "請看 https://example.com（附錄）"
+    errs = show.validate(ep)
+    assert any("line 3" in e for e in errs) and any("line 5" in e for e in errs)
+
+
+def test_prompt_and_show_file():
+    topic, theme = show.Topic(id="ep01", title="什麼是隨機變數", idea="不確定的事可以用一個數字描述"), show.strategy()["theme"]
+    p = show.system_prompt(topic, theme)
+    assert topic.title in p and "{" not in p
+    s = show.to_show(episode(), topic)
+    assert s["lang"] == "zh" and set(s["hosts"]) == {"K"}
+    assert all(len(r) == 3 and r[0] == "K" for r in s["lines"])
+    assert "一個人" in p and show.K in p
+    assert f"**{show.K}**" in show.script_md(episode(), topic)
+
+
+def test_voice_groups_lines_into_few_paced_requests():
+    import json
+    from concept_show import voice
+    lines = [["K", "維" * 26, {"gap": 0.35}] for i in range(145)]
+    parts = voice.chunks(lines)
+    assert len(parts) <= 3 and sum(len(c) for c in parts) == 145
+    assert all(sum(len(t) for _, t in c) <= voice.CHUNK_CHARS for c in parts)
+    # One host with a designed voice: a whole stretch of the monologue goes in one single-voice request
+    hosts = {"K": {"name": "Una", "voice": {"design": "x"}, "voice_id": "voice_1", "designed": True}}
+    b = json.loads(voice.body(parts[0], hosts, "style"))
+    assert b["generationConfig"]["speechConfig"]["voiceConfig"]["voice"] == "voice_1"
+    assert b["contents"][0]["parts"][0]["text"].count("\n") == len(parts[0]) - 1
+    # Two prebuilt voices still share one multi-speaker request
+    two = {"K": {"voice": "Despina"}, "A": {"voice": "Sulafat"}}
+    b = json.loads(voice.body([("K", "a"), ("A", "b")], two))
+    names = {v["speaker"] for v in b["generationConfig"]["speechConfig"]["multiSpeakerVoiceConfig"]["speakerVoiceConfigs"]}
+    assert names == {"Kai", "Anne"}
+
+
+def test_feed_lists_only_published_episodes_and_planner_reads_downloads():
+    import xml.etree.ElementTree as ET
+    from concept_show import feed
+    mp3 = lambda n: {"name": "episode.mp3", "browser_download_url": f"https://x/{n}.mp3", "size": 9, "download_count": n}
+    releases = [
+        {"tag_name": "boring-ep02", "name": "第二集", "body": "b", "published_at": "2026-11-16T00:00:00Z", "assets": [mp3(3)]},
+        {"tag_name": "boring-ep01", "name": "第一集 & 為什麼", "body": "a", "published_at": "2026-11-09T00:00:00Z", "assets": [mp3(7)]},
+        {"tag_name": "concept-demo-9", "name": "demo", "published_at": "2026-11-10T00:00:00Z", "prerelease": True, "assets": [mp3(1)]},
+        {"tag_name": "boring-ep03", "name": "no audio yet", "published_at": "2026-11-20T00:00:00Z", "assets": []},
+    ]
+    eps = feed.published(releases)
+    assert [e["tag"] for e in eps] == ["boring-ep01", "boring-ep02"] and eps[0]["downloads"] == 7
+    root = ET.fromstring(feed.rss(eps))
+    items = root.findall("./channel/item")
+    assert [i.findtext("title") for i in items] == ["第二集", "第一集 & 為什麼"]
+    assert items[1].find("enclosure").get("url") == "https://x/7.mp3"
+    assert "上架" in show.reach(eps[0]) and "7" in show.reach(eps[0]) and show.reach(None) == "還沒上架"
