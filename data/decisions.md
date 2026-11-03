@@ -5,6 +5,17 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-03
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_)
+  - 內容 Text: 看醫生前先跟AI聊聊，會比較有準備嗎？ 我們昨天介紹的研究（arXiv, 2026）由Google Research在美國的Google Health app裡做隨機實驗。兩組用同一個模型，只換隱藏指令：一組是一般聊天機器人，另一組是會幫你…
+  - 為什麼 Why: This everyday-AI paper has no Chinese Threads follow-up yet, and the notes favour next-day zh follow-ups that restate design and findings without a news peg, on personal-stakes topics; none of today's headlines (mostly election, conflict and disaster news) can be linked responsibly.
+  - 根據的集數 Based on: 20261102-a-prospective-randomized-study-of-patien
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfRvz4zIJxu)
+  - 內容 Text: 動態改成「照時間排」，真的能打破同溫層嗎？ 我們昨天介紹的研究（arXiv, 2026）用2018到2022年義大利Twitter的政治討論建了一個模擬模型，把「平台給你看什麼」和「你看到後會不會轉推」分開計算。資料包含583個領袖帳號（政…
+  - 為什麼 Why: The feed paper's short got almost no views in English and it has no Chinese follow-up, so a next-day zh Threads design-and-finding post, the format the notes say outperformed news links, gives it a fair test without touching today's partisan election news.
+  - 根據的集數 Based on: 20261102-counterfactual-assessment-of-social-medi
+
 ## 2026-11-02
 
 - **短影音 Short** · [看醫生前問AI，真的比較有準備嗎？ / Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU)
