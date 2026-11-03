@@ -2,10 +2,10 @@
 # Two separate jobs that run back to back, with the script saved in between:
 #   script  There is no fixed season. Claude first reads concept_show/strategy.json, concept_show/feedback.md
 #           and every earlier episode (meta.json and strategy notes on the concept-demo-* pre-releases),
-#           decides the next topic and updates the strategy notes. Then it writes the two-friend Traditional
-#           Chinese talk, a second Claude pass checks concepts and forbids invented facts, and the script, the
+#           decides the next topic and updates the strategy notes. Then it writes the one-host Traditional
+#           Chinese episode, a second Claude pass checks concepts and forbids invented facts, and the script, the
 #           plan and the notes are saved on a pre-release concept-demo-N.
-#   voice   Fetches that saved script, voices it with Gemini Flash TTS (2-3 requests an episode), and adds the MP3 to the same pre-release.
+#   voice   Fetches that saved script, voices it with Gemini Flash TTS in Una's designed voice (2-3 requests an episode), and adds the MP3 to the same pre-release.
 #           No Claude calls. If it fails, re-run only this job (or run the workflow with release=concept-demo-N):
 #           the script is not written again.
 #   publish Scheduled runs only: puts the finished episode on the public feed (concept-publish.yml).

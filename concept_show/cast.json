@@ -1,22 +1,21 @@
 {
  "show": "無聊統計學",
- "style": "自然、輕鬆的對話語氣",
+ "style": "自然、清楚、不急不徐，像在跟朋友仔細解釋一件事的獨白語氣",
  "hosts": {
   "K": {
    "name": "Una",
-   "voice": "Despina",
-   "persona": "好奇、反應快、愛用生活比喻，偶爾開玩笑；也會自己解釋她懂的部分"
-  },
-  "A": {
-   "name": "Natasha",
-   "voice": "Sulafat",
-   "persona": "想事情很有條理、講話清楚、有一點冷幽默；也會被Una問倒、反過來問她"
+   "voice": {
+    "design": "一位三十歲左右的台灣女性，說自然的台灣華語，有台灣口音但咬字清楚。聲音溫暖、沉穩、中低音，語速中等偏慢，不急不徐，像坐在對面跟朋友仔細解釋一件事；講到重點會自然放慢、稍微停頓。不像新聞主播或廣告配音，不嗲、不誇張、不刻意熱情。",
+    "gender": "female",
+    "language": "zh-TW"
+   },
+   "persona": "講話清楚、有條理、很仔細，會先想到聽的人可能卡住的地方並停下來說清楚；語氣像跟朋友聊天，偶爾一點冷幽默"
   }
  },
  "feed": {
   "url": "https://chunyunglo.github.io/paper-shorts/boring-stats/feed.xml",
   "site": "https://github.com/chunyunglo/paper-shorts/tree/main/concept_show",
-  "description": "這個世界並不是分組這麼簡單。Una 和 Natasha 用聊天的方式，從隨機變數開始，一步一步講到模型、高維度、神經網路和更進階的統計模型，每個概念都講清楚、講仔細。",
+  "description": "這個世界並不是分組這麼簡單。Una 從隨機變數開始，一步一步講到模型、高維度、神經網路和更進階的統計模型，每個概念都講清楚、講仔細。",
   "author": "無聊統計學",
   "email": "",
   "cover": "https://chunyunglo.github.io/paper-shorts/boring-stats/cover.png",

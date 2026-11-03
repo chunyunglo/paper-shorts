@@ -1,9 +1,10 @@
-"""Voice a saved concept-show script with Gemini multi-speaker TTS, a few turns per request.
+"""Voice a saved concept-show script with Gemini TTS, a few minutes of speech per request.
 
 python -m concept_show voice <show.json> <out.wav>
 
 Gemini TTS allows 10 requests a minute and 100 a day per model on this key, so lines are grouped into
-chunks (both hosts in one request), requests are spaced at least PACE seconds apart, and the run stops
+chunks (one host: a stretch of the monologue in one single-voice request; two hosts: both in one
+multi-speaker request), requests are spaced at least PACE seconds apart, and the run stops
 before sending more than MAX_REQUESTS. Each chunk's audio is cached by its text, so a rerun after a
 failure only sends the chunks that are still missing. Never prints the key, URL or response body.
 """
@@ -48,8 +49,11 @@ def chunks(lines: list[list]) -> list[list[tuple[str, str]]]:
 
 def body(chunk: list[tuple[str, str]], hosts: dict, style: str = "", language: str = "") -> bytes:
     vid = lambda k: hosts[k].get("voice_id", hosts[k]["voice"])
-    if any(h.get("designed") for h in hosts.values()):  # one turn, one voice (designed voices can't be mixed)
-        (spk, text), = chunk
+    if len(hosts) == 1 or any(h.get("designed") for h in hosts.values()):
+        # One voice per request: the whole stretch for a single host; one turn at a time when two hosts use
+        # designed voices, which can't share a multi-speaker request
+        spk = chunk[0][0]
+        text = "\n".join(t for _, t in chunk)
         parts = [{"text": text, **({"speech_metadata": {"style": style}} if style else {})}]
         speech = {"voiceConfig": {"voice": vid(spk)}}
     else:
@@ -204,6 +208,7 @@ def main(show_path: str, out_path: str) -> None:
     show["style"] = cast.get("style", "")
     show["language"] = os.environ.get("TTS_LANGUAGE", cast.get("language", ""))
     renames = {show.get("show", ""): cast["show"]}
+    show["hosts"] = {k: h for k, h in show["hosts"].items() if k in cast["hosts"]}
     for k, h in show["hosts"].items():
         renames[h["name"]] = cast["hosts"][k]["name"]
         h.update(voice=cast["hosts"][k]["voice"], name=cast["hosts"][k]["name"])
@@ -214,11 +219,11 @@ def main(show_path: str, out_path: str) -> None:
             for a, b in renames.items():
                 r[1] = r[1].replace(a, b)
     resolve_voices(show["hosts"])
-    rows = [r for r in show["lines"] if r[0] in SPEAKERS]
+    rows = [r for r in show["lines"] if r[0] in show["hosts"]]
     if a := os.environ.get("TTS_SAMPLE_LINES"):  # voice only the first N lines, to try a voice change cheaply
         rows = rows[:int(a)]
     # Designed voices cannot share a multi-speaker request, so each turn is its own request
-    per_turn = any(h.get("designed") for h in show["hosts"].values())
+    per_turn = len(show["hosts"]) > 1 and any(h.get("designed") for h in show["hosts"].values())
     parts = [[(r[0], r[1])] for r in rows] if per_turn else chunks(rows)
     CACHE.mkdir(parents=True, exist_ok=True)
     todo = sum(1 for c in parts if not (CACHE / f"{_key(c, show['hosts'], show.get('style', ''), show['language'])}.wav").exists())

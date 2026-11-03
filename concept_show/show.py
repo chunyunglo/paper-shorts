@@ -4,7 +4,7 @@ episode, picks the next topic, and updates the running strategy notes. No paper,
 talk it through.
 
 plan   Claude decides the next episode from the strategy, the feedback and the history.
-make   plan, then Claude writes the two-host Traditional Chinese episode for one topic. A second Claude pass checks
+make   plan, then Claude writes the one-host Traditional Chinese episode for one topic. A second Claude pass checks
        it for wrong concepts and invented specifics (numbers, companies, studies, quotes); the writer
        fixes what it finds, up to three rounds. Writes out/concept_show/<id>/show.json, script.md and
        meta.json. Nothing here publishes.
@@ -18,7 +18,6 @@ import os
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Literal
 
 from pydantic import BaseModel, Field
 
@@ -29,9 +28,9 @@ OUT = HERE.parent / "out" / "concept_show"
 CAST = json.loads((HERE / "cast.json").read_text(encoding="utf-8"))  # show name, hosts, voices: edit cast.json
 SHOW = CAST["show"]
 MIN_CHARS, MAX_CHARS = 3000, 5200  # spoken characters, about 13-22 minutes at the voices' pace
-MIN_LINES, MAX_LINES = 70, 200
+MIN_LINES, MAX_LINES = 40, 200
 HOSTS = {k: {"tts": "gemini", **h} for k, h in CAST["hosts"].items()}
-K, A = HOSTS["K"]["name"], HOSTS["A"]["name"]
+K = HOSTS["K"]["name"]  # the one host
 
 
 class Topic(BaseModel):
@@ -117,9 +116,8 @@ def plan(hist_dir: Path | None = None, request: str = "") -> Plan:
 
 
 class Line(BaseModel):
-    spk: Literal["K", "A"] = Field(description="K = Una, A = Natasha")
-    text: str = Field(description="What is spoken, Traditional Chinese as used in Taiwan, written for "
-                                  "text-to-speech, at most 120 characters")
+    text: str = Field(description="One short stretch of what the host says, Traditional Chinese as used in Taiwan, "
+                                  "written for text-to-speech, at most 120 characters")
 
 
 class Episode(BaseModel):
@@ -131,7 +129,7 @@ class Episode(BaseModel):
                                             "each, marked 假設 if it is a made-up illustration")
 
 
-SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲音，就是兩個朋友在聊天，大約 15 到 20 分鐘。
+SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲音，只有一個人在講：{k}，像在跟一個朋友仔細講清楚一件事，大約 15 到 20 分鐘。
 
 為什麼有這個節目：{why}
 節目的核心：{theme}
@@ -140,16 +138,16 @@ SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲
 整集都圍繞這一件事。節目其他的想法、之後才要講的概念，這集不要提前講；最多在結尾用一句話帶到下一步。
 
 怎麼講：
-- {k}開場，直接帶進今天要講清楚的那件事，自然地帶到節目，像朋友打招呼。不要從老闆或生意的煩惱開始。
+- 開場直接帶進今天要講清楚的那件事，自然地帶到節目，像跟朋友打招呼。不要從老闆或生意的煩惱開始。
 - 淺顯易懂的意思是講得明確、清楚、仔細，不是用很多例子和比喻。每個概念先說清楚它是什麼、為什麼需要它、\
 它和上一步怎麼接起來，一步一步推，不跳步，不含糊帶過。
 - 例子最多一個，而且要簡單到每個人都能想像，只用來幫忙把概念講清楚，不能取代解釋；不要換很多個場景或領域。
 - 模型可以用口語講出來，例如「這個結果是一個隨機變數，它的分布由這些因素決定」，不要念符號或公式。
-- 兩人可以互相追問「這句話精確來說是什麼意思」，把模糊的地方問清楚，最後回到同一個理解。
+- 預先想到聽的人會卡住的地方，自己停下來問「這句話精確來說是什麼意思」，再把它說清楚。
 - 收尾：用一兩句話把這集講清楚的東西說一遍。
 
-兩個人：{k}{k_persona}；{a}{a_persona}。\
-她們是朋友，沒有主持人和專家之分，不要用職稱介紹彼此；兩人輪流發問、輪流解釋，常互相接話、補充、反駁，不是一問一答。\
+{k}：{k_persona}。只有她一個人說話，不要寫成對話，不要虛構來賓或另一個人回答；\
+可以直接對聽眾說「你」，但不要假裝聽到聽眾回話。\
 要淺：聽眾沒有統計背景，術語能不用就不用，用到時馬上用白話解釋。
 
 事實的規則（最重要）：
@@ -159,9 +157,9 @@ SYSTEM = """你在寫台灣中文 podcast《{show}》的一集。節目只有聲
 - 統計概念要正確，不要為了好懂而講錯或講得含糊。
 - 不要用 t 檢定、信賴區間、顯著水準、p 值當切入點或主角：沒有背景的人聽不懂，而且它們的意義本身就有爭議。
 
-語言規則：台灣用語、繁體中文、口語。句子要短，有來有往；多數句子在 40 字以內，偶爾到 100 字。\
+語言規則：台灣用語、繁體中文、口語。句子要短，像說話不像念稿；多數句子在 40 字以內，偶爾到 100 字。\
 寫給語音合成讀：不要表情符號、括號、項目符號、網址、英文縮寫堆疊；百分比寫成「百分之 30」；\
-必要的英文術語第一次出現時用中文解釋。全集口語字數 {min_c} 到 {max_c} 字（不含標點），{min_l} 到 {max_l} 句，{k}開場。\
+必要的英文術語第一次出現時用中文解釋。全集口語字數 {min_c} 到 {max_c} 字（不含標點），分成 {min_l} 到 {max_l} 段，每段最多 120 字。\
 不開涉及真實人物、政治、族群、悲劇的玩笑。"""
 
 
@@ -196,10 +194,6 @@ def validate(ep: Episode) -> list[str]:
         errs.append(f"spoken length is {n} characters; it must be {MIN_CHARS}-{MAX_CHARS}")
     if not MIN_LINES <= len(ep.lines) <= MAX_LINES:
         errs.append(f"{len(ep.lines)} lines; use {MIN_LINES}-{MAX_LINES}")
-    if {l.spk for l in ep.lines} != {"K", "A"}:
-        errs.append("both hosts must speak")
-    if ep.lines and ep.lines[0].spk != "K":
-        errs.append("K opens the episode")
     for i, l in enumerate(ep.lines):
         if len(l.text) > 140:
             errs.append(f"line {i} is too long for one breath ({len(l.text)} characters)")
@@ -212,7 +206,7 @@ def validate(ep: Episode) -> list[str]:
 
 
 def system_prompt(topic: Topic, theme: str) -> str:
-    return SYSTEM.format(show=SHOW, why=strategy()["why"], k=K, a=A, k_persona=HOSTS["K"]["persona"], a_persona=HOSTS["A"]["persona"],
+    return SYSTEM.format(show=SHOW, why=strategy()["why"], k=K, k_persona=HOSTS["K"]["persona"],
                          theme=theme, title=topic.title, idea=topic.idea, min_c=MIN_CHARS,
                          max_c=MAX_CHARS, min_l=MIN_LINES, max_l=MAX_LINES)
 
@@ -242,12 +236,11 @@ def to_show(ep: Episode, topic: Topic) -> dict:
     """The saved script: [speaker, text, options] rows, in the same shape as podcast/episodes."""
     return {"show": SHOW, "title": ep.title, "lang": "zh", "hosts": HOSTS, "style": CAST.get("style", ""), "cards": {},
             "paper": {"title": topic.title, "venue": SHOW, "authors": "", "doi": ""},
-            "lines": [[l.spk, l.text.strip(), {"gap": 0.35}] for l in ep.lines]}
+            "lines": [["K", l.text.strip(), {"gap": 0.35}] for l in ep.lines]}
 
 
 def script_md(ep: Episode, topic: Topic) -> str:
-    names = {k: h["name"] for k, h in HOSTS.items()}
-    body = "\n\n".join(f"**{names[l.spk]}**：{l.text}" for l in ep.lines)
+    body = f"**{K}**：\n\n" + "\n\n".join(l.text for l in ep.lines)
     ex = "\n".join(f"  - {e}" for e in ep.examples)
     return (f"# {SHOW}｜{ep.title}\n\n{ep.description}\n\n- 概念：{topic.title}（{topic.id}）\n"
             f"- 帶走的一句話：{ep.one_liner}\n- 用到的例子：\n{ex}\n- 口語字數：{spoken_chars(ep)}，"

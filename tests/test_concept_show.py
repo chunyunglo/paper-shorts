@@ -2,7 +2,7 @@ from concept_show import show
 
 
 def episode(n_lines=90, chars=40):
-    lines = [show.Line(spk="K" if i % 2 == 0 else "A", text="維" * chars + "。") for i in range(n_lines)]
+    lines = [show.Line(text="維" * chars + "。") for i in range(n_lines)]
     return show.Episode(title="t", one_liner="o", lines=lines, description="d", examples=["假設：一家店"])
 
 
@@ -27,11 +27,9 @@ def test_valid_episode_has_no_errors():
     assert show.validate(episode()) == []
 
 
-def test_length_and_opening_are_checked():
+def test_length_is_checked():
     assert any("spoken length" in e for e in show.validate(episode(n_lines=80, chars=10)))
-    ep = episode()
-    ep.lines[0].spk = "A"
-    assert any("opens" in e for e in show.validate(ep))
+    assert any("lines" in e for e in show.validate(episode(n_lines=20, chars=200)))
 
 
 def test_unsourced_claims_and_tts_hostile_text_are_flagged():
@@ -47,22 +45,29 @@ def test_prompt_and_show_file():
     p = show.system_prompt(topic, theme)
     assert topic.title in p and "{" not in p
     s = show.to_show(episode(), topic)
-    assert s["lang"] == "zh" and set(s["hosts"]) == {"K", "A"}
-    assert all(len(r) == 3 and r[0] in "KA" for r in s["lines"])
-    md = show.script_md(episode(), topic)
-    assert f"**{show.K}**" in md and f"**{show.A}**" in md
+    assert s["lang"] == "zh" and set(s["hosts"]) == {"K"}
+    assert all(len(r) == 3 and r[0] == "K" for r in s["lines"])
+    assert "一個人" in p and show.K in p
+    assert f"**{show.K}**" in show.script_md(episode(), topic)
 
 
 def test_voice_groups_lines_into_few_paced_requests():
     import json
     from concept_show import voice
-    lines = [["K" if i % 2 == 0 else "A", "維" * 26, {"gap": 0.35}] for i in range(145)]
+    lines = [["K", "維" * 26, {"gap": 0.35}] for i in range(145)]
     parts = voice.chunks(lines)
-    assert len(parts) <= 10 and sum(len(c) for c in parts) == 145
+    assert len(parts) <= 3 and sum(len(c) for c in parts) == 145
     assert all(sum(len(t) for _, t in c) <= voice.CHUNK_CHARS for c in parts)
-    b = json.loads(voice.body(parts[0], show.HOSTS))
+    # One host with a designed voice: a whole stretch of the monologue goes in one single-voice request
+    hosts = {"K": {"name": "Una", "voice": {"design": "x"}, "voice_id": "voice_1", "designed": True}}
+    b = json.loads(voice.body(parts[0], hosts, "style"))
+    assert b["generationConfig"]["speechConfig"]["voiceConfig"]["voice"] == "voice_1"
+    assert b["contents"][0]["parts"][0]["text"].count("\n") == len(parts[0]) - 1
+    # Two prebuilt voices still share one multi-speaker request
+    two = {"K": {"voice": "Despina"}, "A": {"voice": "Sulafat"}}
+    b = json.loads(voice.body([("K", "a"), ("A", "b")], two))
     names = {v["speaker"] for v in b["generationConfig"]["speechConfig"]["multiSpeakerVoiceConfig"]["speakerVoiceConfigs"]}
-    assert names == {"Kai", "Anne"} and b["contents"][0]["parts"][0]["speech_metadata"]["speaker"] == "Kai"
+    assert names == {"Kai", "Anne"}
 
 
 def test_feed_lists_only_published_episodes_and_planner_reads_downloads():
