@@ -136,8 +136,8 @@ jobs:
           key: concept-tts-${{ github.run_id }}-${{ github.run_attempt }}
       - name: MP3 onto the same pre-release
         run: |
-          ffmpeg -v error -y -i "$EP_DIR/episode.wav" -af loudnorm=I=-16:TP=-1.5:LRA=11 \
-            -ac 1 -ar 44100 -b:a 96k "$EP_DIR/episode.mp3"
+          ffmpeg -v error -y -i "$EP_DIR/episode.wav" -af "highpass=f=60,aresample=48000:resampler=soxr,loudnorm=I=-16:TP=-1.5:LRA=11" \
+            -ac 1 -ar 48000 -b:a 160k "$EP_DIR/episode.mp3"
           ffprobe -v error -show_entries format=duration -of csv=p=0 "$EP_DIR/episode.mp3"
           name="${{ github.event.inputs.out_name || 'episode.mp3' }}"
           [ -n "$TTS_SAMPLE_LINES" ] && name="sample-${{ github.run_number }}.mp3"
