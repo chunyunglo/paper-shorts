@@ -501,8 +501,8 @@ def v_contrast(c: Canvas, sc, p, ctx):
                     c.circle(x + 60 + (i % 4) * (w - 120) / 3, y + 200 + (i // 4) * 55, 16 * a, fill=CREAM)
     if sc.big_text:
         b = stage(p, 0.5, 0.2)
-        f, lines = fit(sc.big_text, "black", VW - 100, [72, 60, 50], 2)
-        c.text_block(VW / 2, 650 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
+        f, lines, y = _bottom_text(sc.big_text, 650)
+        c.text_block(VW / 2, y + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
 
 
 def _bezier(pts, k):
@@ -515,6 +515,18 @@ def _bezier(pts, k):
             return a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f
         d -= L
     return pts[-1]
+
+
+def _bottom_text(text: str, top: float):
+    """Big text under a drawing, near the canvas bottom: one line if it fits (shrinking a little),
+    else two lines moved up so the second line is not cut off at the canvas edge."""
+    f, lines = fit(text, "black", VW - 100, [72, 64, 56, 50], 1)
+    if len(lines) == 1 and not lines[0].endswith("…"):
+        return f, lines, top
+    f, lines = fit(text, "black", VW - 100, [60, 50, 42], 2)
+    gap = 1.25  # Canvas.text_block default
+    # the bottom 24px stay free; the text slides up 20px as it fades in, so allow for that too
+    return f, lines, min(top, VH - 24 - 20 - len(lines) * f.size * gap)
 
 
 def v_journey(c: Canvas, sc, p, ctx):
@@ -587,8 +599,8 @@ def v_spotlight(c: Canvas, sc, p, ctx):
     text = sc.big_text or (sc.labels[0] if sc.labels else "")
     if text:
         b = stage(p, 0.35, 0.2)
-        f, lines = fit(text, "black", VW - 100, [72, 60, 50], 2)
-        c.text_block(VW / 2, 640 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
+        f, lines, y = _bottom_text(text, 640)
+        c.text_block(VW / 2, y + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
 
 
 def v_funnel(c: Canvas, sc, p, ctx):

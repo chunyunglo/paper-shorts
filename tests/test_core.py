@@ -32,6 +32,21 @@ def test_wrap_does_not_split_accented_words():
         assert " ".join(lines).split() == text.split(), width
 
 
+def test_fit_shrinks_before_cutting_with_ellipsis():
+    # a one-line headline that is slightly too wide at the smallest listed size (a failed visual check)
+    f, lines = fonts.fit("More thumbs-down, less polarization", "black", 820, [80, 68, 56], 1)
+    assert lines == ["More thumbs-down, less polarization"]
+    assert f.size < 56
+
+
+def test_bottom_text_stays_inside_canvas():
+    from shorts import visuals
+    for text in ["Who you are mattered more", "Who you are mattered more than what the warning said"]:
+        f, lines, y = visuals._bottom_text(text, 650)
+        assert not lines[-1].endswith("…")
+        assert y + 20 + len(lines) * f.size * 1.25 <= visuals.VH - 24
+
+
 def test_http_error_hides_url_and_body(monkeypatch):
     import requests
 
