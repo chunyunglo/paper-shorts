@@ -67,7 +67,7 @@ def revise(episode_json: Path, feedback: str) -> tuple[Path, str]:
 
 
 def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str, preview_every: int,
-          news: dict | None = None) -> Path:
+          news: dict | None = None, fix_visual: bool = True) -> Path:
     out = OUT / ep_id
     out.mkdir(parents=True, exist_ok=True)
     if len(script.icons) != len(script.scenes):  # new, revised, or made before icons existed
@@ -104,6 +104,15 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
                               "Each video is the same episode in one language (zh = Traditional Chinese, en = "
                               "English, pt = Brazilian Portuguese): narration subtitles, scene headings, labels and "
                               "numbers come from this script.\n\n" + script_markdown(meta))
+        if problems and fix_visual:
+            # usually on-screen text that is too long for its box: let Claude shorten it and render once more
+            log("Visual check found problems; fixing the on-screen text and rendering again: " + "; ".join(problems))
+            script, _ = scriptmod.revise(paper, script, (
+                "The rendered video failed a visual check. Fix only these on-screen problems, changing nothing "
+                "else in the story or the facts. When text is cut off or wraps, make that heading, label, big "
+                "text or title much shorter (an English heading of 1-3 short words; big text that fits one "
+                "line) in every language, keeping its meaning:\n- " + "\n- ".join(problems)))
+            return build(ep_id, paper, script, reason, preview_every, news, fix_visual=False)
         if problems:
             (out / "visual_problems.txt").write_text("\n".join(problems) + "\n", encoding="utf-8")
             raise SystemExit("Videos failed the visual check, not posting: " + "; ".join(problems))
