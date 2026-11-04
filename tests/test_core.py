@@ -381,3 +381,42 @@ def test_claude_cost_counts_input_output_and_cache_reads():
     usage = SimpleNamespace(input_tokens=1_000_000, output_tokens=100_000,
                             cache_creation_input_tokens=0, cache_read_input_tokens=1_000_000)
     assert abs(llm.cost("claude-opus-5-5", usage) - (4.0 + 2.0 + 0.2)) < 1e-9
+
+
+def test_failed_visual_check_fixes_the_text_once_then_stops(monkeypatch, tmp_path):
+    import types
+    from shorts import pipeline, look
+    from shorts import script as scriptmod
+
+    calls = {"build": 0, "revise": []}
+    real_build = pipeline.build
+
+    def fake_build(*a, **kw):
+        calls["build"] += 1
+        return real_build(*a, **kw)
+
+    class R:
+        duration = 1.0
+        def __init__(self, *a, **k): pass
+        def frame(self, i): return types.SimpleNamespace(convert=lambda m: types.SimpleNamespace(save=lambda *a, **k: None))
+
+    monkeypatch.setattr(pipeline, "OUT", tmp_path)
+    monkeypatch.setattr(pipeline, "LANGS", ["en"])
+    monkeypatch.setattr(pipeline, "build", fake_build)
+    monkeypatch.setattr(pipeline.tts, "voiceover", lambda *a: ([types.SimpleNamespace(start=0.0)], 1.0))
+    monkeypatch.setattr(pipeline.tts, "choose", lambda lang: ("silent", ""))
+    monkeypatch.setattr(pipeline.render, "Renderer", R)
+    monkeypatch.setattr(pipeline.render, "encode", lambda *a, **k: None)
+    monkeypatch.setattr(pipeline, "spoken", lambda s, l: [])
+    monkeypatch.setattr(pipeline, "script_markdown", lambda m: "")
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "x")
+    monkeypatch.setattr(look, "check", lambda *a, **k: ["frame 3: heading cut off"])
+    script = types.SimpleNamespace(icons=[1], scenes=[1], model_dump=lambda: {})
+    monkeypatch.setattr(scriptmod, "revise", lambda p, s, fb: (calls["revise"].append(fb) or s, ""))
+    paper = types.SimpleNamespace(model_dump=lambda: {})
+
+    import pytest
+    with pytest.raises(SystemExit):
+        pipeline.build("ep", paper, script, "", 0)
+    assert len(calls["revise"]) == 1 and "heading cut off" in calls["revise"][0]
+    assert calls["build"] == 2  # the first build and one retry, made with fix_visual=False
