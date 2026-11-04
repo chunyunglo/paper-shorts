@@ -3618,5 +3618,305 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261102-a-prospective-randomized-study-of-patien",
     "pick_reason": "A prospective randomized study inside the Google Health app with 802 U.S. adults tests whether an LLM visit-preparation agent changes how real patients get ready for doctor visits. It studies everyday human behavior with AI, uses a computational field-experiment design that can be shown in a few steps, and has clear personal stakes for viewers. Signals: The channel's early hypothesis favoring papers with direct personal stakes and everyday AI use tipped this over the similarly strong AI-hiring audit, which studies model behavior more than human behavior."
+  },
+  {
+    "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+    "created": "2026-11-04T14:10:56+00:00",
+    "paper": {
+      "id": "arxiv:2611.01153",
+      "title": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+      "abstract": "By generating comprehensive and highly personalized answers to user prompts, AI chatbots such as ChatGPT and Gemini can serve as alternatives to search engines and substantially transform online information seeking. However, little research has examined how users interact with these tools to find information, particularly about politics. In this experiment, we examine how Swiss citizens (N = 563) formulate prompts to search for migration-related issues using AI chatbots and whether this process is affected by selective exposure. We find evidence of attitude-consistent prompting, whereby participants who were more critical of migration were more likely to formulate prompts with an anti-migration stance. This effect was stronger for a broad topic (migration in general) than for a specific one (anti-migration popular initiative put to a vote in Switzerland). However, exposure to an attitude-consistent AI response did not further amplify selectivity in prompting. We also did not find evidence that either AI attitudes or thinking styles moderated selectivity in prompting. These findings contribute to the understanding of selective exposure via AI chatbots and the use of generative AI for political information-seeking.",
+      "authors": [
+        "Victoria Vziatysheva",
+        "Reinhold Kliegl"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.01153",
+      "pdf_url": "https://arxiv.org/pdf/2611.01153v1",
+      "doi": null,
+      "published": "2026-10-31",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "你問AI的問題，早就選好邊了？",
+      "title_en": "Your Chatbot Questions May Already Pick a Side",
+      "paper_title_zh": "跟聊天機器人談政治：政治信念如何影響人們向生成式AI的提問",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "AI提問",
+          "heading_en": "ASKING AI",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "你的提問中立嗎",
+          "big_text_en": "Is your question neutral?",
+          "lines": [
+            {
+              "zh": "你問AI的問題，真的中立嗎？",
+              "en": "Are your questions to AI really neutral?"
+            },
+            {
+              "zh": "看研究者怎麼抓出來。",
+              "en": "Here's how researchers caught it."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "這篇研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "伯恩與波茨坦大學團隊，發在arXiv。",
+              "en": "From the Universities of Bern and Potsdam, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "crowd",
+          "heading_zh": "參加者",
+          "heading_en": "THE PEOPLE",
+          "labels": [
+            "563位瑞士人"
+          ],
+          "labels_en": [
+            "563 Swiss"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "563位用過AI的瑞士人參加，",
+              "en": "563 Swiss adults who'd used AI chatbots took part."
+            },
+            {
+              "zh": "先說自己怎麼看移民。",
+              "en": "First, they said how they feel about immigration."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "寫問題",
+          "heading_en": "THE TASK",
+          "labels": [
+            "聊天機器人",
+            "移民",
+            "公投提案"
+          ],
+          "labels_en": [
+            "Chatbot",
+            "Immigration",
+            "Ballot vote"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "隨機抽題：談移民，或限制移民的公投。",
+              "en": "Each got a topic: immigration, or a vote to limit it."
+            },
+            {
+              "zh": "寫下十個想問AI的問題。",
+              "en": "They wrote ten questions they'd ask a chatbot."
+            }
+          ]
+        },
+        {
+          "visual": "feed",
+          "heading_zh": "AI讀問題",
+          "heading_en": "SORTING",
+          "labels": [
+            "反移民",
+            "中立或支持"
+          ],
+          "labels_en": [
+            "Anti-migration",
+            "Neutral or pro"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "另一個AI讀了四千多個問題，",
+              "en": "Another AI read over 4,000 of these questions"
+            },
+            {
+              "zh": "標出帶反移民立場的，人工抽查很準。",
+              "en": "and flagged anti-immigration ones; human spot checks agreed."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "反移民提問",
+            "移民看法"
+          ],
+          "labels_en": [
+            "Anti questions",
+            "Migration view"
+          ],
+          "values": [],
+          "big_text": "越反移民，越問反移民",
+          "big_text_en": "More critical, more slanted questions",
+          "lines": [
+            {
+              "zh": "結果：越反對移民的人，越常問反移民的問題。",
+              "en": "It turned out critics of immigration asked more anti-immigration questions."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "細節",
+          "heading_en": "THE DETAILS",
+          "labels": [
+            "整體移民",
+            "具體公投"
+          ],
+          "labels_en": [
+            "Migration",
+            "The vote"
+          ],
+          "values": [],
+          "big_text": "大題目更偏",
+          "big_text_en": "Broad topics lean more",
+          "lines": [
+            {
+              "zh": "談整體移民時更明顯，談公投較弱。",
+              "en": "It was stronger for immigration in general than for the vote."
+            },
+            {
+              "zh": "提醒：這是問卷裡打字，不是真聊天。",
+              "en": "One caveat: they typed into a survey, not a real chat."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "問題本身就有立場",
+          "big_text_en": "Your question already has a side",
+          "lines": [
+            {
+              "zh": "問AI前，先想想問題是否已選邊。",
+              "en": "Before asking AI, check if your question already picked a side."
+            },
+            {
+              "zh": "追蹤行為解碼。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "我們問AI的方式，本身可能就帶著立場。一項研究請563位瑞士人寫下想問聊天機器人的移民問題，再讓另一個AI判斷每題的立場。結果越反對移民的人，越常問反移民的問題，談大題目時更明顯。",
+      "description_en": "The way we ask AI may already carry our views. In this study, 563 Swiss adults wrote questions for a chatbot about immigration, and another AI sorted each question by stance. People more critical of immigration asked more anti-immigration questions, especially on the broad topic.",
+      "hashtags": [
+        "行為解碼",
+        "AI聊天機器人",
+        "同溫層",
+        "ChatGPT",
+        "SelectiveExposure",
+        "AIsearch",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "Online survey experiment with 563 German-speaking Swiss adults (data collected August 2025 via Kantar) who had used an AI chatbot at least once. Participants first reported migration beliefs (six European Social Survey items), AI use and political leaning. They were randomly assigned to a broad topic (migration in Switzerland) or a specific one (the 'No to 10 million Switzerland' anti-migration initiative) and wrote five prompts they would give an AI chatbot. They then saw a static simulated chatbot answer, randomly pro-migration, anti-migration, or neutral facts, and wrote five more prompts; thinking styles were measured at the end. Of 8,520 prompts, an LLM (Cohere command-a-03-2025) labeled relevance and stance; validated on 224 hand-coded prompts (macro F1 0.92 relevance, 0.85 stance). Final data: 4,294 relevant prompts, about 31% negative; positive prompts were rare so stance was coded negative vs. positive/neutral. Mixed-effects logistic models showed more negative migration beliefs predicted more anti-migration prompts; this was stronger for the broad topic. Slanted AI answers did not strengthen the belief-prompt link, though seeing the anti-migration answer raised negative prompting for everyone. Trust in AI predicted more negative prompts; thinking styles and AI attitudes did not moderate the effect. Older and non-university participants wrote more negative prompts.",
+      "limitations": "No real human-chatbot interaction: prompts were typed into a survey and the AI answers were static, so behavior may differ from real use. The AI-answer manipulation failed for the initiative topic (participants didn't perceive the answers differently). Prompt stance was coded as binary rather than a planned 5-point scale, deviating from preregistration and possibly reducing power. Only one issue (migration) and one country (German-speaking Switzerland) were studied. Findings are associations between beliefs and prompts, not proof that beliefs cause them.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "robot",
+          "plane-arrival",
+          "checkbox"
+        ],
+        [
+          "thumb-down",
+          "scale"
+        ],
+        [
+          "help-circle",
+          "mood-annoyed"
+        ],
+        [
+          "world",
+          "checkbox"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 45.32,
+        "cover_offset_ms": 6108,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 48.41,
+        "cover_offset_ms": 6013,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "Ojva2O77_q0",
+          "url": "https://youtube.com/shorts/Ojva2O77_q0"
+        },
+        "instagram": {
+          "id": "18115066793177489",
+          "url": "https://www.instagram.com/reel/DfVGZnpgXw1/"
+        },
+        "threads": {
+          "id": "18176205625456420",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfVGeY7hGHv"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "TFCFGn3NrNM",
+          "url": "https://youtube.com/shorts/TFCFGn3NrNM"
+        },
+        "instagram": {
+          "id": "18017036897977286",
+          "url": "https://www.instagram.com/reel/DfVGlI_kTy0/"
+        },
+        "threads": {
+          "id": "18603908524067043",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfVGp_SPXwC"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261104-discussing-politics-with-a-chatbot-how-p",
+    "pick_reason": "This experiment with 563 Swiss citizens finds that people search for political information with AI chatbots in an attitude-consistent way, so critics of migration write slanted prompts. It is a concrete, relatable result about everyday AI use, and the method shows easily in a few steps: measure attitudes, have people prompt, code the prompt slant, compare. Signals: The notes suggest papers with personal stakes in everyday AI use and second-person hooks, so this fits a 'does the way you ask AI reveal your views?' opening, and it avoids the AI-at-work and deliberation topics already covered.",
+    "news": {
+      "title": "OpenAI says ChatGPT is catching up to Google in search",
+      "source": "The Verge",
+      "published": "2026-11-03",
+      "region": "US",
+      "link": "As ChatGPT is reported to be catching up with Google in search, this study shows that chatbot search can carry over selective exposure, because users' own beliefs shape the questions they ask."
+    }
   }
 ]
