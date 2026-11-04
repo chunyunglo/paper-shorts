@@ -1,9 +1,9 @@
 {
- "collected_at": "2026-11-03T08:27:51+00:00",
+ "collected_at": "2026-11-04T07:55:00+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 573,
+   "viewCount": 650,
    "videoCount": 24
   }
  },
@@ -794,7 +794,7 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
     "comments": 0,
     "duration": "PT57S",
@@ -920,15 +920,15 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 36,
+    "views": 60,
     "likes": 0,
     "comments": 0,
     "duration": "PT56S",
     "privacy": "public",
     "published": "2026-10-31T11:03:55Z",
-    "estimatedMinutesWatched": 5,
+    "estimatedMinutesWatched": 10,
     "averageViewDuration": 22,
-    "averageViewPercentage": 41.04,
+    "averageViewPercentage": 39.47,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1046,12 +1046,17 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 105,
+    "views": 45,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT48S",
     "privacy": "public",
-    "published": "2026-11-01T11:04:06Z"
+    "published": "2026-11-01T11:04:06Z",
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 16,
+    "averageViewPercentage": 34.88,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1104,12 +1109,17 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 12,
+    "views": 10,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT55S",
     "privacy": "public",
-    "published": "2026-11-01T11:05:37Z"
+    "published": "2026-11-01T11:05:37Z",
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 53,
+    "averageViewPercentage": 96.54,
+    "shares": 1,
+    "subscribersGained": 0
    }
   },
   {
@@ -1162,7 +1172,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 15,
+    "views": 19,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -1181,8 +1191,8 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 73,
-    "reach": 67,
+    "views": 75,
+    "reach": 70,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1201,7 +1211,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 5,
+    "views": 7,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1239,8 +1249,8 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 80,
-    "reach": 80,
+    "views": 99,
+    "reach": 96,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1278,7 +1288,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 20,
+    "views": 44,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
@@ -1297,13 +1307,13 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 75,
-    "reach": 68,
-    "likes": 1,
+    "views": 111,
+    "reach": 103,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -1336,7 +1346,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 4,
+    "views": 7,
     "likes": 0,
     "comments": 1,
     "duration": "PT55S",
@@ -1355,8 +1365,8 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 10,
-    "reach": 10,
+    "views": 14,
+    "reach": 14,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1394,15 +1404,15 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 4,
+    "views": 7,
     "likes": 1,
     "comments": 0,
     "duration": "PT7M4S",
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 12,
-    "averageViewPercentage": 3.03,
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 20,
+    "averageViewPercentage": 4.81,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1650,6 +1660,44 @@
    "created": "2026-11-02T11:49:34+00:00",
    "metrics": {
     "views": 4,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-13",
+   "title": "看醫生前先跟AI聊聊，會比較有準備嗎？\n\n我們昨天介紹的研究（arXiv, 2026）由Google Research在美國的Google Health app",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18124752674474749",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_",
+   "paper": "20261102-a-prospective-randomized-study-of-patien",
+   "created": "2026-11-03T11:12:31+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-14",
+   "title": "動態改成「照時間排」，真的能打破同溫層嗎？\n\n我們昨天介紹的研究（arXiv, 2026）用2018到2022年義大利Twitter的政治討論建了一個模擬模型，",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18147925123560755",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfRvz4zIJxu",
+   "paper": "20261102-counterfactual-assessment-of-social-medi",
+   "created": "2026-11-03T11:12:31+00:00",
+   "metrics": {
+    "views": 1,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
