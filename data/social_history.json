@@ -179,5 +179,33 @@
     "why": "The AI-guided deliberation short (our newest before today, decent YouTube zh views) has no Chinese follow-up yet, and the channel notes recommend a next-day Chinese Threads follow-up restating design and findings without a news peg; today's political headlines are partisan or tragic, so no responsible news link fits.",
     "id": "18647129860025219",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3"
+  },
+  {
+    "posted": "2026-11-03T11:12:31+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261102-a-prospective-randomized-study-of-patien"
+    ],
+    "text": "看醫生前先跟AI聊聊，會比較有準備嗎？\n\n我們昨天介紹的研究（arXiv, 2026）由Google Research在美國的Google Health app裡做隨機實驗。兩組用同一個模型，只換隱藏指令：一組是一般聊天機器人，另一組是會幫你整理「要問醫生的問題清單」的準備助理。\n\n結果：\n・覺得自己有準備：73.8% vs 57.0%\n・醫師盲評「內容完整」：67.2% vs 50.6%，安全性兩組都高\n・但病人的評分和醫師的評分沒有顯著相關\n\n容易被忽略的是：約42%的對話沒走完流程。14天後的追蹤裡，真的看過醫生的只有59人，所以對實際看診的影響還不知道。研究也是由Google出資執行。\n\n你覺得「感覺有準備」和「真的有準備」差多少？",
+    "news": null,
+    "why": "This everyday-AI paper has no Chinese Threads follow-up yet, and the notes favour next-day zh follow-ups that restate design and findings without a news peg, on personal-stakes topics; none of today's headlines (mostly election, conflict and disaster news) can be linked responsibly.",
+    "id": "18124752674474749",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_"
+  },
+  {
+    "posted": "2026-11-03T11:12:31+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261102-counterfactual-assessment-of-social-medi"
+    ],
+    "text": "動態改成「照時間排」，真的能打破同溫層嗎？\n\n我們昨天介紹的研究（arXiv, 2026）用2018到2022年義大利Twitter的政治討論建了一個模擬模型，把「平台給你看什麼」和「你看到後會不會轉推」分開計算。資料包含583個領袖帳號（政治人物、政黨、媒體），以及每月約7,400到9,400位活躍用戶。\n\n他們模擬了三種做法：事先揭穿假訊息、提醒注意正確性、時間序動態。\n・三種都讓轉推互動變少\n・前兩種對「分群」幾乎沒影響\n・時間序動態全面套用時，每次模擬都讓分群下降；只套用在10%用戶，也有86%的模擬下降\n\n但要注意：這全是模擬，不是真的平台實驗，只看一個月內的反應，也只涵蓋高度活躍的用戶。",
+    "news": null,
+    "why": "The feed paper's short got almost no views in English and it has no Chinese follow-up, so a next-day zh Threads design-and-finding post, the format the notes say outperformed news links, gives it a fair test without touching today's partisan election news.",
+    "id": "18147925123560755",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfRvz4zIJxu"
   }
 ]
