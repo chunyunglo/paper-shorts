@@ -207,5 +207,33 @@
     "why": "The feed paper's short got almost no views in English and it has no Chinese follow-up, so a next-day zh Threads design-and-finding post, the format the notes say outperformed news links, gives it a fair test without touching today's partisan election news.",
     "id": "18147925123560755",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfRvz4zIJxu"
+  },
+  {
+    "posted": "2026-11-04T11:24:30+00:00",
+    "platform": "instagram",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261031-beauty-is-human-when-people-love-ai-gene"
+    ],
+    "text": "你最喜歡的那張圖，你確定是人畫的嗎？\n\n一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測試」。11,123人判斷50張圖是人做的還是AI做的，再選出自己最喜歡的一張。50張圖裡有24張受好評的人類作品、26張AI作品，有明顯瑕疵的AI圖已先篩掉。分析樣本是9,152位有選出最愛、也判斷過它的人。\n\n重點：\n・選它當最愛的人，有76.6%說它是人做的；其他人判斷同一張圖，只有54.6%\n・考慮個人作答傾向和圖本身之後，差距約22.1個百分點，50張圖每一張都是正向\n・最不喜歡AI藝術的人，比較少選到AI圖當最愛（47% vs 60%），但選到時更常以為是人做的（80% vs 56%）\n・第二個研究重看一個詩的實驗（230人）：評分每高一分，判斷「人寫的」就多11.5個百分點，即使AI的詩評分較高\n\n要小心的地方：這是觀察資料，研究沒有操弄「喜歡」，所以分不出是喜歡讓人以為是人做的，還是反過來。受試者是同一個部落格自己來參加的讀者，可能比一般人更關心AI；圖也是特別挑過、很難分辨的。\n\n完整解說在我們的短影音。論文：https://arxiv.org/abs/2610.38113\n\n#AI藝術 #行為科學 #人工智慧 #心理學",
+    "news": null,
+    "why": "This week's Instagram slot is open, the AI-art short is by far our most-viewed Instagram post yet has no Instagram free post, and the notes ask us to keep publishing Instagram free posts to check whether their 0-view results are a delivery problem.",
+    "id": "18148679563575146",
+    "url": "https://www.instagram.com/p/DfUV_Wom92v/"
+  },
+  {
+    "posted": "2026-11-04T11:24:30+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261025-petition-style-changes-with-ai-writing-s-r0206"
+    ],
+    "text": "用AI寫的請願書，會不會讀起來都很像？\n\n我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它在2023年推出AI撰寫工具，研究者比較有工具可用和沒有工具時寫出的請願書。\n\n摘要報告的兩個發現：\n・有AI工具可用時，請願書的文字明顯改變，彼此也變得更相似\n・但整體來說，請願的成果沒有變好\n\n要注意：這只是一個平台，摘要也沒寫樣本數和效果大小。「整體沒變好」不代表AI對每一份請願都沒幫助，研究也沒有完全說明成果為什麼持平。\n\n你用AI幫忙寫東西時，會在意自己的文字變得跟別人很像嗎？\n\n論文：https://www.nature.com/articles/s41562-026-02579-1",
+    "news": null,
+    "why": "Today's headlines are dominated by partisan election results and tragedies we won't use as hooks, and the petition paper (everyday AI use, a topic the notes favour) never got the Chinese Threads design-and-finding follow-up that the notes found works best.",
+    "id": "18096619478463330",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfUWAOom5hj"
   }
 ]
