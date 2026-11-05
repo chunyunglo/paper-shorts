@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-04T07:55:00+00:00",
+ "collected_at": "2026-11-05T08:22:10+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 650,
-   "videoCount": 24
+   "viewCount": 659,
+   "videoCount": 25
   }
  },
  "notes": [],
@@ -612,8 +612,8 @@
     "privacy": "public",
     "published": "2026-10-28T11:10:11Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 28,
-    "averageViewPercentage": 43.14,
+    "averageViewDuration": 23,
+    "averageViewPercentage": 36.03,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -920,15 +920,15 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 60,
+    "views": 62,
     "likes": 0,
     "comments": 0,
     "duration": "PT56S",
     "privacy": "public",
     "published": "2026-10-31T11:03:55Z",
-    "estimatedMinutesWatched": 10,
-    "averageViewDuration": 22,
-    "averageViewPercentage": 39.47,
+    "estimatedMinutesWatched": 11,
+    "averageViewDuration": 23,
+    "averageViewPercentage": 41.4,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -944,7 +944,7 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 1374,
+    "views": 1375,
     "reach": 1200,
     "likes": 22,
     "comments": 1,
@@ -1046,15 +1046,15 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 45,
+    "views": 108,
     "likes": 0,
     "comments": 0,
     "duration": "PT48S",
     "privacy": "public",
     "published": "2026-11-01T11:04:06Z",
-    "estimatedMinutesWatched": 5,
-    "averageViewDuration": 16,
-    "averageViewPercentage": 34.88,
+    "estimatedMinutesWatched": 14,
+    "averageViewDuration": 20,
+    "averageViewPercentage": 42.61,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1109,15 +1109,15 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 10,
+    "views": 12,
     "likes": 0,
     "comments": 0,
     "duration": "PT55S",
     "privacy": "public",
     "published": "2026-11-01T11:05:37Z",
     "estimatedMinutesWatched": 5,
-    "averageViewDuration": 53,
-    "averageViewPercentage": 96.54,
+    "averageViewDuration": 46,
+    "averageViewPercentage": 83.83,
     "shares": 1,
     "subscribersGained": 0
    }
@@ -1172,12 +1172,17 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 19,
+    "views": 15,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT50S",
     "privacy": "public",
-    "published": "2026-11-02T11:05:57Z"
+    "published": "2026-11-02T11:05:57Z",
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 53,
+    "averageViewPercentage": 106.76,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1211,7 +1216,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 7,
+    "views": 8,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1232,10 +1237,15 @@
    "metrics": {
     "views": 3,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT58S",
     "privacy": "public",
-    "published": "2026-11-02T11:08:18Z"
+    "published": "2026-11-02T11:08:18Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 7,
+    "averageViewPercentage": 12.21,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1288,12 +1298,17 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 44,
+    "views": 21,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
-    "published": "2026-11-02T20:38:11Z"
+    "published": "2026-11-02T20:38:11Z",
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 32,
+    "averageViewPercentage": 62.57,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1346,12 +1361,17 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 7,
+    "views": 4,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT55S",
     "privacy": "public",
-    "published": "2026-11-02T20:39:51Z"
+    "published": "2026-11-02T20:39:51Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 4,
+    "averageViewPercentage": 8.87,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1394,6 +1414,122 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "Ojva2O77_q0",
+   "url": "https://youtube.com/shorts/Ojva2O77_q0",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-04T18:28:13Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18115066793177489",
+   "url": "https://www.instagram.com/reel/DfVGZnpgXw1/",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 10,
+    "reach": 9,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18176205625456420",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfVGeY7hGHv",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 11,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "TFCFGn3NrNM",
+   "url": "https://youtube.com/shorts/TFCFGn3NrNM",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 10,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT49S",
+    "privacy": "public",
+    "published": "2026-11-04T18:29:51Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18017036897977286",
+   "url": "https://www.instagram.com/reel/DfVGlI_kTy0/",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 5,
+    "reach": 5,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261104-discussing-politics-with-a-chatbot-how-p",
+   "title": "Your Chatbot Questions May Already Pick a Side",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18603908524067043",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfVGp_SPXwC",
+   "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
+   "created": "2026-11-04T14:10:56+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -1411,8 +1547,8 @@
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 20,
-    "averageViewPercentage": 4.81,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 4.18,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1698,6 +1834,45 @@
    "created": "2026-11-03T11:12:31+00:00",
    "metrics": {
     "views": 1,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-15",
+   "title": "你最喜歡的那張圖，你確定是人畫的嗎？\n\n一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18148679563575146",
+   "url": "https://www.instagram.com/p/DfUV_Wom92v/",
+   "paper": "20261031-beauty-is-human-when-people-love-ai-gene",
+   "created": "2026-11-04T11:24:30+00:00",
+   "metrics": {
+    "views": 0,
+    "reach": 0,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-16",
+   "title": "用AI寫的請願書，會不會讀起來都很像？\n\n我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18096619478463330",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfUWAOom5hj",
+   "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206",
+   "created": "2026-11-04T11:24:30+00:00",
+   "metrics": {
+    "views": 19,
     "likes": 0,
     "replies": 0,
     "reposts": 0,

@@ -1,49 +1,49 @@
 # Channel analytics 頻道數據
 
-Updated 2026-11-04T07:55:00+00:00
+Updated 2026-11-05T08:22:10+00:00
 
 ```
-Collected 2026-11-04T07:55:00+00:00
-YouTube channel: 4 subscribers, 650 total views, 24 videos
+Collected 2026-11-05T08:22:10+00:00
+YouTube channel: 4 subscribers, 659 total views, 25 videos
 Note: every short and talk show has one comment from us (the paper citation), and our replies to viewers count too, so comment counts overstate viewer comments; likes may include our own.
 
-short on youtube: 23 posts, average 25 views
-  by language: zh 47, pt 9, en 8
+short on youtube: 25 posts, average 26 views
+  by language: zh 48, pt 9, en 8
   - 110 views, 0 likes, 0 comments, avg watched 42%, +0 subs | zh | Jobs Dropped the Degree. So Who Got Hired?
+  - 108 views, 0 likes, 0 comments, avg watched 43%, +0 subs | zh | Chat With AI Before You Argue? The Debate Got Better
   - 70 views, 0 likes, 0 comments, avg watched 28%, +1 subs | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
-  - 60 views, 0 likes, 0 comments, avg watched 39%, +0 subs | zh | Your Favorite Picture: Are You Sure a Human Made It?
+  - 62 views, 0 likes, 0 comments, avg watched 41%, +0 subs | zh | Your Favorite Picture: Are You Sure a Human Made It?
   - 56 views, 1 likes, 0 comments, avg watched 60%, +0 subs | zh | When Politicians Lean on the Fed, Do Markets Listen?
-  - 45 views, 0 likes, 0 comments, avg watched 35%, +0 subs | zh | Chat With AI Before You Argue? The Debate Got Better
-  - 3 views, 0 likes, 1 comments | en | Can a Time-Ordered Feed Break Echo Chambers?
+  - 3 views, 0 likes, 0 comments, avg watched 12%, +0 subs | en | Can a Time-Ordered Feed Break Echo Chambers?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | Caught Using Slave Labor: Do Ranches Really Stop?
 
-short on instagram: 20 posts, average 117 views
-  by language: zh 196, en 38
-  - 1374 views, 22 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
+short on instagram: 22 posts, average 107 views
+  by language: zh 179, en 35
+  - 1375 views, 22 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
   - 111 views, 2 likes, 1 comments | zh | Asking AI Before a Doctor Visit: Does It Help?
   - 106 views, 1 likes, 1 comments | en | Chat With AI Before You Argue? The Debate Got Better
   - 103 views, 2 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
   - 99 views, 1 likes, 1 comments | en | Can a Time-Ordered Feed Break Echo Chambers?
-  - 7 views, 1 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
   - 5 views, 1 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 5 views, 1 likes, 1 comments | zh | Strangers Bet on Your Goals, a Bit Too Hopefully
+  - 5 views, 1 likes, 1 comments | en | Your Chatbot Questions May Already Pick a Side
 
-short on threads: 20 posts, average 9 views
-  by language: zh 14, en 5
+short on threads: 22 posts, average 9 views
+  by language: zh 14, en 4
   - 33 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 22 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 19 views, 1 likes, 1 comments | zh | Caught Using Slave Labor: Do Ranches Really Stop?
   - 19 views, 0 likes, 1 comments | zh | When Politicians Lean on the Fed, Do Markets Listen?
   - 15 views, 1 likes, 1 comments | zh | AI Wrote the Petitions. Did They Win More?
-  - 2 views, 0 likes, 1 comments | zh | Asking AI Before a Doctor Visit: Does It Help?
+  - 2 views, 0 likes, 1 comments | en | Your Chatbot Questions May Already Pick a Side
   - 1 views, 0 likes, 1 comments | en | Jobs Dropped the Degree. So Who Got Hired?
   - 0 views, 0 likes, 1 comments | en | Can a Time-Ordered Feed Break Echo Chambers?
 
 podcast on youtube: 1 posts, average 7 views
-  - 7 views, 1 likes, 0 comments, avg watched 5%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
+  - 7 views, 1 likes, 0 comments, avg watched 4%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
 
-social on instagram: 3 posts, average 0 views
+social on instagram: 4 posts, average 0 views
   by language: zh 0, en 0
   - 0 views, 1 likes, 0 comments | zh | 本週我們介紹了三篇關於人類行為的新研究，每篇一個重點：
 
@@ -53,12 +53,18 @@ Change.o
 
 一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚
   - 0 views, 1 likes, 0 comments | en | Would strangers bet that you'll hit your goal? A new study says: yes, a little t
+  - 0 views, 1 likes, 0 comments | zh | 你最喜歡的那張圖，你確定是人畫的嗎？
 
-social on threads: 12 posts, average 21 views
+一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測
+
+social on threads: 13 posts, average 21 views
   by language: zh 24, en 7
   - 185 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局
+  - 19 views, 0 likes, 0 comments | zh | 用AI寫的請願書，會不會讀起來都很像？
+
+我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它
   - 18 views, 0 likes, 0 comments | zh | 你最喜歡的那張圖，你覺得是人畫的嗎？
 
 我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI
@@ -68,9 +74,6 @@ social on threads: 12 posts, average 21 views
   - 8 views, 0 likes, 0 comments | en | In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st
-  - 8 views, 0 likes, 0 comments | zh | AI進辦公室，大家會不會越來越少跟同事講話？
-
-我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202
   - 1 views, 0 likes, 0 comments | zh | 如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？
 
 我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在202
@@ -84,54 +87,56 @@ A st
 
 ## Strategy 經營策略 (written by Claude)
 
-Written 2026-10-29
+Written 2026-11-05
 
-- Chinese leads on every platform: YouTube shorts average zh 34 vs en 8 vs pt 9, Instagram zh 57 vs en 25, Threads shorts zh 21 vs en 6. YouTube/zh beat YouTube/en on every paired short (e.g. degree 57 vs 15, petition 33 vs 1).
-- Instagram is the strongest shorts platform at 41 avg views vs 18 on YouTube and 13 on Threads. The English petition short nearly matched Chinese there (53 vs 55), so English is not dead on Instagram.
-- The decredentialed-jobs paper is the most consistent performer: YouTube/zh 57 views at 53% watched, Instagram/zh 88, and a Threads zh follow-up with 180 views and 2 comments. That one follow-up is far above the other three Threads free posts (8, 5, 5).
-- Retention varies widely on YouTube/zh: degree 53%, petition 34%, cattle 10%. Yet the cattle short was the top Instagram post (103 zh views), so a topic that is weak on one platform can still work on another.
-- Both Instagram free posts show exactly 0 views while same-day Instagram shorts got 20-103. That looks like a publishing or tracking problem, not weak content.
-- The first talk show episode (AI homework/exam) has 2 views and is days old. YouTube Portuguese shorts sit at 3-19 views.
+- YouTube Shorts: Chinese still carries the channel. All 8 zh shorts got 21-110 views, while the 3 en shorts got 1-3. The best zh retention came from the doctor-visit short (63%, 21 views) and the Fed short (60%, 56 views). Degree (110 views, 42%) and deliberation (108 views, 43%) are the top reach.
+- Instagram shorts average 107 views, but that is skewed by the AI-art zh outlier (1375 views, 22 likes). Without it, most shorts sit around 75-111, and English is competitive there: deliberation en 106 vs zh 96, feed en 99 vs zh 75. A few posts got only 5 views, likely too new.
+- Threads shorts are weak (average 9 views). Chinese gets 11-33, English 0-12. The AI-at-work zh short tops Threads at 33 even though it was mid-pack on YouTube.
+- Instagram free posts are still exactly 0 views on all 4 (each has 1 like, possibly ours). This still looks like a delivery or tracking problem, not a content signal.
+- Threads free posts: apart from the 185-view degree follow-up, the others got 0-19. The non-follow-up news-peg en posts got 6-8. There is still no repeatable winner.
+- The talk show has only 1 episode: 7 views at 4% watched. That is far too little to judge format or topic.
 
-**Shorts:** Keep Chinese as the default for YouTube and Threads. Keep posting English on Instagram, where it has come close to Chinese, and consider pausing Portuguese until there is a reason to expect a pt audience. Favor papers with direct personal stakes (jobs, hiring, everyday AI use), and test accurate second-person question hooks against news-peg openings on papers of similar relevance, comparing % watched at day 3. Titles should stay faithful to each paper's actual finding, as the current question-style titles are.
+**Shorts:** Keep Chinese as the default on YouTube Shorts and Threads, and keep posting English versions on Instagram, where they hold their own. Lean toward personal-stakes papers with concrete everyday consequences: jobs and hiring, health and doctor visits, money and markets, how AI changes what you see or make. Deliberately include non-AI ones so topic isn't confounded with the AI theme. Keep accurate second-person question titles and openers like 'Asking AI Before a Doctor Visit: Does It Help?'. Run the planned test of question vs. news-peg openings on two comparable non-AI papers, and record day-3 YouTube zh % watched for every short. Don't chase the AI-art spike by overselling: a visual hook is fine only if the paper's finding supports it.
 
-**Podcast:** One brand-new episode at 2 views tells us nothing yet, so keep the format steady for several weeks. Lean toward papers that already did well as shorts (e.g. hiring/credentials, AI and learning) so Kai and Anne can build on proven interest. Cross-promote each episode from the matching short and a Chinese Threads post, noting that the show is in English.
+**Podcast:** Keep the format as is until there are 3-4 episodes at least a week old. One episode at 7 views and 4% watched can't tell us anything about format. For upcoming episodes, favor papers that already did well as shorts (decredentialed jobs, AI deliberation, AI art, doctor-visit AI) so Kai and Anne can build on proven curiosity. Open within the first 10-15 seconds on the paper's concrete question and headline result, since the 4% retention suggests viewers leave early. Also consider cutting a 1-minute clip from each episode as a Chinese-subtitled short to feed the show.
 
-**Free posts:** Repeat the Chinese Threads follow-up format the day after each short: restate the concrete study design and finding, without a news peg. Compare these at equal age with news-link posts, which got 5-8 views. Before judging Instagram slide content, verify that those posts are actually published and visible to non-followers, since 0 views points to a delivery problem.
+**Free posts:** Keep Instagram free posts paused until a logged-out check confirms they are published and tracked, since all 4 still show 0 views. On Threads, post at most one Chinese follow-up per day and alternate between question-led and number-led first lines. English news-peg posts (6-8 views) haven't earned more space.
 
-_With 4 subscribers, a few dozen posts and most items only 1-4 days old, every pattern here is a hypothesis to recheck, not a trend._
+_With 4 subscribers, mostly double-digit view counts, one Instagram outlier and a single talk-show episode, every pattern here is tentative, and several posts are too new to judge._
 
 
 ## Self-review 自我檢討 (past decisions vs. results)
 
-Written 2026-10-29
+Written 2026-11-05
 
-**Did past strategy pay off?** There were no earlier strategy notes or lessons, so there was no advice to follow or test. All the posts were made without a prior playbook. Every case is 1-4 days old with tiny view counts, so each observation below is a hypothesis to recheck, not a finding.
+**Did past strategy pay off?** We followed the notes closely. Since 10-30 nearly every free post has been a Chinese Threads design-and-finding follow-up without a news peg. Picks leaned hard toward personal-stakes and everyday-AI papers, and Portuguese was dropped after 10-27. The follow-ups have not repeated the decredentialed-jobs result: the eight since 10-30 got 8, 0, 1, 18, 4, 13, 1 and 19 views, about the same as the news-link posts (5-8), so the earlier 185 looks like a one-off. We kept publishing Instagram free posts but never verified delivery, and they are still exactly 0. Of the personal-stakes and AI picks, AI art and AI deliberation came out above typical, petition and AI-at-work typical, and prediction markets below. Most posts from 11-02 on are too new to judge.
 
 **Lessons:**
-- [language_and_platform, medium, new] Keep treating Chinese as the main language on YouTube Shorts, and keep checking whether English holds up better on Instagram than on YouTube. (evidence: youtube/zh beat youtube/en on all 5 shorts: 33 vs 1, 13 vs 1, 57 vs 15, 57 vs 18, 12 vs 4. On Instagram the gap was smaller and once vanished (petition: zh 55, en 53). youtube/pt stayed at 3-19 views.)
-- [other, medium, new] Check whether Instagram free posts are actually being published and distributed before judging their content. (evidence: Both Instagram free posts (the 10-28 roundup and the 10-29 follow_up) show 0 views. Instagram shorts from the same days got 20-103 views. Exactly 0 points to a posting or tracking problem rather than weak content.)
-- [free_posts, low, new] Try more Chinese Threads follow-ups that restate the paper's concrete design and finding the day after the short, and compare them with news_link posts at the same post age. (evidence: The Threads zh follow_up on decredentialed jobs got 180 views and 1 share. The three Threads news_link posts got 8, 5 and 5 views. This is one follow-up against three link posts, and two of those are less than a day old.)
-- [topic, low, new] Favour papers with direct personal stakes for viewers (jobs, hiring, everyday AI use) and recheck this as more data comes in. (evidence: Decredentialed jobs was the strongest short: youtube/zh 57 views at 53% watched, youtube/en 15 at 35%, and the 180-view follow-up. Brazil cattle laundering, a more distant topic, got youtube/zh 13 views at 10% watched, though instagram/zh was 103. This rests on one strong and one weak case.)
-- [title_and_hook, low, new] Second-person openings that put the viewer in the situation ('did you get hired?') may help retention, so try them again on varied papers and check. (evidence: Retention went 53% (decredentialed, 'you' framing), 34% (petition, 'you' framing), 10% (cattle, third-person ranches). These are three data points with topic confounded.)
-- [title_and_hook, low, new] Do not judge yet whether news-peg openings (e.g. Apple adding AI to Pages) beat plain question openings, and record retention so they can be compared. (evidence: The AI-at-work short opened on Apple news: youtube/zh 57 but instagram/zh only 20 and instagram/en 5. No retention figure was recorded, and the post is 1 day old.)
-- [talk_show, low, new] Do not draw conclusions about the talk show until it has several episodes, each at least a week old. (evidence: There is one episode (AI homework/exam) at 2 youtube/en views, and it is brand new.)
+- [language_and_platform, high, kept] Keep Chinese as the default on YouTube Shorts and Threads, and keep posting English on Instagram, where it sometimes matches or beats Chinese. (evidence: youtube/zh beat youtube/en on all 11 shorts (e.g. degree 110 vs 16, deliberation 108 vs 12, AI work 70 vs 18). On Instagram, English matched or beat Chinese on 4 of 11: petition 53 vs 55, prediction 7 vs 5, deliberation 106 vs 96, feed 99 vs 75. Threads en shorts stayed at 0-12 views.)
+- [other, high, revised] Pause new Instagram free posts until someone confirms they are actually published, visible to non-followers and tracked correctly; publishing more of them has not answered the question. (evidence: Every Instagram free post so far shows exactly 0 views (10-28 roundup, 10-29 follow-up, 10-31 en follow-up, 11-04 AI-art zh follow-up), and the median is 0. Instagram shorts on the same days got 5-1375 views. The 11-04 post was chosen because the AI-art short was our biggest Instagram hit (1375), and it still got 0.)
+- [free_posts, medium, revised] Treat the Chinese Threads design-and-finding follow-up as a neutral default rather than a proven winner, since apart from the jobs post it performs about like news-link posts. (evidence: The decredentialed-jobs follow-up got 185 views and 1 share. The eight follow-ups since got 8, 0, 1, 18, 4, 13, 1 and 19 (four are under 3 days old). The news links got 8, 5 and 6. A strong short did not reliably carry its follow-up: deliberation was above typical but its follow-up got 4. The petition follow-up posted 10 days late still got 19.)
+- [language_and_platform, medium, new] Keep Portuguese paused unless a specific reason to expect a Portuguese audience comes up. (evidence: youtube/pt got 5, 3 and 20 views on its three shorts. It was dropped after 10-27 as the notes suggested, with no visible loss.)
+- [topic, low, revised] Personal-stakes topics remain a reasonable lean, but 'everyday AI' alone does not guarantee interest, so mix in non-AI personal topics (jobs, money, health) and compare. (evidence: Above typical: degree/jobs, AI art and AI deliberation. Typical: petition-AI and AI at work. Below typical: prediction markets on personal goals (youtube/zh 23 at 17%). About 7 of the last 11 shorts were AI-themed, which confounds topic with theme. The AI-art Instagram/zh spike of 1375 views is a single outlier that may be platform luck or a visual-topic effect.)
+- [title_and_hook, low, kept] Keep using accurate second-person question openings, which have given steady mid-range retention, and avoid flat third-person statement openers. (evidence: youtube/zh retention with 'you' openings: petition 34%, degree 42%, art 41%, deliberation 43%, doctor 63% (the last is new). Third-person or impersonal openings varied widely: cattle 10%, prediction markets 17% (a statement, not a question), Fed 60%, feed 107% (on only 15 views). Topic is still confounded.)
+- [title_and_hook, low, revised] Do not rely on news-peg openings yet, because the one short that opened on news retained worse than the second-person ones; test again on a comparable paper. (evidence: AI at work opened on Apple adding AI to Pages: youtube/zh 28% watched, instagram/zh 20, instagram/en 5, below the second-person openers at 34-63%. This is one case. The chatbot-prompts short had a news hook but no retention figure recorded yet.)
+- [talk_show, low, kept] Still too early to judge the talk show; gather several episodes at least a week old before changing format. (evidence: There is only one episode (AI homework/exam): 7 youtube/en views at 4% watched after 6 days. The very low retention is worth watching, but it is a single data point.)
 
 **Try next:**
-- For the next 3 shorts, post a Threads zh follow_up the next day (concrete design and finding, no news peg). Compare views at day 3 against Threads news_link posts of the same age.
-- On two papers of similar personal relevance, open one with a recent news peg and one with a direct second-person question that accurately reflects the finding. Compare youtube/zh % watched at day 3.
-- Republish or verify one Instagram free post and confirm it is visible to non-followers, to find out whether the 0-view results are a delivery problem.
+- Before posting any more Instagram free posts, open the 11-04 AI-art follow-up from a logged-out or non-follower account and check its post type and tracking ID. If it is invisible or untracked, fix that. If it is visible, try one free post in the same reel format as the shorts and compare.
+- On two comparable non-AI personal-stakes papers, open one with an accurate second-person question and the other with an accurate news peg. Compare youtube/zh % watched at day 3, and record retention for every short, including the chatbot one.
+- For the next two weeks, post at most one Threads zh follow-up per day. Alternate between a question first line and a first line that states the paper's concrete headline number, and compare views at day 3. The 11-03 double post got 13 and 1, so two in one day may split reach.
 
 ## All posts
 
 | kind | platform | lang | views | likes | comments | title |
 |---|---|---|---|---|---|---|
-| short | instagram | zh | 1374 | 22 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAYT6jTDG/) |
+| short | instagram | zh | 1375 | 22 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAYT6jTDG/) |
 | social | threads | zh | 185 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
 | short | instagram | zh | 111 | 2 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQLtP_guS3/) |
 | short | youtube | zh | 110 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
+| short | youtube | zh | 108 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA) |
 | short | instagram | en | 106 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlXX_HQK6/) |
 | short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
 | short | instagram | en | 99 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKcKSDqUK/) |
@@ -139,12 +144,10 @@ Written 2026-10-29
 | short | instagram | zh | 88 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
 | short | instagram | zh | 75 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKM3iCiE8/) |
 | short | youtube | zh | 70 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
-| short | youtube | zh | 60 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
+| short | youtube | zh | 62 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
 | short | youtube | zh | 56 | 1 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
 | short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
 | short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
-| short | youtube | zh | 45 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA) |
-| short | youtube | zh | 44 | 0 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU) |
 | short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
 | short | threads | zh | 33 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
 | short | instagram | en | 30 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
@@ -153,11 +156,14 @@ Written 2026-10-29
 | short | instagram | en | 27 | 1 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAla1jFvW/) |
 | short | youtube | zh | 23 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U) |
 | short | threads | zh | 22 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
+| short | youtube | zh | 21 | 0 | 0 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU) |
 | short | youtube | pt | 20 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | instagram | zh | 20 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
 | short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
 | short | threads | zh | 19 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb) |
-| short | youtube | zh | 19 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8) |
+| social | threads | zh | 19 | 0 | 0 | [用AI寫的請願書，會不會讀起來都很像？
+
+我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它](https://www.threads.com/@human__behavior__decode/post/DfUWAOom5hj) |
 | short | youtube | en | 18 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/9MExpUEuD7o) |
 | social | threads | zh | 18 | 0 | 0 | [你最喜歡的那張圖，你覺得是人畫的嗎？
 
@@ -165,17 +171,23 @@ Written 2026-10-29
 | short | youtube | en | 16 | 2 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
 | short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
 | short | threads | zh | 15 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHbuBGEfnt) |
+| short | youtube | zh | 15 | 0 | 0 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8) |
 | short | youtube | zh | 14 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
 | short | instagram | en | 14 | 1 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQL6n7lITb/) |
 | short | youtube | en | 13 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/nHROFRQuyuY) |
+| short | youtube | zh | 13 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0) |
 | social | threads | zh | 13 | 0 | 0 | [看醫生前先跟AI聊聊，會比較有準備嗎？
 
 我們昨天介紹的研究（arXiv, 2026）由Google Research在美國的Google Health app](https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_) |
 | short | threads | en | 12 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
 | short | youtube | en | 12 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/Mqje8Ha4bv8) |
-| short | youtube | en | 10 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/8hR_5Y3olQk) |
+| short | youtube | en | 12 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/8hR_5Y3olQk) |
+| short | threads | zh | 11 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.threads.com/@human__behavior__decode/post/DfVGeY7hGHv) |
+| short | instagram | zh | 10 | 1 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.instagram.com/reel/DfVGZnpgXw1/) |
+| short | youtube | en | 10 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/TFCFGn3NrNM) |
 | short | threads | en | 9 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
 | short | instagram | en | 8 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE3H1dDZhs/) |
+| short | threads | zh | 8 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU) |
 | social | threads | en | 8 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
@@ -186,8 +198,6 @@ A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 
 1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有](https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W) |
 | short | instagram | en | 7 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHb30UEx6g/) |
-| short | threads | zh | 7 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU) |
-| short | youtube | en | 7 | 0 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/QyuzKp_UWgQ) |
 | podcast | youtube | en | 7 | 1 | 0 | [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M) |
 | short | threads | en | 6 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x) |
 | social | threads | en | 6 | 0 | 0 | [Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:](https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4) |
@@ -196,9 +206,11 @@ A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 | short | instagram | en | 5 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCStp0EasQ/) |
 | short | instagram | zh | 5 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHbmtGDgCS/) |
 | short | threads | en | 5 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKArppge5h) |
+| short | instagram | en | 5 | 1 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.instagram.com/reel/DfVGlI_kTy0/) |
 | social | threads | zh | 5 | 0 | 0 | [ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？
 
 我們英文 podcast 介紹過一篇研究（arX](https://www.threads.com/@human__behavior__decode/post/DfExt8eoOGz) |
+| short | youtube | en | 4 | 0 | 0 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/QyuzKp_UWgQ) |
 | short | threads | en | 4 | 0 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.threads.com/@human__behavior__decode/post/DfQMBG6jOZs) |
 | social | threads | zh | 4 | 0 | 0 | [跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？
 
@@ -207,10 +219,11 @@ A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 | short | youtube | en | 3 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/t2OiX4v7Sug) |
 | short | threads | en | 3 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHb_iMDUzF) |
 | short | threads | zh | 3 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKAelwD2Kh) |
-| short | youtube | en | 3 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/wipIJOAG3Vg) |
+| short | youtube | en | 3 | 0 | 0 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/wipIJOAG3Vg) |
 | short | threads | zh | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlRs4jdCh) |
 | short | threads | en | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlet6AeSJ) |
 | short | threads | zh | 2 | 0 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.threads.com/@human__behavior__decode/post/DfQLxpakmyh) |
+| short | threads | en | 2 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.threads.com/@human__behavior__decode/post/DfVGp_SPXwC) |
 | short | youtube | en | 1 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
 | short | youtube | en | 1 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
 | short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
@@ -232,3 +245,6 @@ Change.o](https://www.instagram.com/p/DfB1Nj-luRP/) |
 
 我們介紹過的一篇研究（arXiv, 2026）蒐集了1988到2025年約11,500篇路透社報導。研究者讓三個開源](https://www.threads.com/@human__behavior__decode/post/DfHXtIcEYrZ) |
 | social | instagram | en | 0 | 1 | 0 | [Would strangers bet that you'll hit your goal? A new study says: yes, a little t](https://www.instagram.com/p/DfJ4cRJFS-W/) |
+| social | instagram | zh | 0 | 1 | 0 | [你最喜歡的那張圖，你確定是人畫的嗎？
+
+一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測](https://www.instagram.com/p/DfUV_Wom92v/) |
