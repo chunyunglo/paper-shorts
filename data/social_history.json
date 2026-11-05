@@ -235,5 +235,19 @@
     "why": "Today's headlines are dominated by partisan election results and tragedies we won't use as hooks, and the petition paper (everyday AI use, a topic the notes favour) never got the Chinese Threads design-and-finding follow-up that the notes found works best.",
     "id": "18096619478463330",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfUWAOom5hj"
+  },
+  {
+    "posted": "2026-11-05T11:22:23+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261105-you-know-what-you-will-like-people-predi"
+    ],
+    "text": "猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。\n\n我們今天介紹的研究（arXiv, 2026）用了電影評分網站 MovieLens 的資料。2023年3月到2024年5月，網站問會員：「這部你沒看過的片，你覺得會給幾顆星？」其中有551個猜測（來自277位會員），在至少一天後真的打了分數。\n\n結果：\n・人的猜測平均誤差0.61顆星，機器至少0.72\n・把「你的猜測」加進所有機器資訊，預測誤差再降26%\n・冷門片、不熟的類型，人的優勢更大；被評很多次的老片，機器追平甚至勝過人\n\n限制：300萬次提問裡98.8%沒人回答，回答的多是熱心影迷。這也只是離線比較，不代表「問你一下」就能讓真實推薦變準。\n\n你覺得自己比推薦演算法更懂你的口味嗎？完整說明在我們的影片裡。",
+    "news": null,
+    "why": "Today's MovieLens episode has no Chinese Threads follow-up yet and is a personal, non-partisan topic, the notes ask for at most one zh follow-up per day with today's turn being a number-led first line (yesterday's was question-led), Instagram free posts stay paused until delivery is verified, and today's headlines are dominated by elections, tragedies and crime we won't use as hooks.",
+    "id": "18080018480727193",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii"
   }
 ]

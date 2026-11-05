@@ -5,6 +5,16 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-05
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii)
+  - 內容 Text: 猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。 我們今天介紹的研究（arXiv, 2026）用了電影評分網站 MovieLens 的資料。2023年…
+  - 為什麼 Why: Today's MovieLens episode has no Chinese Threads follow-up yet and is a personal, non-partisan topic, the notes ask for at most one zh follow-up per day with today's turn being a number-led first line (yesterday's was question-led), Instagram free posts stay paused until delivery is verified, and today's headlines are dominated by elections, tragedies and crime we won't use as hooks.
+  - 根據的集數 Based on: 20261105-you-know-what-you-will-like-people-predi
+- **短影音 Short** · [猜自己給幾顆星，你比演算法準？ / You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/gV6yitxMhIE)
+  - 論文 Paper: [You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems](https://arxiv.org/abs/2611.06696) (arXiv cs.HC)
+  - 為什麼 Why: Using real platform data, this study shows that people's own forecasts of how much they will like something beat recommender algorithms built on many users' behavior. It is a concrete, surprising everyday finding, and the method is easy to show visually: ask, compare to the algorithm, score.
+
 ## 2026-11-04
 
 - **短影音 Short** · [你問AI的問題，早就選好邊了？ / Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0)
