@@ -387,6 +387,8 @@ def _fmt(v: float) -> str:
 
 
 def v_bars(c: Canvas, sc, p, ctx):
+    # numbers show their final value at once (no counting up): the visual check samples frames mid-
+    # animation and reads a half-counted number as a wrong one
     rnd = random.Random(ctx["seed"])
     labels = sc.labels
     real = bool(sc.values)
@@ -408,7 +410,7 @@ def v_bars(c: Canvas, sc, p, ctx):
         ln = 40 + (VW - 300) * abs(v) / vmax * a
         c.line([(90, y + 30), (90 + ln, y + 30)], col, 34)
         if real and a > 0.05:
-            c.text((90 + ln + 34, y + 30), _fmt(v * a if a < 1 else v), "black", 40, col, anchor="lm")
+            c.text((90 + ln + 34, y + 30), _fmt(v), "black", 40, col, anchor="lm")
 
 
 def _series(sc, rnd, n=40):
@@ -718,7 +720,7 @@ def v_gauge(c: Canvas, sc, p, ctx):
     c.circle(cx, cy, 30 * a, fill=NAVY)
     c.circle(cx, cy, 12 * a, fill=CORAL)
     if real and k > 0:
-        c.text((cx, cy + 105), f"{round(share * 100 * k)}%", "black", 110, CORAL, anchor="mm")
+        c.text((cx, cy + 105), f"{round(share * 100)}%", "black", 110, CORAL, anchor="mm")
     elif sc.big_text:
         b = stage(p, 0.4, 0.2)
         f, lines = fit(sc.big_text, "black", VW - 100, [80, 68, 56], 1)
@@ -745,7 +747,7 @@ def v_counter(c: Canvas, sc, p, ctx):
     a = stage(p, 0.0, 0.15)
     if sc.values:
         v = sc.values[0]
-        shown = v if k >= 1 else v * k
+        shown = v
         text = f"{shown:,.0f}" if abs(v) >= 100 or float(v).is_integer() else f"{shown:.1f}"
         final = f"{v:,.0f}" if abs(v) >= 100 or float(v).is_integer() else f"{v:.1f}"
     else:
@@ -865,7 +867,7 @@ def v_experiment(c: Canvas, sc, p, ctx):
             h = 150 * abs(sc.values[side]) / vmax * k
             col = CORAL if side else NAVY
             c.rrect((x - 55, 770 - h, x + 55, 770), 14, fill=col + (255,))
-            c.text((x, 750 - h), _fmt(sc.values[side] * k if k < 1 else sc.values[side]), "black", 40, col, anchor="md")
+            c.text((x, 750 - h), _fmt(sc.values[side]), "black", 40, col, anchor="md")
     elif b > 0:
         c.text((VW / 2, 350), "vs", "black", 56, NAVY + (int(255 * b),), anchor="mm")
 
@@ -1045,7 +1047,7 @@ def v_race(c: Canvas, sc, p, ctx):
             f, lines = fit(labels[i], "bold", 360, [34, 30, 26], 1)
             c.text((x0 - 20, y - 100), lines[0], "bold", f.size, NAVY + (int(255 * a),), anchor="lt")
         if real and k > 0.02:
-            c.text((x + 56, y), _fmt(sc.values[i] * min(1, k * vmax / vals[i])), "black", 36, col, anchor="lm")
+            c.text((x + 56, y), _fmt(sc.values[i]), "black", 36, col, anchor="lm")
         if hot:
             b = stage(p, 0.72, 0.12)
             c.circle(x1 + 70, y, 42 * back((p - 0.72) / 0.12), fill=CORAL)
