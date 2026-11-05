@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-05
+
+- **短影音 Short** · [猜自己給幾顆星，你比演算法準？ / You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/gV6yitxMhIE)
+  - 論文 Paper: [You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems](https://arxiv.org/abs/2611.06696) (arXiv cs.HC)
+  - 為什麼 Why: Using real platform data, this study shows that people's own forecasts of how much they will like something beat recommender algorithms built on many users' behavior. It is a concrete, surprising everyday finding, and the method is easy to show visually: ask, compare to the algorithm, score.
+
 ## 2026-11-04
 
 - **短影音 Short** · [你問AI的問題，早就選好邊了？ / Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0)

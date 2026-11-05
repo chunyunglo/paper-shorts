@@ -3918,5 +3918,340 @@
       "region": "US",
       "link": "As ChatGPT is reported to be catching up with Google in search, this study shows that chatbot search can carry over selective exposure, because users' own beliefs shape the questions they ask."
     }
+  },
+  {
+    "episode": "20261105-you-know-what-you-will-like-people-predi",
+    "created": "2026-11-05T09:33:56+00:00",
+    "paper": {
+      "id": "arxiv:2611.06696",
+      "title": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+      "abstract": "Recommender systems usually learn what people want from what they have done. Platforms could also ask people directly, but asking is costly: 98.8% of the prompts in our data went unanswered. Theories of statistical prediction imply that a person's own forecast adds little to a recommender algorithm built from many people's behavior. Theories of dispersed knowledge imply that people hold information about their own taste that the data lack. We test the two with the MovieLens Beliefs dataset. In 2023-2024, a homepage prompt asked members how they expected to rate movies they said they had not seen. Of 26,020 such expectations, 551 from 277 members were followed by a rating at least a day later. We compare each expectation with four benchmarks: the platform's own predicted rating, two collaborative-filtering models (matrix factorization and an item neighborhood), and a stack trained on other members' outcomes. The trained models use each member's latest ratings. People predict their own ratings more accurately than all four benchmarks (correlation 0.69, against 0.34 for MovieLens and 0.54 to 0.59 for the trained recommenders). Added to all the machine forecasts and features, the expectation lowers out-of-sample mean squared error by 26%. The gain holds when models are trained on earlier expectations and tested on later ones. A member's earlier expectations about other movies do not replace the current one. In ordering a member's own movies, the trained recommenders are statistically indistinguishable from the person. On old, heavily rated movies, the machines do as well or better. The results reconcile the two theories: the crowd's data suffice where they are rich, and the person adds information about the specific item. We derive four design principles for preference elicitation and recommender evaluation.",
+      "authors": [
+        "Zihan Chen",
+        "Lei Nico Zheng",
+        "Di Zhu"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.06696",
+      "pdf_url": "https://arxiv.org/pdf/2611.06696v1",
+      "doi": null,
+      "published": "2026-11-04",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "猜自己給幾顆星，你比演算法準？",
+      "title_en": "You vs. the Algorithm: Who Knows Your Taste Better?",
+      "paper_title_zh": "你知道自己會喜歡什麼：人預測自己的評分比推薦系統更準",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "你vs演算法",
+          "heading_en": "YOU VS AI",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "你比演算法準？",
+          "big_text_en": "Beat the algorithm?",
+          "lines": [
+            {
+              "zh": "你比演算法更懂自己的口味嗎？",
+              "en": "Do you know your taste better than the algorithm?"
+            },
+            {
+              "zh": "答案有轉折，要看是哪種電影。",
+              "en": "There's a twist: it depends on the movie."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "史蒂文斯理工等美國團隊發表。",
+              "en": "By a Stevens Institute and UMass Boston team."
+            }
+          ]
+        },
+        {
+          "visual": "chat",
+          "heading_zh": "首頁問答",
+          "heading_en": "THE QUESTION",
+          "labels": [
+            "看過這部嗎？",
+            "沒看過",
+            "猜幾顆星？",
+            "大概4顆"
+          ],
+          "labels_en": [
+            "Seen this?",
+            "Not yet",
+            "How many stars?",
+            "Maybe 4"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "電影網站MovieLens問會員：",
+              "en": "The movie site MovieLens asked members:"
+            },
+            {
+              "zh": "沒看過這部？猜你會給幾顆星。",
+              "en": "Haven't seen it? Guess how many stars you'd give."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "兩萬多個猜測",
+            "551次真的評分"
+          ],
+          "labels_en": [
+            "26,020 guesses",
+            "551 rated later"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "兩萬多個猜測，551次後來真的有評分。",
+              "en": "Of about 26,000 guesses, 551 were later followed by a real rating."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "誰來比",
+          "heading_en": "CONTENDERS",
+          "labels": [
+            "會員的猜測",
+            "網站推薦",
+            "電腦演算法"
+          ],
+          "labels_en": [
+            "Your guess",
+            "Site's picks",
+            "Algorithms"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "拿去跟網站推薦和三千多萬筆評分練的演算法比。",
+              "en": "Researchers pitted them against the site's recommender and algorithms built on 33 million ratings."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "平均差幾顆星",
+          "heading_en": "STARS OFF",
+          "labels": [
+            "你自己猜",
+            "最強演算法",
+            "網站推薦"
+          ],
+          "labels_en": [
+            "Own guess",
+            "Best algorithm",
+            "Site's picks"
+          ],
+          "values": [
+            0.61,
+            0.72,
+            0.84
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果自己猜最準，平均只差0.6顆星。",
+              "en": "It turned out people's own guesses were best, off by just 0.6 stars."
+            }
+          ]
+        },
+        {
+          "visual": "predict",
+          "heading_zh": "加進去",
+          "heading_en": "COMBINED",
+          "labels": [
+            "電腦預測",
+            "你的猜測",
+            "之後的評分"
+          ],
+          "labels_en": [
+            "Computer pick",
+            "Your guess",
+            "Later rating"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "把猜測加進電腦預測，誤差少約四分之一。",
+              "en": "Adding your guess to the computer's forecast cut errors about a quarter."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "轉折",
+          "heading_en": "THE TWIST",
+          "labels": [
+            "冷門、少看的類型",
+            "很多人評過的老片"
+          ],
+          "labels_en": [
+            "Rare films",
+            "Popular classics"
+          ],
+          "values": [],
+          "big_text": "你贏 / 電腦追上",
+          "big_text_en": "You win / AI catches up",
+          "lines": [
+            {
+              "zh": "但很多人評過的老片，電腦一樣準。",
+              "en": "But on old, heavily rated films, computers did just as well."
+            },
+            {
+              "zh": "冷門片和少看的類型，你優勢最大。",
+              "en": "Your edge was biggest on rare films and genres you seldom rate."
+            },
+            {
+              "zh": "提醒：只來自一個影迷網站。",
+              "en": "One caveat: it's one site, full of movie fans."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "有些事只有你知道",
+          "big_text_en": "Some things only you know",
+          "lines": [
+            {
+              "zh": "你知道演算法不知道的事。",
+              "en": "You know something the algorithm doesn't."
+            },
+            {
+              "zh": "追蹤行為解碼，看更多研究。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "電影網站問會員：沒看過的片，你猜會給幾顆星？研究者把551次之後真的評分的猜測，拿去跟網站推薦系統和用三千多萬筆評分訓練的演算法比，結果自己猜得最準。不過在很多人評過的老片上，電腦一樣準。",
+      "description_en": "A movie site asked members how many stars they'd give films they hadn't seen. Comparing 551 guesses that were later followed by a real rating, people beat the site's recommender and algorithms trained on 33 million ratings. On old, heavily rated films, though, the computers kept up.",
+      "hashtags": [
+        "推薦系統",
+        "演算法",
+        "行為解碼",
+        "電影",
+        "MovieLens",
+        "RecommenderSystems",
+        "BehavioralScience"
+      ],
+      "method_summary": "The study uses the MovieLens Beliefs dataset. From March 2023 to May 2024, a homepage prompt asked members whether they had seen a movie and, if not, how they expected to rate it (half-star scale) and how sure they were. Of 3.0 million prompts, 98.8% went unanswered; 26,020 distinct guesses were collected, and 551 guesses from 277 members were followed by a rating at least one day later (excluding movies known to be seen before). Each guess was compared with MovieLens's own predicted rating, matrix factorization, an item-neighborhood model (both trained on up to 33 million earlier ratings and updated with the member's latest ratings), and a stacked model trained on other members' outcomes. Guesses correlated 0.69 with later ratings vs 0.34 for MovieLens and 0.54-0.59 for trained models; mean absolute error 0.61 stars vs at least 0.72 for machines and 0.84 for MovieLens. Adding the guess to all machine information cut out-of-sample mean squared error by 26%, also when trained on earlier and tested on later guesses. Summaries of earlier guesses did not replace the current one; certainty added little. In ordering a member's own movies, people got 72% right vs 56% for MovieLens and 64-67% for trained models (statistically indistinguishable from people). On old, heavily rated movies previously rated by members, machines matched or beat people. The person's edge was larger for rarely rated movies and unfamiliar genres.",
+      "limitations": "Only 551 guesses (2.1% of all) were followed by a rating, from enthusiast members of one non-commercial platform who chose to answer. Watching and rating were self-selected; reweighting assumes rating doesn't depend on the rating itself given observed variables. The guess's signal may partly reflect unrecorded earlier viewings, seeing predictions elsewhere, or asking drawing attention to the movie. It is an offline comparison, not an experiment showing that asking improves real recommendations. Benchmarks are standard collaborative filtering, not deep or language-model recommenders. In ordering, trained models tie people.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "movie",
+          "eye-x",
+          "star",
+          "star-half"
+        ],
+        [
+          "bubble-text",
+          "star"
+        ],
+        [
+          "user",
+          "device-desktop-star",
+          "robot"
+        ],
+        [
+          "user",
+          "robot",
+          "device-desktop-star"
+        ],
+        [
+          "robot",
+          "user",
+          "star"
+        ],
+        [
+          "diamond",
+          "movie"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 45.1,
+        "cover_offset_ms": 6331,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 52.21,
+        "cover_offset_ms": 6470,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "gV6yitxMhIE",
+          "url": "https://youtube.com/shorts/gV6yitxMhIE"
+        },
+        "instagram": {
+          "id": "18121212788070165",
+          "url": "https://www.instagram.com/reel/DfWuQxgGbw7/"
+        },
+        "threads": {
+          "id": "17879935653562185",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfWuVtuBYJe"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "3GkKhtr082Q",
+          "url": "https://youtube.com/shorts/3GkKhtr082Q"
+        },
+        "instagram": {
+          "id": "18125757340903975",
+          "url": "https://www.instagram.com/reel/DfWugEXH7oi/"
+        },
+        "threads": {
+          "id": "18120294569071959",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261105-you-know-what-you-will-like-people-predi",
+    "pick_reason": "Using real platform data, this study shows that people's own forecasts of how much they will like something beat recommender algorithms built on many users' behavior. It is a concrete, surprising everyday finding, and the method is easy to show visually: ask, compare to the algorithm, score."
   }
 ]
