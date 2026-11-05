@@ -5,6 +5,21 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-04
+
+- **短影音 Short** · [你問AI的問題，早就選好邊了？ / Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0)
+  - 論文 Paper: [Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI](https://arxiv.org/abs/2611.01153) (arXiv cs.HC)
+  - 為什麼 Why: This experiment with 563 Swiss citizens finds that people search for political information with AI chatbots in an attitude-consistent way, so critics of migration write slanted prompts. It is a concrete, relatable result about everyday AI use, and the method shows easily in a few steps: measure attitudes, have people prompt, code the prompt slant, compare. Signals: The notes suggest papers with personal stakes in everyday AI use and second-person hooks, so this fits a 'does the way you ask AI reveal your views?' opening, and it avoids the AI-at-work and deliberation topics already covered.
+  - 時事 News hook: OpenAI says ChatGPT is catching up to Google in search (The Verge). As ChatGPT is reported to be catching up with Google in search, this study shows that chatbot search can carry over selective exposure, because users' own beliefs shape the questions they ask.
+- **自由發文 Free post** · instagram/zh · follow_up · [link](https://www.instagram.com/p/DfUV_Wom92v/)
+  - 內容 Text: 你最喜歡的那張圖，你確定是人畫的嗎？ 一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測試」。11,123人判斷50張圖是人做的還是AI做的，再選出自己最喜歡的一張。50…
+  - 為什麼 Why: This week's Instagram slot is open, the AI-art short is by far our most-viewed Instagram post yet has no Instagram free post, and the notes ask us to keep publishing Instagram free posts to check whether their 0-view results are a delivery problem.
+  - 根據的集數 Based on: 20261031-beauty-is-human-when-people-love-ai-gene
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfUWAOom5hj)
+  - 內容 Text: 用AI寫的請願書，會不會讀起來都很像？ 我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它在2023年推出AI撰寫工具，研究者比較有工具可用和沒有工具時寫出的請願書。 摘要…
+  - 為什麼 Why: Today's headlines are dominated by partisan election results and tragedies we won't use as hooks, and the petition paper (everyday AI use, a topic the notes favour) never got the Chinese Threads design-and-finding follow-up that the notes found works best.
+  - 根據的集數 Based on: 20261025-petition-style-changes-with-ai-writing-s-r0206
+
 ## 2026-11-03
 
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_)
