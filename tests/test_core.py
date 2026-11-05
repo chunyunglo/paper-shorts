@@ -420,3 +420,43 @@ def test_failed_visual_check_fixes_the_text_once_then_stops(monkeypatch, tmp_pat
         pipeline.build("ep", paper, script, "", 0)
     assert len(calls["revise"]) == 1 and "heading cut off" in calls["revise"][0]
     assert calls["build"] == 2  # the first build and one retry, made with fix_visual=False
+
+
+def test_claude_cost_bills_cache_writes_at_a_quarter_more():
+    from types import SimpleNamespace
+    from shorts import llm
+
+    usage = SimpleNamespace(input_tokens=0, output_tokens=0,
+                            cache_creation_input_tokens=1_000_000, cache_read_input_tokens=0)
+    assert abs(llm.cost("claude-opus-5-5", usage) - 5.0) < 1e-9
+
+
+def test_paper_calls_share_system_and_a_cached_paper_first(monkeypatch):
+    from shorts import papers, script as sm
+
+    monkeypatch.setattr(papers, "_pdfs", {"https://x/p.pdf": b"%PDF-1.7 fake"})
+    monkeypatch.setattr(papers, "pdf_text", lambda data: "paper text " * 500)
+    seen = []
+
+    def fake_ask(schema, system, content, **kw):
+        seen.append((system, content[0], kw.get("effort")))
+        return sm.Check(problems=[])
+
+    monkeypatch.setattr(sm.llm, "ask", fake_ask)
+    paper = type("P", (), {"title": "t", "authors": [], "venue": "v", "published": "2026", "url": "u",
+                           "abstract": "a", "pdf_url": "https://x/p.pdf"})()
+    sm.paper_call(sm.Check, paper, sm.SYSTEM, "write")
+    sm.paper_call(sm.Check, paper, sm.CHECK_SYSTEM, "check")
+    (s1, d1, e1), (s2, d2, e2) = seen
+    assert s1 == s2 == sm.PAPER_SYSTEM and d1 == d2 and e1 == e2
+    assert d1["source"]["type"] == "text" and d1["cache_control"] == {"type": "ephemeral"}
+
+
+def test_pdf_text_is_capped_and_scans_fall_back_to_the_pdf(monkeypatch):
+    from shorts import papers
+
+    assert papers.pdf_text(b"not a pdf") == ""
+    monkeypatch.setattr(papers, "_pdfs", {"https://x/s.pdf": b"%PDF-1.7 scan"})
+    monkeypatch.setattr(papers, "pdf_text", lambda data: "")
+    doc = papers.pdf_doc("https://x/s.pdf")
+    assert doc["source"]["type"] == "base64" and doc["cache_control"]
