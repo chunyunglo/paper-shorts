@@ -359,7 +359,7 @@ def test_write_shortens_a_script_over_the_narration_budget(monkeypatch):
                               description_zh="d", description_en="d", hashtags=["a"],
                               method_summary="m", limitations="l")
 
-    monkeypatch.setattr(sm.llm, "ask", lambda *a, **k: draft(long_line))
+    monkeypatch.setattr(sm.llm, "ask", lambda *a, **k: sm.PaperOutput(script=draft(long_line)))
     asked = []
 
     def fake_revise(paper, script, feedback):
@@ -439,16 +439,16 @@ def test_paper_calls_share_system_and_a_cached_paper_first(monkeypatch):
     seen = []
 
     def fake_ask(schema, system, content, **kw):
-        seen.append((system, content[0], kw.get("effort")))
-        return sm.Check(problems=[])
+        seen.append((system, content[0], kw.get("effort"), schema))
+        return sm.PaperOutput(problems=[])
 
     monkeypatch.setattr(sm.llm, "ask", fake_ask)
     paper = type("P", (), {"title": "t", "authors": [], "venue": "v", "published": "2026", "url": "u",
                            "abstract": "a", "pdf_url": "https://x/p.pdf"})()
-    sm.paper_call(sm.Check, paper, sm.SYSTEM, "write")
-    sm.paper_call(sm.Check, paper, sm.CHECK_SYSTEM, "check")
-    (s1, d1, e1), (s2, d2, e2) = seen
-    assert s1 == s2 == sm.PAPER_SYSTEM and d1 == d2 and e1 == e2
+    sm.paper_call(paper, sm.SYSTEM, "write", needs_script=False)
+    sm.paper_call(paper, sm.CHECK_SYSTEM, "check", needs_script=False)
+    (s1, d1, e1, o1), (s2, d2, e2, o2) = seen
+    assert s1 == s2 == sm.PAPER_SYSTEM and d1 == d2 and e1 == e2 and o1 is o2 is sm.PaperOutput
     assert d1["source"]["type"] == "text" and d1["cache_control"] == {"type": "ephemeral"}
 
 
