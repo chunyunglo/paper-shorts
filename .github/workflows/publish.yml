@@ -78,6 +78,12 @@ jobs:
             echo "Today's review issue already exists; nothing to do."
             echo "SKIP=1" >> "$GITHUB_ENV"
           fi
+          # one try a day: a failed episode costs money, and the late backup crons would retry it
+          # with the same picks; a manual prepare (no auto) still runs
+          if [ -n "$(gh api "repos/$GITHUB_REPOSITORY/issues?state=all&since=$since&per_page=50" --jq ".[] | select(.pull_request == null and (.title | startswith(\"今天的短片沒有上\")) and .created_at >= \"$since\") | .number")" ]; then
+            echo "Today's episode already failed once; not trying again automatically."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
       - name: Load channel notes (analytics, viewer feedback)
         if: env.SKIP != '1'
         continue-on-error: true

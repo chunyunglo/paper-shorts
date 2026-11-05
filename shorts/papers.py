@@ -196,13 +196,63 @@ def attach_full_text(paper: Paper) -> bool:
     return False
 
 
+# A PDF sent as a file costs about 3,000 tokens a page (each page goes in as text and as an image),
+# so a long paper cost about US$1 a call. The extracted text of the main part costs a fraction of
+# that; the appendix and references past the cap are left out.
+MAX_PAPER_CHARS = 90_000   # about 25k tokens
+MAX_PDF_PAGES = 20         # when the text cannot be extracted and the PDF itself is sent
+
+
+def pdf_text(data: bytes) -> str:
+    """The paper's text, cut at MAX_PAPER_CHARS; empty if it cannot be extracted (a scan, a broken file)."""
+    try:
+        import io
+        from pypdf import PdfReader
+        reader = PdfReader(io.BytesIO(data))
+        parts, size = [], 0
+        for page in reader.pages:
+            t = re.sub(r"[ \t]+", " ", page.extract_text() or "").strip()
+            parts.append(t)
+            size += len(t)
+            if size >= MAX_PAPER_CHARS:
+                break
+        text = "\n\n".join(parts)[:MAX_PAPER_CHARS]
+    except Exception:
+        return ""
+    return text if len(text) >= 3000 else ""
+
+
+def first_pages(data: bytes, n: int = MAX_PDF_PAGES) -> bytes:
+    """The PDF cut to its first n pages; the file as it is if pypdf cannot read it."""
+    try:
+        import io
+        from pypdf import PdfReader, PdfWriter
+        reader = PdfReader(io.BytesIO(data))
+        if len(reader.pages) <= n:
+            return data
+        writer = PdfWriter()
+        for page in reader.pages[:n]:
+            writer.add_page(page)
+        out = io.BytesIO()
+        writer.write(out)
+        return out.getvalue()
+    except Exception:
+        return data
+
+
 def pdf_doc(url: str) -> dict:
-    """The paper as a document block for Claude: the downloaded file, so publisher sites that
-    block fetchers still work; the plain link only if the download failed."""
+    """The paper as a document block for Claude, marked for prompt caching (the same paper goes into
+    several calls in one run): its text when that can be extracted, else the downloaded file cut to its
+    first pages, so publisher sites that block fetchers still work; the plain link only if the download failed."""
+    cache = {"type": "ephemeral"}
     if data := pdf_bytes(url):
+        if text := pdf_text(data):
+            return {"type": "document", "source": {"type": "text", "media_type": "text/plain", "data": text},
+                    "title": "The paper (extracted text; figures and appendix left out)", "cache_control": cache}
         return {"type": "document", "source": {"type": "base64", "media_type": "application/pdf",
-                                               "data": base64.b64encode(data).decode()}}
-    return {"type": "document", "source": {"type": "url", "url": url}}
+                                               "data": base64.b64encode(first_pages(data)).decode()},
+                "cache_control": cache}
+    return {"type": "document", "source": {"type": "url", "url": url}, "cache_control": cache}
 
 
 def with_signals(reason: str, signals: str) -> str:
@@ -258,9 +308,10 @@ def pick(papers: list[Paper], history: list[dict], headlines: list[newsmod.Headl
     if not papers:
         raise SystemExit("No new candidate papers found")
     papers = papers[:220]
+    # the first 350 characters of each abstract are enough to choose by (700 made this call ~US$0.30)
     recent = [ep["paper"]["title"] for ep in history[-8:]]
     listing = "\n\n".join(
-        f"[{i}] {p.title}\nVenue: {p.venue} ({p.published})\nAbstract: {p.abstract[:700]}"
+        f"[{i}] {p.title}\nVenue: {p.venue} ({p.published})\nAbstract: {p.abstract[:350]}"
         for i, p in enumerate(papers)
     )
     prompt = (f"Recent episodes (avoid repeating these topics):\n- " + "\n- ".join(recent or ["(none yet)"])

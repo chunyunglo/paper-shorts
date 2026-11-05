@@ -19,9 +19,10 @@ _spent = {"calls": 0, "usd": 0.0}
 
 
 def cost(model: str, usage) -> float:
+    """Cache writes (5-minute) bill at 1.25x input, cache reads at the cache rate."""
     inp, out, cached = PRICES.get(model, PRICES["claude-opus-5-5"])
-    fresh = (usage.input_tokens or 0) + (getattr(usage, "cache_creation_input_tokens", 0) or 0)
-    return (fresh * inp + (usage.output_tokens or 0) * out
+    written = getattr(usage, "cache_creation_input_tokens", 0) or 0
+    return ((usage.input_tokens or 0) * inp + written * inp * 1.25 + (usage.output_tokens or 0) * out
             + (getattr(usage, "cache_read_input_tokens", 0) or 0) * cached) / 1e6
 
 
@@ -58,7 +59,10 @@ def ask(schema: type[T], system: str, content: list | str, *, effort: str = "hig
     _spent["calls"] += 1
     _spent["usd"] += usd
     # No summary line at exit: some workflows read the last line of output as the episode folder.
-    log(f"Claude call: {resp.usage.input_tokens} in, {resp.usage.output_tokens} out, about US${usd:.3f} "
+    u = resp.usage
+    cached = (f" (+{getattr(u, 'cache_read_input_tokens', 0) or 0} cached, "
+              f"{getattr(u, 'cache_creation_input_tokens', 0) or 0} cache write)")
+    log(f"Claude call: {u.input_tokens} in{cached}, {u.output_tokens} out, about US${usd:.3f} "
         f"(run so far: {_spent['calls']} calls, US${_spent['usd']:.2f})")
     if resp.stop_reason == "refusal":
         raise RuntimeError("Claude declined the request")
