@@ -1,2 +1,3 @@
 # Taiwan dates (YYYY-MM-DD) on which the scheduled prepare/publish runs do nothing.
 2026-10-25
+2026-11-05
