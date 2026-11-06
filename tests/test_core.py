@@ -460,3 +460,23 @@ def test_pdf_text_is_capped_and_scans_fall_back_to_the_pdf(monkeypatch):
     monkeypatch.setattr(papers, "pdf_text", lambda data: "")
     doc = papers.pdf_doc("https://x/s.pdf")
     assert doc["source"]["type"] == "base64" and doc["cache_control"]
+
+
+def test_pick_again_reuses_the_cached_listing(monkeypatch):
+    from shorts import papers
+
+    cands = [papers.Paper(id=str(i), title=f"t{i}", abstract="a", url="u", venue="v", source="arxiv")
+             for i in range(3)]
+    calls = []
+
+    def fake_ask(schema, system, content, **kw):
+        calls.append(content)
+        return schema(index=len(calls) - 1, reason="r", signals="", news_index=-1, news_link="")
+
+    monkeypatch.setattr(papers.llm, "ask", fake_ask)
+    monkeypatch.setattr(papers, "enrich", lambda p: p)
+    monkeypatch.setattr(papers, "attach_full_text", lambda p: p.id == "1")
+    paper, _, _ = papers.pick(cands, [])
+    assert paper.id == "1" and len(calls) == 2
+    assert calls[0][0] == calls[1][0] and calls[0][0]["cache_control"] == {"type": "ephemeral"}
+    assert "0" in calls[1][1]["text"]
