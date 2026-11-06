@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-06
+
+- **短影音 Short** · [熱浪來過，你會改投綠黨嗎？ / Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM)
+  - 論文 Paper: [Heterogeneous impacts of temperature extremes on climate attitudes and Green voting](https://www.pnas.org/doi/abs/10.1073/pnas.2321153122?af=R) (PNAS)
+  - 為什麼 Why: A peer-reviewed PNAS study links people's firsthand exposure to temperature extremes with their climate attitudes and Green Party voting, finding the effect differs across social groups; it is a causal-inference design on real political behavior that fits a clear 3-step visual (map the heat, match it to surveys and votes, compare groups). Signals: The notes favor non-AI, personal-stakes topics to separate topic from the AI theme, and several stronger-looking candidates were set aside: some lack open full text and one appears to be a research briefing rather than a primary article.
+
 ## 2026-11-05
 
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii)

@@ -4253,5 +4253,338 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261105-you-know-what-you-will-like-people-predi",
     "pick_reason": "Using real platform data, this study shows that people's own forecasts of how much they will like something beat recommender algorithms built on many users' behavior. It is a concrete, surprising everyday finding, and the method is easy to show visually: ask, compare to the algorithm, score."
+  },
+  {
+    "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+    "created": "2026-11-06T06:18:40+00:00",
+    "paper": {
+      "id": "doi:10.1073/pnas.2321153122",
+      "title": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+      "abstract": "Proceedings of the National Academy of Sciences, Volume 123, Issue 44, November 2026. SignificanceFirsthand encounters with temperature extremes resulting from climate change not only influence attitudes toward climate issues but also foster backing of political parties that advocate environmental policies. Social groups that initially ...",
+      "authors": [
+        "Jacopo Bassetto",
+        "Roman Hoffmann",
+        "Raya Muttarak",
+        "Jonas Peisker",
+        "Piero Stanig"
+      ],
+      "venue": "PNAS",
+      "url": "https://www.pnas.org/doi/abs/10.1073/pnas.2321153122?af=R",
+      "pdf_url": "https://pure.iiasa.ac.at/id/eprint/22027/1/bassetto-et-al-2026-heterogeneous-impacts-of-temperature-extremes-on-climate-attitudes-and-green-voting.pdf",
+      "doi": "10.1073/pnas.2321153122",
+      "published": "2026-10-26",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "熱浪來過，你會改投綠黨嗎？",
+      "title_en": "Could a Heat Wave Change Your Vote?",
+      "paper_title_zh": "極端高溫對氣候態度與綠黨投票的異質影響",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "熱浪與選票",
+          "heading_en": "HEAT & VOTES",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "熱浪改選票？",
+          "big_text_en": "Heat waves sway votes?",
+          "lines": [
+            {
+              "zh": "熱浪來過，你會改投別黨嗎？",
+              "en": "Could a heat wave change your vote?"
+            },
+            {
+              "zh": "最意外的，是誰被改變最多。",
+              "en": "The surprise is who changes most."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究來源",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "PNAS期刊"
+          ],
+          "labels_en": [
+            "PNAS journal"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "義大利和奧地利學者，發表在PNAS。",
+              "en": "Researchers in Italy and Austria, published in PNAS."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "受訪的歐洲人"
+          ],
+          "labels_en": [
+            "Europeans"
+          ],
+          "values": [
+            151366.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們分析歐洲25國、15萬多人的問卷。",
+              "en": "They used surveys of over 150,000 people in 25 European countries."
+            },
+            {
+              "zh": "問大家擔不擔心氣候，上次投給誰。",
+              "en": "Do you worry about climate change? Who did you vote for?"
+            }
+          ]
+        },
+        {
+          "visual": "geo",
+          "heading_zh": "高溫紀錄",
+          "heading_en": "HEAT RECORDS",
+          "labels": [
+            "居住地區",
+            "異常高溫"
+          ],
+          "labels_en": [
+            "Home region",
+            "Unusual heat"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再查每人所在地區的異常高溫：",
+              "en": "Then they checked unusual heat in each person's region:"
+            },
+            {
+              "zh": "投票前一年、或受訪前一年熱了幾天、多熱。",
+              "en": "Extra-hot days and how hot, in the year before voting or the survey."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "怎麼比",
+          "heading_en": "THE TEST",
+          "labels": [
+            "熱浪多的年",
+            "熱浪少的年"
+          ],
+          "labels_en": [
+            "Hotter year",
+            "Milder year"
+          ],
+          "values": [],
+          "big_text": "同一個地方",
+          "big_text_en": "Same place",
+          "lines": [
+            {
+              "zh": "比較同一地方，熱浪多和少的年份。",
+              "en": "They compared the same place in hotter and milder years."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "熱浪",
+            "擔心氣候",
+            "綠黨與盟友"
+          ],
+          "labels_en": [
+            "Heat wave",
+            "Climate worry",
+            "Green & allies"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果熱浪越多，人越擔心氣候，",
+              "en": "It turned out: more heat waves, more climate worry,"
+            },
+            {
+              "zh": "綠黨和盟友得票變多，可能來自原本投別黨的人。",
+              "en": "and more votes for Greens and their allies, likely from other parties."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "誰變最多",
+          "heading_en": "WHO CHANGED",
+          "labels": [
+            "低學歷男性",
+            "高學歷的人"
+          ],
+          "labels_en": [
+            "Men, less ed",
+            "More educated"
+          ],
+          "values": [],
+          "big_text": "差距縮小",
+          "big_text_en": "The gap shrank",
+          "lines": [
+            {
+              "zh": "原本最不在乎的低學歷男性，",
+              "en": "The group that cared least, men with less education,"
+            },
+            {
+              "zh": "被熱浪改變最多，差距縮小。",
+              "en": "changed the most, narrowing the gap."
+            }
+          ]
+        },
+        {
+          "visual": "balance",
+          "heading_zh": "但是",
+          "heading_en": "THE CATCH",
+          "labels": [
+            "經濟壓力",
+            "氣候擔憂"
+          ],
+          "labels_en": [
+            "Money worries",
+            "Climate worry"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但在較窮、排碳多的地區，效果小很多。",
+              "en": "But in poorer or more polluting regions, it was much weaker."
+            },
+            {
+              "zh": "誰變得多只是觀察，不算證明。",
+              "en": "Who changed most is a pattern, not proof of cause."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "親身熱過，想法會變",
+          "big_text_en": "Feel the heat, minds shift",
+          "lines": [
+            {
+              "zh": "親身熱過，連不在乎的人也會動搖。",
+              "en": "Feeling the heat can move even people who didn't care."
+            },
+            {
+              "zh": "追蹤行為解碼，看更多研究。",
+              "en": "Follow for more studies like this."
+            }
+          ]
+        }
+      ],
+      "description_zh": "熱浪會不會改變你的選票？一篇PNAS研究把歐洲25國、超過15萬人的問卷，對上每個人所在地區在投票或受訪前一年的異常高溫紀錄。結果高溫越多，人越擔心氣候，綠黨和盟友也得到更多選票，而原本最不關心的低學歷男性變得最多。不過在較窮或排碳較多的地區，效果小很多。",
+      "description_en": "Can a heat wave change how you vote? A PNAS study matched surveys of over 150,000 people in 25 European countries with unusual heat in each person's region in the year before they voted or were surveyed. More heat meant more climate worry and more votes for Green parties and their allies, and the least concerned group, men with less education, shifted the most. In poorer or more polluting regions, the effect was much weaker.",
+      "hashtags": [
+        "行為解碼",
+        "氣候變遷",
+        "熱浪",
+        "選舉",
+        "ClimateChange",
+        "HeatWave",
+        "GreenVoting",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "The authors used five rounds of the European Social Survey (2012-2022), covering 151,366 respondents in 25 European countries, of whom 72% voted in the last national election. Outcomes: being very/extremely worried about climate change, feeling personally responsible (score above 7 of 10), and voting for a Green party or a party in a pre-election coalition with Greens. Using ERA5-Land weather data aggregated to each respondent's NUTS region, they defined warm spells as 3+ consecutive days with daily mean temperature above the 95th percentile for that region and calendar week over the previous 10 years, then measured the number of warm-spell days and excess degrees averaged over 4, 52 or 104 weeks before the interview (attitudes) or election (votes). Two-way fixed effects models (region, country-year) compare the same region at different times. Over 52 weeks, one extra degree of excess heat raised worry by 4.0 pp, responsibility by 2.5 pp and Green voting by 2.8 pp. Turnout did not change, suggesting voters switched from other parties. Effects were stronger for low-educated men, who started lowest and converged toward other groups; also for rural and older people. Effects were smaller in regions with low GDP, high unemployment, or above-median emissions. Robustness checks and a 300-time random reassignment placebo (centered on zero) support the results.",
+      "limitations": "Only the average effects of heat are given a causal interpretation; all differences between groups (education, gender, urban/rural, region wealth, emissions) are descriptive, since those traits are not randomly assigned. Votes are self-reported and may suffer recall bias. The study gives reduced-form estimates and does not test mechanisms such as psychology, media, or peers. The one-year-lead placebo showed similar-size opposite-sign coefficients, explained by measure construction. Data cover Europe 2012-2022 only, and effects are modest percentage-point shifts.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "map-pin",
+          "temperature-sun"
+        ],
+        [
+          "sun-high",
+          "sun-low"
+        ],
+        [
+          "temperature-plus",
+          "mood-nervous",
+          "leaf"
+        ],
+        [
+          "man",
+          "school"
+        ],
+        [
+          "coins",
+          "mood-nervous"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 53.33,
+        "cover_offset_ms": 6310,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 52.87,
+        "cover_offset_ms": 5364,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "AwrHfLLPPuM",
+          "url": "https://youtube.com/shorts/AwrHfLLPPuM"
+        },
+        "instagram": {
+          "id": "17935985028410704",
+          "url": "https://www.instagram.com/reel/DfZdNtOAvU0/"
+        },
+        "threads": {
+          "id": "17921313273463329",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfZdTDgqW8s"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "dSoqOfinKmw",
+          "url": "https://youtube.com/shorts/dSoqOfinKmw"
+        },
+        "instagram": {
+          "id": "18104521880379997",
+          "url": "https://www.instagram.com/reel/DfZdavEnJQD/"
+        },
+        "threads": {
+          "id": "18117627680592656",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfZdfkMhlFs"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261106-heterogeneous-impacts-of-temperature-ext",
+    "pick_reason": "A peer-reviewed PNAS study links people's firsthand exposure to temperature extremes with their climate attitudes and Green Party voting, finding the effect differs across social groups; it is a causal-inference design on real political behavior that fits a clear 3-step visual (map the heat, match it to surveys and votes, compare groups). Signals: The notes favor non-AI, personal-stakes topics to separate topic from the AI theme, and several stronger-looking candidates were set aside: some lack open full text and one appears to be a research briefing rather than a primary article."
   }
 ]
