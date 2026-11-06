@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-05T08:22:10+00:00",
+ "collected_at": "2026-11-06T08:25:16+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 659,
-   "videoCount": 25
+   "viewCount": 694,
+   "videoCount": 28
   }
  },
  "notes": [],
@@ -320,7 +320,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 3,
+    "views": 4,
     "likes": 0,
     "comments": 0,
     "duration": "PT54S",
@@ -368,7 +368,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 110,
+    "views": 111,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
@@ -586,7 +586,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 33,
+    "views": 34,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -838,7 +838,7 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 15,
+    "views": 16,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1046,7 +1046,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 108,
+    "views": 109,
     "likes": 0,
     "comments": 0,
     "duration": "PT48S",
@@ -1172,15 +1172,15 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 15,
+    "views": 21,
     "likes": 0,
     "comments": 0,
     "duration": "PT50S",
     "privacy": "public",
     "published": "2026-11-02T11:05:57Z",
     "estimatedMinutesWatched": 5,
-    "averageViewDuration": 53,
-    "averageViewPercentage": 106.76,
+    "averageViewDuration": 36,
+    "averageViewPercentage": 73.98,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1216,7 +1216,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 8,
+    "views": 10,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1298,15 +1298,15 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 21,
+    "views": 44,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
     "published": "2026-11-02T20:38:11Z",
-    "estimatedMinutesWatched": 5,
-    "averageViewDuration": 32,
-    "averageViewPercentage": 62.57,
+    "estimatedMinutesWatched": 8,
+    "averageViewDuration": 27,
+    "averageViewPercentage": 53.68999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1342,7 +1342,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 2,
+    "views": 3,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1361,7 +1361,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 4,
+    "views": 7,
     "likes": 0,
     "comments": 0,
     "duration": "PT55S",
@@ -1369,7 +1369,7 @@
     "published": "2026-11-02T20:39:51Z",
     "estimatedMinutesWatched": 0,
     "averageViewDuration": 4,
-    "averageViewPercentage": 8.87,
+    "averageViewPercentage": 8.25,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1424,8 +1424,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 13,
-    "likes": 0,
+    "views": 34,
+    "likes": 1,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
@@ -1443,8 +1443,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 10,
-    "reach": 9,
+    "views": 14,
+    "reach": 13,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1463,7 +1463,7 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 11,
+    "views": 13,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1482,7 +1482,7 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 10,
+    "views": 13,
     "likes": 0,
     "comments": 1,
     "duration": "PT49S",
@@ -1501,8 +1501,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 5,
-    "reach": 5,
+    "views": 16,
+    "reach": 15,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1522,6 +1522,122 @@
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
     "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "gV6yitxMhIE",
+   "url": "https://youtube.com/shorts/gV6yitxMhIE",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 16,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-05T09:35:48Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18121212788070165",
+   "url": "https://www.instagram.com/reel/DfWuQxgGbw7/",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 112,
+    "reach": 100,
+    "likes": 0,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17879935653562185",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfWuVtuBYJe",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "3GkKhtr082Q",
+   "url": "https://youtube.com/shorts/3GkKhtr082Q",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT53S",
+    "privacy": "public",
+    "published": "2026-11-05T09:37:28Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18125757340903975",
+   "url": "https://www.instagram.com/reel/DfWugEXH7oi/",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 109,
+    "reach": 93,
+    "likes": 0,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261105-you-know-what-you-will-like-people-predi",
+   "title": "You vs. the Algorithm: Who Knows Your Taste Better?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18120294569071959",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah",
+   "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
+   "created": "2026-11-05T09:33:56+00:00",
+   "metrics": {
+    "views": 9,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1873,6 +1989,25 @@
    "created": "2026-11-04T11:24:30+00:00",
    "metrics": {
     "views": 19,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-17",
+   "title": "猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。\n\n我們今天介紹的研究",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18080018480727193",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii",
+   "paper": "20261105-you-know-what-you-will-like-people-predi",
+   "created": "2026-11-05T11:22:23+00:00",
+   "metrics": {
+    "views": 24,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
