@@ -327,7 +327,11 @@ def pick(papers: list[Paper], history: list[dict], headlines: list[newsmod.Headl
     for _ in range(6):
         note = ("" if not skipped else "\n\nThese candidates have no open full text, do not pick them: "
                 + ", ".join(map(str, sorted(skipped))))
-        choice = llm.ask(Pick, PICK_SYSTEM, prompt + note, effort="medium")
+        # the listing is cached: a pick with no open full text means asking again with the same list
+        content = [{"type": "text", "text": prompt, "cache_control": {"type": "ephemeral"}}]
+        if note:
+            content.append({"type": "text", "text": note.strip()})
+        choice = llm.ask(Pick, PICK_SYSTEM, content, effort="medium")
         if not 0 <= choice.index < len(papers) or choice.index in skipped:
             skipped.add(choice.index)
             continue
