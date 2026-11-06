@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-06
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu)
+  - 內容 Text: 過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？ 我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,366位受訪者，再對上每人所在地區的氣溫紀錄，比較同一地區在不同時間的差別。 過去52…
+  - 為什麼 Why: The heat-and-voting paper is today's newest episode, it is a non-AI personal topic as the notes suggest mixing in, and it gets the single daily Chinese Threads follow-up with a question-led first line (yesterday was number-led), while today's election, market-crash and storm headlines are avoided as hooks and Instagram free posts stay paused per the notes.
+  - 根據的集數 Based on: 20261106-heterogeneous-impacts-of-temperature-ext
 - **短影音 Short** · [熱浪來過，你會改投綠黨嗎？ / Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM)
   - 論文 Paper: [Heterogeneous impacts of temperature extremes on climate attitudes and Green voting](https://www.pnas.org/doi/abs/10.1073/pnas.2321153122?af=R) (PNAS)
   - 為什麼 Why: A peer-reviewed PNAS study links people's firsthand exposure to temperature extremes with their climate attitudes and Green Party voting, finding the effect differs across social groups; it is a causal-inference design on real political behavior that fits a clear 3-step visual (map the heat, match it to surveys and votes, compare groups). Signals: The notes favor non-AI, personal-stakes topics to separate topic from the AI theme, and several stronger-looking candidates were set aside: some lack open full text and one appears to be a research briefing rather than a primary article.

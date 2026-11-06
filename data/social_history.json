@@ -249,5 +249,19 @@
     "why": "Today's MovieLens episode has no Chinese Threads follow-up yet and is a personal, non-partisan topic, the notes ask for at most one zh follow-up per day with today's turn being a number-led first line (yesterday's was question-led), Instagram free posts stay paused until delivery is verified, and today's headlines are dominated by elections, tragedies and crime we won't use as hooks.",
     "id": "18080018480727193",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii"
+  },
+  {
+    "posted": "2026-11-06T11:18:34+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261106-heterogeneous-impacts-of-temperature-ext"
+    ],
+    "text": "過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？\n\n我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,366位受訪者，再對上每人所在地區的氣溫紀錄，比較同一地區在不同時間的差別。\n\n過去52週每多1度「超額高溫」：\n・非常擔心氣候變遷的比例高4.0個百分點\n・投給綠黨（或與綠黨結盟政黨）的比例高2.8個百分點\n・投票率沒變，研究者推測是選民從其他政黨轉過來\n\n要注意：\n・幅度不大\n・只有平均效果被當成因果；不同族群的差異只是描述\n・投票是自己回報，只涵蓋歐洲\n\n你覺得天氣會悄悄影響你的看法嗎？\nhttps://www.pnas.org/doi/abs/10.1073/pnas.2321153122",
+    "news": null,
+    "why": "The heat-and-voting paper is today's newest episode, it is a non-AI personal topic as the notes suggest mixing in, and it gets the single daily Chinese Threads follow-up with a question-led first line (yesterday was number-led), while today's election, market-crash and storm headlines are avoided as hooks and Instagram free posts stay paused per the notes.",
+    "id": "18442417315183900",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu"
   }
 ]
