@@ -105,15 +105,21 @@ def views(r: dict) -> int:
     return int(m.get("views") or m.get("reach") or 0)
 
 
-def summary(report: dict, top: int = 5) -> str:
-    """Plain-text digest for prompts and for the owner."""
+KIND_ZH = {"short": "短片", "podcast": "Podcast", "social": "免費貼文"}
+
+
+def summary(report: dict, top: int = 5, zh: bool = False) -> str:
+    """Plain-text digest for prompts (English) and for the owner's weekly email (zh=True)."""
     rows = report.get("posts", [])
-    out = [f"Collected {report.get('collected_at', '?')}"]
+    out = [f"{'資料時間' if zh else 'Collected'} {report.get('collected_at', '?')}"]
     if ch := report.get("channel", {}).get("youtube"):
-        out.append(f"YouTube channel: {ch['subscriberCount']} subscribers, {ch['viewCount']} total views, "
+        out.append(f"YouTube 頻道：{ch['subscriberCount']} 位訂閱、總觀看 {ch['viewCount']} 次、{ch['videoCount']} 支影片"
+                   if zh else f"YouTube channel: {ch['subscriberCount']} subscribers, {ch['viewCount']} total views, "
                    f"{ch['videoCount']} videos")
-    out += [f"Note: {n}" for n in report.get("notes", [])]
-    out.append("Note: every short and talk show has one comment from us (the paper citation), and our replies "
+    out += [f"{'備註' if zh else 'Note'}: {n}" for n in report.get("notes", [])]
+    out.append("備註：每支短片和 Podcast 都有一則我們自己留的論文出處留言，回覆觀眾也算在內，所以留言數比觀眾實際留言多；"
+               "按讚數也可能包含我們自己。" if zh else
+               "Note: every short and talk show has one comment from us (the paper citation), and our replies "
                "to viewers count too, so comment counts overstate viewer comments; likes may include our own.")
     for kind in ("short", "podcast", "social"):
         for platform in ("youtube", "instagram", "threads"):
@@ -122,19 +128,27 @@ def summary(report: dict, top: int = 5) -> str:
                 continue
             rs.sort(key=views, reverse=True)
             avg = sum(map(views, rs)) / len(rs)
-            out.append(f"\n{kind} on {platform}: {len(rs)} posts, average {avg:.0f} views")
+            out.append(f"\n{platform} {KIND_ZH[kind]}：{len(rs)} 則，平均 {avg:.0f} 次觀看" if zh else
+                       f"\n{kind} on {platform}: {len(rs)} posts, average {avg:.0f} views")
             by_lang: dict[str, list[int]] = {}
             for r in rs:
                 by_lang.setdefault(r["lang"], []).append(views(r))
             if len(by_lang) > 1:
-                out.append("  by language: " + ", ".join(f"{l} {sum(v) / len(v):.0f}" for l, v in by_lang.items()))
+                out.append(("  各語言平均：" if zh else "  by language: ")
+                           + ", ".join(f"{l} {sum(v) / len(v):.0f}" for l, v in by_lang.items()))
             pick = rs[:top] + [r for r in rs[-3:] if r not in rs[:top]]
             for r in pick:
                 m = r["metrics"]
                 extra = ""
+                comments = m.get('comments', m.get('replies', 0))
+                if zh:
+                    if "averageViewPercentage" in m:
+                        extra = f"、平均看完 {m['averageViewPercentage']:.0f}%、+{m.get('subscribersGained', 0)} 訂閱"
+                    out.append(f"  - {views(r)} 次觀看、{m.get('likes', 0)} 讚、{comments} 留言{extra} | {r['lang']} | {r['title']}")
+                    continue
                 if "averageViewPercentage" in m:
                     extra = f", avg watched {m['averageViewPercentage']:.0f}%, +{m.get('subscribersGained', 0)} subs"
-                out.append(f"  - {views(r)} views, {m.get('likes', 0)} likes, {m.get('comments', m.get('replies', 0))} "
+                out.append(f"  - {views(r)} views, {m.get('likes', 0)} likes, {comments} "
                            f"comments{extra} | {r['lang']} | {r['title']}")
     return "\n".join(out)
 
@@ -171,7 +185,9 @@ and its weekly English late-night-style talk show "Behavior Decoded Tonight" (ho
 plus free posts between episodes (Threads text, Instagram slides; "social" in the numbers). \
 Read the channel numbers and write short, practical guidance for the next episodes. Be honest about \
 small samples: with a handful of posts, say so rather than inventing trends. Never suggest \
-clickbait that misstates a paper, and never suggest changing the scientific content to chase views."""
+clickbait that misstates a paper, and never suggest changing the scientific content to chase views. \
+Write every field in Traditional Chinese as used in Taiwan (the owner reads it); keep post titles, \
+platform names and numbers as they are."""
 
 
 def write_strategy(report: dict) -> str:
@@ -182,8 +198,8 @@ def write_strategy(report: dict) -> str:
         prompt += "\n\nThis week's self-review of our past decisions (build on it):\n<lessons>\n" + lessons + "\n</lessons>"
     s = llm.ask(Strategy, STRATEGY_SYSTEM, prompt, effort="medium", max_tokens=4000)
     return ("\n".join(f"- {o}" for o in s.observations)
-            + f"\n\n**Shorts:** {s.shorts_advice}\n\n**Podcast:** {s.podcast_advice}"
-            + (f"\n\n**Free posts:** {s.social_advice}" if s.social_advice.strip() else "")
+            + f"\n\n**短片：** {s.shorts_advice}\n\n**Podcast：** {s.podcast_advice}"
+            + (f"\n\n**免費貼文：** {s.social_advice}" if s.social_advice.strip() else "")
             + f"\n\n_{s.caveat}_")
 
 
@@ -206,6 +222,16 @@ def guidance() -> str:
     return "\n\n".join(parts)
 
 
+def zh_labels(note: str) -> str:
+    """Chinese headings for a note written before the weekly report switched to Chinese."""
+    for en, zh in (("**Shorts:**", "**短片：**"), ("**Podcast:**", "**Podcast：**"), ("**Free posts:**", "**免費貼文：**"),
+                   ("**Did past strategy pay off?**", "**過去的策略有用嗎？**"), ("**Lessons:**", "**檢討心得：**"),
+                   ("**Retired (numbers no longer support):**", "**不再採用（數據已不支持）：**"),
+                   ("**Try next:**", "**接下來試試：**"), ("Written ", "撰寫於 ")):
+        note = note.replace(en, zh)
+    return note
+
+
 def weekly_email(report: dict, strategy: str, lessons: str) -> bool:
     """The owner's weekly letter: the self-review, the new strategy and the numbers, by private email."""
     from . import notify
@@ -213,12 +239,11 @@ def weekly_email(report: dict, strategy: str, lessons: str) -> bool:
     day = report.get("collected_at", "")[:10]
     url = f"https://github.com/{config.GITHUB_REPO}/blob/state/analytics/report.md"
     body = "\n\n".join([
-        f"行為解碼 每週檢討與策略 Weekly review and strategy, {day}",
-        "== 自我檢討 Self-review (past decisions vs. results) ==\n\n" + (lessons or "(還沒有：貼文太新，無法評估)"),
-        "== 經營策略 Strategy ==\n\n" + (strategy or "(none yet)"),
-        "== 數據摘要 Numbers ==\n\n" + summary(report),
-        f"完整報告 Full report: {url}\n決策紀錄 Decision log: https://github.com/{config.GITHUB_REPO}"
-        "/blob/main/data/decisions.md"])
+        f"行為解碼 每週檢討與策略 {day}",
+        "== 自我檢討（過去的決定 vs. 結果）==\n\n" + (zh_labels(lessons) or "（還沒有：貼文太新，無法評估）"),
+        "== 經營策略 ==\n\n" + (zh_labels(strategy) or "（還沒有）"),
+        "== 數據摘要 ==\n\n" + summary(report, zh=True),
+        f"完整報告：{url}\n決策紀錄：https://github.com/{config.GITHUB_REPO}/blob/main/data/decisions.md"])
     ok = notify.email(f"[行為解碼] 每週檢討與策略 {day}", body)
     log("Weekly report emailed" if ok else "Weekly report not emailed (check the ALERT_EMAIL_* secrets)")
     return ok

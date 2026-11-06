@@ -82,7 +82,7 @@ def test_retrospect_writes_lessons_and_keeps_a_log(tmp_path, monkeypatch):
     memory.retrospect()
     assert "AI chatbots" in seen["prompt"] and "AI-in-school topics travel" in seen["prompt"]  # sees last lessons
     lessons = memory.lessons()
-    assert lessons.startswith("Written ") and "Retired" in lessons and "Try a question hook" in lessons
+    assert lessons.startswith("Written ") and "不再採用" in lessons and "Try a question hook" in lessons
     assert memory.LESSONS_LOG.read_text().count("## ") == 2
     assert "Lessons from our weekly self-review" in analytics.guidance()
 
@@ -96,5 +96,5 @@ def test_weekly_email_has_review_strategy_and_numbers(tmp_path, monkeypatch):
         {"kind": "short", "platform": "youtube", "lang": "zh", "title": "t", "metrics": {"views": 5}}]}
     assert analytics.weekly_email(report, "Lead with the finding.", "- [topic, low, new] AI topics travel")
     assert "2026-11-03" in sent["title"]
-    for part in ("AI topics travel", "Lead with the finding.", "short on youtube", "report.md"):
+    for part in ("AI topics travel", "Lead with the finding.", "youtube 短片", "自我檢討", "report.md"):
         assert part in sent["body"]
