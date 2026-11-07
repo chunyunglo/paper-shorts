@@ -5,6 +5,13 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-07
+
+- **自由發文 Free post** · threads/zh · roundup · [link](https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69)
+  - 內容 Text: 本週介紹的6篇研究，每篇一個重點： 1️⃣ 討論前先跟AI聊7分鐘（arXiv）：立場不同的小組，討論品質提升最明顯（d=0.38）。 2️⃣ 動態照時間排（arXiv）：模擬中能讓同溫層變弱。但這是模擬，不是真實平台實驗。 3️⃣ 看醫生…
+  - 為什麼 Why: It has been a week since the last roundup and six new episodes came out, none of today's headlines can be linked responsibly (they are mostly partisan election news, crime or conflict), and the notes cap Threads at one Chinese post per day while keeping Instagram free posts paused until delivery is verified.
+  - 根據的集數 Based on: 20261101-improving-group-deliberation-through-ai, 20261102-counterfactual-assessment-of-social-medi, 20261102-a-prospective-randomized-study-of-patien, 20261104-discussing-politics-with-a-chatbot-how-p, 20261105-you-know-what-you-will-like-people-predi, 20261106-heterogeneous-impacts-of-temperature-ext
+
 ## 2026-11-06
 
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu)
