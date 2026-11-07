@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-06T08:25:16+00:00",
+ "collected_at": "2026-11-07T07:41:37+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 694,
-   "videoCount": 28
+   "viewCount": 764,
+   "videoCount": 30
   }
  },
  "notes": [],
@@ -146,7 +146,7 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 5,
+    "views": 6,
     "likes": 0,
     "comments": 0,
     "duration": "PT45S",
@@ -494,7 +494,7 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 20,
+    "views": 21,
     "likes": 0,
     "comments": 0,
     "duration": "PT51S",
@@ -668,7 +668,7 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 56,
+    "views": 55,
     "likes": 1,
     "comments": 0,
     "duration": "PT58S",
@@ -794,15 +794,15 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 23,
+    "views": 24,
     "likes": 0,
     "comments": 0,
     "duration": "PT57S",
     "privacy": "public",
     "published": "2026-10-30T11:04:10Z",
     "estimatedMinutesWatched": 1,
-    "averageViewDuration": 9,
-    "averageViewPercentage": 16.54,
+    "averageViewDuration": 8,
+    "averageViewPercentage": 14.89,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -920,7 +920,7 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 62,
+    "views": 60,
     "likes": 0,
     "comments": 0,
     "duration": "PT56S",
@@ -1046,7 +1046,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 109,
+    "views": 108,
     "likes": 0,
     "comments": 0,
     "duration": "PT48S",
@@ -1298,7 +1298,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 44,
+    "views": 51,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
@@ -1306,7 +1306,7 @@
     "published": "2026-11-02T20:38:11Z",
     "estimatedMinutesWatched": 8,
     "averageViewDuration": 27,
-    "averageViewPercentage": 53.68999999999999,
+    "averageViewPercentage": 52.03,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1424,12 +1424,17 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 34,
-    "likes": 1,
-    "comments": 1,
+    "views": 14,
+    "likes": 0,
+    "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-11-04T18:28:13Z"
+    "published": "2026-11-04T18:28:13Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 38.28,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1463,7 +1468,7 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1484,10 +1489,15 @@
    "metrics": {
     "views": 13,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT49S",
     "privacy": "public",
-    "published": "2026-11-04T18:29:51Z"
+    "published": "2026-11-04T18:29:51Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 29.799999999999997,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1540,7 +1550,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 16,
+    "views": 24,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
@@ -1560,7 +1570,7 @@
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
     "views": 112,
-    "reach": 100,
+    "reach": 101,
     "likes": 0,
     "comments": 1,
     "saved": 1,
@@ -1579,7 +1589,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 12,
+    "views": 15,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1598,7 +1608,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 0,
+    "views": 1,
     "likes": 0,
     "comments": 1,
     "duration": "PT53S",
@@ -1637,7 +1647,123 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 9,
+    "views": 10,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "AwrHfLLPPuM",
+   "url": "https://youtube.com/shorts/AwrHfLLPPuM",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 25,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT54S",
+    "privacy": "public",
+    "published": "2026-11-06T11:04:21Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17935985028410704",
+   "url": "https://www.instagram.com/reel/DfZdNtOAvU0/",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 40,
+    "reach": 40,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17921313273463329",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfZdTDgqW8s",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "dSoqOfinKmw",
+   "url": "https://youtube.com/shorts/dSoqOfinKmw",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT53S",
+    "privacy": "public",
+    "published": "2026-11-06T11:06:18Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18104521880379997",
+   "url": "https://www.instagram.com/reel/DfZdavEnJQD/",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 82,
+    "reach": 65,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "title": "Could a Heat Wave Change Your Vote?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18117627680592656",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfZdfkMhlFs",
+   "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
+   "created": "2026-11-06T06:18:40+00:00",
+   "metrics": {
+    "views": 0,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1656,7 +1782,7 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 7,
+    "views": 3,
     "likes": 1,
     "comments": 0,
     "duration": "PT7M4S",
@@ -2007,7 +2133,26 @@
    "paper": "20261105-you-know-what-you-will-like-people-predi",
    "created": "2026-11-05T11:22:23+00:00",
    "metrics": {
-    "views": 24,
+    "views": 25,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-18",
+   "title": "過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？\n\n我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18442417315183900",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu",
+   "paper": "20261106-heterogeneous-impacts-of-temperature-ext",
+   "created": "2026-11-06T11:18:34+00:00",
+   "metrics": {
+    "views": 21,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
