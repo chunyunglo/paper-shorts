@@ -97,5 +97,14 @@ def fit(text: str, weight: str, max_w: int, sizes: list[int], max_lines: int):
         if len(lines) <= max_lines:
             nicer = clause_wrap(text, f, max_w)
             return f, nicer if nicer and len(nicer) <= max_lines else lines
+    # Nothing fit: shrink further (down to 70% of the smallest size) before cutting text with "…",
+    # since a clipped headline fails the visual check and costs a full re-render.
+    s = sizes[-1]
+    while s > sizes[-1] * 0.7:
+        s -= 2
+        f = font(weight, s)
+        lines = wrap(text, f, max_w, max_lines=99)
+        if len(lines) <= max_lines:
+            return f, lines
     f = font(weight, sizes[-1])
     return f, wrap(text, f, max_w, max_lines)
