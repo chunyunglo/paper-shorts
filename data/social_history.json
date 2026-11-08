@@ -282,5 +282,19 @@
     "why": "It has been a week since the last roundup and six new episodes came out, none of today's headlines can be linked responsibly (they are mostly partisan election news, crime or conflict), and the notes cap Threads at one Chinese post per day while keeping Instagram free posts paused until delivery is verified.",
     "id": "17959550781291926",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69"
+  },
+  {
+    "posted": "2026-11-08T10:40:18+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261107-priced-in-or-bet-on-cram-school-lessons"
+    ],
+    "text": "同一個首爾學區裡，附近500公尺有50家考試補習班的公寓社區，比只有6家（中位數）的社區，售價約高11.8%。\n\n我們昨天介紹的研究（arXiv, 2026）分析了2015到2026年10月首爾約220萬筆公寓買賣和「全租」紀錄。全租是一次付一大筆押金的租約。研究比較的是同一個國中學區、同一個月的房子。\n\n幾個發現：\n・50家對比6家：售價約高11.8%，全租押金約高7.3%；再把社區規模固定，分別約5.6%和5.9%\n・給年紀較小孩子的補習班，在考試補習班之外沒有額外的售價溢價\n・補習班多寡沒有改變全租押金對房價的比例，所以這筆溢價看起來比較像在付「現在住這裡的方便」，不像押注未來會漲\n\n要注意：這是不同社區之間的比較，屬於相關。研究沒有追蹤「補習班開了之後房價怎麼變」，而補習班本來就會開在需求高的地方。\n\n住在補習街附近，對你來說值多少？",
+    "news": null,
+    "why": "The Seoul cram-school paper is our newest episode and has no Chinese follow-up yet; it is a non-AI money-and-housing topic the notes ask us to mix in, the notes call for a number-led first line after recent question-led ones and cap Threads at one zh post per day, Instagram stays paused until delivery is checked, yesterday's roundup already covered the week, and today's headlines are mostly partisan, crime or disaster stories we won't use as hooks.",
+    "id": "18155475550546383",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfekEaOHECS"
   }
 ]
