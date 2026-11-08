@@ -38,13 +38,23 @@ def _wait(check, service: str, timeout: int = 900) -> None:
     raise ApiError(service, "media processing", None, "timeout")
 
 
-def ig_publish_reel(video_url: str, caption: str, thumb_offset_ms: int) -> tuple[str, str]:
+def ig_publish_reel(video_url: str, caption: str, thumb_offset_ms: int, retry_wait: int = 60) -> tuple[str, str]:
     uid = config.require("IG_USER_ID")
-    container = ig("POST", f"{uid}/media", "create reel container", media_type="REELS",
-                   video_url=video_url, caption=caption, share_to_feed="true",
-                   thumb_offset=str(thumb_offset_ms))["id"]
-    _wait(lambda: ig("GET", container, "container status", fields="status_code").get("status_code"),
-          "instagram")
+    for attempt in (1, 2):
+        container = ig("POST", f"{uid}/media", "create reel container", media_type="REELS",
+                       video_url=video_url, caption=caption, share_to_feed="true",
+                       thumb_offset=str(thumb_offset_ms))["id"]
+        try:
+            _wait(lambda: ig("GET", container, "container status", fields="status_code").get("status_code"),
+                  "instagram")
+            break
+        except ApiError as exc:
+            # Instagram now and then fails to process a video it takes fine a few minutes later
+            # (11-08); nothing is posted yet, so a fresh container is safe to try once
+            if attempt == 2 or exc.code != "ERROR":
+                raise
+            log("Instagram could not process the reel; trying once more with a new upload")
+            time.sleep(retry_wait)
     media_id = ig("POST", f"{uid}/media_publish", "publish reel", creation_id=container)["id"]
     link = ig("GET", media_id, "permalink", fields="permalink").get("permalink", "")
     log(f"Instagram: published reel {media_id}")
