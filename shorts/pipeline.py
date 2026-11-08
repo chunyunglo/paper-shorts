@@ -111,7 +111,7 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
                 "The rendered video failed a visual check. Fix only these on-screen problems, changing nothing "
                 "else in the story or the facts. When text is cut off or wraps, make that heading, label, big "
                 "text or title much shorter (an English heading of 1-3 short words; big text that fits one "
-                "line) in every language, keeping its meaning:\n- " + "\n- ".join(problems)))
+                "line) in every language, keeping its meaning:\n- " + "\n- ".join(problems)), with_paper=False)
             return build(ep_id, paper, script, reason, preview_every, news, fix_visual=False)
         if problems:
             (out / "visual_problems.txt").write_text("\n".join(problems) + "\n", encoding="utf-8")

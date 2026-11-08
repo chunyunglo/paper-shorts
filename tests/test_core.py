@@ -412,13 +412,13 @@ def test_failed_visual_check_fixes_the_text_once_then_stops(monkeypatch, tmp_pat
     monkeypatch.setenv("ANTHROPIC_API_KEY", "x")
     monkeypatch.setattr(look, "check", lambda *a, **k: ["frame 3: heading cut off"])
     script = types.SimpleNamespace(icons=[1], scenes=[1], model_dump=lambda: {})
-    monkeypatch.setattr(scriptmod, "revise", lambda p, s, fb: (calls["revise"].append(fb) or s, ""))
+    monkeypatch.setattr(scriptmod, "revise", lambda p, s, fb, with_paper=True: (calls["revise"].append((fb, with_paper)) or s, ""))
     paper = types.SimpleNamespace(model_dump=lambda: {})
 
     import pytest
     with pytest.raises(SystemExit):
         pipeline.build("ep", paper, script, "", 0)
-    assert len(calls["revise"]) == 1 and "heading cut off" in calls["revise"][0]
+    assert len(calls["revise"]) == 1 and "heading cut off" in calls["revise"][0][0] and calls["revise"][0][1] is False
     assert calls["build"] == 2  # the first build and one retry, made with fix_visual=False
 
 

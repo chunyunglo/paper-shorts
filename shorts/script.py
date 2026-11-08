@@ -223,9 +223,9 @@ class PaperOutput(BaseModel):
                                 "or when not fact-checking")
 
 
-def paper_call(paper: Paper, task: str, text: str, *, needs_script: bool) -> PaperOutput:
+def paper_call(paper: Paper, task: str, text: str, *, needs_script: bool, with_paper: bool = True) -> PaperOutput:
     """One call about the paper: [paper document (cached)] + [task instructions + text]."""
-    content: list = [papers.pdf_doc(paper.pdf_url)] if paper.pdf_url else []
+    content: list = [papers.pdf_doc(paper.pdf_url)] if paper.pdf_url and with_paper else []
     content.append({"type": "text", "text": "<task>\n" + task + "\n</task>\n\n" + text})
     out = llm.ask(PaperOutput, PAPER_SYSTEM, content, effort="high")
     if needs_script and out.script is None:
@@ -378,13 +378,15 @@ and which visual each scene uses); if the feedback is about something else (voic
 the fixed end card), say so in changes_zh."""
 
 
-def revise(paper: Paper, script: Script, feedback: str) -> tuple[Script, str]:
+def revise(paper: Paper, script: Script, feedback: str, with_paper: bool = True) -> tuple[Script, str]:
+    """with_paper=False: an edit that needs only the script (shortening on-screen text). It comes after
+    the voiceover and render, when the cached paper has expired, so leaving it out saves a cache write."""
     meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
             f"Abstract:\n{paper.abstract}")
     current = script.model_dump(exclude={"pt"})
     text = (meta + "\n\nCurrent script (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
             "\n\nOwner feedback:\n<feedback>" + feedback + "</feedback>\n\nReturn the revised script.")
-    rev = paper_call(paper, REVISE_SYSTEM, text, needs_script=True)
+    rev = paper_call(paper, REVISE_SYSTEM, text, needs_script=True, with_paper=with_paper)
     new = Script(**rev.script.model_dump())
     validate(new)
     new.pt = translate_pt(new, feedback) if script.pt else None
