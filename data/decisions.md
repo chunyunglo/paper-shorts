@@ -5,8 +5,22 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-07
+
+- **自由發文 Free post** · threads/zh · roundup · [link](https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69)
+  - 內容 Text: 本週介紹的6篇研究，每篇一個重點： 1️⃣ 討論前先跟AI聊7分鐘（arXiv）：立場不同的小組，討論品質提升最明顯（d=0.38）。 2️⃣ 動態照時間排（arXiv）：模擬中能讓同溫層變弱。但這是模擬，不是真實平台實驗。 3️⃣ 看醫生…
+  - 為什麼 Why: It has been a week since the last roundup and six new episodes came out, none of today's headlines can be linked responsibly (they are mostly partisan election news, crime or conflict), and the notes cap Threads at one Chinese post per day while keeping Instagram free posts paused until delivery is verified.
+  - 根據的集數 Based on: 20261101-improving-group-deliberation-through-ai, 20261102-counterfactual-assessment-of-social-medi, 20261102-a-prospective-randomized-study-of-patien, 20261104-discussing-politics-with-a-chatbot-how-p, 20261105-you-know-what-you-will-like-people-predi, 20261106-heterogeneous-impacts-of-temperature-ext
+- **短影音 Short** · [住補習街旁，你多付的房價買到什麼？ / Near Cram Schools: Paying for Now or Betting on Later?](https://youtube.com/shorts/2EEhYenOyx4)
+  - 論文 Paper: [Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul](https://arxiv.org/abs/2611.05767) (arXiv econ.GN)
+  - 為什麼 Why: The study uses about 2.2 million Seoul apartment sales and jeonse lease contracts to ask how much families pay to live near cram schools, and whether that premium partly reflects a bet on future price gains. It is a large-scale, map-friendly analysis of a real money decision, and Taiwanese viewers know the cram-school pressure well. Signals: Recent episodes and nearby candidates lean heavily on AI and chatbots, and the notes suggest mixing in non-AI personal-stakes topics like money, so this housing-and-education paper won over the strong AI-conspiracy-dialogue study.
+
 ## 2026-11-06
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu)
+  - 內容 Text: 過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？ 我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,366位受訪者，再對上每人所在地區的氣溫紀錄，比較同一地區在不同時間的差別。 過去52…
+  - 為什麼 Why: The heat-and-voting paper is today's newest episode, it is a non-AI personal topic as the notes suggest mixing in, and it gets the single daily Chinese Threads follow-up with a question-led first line (yesterday was number-led), while today's election, market-crash and storm headlines are avoided as hooks and Instagram free posts stay paused per the notes.
+  - 根據的集數 Based on: 20261106-heterogeneous-impacts-of-temperature-ext
 - **短影音 Short** · [熱浪來過，你會改投綠黨嗎？ / Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM)
   - 論文 Paper: [Heterogeneous impacts of temperature extremes on climate attitudes and Green voting](https://www.pnas.org/doi/abs/10.1073/pnas.2321153122?af=R) (PNAS)
   - 為什麼 Why: A peer-reviewed PNAS study links people's firsthand exposure to temperature extremes with their climate attitudes and Green Party voting, finding the effect differs across social groups; it is a causal-inference design on real political behavior that fits a clear 3-step visual (map the heat, match it to surveys and votes, compare groups). Signals: The notes favor non-AI, personal-stakes topics to separate topic from the AI theme, and several stronger-looking candidates were set aside: some lack open full text and one appears to be a research briefing rather than a primary article.

@@ -249,5 +249,38 @@
     "why": "Today's MovieLens episode has no Chinese Threads follow-up yet and is a personal, non-partisan topic, the notes ask for at most one zh follow-up per day with today's turn being a number-led first line (yesterday's was question-led), Instagram free posts stay paused until delivery is verified, and today's headlines are dominated by elections, tragedies and crime we won't use as hooks.",
     "id": "18080018480727193",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii"
+  },
+  {
+    "posted": "2026-11-06T11:18:34+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261106-heterogeneous-impacts-of-temperature-ext"
+    ],
+    "text": "過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？\n\n我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,366位受訪者，再對上每人所在地區的氣溫紀錄，比較同一地區在不同時間的差別。\n\n過去52週每多1度「超額高溫」：\n・非常擔心氣候變遷的比例高4.0個百分點\n・投給綠黨（或與綠黨結盟政黨）的比例高2.8個百分點\n・投票率沒變，研究者推測是選民從其他政黨轉過來\n\n要注意：\n・幅度不大\n・只有平均效果被當成因果；不同族群的差異只是描述\n・投票是自己回報，只涵蓋歐洲\n\n你覺得天氣會悄悄影響你的看法嗎？\nhttps://www.pnas.org/doi/abs/10.1073/pnas.2321153122",
+    "news": null,
+    "why": "The heat-and-voting paper is today's newest episode, it is a non-AI personal topic as the notes suggest mixing in, and it gets the single daily Chinese Threads follow-up with a question-led first line (yesterday was number-led), while today's election, market-crash and storm headlines are avoided as hooks and Instagram free posts stay paused per the notes.",
+    "id": "18442417315183900",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu"
+  },
+  {
+    "posted": "2026-11-07T10:33:20+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "roundup",
+    "episodes": [
+      "20261101-improving-group-deliberation-through-ai",
+      "20261102-counterfactual-assessment-of-social-medi",
+      "20261102-a-prospective-randomized-study-of-patien",
+      "20261104-discussing-politics-with-a-chatbot-how-p",
+      "20261105-you-know-what-you-will-like-people-predi",
+      "20261106-heterogeneous-impacts-of-temperature-ext"
+    ],
+    "text": "本週介紹的6篇研究，每篇一個重點：\n\n1️⃣ 討論前先跟AI聊7分鐘（arXiv）：立場不同的小組，討論品質提升最明顯（d=0.38）。\n\n2️⃣ 動態照時間排（arXiv）：模擬中能讓同溫層變弱。但這是模擬，不是真實平台實驗。\n\n3️⃣ 看醫生前問AI（arXiv）：用準備助理的人73.8%覺得有準備，一般聊天機器人是57.0%。14天後的追蹤沒有顯著差異。\n\n4️⃣ 你問AI的問題（arXiv）：對移民看法越負面的人，寫給AI的提問也越常偏負面。這是相關，不是因果。\n\n5️⃣ 猜自己給電影幾顆星（arXiv）：人的猜測和實際評分相關0.69，網站預測只有0.34。\n\n6️⃣ 熱浪與投票（PNAS）：過去52週每多1度超額高溫，投給綠黨陣營的比例高2.8個百分點。\n\n你最想多聽哪一篇？論文出處都在我們的影片裡。",
+    "news": null,
+    "why": "It has been a week since the last roundup and six new episodes came out, none of today's headlines can be linked responsibly (they are mostly partisan election news, crime or conflict), and the notes cap Threads at one Chinese post per day while keeping Instagram free posts paused until delivery is verified.",
+    "id": "17959550781291926",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69"
   }
 ]

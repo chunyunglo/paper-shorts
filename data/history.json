@@ -4586,5 +4586,337 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261106-heterogeneous-impacts-of-temperature-ext",
     "pick_reason": "A peer-reviewed PNAS study links people's firsthand exposure to temperature extremes with their climate attitudes and Green Party voting, finding the effect differs across social groups; it is a causal-inference design on real political behavior that fits a clear 3-step visual (map the heat, match it to surveys and votes, compare groups). Signals: The notes favor non-AI, personal-stakes topics to separate topic from the AI theme, and several stronger-looking candidates were set aside: some lack open full text and one appears to be a research briefing rather than a primary article."
+  },
+  {
+    "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+    "created": "2026-11-07T06:12:21+00:00",
+    "paper": {
+      "id": "arxiv:2611.05767",
+      "title": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+      "abstract": "South Korean families spend heavily on hagwons, private cram schools that prepare students for the university entrance exam. This paper asks what access to them is worth in housing and whether the premium includes expected appreciation. Using 2,197,510 Seoul apartment sales and jeonse (lump-sum deposit lease) contracts from 2015 to 2026, located with a new business-address geocoder, the analysis compares flats within the same middle-school assignment zone and month. Flats near hagwons preparing high-school students for the exam sell and lease for more: moving from the median complex to the 97th percentile of such hagwons within 500 meters is associated with sale prices 11.8% and jeonse deposits 7.3% higher, or 5.6% and 5.9% with complex size held fixed. Hagwons teaching younger children add no sale premium once these are held fixed. A larger premium in deposits than in prices across complexes reflects convenience: buyers pay less than renters to live near shops and services, above all repair and personal services. For the same flat type, complex and month, hagwon access produces no detectable change in the jeonse-to-price ratio, although the test detects the reconstruction value of old buildings; nearby shops raise it. Hagwon access is thus capitalized in proportion into prices and deposits, as expected of a current-flow amenity without extra expected appreciation. New tenants pay no lasting premium over renewing tenants, and deposits did not respond to major education-policy announcements. The housing premium is a cost of the education race that measures of tutoring spending omit.",
+      "authors": [
+        "Samiha Tariq"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.05767",
+      "pdf_url": "https://arxiv.org/pdf/2611.05767v1",
+      "doi": null,
+      "published": "2026-11-04",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "住補習街旁，你多付的房價買到什麼？",
+      "title_en": "Near Cram Schools: Paying for Now or Betting on Later?",
+      "paper_title_zh": "已計入價格還是押注未來？首爾補習班、全租租約與預期增值",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "補習與房價",
+          "heading_en": "THE PRICE TAG",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "補習街多付多少？",
+          "big_text_en": "Pay more near cram schools?",
+          "lines": [
+            {
+              "zh": "住補習街旁，房價要多付多少？",
+              "en": "Living near cram schools: how much extra do you pay?"
+            },
+            {
+              "zh": "這筆錢是買現在，還是賭未來？",
+              "en": "Is that money for now, or a bet on later?"
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究來源",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "Samiha Tariq",
+            "南伊利諾大學",
+            "arXiv 2026"
+          ],
+          "labels_en": [
+            "Samiha Tariq",
+            "S. Illinois U.",
+            "arXiv 2026"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "南伊利諾大學博士生的新論文",
+              "en": "A new paper by a Southern Illinois University PhD student."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "筆買賣與租約"
+          ],
+          "labels_en": [
+            "sales & leases"
+          ],
+          "values": [
+            2197510.0
+          ],
+          "big_text": "約220萬筆",
+          "big_text_en": "2.2 million",
+          "lines": [
+            {
+              "zh": "她分析首爾約220萬筆買賣和租約",
+              "en": "She analyzed about 2.2 million Seoul home sales and leases."
+            },
+            {
+              "zh": "全租是押一大筆錢、免付月租",
+              "en": "Many were jeonse: a huge deposit, no rent."
+            }
+          ]
+        },
+        {
+          "visual": "geo",
+          "heading_zh": "數補習班",
+          "heading_en": "COUNTING",
+          "labels": [
+            "公寓社區",
+            "升學補習班"
+          ],
+          "labels_en": [
+            "Apartments",
+            "Exam schools"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再數每個社區500公尺內的升學補習班",
+              "en": "Then she counted exam-prep cram schools within 500 meters of each complex."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "公平比較",
+          "heading_en": "FAIR TEST",
+          "labels": [
+            "公寓",
+            "國中學區",
+            "補習班"
+          ],
+          "labels_en": [
+            "Apartment",
+            "School zone",
+            "Cram school"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "好學校也推高房價，所以只比同學區",
+              "en": "Good public schools raise prices too, so she compared only same-zone homes."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "買房價格",
+            "全租押金"
+          ],
+          "labels_en": [
+            "Sale price",
+            "Jeonse deposit"
+          ],
+          "values": [
+            5.6,
+            5.9
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "一般社區附近6家，多的有50家",
+              "en": "A typical complex has 6 nearby; some have 50."
+            },
+            {
+              "zh": "同樣大小的社區，房價押金都高約6%",
+              "en": "At equal size, those sell and lease for about 6% more."
+            }
+          ]
+        },
+        {
+          "visual": "balance",
+          "heading_zh": "關鍵測試",
+          "heading_en": "THE TWIST",
+          "labels": [
+            "買價",
+            "全租押金"
+          ],
+          "labels_en": [
+            "Sale price",
+            "Deposit"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "若買家賭漲價，買價會比押金漲更多",
+              "en": "If buyers bet on gains, prices would outpace deposits."
+            },
+            {
+              "zh": "結果同社區同大小，兩邊多出的比例看不出差別",
+              "en": "For the same flat, the extra share was about equal in both."
+            },
+            {
+              "zh": "這比較像付現在的便利，但仍可能有部分賭漲價",
+              "en": "That fits paying for use now, but a partial bet isn't ruled out."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "注意",
+          "heading_en": "CAVEAT",
+          "labels": [
+            "補習班",
+            "重視教育家庭"
+          ],
+          "labels_en": [
+            "Cram school",
+            "Keen families"
+          ],
+          "values": [],
+          "big_text": "同時出現≠造成",
+          "big_text_en": "Together isn't cause",
+          "lines": [
+            {
+              "zh": "但不是因果：補習班本就開在需求高處",
+              "en": "But it's not proof: cram schools open where demand is high."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "補習的代價也藏在房價裡",
+          "big_text_en": "Tutoring's hidden cost: housing",
+          "lines": [
+            {
+              "zh": "升學代價不只補習費，還有房價",
+              "en": "The exam race costs tuition and housing."
+            },
+            {
+              "zh": "追蹤行為解碼",
+              "en": "Follow Behavior Decoded."
+            }
+          ]
+        }
+      ],
+      "description_zh": "住在補習街旁要多付多少房價？一篇新研究分析首爾約220萬筆公寓買賣和「全租」租約，只比較同一國中學區、同一個月的房子。附近升學補習班多的社區，房價和押金都比較高；而且同一社區同大小的房子，買價和押金多出的比例看不出差別，比較像是付現在的補習便利，但也不能完全排除有一部分是押注未來漲價。這是相關不是因果，補習班本來就開在需求高的地方。",
+      "description_en": "How much more do families pay to live near Seoul's cram schools? A new study of about 2.2 million apartment sales and jeonse deposit leases compares homes in the same school zone and month. Homes near many exam-prep cram schools sell and lease for more, and for the same flat the extra is about the same share of price and deposit, with no detectable difference. That fits paying for using them now, though some bet on future gains can't be ruled out. It's an association, not proof that cram schools raise prices.",
+      "hashtags": [
+        "行為解碼",
+        "補習班",
+        "首爾房價",
+        "全租",
+        "BehaviorDecoded",
+        "Hagwon",
+        "SeoulHousing",
+        "EducationCosts"
+      ],
+      "method_summary": "The paper uses 2,197,510 brokered Seoul apartment sales (771,489) and jeonse lump-sum deposit leases (1,426,021) from MOLIT records, 2015 to October 2026, covering 93.2% of such contracts in 8,427 complexes. Because official geocoders need Korean ID verification, complexes were located from coordinates of businesses registered at their addresses. Hagwon access is the count within 500 m: academic cram hagwons in the December 2018 SEMAS business register, and the 2026 NEIS official registry split by text cues into high-school/exam hagwons and those for younger children. Hedonic regressions compare flats within the same middle-school assignment zone and month. Moving from the median complex (6 exam hagwons) to 50 (about the 97th percentile) is associated with 11.8% higher sale prices and 7.3% higher deposits, or 5.6% and 5.9% with complex size held fixed. Hagwons for younger children add no sale premium given exam hagwons. A cross-complex larger deposit premium reflects commercial convenience (renters pay more, buyers less, to live near shops and personal services). In 222,400 cells of the same complex, flat size and month, hagwon access does not change the jeonse-to-price ratio (coefficient 0.002, 95% CI -0.020 to 0.024), while the test detects ~30% lower ratios for 30+-year buildings with reconstruction value. So the premium looks like a current-use amenity, not expected appreciation. New tenants pay no lasting entry fee, and deposits did not respond to 2019, 2023 and 2024 education-policy news.",
+      "limitations": "Level premia are associations conditional on school zone, flat traits and commercial density, not causal effects of opening a hagwon; hagwons locate where demand is high and sorting on unobserved neighborhood traits remains possible, especially as school zones are large. Hagwon counts are from 2018 and 2026, not predetermined, and the registry has survivorship. Locations come from business addresses, some approximate. The grade split relies on text cues and correlated counts (0.85). A zero ratio response could also reflect offsetting forces. The paper does not estimate effects on fertility or school outcomes.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "home-dollar"
+        ],
+        [
+          "building",
+          "school"
+        ],
+        [
+          "building",
+          "map-pin",
+          "school"
+        ],
+        [
+          "home-dollar",
+          "pig-money"
+        ],
+        [
+          "home-dollar",
+          "pig-money"
+        ],
+        [
+          "school",
+          "users-group"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 52.68,
+        "cover_offset_ms": 6931,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 59.0,
+        "cover_offset_ms": 7825,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "2EEhYenOyx4",
+          "url": "https://youtube.com/shorts/2EEhYenOyx4"
+        },
+        "instagram": {
+          "id": "18000807092823327",
+          "url": "https://www.instagram.com/reel/DfcB9MEjykm/"
+        },
+        "threads": {
+          "id": "18115909568600618",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfcCEwsTmgD"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "jUkMRmeQZaQ",
+          "url": "https://youtube.com/shorts/jUkMRmeQZaQ"
+        },
+        "instagram": {
+          "id": "17935949262147863",
+          "url": "https://www.instagram.com/reel/DfcCR1-HNIH/"
+        },
+        "threads": {
+          "id": "18067091630524825",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfcCYxrPOWR"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261107-priced-in-or-bet-on-cram-school-lessons",
+    "pick_reason": "The study uses about 2.2 million Seoul apartment sales and jeonse lease contracts to ask how much families pay to live near cram schools, and whether that premium partly reflects a bet on future price gains. It is a large-scale, map-friendly analysis of a real money decision, and Taiwanese viewers know the cram-school pressure well. Signals: Recent episodes and nearby candidates lean heavily on AI and chatbots, and the notes suggest mixing in non-AI personal-stakes topics like money, so this housing-and-education paper won over the strong AI-conspiracy-dialogue study."
   }
 ]
