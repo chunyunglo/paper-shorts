@@ -5,6 +5,16 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-08
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfekEaOHECS)
+  - 內容 Text: 同一個首爾學區裡，附近500公尺有50家考試補習班的公寓社區，比只有6家（中位數）的社區，售價約高11.8%。 我們昨天介紹的研究（arXiv, 2026）分析了2015到2026年10月首爾約220萬筆公寓買賣和「全租」紀錄。全租是一次付…
+  - 為什麼 Why: The Seoul cram-school paper is our newest episode and has no Chinese follow-up yet; it is a non-AI money-and-housing topic the notes ask us to mix in, the notes call for a number-led first line after recent question-led ones and cap Threads at one zh post per day, Instagram stays paused until delivery is checked, yesterday's roundup already covered the week, and today's headlines are mostly partisan, crime or disaster stories we won't use as hooks.
+  - 根據的集數 Based on: 20261107-priced-in-or-bet-on-cram-school-lessons
+- **短影音 Short** · [明明很擠，你為什麼還搭那班車？ / It's Packed. Why Do You Still Take That Train?](https://youtube.com/shorts/FzQa6ofOyII)
+  - 論文 Paper: [Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo](https://arxiv.org/abs/2611.02592) (arXiv econ.GN)
+  - 為什麼 Why: This paper uses observed train choices on a Tokyo commuter line and a population-game model to show how much commuters trade off delay, travel time and crowding. It is an everyday, non-AI behavior question that is computational and easy to show in steps: choices lead to crowding, which feeds back into choices, and the model recovers preferences from that loop. Signals: Notes suggest mixing in non-AI personal-stakes topics to break the run of AI-themed picks, and the strongest AI candidates sit too close to recent homework, AI-at-work and social-media-intervention episodes.
+
 ## 2026-11-07
 
 - **自由發文 Free post** · threads/zh · roundup · [link](https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69)

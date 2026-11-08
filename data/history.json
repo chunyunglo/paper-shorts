@@ -4918,5 +4918,333 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261107-priced-in-or-bet-on-cram-school-lessons",
     "pick_reason": "The study uses about 2.2 million Seoul apartment sales and jeonse lease contracts to ask how much families pay to live near cram schools, and whether that premium partly reflects a bet on future price gains. It is a large-scale, map-friendly analysis of a real money decision, and Taiwanese viewers know the cram-school pressure well. Signals: Recent episodes and nearby candidates lean heavily on AI and chatbots, and the notes suggest mixing in non-AI personal-stakes topics like money, so this housing-and-education paper won over the strong AI-conspiracy-dialogue study."
+  },
+  {
+    "episode": "20261108-estimating-rail-commuter-preferences-und",
+    "created": "2026-11-08T06:21:18+00:00",
+    "paper": {
+      "id": "arxiv:2611.02592",
+      "title": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+      "abstract": "We estimate commuters' preferences over schedule delay, travel time, and crowding from observed train choices on a commuter rail line in Tokyo. Because crowding is itself an outcome of these choices, we model train choice as a game in which train choices and crowding are jointly determined, and estimate the preferences by maximum likelihood using the closed-form stationary distribution of the game. Using individual-level data from Japan's 2015 Public Transport Survey for Metropolitan Areas matched with train timetables, we construct desired arrival times from reported work start times rather than inferring them from observed arrival times. We find that schedule delay costs are large relative to crowding costs. One minute of schedule delay early and late corresponds to 0.39 and 0.49 minutes of in-vehicle travel time, respectively, whereas one minute of travel at a crowding rate of 100% adds a cost equivalent to 0.04 minutes. The estimated crowding cost is, however, sensitive to the specification of desired arrival times. These results suggest that scheduling constraints are central to evaluating policies to reduce peak-hour crowding.",
+      "authors": [
+        "Shota Fujishima",
+        "Ryosuke Matsumoto"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.02592",
+      "pdf_url": "https://arxiv.org/pdf/2611.02592v1",
+      "doi": null,
+      "published": "2026-11-02",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "明明很擠，你為什麼還搭那班車？",
+      "title_en": "It's Packed. Why Do You Still Take That Train?",
+      "paper_title_zh": "內生擁擠下的鐵路通勤偏好估計：以族群賽局分析東京列車選擇",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "通勤之謎",
+          "heading_en": "THE PUZZLE",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "寧擠也要準時",
+          "big_text_en": "Packed, but on time",
+          "lines": [
+            {
+              "zh": "明明很擠，你為什麼還搭那班車？",
+              "en": "The train's packed. Why do you still take it?"
+            },
+            {
+              "zh": "東京研究算了筆帳，答案在最後。",
+              "en": "A Tokyo study did the math. The answer's at the end."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "一橋大學",
+            "arXiv 2026"
+          ],
+          "labels_en": [
+            "Hitotsubashi U.",
+            "arXiv 2026"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "一橋大學團隊，2026年發表。",
+              "en": "From Hitotsubashi University researchers, 2026."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "西武新宿線通勤族"
+          ],
+          "labels_en": [
+            "Commuters"
+          ],
+          "values": [
+            2740.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "2740位東京通勤族填了問卷，",
+              "en": "2,740 Tokyo commuters filled out a survey,"
+            },
+            {
+              "zh": "寫下幾點上下車、幾點上班。",
+              "en": "noting when they boarded, got off, and started work."
+            }
+          ]
+        },
+        {
+          "visual": "magnify",
+          "heading_zh": "對時刻表",
+          "heading_en": "MATCHING",
+          "labels": [
+            "搭的那班車"
+          ],
+          "labels_en": [
+            "Their train"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "對照時刻表，找出每人搭哪班車，",
+              "en": "Matching times to the timetable showed which train each took."
+            },
+            {
+              "zh": "再拿上班時間，扣掉走到公司的時間，",
+              "en": "Then they took work start times, minus the walk to the office,"
+            },
+            {
+              "zh": "再假設大家想提早15分鐘到，",
+              "en": "and assumed people like a 15-minute buffer."
+            },
+            {
+              "zh": "推算想到站的時間，統一抓8:10。",
+              "en": "That gave one target arrival time for everyone: 8:10."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "四種代價",
+          "heading_en": "FOUR COSTS",
+          "labels": [
+            "太早到",
+            "遲到",
+            "坐比較久",
+            "車廂擁擠"
+          ],
+          "labels_en": [
+            "Too early",
+            "Late",
+            "Longer ride",
+            "Crowding"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "每班車代價不同：早到、遲到、較慢、擁擠。",
+              "en": "Each train costs something: too early, late, slow, or packed."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "互相影響",
+          "heading_en": "SHARED CROWD",
+          "labels": [
+            "你",
+            "其他通勤族",
+            "同一班車"
+          ],
+          "labels_en": [
+            "You",
+            "Other riders",
+            "Same train"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但擠不擠，是大家一起選出來的。",
+              "en": "But how packed a train gets depends on everyone's choices."
+            },
+            {
+              "zh": "電腦就從大家的選擇，反推每種代價有多重。",
+              "en": "So the computer worked backward from those choices to weigh each cost."
+            }
+          ]
+        },
+        {
+          "visual": "balance",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "早到1分鐘",
+            "擁擠代價"
+          ],
+          "labels_en": [
+            "1 min early",
+            "Crowding"
+          ],
+          "values": [
+            0.39,
+            0.04
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "在主要估算裡，早到或遲到一分鐘，",
+              "en": "In their main estimate, arriving a minute early or late"
+            },
+            {
+              "zh": "比滿載車廂多待一分鐘「額外」的不適，",
+              "en": "outweighs the extra discomfort of a minute on a full train"
+            },
+            {
+              "zh": "大約重了10到12倍。",
+              "en": "by about ten to twelve times."
+            },
+            {
+              "zh": "但換個到站時間假設，倍數就差很多。",
+              "en": "But change the arrival-time assumption, and that gap swings a lot."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "怕擠，但更怕不準時",
+          "big_text_en": "We mind crowds, but timing more",
+          "lines": [
+            {
+              "zh": "光靠離峰打折可能不夠，彈性上班或許有幫助，",
+              "en": "Off-peak discounts alone may fall short; flexible hours might help."
+            },
+            {
+              "zh": "但這兩件事都還沒實際驗證。",
+              "en": "But neither has actually been tested yet."
+            },
+            {
+              "zh": "追蹤我們，解碼更多行為。",
+              "en": "Follow for more behavior, decoded."
+            }
+          ]
+        }
+      ],
+      "description_zh": "明明車廂擠爆，為什麼大家還是搭同一班？一橋大學團隊用2015年日本搭車問卷中2740位西武新宿線通勤族的資料，對照時刻表找出每人搭的班次，再把大家的選擇當成互相影響的遊戲來反推。在主要估算裡，早到或遲到一分鐘的代價，約是滿載車廂多待一分鐘「額外」不適的10到12倍；不過這個倍數會隨到站時間的假設而大幅改變。",
+      "description_en": "Why do commuters keep picking the most packed trains? Using survey answers from 2,740 commuters on Tokyo's Seibu Shinjuku Line matched to train timetables, researchers modeled train choice as a game where everyone's choice shapes crowding. In their main estimate, arriving a minute early or late weighed roughly ten to twelve times more than the extra discomfort of a minute on a full train, though that ratio depends heavily on assumptions about when people want to arrive.",
+      "hashtags": [
+        "行為解碼",
+        "通勤",
+        "東京",
+        "捷運擁擠",
+        "BehaviorDecoded",
+        "commuting",
+        "Tokyo",
+        "transportation"
+      ],
+      "method_summary": "Fujishima and Matsumoto (Hitotsubashi University; Railway Technical Research Institute) study morning train choice on Tokyo's Seibu Shinjuku Line. Data: individual microdata from Japan's 2015 Public Transport Survey for Metropolitan Areas (MLIT): 2,740 commuter respondents, expanded to 140,473 commuters, boarding at 27 stations and heading to Takadanobaba/Seibu-Shinjuku (treated as one CBD). Each respondent's boarding/alighting stations and times were matched to the November 2015 timetable to infer the train used (89 trains up to 10:30 a.m., four service types). Desired CBD arrival times were built from reported work start times minus egress time minus an assumed 15-minute buffer (baseline common time 8:10). Each commuter's cost = travel time + crowding (linear in crowding rate, accumulated over segments) + early/late schedule delay. Because crowding depends on everyone's choices, train choice is modeled as a population potential game with logit revision; its closed-form stationary distribution gives a likelihood, approximated for large populations and maximized; standard errors come from a parametric bootstrap. Findings: all four costs positive; one minute early = 0.39 and late = 0.49 minutes of in-vehicle time, while one minute at 100% crowding adds only 0.04 minutes. Schedule delay dominates crowding across specifications, but the crowding parameter is sensitive to how desired arrival times are specified and is zero in some. Authors suggest flexible/staggered work hours alongside fare incentives.",
+      "limitations": "Single line, one survey day in 2015, cross-sectional. Desired arrival times rely on an assumed 15-minute buffer and, in baseline, a common time; crowding cost is sensitive to this and reaches zero in some specifications. Train matching may contain errors (some implausible crowding rates). Linear crowding, no seated vs standing distinction; ignores limited expresses and transfers; assumes full information. Bootstrap ignores survey sampling uncertainty. No policy counterfactuals yet, so effects of discounts or flexible hours are not shown.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "train"
+        ],
+        [
+          "alarm",
+          "clock",
+          "hourglass",
+          "users-group"
+        ],
+        [
+          "user",
+          "users",
+          "train"
+        ],
+        [
+          "stopwatch",
+          "users-group"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 61.52,
+        "cover_offset_ms": 6539,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 66.84,
+        "cover_offset_ms": 6539,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "FzQa6ofOyII",
+          "url": "https://youtube.com/shorts/FzQa6ofOyII"
+        },
+        "threads": {
+          "id": "18034053341879063",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfemxxYhRvD"
+        },
+        "instagram": {
+          "id": "18012449316005765",
+          "url": "https://www.instagram.com/reel/DfenSBFj5HY/"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "T25QvwF5z3M",
+          "url": "https://youtube.com/shorts/T25QvwF5z3M"
+        },
+        "instagram": {
+          "id": "18131611414828419",
+          "url": "https://www.instagram.com/reel/Dfem7NjiBb_/"
+        },
+        "threads": {
+          "id": "17957921871330172",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfenCoJh2ux"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261108-estimating-rail-commuter-preferences-und",
+    "pick_reason": "This paper uses observed train choices on a Tokyo commuter line and a population-game model to show how much commuters trade off delay, travel time and crowding. It is an everyday, non-AI behavior question that is computational and easy to show in steps: choices lead to crowding, which feeds back into choices, and the model recovers preferences from that loop. Signals: Notes suggest mixing in non-AI personal-stakes topics to break the run of AI-themed picks, and the strongest AI candidates sit too close to recent homework, AI-at-work and social-media-intervention episodes."
   }
 ]
