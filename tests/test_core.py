@@ -480,3 +480,26 @@ def test_pick_again_reuses_the_cached_listing(monkeypatch):
     assert paper.id == "1" and len(calls) == 2
     assert calls[0][0] == calls[1][0] and calls[0][0]["cache_control"] == {"type": "ephemeral"}
     assert "0" in calls[1][1]["text"]
+
+
+def test_instagram_reel_retries_once_after_a_processing_error(monkeypatch):
+    from shorts.publish import meta
+
+    monkeypatch.setenv("IG_USER_ID", "1")
+    monkeypatch.setenv("IG_ACCESS_TOKEN", "IGx")
+    statuses = iter(["ERROR", "FINISHED"])
+    made = []
+
+    def fake_ig(method, path, what, **params):
+        if what == "create reel container":
+            made.append(1)
+            return {"id": f"c{len(made)}"}
+        if what == "container status":
+            return {"status_code": next(statuses)}
+        if what == "publish reel":
+            return {"id": "m1"}
+        return {"permalink": "https://ig/p"}
+
+    monkeypatch.setattr(meta, "ig", fake_ig)
+    assert meta.ig_publish_reel("https://v", "cap", 0, retry_wait=0) == ("m1", "https://ig/p")
+    assert len(made) == 2
