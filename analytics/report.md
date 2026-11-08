@@ -1,35 +1,35 @@
 # Channel analytics 頻道數據
 
-Updated 2026-11-07T07:41:37+00:00
+Updated 2026-11-08T07:50:57+00:00
 
 ```
-Collected 2026-11-07T07:41:37+00:00
-YouTube channel: 4 subscribers, 764 total views, 30 videos
+Collected 2026-11-08T07:50:57+00:00
+YouTube channel: 4 subscribers, 833 total views, 32 videos
 Note: every short and talk show has one comment from us (the paper citation), and our replies to viewers count too, so comment counts overstate viewer comments; likes may include our own.
 
-short on youtube: 29 posts, average 26 views
-  by language: zh 47, pt 10, en 8
+short on youtube: 31 posts, average 27 views
+  by language: zh 48, pt 10, en 8
   - 111 views, 0 likes, 0 comments, avg watched 42%, +0 subs | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 108 views, 0 likes, 0 comments, avg watched 43%, +0 subs | zh | Chat With AI Before You Argue? The Debate Got Better
   - 70 views, 0 likes, 0 comments, avg watched 28%, +1 subs | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
-  - 60 views, 0 likes, 0 comments, avg watched 41%, +0 subs | zh | Your Favorite Picture: Are You Sure a Human Made It?
+  - 60 views, 0 likes, 0 comments, avg watched 44%, +0 subs | zh | Your Favorite Picture: Are You Sure a Human Made It?
   - 55 views, 1 likes, 0 comments, avg watched 60%, +0 subs | zh | When Politicians Lean on the Fed, Do Markets Listen?
-  - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
+  - 2 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | AI Wrote the Petitions. Did They Win More?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | Caught Using Slave Labor: Do Ranches Really Stop?
   - 1 views, 0 likes, 1 comments | en | You vs. the Algorithm: Who Knows Your Taste Better?
 
-short on instagram: 26 posts, average 104 views
-  by language: zh 163, en 45
+short on instagram: 28 posts, average 101 views
+  by language: zh 157, en 45
   - 1375 views, 22 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
-  - 112 views, 0 likes, 1 comments | zh | You vs. the Algorithm: Who Knows Your Taste Better?
+  - 112 views, 1 likes, 1 comments | zh | You vs. the Algorithm: Who Knows Your Taste Better?
   - 111 views, 2 likes, 1 comments | zh | Asking AI Before a Doctor Visit: Does It Help?
-  - 109 views, 0 likes, 1 comments | en | You vs. the Algorithm: Who Knows Your Taste Better?
+  - 109 views, 1 likes, 1 comments | en | You vs. the Algorithm: Who Knows Your Taste Better?
   - 106 views, 1 likes, 1 comments | en | Chat With AI Before You Argue? The Debate Got Better
   - 7 views, 1 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
   - 5 views, 1 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 5 views, 1 likes, 1 comments | zh | Strangers Bet on Your Goals, a Bit Too Hopefully
 
-short on threads: 26 posts, average 9 views
+short on threads: 28 posts, average 9 views
   by language: zh 14, en 5
   - 34 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
   - 22 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
@@ -41,7 +41,7 @@ short on threads: 26 posts, average 9 views
   - 0 views, 0 likes, 1 comments | en | Could a Heat Wave Change Your Vote?
 
 podcast on youtube: 1 posts, average 3 views
-  - 3 views, 1 likes, 0 comments, avg watched 4%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
+  - 3 views, 1 likes, 0 comments, avg watched 10%, +0 subs | en | AI Helped With Homework. Did It Help on the Exam?
 
 social on instagram: 4 posts, average 0 views
   by language: zh 0, en 0
@@ -57,17 +57,17 @@ Change.o
 
 一篇新研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格的「AI藝術圖靈測
 
-social on threads: 15 posts, average 21 views
-  by language: zh 24, en 7
+social on threads: 16 posts, average 21 views
+  by language: zh 23, en 7
   - 185 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局
+  - 26 views, 0 likes, 0 comments | zh | 過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？
+
+我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36
   - 25 views, 0 likes, 0 comments | zh | 猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。
 
 我們今天介紹的研究
-  - 21 views, 0 likes, 0 comments | zh | 過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？
-
-我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36
   - 19 views, 0 likes, 0 comments | zh | 用AI寫的請願書，會不會讀起來都很像？
 
 我們介紹過的一篇研究（Nature Human Behaviour, 2026）看的是請願平台Change.org。它
@@ -134,43 +134,46 @@ Written 2026-11-05
 | social | threads | zh | 185 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
-| short | instagram | zh | 112 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWuQxgGbw7/) |
+| short | instagram | zh | 112 | 1 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWuQxgGbw7/) |
 | short | youtube | zh | 111 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
 | short | instagram | zh | 111 | 2 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQLtP_guS3/) |
-| short | instagram | en | 109 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWugEXH7oi/) |
+| short | instagram | en | 109 | 1 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWugEXH7oi/) |
 | short | youtube | zh | 108 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/LQQu8Wod-wA) |
 | short | instagram | en | 106 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlXX_HQK6/) |
 | short | instagram | zh | 103 | 2 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MUFRjLIZ/) |
 | short | instagram | en | 99 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKcKSDqUK/) |
 | short | instagram | zh | 96 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlKMnlfkY/) |
+| short | instagram | en | 89 | 2 | 1 | [Could a Heat Wave Change Your Vote?](https://www.instagram.com/reel/DfZdavEnJQD/) |
 | short | instagram | zh | 88 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
-| short | instagram | en | 82 | 1 | 1 | [Could a Heat Wave Change Your Vote?](https://www.instagram.com/reel/DfZdavEnJQD/) |
 | short | instagram | zh | 75 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKM3iCiE8/) |
 | short | youtube | zh | 70 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
+| short | instagram | zh | 64 | 1 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.instagram.com/reel/DfcB9MEjykm/) |
 | short | youtube | zh | 60 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
 | short | instagram | zh | 55 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nfn9gNEp/) |
 | short | youtube | zh | 55 | 1 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/dLVVioAFTVQ) |
 | short | instagram | en | 53 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.instagram.com/reel/De5nsaflVMn/) |
+| short | youtube | zh | 53 | 0 | 1 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM) |
 | short | youtube | zh | 51 | 0 | 0 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU) |
-| short | instagram | zh | 40 | 1 | 1 | [Could a Heat Wave Change Your Vote?](https://www.instagram.com/reel/DfZdNtOAvU0/) |
+| short | instagram | zh | 51 | 2 | 1 | [Could a Heat Wave Change Your Vote?](https://www.instagram.com/reel/DfZdNtOAvU0/) |
 | short | threads | zh | 34 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
+| short | youtube | zh | 34 | 1 | 0 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0) |
 | short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
+| short | instagram | en | 32 | 1 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.instagram.com/reel/DfcCR1-HNIH/) |
 | short | instagram | en | 30 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
 | short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
 | short | instagram | zh | 28 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE24wVFD3J/) |
 | short | instagram | en | 27 | 1 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAla1jFvW/) |
-| short | youtube | zh | 25 | 0 | 1 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM) |
+| social | threads | zh | 26 | 0 | 0 | [過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？
+
+我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu) |
 | social | threads | zh | 25 | 0 | 0 | [猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。
 
 我們今天介紹的研究](https://www.threads.com/@human__behavior__decode/post/DfW6gDeoMii) |
 | short | youtube | zh | 24 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U) |
-| short | youtube | zh | 24 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/gV6yitxMhIE) |
+| short | youtube | zh | 23 | 0 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://youtube.com/shorts/2EEhYenOyx4) |
 | short | threads | zh | 22 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
 | short | youtube | pt | 21 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | youtube | zh | 21 | 0 | 0 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8) |
-| social | threads | zh | 21 | 0 | 0 | [過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？
-
-我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu) |
 | short | instagram | zh | 20 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
 | short | threads | zh | 19 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9MZPIiYoz) |
 | short | threads | zh | 19 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3AwDj6lb) |
@@ -181,14 +184,15 @@ Written 2026-11-05
 | social | threads | zh | 18 | 0 | 0 | [你最喜歡的那張圖，你覺得是人畫的嗎？
 
 我們昨天介紹的研究（arXiv, 2026）重新分析了2024年秋天 Astral Codex Ten 部落格上的「AI](https://www.threads.com/@human__behavior__decode/post/DfMi_WWm-Iq) |
+| short | youtube | zh | 17 | 0 | 0 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/gV6yitxMhIE) |
 | short | youtube | en | 16 | 2 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/IEalILCeCbs) |
 | short | threads | zh | 16 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHbuBGEfnt) |
 | short | instagram | en | 16 | 1 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.instagram.com/reel/DfVGlI_kTy0/) |
+| short | threads | zh | 16 | 0 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.threads.com/@human__behavior__decode/post/DfcCEwsTmgD) |
 | short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
 | short | threads | zh | 15 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWuVtuBYJe) |
 | short | youtube | zh | 14 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
 | short | instagram | en | 14 | 1 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQL6n7lITb/) |
-| short | youtube | zh | 14 | 0 | 0 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0) |
 | short | instagram | zh | 14 | 1 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.instagram.com/reel/DfVGZnpgXw1/) |
 | short | threads | zh | 14 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.threads.com/@human__behavior__decode/post/DfVGeY7hGHv) |
 | short | youtube | en | 13 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/nHROFRQuyuY) |
@@ -199,29 +203,32 @@ Written 2026-11-05
 | short | threads | en | 12 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
 | short | youtube | en | 12 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/Mqje8Ha4bv8) |
 | short | youtube | en | 12 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/8hR_5Y3olQk) |
+| short | threads | en | 11 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah) |
 | short | threads | zh | 10 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU) |
-| short | threads | en | 10 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah) |
+| short | youtube | en | 10 | 0 | 1 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/dSoqOfinKmw) |
 | short | threads | en | 9 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
+| social | threads | zh | 9 | 0 | 0 | [AI進辦公室，大家會不會越來越少跟同事講話？
+
+我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T) |
 | short | instagram | en | 8 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE3H1dDZhs/) |
 | social | threads | en | 8 | 0 | 0 | [In the news: Apple is adding an AI chatbot to Pages, Keynote, and Numbers.
 
 A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
-| social | threads | zh | 8 | 0 | 0 | [AI進辦公室，大家會不會越來越少跟同事講話？
-
-我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T) |
 | social | threads | zh | 8 | 0 | 0 | [本週介紹的研究，每篇一個重點：
 
 1️⃣ AI幫寫作業（arXiv, 2026）：隨機提早拿到AI工具的學生，作業高了2.56分；但不能用AI的期中考，兩組沒有](https://www.threads.com/@human__behavior__decode/post/DfMjBKgG02W) |
+| short | threads | en | 7 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x) |
 | short | instagram | en | 7 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHb30UEx6g/) |
 | short | youtube | en | 7 | 0 | 0 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/QyuzKp_UWgQ) |
+| short | youtube | en | 7 | 0 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://youtube.com/shorts/jUkMRmeQZaQ) |
 | short | youtube | pt | 6 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/-ozetwZih0k) |
-| short | threads | en | 6 | 0 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.threads.com/@human__behavior__decode/post/DfE3OQtio9x) |
 | social | threads | en | 6 | 0 | 0 | [Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:](https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4) |
 | short | threads | en | 5 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nxS2DZN6) |
 | short | instagram | en | 5 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCStp0EasQ/) |
 | short | instagram | zh | 5 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHbmtGDgCS/) |
 | short | threads | en | 5 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKArppge5h) |
 | short | threads | zh | 5 | 0 | 1 | [Could a Heat Wave Change Your Vote?](https://www.threads.com/@human__behavior__decode/post/DfZdTDgqW8s) |
+| short | threads | en | 5 | 0 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.threads.com/@human__behavior__decode/post/DfcCYxrPOWR) |
 | social | threads | zh | 5 | 0 | 0 | [ChatGPT 要進到 iMessage 和 RCS 了。聊天機器人離我們越來越近，那它對「學會」有幫助嗎？
 
 我們英文 podcast 介紹過一篇研究（arX](https://www.threads.com/@human__behavior__decode/post/DfExt8eoOGz) |
@@ -230,17 +237,21 @@ A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 | social | threads | zh | 4 | 0 | 0 | [跟立場不同的人討論前，先跟AI聊7分鐘，會比較好好說話嗎？
 
 我們昨天介紹的研究（arXiv, 2026）找了1,173位美國線上受試者，組成391個三人小組，](https://www.threads.com/@human__behavior__decode/post/DfPPOk5lFD3) |
+| social | threads | zh | 4 | 0 | 0 | [本週介紹的6篇研究，每篇一個重點：
+
+1️⃣ 討論前先跟AI聊7分鐘（arXiv）：立場不同的小組，討論品質提升最明顯（d=0.38）。
+
+2️⃣ 動態照時間排](https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69) |
 | short | youtube | en | 3 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/t2OiX4v7Sug) |
 | short | threads | en | 3 | 0 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.threads.com/@human__behavior__decode/post/DfHb_iMDUzF) |
 | short | threads | zh | 3 | 0 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.threads.com/@human__behavior__decode/post/DfKAelwD2Kh) |
 | short | youtube | en | 3 | 0 | 0 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/wipIJOAG3Vg) |
 | short | threads | zh | 3 | 0 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.threads.com/@human__behavior__decode/post/DfQLxpakmyh) |
 | podcast | youtube | en | 3 | 1 | 0 | [AI Helped With Homework. Did It Help on the Exam?](https://www.youtube.com/watch?v=5z3lpCLmj6M) |
+| short | youtube | en | 2 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
 | short | threads | zh | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlRs4jdCh) |
 | short | threads | en | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlet6AeSJ) |
 | short | threads | en | 2 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.threads.com/@human__behavior__decode/post/DfVGp_SPXwC) |
-| short | youtube | en | 2 | 0 | 1 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/dSoqOfinKmw) |
-| short | youtube | en | 1 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
 | short | youtube | en | 1 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
 | short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
 | short | youtube | en | 1 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/3GkKhtr082Q) |

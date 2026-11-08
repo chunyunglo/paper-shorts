@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-07T07:41:37+00:00",
+ "collected_at": "2026-11-08T07:50:57+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 764,
-   "videoCount": 30
+   "viewCount": 833,
+   "videoCount": 32
   }
  },
  "notes": [],
@@ -83,7 +83,7 @@
    "paper": "Petition style changes with AI writing support but outcomes do not improve",
    "created": "2026-10-25T02:09:47+00:00",
    "metrics": {
-    "views": 1,
+    "views": 2,
     "likes": 0,
     "comments": 0,
     "duration": "PT41S",
@@ -775,7 +775,7 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 6,
+    "views": 7,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -927,8 +927,8 @@
     "privacy": "public",
     "published": "2026-10-31T11:03:55Z",
     "estimatedMinutesWatched": 11,
-    "averageViewDuration": 23,
-    "averageViewPercentage": 41.4,
+    "averageViewDuration": 24,
+    "averageViewPercentage": 44.47,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1424,15 +1424,15 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 14,
-    "likes": 0,
+    "views": 34,
+    "likes": 1,
     "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-11-04T18:28:13Z",
-    "estimatedMinutesWatched": 2,
-    "averageViewDuration": 17,
-    "averageViewPercentage": 38.28,
+    "estimatedMinutesWatched": 3,
+    "averageViewDuration": 19,
+    "averageViewPercentage": 42.68,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1550,12 +1550,17 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 24,
+    "views": 17,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-11-05T09:35:48Z"
+    "published": "2026-11-05T09:35:48Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 11,
+    "averageViewPercentage": 26.02,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1571,11 +1576,11 @@
    "metrics": {
     "views": 112,
     "reach": 101,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 1,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -1629,11 +1634,11 @@
    "metrics": {
     "views": 109,
     "reach": 93,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 1,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -1647,7 +1652,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 10,
+    "views": 11,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1666,7 +1671,7 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 25,
+    "views": 53,
     "likes": 0,
     "comments": 1,
     "duration": "PT54S",
@@ -1685,13 +1690,13 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 40,
-    "reach": 40,
-    "likes": 1,
+    "views": 51,
+    "reach": 51,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -1724,7 +1729,7 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 2,
+    "views": 10,
     "likes": 0,
     "comments": 1,
     "duration": "PT53S",
@@ -1743,13 +1748,13 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 82,
-    "reach": 65,
-    "likes": 1,
+    "views": 89,
+    "reach": 74,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -1764,6 +1769,122 @@
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
     "views": 0,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "2EEhYenOyx4",
+   "url": "https://youtube.com/shorts/2EEhYenOyx4",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 23,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT53S",
+    "privacy": "public",
+    "published": "2026-11-07T11:03:57Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18000807092823327",
+   "url": "https://www.instagram.com/reel/DfcB9MEjykm/",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 64,
+    "reach": 62,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18115909568600618",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfcCEwsTmgD",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 16,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "jUkMRmeQZaQ",
+   "url": "https://youtube.com/shorts/jUkMRmeQZaQ",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 7,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT59S",
+    "privacy": "public",
+    "published": "2026-11-07T11:06:20Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "17935949262147863",
+   "url": "https://www.instagram.com/reel/DfcCR1-HNIH/",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 32,
+    "reach": 30,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "title": "Near Cram Schools: Paying for Now or Betting on Later?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18067091630524825",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfcCYxrPOWR",
+   "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
+   "created": "2026-11-07T06:12:21+00:00",
+   "metrics": {
+    "views": 5,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1789,8 +1910,8 @@
     "privacy": "public",
     "published": "2026-10-30T12:00:12Z",
     "estimatedMinutesWatched": 2,
-    "averageViewDuration": 17,
-    "averageViewPercentage": 4.18,
+    "averageViewDuration": 43,
+    "averageViewPercentage": 10.34,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1922,7 +2043,7 @@
    "paper": "20261028-the-effects-of-generative-ai-on-collabor",
    "created": "2026-10-30T10:20:57+00:00",
    "metrics": {
-    "views": 8,
+    "views": 9,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2152,7 +2273,26 @@
    "paper": "20261106-heterogeneous-impacts-of-temperature-ext",
    "created": "2026-11-06T11:18:34+00:00",
    "metrics": {
-    "views": 21,
+    "views": 26,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-19",
+   "title": "本週介紹的6篇研究，每篇一個重點：\n\n1️⃣ 討論前先跟AI聊7分鐘（arXiv）：立場不同的小組，討論品質提升最明顯（d=0.38）。\n\n2️⃣ 動態照時間排",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17959550781291926",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfb-emYFd69",
+   "paper": "20261101-improving-group-deliberation-through-ai, 20261102-counterfactual-assessment-of-social-medi, 20261102-a-prospective-randomized-study-of-patien, 20261104-discussing-politics-with-a-chatbot-how-p, 20261105-you-know-what-you-will-like-people-predi, 20261106-heterogeneous-impacts-of-temperature-ext",
+   "created": "2026-11-07T10:33:20+00:00",
+   "metrics": {
+    "views": 4,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
