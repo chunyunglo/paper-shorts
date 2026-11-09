@@ -5246,5 +5246,339 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261108-estimating-rail-commuter-preferences-und",
     "pick_reason": "This paper uses observed train choices on a Tokyo commuter line and a population-game model to show how much commuters trade off delay, travel time and crowding. It is an everyday, non-AI behavior question that is computational and easy to show in steps: choices lead to crowding, which feeds back into choices, and the model recovers preferences from that loop. Signals: Notes suggest mixing in non-AI personal-stakes topics to break the run of AI-themed picks, and the strongest AI candidates sit too close to recent homework, AI-at-work and social-media-intervention episodes."
+  },
+  {
+    "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+    "created": "2026-11-09T06:17:28+00:00",
+    "paper": {
+      "id": "arxiv:2611.09337",
+      "title": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+      "abstract": "The design of sanctions plays a central role in shaping reoffending behavior. We study the effects of fixed monetary fines and accumulating penalty points on speeding recidivism and liability transfer. Exploiting a large increase in sanctions in Queensland, Australia, we estimate the causal effects of these sanctions on subsequent offending and nomination of other drivers. Higher demerit points increase fine renomination, consistent with strategic blame shifting. Estimated reductions in reoffending are small among offenders facing higher fines alone. Reoffending falls by a substantial 4.6 percentage points when higher fines are accompanied by additional penalty points.",
+      "authors": [
+        "Romain Gauriot",
+        "Maria Wisniewska"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.09337",
+      "pdf_url": "https://arxiv.org/pdf/2611.09337v1",
+      "doi": null,
+      "published": "2026-11-06",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "超速罰款大漲，你真的會開慢嗎？",
+      "title_en": "Higher Speeding Fines: Would You Actually Slow Down?",
+      "paper_title_zh": "制裁、規避與嚇阻：來自超速執法的證據",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "超速罰單",
+          "heading_en": "SPEEDING",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "罰更多就開慢？",
+          "big_text_en": "Pay more, drive slower?",
+          "lines": [
+            {
+              "zh": "超速罰款大漲，你會開慢一點嗎？",
+              "en": "Speeding fines shot up. Would you slow down?"
+            },
+            {
+              "zh": "答案在另一種處罰和漏洞。",
+              "en": "The answer: another penalty, and a loophole."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究團隊",
+          "heading_en": "THE STUDY",
+          "labels": [
+            "澳洲迪肯大學",
+            "arXiv預印本"
+          ],
+          "labels_en": [
+            "Deakin Univ.",
+            "arXiv preprint"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "研究來自澳洲迪肯大學。",
+              "en": "This study comes from Deakin University in Australia."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "新規定",
+          "heading_en": "NEW RULES",
+          "labels": [
+            "罰款",
+            "駕照記點",
+            "吊扣駕照"
+          ],
+          "labels_en": [
+            "Fines",
+            "License points",
+            "Suspension"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "2022年昆士蘭調高所有超速罰款。",
+              "en": "In 2022, Queensland raised every speeding fine."
+            },
+            {
+              "zh": "只有超速11到12公里，駕照記點也變多。",
+              "en": "Only drivers 11 to 12 km/h over also got more license points."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "2022年照相罰單"
+          ],
+          "labels_en": [
+            "Camera fines"
+          ],
+          "values": [
+            743539.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們追蹤測速罰單，看誰一年內再被拍。",
+              "en": "They tracked camera tickets: who sped again within a year?"
+            }
+          ]
+        },
+        {
+          "visual": "timeline",
+          "heading_zh": "比較方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "7月1日前",
+            "7月1日後"
+          ],
+          "labels_en": [
+            "Before July 1",
+            "After July 1"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "比較新規前後剛被拍的人。",
+              "en": "They compared drivers caught just before and after the change."
+            }
+          ]
+        },
+        {
+          "visual": "journey",
+          "heading_zh": "漏洞",
+          "heading_en": "THE LOOPHOLE",
+          "labels": [
+            "測速相機",
+            "車主",
+            "別的駕駛"
+          ],
+          "labels_en": [
+            "Speed camera",
+            "Car owner",
+            "Other driver"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但車主收到罰單，能說是別人開的。",
+              "en": "But the car owner can say someone else drove."
+            },
+            {
+              "zh": "所以只看正面拍到駕駛的固定相機。",
+              "en": "So they used fixed cameras that shoot from the front."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "只加罰款",
+            "罰款加記點"
+          ],
+          "labels_en": [
+            "Fines only",
+            "Fines + points"
+          ],
+          "values": [],
+          "big_text": "每百人35→30",
+          "big_text_en": "35 → 30 per 100",
+          "lines": [
+            {
+              "zh": "結果只加罰款，再超速幾乎沒變。",
+              "en": "It turned out higher fines alone barely changed repeat speeding."
+            },
+            {
+              "zh": "加記點那級，每百人再犯從35降到30。",
+              "en": "With extra points, repeaters fell from about 35 in 100 to 30."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "推給別人",
+          "heading_en": "BLAME SHIFT",
+          "labels": [
+            "轉給別人的罰單",
+            "移動相機",
+            "車主"
+          ],
+          "labels_en": [
+            "Shifted ticket",
+            "Mobile camera",
+            "Car owner"
+          ],
+          "values": [],
+          "big_text": "多三到六成",
+          "big_text_en": "30–60% more",
+          "lines": [
+            {
+              "zh": "移動相機拍的這級，說別人開的多三到六成。",
+              "en": "On mobile cameras, that band blamed other drivers 30 to 60% more."
+            },
+            {
+              "zh": "但資料分不出誰真的在開。",
+              "en": "But the data can't show who really drove."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "罰錢加記點才見效",
+          "big_text_en": "Points, not just fines, worked",
+          "lines": [
+            {
+              "zh": "光加錢不夠，加記點才少超速。",
+              "en": "Fines alone did little; adding points cut repeat speeding."
+            },
+            {
+              "zh": "追蹤我們，看更多研究。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "超速罰款大漲，大家就會少超速嗎？澳洲迪肯大學經濟學家比較昆士蘭2022年新規上路前後被測速照相拍到的駕駛，發現只加罰款的人再超速幾乎沒變，但罰款加駕照記點的那一級，一年內再犯明顯減少。同時，這一級的車主也更常把罰單轉給「別人開的車」。",
+      "description_en": "Do bigger speeding fines make people slow down? Economists at Deakin University compared drivers caught by speed cameras just before and after Queensland's 2022 penalty hike. Higher fines alone barely changed repeat speeding, but where extra license points were added, repeat offenses dropped clearly, and owners also became more likely to name someone else as the driver.",
+      "hashtags": [
+        "行為解碼",
+        "超速",
+        "交通罰單",
+        "駕照記點",
+        "BehaviorDecoded",
+        "RoadSafety",
+        "Economics",
+        "澳洲"
+      ],
+      "method_summary": "The authors use administrative data covering all camera-detected speeding offenses in Queensland, Australia (743,539 camera detections in 2022), linked by a unique driver ID. On 1 July 2022 Queensland raised fines in every speed band (e.g. 11-12 km/h over: AUD 183 to 431) but raised demerit points only for the 11-12 km/h band (1 to 3 points; 12 points in 3 years means license suspension). Using a regression discontinuity in time with a 150-day window, they compare offenders caught just before vs just after the reform. Recidivism (any new speeding offense within one year, excluding the first 14 days) is estimated on fixed cameras (149,755 offenses), which photograph from the front and showed balanced covariates and no transfer change. Liability transfer (owner nominating another driver) is studied on mobile cameras (438,590 offenses), which may shoot from behind. Findings: overall reoffending fell 1.6 percentage points (about 5%); for the 11-12 km/h band it fell 4.6 points (13%, from a 34.8% baseline); fine-only bands showed no clear effect. Transfer rates for mobile-camera 11-12 km/h fines rose about 30-60% relative to a low baseline (~1.6-2%), with no rise in other bands or for fixed cameras. Placebo tests in 2015-2019, bandwidth checks and a difference-in-differences comparison with 9-10 km/h offenders support the results.",
+      "limitations": "Not a randomized experiment; identification relies on timing around one statewide reform. The 11-12 km/h band also had the largest fine increase, so points and fine size are only partly separated. The transfer discontinuity is not statistically significant at the preferred bandwidth (p=0.112) and is sensitive to bandwidth; event-study and DiD evidence is stronger. The data cannot distinguish truthful from untruthful nominations. Mobile-camera samples show compositional changes. Outcomes are detected reoffenses, not actual speeding or crashes, and results come from Queensland only.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "receipt-dollar",
+          "license",
+          "ban"
+        ],
+        [
+          "device-cctv"
+        ],
+        [
+          "calendar-minus",
+          "calendar-plus"
+        ],
+        [
+          "device-cctv",
+          "user",
+          "steering-wheel"
+        ],
+        [
+          "cash",
+          "license"
+        ],
+        [
+          "switch-horizontal",
+          "camera",
+          "user"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 48.25,
+        "cover_offset_ms": 6670,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 53.89,
+        "cover_offset_ms": 7166,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "POTOBQr_nwE",
+          "url": "https://youtube.com/shorts/POTOBQr_nwE"
+        },
+        "instagram": {
+          "id": "17930225925437938",
+          "url": "https://www.instagram.com/reel/DfhL6h7jboz/"
+        },
+        "threads": {
+          "id": "18119334254599323",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfhL_cPsilM"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "JkrFUJU1lTQ",
+          "url": "https://youtube.com/shorts/JkrFUJU1lTQ"
+        },
+        "instagram": {
+          "id": "18014057087988662",
+          "url": "https://www.instagram.com/reel/DfhMGzQAgGK/"
+        },
+        "threads": {
+          "id": "18087298949329787",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfhMNxDBkxK"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261109-sanctions-evasion-and-deterrence-evidenc",
+    "pick_reason": "The study uses a natural experiment, a big jump in speeding fines and penalty points in Queensland, to estimate on large administrative records whether harsher sanctions cut repeat offending or push drivers to shift the points onto someone else, which is a concrete everyday behavioural question with a clear causal design that fits in 3-4 visual steps. Signals: Channel notes suggest mixing in non-AI personal-stakes topics, since about 7 of the last 11 shorts were AI-themed, so among similar-quality candidates I favored this non-AI, money-and-rules paper over the AI-at-work and AI-persuasion options."
   }
 ]
