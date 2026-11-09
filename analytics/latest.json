@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-08T07:50:57+00:00",
+ "collected_at": "2026-11-09T08:34:11+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 4,
-   "viewCount": 833,
-   "videoCount": 32
+   "viewCount": 834,
+   "videoCount": 34
   }
  },
  "notes": [],
@@ -566,8 +566,8 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 20,
-    "reach": 22,
+    "views": 21,
+    "reach": 23,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -881,8 +881,8 @@
    "paper": "Crowds Believe in You: Online Prediction Markets Overestimate How Often People Achieve Their Own Goals",
    "created": "2026-10-30T06:16:11+00:00",
    "metrics": {
-    "views": 7,
-    "reach": 6,
+    "views": 8,
+    "reach": 7,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -944,8 +944,8 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 1375,
-    "reach": 1200,
+    "views": 1377,
+    "reach": 1202,
     "likes": 22,
     "comments": 1,
     "saved": 5,
@@ -1070,8 +1070,8 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 96,
-    "reach": 95,
+    "views": 97,
+    "reach": 96,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1133,8 +1133,8 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 106,
-    "reach": 98,
+    "views": 107,
+    "reach": 99,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1172,7 +1172,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 21,
+    "views": 22,
     "likes": 0,
     "comments": 0,
     "duration": "PT50S",
@@ -1259,8 +1259,8 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 99,
-    "reach": 96,
+    "views": 100,
+    "reach": 97,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1405,7 +1405,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 4,
+    "views": 5,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1448,8 +1448,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 14,
-    "reach": 13,
+    "views": 16,
+    "reach": 15,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1511,8 +1511,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 16,
-    "reach": 15,
+    "views": 19,
+    "reach": 18,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1550,15 +1550,15 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 17,
+    "views": 24,
     "likes": 0,
     "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-11-05T09:35:48Z",
-    "estimatedMinutesWatched": 1,
-    "averageViewDuration": 11,
-    "averageViewPercentage": 26.02,
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 15,
+    "averageViewPercentage": 32.63,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1574,8 +1574,8 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 112,
-    "reach": 101,
+    "views": 114,
+    "reach": 103,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1615,10 +1615,15 @@
    "metrics": {
     "views": 1,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT53S",
     "privacy": "public",
-    "published": "2026-11-05T09:37:28Z"
+    "published": "2026-11-05T09:37:28Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1632,8 +1637,8 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 109,
-    "reach": 93,
+    "views": 111,
+    "reach": 95,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1652,7 +1657,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 11,
+    "views": 12,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1671,12 +1676,17 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 53,
+    "views": 24,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT54S",
     "privacy": "public",
-    "published": "2026-11-06T11:04:21Z"
+    "published": "2026-11-06T11:04:21Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 26,
+    "averageViewPercentage": 48.97,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1690,8 +1700,8 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 51,
-    "reach": 51,
+    "views": 54,
+    "reach": 54,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -1729,12 +1739,17 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 10,
+    "views": 2,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT53S",
     "privacy": "public",
-    "published": "2026-11-06T11:06:18Z"
+    "published": "2026-11-06T11:06:18Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 6,
+    "averageViewPercentage": 11.89,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1748,8 +1763,8 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 89,
-    "reach": 74,
+    "views": 92,
+    "reach": 77,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -1787,7 +1802,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 23,
+    "views": 22,
     "likes": 0,
     "comments": 1,
     "duration": "PT53S",
@@ -1806,8 +1821,8 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 64,
-    "reach": 62,
+    "views": 68,
+    "reach": 67,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1826,7 +1841,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 16,
+    "views": 17,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1864,8 +1879,8 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 32,
-    "reach": 30,
+    "views": 44,
+    "reach": 41,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1885,6 +1900,122 @@
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
     "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "FzQa6ofOyII",
+   "url": "https://youtube.com/shorts/FzQa6ofOyII",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M2S",
+    "privacy": "public",
+    "published": "2026-11-08T11:04:05Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18034053341879063",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfemxxYhRvD",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 19,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18012449316005765",
+   "url": "https://www.instagram.com/reel/DfenSBFj5HY/",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 1782,
+    "reach": 1630,
+    "likes": 21,
+    "comments": 1,
+    "saved": 3,
+    "shares": 2,
+    "total_interactions": 27
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "T25QvwF5z3M",
+   "url": "https://youtube.com/shorts/T25QvwF5z3M",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M7S",
+    "privacy": "public",
+    "published": "2026-11-08T11:05:43Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18131611414828419",
+   "url": "https://www.instagram.com/reel/Dfem7NjiBb_/",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 147,
+    "reach": 136,
+    "likes": 2,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 4
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261108-estimating-rail-commuter-preferences-und",
+   "title": "It's Packed. Why Do You Still Take That Train?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17957921871330172",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfenCoJh2ux",
+   "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
+   "created": "2026-11-08T06:21:18+00:00",
+   "metrics": {
+    "views": 0,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1965,8 +2096,8 @@
    "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206, 20261027-decredentialed-jobs-and-upward-mobility, 20261026-laundering-and-evasion-in-response-to-an",
    "created": "2026-10-28T06:51:44+00:00",
    "metrics": {
-    "views": 0,
-    "reach": 0,
+    "views": 3,
+    "reach": 1,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2023,8 +2154,8 @@
    "paper": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "created": "2026-10-29T10:19:18+00:00",
    "metrics": {
-    "views": 0,
-    "reach": 0,
+    "views": 3,
+    "reach": 1,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2215,8 +2346,8 @@
    "paper": "20261031-beauty-is-human-when-people-love-ai-gene",
    "created": "2026-11-04T11:24:30+00:00",
    "metrics": {
-    "views": 0,
-    "reach": 0,
+    "views": 2,
+    "reach": 1,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2254,7 +2385,7 @@
    "paper": "20261105-you-know-what-you-will-like-people-predi",
    "created": "2026-11-05T11:22:23+00:00",
    "metrics": {
-    "views": 25,
+    "views": 27,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2273,7 +2404,7 @@
    "paper": "20261106-heterogeneous-impacts-of-temperature-ext",
    "created": "2026-11-06T11:18:34+00:00",
    "metrics": {
-    "views": 26,
+    "views": 27,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2292,7 +2423,26 @@
    "paper": "20261101-improving-group-deliberation-through-ai, 20261102-counterfactual-assessment-of-social-medi, 20261102-a-prospective-randomized-study-of-patien, 20261104-discussing-politics-with-a-chatbot-how-p, 20261105-you-know-what-you-will-like-people-predi, 20261106-heterogeneous-impacts-of-temperature-ext",
    "created": "2026-11-07T10:33:20+00:00",
    "metrics": {
-    "views": 4,
+    "views": 5,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-20",
+   "title": "同一個首爾學區裡，附近500公尺有50家考試補習班的公寓社區，比只有6家（中位數）的社區，售價約高11.8%。\n\n我們昨天介紹的研究（arXiv, 2026）分",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18155475550546383",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfekEaOHECS",
+   "paper": "20261107-priced-in-or-bet-on-cram-school-lessons",
+   "created": "2026-11-08T10:40:18+00:00",
+   "metrics": {
+    "views": 7,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
