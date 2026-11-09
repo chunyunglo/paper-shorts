@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-09
 
+- **短影音 Short** · [勸人別信陰謀論，靠道理還是感情？ / Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/mNU27zRj9dE)
+  - 論文 Paper: [Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs](https://arxiv.org/abs/2611.05572) (arXiv cs.HC)
+  - 為什麼 Why: Two large online experiments (N=2,193) take apart why personalized AI dialogues reduce conspiracy beliefs by removing possible causes one at a time, and find the debunking survives even when the AI's persuasive goal is disclosed. That gives a concrete, surprising misinformation result that fits a 3-4 step visual explanation. Signals: The notes suggest a lean toward everyday-AI and personal-stakes topics, and earlier AI-dialogue shorts like the deliberation one did above typical. This paper studies conspiracy beliefs rather than how people word political prompts, so it does not repeat the recent chatbot-politics episode.
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfhRnlMG1s-)
   - 內容 Text: 超速罰款大漲，你下次真的會開慢一點嗎？ 我們今天介紹的研究（arXiv, 2026）用了澳洲昆士蘭州2022年全部測速照相的行政資料（743,539筆），每位駕駛都能追蹤。 2022年7月1日，昆士蘭所有超速級距都調高罰款（例如超速11-1…
   - 為什麼 Why: The speeding-fines paper is today's new episode, a non-AI everyday topic the notes suggest mixing in, and it takes the single daily Chinese Threads follow-up with a question-led first line since yesterday's was number-led; Instagram free posts stay paused until delivery is verified, and today's headlines are mostly partisan, crime or scandal news we won't use as hooks.

@@ -5580,5 +5580,329 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261109-sanctions-evasion-and-deterrence-evidenc",
     "pick_reason": "The study uses a natural experiment, a big jump in speeding fines and penalty points in Queensland, to estimate on large administrative records whether harsher sanctions cut repeat offending or push drivers to shift the points onto someone else, which is a concrete everyday behavioural question with a clear causal design that fits in 3-4 visual steps. Signals: Channel notes suggest mixing in non-AI personal-stakes topics, since about 7 of the last 11 shorts were AI-themed, so among similar-quality candidates I favored this non-AI, money-and-rules paper over the AI-at-work and AI-persuasion options."
+  },
+  {
+    "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+    "created": "2026-11-09T17:06:05+00:00",
+    "paper": {
+      "id": "arxiv:2611.05572",
+      "title": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+      "abstract": "Personalized dialogues with AI substantially reduce conspiracy beliefs. To identify why, we conducted two experiments with U.S. adults recruited online (total N = 2,193) that removed possible causes one at a time. The debunking effect was robust to disclosing the AI's persuasive goal, framing the exchange as a debate, instructing the AI to inform rather than persuade, halving its response length, altering how beliefs were measured, and replacing the dialogue with a single tailored message. Only instructing the AI to persuade without factual evidence and arguments substantially reduced the debunking effect. Content analyses of the AI's output and participants' own accounts linked larger reductions in conspiracy beliefs to factual argumentation rather than rapport, storytelling, or appeals to empathy. AI dialogues appear to reduce conspiracy beliefs primarily by supplying relevant, well-reasoned counterevidence. Our results suggest that humans might be similarly effective if they could supply comparable evidence.",
+      "authors": [
+        "Thomas H. Costello",
+        "Gordon Pennycook",
+        "David G. Rand"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.05572",
+      "pdf_url": "https://arxiv.org/pdf/2611.05572v1",
+      "doi": null,
+      "published": "2026-11-03",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "勸人別信陰謀論，靠道理還是感情？",
+      "title_en": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+      "paper_title_zh": "只講事實：與AI對話如何降低陰謀論信念",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "陰謀論",
+          "heading_en": "CONSPIRACIES",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "道理還是感情？",
+          "big_text_en": "Facts or feelings?",
+          "lines": [
+            {
+              "zh": "勸人別信陰謀論，靠道理還是感情？",
+              "en": "Talking someone out of a conspiracy: facts or feelings?"
+            },
+            {
+              "zh": "答案在把AI拆開來看。",
+              "en": "The answer came from taking an AI apart."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "卡內基美隆和康乃爾團隊，刊於arXiv。",
+              "en": "Carnegie Mellon and Cornell researchers, on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "參加者",
+          "heading_en": "THE PEOPLE",
+          "labels": [
+            "美國成年人",
+            "陰謀論",
+            "相信的理由"
+          ],
+          "labels_en": [
+            "US adults",
+            "Conspiracy",
+            "Their reasons"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "約兩千兩百人寫下相信的陰謀論和理由。",
+              "en": "About 2,200 Americans named a conspiracy they believed, and why."
+            }
+          ]
+        },
+        {
+          "visual": "chat",
+          "heading_zh": "跟AI聊",
+          "heading_en": "THE CHAT",
+          "labels": [
+            "登月是假的",
+            "旗子有橫桿撐開",
+            "我再想想"
+          ],
+          "labels_en": [
+            "Moon was faked",
+            "Flag had a rod",
+            "Let me think"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "接著AI逐條反駁他的理由。",
+              "en": "Then an AI argued back against each of their reasons."
+            },
+            {
+              "zh": "聊前聊後，用0到100分打相信程度。",
+              "en": "Before and after, they rated their belief from 0 to 100."
+            }
+          ]
+        },
+        {
+          "visual": "experiment",
+          "heading_zh": "公平比較",
+          "heading_en": "FAIR TEST",
+          "labels": [
+            "聊無關話題",
+            "聊陰謀論"
+          ],
+          "labels_en": [
+            "Unrelated chat",
+            "Conspiracy"
+          ],
+          "values": [
+            1.4,
+            14.6
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "也有人隨機改聊貓狗等無關話題。",
+              "en": "Others were randomly given unrelated chats, like cats versus dogs."
+            },
+            {
+              "zh": "聊陰謀論的降約15分，另一組幾乎沒變。",
+              "en": "Conspiracy chats cut belief about 15 points; the others barely moved."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "拆零件",
+          "heading_en": "TAKING IT APART",
+          "labels": [
+            "原版AI",
+            "先講明要說服",
+            "回答砍半",
+            "不准給證據"
+          ],
+          "labels_en": [
+            "Original",
+            "Warned first",
+            "Half length",
+            "No evidence"
+          ],
+          "values": [
+            10.9,
+            9.1,
+            13.83,
+            3.81
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再來每次只改AI一處。",
+              "en": "Then they changed one thing about the AI at a time."
+            },
+            {
+              "zh": "講明要說服、回答砍半，都還有效。",
+              "en": "Warning people first, or half-length replies: it still worked."
+            },
+            {
+              "zh": "只有不准AI給證據，效果剩三分之一。",
+              "en": "Only banning evidence shrank it, to about a third."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "關鍵",
+          "heading_en": "THE KEY",
+          "labels": [
+            "具體證據",
+            "講故事",
+            "談感受",
+            "套交情"
+          ],
+          "labels_en": [
+            "Evidence",
+            "Stories",
+            "Feelings",
+            "Rapport"
+          ],
+          "values": [],
+          "big_text": "對症的證據",
+          "big_text_en": "Targeted evidence",
+          "lines": [
+            {
+              "zh": "關鍵是證據，不是感情牌。",
+              "en": "So the key was evidence, not feelings."
+            },
+            {
+              "zh": "但這是線上自願者，聊完馬上測。",
+              "en": "Caveat: online volunteers, measured right after chatting."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI靠證據鬆動陰謀論",
+          "big_text_en": "AI evidence eased conspiracy beliefs",
+          "lines": [
+            {
+              "zh": "換真人來勸，若拿得出同樣證據，或許也有效。",
+              "en": "A person might work too, with evidence that answers their reasons."
+            },
+            {
+              "zh": "追蹤看更多行為研究。",
+              "en": "Follow for more on how people behave."
+            }
+          ]
+        }
+      ],
+      "description_zh": "跟AI聊三輪，就能讓人對自己相信的陰謀論動搖。但到底是哪一招有效？卡內基美隆和康乃爾的研究團隊找了約2,200位美國人，把AI的說服方式一次拿掉一樣來測試。結果講明要說服、改成辯論、回答砍半都還有效，只有不准AI給證據時效果大減。",
+      "description_en": "A short chat with AI can loosen people's grip on conspiracy theories, but why? Researchers from Carnegie Mellon and Cornell ran two experiments with about 2,200 Americans, removing one ingredient of the AI's approach at a time. Warning people, framing it as a debate, or halving the replies barely mattered; only banning evidence sharply weakened the effect.",
+      "hashtags": [
+        "陰謀論",
+        "AI",
+        "說服",
+        "行為科學",
+        "conspiracy",
+        "AIchatbot",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "Two online experiments with U.S. adults (Study 1 N=1,290; Study 2 N=903; total 2,193). Participants described a conspiracy theory they found credible and why; an AI restated it and they rated their confidence 0-100. They then had a three-round live chat with GPT-4 (Study 1) or GPT-5.2 (Study 2) that countered their reasons, and rated again. Study 1 compared the original treatment (belief fell 80.5 to 69.6, about 10.9 points) with variants changing one feature: telling people the AI would persuade (9.1), debate framing (11.9), inform rather than persuade (11.6), roughly half-length replies (13.8), and two measurement changes; all were similar to baseline. Only 'No Facts', persuading without evidence or reasoning, sharply weakened it (3.8 points). Study 2 randomized original dialogue (14.6-point drop), a single tailored message (11.8, about 79% of the effect), and an unrelated-topic control chat (1.4). In Study 2, 23% of treated participants starting above the midpoint ended below it vs 1.5% in control. LLM-coded content analysis linked larger drops to facts/evidence and source citations, not rapport, stories, or empathy; persuaded participants mostly cited tailored facts and logic. Trust in AI modestly boosted effects but low-trust people still changed.",
+      "limitations": "Participants were self-selected U.S. online volunteers, more educated and less religious than the population. Belief was measured immediately after the chat in these studies (durability comes from earlier work). Contrasts could only detect large differences, so smaller contributions from dialogue, rapport, or trust in AI cannot be ruled out. The No Facts prompt removed a bundle of features (facts, sources, precision), not one cleanly. The content and claim analyses are observational and coded by AI models, so they carry weaker causal warrant. Open-mindedness was measured after treatment.",
+      "pt": null,
+      "icons": [
+        [],
+        [],
+        [
+          "users",
+          "ufo",
+          "message"
+        ],
+        [
+          "moon",
+          "flag",
+          "brain"
+        ],
+        [
+          "cat",
+          "ufo"
+        ],
+        [
+          "robot",
+          "alert-triangle",
+          "hourglass",
+          "ban"
+        ],
+        [
+          "file-text",
+          "book",
+          "heart",
+          "heart-handshake"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 49.69,
+        "cover_offset_ms": 7023,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 57.71,
+        "cover_offset_ms": 7559,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "mNU27zRj9dE",
+          "url": "https://youtube.com/shorts/mNU27zRj9dE"
+        },
+        "instagram": {
+          "id": "18017400680985530",
+          "url": "https://www.instagram.com/reel/DfiRvuio9d4/"
+        },
+        "threads": {
+          "id": "18471359926186641",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfiR0fpsGrD"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "dBHNZqPBrDY",
+          "url": "https://youtube.com/shorts/dBHNZqPBrDY"
+        },
+        "instagram": {
+          "id": "18344536042278939",
+          "url": "https://www.instagram.com/reel/DfiR7grmTOB/"
+        },
+        "threads": {
+          "id": "17945376741363231",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfiSCu5gAQu"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261109-just-the-facts-how-dialogues-with-ai-red",
+    "pick_reason": "Two large online experiments (N=2,193) take apart why personalized AI dialogues reduce conspiracy beliefs by removing possible causes one at a time, and find the debunking survives even when the AI's persuasive goal is disclosed. That gives a concrete, surprising misinformation result that fits a 3-4 step visual explanation. Signals: The notes suggest a lean toward everyday-AI and personal-stakes topics, and earlier AI-dialogue shorts like the deliberation one did above typical. This paper studies conspiracy beliefs rather than how people word political prompts, so it does not repeat the recent chatbot-politics episode."
   }
 ]
