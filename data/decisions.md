@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-09
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfhRnlMG1s-)
+  - 內容 Text: 超速罰款大漲，你下次真的會開慢一點嗎？ 我們今天介紹的研究（arXiv, 2026）用了澳洲昆士蘭州2022年全部測速照相的行政資料（743,539筆），每位駕駛都能追蹤。 2022年7月1日，昆士蘭所有超速級距都調高罰款（例如超速11-1…
+  - 為什麼 Why: The speeding-fines paper is today's new episode, a non-AI everyday topic the notes suggest mixing in, and it takes the single daily Chinese Threads follow-up with a question-led first line since yesterday's was number-led; Instagram free posts stay paused until delivery is verified, and today's headlines are mostly partisan, crime or scandal news we won't use as hooks.
+  - 根據的集數 Based on: 20261109-sanctions-evasion-and-deterrence-evidenc
 - **短影音 Short** · [超速罰款大漲，你真的會開慢嗎？ / Higher Speeding Fines: Would You Actually Slow Down?](https://youtube.com/shorts/POTOBQr_nwE)
   - 論文 Paper: [Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement](https://arxiv.org/abs/2611.09337) (arXiv econ.GN)
   - 為什麼 Why: The study uses a natural experiment, a big jump in speeding fines and penalty points in Queensland, to estimate on large administrative records whether harsher sanctions cut repeat offending or push drivers to shift the points onto someone else, which is a concrete everyday behavioural question with a clear causal design that fits in 3-4 visual steps. Signals: Channel notes suggest mixing in non-AI personal-stakes topics, since about 7 of the last 11 shorts were AI-themed, so among similar-quality candidates I favored this non-AI, money-and-rules paper over the AI-at-work and AI-persuasion options.

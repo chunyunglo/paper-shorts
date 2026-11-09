@@ -296,5 +296,19 @@
     "why": "The Seoul cram-school paper is our newest episode and has no Chinese follow-up yet; it is a non-AI money-and-housing topic the notes ask us to mix in, the notes call for a number-led first line after recent question-led ones and cap Threads at one zh post per day, Instagram stays paused until delivery is checked, yesterday's roundup already covered the week, and today's headlines are mostly partisan, crime or disaster stories we won't use as hooks.",
     "id": "18155475550546383",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfekEaOHECS"
+  },
+  {
+    "posted": "2026-11-09T11:56:47+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261109-sanctions-evasion-and-deterrence-evidenc"
+    ],
+    "text": "超速罰款大漲，你下次真的會開慢一點嗎？\n\n我們今天介紹的研究（arXiv, 2026）用了澳洲昆士蘭州2022年全部測速照相的行政資料（743,539筆），每位駕駛都能追蹤。\n\n2022年7月1日，昆士蘭所有超速級距都調高罰款（例如超速11-12公里：183澳幣漲到431澳幣），但只有11-12公里這一級的記點從1點變3點。\n\n研究比較改制前後剛被拍到的人，一年內會不會再超速：\n・整體再犯率降1.6個百分點（約5%）\n・11-12公里這級降4.6個百分點（約13%，原本是34.8%）\n・只漲罰款、沒加記點的級距，看不出明顯效果\n\n另一個發現：移動式測速拍到的11-12公里罰單，車主申報「其實是別人開的」比例上升約30-60%，但基礎值本來就低（約1.6-2%）。\n\n限制：這不是隨機實驗；這一級罰款也漲最多，記點和罰款的效果只能部分分開；「轉給別人」在主要設定下並不顯著。結果看的是被拍到的再犯，不是實際車速，也只來自昆士蘭。\n\n詳細內容在我們今天的影片。",
+    "news": null,
+    "why": "The speeding-fines paper is today's new episode, a non-AI everyday topic the notes suggest mixing in, and it takes the single daily Chinese Threads follow-up with a question-led first line since yesterday's was number-led; Instagram free posts stay paused until delivery is verified, and today's headlines are mostly partisan, crime or scandal news we won't use as hooks.",
+    "id": "18139044640733556",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfhRnlMG1s-"
   }
 ]
