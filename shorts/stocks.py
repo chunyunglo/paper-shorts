@@ -45,7 +45,8 @@ SLOTS = {"morning": ("📈", "盤前心理學"), "noon": ("🏭", "產業前沿"
 DISCLAIMER = "（研究分享，不是投資建議）"
 # Sonnet for this series (the owner's call: cheaper, and each post is short); STOCKS_MODEL overrides
 MODEL = config.env("STOCKS_MODEL", "claude-sonnet-5-5")
-MAX_BODY = 430  # Threads allows 500 characters; the header and disclaimer take the rest
+MAX_BODY = 430
+MAX_POOL = 60  # Threads allows 500 characters; the header and disclaimer take the rest
 
 ARXIV_CATS = ["q-fin.TR", "q-fin.GN", "q-fin.ST", "econ.GN", "cs.SI", "cs.CY"]
 ARXIV_TERMS = ["investor", "investors", "retail", "herding", "overconfidence", "disposition", "sentiment",
@@ -149,7 +150,7 @@ def pool_listing(ps: list[papers.Paper], history: list[dict]) -> str:
         u = uses.get(p.id, [])
         used = (f"used {len(u)}x, last {u[-1]['posted'][:10]}, angles so far: " + ", ".join(x["kind"] for x in u)
                 if u else "not used yet")
-        rows.append(f"[{p.id}] {p.title} ({p.venue}, {p.published[:4]}) - {used}\nAbstract: {p.abstract[:1200]}")
+        rows.append(f"[{p.id}] {p.title} ({p.venue}, {p.published[:4]}) - {used}\nAbstract: {p.abstract[:600]}")
     return "\n\n".join(rows)
 
 
@@ -277,7 +278,9 @@ def make(slot: str, now: datetime | None = None) -> Path | None:
     if posted_today(history, slot, now):
         log(f"Stocks: {slot} already posted today")
         return None
-    ps = pool(history, slot)
+    # the pick call reads every listed abstract, so the list is capped: the first run listed ~200
+    # studies (94k tokens, most of that post's cost); the library and used studies come first
+    ps = pool(history, slot)[:MAX_POOL]
     by_id = {p.id: p for p in ps}
     heads = market_headlines() if slot == "evening" else []
     today = now_tw(now).date().isoformat()
