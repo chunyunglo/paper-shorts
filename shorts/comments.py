@@ -196,6 +196,23 @@ def social_episodes(known: list[dict]) -> list[dict]:
     return out
 
 
+def stock_episodes() -> list[dict]:
+    """Stock-series posts, answered with the context of the study they are built on."""
+    from .stocks import load as load_stocks
+
+    out = []
+    for i, sp in enumerate(load_stocks()):
+        p = sp["paper"]
+        out.append({"episode": f"stock-{i}", "created": sp["posted"], "paper": p,
+                    "script": {"title_zh": sp["text"][:80], "title_en": sp["text"][:80],
+                               "method_summary": f"{p.get('abstract', '')}\n\nOur post said:\n{sp['text']}\n\n"
+                                                 "This is an education series: never give investment advice, "
+                                                 "name stocks, or predict markets in replies.",
+                               "limitations": ""},
+                    "posts": {sp["lang"]: {"threads": {"id": sp["id"], "url": sp.get("url", "")}}}})
+    return out
+
+
 # ---------------------------------------------------------------- main
 
 def triage(ep: dict, comments: list[Comment]) -> list[Decision]:
@@ -223,7 +240,7 @@ def act(c: Comment, d: Decision) -> None:
 def run(dry_run: bool = False) -> None:
     cutoff = datetime.now(timezone.utc) - timedelta(days=WINDOW_DAYS)
     known = load_history() + podcast_episodes()
-    episodes = [ep for ep in known + social_episodes(known) if any(ep.get("posts", {}).values())
+    episodes = [ep for ep in known + social_episodes(known) + stock_episodes() if any(ep.get("posts", {}).values())
                 and datetime.fromisoformat(ep["created"]) >= cutoff]
     done = load_done()
     try:

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "doi:10.1093/rfs/hhn046",
+    "title": "Just How Much Do Individual Investors Lose by Trading?",
+    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "venue": "Review of Financial Studies",
+    "published": "2009",
+    "url": "https://doi.org/10.1093/rfs/hhn046",
+    "pdf_url": "https://faculty.haas.berkeley.edu/odean/papers/taiwan%20performance/just%20how%20much%20do%20investors%20lose.pdf",
+    "abstract": "Individual investor trading results in systematic and economically large losses. Using a complete trading history of all investors in Taiwan, we document that the aggregate portfolio of individuals suffers an annual performance penalty of 3.8 percentage points. Individual investor losses are equivalent to 2.2% of Taiwan's gross domestic product or 2.8% of the total personal income. Virtually all individual trading losses can be traced to their aggressive orders. In contrast, institutions enjoy an annual performance boost of 1.5 percentage points, and both the aggressive and passive trades of institutions are profitable."
+  },
+  {
+    "id": "doi:10.1016/j.finmar.2013.05.006",
+    "title": "The cross-section of speculator skill: Evidence from day trading",
+    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "venue": "Journal of Financial Markets",
+    "published": "2014",
+    "url": "https://doi.org/10.1016/j.finmar.2013.05.006",
+    "pdf_url": "https://escholarship.org/content/qt7k75v0qx/qt7k75v0qx.pdf",
+    "abstract": "We document economically large cross-sectional differences in the before- and after-fee returns earned by speculative traders by analyzing day traders in Taiwan from 1992 to 2006. We sort day traders based on their returns in year y and analyze their performance in year y+1; the 500 top-ranked day traders go on to earn daily before-fee (after-fee) returns of 61.3 (37.9) bps per day; bottom-ranked day traders go on to earn daily before-fee (after-fee) returns of -11.5 (-28.9) bps per day. Less than 1% of the day trader population is able to predictably and reliably earn positive abnormal returns net of fees."
+  },
+  {
+    "id": "doi:10.1111/j.1468-036X.2007.00367.x",
+    "title": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
+    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "venue": "European Financial Management",
+    "published": "2007",
+    "url": "https://doi.org/10.1111/j.1468-036X.2007.00367.x",
+    "pdf_url": null,
+    "abstract": "We ask whether the typical investor and the aggregate investor exhibit a bias known as the disposition effect, the tendency to sell investments that are held for a profit at a faster rate than investments held for a loss. We analyse all trading activity on the Taiwan Stock Exchange (TSE) for the five years ending in 1999. Using a dataset that contains all trades (over one billion) and the identity of every trader (nearly four million), we find that in aggregate, investors in Taiwan are about twice as likely to sell a stock if they are holding that stock for a gain rather than a loss. Eighty-four percent of all Taiwanese investors sell winners at a faster rate than losers. Individuals, corporations, and dealers are reluctant to realise losses, while mutual funds and foreigners, who together account for less than 5% of all trades (by value), are not."
+  },
+  {
+    "id": "doi:10.1093/rfs/hhm079",
+    "title": "All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors",
+    "authors": ["Brad M. Barber", "Terrance Odean"],
+    "venue": "Review of Financial Studies",
+    "published": "2008",
+    "url": "https://doi.org/10.1093/rfs/hhm079",
+    "pdf_url": null,
+    "abstract": "We test and confirm the hypothesis that individual investors are net buyers of attention-grabbing stocks, e.g., stocks in the news, stocks experiencing high abnormal trading volume, and stocks with extreme one-day returns. Attention-driven buying results from the difficulty that investors have searching the thousands of stocks they can potentially buy. Individual investors do not face the same search problem when selling because they tend to sell only stocks they already own. We hypothesize that many investors consider purchasing only stocks that have first caught their attention. Thus, preferences determine choices after attention has determined the choice set."
+  },
+  {
+    "id": "doi:10.1111/jofi.13183",
+    "title": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
+    "authors": ["Brad M. Barber", "Xing Huang", "Terrance Odean", "Christopher Schwarz"],
+    "venue": "Journal of Finance",
+    "published": "2022",
+    "url": "https://doi.org/10.1111/jofi.13183",
+    "pdf_url": null,
+    "abstract": "We study the influence of financial innovation by fintech brokerages on individual investors' trading and stock prices. Using data from Robinhood, we find that Robinhood investors engage in more attention-induced trading than other retail investors. For example, Robinhood outages disproportionately reduce trading in high-attention stocks. While this evidence is consistent with Robinhood attracting relatively inexperienced investors, we show that it is also driven in part by the app's unique features. Consistent with models of attention-induced trading, intense buying by Robinhood users forecasts negative returns. Average 20-day abnormal returns are -4.7% for the top stocks purchased each day."
+  }
+]

@@ -48,8 +48,11 @@ def _clean(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
-def fetch_arxiv(days: int = 14) -> list[Paper]:
-    q = "+OR+".join(f"cat:{c}" for c in ARXIV_CATS)
+def fetch_arxiv(days: int = 14, cats: list[str] | None = None, terms: list[str] | None = None) -> list[Paper]:
+    """Recent arXiv papers in `cats`; with `terms`, only those whose abstract has one of them."""
+    q = "+OR+".join(f"cat:{c}" for c in cats or ARXIV_CATS)
+    if terms:
+        q = f"({q})+AND+(" + "+OR+".join(f"abs:{t}" for t in terms) + ")"
     resp = http("arxiv", "query", "GET", ARXIV_URL.format(q=q), headers=UA)
     feed = feedparser.parse(resp.content)
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)

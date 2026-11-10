@@ -58,6 +58,12 @@ def _posts() -> list[dict]:
             rows.append({"kind": "social", "episode": f"social-{i}", "title": sp["text"][:80], "lang": sp["lang"],
                          "platform": sp["platform"], "id": sp["id"], "url": sp.get("url", ""),
                          "paper": ", ".join(sp.get("episodes") or []), "created": sp["posted"]})
+    from .stocks import load as load_stocks
+
+    for i, sp in enumerate(load_stocks()):
+        rows.append({"kind": "stock", "episode": f"stock-{i}", "title": sp["text"][:80], "lang": sp["lang"],
+                     "platform": "threads", "id": sp["id"], "url": sp.get("url", ""),
+                     "paper": sp["paper"]["title"], "created": sp["posted"]})
     return rows
 
 
@@ -105,7 +111,7 @@ def views(r: dict) -> int:
     return int(m.get("views") or m.get("reach") or 0)
 
 
-KIND_ZH = {"short": "短片", "podcast": "Podcast", "social": "免費貼文"}
+KIND_ZH = {"short": "短片", "podcast": "Podcast", "social": "免費貼文", "stock": "股市篇串文"}
 
 
 def summary(report: dict, top: int = 5, zh: bool = False) -> str:
@@ -121,7 +127,7 @@ def summary(report: dict, top: int = 5, zh: bool = False) -> str:
                "按讚數也可能包含我們自己。" if zh else
                "Note: every short and talk show has one comment from us (the paper citation), and our replies "
                "to viewers count too, so comment counts overstate viewer comments; likes may include our own.")
-    for kind in ("short", "podcast", "social"):
+    for kind in ("short", "podcast", "social", "stock"):
         for platform in ("youtube", "instagram", "threads"):
             rs = [r for r in rows if r["kind"] == kind and r["platform"] == platform and r.get("metrics")]
             if not rs:
@@ -174,7 +180,8 @@ class Strategy(BaseModel):
     shorts_advice: str = Field(description="2-4 sentences: which topics, hooks, titles and languages to favor for shorts")
     podcast_advice: str = Field(description="2-4 sentences: which papers and angles to favor for the weekly talk show, "
                                             "and what to change in its format if the numbers suggest it")
-    social_advice: str = Field("", description="1-3 sentences on the free Threads text posts and Instagram slide posts "
+    social_advice: str = Field("", description="1-3 sentences on the free Threads text posts, Instagram slide posts "
+                                               "and the stock-psychology Threads series "
                                                "(kind, language, platform), or empty if there are no numbers yet")
     caveat: str = Field(description="One sentence on how much to trust this given the sample size")
 
@@ -182,7 +189,8 @@ class Strategy(BaseModel):
 STRATEGY_SYSTEM = """You run the YouTube/Instagram/Threads channel "Behavior Decoded" (1-minute \
 shorts in Chinese and English, each explaining one computational human-behavior paper) \
 and its weekly English late-night-style talk show "Behavior Decoded Tonight" (hosts Kai and Anne), \
-plus free posts between episodes (Threads text, Instagram slides; "social" in the numbers). \
+plus free posts between episodes (Threads text, Instagram slides; "social" in the numbers) \
+and a twice-daily Threads series on research about investor behavior ("stock" in the numbers). \
 Read the channel numbers and write short, practical guidance for the next episodes. Be honest about \
 small samples: with a handful of posts, say so rather than inventing trends. Never suggest \
 clickbait that misstates a paper, and never suggest changing the scientific content to chase views. \

@@ -17,6 +17,8 @@
   recall QUERY      print the past posts most like QUERY and how they did (what the pickers see)
   social-make       plan today's free posts (Threads text, Instagram slides), fact-check, draw (out/social/)
   social-publish D  post a planned folder; images are fetched from --image-base-url
+  stocks-make SLOT  write and check one post of the stock-psychology Threads series (morning|evening)
+  stocks-publish D  post a planned stock-series folder and reply with its citation
 """
 from __future__ import annotations
 
@@ -93,6 +95,9 @@ def main() -> None:
     sp = sub.add_parser("social-publish")
     sp.add_argument("folder", type=Path)
     sp.add_argument("--image-base-url", default="")
+    sm = sub.add_parser("stocks-make")
+    sm.add_argument("slot", choices=["morning", "evening"])
+    sub.add_parser("stocks-publish").add_argument("folder", type=Path)
     args = ap.parse_args()
 
     if args.cmd == "make":
@@ -201,6 +206,16 @@ def main() -> None:
         from .social import publish as social_publish
 
         social_publish(args.folder, args.image_base_url)
+    elif args.cmd == "stocks-make":
+        install_excepthook(strict=False)
+        from .stocks import make as stocks_make
+
+        print(stocks_make(args.slot) or "")
+    elif args.cmd == "stocks-publish":
+        install_excepthook(strict=True)
+        from .stocks import publish as stocks_publish
+
+        stocks_publish(args.folder)
     elif args.cmd == "keepalive":
         install_excepthook(strict=True)
         from .tokens import keepalive
