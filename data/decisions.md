@@ -5,6 +5,13 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-10
+
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR)
+  - 內容 Text: 在一個實驗裡，受試者跟AI來回聊三輪後，對一個陰謀論的相信程度（0到100分）平均降了14.6分。聊無關話題的對照組只降1.4分。 我們介紹過的一篇研究（arXiv, 2026）做了兩個美國線上實驗，共2,193人。每人先寫下一個自己覺得可…
+  - 為什麼 Why: The conspiracy-dialogue paper is a recent episode that did well as a Chinese short and still has no Threads follow-up; the notes cap us at one zh follow-up per day and ask us to alternate openers (the last one was question-led, so this one leads with a number); Instagram free posts stay paused because they still show almost no views; and today's headlines are mostly partisan, crime or scandal stories we won't use as hooks.
+  - 根據的集數 Based on: 20261109-just-the-facts-how-dialogues-with-ai-red
+
 ## 2026-11-09
 
 - **短影音 Short** · [勸人別信陰謀論，靠道理還是感情？ / Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/mNU27zRj9dE)

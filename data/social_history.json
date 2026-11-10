@@ -310,5 +310,19 @@
     "why": "The speeding-fines paper is today's new episode, a non-AI everyday topic the notes suggest mixing in, and it takes the single daily Chinese Threads follow-up with a question-led first line since yesterday's was number-led; Instagram free posts stay paused until delivery is verified, and today's headlines are mostly partisan, crime or scandal news we won't use as hooks.",
     "id": "18139044640733556",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfhRnlMG1s-"
+  },
+  {
+    "posted": "2026-11-10T13:02:16+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261109-just-the-facts-how-dialogues-with-ai-red"
+    ],
+    "text": "在一個實驗裡，受試者跟AI來回聊三輪後，對一個陰謀論的相信程度（0到100分）平均降了14.6分。聊無關話題的對照組只降1.4分。\n\n我們介紹過的一篇研究（arXiv, 2026）做了兩個美國線上實驗，共2,193人。每人先寫下一個自己覺得可信的陰謀論和理由，再跟GPT聊三輪，AI會針對他的理由回應。\n\n到底是哪個成分有用？（第一個實驗，原版降10.9分）\n・先說明AI會試圖說服你、改成辯論、回覆砍半：效果都差不多\n・拿掉事實和推理、只剩說服：只降3.8分\n・第二個實驗：只給一則量身訂做的訊息，就有約79%的效果\n\n要注意：\n・受試者是自願參加的美國網友，教育程度比一般人高\n・信念是聊完馬上測的\n・實驗只能看出較大的差異，親和感或對AI的信任有沒有小幅作用，不能排除\n\n完整介紹在我們的影片，論文：https://arxiv.org/abs/2611.05572",
+    "news": null,
+    "why": "The conspiracy-dialogue paper is a recent episode that did well as a Chinese short and still has no Threads follow-up; the notes cap us at one zh follow-up per day and ask us to alternate openers (the last one was question-led, so this one leads with a number); Instagram free posts stay paused because they still show almost no views; and today's headlines are mostly partisan, crime or scandal stories we won't use as hooks.",
+    "id": "18454496590126022",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR"
   }
 ]
