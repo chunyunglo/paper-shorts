@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-10
 
+- **股市篇 Stock series** · morning · taiwan_data · [link](https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R)
+  - 內容 Text: 📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？ 有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至1999年的五年間「全部」交易：超過十億筆、近四百萬名投資人，而且知道每筆是誰下的。 研…
+  - 論文 Paper: [Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan](https://doi.org/10.1111/j.1468-036X.2007.00367.x) (European Financial Management)
+  - 為什麼 Why: 系列第一篇，用台灣自己的完整交易紀錄和兩個好記的數字（兩倍、84%）開場最貼近讀者，而且是真實行為資料，不是預測模型；要註明這是1990年代後期的資料。
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR)
   - 內容 Text: 在一個實驗裡，受試者跟AI來回聊三輪後，對一個陰謀論的相信程度（0到100分）平均降了14.6分。聊無關話題的對照組只降1.4分。 我們介紹過的一篇研究（arXiv, 2026）做了兩個美國線上實驗，共2,193人。每人先寫下一個自己覺得可…
   - 為什麼 Why: The conspiracy-dialogue paper is a recent episode that did well as a Chinese short and still has no Threads follow-up; the notes cap us at one zh follow-up per day and ask us to alternate openers (the last one was question-led, so this one leads with a number); Instagram free posts stay paused because they still show almost no views; and today's headlines are mostly partisan, crime or scandal stories we won't use as hooks.

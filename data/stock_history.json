@@ -1,0 +1,31 @@
+[
+  {
+    "posted": "2026-11-10T23:25:51+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "taiwan_data",
+    "text": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至1999年的五年間「全部」交易：超過十億筆、近四百萬名投資人，而且知道每筆是誰下的。\n\n研究發現，整體來看，投資人持股賺錢時賣出的機率，大約是賠錢時的兩倍。這種「賣賺錢的比賣賠錢的快」的傾向，學界稱為「處分效應」。在當時，84%的台灣投資人都呈現這個模式。\n\n分群來看更有意思：個人、公司法人、自營商都不太願意實現虧損。投信和外資則沒有這種傾向，不過兩者加起來只佔不到5%的交易金額。\n\n要提醒的是，這是二十多年前的資料，描述的是當時的行為模式。它沒有說哪種做法比較好，也不能直接套用到今天的市場。但下次想賣股票時，或許可以留意一下，自己是不是也有這個傾向 🤔\n\n（研究分享，不是投資建議）",
+    "why": "系列第一篇，用台灣自己的完整交易紀錄和兩個好記的數字（兩倍、84%）開場最貼近讀者，而且是真實行為資料，不是預測模型；要註明這是1990年代後期的資料。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/j.1468-036X.2007.00367.x",
+      "title": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
+      "abstract": "We ask whether the typical investor and the aggregate investor exhibit a bias known as the disposition effect, the tendency to sell investments that are held for a profit at a faster rate than investments held for a loss. We analyse all trading activity on the Taiwan Stock Exchange (TSE) for the five years ending in 1999. Using a dataset that contains all trades (over one billion) and the identity of every trader (nearly four million), we find that in aggregate, investors in Taiwan are about twice as likely to sell a stock if they are holding that stock for a gain rather than a loss. Eighty-four percent of all Taiwanese investors sell winners at a faster rate than losers. Individuals, corporations, and dealers are reluctant to realise losses, while mutual funds and foreigners, who together account for less than 5% of all trades (by value), are not.",
+      "authors": [
+        "Brad M. Barber",
+        "Yi-Tsung Lee",
+        "Yu-Jane Liu",
+        "Terrance Odean"
+      ],
+      "venue": "European Financial Management",
+      "url": "https://doi.org/10.1111/j.1468-036X.2007.00367.x",
+      "pdf_url": null,
+      "doi": "10.1111/j.1468-036X.2007.00367.x",
+      "published": "2007",
+      "source": "journal"
+    },
+    "id": "18155921758534576",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R"
+  }
+]
