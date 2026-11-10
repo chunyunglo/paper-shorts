@@ -17,7 +17,7 @@
   recall QUERY      print the past posts most like QUERY and how they did (what the pickers see)
   social-make       plan today's free posts (Threads text, Instagram slides), fact-check, draw (out/social/)
   social-publish D  post a planned folder; images are fetched from --image-base-url
-  stocks-make SLOT  write and check one post of the stock-psychology Threads series (morning|evening)
+  stocks-make SLOT  write and check one post of the stock Threads series (morning|noon|evening)
   stocks-publish D  post a planned stock-series folder and reply with its citation
 """
 from __future__ import annotations
@@ -96,7 +96,7 @@ def main() -> None:
     sp.add_argument("folder", type=Path)
     sp.add_argument("--image-base-url", default="")
     sm = sub.add_parser("stocks-make")
-    sm.add_argument("slot", choices=["morning", "evening"])
+    sm.add_argument("slot", choices=["morning", "noon", "evening"])
     sub.add_parser("stocks-publish").add_argument("folder", type=Path)
     args = ap.parse_args()
 

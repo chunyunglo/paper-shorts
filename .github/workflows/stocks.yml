@@ -1,5 +1,5 @@
-# 行為解碼・股市篇: a Threads series on research about investor behavior, two text posts a day
-# (08:00 盤前心理學, 21:00 盤後研究室, Taiwan time). Claude picks a study and an angle, writes the post
+# 行為解碼・股市篇: a Threads series on research about investor behavior and frontier technology,
+# three text posts a day (08:00 盤前心理學, 12:00 產業前沿, 21:00 盤後研究室, Taiwan time). Claude picks a study and an angle, writes the post
 # from the paper, and a second pass checks it against the paper and the no-advice rules before it
 # goes out. Needs the repo variable STOCKS_AUTO=true to post on schedule; a manual run only drafts
 # (the draft is shown in the run summary) unless "post" is ticked.
@@ -8,13 +8,14 @@ name: Stock series
 on:
   schedule:
     - cron: "0 0 * * *"    # 08:00 Taiwan
+    - cron: "0 4 * * *"    # 12:00 Taiwan
     - cron: "0 13 * * *"   # 21:00 Taiwan
   workflow_dispatch:
     inputs:
       slot:
         description: "Which post"
         type: choice
-        options: [morning, evening]
+        options: [morning, noon, evening]
         default: morning
       post:
         description: "Post for real (off = draft only, shown in the run summary)"
@@ -34,7 +35,7 @@ jobs:
     timeout-minutes: 20
     env:
       POST: ${{ (github.event_name == 'schedule' || inputs.post) && 'true' || 'false' }}
-      SLOT: ${{ inputs.slot || (github.event.schedule == '0 0 * * *' && 'morning' || 'evening') }}
+      SLOT: ${{ inputs.slot || (github.event.schedule == '0 0 * * *' && 'morning' || (github.event.schedule == '0 4 * * *' && 'noon' || 'evening')) }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
       STATE_DIR: state
     steps:
@@ -57,8 +58,11 @@ jobs:
           python - >> "$GITHUB_STEP_SUMMARY" <<'PY'
           import json, os
           r = json.load(open(os.path.join(os.environ["DIR"], "plan.json"), encoding="utf-8"))
+          from shorts import stocks
+          today = sum(h.get("cost_usd") or 0 for h in stocks.load()
+                      if stocks.posted_today([h], h["slot"]))
           print(f"### {r['slot']} · {r['kind']}\n\n{r['text']}\n\n---\n\n第一則回覆：\n\n{r['reply']}\n\n"
-                f"為什麼：{r['why']}")
+                f"為什麼：{r['why']}\n\n這則花費：US${r.get('cost_usd', 0):.3f}；今天已發的其他則：US${today:.3f}")
           PY
       - name: Post
         if: env.DIR != '' && env.POST == 'true'

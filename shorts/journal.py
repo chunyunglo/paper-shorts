@@ -57,6 +57,8 @@ def entries() -> list[tuple[str, list[str]]]:
                  f"  - 為什麼 Why: {post.get('why') or MISSING}"]
         if post.get("news"):
             lines.append(f"  - 時事 News hook: {post['news']}")
+        if post.get("cost_usd") is not None:
+            lines.append(f"  - 花費 Claude cost: US${post['cost_usd']:.3f}")
         out.append((post["posted"], lines))
     return out
 
