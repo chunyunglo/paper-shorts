@@ -15,14 +15,18 @@ runs:
       run: pip install -q -r requirements.txt
     - if: inputs.render == 'true'
       shell: bash
-      # apt mirrors sometimes hang a runner until the job times out; cap each try and retry
+      # apt mirrors sometimes hang a runner until the job times out; cap each try and retry,
+      # and after a failed try switch from the runner's Azure mirror to the main Ubuntu archive
       run: |
         for i in 1 2 3; do
-          if timeout 240 sudo apt-get -o Acquire::Retries=3 update -qq &&
-             timeout 360 sudo apt-get -o Acquire::Retries=3 install -y -qq fonts-noto-cjk ffmpeg libcairo2 >/dev/null; then
+          echo "apt-get attempt $i: update"
+          if timeout 180 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -qq &&
+             echo "apt-get attempt $i: install" &&
+             timeout 360 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y -qq fonts-noto-cjk ffmpeg libcairo2 >/dev/null; then
             break
           fi
           [ "$i" = 3 ] && exit 1
-          echo "apt-get attempt $i failed or timed out; retrying"
+          echo "apt-get attempt $i failed or timed out; retrying with the main Ubuntu mirror"
+          sudo sed -i 's#http://azure.archive.ubuntu.com#http://archive.ubuntu.com#g' /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list 2>/dev/null || true
           sleep 10
         done
