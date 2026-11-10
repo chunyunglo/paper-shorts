@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-09T08:34:11+00:00",
+ "collected_at": "2026-11-10T08:46:37+00:00",
  "channel": {
   "youtube": {
-   "subscriberCount": 4,
-   "viewCount": 834,
-   "videoCount": 34
+   "subscriberCount": 5,
+   "viewCount": 975,
+   "videoCount": 38
   }
  },
  "notes": [],
@@ -1172,7 +1172,7 @@
    "paper": "Counterfactual assessment of social media interventions by separating exposure from engagement",
    "created": "2026-11-02T08:27:35+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
     "comments": 0,
     "duration": "PT50S",
@@ -1511,8 +1511,8 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 19,
-    "reach": 18,
+    "views": 20,
+    "reach": 19,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1550,13 +1550,13 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 24,
+    "views": 25,
     "likes": 0,
     "comments": 0,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-11-05T09:35:48Z",
-    "estimatedMinutesWatched": 2,
+    "estimatedMinutesWatched": 3,
     "averageViewDuration": 15,
     "averageViewPercentage": 32.63,
     "shares": 0,
@@ -1574,8 +1574,8 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 114,
-    "reach": 103,
+    "views": 115,
+    "reach": 104,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1637,8 +1637,8 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 111,
-    "reach": 95,
+    "views": 112,
+    "reach": 96,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -1676,15 +1676,15 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 24,
+    "views": 53,
     "likes": 0,
     "comments": 0,
     "duration": "PT54S",
     "privacy": "public",
     "published": "2026-11-06T11:04:21Z",
-    "estimatedMinutesWatched": 2,
-    "averageViewDuration": 26,
-    "averageViewPercentage": 48.97,
+    "estimatedMinutesWatched": 8,
+    "averageViewDuration": 40,
+    "averageViewPercentage": 74.64,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1700,8 +1700,8 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 54,
-    "reach": 54,
+    "views": 55,
+    "reach": 55,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -1739,15 +1739,15 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 2,
+    "views": 10,
     "likes": 0,
     "comments": 0,
     "duration": "PT53S",
     "privacy": "public",
     "published": "2026-11-06T11:06:18Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 6,
-    "averageViewPercentage": 11.89,
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 33,
+    "averageViewPercentage": 63.25999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -1763,8 +1763,8 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 92,
-    "reach": 77,
+    "views": 93,
+    "reach": 78,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -1802,12 +1802,17 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT53S",
     "privacy": "public",
-    "published": "2026-11-07T11:03:57Z"
+    "published": "2026-11-07T11:03:57Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 5,
+    "averageViewPercentage": 10.75,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1821,8 +1826,8 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 68,
-    "reach": 67,
+    "views": 69,
+    "reach": 68,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1841,7 +1846,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 17,
+    "views": 19,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1862,10 +1867,15 @@
    "metrics": {
     "views": 7,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT59S",
     "privacy": "public",
-    "published": "2026-11-07T11:06:20Z"
+    "published": "2026-11-07T11:06:20Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 55,
+    "averageViewPercentage": 94.86,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -1879,8 +1889,8 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 44,
-    "reach": 41,
+    "views": 45,
+    "reach": 42,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -1937,7 +1947,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1956,8 +1966,8 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 1782,
-    "reach": 1630,
+    "views": 1789,
+    "reach": 1637,
     "likes": 21,
     "comments": 1,
     "saved": 3,
@@ -1976,7 +1986,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 0,
+    "views": 2,
     "likes": 0,
     "comments": 1,
     "duration": "PT1M7S",
@@ -1995,8 +2005,8 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 147,
-    "reach": 136,
+    "views": 153,
+    "reach": 142,
     "likes": 2,
     "comments": 1,
     "saved": 1,
@@ -2016,6 +2026,238 @@
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
     "views": 0,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "POTOBQr_nwE",
+   "url": "https://youtube.com/shorts/POTOBQr_nwE",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 127,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT49S",
+    "privacy": "public",
+    "published": "2026-11-09T11:07:23Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17930225925437938",
+   "url": "https://www.instagram.com/reel/DfhL6h7jboz/",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 118,
+    "reach": 111,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18119334254599323",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfhL_cPsilM",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "JkrFUJU1lTQ",
+   "url": "https://youtube.com/shorts/JkrFUJU1lTQ",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT54S",
+    "privacy": "public",
+    "published": "2026-11-09T11:08:57Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18014057087988662",
+   "url": "https://www.instagram.com/reel/DfhMGzQAgGK/",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 109,
+    "reach": 100,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "title": "Higher Speeding Fines: Would You Actually Slow Down?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18087298949329787",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfhMNxDBkxK",
+   "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
+   "created": "2026-11-09T06:17:28+00:00",
+   "metrics": {
+    "views": 11,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "mNU27zRj9dE",
+   "url": "https://youtube.com/shorts/mNU27zRj9dE",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 92,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT50S",
+    "privacy": "public",
+    "published": "2026-11-09T21:17:35Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18017400680985530",
+   "url": "https://www.instagram.com/reel/DfiRvuio9d4/",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 12,
+    "reach": 11,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18471359926186641",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfiR0fpsGrD",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 20,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "dBHNZqPBrDY",
+   "url": "https://youtube.com/shorts/dBHNZqPBrDY",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 84,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT58S",
+    "privacy": "public",
+    "published": "2026-11-09T21:19:09Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18344536042278939",
+   "url": "https://www.instagram.com/reel/DfiR7grmTOB/",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 7,
+    "reach": 6,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "title": "Talking Someone Out of a Conspiracy: Facts or Feelings?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17945376741363231",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfiSCu5gAQu",
+   "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
+   "created": "2026-11-09T17:06:05+00:00",
+   "metrics": {
+    "views": 4,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2346,7 +2588,7 @@
    "paper": "20261031-beauty-is-human-when-people-love-ai-gene",
    "created": "2026-11-04T11:24:30+00:00",
    "metrics": {
-    "views": 2,
+    "views": 4,
     "reach": 1,
     "likes": 1,
     "comments": 0,
@@ -2443,6 +2685,25 @@
    "created": "2026-11-08T10:40:18+00:00",
    "metrics": {
     "views": 7,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-21",
+   "title": "超速罰款大漲，你下次真的會開慢一點嗎？\n\n我們今天介紹的研究（arXiv, 2026）用了澳洲昆士蘭州2022年全部測速照相的行政資料（743,539筆），每位",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18139044640733556",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfhRnlMG1s-",
+   "paper": "20261109-sanctions-evasion-and-deterrence-evidenc",
+   "created": "2026-11-09T11:56:47+00:00",
+   "metrics": {
+    "views": 56,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
