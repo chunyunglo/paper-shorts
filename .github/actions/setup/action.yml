@@ -13,16 +13,25 @@ runs:
         cache: pip
     - shell: bash
       run: pip install -q -r requirements.txt
+    # the Ubuntu mirrors are sometimes slow enough that downloading fonts and ffmpeg (about
+    # 200 MB) takes longer than the timeout, so keep the downloaded packages in the Actions cache
+    - if: inputs.render == 'true'
+      uses: actions/cache@v4
+      with:
+        path: ~/apt-archives
+        key: apt-${{ runner.os }}-${{ env.ImageOS }}-fonts-ffmpeg-cairo-v1
     - if: inputs.render == 'true'
       shell: bash
       # apt mirrors sometimes hang a runner until the job times out; cap each try and retry,
       # and after a failed try switch from the runner's Azure mirror to the main Ubuntu archive
       run: |
+        mkdir -p ~/apt-archives/partial
+        apt_opts=(-o Acquire::Retries=3 -o Acquire::http::Timeout=30 -o Dir::Cache::Archives="$HOME/apt-archives")
         for i in 1 2 3; do
           echo "apt-get attempt $i: update"
-          if timeout 180 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 update -qq &&
+          if timeout 180 sudo apt-get "${apt_opts[@]}" update -qq &&
              echo "apt-get attempt $i: install" &&
-             timeout 360 sudo apt-get -o Acquire::Retries=3 -o Acquire::http::Timeout=30 install -y -qq fonts-noto-cjk ffmpeg libcairo2 >/dev/null; then
+             timeout 480 sudo DEBIAN_FRONTEND=noninteractive apt-get "${apt_opts[@]}" install -y -qq fonts-noto-cjk ffmpeg libcairo2 >/dev/null; then
             break
           fi
           [ "$i" = 3 ] && exit 1
@@ -30,3 +39,7 @@ runs:
           sudo sed -i 's#http://azure.archive.ubuntu.com#http://archive.ubuntu.com#g' /etc/apt/sources.list /etc/apt/sources.list.d/*.sources /etc/apt/sources.list.d/*.list 2>/dev/null || true
           sleep 10
         done
+        # let the cache step save the downloaded packages
+        sudo rm -rf ~/apt-archives/partial ~/apt-archives/lock
+        sudo chown -R "$USER" ~/apt-archives
+        echo "apt packages kept for next time: $(ls ~/apt-archives/*.deb 2>/dev/null | wc -l)"
