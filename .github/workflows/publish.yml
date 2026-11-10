@@ -68,6 +68,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           today=$(TZ=Asia/Taipei date +%F)
+          # GitHub often fires the cron hours late; a prepare after 18:30 Taiwan would run into the
+          # night and get published in the early morning, so leave the day to the next slot
+          hm=$(TZ=Asia/Taipei date +%H%M)
+          if [ "$hm" -lt 1300 ] || [ "$hm" -gt 1830 ]; then
+            echo "Outside the prepare window (13:00-18:30 Taiwan); nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+          fi
           if grep -qx "$today" data/skip_dates.txt; then
             echo "Today is in data/skip_dates.txt; nothing to do."
             echo "SKIP=1" >> "$GITHUB_ENV"
@@ -158,6 +165,12 @@ jobs:
           THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
         run: |
           status=0
+          # late crons: posting at 2-5am Taiwan gets no views, so automatic runs only post in the evening
+          hm=$(TZ=Asia/Taipei date +%H%M)
+          if { [ "${{ github.event_name }}" = schedule ] || [ "${{ inputs.auto }}" = true ]; } && { [ "$hm" -lt 1800 ] || [ "$hm" -gt 2330 ]; }; then
+            echo "Outside the publish window (18:00-23:30 Taiwan); nothing to do."
+            exit 0
+          fi
           python -m shorts review-approved | grep -E '^[0-9]+ ep-' > approved.txt || true
           while read -r number tag; do
             dir="out/${tag#ep-}"
