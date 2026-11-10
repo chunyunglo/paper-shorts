@@ -54,6 +54,8 @@ jobs:
     timeout-minutes: 60
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      # the shorts run on Sonnet to keep an episode around US$1 (owner's call, Nov 2026)
+      CLAUDE_MODEL: ${{ vars.SHORTS_MODEL || 'claude-sonnet-5-5' }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
       TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
