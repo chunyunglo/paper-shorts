@@ -100,7 +100,9 @@ def cases(now: datetime | None = None) -> list[dict]:
     for ep in load_history():
         s = ep.get("script") or {}
         scenes = s.get("scenes") or [{}]
-        hook = " / ".join(f"{l.get('zh', '')} | {l.get('en', '')}" for l in (scenes[0].get("lines") or [])[:1])
+        first = (scenes[0].get("lines") or [])[:1]
+        own = s.get("zh_lines") or []
+        hook = " / ".join(f"{own[0][0] if own and own[0] else l.get('zh', '')} | {l.get('en', '')}" for l in first)
         rows = [(pl, lang, met.get((pl, str(p["id"])), {}))
                 for lang, posts in (ep.get("posts") or {}).items() for pl, p in posts.items()]
         out.append({"kind": "short", "key": ep["episode"], "date": ep.get("created", ""),

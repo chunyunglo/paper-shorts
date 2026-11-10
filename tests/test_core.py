@@ -503,3 +503,75 @@ def test_instagram_reel_retries_once_after_a_processing_error(monkeypatch):
     monkeypatch.setattr(meta, "ig", fake_ig)
     assert meta.ig_publish_reel("https://v", "cap", 0, retry_wait=0) == ("m1", "https://ig/p")
     assert len(made) == 2
+
+
+def _plan_script(sm, n=7):
+    line = sm.Line(zh="這是配對的中文", en="the English line")
+    scenes = [sm.Scene(visual=v, heading_zh="發現", heading_en="FINDING", labels=["甲", "乙"] if v == "contrast" else [],
+                       labels_en=["A", "B"] if v == "contrast" else [], values=[], big_text="",
+                       big_text_en="", lines=[line, line])
+              for v in ["hook", "paper"] + ["contrast"] * (n - 3) + ["takeaway"]]
+    return sm.Script(title_zh="t", title_en="t", paper_title_zh="t", scenes=scenes, description_zh="d",
+                     description_en="d", hashtags=["a"], method_summary="m", limitations="l")
+
+
+_PAPER = type("P", (), {"title": "t", "authors": [], "venue": "v", "published": "2026", "url": "u",
+                        "abstract": "a", "pdf_url": ""})()
+
+
+def test_chinese_video_is_written_on_its_own_and_used_everywhere(monkeypatch):
+    from shorts import pipeline, render, script as sm
+
+    script = _plan_script(sm)
+    seen = []
+
+    def fake_ask(schema, system, content, **kw):
+        seen.append(content[-1]["text"])
+        return sm.PaperOutput(zh=sm.ZhVersion(title="中文標題", description="說明", scenes=[
+            sm.ZhScene(heading="重點", labels=["一", "二"] if s.labels else [], big_text="", lines=["你以為呢？"])
+            for s in script.scenes]))
+
+    monkeypatch.setattr(sm.llm, "ask", fake_ask)
+    out = sm.write_zh(_PAPER, script)
+    assert "Do NOT translate" in seen[0] and "the English line" in seen[0] and "這是配對的中文" not in seen[0]
+    assert out.title_zh == "中文標題" and out.scenes[2].labels == ["一", "二"]
+    assert pipeline.spoken(out, "zh") == [["你以為呢？"]] * 7          # one line per scene, not the paired two
+    assert pipeline.spoken(out, "en")[0] == ["the English line"] * 2
+    assert sm.length(out)[0] == 5 * 7
+    view = sm.review_view(out)
+    assert view["scenes"][0]["lines_zh"] == ["你以為呢？"] and view["scenes"][0]["lines_en"] == ["the English line"] * 2
+    assert render.localize(out, "zh")[0].lines == ["你以為呢？"]
+    md = pipeline.script_markdown({"script": out.model_dump(), "paper": {"title": "t", "url": "u", "venue": "v",
+                                   "published": "p"}, "pick_reason": "", "videos": {}})
+    assert "- 你以為呢？" in md and "這是配對的中文" not in md
+
+
+def test_chinese_video_that_misses_scenes_falls_back_to_paired_lines(monkeypatch):
+    from shorts import script as sm
+
+    script = _plan_script(sm)
+    monkeypatch.setattr(sm.llm, "ask", lambda *a, **k: sm.PaperOutput(zh=sm.ZhVersion(
+        title="x", description="y", scenes=[sm.ZhScene(heading="h", labels=[], big_text="", lines=["一句"])])))
+    out = sm.write_zh(_PAPER, script)
+    assert out.zh_lines == [] and sm.spoken_zh(out)[0] == ["這是配對的中文"] * 2 and out.title_zh == "t"
+
+
+def test_revise_rewrites_the_chinese_video_too(monkeypatch):
+    from shorts import script as sm
+
+    script = _plan_script(sm)
+    script.zh_lines = [["舊的"]] * 7
+    calls = []
+
+    def fake_ask(schema, system, content, **kw):
+        text = content[-1]["text"]
+        calls.append(text)
+        if "<task>\n" + sm.ZH_SYSTEM in text:
+            assert "舊的" in text and "fix the hook" in text
+            return sm.PaperOutput(zh=sm.ZhVersion(title="新", description="d", scenes=[
+                sm.ZhScene(heading="h", labels=list(s.labels), big_text="", lines=["新的"]) for s in script.scenes]))
+        return sm.PaperOutput(script=sm.ScriptDraft(**script.model_dump(exclude={"pt", "icons", "zh_lines"})))
+
+    monkeypatch.setattr(sm.llm, "ask", fake_ask)
+    new, _ = sm.revise(_PAPER, script, "fix the hook")
+    assert len(calls) == 2 and new.zh_lines == [["新的"]] * 7
