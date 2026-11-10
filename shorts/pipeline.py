@@ -21,7 +21,9 @@ def slug(text: str) -> str:
 def spoken(script: scriptmod.Script, lang: str) -> list[list[str]]:
     if lang == "pt":
         return [s.lines for s in script.pt.scenes]
-    return [[l.zh if lang == "zh" else l.en for l in s.lines] for s in script.scenes]
+    if lang == "zh":
+        return scriptmod.spoken_zh(script)
+    return [[l.en for l in s.lines] for s in script.scenes]
 
 
 def make(script_json: Path | None = None, paper_json: Path | None = None, preview_every: int = 0,
@@ -134,6 +136,12 @@ def script_markdown(meta: dict) -> str:
     for i, sc in enumerate(s["scenes"], 1):
         lines.append(f"## {i:02d} {sc['heading_zh']} / {sc['heading_en']} ({sc['visual']})")
         pt_lines = pt["scenes"][i - 1]["lines"] if pt else []
+        zh_own = s.get("zh_lines") or []
+        if len(zh_own) == len(s["scenes"]):  # the Chinese video has its own lines
+            lines += [f"- {ln}" for ln in zh_own[i - 1]]
+            lines += [f"- _{ln['en']}_" for ln in sc["lines"]]
+            lines.append("")
+            continue
         for k, ln in enumerate(sc["lines"]):
             extra = f"  \n  🇧🇷 {pt_lines[k]}" if k < len(pt_lines) else ""
             lines.append(f"- {ln['zh']}  \n  _{ln['en']}_{extra}")

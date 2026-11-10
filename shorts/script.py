@@ -61,8 +61,25 @@ class Localized(BaseModel):
     scenes: list[LocalScene]
 
 
+class ZhScene(BaseModel):
+    heading: str = Field(description="2-6 character label shown above the visual")
+    labels: list[str] = Field(description="Same number of labels as the plan's scene, same order, each at most 10 characters")
+    big_text: str = Field(description="Big on-screen text (for the hook at most 8 characters); empty if the plan's is empty")
+    lines: list[str] = Field(description="1-4 spoken lines for this scene, each 6-22 characters")
+
+
+class ZhVersion(BaseModel):
+    """The Chinese video, written natively in Chinese on the shared scene plan (not translated line by line)."""
+    title: str = Field(description="Catchy Traditional Chinese title, at most 28 characters")
+    description: str = Field(description="2-4 sentence Traditional Chinese video description")
+    scenes: list[ZhScene] = Field(description="Exactly one entry per scene of the plan, same order")
+
+
 class Script(ScriptDraft):
     pt: Localized | None = None
+    # the Chinese narration, scene by scene, written on its own (see write_zh); when empty, the Chinese
+    # half of each Line is spoken (episodes made before this existed)
+    zh_lines: list[list[str]] = []
     icons: list[list[str]] = []  # per scene, Tabler icon names (picked after the script is written)
 
 
@@ -218,6 +235,8 @@ class PaperOutput(BaseModel):
     changes_zh: str = Field("", description="When revising: 1-4 short Traditional Chinese bullet points (one per "
                                             "line, starting with '- ') saying what you changed; say plainly if a "
                                             "request could not be done. Empty otherwise")
+    zh: ZhVersion | None = Field(None, description="When the task is writing the Chinese video: that video; "
+                                                  "null otherwise")
     problems: list[str] = Field(default_factory=list, description="When fact-checking: each material problem, "
                                 "quoting the line, saying what is wrong and what the paper says. Empty if none "
                                 "or when not fact-checking")
@@ -251,7 +270,7 @@ def write(paper: Paper, news: dict | None = None, notes: str = "") -> Script:
             "making lines harder to follow. Keep every line clear to someone who never read the paper."))
         n, w = length(script)
         log(f"Script shortened: {n} Chinese characters, {w} English words")
-    return script
+    return write_zh(paper, script, notes=notes)
 
 
 MAX_ZH, MAX_EN = 250, 150   # narration budget, a little over the prompt's 200-240 / 110-140
@@ -259,8 +278,91 @@ MAX_ZH, MAX_EN = 250, 150   # narration budget, a little over the prompt's 200-2
 
 def length(script: Script) -> tuple[int, int]:
     """Narration size: Chinese characters and English words."""
-    return (sum(len(l.zh) for s in script.scenes for l in s.lines),
+    return (sum(len(l) for lines in spoken_zh(script) for l in lines),
             sum(len(l.en.split()) for s in script.scenes for l in s.lines))
+
+
+def spoken_zh(script: Script) -> list[list[str]]:
+    """The Chinese narration, scene by scene."""
+    if len(script.zh_lines) == len(script.scenes) and all(script.zh_lines):
+        return script.zh_lines
+    return [[l.zh for l in s.lines] for s in script.scenes]
+
+
+def review_view(script: Script) -> dict:
+    """The script as a reviewer reads it: English lines per scene, and the Chinese video's own lines."""
+    d = script.model_dump(exclude={"pt", "icons", "zh_lines"})
+    for sc, zh in zip(d["scenes"], spoken_zh(script)):
+        sc["lines_en"] = [l["en"] for l in sc.pop("lines")]
+        sc["lines_zh"] = zh
+    return d
+
+
+ZH_SYSTEM = """You write the Chinese video of a "行為解碼 Behavior Decoded" episode: a one-minute \
+vertical explainer about a new study, for Taiwanese viewers scrolling on a phone who hear each line \
+once. The scene plan (visuals, numbers, what each scene gets across) is fixed and the English video \
+is already written; you get both. Do NOT translate the English. Write the Chinese narration from \
+scratch, the way a good Taiwanese science YouTuber would say this to a friend:
+- Natural spoken Taiwanese Mandarin in Traditional Chinese, Taiwan vocabulary (資料、網路、影片、\
+研究團隊、演算法), Chinese word order and rhythm.
+- No translationese: no stacked 的-chains, no 被 where Chinese would not use a passive, no "他們/它" \
+in every sentence, no English sentence shapes like "X，這是因為Y" or "研究發現，…" openers, no \
+literal English idioms. Prefer short sentences and verbs over abstract nouns (說 "大家更願意…" not \
+"意願的提升").
+- Each scene says the same facts as its English version, no more and no fewer, but you choose how: \
+split, merge or reorder ideas within the scene. 1-4 lines per scene, 6-22 characters each.
+- Hook: line 1 at most ~15 characters, lands the surprising point at once (a question to the \
+viewer or the striking result); never open with 研究、一項新研究 or background. Line 2 opens a loop \
+that the finding scene pays off.
+- About 200-240 characters of narration in total (about 45-55 seconds at a calm pace).
+- Plain words: no research jargon (中位數、顯著、迴歸、樣本、模型…) without saying what it means.
+- On screen: each scene's heading is 2-6 characters; labels keep the plan's count and order, each at \
+most 10 characters and clear without the narration; big text for the hook at most 8 characters \
+(empty when the plan's is empty).
+Accuracy rules: only facts from the paper and the plan; never invent numbers or effects; do not \
+overstate causality. Leave script null and problems empty."""
+
+
+def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", with_paper: bool = True) -> Script:
+    """Write the Chinese video natively on the shared scene plan. On a bad answer, keep the paired lines."""
+    meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
+            f"Abstract:\n{paper.abstract}")
+    plan = [{"scene": i + 1, "visual": s.visual, "values": s.values, "heading_en": s.heading_en,
+             "labels_en": s.labels_en or s.labels, "big_text_en": s.big_text_en, "english_lines": [l.en for l in s.lines]}
+            for i, s in enumerate(script.scenes)]
+    text = (meta + f"\n\nEnglish title: {script.title_en}\n\nScene plan with the English video (JSON):\n"
+            + json.dumps(plan, ensure_ascii=False, indent=1))
+    if notes:
+        text += CHANNEL_NOTES.format(notes=notes)
+    if feedback and script.zh_lines:
+        current = {"title": script.title_zh, "scenes": [
+            {"heading": s.heading_zh, "labels": s.labels, "big_text": s.big_text, "lines": zh}
+            for s, zh in zip(script.scenes, spoken_zh(script))]}
+        text += ("\n\nCurrent Chinese video (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
+                 "\n\nThe script was just revised for this feedback:\n<feedback>" + feedback + "</feedback>\n"
+                 "Update the Chinese video to match the plan and the feedback; keep what still fits.")
+    text += "\n\nWrite the Chinese video."
+    try:
+        zh = paper_call(paper, ZH_SYSTEM, text, needs_script=False, with_paper=with_paper).zh
+    except Exception as exc:  # the paired Chinese lines are a usable fallback
+        log(f"Chinese video not written ({exc}); using the paired lines")
+        script.zh_lines = []
+        return script
+    if zh is None or len(zh.scenes) != len(script.scenes) or not all(z.lines for z in zh.scenes):
+        log("Chinese video did not match the scene plan; using the paired lines")
+        script.zh_lines = []
+        return script
+    script.title_zh = zh.title.strip() or script.title_zh
+    script.description_zh = zh.description.strip() or script.description_zh
+    for s, z in zip(script.scenes, zh.scenes):
+        s.heading_zh = z.heading.strip() or s.heading_zh
+        labels = [x.strip() for x in z.labels if x.strip()]
+        if len(labels) == len(s.labels):
+            s.labels = labels
+        s.big_text = z.big_text.strip() if s.big_text or s.big_text_en else ""
+    script.zh_lines = [[l.strip() for l in z.lines if l.strip()][:4] for z in zh.scenes]
+    log(f"Chinese video written: {length(script)[0]} characters")
+    return script
 
 
 ICON_SYSTEM = """You choose simple line icons to illustrate each scene of a short explainer video. \
@@ -389,6 +491,9 @@ def revise(paper: Paper, script: Script, feedback: str, with_paper: bool = True)
     rev = paper_call(paper, REVISE_SYSTEM, text, needs_script=True, with_paper=with_paper)
     new = Script(**rev.script.model_dump())
     validate(new)
+    if script.zh_lines:
+        new.zh_lines = script.zh_lines
+        new = write_zh(paper, new, feedback, with_paper=with_paper)
     new.pt = translate_pt(new, feedback) if script.pt else None
     log("Script revised")
     return new, rev.changes_zh.strip()
@@ -400,7 +505,7 @@ so list every material problem:
 - a number, sample, place, date, name or method detail not in the paper or different from it;
 - a finding stated more strongly than the paper supports (causal wording for a correlational \
 design, generalizing beyond the sample, dropped hedges), or a finding the paper does not report;
-- a Chinese line and its English line that say different things;
+- a scene whose Chinese lines and English lines state different facts;
 - a news hook that adds facts not in the headline or implies the study examined that event;
 - anything defamatory, hateful, partisan, or mocking real people or groups.
 Do not nitpick style. If there is nothing material, return an empty list."""
@@ -417,7 +522,7 @@ def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: i
             f"Abstract:\n{paper.abstract}" + (f"\n\nNews headline used as the hook: {news['title']}" if news else ""))
 
     def check(s: Script) -> list[str]:
-        text = meta + "\n\nScript (JSON):\n" + json.dumps(s.model_dump(exclude={"pt", "icons"}), ensure_ascii=False)
+        text = meta + "\n\nScript (JSON):\n" + json.dumps(review_view(s), ensure_ascii=False)
         return paper_call(paper, CHECK_SYSTEM, text + "\n\nList the problems (leave script empty).", needs_script=False).problems
 
     for i in range(rounds + 1):

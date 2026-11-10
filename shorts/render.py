@@ -11,7 +11,7 @@ from . import brand, visuals
 from .config import ASSETS, BRAND_EN, BRAND_ZH, CORAL, CREAM, FPS, H, INK_MUTED, NAVY, W
 
 from .fonts import clause_wrap, fit, font
-from .script import Script
+from .script import Script, spoken_zh
 from .tts import SceneTiming
 
 VIS_X, VIS_Y = (W - visuals.VW) // 2, 360
@@ -39,10 +39,10 @@ def localize(script: Script, lang: str) -> list[SceneView]:
         return [SceneView(sc.visual, ls.heading.upper(), ls.labels, sc.values, ls.big_text, ls.lines, ic)
                 for sc, ls, ic in zip(script.scenes, script.pt.scenes, icons)]
     out = []
-    for sc, ic in zip(script.scenes, icons):
+    zh_lines = spoken_zh(script)
+    for sc, ic, zh in zip(script.scenes, icons, zh_lines):
         if lang == "zh":
-            out.append(SceneView(sc.visual, sc.heading_zh, sc.labels, sc.values, sc.big_text,
-                                 [l.zh for l in sc.lines], ic))
+            out.append(SceneView(sc.visual, sc.heading_zh, sc.labels, sc.values, sc.big_text, zh, ic))
         else:
             out.append(SceneView(sc.visual, sc.heading_en.upper(), sc.labels_en or sc.labels, sc.values,
                                  sc.big_text_en or sc.big_text, [l.en for l in sc.lines], ic))
