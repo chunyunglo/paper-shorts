@@ -1,0 +1,84 @@
+# 行為解碼・股市篇: a Threads series on research about investor behavior, two text posts a day
+# (08:00 盤前心理學, 21:00 盤後研究室, Taiwan time). Claude picks a study and an angle, writes the post
+# from the paper, and a second pass checks it against the paper and the no-advice rules before it
+# goes out. Needs the repo variable STOCKS_AUTO=true to post on schedule; a manual run only drafts
+# (the draft is shown in the run summary) unless "post" is ticked.
+name: Stock series
+
+on:
+  schedule:
+    - cron: "0 0 * * *"    # 08:00 Taiwan
+    - cron: "0 13 * * *"   # 21:00 Taiwan
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: "Which post"
+        type: choice
+        options: [morning, evening]
+        default: morning
+      post:
+        description: "Post for real (off = draft only, shown in the run summary)"
+        type: boolean
+        default: false
+
+concurrency: stocks
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  stocks:
+    if: (github.event_name == 'schedule' && vars.STOCKS_AUTO == 'true') || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      POST: ${{ (github.event_name == 'schedule' || inputs.post) && 'true' || 'false' }}
+      SLOT: ${{ inputs.slot || (github.event.schedule == '0 0 * * *' && 'morning' || 'evening') }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      STATE_DIR: state
+    steps:
+      - uses: actions/checkout@v4
+      - name: Load analytics
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
+      - uses: ./.github/actions/setup
+      - name: Write and check
+        shell: bash
+        run: |
+          python -m shorts stocks-make "$SLOT" | tee make.log
+          echo "DIR=$(tail -1 make.log)" >> "$GITHUB_ENV"
+      - name: Show the draft
+        if: env.DIR != ''
+        run: |
+          python - >> "$GITHUB_STEP_SUMMARY" <<'PY'
+          import json, os
+          r = json.load(open(os.path.join(os.environ["DIR"], "plan.json"), encoding="utf-8"))
+          print(f"### {r['slot']} · {r['kind']}\n\n{r['text']}\n\n---\n\n第一則回覆：\n\n{r['reply']}\n\n"
+                f"為什麼：{r['why']}")
+          PY
+      - name: Post
+        if: env.DIR != '' && env.POST == 'true'
+        env:
+          THREADS_USER_ID: ${{ secrets.THREADS_USER_ID }}
+          THREADS_ACCESS_TOKEN: ${{ secrets.THREADS_ACCESS_TOKEN }}
+        run: python -m shorts stocks-publish "$DIR"
+      - name: Record the post
+        if: always() && env.DIR != '' && env.POST == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/stock_history.json data/decisions.md
+          git diff --cached --quiet && exit 0
+          git commit -qm "Record stock series post $(basename "$DIR")"
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
+      - name: Tell the owner it failed
+        if: failure() && env.POST == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create -R "$GITHUB_REPOSITORY" --title "股市篇發文失敗 / Stock series post failed" \
+            --body "這一則股市篇在這裡停下（查核沒過也會停）。Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

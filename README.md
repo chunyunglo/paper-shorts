@@ -6,6 +6,7 @@
 - **長片 Behavior Decoded Tonight**（**暫停中**，原本每週五）：主持人 Kai 和來賓 Anne 的深夜脫口秀，5–8 分鐘講一篇論文，上到同一個 YouTube 頻道，見 [podcast/README.md](podcast/README.md)。
 - **把關**（取代人工審核）：另一個 Claude 對照論文逐句查核腳本；影片做好後檢查長度、聲音、黑畫面，再抽畫面給 Claude 看（字被切掉、缺字、語言錯、數字和腳本不符、角色或畫面壞掉）。任何一關沒過，那天就不上片，並開 issue 通知你。
 - **自由發文**：每天由 Claude 決定要不要發，把已經做過的論文接上時事或補充重點：Threads 純文字（每天最多 2 則）、IG 圖文輪播（每週最多 3 則）。同樣先查核、圖片先給 Claude 看過才發。
+- **股市篇串文**（行為解碼・股市篇）：把股市當成一個巨大的人類決策資料庫，每天兩則 Threads 純文字：08:00「📈 盤前心理學」講一個研究發現或偏誤，21:00「🌙 盤後研究室」換個角度講同一篇研究（或把當天大盤新聞標題接到研究上）。每則都根據真實論文（台灣全市場交易資料、Robinhood、注意力與情緒研究等），先查核再發，第一則回覆附出處。**只做教育、不給投資建議**：不提個股、代號、ETF，不喊買賣、不預測行情，每則結尾附「研究分享，不是投資建議」。
 - **經營**：每支影片底下第一則留言附論文 citation；每 4 小時自動回覆留言（每次都會通知你檢查結果）；每天讀後台數據（觀看、觀看時長、留存、新增訂閱、IG／Threads insights），每週由 Claude 寫經營策略，選論文、寫腳本和自由發文時會參考；每篇為什麼發都記在 [`data/decisions.md`](data/decisions.md)；每週 Claude 拿過去的決策對照實際成效自我檢討，寫成「學到的教訓」，之後做決定時會先找出類似的過去貼文和它們的成效再決定。
 
 The channel runs itself with no human review: daily shorts and a weekly English talk show, each script fact-checked against the paper by a second Claude pass and each video checked by Claude looking at its frames, with comments answered every 4 hours and channel analytics read daily to steer what comes next.
@@ -38,9 +39,10 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 | `podcast.yml` | **暫停中**（原本每週五 04:00 UTC） | 長片 Behavior Decoded Tonight 已暫停：排程拿掉了，程式都保留。要恢復，把 `podcast.yml` 裡兩行 cron 的註解拿掉即可。手動執行仍然可以跑 |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
+| `stocks.yml` | 每天 08:00、21:00（台灣） | 股市篇串文：Claude 選研究和角度、根據論文寫、另一個 Claude 對照論文和「不給投資建議」規則查核，再發到 Threads，第一則回覆附出處。repo variable `STOCKS_AUTO=true` 才會自動跑；手動執行預設只產生草稿（顯示在 run 的 Summary），勾 `post` 才會發。研究來源：`data/stock_library.json`（精選經典，可自己加）、arXiv q-fin／econ 近 120 天、頻道期刊 RSS 裡和金融有關的論文 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
-開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
+開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO`、`STOCKS_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
 
 ## Secrets
 

@@ -1,6 +1,6 @@
 """data/decisions.md: a readable log of what went out and why.
 
-Rebuilt from the three history files (shorts, talk show, free posts) every time one of them is
+Rebuilt from the history files (shorts, talk show, free posts, stock series) every time one of them is
 saved, so it never drifts from what was actually posted. Newest day first. Each entry keeps the
 picker's own reason, including which channel numbers or viewer feedback shaped it.
 """
@@ -47,6 +47,16 @@ def entries() -> list[tuple[str, list[str]]]:
             lines.append(f"  - 時事 News hook: {post['news']}")
         if post.get("episodes"):
             lines.append(f"  - 根據的集數 Based on: {', '.join(post['episodes'])}")
+        out.append((post["posted"], lines))
+    for post in _load("stock_history.json"):
+        text = " ".join(post["text"].split())
+        p = post["paper"]
+        lines = [f"- **股市篇 Stock series** · {post['slot']} · {post['kind']} · [link]({post['url']})",
+                 f"  - 內容 Text: {text[:120]}{'…' if len(text) > 120 else ''}",
+                 f"  - 論文 Paper: [{p['title']}]({p['url']}) ({p.get('venue', '')})",
+                 f"  - 為什麼 Why: {post.get('why') or MISSING}"]
+        if post.get("news"):
+            lines.append(f"  - 時事 News hook: {post['news']}")
         out.append((post["posted"], lines))
     return out
 

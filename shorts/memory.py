@@ -124,6 +124,14 @@ def cases(now: datetime | None = None) -> list[dict]:
                     "date": sp["posted"], "title": text[:100], "paper": ", ".join(sp.get("episodes") or []),
                     "hook": "", "why": sp.get("why", ""), "news": sp.get("news") or "", "rows": rows,
                     "family": f"free post {sp['platform']}"})
+    from .stocks import load as load_stocks
+
+    for sp in load_stocks():
+        rows = [("threads", sp["lang"], met.get(("threads", str(sp.get("id"))), {}))]
+        out.append({"kind": f"stock series ({sp['slot']} {sp['kind']})", "key": sp.get("id", ""),
+                    "date": sp["posted"], "title": " ".join(sp["text"].split())[:100], "paper": sp["paper"]["title"],
+                    "hook": "", "why": sp.get("why", ""), "news": sp.get("news") or "", "rows": rows,
+                    "family": "stock series"})
     for c in out:
         c["views"], c["results"] = _results(c.pop("rows"))
         c["age"] = _age(c["date"], now)
