@@ -14,7 +14,7 @@ T = TypeVar("T", bound=BaseModel)
 _client: anthropic.Anthropic | None = None
 
 # US$ per million tokens (input, output, cache read), for the cost line in each run's log
-PRICES = {"claude-opus-5-5": (4.0, 20.0, 0.20)}
+PRICES = {"claude-opus-5-5": (4.0, 20.0, 0.20), "claude-sonnet-5-5": (2.0, 10.0, 0.10)}
 _spent = {"calls": 0, "usd": 0.0}
 
 
@@ -34,13 +34,13 @@ def client() -> anthropic.Anthropic:
 
 
 def ask(schema: type[T], system: str, content: list | str, *, effort: str = "high",
-        max_tokens: int = 16000) -> T:
+        max_tokens: int = 16000, model: str | None = None) -> T:
     """One structured call. Raises RuntimeError (without echoing content) on refusal/truncation."""
     if isinstance(content, str):
         content = [{"type": "text", "text": content}]
     try:
         resp = client().messages.parse(
-            model=config.MODEL,
+            model=model or config.MODEL,
             max_tokens=max_tokens,
             system=system,
             messages=[{"role": "user", "content": content}],
@@ -55,7 +55,7 @@ def ask(schema: type[T], system: str, content: list | str, *, effort: str = "hig
         raise RuntimeError(f"Claude API error status={exc.status_code}") from None
     except anthropic.APIConnectionError:
         raise RuntimeError("Claude API connection error") from None
-    usd = cost(config.MODEL, resp.usage)
+    usd = cost(model or config.MODEL, resp.usage)
     _spent["calls"] += 1
     _spent["usd"] += usd
     # No summary line at exit: some workflows read the last line of output as the episode folder.

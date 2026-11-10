@@ -61,3 +61,17 @@ def test_journal_and_analytics_include_stock_posts(monkeypatch, tmp_path):
     monkeypatch.setattr(stocks, "HISTORY", tmp_path / "stock_history.json")
     assert any("股市篇" in ln for _, lines in journal.entries() for ln in lines)
     assert any(r["kind"] == "stock" and r["id"] == "123" for r in analytics._posts())
+
+
+def test_noon_slot_and_daily_costs():
+    assert stocks.full_text("noon", "x").startswith("🏭 產業前沿｜")
+    h = [{"posted": "2026-11-10T00:00:00+00:00", "cost_usd": 0.05},
+         {"posted": "2026-11-10T04:00:00+00:00", "cost_usd": 0.04},
+         {"posted": "2026-11-10T17:00:00+00:00", "cost_usd": 0.03},   # Nov 11 in Taiwan
+         {"posted": "2026-11-10T13:00:00+00:00"}]                      # posted before costs were kept
+    assert stocks.daily_costs(h) == {"2026-11-10": 0.09, "2026-11-11": 0.03}
+
+
+def test_noon_rules_ban_stock_picks():
+    for text in ["這項技術的受惠股", "先進封裝概念股"]:
+        assert stocks.compliance(text), text
