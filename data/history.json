@@ -5904,5 +5904,344 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261109-just-the-facts-how-dialogues-with-ai-red",
     "pick_reason": "Two large online experiments (N=2,193) take apart why personalized AI dialogues reduce conspiracy beliefs by removing possible causes one at a time, and find the debunking survives even when the AI's persuasive goal is disclosed. That gives a concrete, surprising misinformation result that fits a 3-4 step visual explanation. Signals: The notes suggest a lean toward everyday-AI and personal-stakes topics, and earlier AI-dialogue shorts like the deliberation one did above typical. This paper studies conspiracy beliefs rather than how people word political prompts, so it does not repeat the recent chatbot-politics episode."
+  },
+  {
+    "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+    "created": "2026-11-11T06:18:23+00:00",
+    "paper": {
+      "id": "arxiv:2611.12384",
+      "title": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+      "abstract": "As social media has become a primary source of political information, concerns are growing that online information consumption may intensify political polarization and reshape democratic processes. Yet how large-scale online information consumption organizes polarized political ecosystems and relates to offline voting remains unclear. Here we reconstruct partisan information ecosystems from more than 500 million tweets generated during the 2020 US presidential election, integrating information diffusion across media outlets, influencers, and social peers. Contrary to the conventional expectation that broader information exposure promotes moderation, we find that retweeting a wider range of political information is associated with stronger political polarization. We further show systematic asymmetries in political information ecosystems: the Republican ecosystem is highly concentrated and ideologically biased, whereas the Democratic ecosystem is more dispersed and primarily organized around relatively moderate left-leaning sources. Finally, we demonstrate that several shared retweeting signatures robustly map onto state-level electoral outcomes despite cross-state heterogeneity. Our findings reveal asymmetric political information ecosystems as a key organizing principle of online political communication and identify collective retweeting patterns as a scalable signal of real-world voting behaviours.",
+      "authors": [
+        "Dawei Li",
+        "Qinjun Wan",
+        "Xin Wang",
+        "Dahe Jiang",
+        "Junyu Lu",
+        "Shitong Wang",
+        "Zhelun Zhang",
+        "Zhenyu Guan",
+        "Shaoting Tang",
+        "Feng Fu"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2611.12384",
+      "pdf_url": "https://arxiv.org/pdf/2611.12384v1",
+      "doi": null,
+      "published": "2026-11-09",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "多看對面意見，真的會變溫和嗎？",
+      "title_en": "Does Seeing the Other Side Make You More Moderate?",
+      "paper_title_zh": "轉發模式揭示資訊分享的黨派不對稱，並反映2020年美國總統大選各州結果",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "",
+          "heading_en": "",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "多看更對立？",
+          "big_text_en": "More views, more split?",
+          "lines": [
+            {
+              "zh": "多看對立觀點，會讓你更中立嗎？",
+              "en": "Does seeing the other side make you more moderate?"
+            },
+            {
+              "zh": "答案就在五億則推文裡。",
+              "en": "Half a billion tweets hold the answer."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "北航與達特茅斯學院團隊，發表在 arXiv。",
+              "en": "From Beihang University and Dartmouth, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "轉推"
+          ],
+          "labels_en": [
+            "Retweets"
+          ],
+          "values": [],
+          "big_text": "5億+",
+          "big_text_en": "500M+",
+          "lines": [
+            {
+              "zh": "他們收集2020年美國大選的五億多則轉發。",
+              "en": "They gathered over half a billion retweets from the 2020 US election."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "轉推",
+            "媒體立場",
+            "傾向分數"
+          ],
+          "labels_en": [
+            "Retweets",
+            "Outlet leaning",
+            "Leaning score"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們依轉發的媒體偏左或偏右，替每人打分數。",
+              "en": "They scored people by how left or right their retweeted outlets were."
+            }
+          ]
+        },
+        {
+          "visual": "echo",
+          "heading_zh": "跨多遠",
+          "heading_en": "HOW FAR",
+          "labels": [
+            "自己這邊",
+            "對面"
+          ],
+          "labels_en": [
+            "Own side",
+            "Other side"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "多數轉推都給了同邊媒體；有些也轉推對立媒體。",
+              "en": "Most retweets went to their own side; some crossed over."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "FINDING",
+          "labels": [
+            "左派用戶",
+            "中間與右派"
+          ],
+          "labels_en": [
+            "Left users",
+            "Center and right"
+          ],
+          "values": [],
+          "big_text": "方向相反",
+          "big_text_en": "Opposite directions",
+          "lines": [
+            {
+              "zh": "結果偏左的人越多看對立媒體，之後越偏左。",
+              "en": "Result: left users who retweeted more cross-side drifted further left."
+            },
+            {
+              "zh": "中間和偏右的，之後反而更偏右。",
+              "en": "Center and right users drifted further right instead."
+            },
+            {
+              "zh": "但這只是相關，不代表看了就會變。",
+              "en": "But that's a link, not proof that reading changed them."
+            }
+          ]
+        },
+        {
+          "visual": "gauge",
+          "heading_zh": "各州",
+          "heading_en": "STATES",
+          "labels": [
+            "吻合的州"
+          ],
+          "labels_en": [
+            "States matched"
+          ],
+          "values": [
+            92.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "左右派用戶比例，和50州中46州的結果吻合。",
+              "en": "Left-to-right user ratios matched the winner in 46 of 50 states."
+            },
+            {
+              "zh": "但門檻是用同一批州訂的，不是事前預測。",
+              "en": "But the cutoff was set on the same states, so it's not a forecast."
+            },
+            {
+              "zh": "而且推特用戶不等於全體選民。",
+              "en": "And Twitter users aren't all voters."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "多看不等於更中立",
+          "big_text_en": "More exposure isn't more moderation",
+          "lines": [
+            {
+              "zh": "看到對立觀點，不一定讓人更中立。",
+              "en": "Seeing the other side doesn't always make people moderate."
+            },
+            {
+              "zh": "歡迎追蹤，看更多研究。",
+              "en": "Follow us for more research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "多看對面的意見，真的會讓人變溫和嗎？研究團隊分析2020年美國大選期間超過五億則轉推，發現結果可能剛好相反。不過這只是相關，不能說是看了才改變。",
+      "description_en": "Does seeing the other side make people more moderate? Researchers analyzed over half a billion retweets from the 2020 US election. Users who retweeted more cross-side media later moved further left if they were left-leaning, and further right if they were center or right. State-level patterns also matched election results, but these are associations, not proof of cause.",
+      "hashtags": [
+        "行為解碼",
+        "政治極化",
+        "同溫層",
+        "推特",
+        "美國大選",
+        "BehaviorDecoded",
+        "Polarization",
+        "EchoChamber"
+      ],
+      "method_summary": "The authors used a public list of tweet IDs collected with presidential candidates' names as search terms, covering December 2019 to February 2021. They retrieved about 543 million non-reply tweets (retweets and quote tweets) through the Twitter API. Each user's political leaning was scored from -3 (extreme left) to 3 (extreme right) by averaging the leaning of the news media they retweeted, using Media Bias/Fact Check ratings, with a parallel scoring for political figures. They then built a measure of 'ideological permeability': the average distance between a user's own leaning and the leaning of the media they retweeted, with extra weight for crossing to the opposite side. Splitting the timeline into six periods, they ran separate robust regressions asking whether higher permeability goes with later leftward or rightward shifts. Higher permeability went with later leftward shifts among Left and Left-Leaning users, and later rightward shifts among Center, Right-Leaning, Right and Extreme Right users. They also built co-exposure networks of media, politicians and user retweet communities, finding the Republican side more concentrated and the Democratic side more dispersed. At state level, the left-to-right user ratio, with a cutoff chosen on the same 50 states, classified Biden and Trump states with 92% accuracy (46 of 50), and a Lasso-based model of user-media retweeting patterns tracked vote margins, with out-of-bag R2 of 0.447.",
+      "limitations": "The results are associations, not causal effects: the paper does not show that seeing opposing media causes people to shift. Twitter users are not representative of all voters, and user leaning is only approximated from the media they retweet. State location relies on self-reported profile data covering a small subset of users, the data are a sample of election-related tweets, and the state analysis uses only 38 states and a threshold chosen on the same data. The 46-of-50 figure is an in-sample classification, not a true forecast. It covers one platform and one election, so generalization is untested.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "多看對面，會變溫和嗎？",
+          "五億則推文，給了意外的答案。"
+        ],
+        [
+          "北京航空航天大學跟達特茅斯學院，",
+          "把論文放上了 arXiv。"
+        ],
+        [
+          "研究團隊收集2020年美國大選期間",
+          "超過五億則轉推。"
+        ],
+        [
+          "看你轉推的媒體偏左還是偏右，",
+          "就替你打一個政治傾向分數。"
+        ],
+        [
+          "大部分轉推，都流向自己這一邊，",
+          "但也有一些，跨到了對面。"
+        ],
+        [
+          "越常轉推對面的左派用戶，",
+          "之後立場反而更往左。",
+          "中間和右派用戶，則是更往右。",
+          "不過這只是相關，不能說是看了才改變。"
+        ],
+        [
+          "光看左右派用戶的比例，",
+          "就跟50州裡46州的結果吻合。",
+          "但分界線是用同批州訂的，不算預測。",
+          "而且推特用戶，不等於全體選民。"
+        ],
+        [
+          "多看對面的意見，不一定讓人更溫和。",
+          "喜歡的話，追蹤我們看更多研究。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "repeat"
+        ],
+        [
+          "repeat",
+          "news",
+          "gauge"
+        ],
+        [
+          "user",
+          "users"
+        ],
+        [
+          "users",
+          "users-group"
+        ],
+        [
+          "map"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 55.57,
+        "cover_offset_ms": 6006,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 50.65,
+        "cover_offset_ms": 6079,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "YpHckZ_TXxU",
+          "url": "https://youtube.com/shorts/YpHckZ_TXxU"
+        },
+        "instagram": {
+          "id": "18120390641034046",
+          "url": "https://www.instagram.com/reel/DfmV2F2AXVP/"
+        },
+        "threads": {
+          "id": "17942591175382459",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfmV9mZuCN8"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "Ps6zSKRnAa0",
+          "url": "https://youtube.com/shorts/Ps6zSKRnAa0"
+        },
+        "instagram": {
+          "id": "18182696749451680",
+          "url": "https://www.instagram.com/reel/DfmWFIrDGCN/"
+        },
+        "threads": {
+          "id": "18118008302010676",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfmWJQdy-Aa"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261111-retweeting-patterns-reveal-partisan-asym",
+    "pick_reason": "It analyzes large-scale retweet networks from the 2020 US election to show partisan asymmetries in information sharing and links them to state-level voting outcomes, a clear computational method that is easy to explain in 3-4 visual steps. Signals: Notes favor concrete, everyday-relevant findings with a method that shows easily in steps and a second-person hook; this non-AI political-behavior network study adds variety, and recent episodes did not cover social media retweet networks."
   }
 ]

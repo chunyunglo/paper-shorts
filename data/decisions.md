@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-11
+
+- **短影音 Short** · [多看對面意見，真的會變溫和嗎？ / Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/YpHckZ_TXxU)
+  - 論文 Paper: [Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election](https://arxiv.org/abs/2611.12384) (arXiv physics.soc-ph)
+  - 為什麼 Why: It analyzes large-scale retweet networks from the 2020 US election to show partisan asymmetries in information sharing and links them to state-level voting outcomes, a clear computational method that is easy to explain in 3-4 visual steps. Signals: Notes favor concrete, everyday-relevant findings with a method that shows easily in steps and a second-person hook; this non-AI political-behavior network study adds variety, and recent episodes did not cover social media retweet networks.
+
 ## 2026-11-10
 
 - **股市篇 Stock series** · morning · taiwan_data · [link](https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R)
