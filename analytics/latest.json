@@ -1,9 +1,9 @@
 {
- "collected_at": "2026-11-10T08:46:37+00:00",
+ "collected_at": "2026-11-11T08:13:10+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 975,
+   "viewCount": 1163,
    "videoCount": 38
   }
  },
@@ -1846,7 +1846,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1947,7 +1947,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 20,
+    "views": 21,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1966,7 +1966,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 1789,
+    "views": 1794,
     "reach": 1637,
     "likes": 21,
     "comments": 1,
@@ -2044,7 +2044,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 127,
+    "views": 138,
     "likes": 0,
     "comments": 1,
     "duration": "PT49S",
@@ -2083,7 +2083,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 13,
+    "views": 15,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2102,7 +2102,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 18,
+    "views": 17,
     "likes": 0,
     "comments": 1,
     "duration": "PT54S",
@@ -2160,7 +2160,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 92,
+    "views": 106,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2179,8 +2179,8 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 12,
-    "reach": 11,
+    "views": 16,
+    "reach": 15,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2199,7 +2199,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 20,
+    "views": 23,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2218,7 +2218,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 84,
+    "views": 86,
     "likes": 0,
     "comments": 1,
     "duration": "PT58S",
@@ -2237,8 +2237,8 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 7,
-    "reach": 6,
+    "views": 13,
+    "reach": 10,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2703,9 +2703,47 @@
    "paper": "20261109-sanctions-evasion-and-deterrence-evidenc",
    "created": "2026-11-09T11:56:47+00:00",
    "metrics": {
-    "views": 56,
+    "views": 57,
     "likes": 0,
     "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-22",
+   "title": "在一個實驗裡，受試者跟AI來回聊三輪後，對一個陰謀論的相信程度（0到100分）平均降了14.6分。聊無關話題的對照組只降1.4分。\n\n我們介紹過的一篇研究（ar",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18454496590126022",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR",
+   "paper": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "created": "2026-11-10T13:02:16+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-0",
+   "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18155921758534576",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R",
+   "paper": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
+   "created": "2026-11-10T23:25:51+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "replies": 1,
     "reposts": 0,
     "quotes": 0,
     "shares": 0
