@@ -324,5 +324,19 @@
     "why": "The conspiracy-dialogue paper is a recent episode that did well as a Chinese short and still has no Threads follow-up; the notes cap us at one zh follow-up per day and ask us to alternate openers (the last one was question-led, so this one leads with a number); Instagram free posts stay paused because they still show almost no views; and today's headlines are mostly partisan, crime or scandal stories we won't use as hooks.",
     "id": "18454496590126022",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR"
+  },
+  {
+    "posted": "2026-11-11T11:19:27+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261111-retweeting-patterns-reveal-partisan-asym"
+    ],
+    "text": "多轉發一些「另一邊」的媒體，你會變得比較溫和嗎？\n\n我們今天介紹的研究（arXiv, 2026）分析了2019年12月到2021年2月，和美國總統候選人有關的約5.43億則轉推與引用推文。每位使用者的立場（-3到3）是用他轉發的新聞媒體來估算的。\n\n研究者算了一個「意識形態穿透度」：你轉發的媒體和你自己的立場差多遠，跨到另一邊會加重計分。\n\n結果：\n・左派與偏左使用者：穿透度越高，之後越往左移\n・中間、偏右到極右使用者：穿透度越高，之後越往右移\n在這份資料裡，這個關聯並不是「往中間靠」。\n\n要小心的是：這是相關，不是因果，研究沒有證明看了另一邊的媒體會讓人改變。推特使用者也不代表所有選民。\n\n你自己的經驗呢？多看不同立場的內容，讓你更溫和，還是更堅定？",
+    "news": null,
+    "why": "This is our newest episode with no Chinese follow-up yet; the notes cap Threads at one Chinese follow-up a day and alternate openers (yesterday's was number-led, so today is question-led), Instagram free posts stay paused because they still show near-zero views, and today's election, scandal and crash headlines are not hooks we will use.",
+    "id": "18641986549010678",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfmW77vESfG"
   }
 ]

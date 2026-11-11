@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-11
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfmW77vESfG)
+  - 內容 Text: 多轉發一些「另一邊」的媒體，你會變得比較溫和嗎？ 我們今天介紹的研究（arXiv, 2026）分析了2019年12月到2021年2月，和美國總統候選人有關的約5.43億則轉推與引用推文。每位使用者的立場（-3到3）是用他轉發的新聞媒體來估算…
+  - 為什麼 Why: This is our newest episode with no Chinese follow-up yet; the notes cap Threads at one Chinese follow-up a day and alternate openers (yesterday's was number-led, so today is question-led), Instagram free posts stay paused because they still show near-zero views, and today's election, scandal and crash headlines are not hooks we will use.
+  - 根據的集數 Based on: 20261111-retweeting-patterns-reveal-partisan-asym
 - **短影音 Short** · [多看對面意見，真的會變溫和嗎？ / Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/YpHckZ_TXxU)
   - 論文 Paper: [Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election](https://arxiv.org/abs/2611.12384) (arXiv physics.soc-ph)
   - 為什麼 Why: It analyzes large-scale retweet networks from the 2020 US election to show partisan asymmetries in information sharing and links them to state-level voting outcomes, a clear computational method that is easy to explain in 3-4 visual steps. Signals: Notes favor concrete, everyday-relevant findings with a method that shows easily in steps and a second-person hook; this non-AI political-behavior network study adds variety, and recent episodes did not cover social media retweet networks.
