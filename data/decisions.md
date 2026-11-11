@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-11
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB)
+  - 內容 Text: 🏭 產業前沿｜一次「讀入資料」要花多少電？ 量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量子位元的一次QRAM查詢為例，查詢保真度約0.969，動態能耗約3.51×10⁻⁴…
+  - 論文 Paper: [The energetic cost of loading classical data in quantum computers](https://arxiv.org/abs/2611.14422) (arXiv quant-ph)
+  - 為什麼 Why: 今天午間需要一篇前沿技術論文，這篇尚未用過，且能清楚分開「論文做到的」與「可能的產業影響」，也避免與昨天的台股交易行為文章重複。
+  - 花費 Claude cost: US$0.252
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfmW77vESfG)
   - 內容 Text: 多轉發一些「另一邊」的媒體，你會變得比較溫和嗎？ 我們今天介紹的研究（arXiv, 2026）分析了2019年12月到2021年2月，和美國總統候選人有關的約5.43億則轉推與引用推文。每位使用者的立場（-3到3）是用他轉發的新聞媒體來估算…
   - 為什麼 Why: This is our newest episode with no Chinese follow-up yet; the notes cap Threads at one Chinese follow-up a day and alternate openers (yesterday's was number-led, so today is question-led), Instagram free posts stay paused because they still show near-zero views, and today's election, scandal and crash headlines are not hooks we will use.

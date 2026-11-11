@@ -27,5 +27,34 @@
     },
     "id": "18155921758534576",
     "url": "https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R"
+  },
+  {
+    "posted": "2026-11-11T11:40:33+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜一次「讀入資料」要花多少電？\n\n量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量子位元的一次QRAM查詢為例，查詢保真度約0.969，動態能耗約3.51×10⁻⁴焦耳，平均動態功率約4.38瓦。\n\n研究也發現，同樣的保真度目標下，操作點與冷凍機各級的衰減分配，可能讓平均功率差到兩倍以上。\n\n要注意：這是模型計算，不是實測，而且假設相當樂觀（相干時間約1秒，約高出現有紀錄三個數量級；冷卻效率取理論上限；靜態功率設為零）。\n\n論文做到的是把能耗納入評估；如果成真，可能讓低溫設備與量子硬體的設計多一個能耗與冷卻的視角。離實際產品還很遠。\n\n（研究分享，不是投資建議）",
+    "why": "今天午間需要一篇前沿技術論文，這篇尚未用過，且能清楚分開「論文做到的」與「可能的產業影響」，也避免與昨天的台股交易行為文章重複。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.14422",
+      "title": "The energetic cost of loading classical data in quantum computers",
+      "abstract": "Quantum algorithms for machine learning, chemistry, and cryptanalysis often assume coherent access to classical data at negligible physical cost. We instead treat data loading as a hardware process and quantify the dynamic energetic cost of a quantum random access memory (QRAM) query on a superconducting processor. Using the metric-noise-resource framework, we relate query fidelity and power to gate duration, relative two-qubit drive strength, and the distribution of attenuation across a multi-stage refrigerator, while accounting for thermal photons and gate errors. We analyze the linear-depth multiplexer and the noise-resilient bucket-brigade architectures, adapting the latter to a native superconducting gate set and refining its fidelity analysis using the fully decomposed gate schedule. For a representative bucket-brigade QRAM query with a $12$-qubit address register we obtain a query fidelity of $0.969$. The query consumes $3.51\\times10^{-4}\\,\\mathrm{J}$ of dynamic energy, corresponding to an average dynamic power of $4.38\\,\\mathrm{W}$ and a peak of $64.4\\,\\mathrm{W}$. Our optimization shows that, at fixed target fidelity, the operating point and attenuation profile can change the average power by a factor of two or more.",
+      "authors": [
+        "Joao F. Doriguello",
+        "Alessandro Luongo",
+        "Harshit Verma"
+      ],
+      "venue": "arXiv quant-ph",
+      "url": "https://arxiv.org/abs/2611.14422",
+      "pdf_url": "https://arxiv.org/pdf/2611.14422v1",
+      "doi": null,
+      "published": "2026-11-10",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2523,
+    "id": "17918725623542994",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB"
   }
 ]
