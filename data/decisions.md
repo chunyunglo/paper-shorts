@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-11
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw)
+  - 內容 Text: 🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？ 研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時個人投資者約占九成成交金額。 研究估計，個人投資者的整體投資組合，每年報酬被拉低約…
+  - 論文 Paper: [Just How Much Do Individual Investors Lose by Trading?](https://doi.org/10.1093/rfs/hhn046) (Review of Financial Studies)
+  - 為什麼 Why: Taiwan's market-wide data is a strong fit for local readers and adds a fresh study and angle after yesterday's disposition-effect post, avoiding a repeat of the same paper and steering clear of today's stock-specific headlines.
+  - 花費 Claude cost: US$0.270
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB)
   - 內容 Text: 🏭 產業前沿｜一次「讀入資料」要花多少電？ 量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量子位元的一次QRAM查詢為例，查詢保真度約0.969，動態能耗約3.51×10⁻⁴…
   - 論文 Paper: [The energetic cost of loading classical data in quantum computers](https://arxiv.org/abs/2611.14422) (arXiv quant-ph)

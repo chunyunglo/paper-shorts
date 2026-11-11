@@ -56,5 +56,35 @@
     "cost_usd": 0.2523,
     "id": "17918725623542994",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB"
+  },
+  {
+    "posted": "2026-11-11T19:56:31+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？\n\n研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時個人投資者約占九成成交金額。\n\n研究估計，個人投資者的整體投資組合，每年報酬被拉低約 3.8 個百分點（含交易虧損、手續費、交易稅與擇時損失）。另一個算法是，五年的總損失約 9,350 億新台幣，相當於當時 GDP 的 2.2%。研究發現，幾乎所有交易虧損都可追溯到「積極委託」，也就是用較搶的價格求快速成交。法人扣除手續費與稅後，每年多約 1.5 個百分點。\n\n這是 1990 年代末台灣的歷史資料，描述的是整體平均，不是每一個人，也不是現在該怎麼做的建議。\n\n（研究分享，不是投資建議）",
+    "why": "Taiwan's market-wide data is a strong fit for local readers and adds a fresh study and angle after yesterday's disposition-effect post, avoiding a repeat of the same paper and steering clear of today's stock-specific headlines.",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rfs/hhn046",
+      "title": "Just How Much Do Individual Investors Lose by Trading?",
+      "abstract": "Individual investor trading results in systematic and economically large losses. Using a complete trading history of all investors in Taiwan, we document that the aggregate portfolio of individuals suffers an annual performance penalty of 3.8 percentage points. Individual investor losses are equivalent to 2.2% of Taiwan's gross domestic product or 2.8% of the total personal income. Virtually all individual trading losses can be traced to their aggressive orders. In contrast, institutions enjoy an annual performance boost of 1.5 percentage points, and both the aggressive and passive trades of institutions are profitable.",
+      "authors": [
+        "Brad M. Barber",
+        "Yi-Tsung Lee",
+        "Yu-Jane Liu",
+        "Terrance Odean"
+      ],
+      "venue": "Review of Financial Studies",
+      "url": "https://doi.org/10.1093/rfs/hhn046",
+      "pdf_url": "https://faculty.haas.berkeley.edu/odean/papers/taiwan%20performance/just%20how%20much%20do%20investors%20lose.pdf",
+      "doi": "10.1093/rfs/hhn046",
+      "published": "2009",
+      "source": "journal"
+    },
+    "cost_usd": 0.27,
+    "id": "18101905040417216",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw"
   }
 ]
