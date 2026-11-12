@@ -162,15 +162,26 @@ def voiceover(scenes: list[list[str]], out_wav: Path, lang: str) -> tuple[list[S
         fb = ("google", GOOGLE_FALLBACK[lang]) if config.env("GOOGLE_TTS_API_KEY") else ("edge", EDGE_FALLBACK[lang])
         if fb == (name, voice):
             raise
-        log(f"TTS ({lang}): {voice} failed ({type(exc).__name__}); falling back to {fb[1]}")
+        log(f"TTS ({lang}): {voice} failed ({exc}); falling back to {fb[1]}")
         return _voiceover(scenes, out_wav, lang, *fb)
+
+
+# Lines already spoken in this run: a re-render after the visual check repeats most of them, and
+# re-requesting every line used up Gemini's daily quota (Nov 12, when the fallback voice was used).
+_spoken: dict[tuple[str, str, str], np.ndarray] = {}
+# The voice each language was actually spoken in (after any fallback), for episode.json.
+used: dict[str, str] = {}
 
 
 def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voice: str):
     log(f"TTS ({lang}): {name} {voice}")
+    label = f"{name} {voice}".strip()
 
     def synth(text: str) -> np.ndarray:
-        return SYNTH[name](text, voice)
+        key = (name, voice, text)
+        if key not in _spoken:
+            _spoken[key] = SYNTH[name](text, voice)
+        return _spoken[key]
     chunks: list[np.ndarray] = []
     timings: list[SceneTiming] = []
     t = 0.0
@@ -200,6 +211,7 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
     mixed = voice * 0.95 + music_bed(voice.size, [s.start for s in timings[1:]])
     # The fixed outro chime is appended; timings stay relative to the narration.
     write_wav(out_wav, brand.wrap_audio(mixed, SR))
+    used[lang] = label
     return timings, t
 
 
