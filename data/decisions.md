@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-12
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu)
+  - 內容 Text: 在東京通勤族的估算裡，晚到1分鐘的代價，約等於多坐0.49分鐘車；早到1分鐘約0.39分鐘。但在100%擁擠的車廂多待1分鐘，只約等於多坐0.04分鐘。 我們介紹過的一篇研究（arXiv, 2026）用了日本2015年都會區大眾運輸調查。研…
+  - 為什麼 Why: The Tokyo commute episode is our strongest Instagram short but still has no Chinese Threads follow-up, the notes favour one daily zh follow-up on everyday-decision topics with today's turn being a number-led opener (yesterday was question-led), Instagram image posts stay paused and roundups underperform, and today's headlines are mostly partisan, scandal or disaster news that can't be linked responsibly.
+  - 根據的集數 Based on: 20261108-estimating-rail-commuter-preferences-und
 - **股市篇 Stock series** · morning · bias · [link](https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_)
   - 內容 Text: 📈 盤前心理學｜打開看盤軟體，上千檔股票，你會從哪一檔開始看？ Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而言是「吸引注意的股票」的淨買方，例如上新聞的股票、成交量異常放大的股票，以及單日報…
   - 論文 Paper: [All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors](https://doi.org/10.1093/rfs/hhm079) (Review of Financial Studies)

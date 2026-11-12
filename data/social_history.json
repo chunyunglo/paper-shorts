@@ -338,5 +338,19 @@
     "why": "This is our newest episode with no Chinese follow-up yet; the notes cap Threads at one Chinese follow-up a day and alternate openers (yesterday's was number-led, so today is question-led), Instagram free posts stay paused because they still show near-zero views, and today's election, scandal and crash headlines are not hooks we will use.",
     "id": "18641986549010678",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfmW77vESfG"
+  },
+  {
+    "posted": "2026-11-12T11:38:36+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261108-estimating-rail-commuter-preferences-und"
+    ],
+    "text": "在東京通勤族的估算裡，晚到1分鐘的代價，約等於多坐0.49分鐘車；早到1分鐘約0.39分鐘。但在100%擁擠的車廂多待1分鐘，只約等於多坐0.04分鐘。\n\n我們介紹過的一篇研究（arXiv, 2026）用了日本2015年都會區大眾運輸調查。研究對象是西武新宿線2,740位早上通勤的受訪者。研究者比對當天時刻表，推算每人搭了哪班車（10:30前共89班）。車廂擠不擠，取決於大家怎麼選，所以他們把選車當成一場互相影響的賽局來估計。\n\n結果：跟擠不擠相比，準時到更重要。作者建議彈性或錯開上班時間，可搭配票價誘因。\n\n但要注意：\n・只有一條路線、一天的資料\n・「想幾點到」是用上班時間和假設的15分鐘緩衝推算的；擁擠成本對這個設定很敏感，有些設定下甚至是0\n・研究還沒模擬優惠或彈性上班的實際效果\n\n你早上會為了少擠一點，提早出門嗎？",
+    "news": null,
+    "why": "The Tokyo commute episode is our strongest Instagram short but still has no Chinese Threads follow-up, the notes favour one daily zh follow-up on everyday-decision topics with today's turn being a number-led opener (yesterday was question-led), Instagram image posts stay paused and roundups underperform, and today's headlines are mostly partisan, scandal or disaster news that can't be linked responsibly.",
+    "id": "18142738318617989",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu"
   }
 ]
