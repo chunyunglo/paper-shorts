@@ -36,3 +36,24 @@
 - Before posting any more Instagram free posts, open the 11-04 AI-art follow-up from a logged-out or non-follower account and check its post type and tracking ID. If it is invisible or untracked, fix that. If it is visible, try one free post in the same reel format as the shorts and compare.
 - On two comparable non-AI personal-stakes papers, open one with an accurate second-person question and the other with an accurate news peg. Compare youtube/zh % watched at day 3, and record retention for every short, including the chatbot one.
 - For the next two weeks, post at most one Threads zh follow-up per day. Alternate between a question first line and a first line that states the paper's concrete headline number, and compare views at day 3. The 11-03 double post got 13 and 1, so two in one day may split reach.
+
+## 2026-11-12
+
+**過去的策略有用嗎？** 11-05 之後的筆記大致有照做：Threads 每天只發一則中文 follow-up，開頭在問句和數字之間輪流；Instagram 免費貼文 11-04 之後就暫停；選題也刻意加入非 AI 的生活題材，包括熱浪投票、補習街房價、東京通勤、超速罰款。這幾週的中文 follow-up 看起來比之前好：已滿 3 天的三則拿到 27、27、7 次觀看，10-30 到 11-04 那批則多半在 0-20。不過帳號自然成長、題材和發文時間都可能造成這個差距，目前只能算初步跡象。兩個計畫中的測試還沒做：「問句 vs 新聞鉤開頭」比較，以及 talk show 第二集（目前仍只有 1 集）。新開的股市系列（11-10 起）都還太新，無法判斷。
+
+**檢討心得：**
+- [language_and_platform, high, kept] YouTube Shorts 和 Threads 繼續以中文為主；Instagram 照常發英文版，因為英文在那裡常跟中文差不多；葡萄牙文維持暫停。（證據：已滿 3 天的短片中，youtube/zh 幾乎都贏 youtube/en，例如超速 127 vs 18、熱浪 53 vs 10、MovieLens 25 vs 1。Instagram 上英文和中文接近或反超：MovieLens 115 vs 112、熱浪 55 vs 93、超速 118 vs 109、補習街 69 vs 45。threads/en 短片一直只有 0-12。有兩個例外還太新：陰謀論短片 youtube/en 84 vs zh 92，轉推短片 youtube/en 13 vs zh 1，值得追蹤。youtube/pt 只做過三支，分別 6、4、21，暫停之後沒看到損失。）
+- [free_posts, medium, revised] Threads 每天最多一則中文 follow-up，內容重述研究設計和發現、不掛新聞，先當預設做法；它常常比同一篇的 Threads 短片本身還多人看。（證據：從 11-05 改成每天一則後：MovieLens 27、熱浪 27、補習街 7，較新的超速 57、陰謀論 24、轉推 4。之前 10-30 到 11-04 是 9、0、1、18、4、13、1、20。跟同一篇的 threads/zh 短片比：MovieLens 27 vs 15、熱浪 27 vs 5、超速 57 vs 16，補習街則是 7 vs 20 反過來。改善可能來自帳號成長或題材，不一定是因為一天只發一則；而且 185 次的學歷那則至今沒再出現過。）
+- [other, medium, revised] Instagram 免費貼文其實有發出去、也有被追蹤到，只是觸及非常低；繼續暫停，等改成 reel 形式再試一次。（證據：上次說「全部都是 0」，現在數字更新為 3、3、0、4（10-28 roundup、10-29 follow-up、10-31 英文、11-04 AI 藝術），中位數 3，看起來不像純粹的發佈故障。同期 Instagram 短片多在 13-1794。主要差別可能是圖文格式 vs 影片格式，但只有 4 則，無法確定。）
+- [other, medium, new] YouTube 中文版出現 0-1 次觀看時，先確認影片有沒有正常上架、是否公開，再把它當作題材或標題的訊號。（證據：東京通勤短片 youtube/zh 0 次、沒有觀看率數據，發佈已 4 天，但同一支在 instagram/zh 有 1794 次。轉推短片 youtube/zh 1 次，youtube/en 卻有 13 次。在此之前，滿 3 天的 youtube/zh 最低也有 14 次，所以這兩支很像是上架或處理出了問題。）
+- [free_posts, low, new] 第一行用問句或用具體數字開頭，目前看不出差別；可以繼續輪流收集資料，但別把任何一種當成規則。（證據：數字開頭：MovieLens 27、補習街 7、陰謀論 24（太新）。問句開頭：熱浪 27、超速 57（太新）、轉推 4（太新）。兩組的範圍幾乎重疊，題材差異遠大於開頭差異。）
+- [topic, low, revised] 偏向「規則或環境改變了，你會怎麼做」這類具體日常決策的題目，AI 或非 AI 都可以；抽象的市場機制或預測市場題材暫時少選，之後再測一次確認。（證據：非 AI 的日常題材表現不輸 AI 題：超速 youtube/zh 127 次、64% 看完，是目前最高；東京通勤 instagram/zh 1794；熱浪 75% 看完。低於一般的三支是 Fed 喊話、預測市場、聊天機器人提問，前兩者都偏抽象。但補習街只拿到典型成績（youtube/zh 23、11%），而 Instagram 兩次爆量（AI 藝術 1377、通勤 1794）各只有一次，可能是平台運氣。）
+- [title_and_hook, low, revised] 開頭繼續用忠於論文的第二人稱問句，但目前沒有證據顯示它比較好；比較該注意的是開頭的問題要在前幾秒內給出答案。新聞鉤開頭仍然只有一個案例，不下結論。（證據：第二人稱問句的 youtube/zh 看完率差很多：熱浪 75%、超速 64%、看醫生 52%、MovieLens 33%、補習街 11%。補習街問「要多付多少」，看完率卻很低，可能是答案出現得太慢，但只有一支。新聞鉤開頭只有 AI 進辦公室那支（28%）；聊天機器人那支有新聞掛鉤，但沒放在開頭（43%）。）
+- [free_posts, low, new] 每週 roundup 的表現不如單篇 follow-up，可以考慮減少；如果要保留，就試試只挑一篇最強的研究來帶。（證據：Threads roundup 11-01 拿到 8、11-07 拿到 5；Instagram roundup 10-28 拿到 3。同期滿 3 天的單篇中文 follow-up 是 27、27、7。roundup 只有三則，樣本很小。）
+- [talk_show, low, kept] talk show 仍然只有一集，無法學到任何東西；要判斷格式，得先穩定產出幾集。（證據：唯一一集 AI Helped With Homework. Did It Help on the Exam?：youtube/en 3 次觀看、10% 看完（之前紀錄是 7 次、4%，數字可能有重算過）。10-30 之後沒有新的一集。）
+- [other, low, new] 股市系列先觀察 1-2 週再判斷；用到舊資料時，要像目前這樣清楚標出資料年代（例如 1990 年代台灣證交所）。（證據：四則都太新：台灣處分效果 14、量子 QRAM 12、台灣散戶虧損 27、注意力偏誤 24。兩則台灣交易資料的貼文數字還可以，但時段、題材和發佈天數都混在一起。）
+
+**接下來試試：**
+- 用未登入的帳號檢查東京通勤和轉推這兩支 YouTube 中文短片的狀態（是否公開、處理完成、有沒有被限制）。如果有問題就記錄原因，確認前不要把它們的 youtube/zh 數字拿來比較題材。
+- 把拖延已久的開頭測試做完：找兩篇性質相近的非 AI 日常題材，一篇用忠於論文的第二人稱問句開頭，另一篇用忠於論文的新聞鉤開頭，比較第 3 天的 youtube/zh 看完率。新聞只在真的跟研究相關、不涉及黨派或悲劇時才用。
+- 在 Instagram 試一則 reel 形式的免費貼文（15-20 秒，呈現研究設計和一個關鍵數字），選短片表現好的論文（例如超速罰款），跟圖文貼文過去的 3-4 次觀看在相同天數下比較；數字只能用論文裡原本寫的。

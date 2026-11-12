@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-11T08:13:10+00:00",
+ "collected_at": "2026-11-12T09:04:02+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 1163,
-   "videoCount": 38
+   "viewCount": 1654,
+   "videoCount": 40
   }
  },
  "notes": [],
@@ -712,7 +712,7 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1109,7 +1109,7 @@
    "paper": "Improving Group Deliberation through AI-Guided Self-Reflection",
    "created": "2026-11-01T06:11:50+00:00",
    "metrics": {
-    "views": 12,
+    "views": 13,
     "likes": 0,
     "comments": 0,
     "duration": "PT55S",
@@ -1487,7 +1487,7 @@
    "paper": "Discussing politics with a chatbot: How political beliefs shape prompt formulation for generative AI",
    "created": "2026-11-04T14:10:56+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "comments": 0,
     "duration": "PT49S",
@@ -1988,10 +1988,15 @@
    "metrics": {
     "views": 2,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT1M7S",
     "privacy": "public",
-    "published": "2026-11-08T11:05:43Z"
+    "published": "2026-11-08T11:05:43Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2044,12 +2049,17 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 138,
+    "views": 127,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT49S",
     "privacy": "public",
-    "published": "2026-11-09T11:07:23Z"
+    "published": "2026-11-09T11:07:23Z",
+    "estimatedMinutesWatched": 34,
+    "averageViewDuration": 31,
+    "averageViewPercentage": 63.56,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2083,7 +2093,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 15,
+    "views": 16,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2102,12 +2112,17 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 17,
+    "views": 18,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "duration": "PT54S",
     "privacy": "public",
-    "published": "2026-11-09T11:08:57Z"
+    "published": "2026-11-09T11:08:57Z",
+    "estimatedMinutesWatched": 6,
+    "averageViewDuration": 47,
+    "averageViewPercentage": 87.16,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2122,7 +2137,7 @@
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
     "views": 109,
-    "reach": 100,
+    "reach": 101,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2160,12 +2175,17 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 106,
+    "views": 92,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
-    "published": "2026-11-09T21:17:35Z"
+    "published": "2026-11-09T21:17:35Z",
+    "estimatedMinutesWatched": 12,
+    "averageViewDuration": 20,
+    "averageViewPercentage": 40.44,
+    "shares": 0,
+    "subscribersGained": 1
    }
   },
   {
@@ -2218,12 +2238,17 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 86,
+    "views": 84,
     "likes": 0,
     "comments": 1,
     "duration": "PT58S",
     "privacy": "public",
-    "published": "2026-11-09T21:19:09Z"
+    "published": "2026-11-09T21:19:09Z",
+    "estimatedMinutesWatched": 10,
+    "averageViewDuration": 27,
+    "averageViewPercentage": 48.12,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2258,6 +2283,122 @@
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
     "views": 4,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "YpHckZ_TXxU",
+   "url": "https://youtube.com/shorts/YpHckZ_TXxU",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT56S",
+    "privacy": "public",
+    "published": "2026-11-11T11:10:19Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18120390641034046",
+   "url": "https://www.instagram.com/reel/DfmV2F2AXVP/",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 149,
+    "reach": 133,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 1,
+    "total_interactions": 3
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17942591175382459",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfmV9mZuCN8",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 6,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "Ps6zSKRnAa0",
+   "url": "https://youtube.com/shorts/Ps6zSKRnAa0",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT51S",
+    "privacy": "public",
+    "published": "2026-11-11T11:12:16Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18182696749451680",
+   "url": "https://www.instagram.com/reel/DfmWFIrDGCN/",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 64,
+    "reach": 53,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "title": "Does Seeing the Other Side Make You More Moderate?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18118008302010676",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfmWJQdy-Aa",
+   "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
+   "created": "2026-11-11T06:18:23+00:00",
+   "metrics": {
+    "views": 8,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2608,7 +2749,7 @@
    "paper": "20261025-petition-style-changes-with-ai-writing-s-r0206",
    "created": "2026-11-04T11:24:30+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2731,6 +2872,25 @@
    }
   },
   {
+   "kind": "social",
+   "episode": "social-23",
+   "title": "多轉發一些「另一邊」的媒體，你會變得比較溫和嗎？\n\n我們今天介紹的研究（arXiv, 2026）分析了2019年12月到2021年2月，和美國總統候選人有關的約",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18641986549010678",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfmW77vESfG",
+   "paper": "20261111-retweeting-patterns-reveal-partisan-asym",
+   "created": "2026-11-11T11:19:27+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "stock",
    "episode": "stock-0",
    "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
@@ -2741,7 +2901,64 @@
    "paper": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
    "created": "2026-11-10T23:25:51+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-1",
+   "title": "🏭 產業前沿｜一次「讀入資料」要花多少電？\n\n量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17918725623542994",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB",
+   "paper": "The energetic cost of loading classical data in quantum computers",
+   "created": "2026-11-11T11:40:33+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-2",
+   "title": "🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？\n\n研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18101905040417216",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw",
+   "paper": "Just How Much Do Individual Investors Lose by Trading?",
+   "created": "2026-11-11T19:56:31+00:00",
+   "metrics": {
+    "views": 27,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-3",
+   "title": "📈 盤前心理學｜打開看盤軟體，上千檔股票，你會從哪一檔開始看？\n\nBarber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18098169050678000",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_",
+   "paper": "All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors",
+   "created": "2026-11-12T06:34:08+00:00",
+   "metrics": {
+    "views": 24,
     "likes": 0,
     "replies": 1,
     "reposts": 0,

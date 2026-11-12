@@ -33,3 +33,19 @@ _With 4 subscribers, a few dozen posts and most items only 1-4 days old, every p
 **Free posts:** Keep Instagram free posts paused until a logged-out check confirms they are published and tracked, since all 4 still show 0 views. On Threads, post at most one Chinese follow-up per day and alternate between question-led and number-led first lines. English news-peg posts (6-8 views) haven't earned more space.
 
 _With 4 subscribers, mostly double-digit view counts, one Instagram outlier and a single talk-show episode, every pattern here is tentative, and several posts are too new to judge._
+
+## 2026-11-12
+
+- YouTube Shorts 中文版仍明顯領先：超速罰款 127 次、64% 看完，學歷門檻 111 次、AI 輔助辯論 108 次；依語言平均是 zh 50、en 13、pt 10。陰謀論短片是例外，en 84 次、zh 92 次，兩者接近。
+- YouTube 上的東京通勤 zh 版 0 次、轉推 zh 版 1 次，同一支通勤短片在 instagram/zh 卻有 1794 次。這兩支比較像上架或處理出了問題，不能拿來判斷題材好壞。
+- Instagram 短片的平均 147 次，主要被兩支爆量拉高：通勤 1794、AI 藝術 1377。其他大多在 100-150 次，也有只有 5-8 次的（例如預測市場、AI 進辦公室）。
+- Threads 短片平均只有 10 次，en 版是 0 次。同平台的 social 文字貼文平均 21 次，學歷那則 185 次、超速 57 次，單篇中文 follow-up 通常比短片本身多人看。Instagram 圖文貼文只有 0-4 次。
+- talk show 仍只有 1 集（3 次、10% 看完）。股市系列 4 則分別是 12-27 次，台灣交易資料的兩則（27、14）和注意力偏誤（24）略高於量子題（12），但發佈都不滿一週。
+
+**短片：** 題材繼續偏向「規則或環境變了，你會怎麼做」這類具體日常決策，例如超速罰款、學歷門檻、通勤。抽象的市場機制和預測市場暫時少選。YouTube 和 Threads 以中文為主，Instagram 照常發英文版，葡萄牙文維持暫停。陰謀論這類 en 表現接近 zh 的題目可以多留意。開頭沿用忠於論文的第二人稱問句，重點是前幾秒就給出答案。這週可以做拖延已久的「問句 vs 新聞鉤」對照，新聞鉤只用真正相關、無黨派爭議、不涉悲劇的新聞。
+
+**Podcast：** 目前只有 1 集，無法判斷格式，最優先的是穩定產出第 2、3 集。內容建議挑短片已被驗證的論文，例如超速罰款、學歷門檻、陰謀論對話，讓 Kai 和 Anne 用日常情境帶出研究設計。唯一一集的看完率只有 10%，可以考慮把開場縮短、第一分鐘內就拋出核心問題和答案，但這只是一集的數據，不構成結論。
+
+**免費貼文：** Threads 中文單篇 follow-up 繼續每天一則，每週 roundup 可以減少或只挑一篇最強的研究來帶。Instagram 圖文先暫停，改試一則 15-20 秒的 reel，例如超速罰款。股市系列照常發，再觀察 1-2 週，並繼續清楚標註資料年代。
+
+_多數組合只有幾則貼文，Instagram 的兩次爆量和 talk show 都是單一案例，以上都只能算初步跡象，不是可靠的趨勢。_
