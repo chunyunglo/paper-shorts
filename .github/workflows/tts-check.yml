@@ -1,0 +1,79 @@
+# Voice one episode's narration again to check the voiceover (one Gemini request per language).
+# On demand, or a claude/* push with [tts-check]. Attaches the voiceovers to a pre-release.
+name: TTS check
+
+on:
+  workflow_dispatch:
+    inputs:
+      model:
+        description: "Gemini TTS model (blank = the default)"
+        default: ""
+      episode:
+        description: "Episode release tag to voice (blank = the latest episode)"
+        default: ""
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  tts:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[tts-check]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+      GEMINI_TTS_MODEL: ${{ inputs.model || vars.TTS_CHECK_MODEL }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+        with:
+          render: "true"
+      - name: List the Gemini TTS models this key can use
+        run: |
+          curl -sS -H "x-goog-api-key: $GEMINI_API_KEY" "https://generativelanguage.googleapis.com/v1beta/models?pageSize=1000" \
+            | python -c "import json,sys;print('\n'.join(m['name'] for m in json.load(sys.stdin).get('models',[]) if 'tts' in m['name']))" \
+            | tee models.txt
+          # a push run tests on a lite TTS model when there is one, to leave the main model's quota alone
+          if [ -z "$GEMINI_TTS_MODEL" ] && lite=$(grep -m1 'flash-lite.*tts' models.txt); then
+            echo "GEMINI_TTS_MODEL=${lite#models/}" >> "$GITHUB_ENV"
+            echo "Testing on ${lite#models/}"
+          fi
+      - name: Voice the narration
+        run: |
+          tag="${{ inputs.episode }}"
+          [ -n "$tag" ] || tag=$(gh release list -R "$GITHUB_REPOSITORY" --limit 30 --json tagName -q '[.[].tagName|select(startswith("ep-"))][0]')
+          echo "Episode: $tag"
+          mkdir -p ep out/tts-check
+          gh release download "$tag" -R "$GITHUB_REPOSITORY" --dir ep --pattern episode.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from shorts import pipeline, script as sm, tts
+
+          real = dict(tts.SYNTH)
+          count = {"n": 0}
+          def counted(name):
+              def f(text, voice):
+                  count["n"] += 1
+                  return real[name](text, voice)
+              return f
+          for k in list(tts.SYNTH):
+              tts.SYNTH[k] = counted(k)
+          s = sm.Script(**json.loads(Path("ep/episode.json").read_text(encoding="utf-8"))["script"])
+          for lang in ("zh", "en"):
+              before = count["n"]
+              timings, total = tts.voiceover(pipeline.spoken(s, lang), Path(f"out/tts-check/voice_{lang}.wav"), lang)
+              print(f"{lang}: {tts.used.get(lang)}, {count['n'] - before} requests, {total:.1f}s")
+              for i, (sc, lines) in enumerate(zip(timings, pipeline.spoken(s, lang)), 1):
+                  for lt, text in zip(sc.lines, lines):
+                      print(f"  {i:02d} {lt.start:5.1f}-{lt.end:5.1f}s {text}")
+          PY
+      - name: Attach to a pre-release
+        run: |
+          tag="tts-check-${{ github.run_number }}"
+          gh release create "$tag" out/tts-check/*.wav --prerelease --target "${{ github.sha }}" \
+            --title "配音測試 TTS check #${{ github.run_number }}" --notes "Model: ${GEMINI_TTS_MODEL:-default}"

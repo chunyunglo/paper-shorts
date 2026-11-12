@@ -173,6 +173,103 @@ _spoken: dict[tuple[str, str, str], np.ndarray] = {}
 used: dict[str, str] = {}
 
 
+def _sentence(text: str, lang: str) -> str:
+    """End each line as a sentence, so the voice pauses where the subtitles change."""
+    text = text.strip()
+    if text and text[-1] in "。！？!?.…":
+        return text
+    return text.rstrip("，、,;；：:") + ("。" if lang == "zh" else ".")
+
+
+def split_at_pauses(a: np.ndarray, weights: list[float], frame: float = 0.01, min_pause: float = 0.08,
+                    thresh: float = 0.01) -> list[np.ndarray] | None:
+    """Cut one recording of several lines at the pauses between them. weights: each line's length
+    (characters or words), to know roughly where each cut should be. None if the pauses can't be found."""
+    n = len(weights)
+    if n == 1:
+        return [a]
+    hop = int(SR * frame)
+    frames = a[: a.size // hop * hop].reshape(-1, hop)
+    loud = np.sqrt((frames ** 2).mean(axis=1)) > thresh
+    voiced = np.flatnonzero(loud)
+    if voiced.size == 0:
+        return None
+    first, last = voiced[0], voiced[-1]
+    pauses, i = [], first
+    while i <= last:  # runs of quiet frames inside the speech
+        if not loud[i]:
+            j = i
+            while j <= last and not loud[j]:
+                j += 1
+            if (j - i) * frame >= min_pause:
+                pauses.append((i, j))
+            i = j
+        else:
+            i += 1
+    if len(pauses) < n - 1:
+        return None
+    # choose n-1 of the pauses, in order, that best match where each line should end by its length;
+    # longer pauses (sentence ends) are preferred over short ones inside a line
+    span, total = last - first, sum(weights)
+    want = [first + span * sum(weights[: k + 1]) / total for k in range(n - 1)]
+
+    def cost(k: int, p: tuple[int, int]) -> float:
+        s, e = p
+        return ((s + e) / 2 - want[k]) ** 2 / (span / n) ** 2 - 0.3 * min(e - s, 40) / 40
+
+    m, inf = len(pauses), float("inf")
+    best = [[inf] * m for _ in range(n - 1)]
+    back = [[-1] * m for _ in range(n - 1)]
+    for j in range(m):
+        best[0][j] = cost(0, pauses[j])
+    for k in range(1, n - 1):
+        run, arg = inf, -1
+        for j in range(m):
+            if j and best[k - 1][j - 1] < run:
+                run, arg = best[k - 1][j - 1], j - 1
+            if arg >= 0:
+                best[k][j], back[k][j] = run + cost(k, pauses[j]), arg
+    j = min(range(m), key=lambda x: best[n - 2][x])
+    if best[n - 2][j] == inf:
+        return None
+    picked = []
+    for k in range(n - 2, -1, -1):
+        picked.append(pauses[j])
+        j = back[k][j]
+    picked.reverse()
+    cuts = [((s + e) // 2) * hop for s, e in picked]
+    # sanity check: every piece within half to twice the length its text suggests, or give up
+    edges_f = [first] + [(s + e) // 2 for s, e in picked] + [last]
+    for k in range(n):
+        expect = span * weights[k] / total
+        got = edges_f[k + 1] - edges_f[k]
+        if not 0.5 * expect <= got <= 2.0 * expect + 30:
+            return None
+    edges = [0] + cuts + [a.size]
+    return [a[edges[k]:edges[k + 1]] for k in range(n)]
+
+
+def split_aligned(a: np.ndarray, lines: list[str], lang: str) -> list[np.ndarray] | None:
+    """Cut one recording into its lines where a transcript says each line ends: in the quietest
+    point between one line's last word and the next line's first."""
+    from . import align
+
+    bounds = align.line_bounds(a, SR, lines, lang)
+    if bounds is None:
+        return None
+    hop = int(SR * 0.01)
+    rms = np.sqrt((a[: a.size // hop * hop].reshape(-1, hop) ** 2).mean(axis=1))
+    cuts = []
+    for (_, end), (start, _) in zip(bounds, bounds[1:]):
+        lo, hi = int(end * 100), max(int(start * 100), int(end * 100) + 1)
+        lo, hi = max(lo, 0), min(hi, rms.size)
+        j = lo + int(np.argmin(rms[lo:hi])) if hi > lo else lo
+        cuts.append(min(max(j * hop, cuts[-1] if cuts else 0), a.size))
+    edges = [0] + cuts + [a.size]
+    log(f"Narration cut into {len(lines)} lines from the transcript")
+    return [a[edges[k]:edges[k + 1]] for k in range(len(lines))]
+
+
 def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voice: str):
     log(f"TTS ({lang}): {name} {voice}")
     label = f"{name} {voice}".strip()
@@ -182,6 +279,21 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
         if key not in _spoken:
             _spoken[key] = SYNTH[name](text, voice)
         return _spoken[key]
+
+    if name == "gemini":
+        # one request for the whole narration (Gemini's daily request quota ran out on Nov 12 at one
+        # request per line), cut back into lines at the pauses; per-line requests only if that fails
+        flat = [_sentence(x, lang) for lines in scenes for x in lines]
+        whole = synth("\n".join(flat))
+        parts = split_aligned(whole, flat, lang)
+        if parts is None:
+            parts = split_at_pauses(whole, [len(x) for x in flat])
+        if parts is None:
+            log(f"TTS ({lang}): could not cut the narration at its pauses; voicing line by line")
+        else:
+            it = iter(parts)
+            pre = {(name, voice, x): next(it) for lines in scenes for x in lines}
+            _spoken.update({k: v for k, v in pre.items() if k not in _spoken})
     chunks: list[np.ndarray] = []
     timings: list[SceneTiming] = []
     t = 0.0
