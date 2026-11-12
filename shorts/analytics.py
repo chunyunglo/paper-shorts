@@ -204,7 +204,7 @@ def write_strategy(report: dict) -> str:
     prompt = summary(report, top=8)
     if lessons := memory.lessons():
         prompt += "\n\nThis week's self-review of our past decisions (build on it):\n<lessons>\n" + lessons + "\n</lessons>"
-    s = llm.ask(Strategy, STRATEGY_SYSTEM, prompt, effort="medium", max_tokens=4000)
+    s = llm.ask(Strategy, STRATEGY_SYSTEM, prompt, effort="medium", max_tokens=16000)
     return ("\n".join(f"- {o}" for o in s.observations)
             + f"\n\n**短片：** {s.shorts_advice}\n\n**Podcast：** {s.podcast_advice}"
             + (f"\n\n**免費貼文：** {s.social_advice}" if s.social_advice.strip() else "")
@@ -279,14 +279,19 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
                 memory.retrospect()
             except RuntimeError as exc:
                 log(f"Retrospective skipped: {exc}")
-            note = write_strategy(report)
-            sfile.write_text(f"Written {day}\n\n" + note + "\n", encoding="utf-8")
-            # strategy.md is replaced each week; the log keeps every note so past reasoning stays readable
-            logfile = DIR / "strategy_log.md"
-            old = logfile.read_text(encoding="utf-8") if logfile.exists() else "# 經營策略紀錄 Strategy log\n"
-            logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
-            log("Strategy note updated")
-            email = True  # a new weekly note goes to the owner
+            try:
+                note = write_strategy(report)
+            except RuntimeError as exc:  # keep today's numbers; the note is tried again tomorrow
+                log(f"Strategy note skipped: {exc}")
+                note = ""
+            if note:
+                sfile.write_text(f"Written {day}\n\n" + note + "\n", encoding="utf-8")
+                # strategy.md is replaced each week; the log keeps every note so past reasoning stays readable
+                logfile = DIR / "strategy_log.md"
+                old = logfile.read_text(encoding="utf-8") if logfile.exists() else "# 經營策略紀錄 Strategy log\n"
+                logfile.write_text(old.rstrip("\n") + f"\n\n## {day}\n\n{note}\n", encoding="utf-8")
+                log("Strategy note updated")
+                email = True  # a new weekly note goes to the owner
     text = sfile.read_text(encoding="utf-8") if sfile.exists() else ""
     from . import memory
 
