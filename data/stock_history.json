@@ -142,5 +142,35 @@
     "cost_usd": 0.148,
     "id": "17910126525657333",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar"
+  },
+  {
+    "posted": "2026-11-12T20:33:52+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜今年當沖賺最多的人，明年還會是贏家嗎？\n\n研究者分析台灣 1992 至 2006 年的當沖交易者：先依某一年（y 年）的報酬排名，再追蹤他們在隔年（y+1 年）的表現。結果 y 年排名最前面的 500 名，隔年平均每天費前報酬 61.3 bps，扣費後 37.9 bps；y 年排名墊底的人，隔年費前 -11.5 bps，扣費後 -28.9 bps。\n\n更關鍵的是，研究發現只有不到 1% 的當沖交易者，能可預測且穩定地賺到扣費後的正異常報酬。\n\n這代表：在這份資料中，交易者之間的表現差異確實存在，但能持續做到的人極少。這不代表任何人該怎麼操作，也不能直接推論到其他時期或市場。🙂\n\n（研究分享，不是投資建議）",
+    "why": "這是還沒用過的台灣真實交易資料研究，與近三天的處分效果、虧損、注意力偏誤都不同角度；同時避開今天以單一公司和執行長新聞為主的頭條，不硬掛新聞。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1016/j.finmar.2013.05.006",
+      "title": "The cross-section of speculator skill: Evidence from day trading",
+      "abstract": "We document economically large cross-sectional differences in the before- and after-fee returns earned by speculative traders by analyzing day traders in Taiwan from 1992 to 2006. We sort day traders based on their returns in year y and analyze their performance in year y+1; the 500 top-ranked day traders go on to earn daily before-fee (after-fee) returns of 61.3 (37.9) bps per day; bottom-ranked day traders go on to earn daily before-fee (after-fee) returns of -11.5 (-28.9) bps per day. Less than 1% of the day trader population is able to predictably and reliably earn positive abnormal returns net of fees.",
+      "authors": [
+        "Brad M. Barber",
+        "Yi-Tsung Lee",
+        "Yu-Jane Liu",
+        "Terrance Odean"
+      ],
+      "venue": "Journal of Financial Markets",
+      "url": "https://doi.org/10.1016/j.finmar.2013.05.006",
+      "pdf_url": null,
+      "doi": "10.1016/j.finmar.2013.05.006",
+      "published": "2014",
+      "source": "journal"
+    },
+    "cost_usd": 0.0875,
+    "id": "18084078422720179",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9"
   }
 ]

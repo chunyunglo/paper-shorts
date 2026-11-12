@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-12
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9)
+  - 內容 Text: 🌙 盤後研究室｜今年當沖賺最多的人，明年還會是贏家嗎？ 研究者分析台灣 1992 至 2006 年的當沖交易者：先依某一年（y 年）的報酬排名，再追蹤他們在隔年（y+1 年）的表現。結果 y 年排名最前面的 500 名，隔年平均每天費前報酬…
+  - 論文 Paper: [The cross-section of speculator skill: Evidence from day trading](https://doi.org/10.1016/j.finmar.2013.05.006) (Journal of Financial Markets)
+  - 為什麼 Why: 這是還沒用過的台灣真實交易資料研究，與近三天的處分效果、虧損、注意力偏誤都不同角度；同時避開今天以單一公司和執行長新聞為主的頭條，不硬掛新聞。
+  - 花費 Claude cost: US$0.087
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar)
   - 內容 Text: 🏭 產業前沿｜輸入有一半是零，算得反而更慢？ 這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7 倍。問題不在乘法，而在累加：部分和零散抵達，得一再讀出、改寫。 論文做到的是把累…
   - 論文 Paper: [SkipLane: Write-Once, Conflict-Free Accumulation for Zero-Skipping CNN Engines on FPGAs](https://arxiv.org/abs/2611.14495) (arXiv cs.AR)
