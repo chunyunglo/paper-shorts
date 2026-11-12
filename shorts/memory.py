@@ -285,7 +285,7 @@ def retrospect(now: datetime | None = None) -> str | None:
     prompt = (f"Today: {now:%Y-%m-%d}.\n\n<cases>\n" + "\n".join(map(describe, cs[-80:])) + "\n</cases>\n\n"
               f"<lessons>\n{lessons() or '(none yet: this is the first review)'}\n</lessons>\n\n"
               f"<strategy>\n{_recent_strategy() or '(none yet)'}\n</strategy>")
-    review = llm.ask(Review, REVIEW_SYSTEM, prompt, effort="high", max_tokens=8000)
+    review = llm.ask(Review, REVIEW_SYSTEM, prompt, effort="high", max_tokens=16000)
     day = now.date().isoformat()
     note = render(review, day)
     analytics.DIR.mkdir(parents=True, exist_ok=True)

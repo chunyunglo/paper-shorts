@@ -4,6 +4,7 @@ from __future__ import annotations
 from typing import TypeVar
 
 import anthropic
+import pydantic
 from pydantic import BaseModel
 
 from . import config
@@ -55,6 +56,9 @@ def ask(schema: type[T], system: str, content: list | str, *, effort: str = "hig
         raise RuntimeError(f"Claude API error status={exc.status_code}") from None
     except anthropic.APIConnectionError:
         raise RuntimeError("Claude API connection error") from None
+    except pydantic.ValidationError:
+        # the reply was cut off or didn't fit the schema (the SDK checks it before we see stop_reason)
+        raise RuntimeError("Claude output did not fit the expected format") from None
     usd = cost(model or config.MODEL, resp.usage)
     _spent["calls"] += 1
     _spent["usd"] += usd
