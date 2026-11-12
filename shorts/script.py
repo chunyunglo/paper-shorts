@@ -314,7 +314,8 @@ split, merge or reorder ideas within the scene. 1-4 lines per scene, 6-22 charac
 - Hook: line 1 at most ~15 characters, lands the surprising point at once (a question to the \
 viewer or the striking result); never open with 研究、一項新研究 or background. Line 2 opens a loop \
 that the finding scene pays off.
-- About 200-240 characters of narration in total (about 45-55 seconds at a calm pace).
+- 200-230 characters of narration in total, never more than 240 (count them: the voice reads about \
+4.5 characters a second, and the video must stay under 55 seconds). Cut details rather than run long.
 - Plain words: no research jargon (中位數、顯著、迴歸、樣本、模型…) without saying what it means.
 - On screen: each scene's heading is 2-6 characters; labels keep the plan's count and order, each at \
 most 10 characters and clear without the narration; big text for the hook at most 8 characters \
@@ -323,7 +324,8 @@ Accuracy rules: only facts from the paper and the plan; never invent numbers or 
 overstate causality. Leave script null and problems empty."""
 
 
-def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", with_paper: bool = True) -> Script:
+def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", with_paper: bool = True,
+             _shortening: bool = False) -> Script:
     """Write the Chinese video natively on the shared scene plan. On a bad answer, keep the paired lines."""
     meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
             f"Abstract:\n{paper.abstract}")
@@ -361,7 +363,13 @@ def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", 
             s.labels = labels
         s.big_text = z.big_text.strip() if s.big_text or s.big_text_en else ""
     script.zh_lines = [[l.strip() for l in z.lines if l.strip()][:4] for z in zh.scenes]
-    log(f"Chinese video written: {length(script)[0]} characters")
+    n = length(script)[0]
+    log(f"Chinese video written: {n} characters")
+    if n > MAX_ZH and not _shortening:
+        # a long Chinese voiceover runs near a minute; one cheap retry with the count
+        return write_zh(paper, script, f"The Chinese narration is {n} characters; cut it to at most 230 by "
+                        "dropping secondary details, keeping every line clear.", with_paper=with_paper,
+                        _shortening=True)
     return script
 
 

@@ -575,3 +575,20 @@ def test_revise_rewrites_the_chinese_video_too(monkeypatch):
     monkeypatch.setattr(sm.llm, "ask", fake_ask)
     new, _ = sm.revise(_PAPER, script, "fix the hook")
     assert len(calls) == 2 and new.zh_lines == [["新的"]] * 7
+
+
+def test_a_long_chinese_video_is_cut_once(monkeypatch):
+    from shorts import script as sm
+
+    script = _plan_script(sm)
+    texts = []
+
+    def fake_ask(schema, system, content, **kw):
+        texts.append(content[-1]["text"])
+        line = "長" * (50 if len(texts) == 1 else 20)
+        return sm.PaperOutput(zh=sm.ZhVersion(title="t", description="d", scenes=[
+            sm.ZhScene(heading="h", labels=list(s.labels), big_text="", lines=[line]) for s in script.scenes]))
+
+    monkeypatch.setattr(sm.llm, "ask", fake_ask)
+    out = sm.write_zh(_PAPER, script)
+    assert len(texts) == 2 and "350 characters" in texts[1] and sm.length(out)[0] == 140
