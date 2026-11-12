@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-12
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar)
+  - 內容 Text: 🏭 產業前沿｜輸入有一半是零，算得反而更慢？ 這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7 倍。問題不在乘法，而在累加：部分和零散抵達，得一再讀出、改寫。 論文做到的是把累…
+  - 論文 Paper: [SkipLane: Write-Once, Conflict-Free Accumulation for Zero-Skipping CNN Engines on FPGAs](https://arxiv.org/abs/2611.14495) (arXiv cs.AR)
+  - 為什麼 Why: 昨天的量子QRAM已用過硬體題，今天換成AI推論硬體的不同層面，且不重複用同一篇；其他候選多為純模型評測，缺少可對應產業的內容。
+  - 花費 Claude cost: US$0.148
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu)
   - 內容 Text: 在東京通勤族的估算裡，晚到1分鐘的代價，約等於多坐0.49分鐘車；早到1分鐘約0.39分鐘。但在100%擁擠的車廂多待1分鐘，只約等於多坐0.04分鐘。 我們介紹過的一篇研究（arXiv, 2026）用了日本2015年都會區大眾運輸調查。研…
   - 為什麼 Why: The Tokyo commute episode is our strongest Instagram short but still has no Chinese Threads follow-up, the notes favour one daily zh follow-up on everyday-decision topics with today's turn being a number-led opener (yesterday was question-led), Instagram image posts stay paused and roundups underperform, and today's headlines are mostly partisan, scandal or disaster news that can't be linked responsibly.

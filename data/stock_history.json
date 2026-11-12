@@ -114,5 +114,33 @@
     "cost_usd": 0.069,
     "id": "18098169050678000",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_"
+  },
+  {
+    "posted": "2026-11-12T12:07:45+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜輸入有一半是零，算得反而更慢？\n\n這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7 倍。問題不在乘法，而在累加：部分和零散抵達，得一再讀出、改寫。\n\n論文做到的是把累加改成「每個結果只寫一次」，並分到不會互相衝突的記憶體分塊。RTL 模擬中，稀疏度約 70% 以內，速度貼近前端上限（差距 0.5% 內）；50–80% 稀疏度下，比一種散射式累加設計快 1.10–1.26 倍。代價是記憶體用量比早期版本多（BRAM 81 對 69）。\n\n如果成真，可能影響的是邊緣 AI 推論晶片在「用記憶體換速度」上的取捨。但這只是 LeNet-5 小網路、固定 3×3 資料流的設計成果，其中 conv2 層端到端只有密集版的 0.87 倍速，離商用還有距離。\n\n（研究分享，不是投資建議）",
+    "why": "昨天的量子QRAM已用過硬體題，今天換成AI推論硬體的不同層面，且不重複用同一篇；其他候選多為純模型評測，缺少可對應產業的內容。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.14495",
+      "title": "SkipLane: Write-Once, Conflict-Free Accumulation for Zero-Skipping CNN Engines on FPGAs",
+      "abstract": "Skipping zero activations saves multiplications in CNN accelerators, but it complicates accumulation: the products in a compressed input window belong to different output columns and must be merged. In our earlier engine, this merging was done by read-modify-write (RMW) of a row buffer, which made sparse inputs slower than dense ones even at 87% sparsity. Existing designs either merge kernel rows through RMW or reduce bank conflicts with extra hardware, without eliminating them. SkipLane makes the entire accumulation path write-once. Each kernel row is processed in its own lane, which holds partial sums in three registers and retires up to three finished columns per cycle into memory banks that cannot conflict. Lanes and input channels are summed only at readout, so no partial sum is ever read back. Multipliers left idle by zero weights compute a second filter in the same pass. In RTL simulation, the engine stays within 0.5% of its frontend bound up to 70% sparsity and is 1.10-1.26$\\times$ faster than an SCNN-style scatter accumulator with 18 banks and ideal RMW at 50-80% sparsity. Six engines meet 140 MHz on a PYNQ-Z2 using 21.1k LUTs and run LeNet-5 bit-exact on the board. For conv1, the engine needs 1.94$\\times$ fewer cycles than a dense engine (1.26$\\times$ faster end to end); for conv2, whose rows are only 13 pixels wide, it reaches 0.87$\\times$ the dense speed.",
+      "authors": [
+        "Aditya Saboo",
+        "Pratibha Verma"
+      ],
+      "venue": "arXiv cs.AR",
+      "url": "https://arxiv.org/abs/2611.14495",
+      "pdf_url": "https://arxiv.org/pdf/2611.14495v1",
+      "doi": null,
+      "published": "2026-11-10",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.148,
+    "id": "17910126525657333",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar"
   }
 ]
