@@ -208,19 +208,43 @@ def split_at_pauses(a: np.ndarray, weights: list[float], frame: float = 0.01, mi
             i += 1
     if len(pauses) < n - 1:
         return None
-    total, cum, cuts, prev = sum(weights), 0.0, [], first
-    span = last - first
-    for k in range(n - 1):
-        cum += weights[k]
-        want = first + span * cum / total
-        window = max(80, 0.35 * span * weights[k] / total)  # frames: 0.8 s or a third of the line
-        options = [(abs((s + e) / 2 - want) - 0.5 * (e - s), s, e) for s, e in pauses
-                   if s > prev and abs((s + e) / 2 - want) <= window]
-        if not options:
+    # choose n-1 of the pauses, in order, that best match where each line should end by its length;
+    # longer pauses (sentence ends) are preferred over short ones inside a line
+    span, total = last - first, sum(weights)
+    want = [first + span * sum(weights[: k + 1]) / total for k in range(n - 1)]
+
+    def cost(k: int, p: tuple[int, int]) -> float:
+        s, e = p
+        return ((s + e) / 2 - want[k]) ** 2 / (span / n) ** 2 - 0.3 * min(e - s, 40) / 40
+
+    m, inf = len(pauses), float("inf")
+    best = [[inf] * m for _ in range(n - 1)]
+    back = [[-1] * m for _ in range(n - 1)]
+    for j in range(m):
+        best[0][j] = cost(0, pauses[j])
+    for k in range(1, n - 1):
+        run, arg = inf, -1
+        for j in range(m):
+            if j and best[k - 1][j - 1] < run:
+                run, arg = best[k - 1][j - 1], j - 1
+            if arg >= 0:
+                best[k][j], back[k][j] = run + cost(k, pauses[j]), arg
+    j = min(range(m), key=lambda x: best[n - 2][x])
+    if best[n - 2][j] == inf:
+        return None
+    picked = []
+    for k in range(n - 2, -1, -1):
+        picked.append(pauses[j])
+        j = back[k][j]
+    picked.reverse()
+    cuts = [((s + e) // 2) * hop for s, e in picked]
+    # sanity check: every piece within half to twice the length its text suggests, or give up
+    edges_f = [first] + [(s + e) // 2 for s, e in picked] + [last]
+    for k in range(n):
+        expect = span * weights[k] / total
+        got = edges_f[k + 1] - edges_f[k]
+        if not 0.5 * expect <= got <= 2.0 * expect + 30:
             return None
-        _, s, e = min(options)
-        cuts.append(((s + e) // 2) * hop)
-        prev = e
     edges = [0] + cuts + [a.size]
     return [a[edges[k]:edges[k + 1]] for k in range(n)]
 
@@ -240,7 +264,7 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
         # request per line), cut back into lines at the pauses; per-line requests only if that fails
         flat = [_sentence(x, lang) for lines in scenes for x in lines]
         whole = synth("\n".join(flat))
-        parts = split_at_pauses(whole, [len(x) if lang == "zh" else len(x.split()) for x in flat])
+        parts = split_at_pauses(whole, [len(x) for x in flat])
         if parts is None:
             log(f"TTS ({lang}): could not cut the narration at its pauses; voicing line by line")
         else:
