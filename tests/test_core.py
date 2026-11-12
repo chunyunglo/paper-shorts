@@ -614,6 +614,46 @@ def test_rerender_reuses_spoken_lines_and_records_the_fallback_voice(monkeypatch
     monkeypatch.setenv("GOOGLE_TTS_API_KEY", "x")
     tts.voiceover([["one", "two"], ["three"]], tmp_path / "a.wav", "en")
     tts.voiceover([["one", "two"], ["three"]], tmp_path / "b.wav", "en")
-    assert calls == ["one", "two", "three"] and tts.used["en"] == "gemini Achird"
+    # a steady tone has no pauses, so the one-request take can't be cut and each line is voiced once
+    assert calls == ["one.\ntwo.\nthree.", "one", "two", "three"] and tts.used["en"] == "gemini Achird"
     tts.voiceover([["one", "boom"]], tmp_path / "c.wav", "en")
     assert tts.used["en"] == "google " + tts.GOOGLE_FALLBACK["en"]
+
+
+def _speech(*secs, gap=0.3):
+    import numpy as np
+    from shorts import tts
+    out = []
+    for i, s in enumerate(secs):
+        if i:
+            out.append(np.zeros(int(tts.SR * gap), dtype=np.float32))
+        out.append((np.sin(np.arange(int(tts.SR * s)) / 5) * 0.3).astype(np.float32))
+    return np.concatenate(out)
+
+
+def test_one_recording_is_cut_at_the_pauses_between_lines():
+    from shorts import tts
+
+    parts = tts.split_at_pauses(_speech(1.0, 2.0, 1.0), [10, 20, 10])
+    assert len(parts) == 3 and [round(p.size / tts.SR) for p in parts] == [1, 2, 1]
+    assert tts.split_at_pauses(_speech(4.0), [10, 20, 10]) is None   # no pauses: can't cut
+
+
+def test_gemini_voices_each_language_in_one_request(monkeypatch, tmp_path):
+    from shorts import tts
+
+    calls = []
+
+    def gemini(text, voice):
+        calls.append(text)
+        return _speech(*[0.8] * (text.count("\n") + 1))
+
+    monkeypatch.setattr(tts, "_spoken", {})
+    monkeypatch.setattr(tts, "used", {})
+    monkeypatch.setitem(tts.SYNTH, "gemini", gemini)
+    monkeypatch.setattr(tts, "choose", lambda lang: ("gemini", "Achird"))
+    timings, _ = tts.voiceover([["你以為呢", "其實不是，"], ["答案在這裡"]], tmp_path / "a.wav", "zh")
+    assert calls == ["你以為呢。\n其實不是。\n答案在這裡。"]
+    assert [len(s.lines) for s in timings] == [2, 1]
+    tts.voiceover([["你以為呢", "其實不是，"], ["答案在這裡"]], tmp_path / "b.wav", "zh")
+    assert len(calls) == 1   # the re-render reuses it
