@@ -592,3 +592,28 @@ def test_a_long_chinese_video_is_cut_once(monkeypatch):
     monkeypatch.setattr(sm.llm, "ask", fake_ask)
     out = sm.write_zh(_PAPER, script)
     assert len(texts) == 2 and "350 characters" in texts[1] and sm.length(out)[0] == 140
+
+
+def test_rerender_reuses_spoken_lines_and_records_the_fallback_voice(monkeypatch, tmp_path):
+    import numpy as np
+    from shorts import tts
+
+    calls = []
+
+    def gemini(text, voice):
+        calls.append(text)
+        if text == "boom":
+            raise RuntimeError("quota")
+        return np.ones(2400, dtype=np.float32) * 0.1
+
+    monkeypatch.setattr(tts, "_spoken", {})
+    monkeypatch.setattr(tts, "used", {})
+    monkeypatch.setitem(tts.SYNTH, "gemini", gemini)
+    monkeypatch.setitem(tts.SYNTH, "google", lambda text, voice: np.ones(2400, dtype=np.float32) * 0.1)
+    monkeypatch.setattr(tts, "choose", lambda lang: ("gemini", "Achird"))
+    monkeypatch.setenv("GOOGLE_TTS_API_KEY", "x")
+    tts.voiceover([["one", "two"], ["three"]], tmp_path / "a.wav", "en")
+    tts.voiceover([["one", "two"], ["three"]], tmp_path / "b.wav", "en")
+    assert calls == ["one", "two", "three"] and tts.used["en"] == "gemini Achird"
+    tts.voiceover([["one", "boom"]], tmp_path / "c.wav", "en")
+    assert tts.used["en"] == "google " + tts.GOOGLE_FALLBACK["en"]

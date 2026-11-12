@@ -85,7 +85,7 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
         cover_at = timings[1 if len(timings) > 1 else 0].start + 1.2
         r.frame(int(cover_at * 30)).convert("RGB").save(out / f"cover_{lang}.jpg", quality=90)
         videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(r.duration, 2),
-                        "cover_offset_ms": int(cover_at * 1000), "tts": " ".join(tts.choose(lang)).strip()}
+                        "cover_offset_ms": int(cover_at * 1000), "tts": tts.used.get(lang) or " ".join(tts.choose(lang)).strip()}
 
     meta = {
         "episode": ep_id,
