@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-12
+
+- **股市篇 Stock series** · morning · bias · [link](https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_)
+  - 內容 Text: 📈 盤前心理學｜打開看盤軟體，上千檔股票，你會從哪一檔開始看？ Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而言是「吸引注意的股票」的淨買方，例如上新聞的股票、成交量異常放大的股票，以及單日報…
+  - 論文 Paper: [All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors](https://doi.org/10.1093/rfs/hhm079) (Review of Financial Studies)
+  - 為什麼 Why: 這幾天連續用台灣交易資料的處分效果與損失研究，今天換成美股資料的注意力偏誤，是全新的研究與角度，也避開近期重複。
+  - 花費 Claude cost: US$0.069
+
 ## 2026-11-11
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw)

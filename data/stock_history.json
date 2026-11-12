@@ -86,5 +86,33 @@
     "cost_usd": 0.27,
     "id": "18101905040417216",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw"
+  },
+  {
+    "posted": "2026-11-12T06:34:08+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "bias",
+    "text": "📈 盤前心理學｜打開看盤軟體，上千檔股票，你會從哪一檔開始看？\n\nBarber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而言是「吸引注意的股票」的淨買方，例如上新聞的股票、成交量異常放大的股票，以及單日報酬極端的股票。\n\n他們的解釋是搜尋問題：要買，得在成千上萬檔股票裡找；要賣，個人投資者通常只賣手上已有的股票，不用大海撈針。所以他們推測，許多人只會考慮買先吸引到自己注意的股票：注意力先決定選項範圍，偏好才在範圍內做選擇。\n\n這是在描述注意力如何影響選擇，不是在說這類股票該買或不該買。\n\n（研究分享，不是投資建議）",
+    "why": "這幾天連續用台灣交易資料的處分效果與損失研究，今天換成美股資料的注意力偏誤，是全新的研究與角度，也避開近期重複。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rfs/hhm079",
+      "title": "All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors",
+      "abstract": "We test and confirm the hypothesis that individual investors are net buyers of attention-grabbing stocks, e.g., stocks in the news, stocks experiencing high abnormal trading volume, and stocks with extreme one-day returns. Attention-driven buying results from the difficulty that investors have searching the thousands of stocks they can potentially buy. Individual investors do not face the same search problem when selling because they tend to sell only stocks they already own. We hypothesize that many investors consider purchasing only stocks that have first caught their attention. Thus, preferences determine choices after attention has determined the choice set.",
+      "authors": [
+        "Brad M. Barber",
+        "Terrance Odean"
+      ],
+      "venue": "Review of Financial Studies",
+      "url": "https://doi.org/10.1093/rfs/hhm079",
+      "pdf_url": null,
+      "doi": "10.1093/rfs/hhm079",
+      "published": "2008",
+      "source": "journal"
+    },
+    "cost_usd": 0.069,
+    "id": "18098169050678000",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_"
   }
 ]
