@@ -249,6 +249,27 @@ def split_at_pauses(a: np.ndarray, weights: list[float], frame: float = 0.01, mi
     return [a[edges[k]:edges[k + 1]] for k in range(n)]
 
 
+def split_aligned(a: np.ndarray, lines: list[str], lang: str) -> list[np.ndarray] | None:
+    """Cut one recording into its lines where a transcript says each line ends: in the quietest
+    point between one line's last word and the next line's first."""
+    from . import align
+
+    bounds = align.line_bounds(a, SR, lines, lang)
+    if bounds is None:
+        return None
+    hop = int(SR * 0.01)
+    rms = np.sqrt((a[: a.size // hop * hop].reshape(-1, hop) ** 2).mean(axis=1))
+    cuts = []
+    for (_, end), (start, _) in zip(bounds, bounds[1:]):
+        lo, hi = int(end * 100), max(int(start * 100), int(end * 100) + 1)
+        lo, hi = max(lo, 0), min(hi, rms.size)
+        j = lo + int(np.argmin(rms[lo:hi])) if hi > lo else lo
+        cuts.append(min(max(j * hop, cuts[-1] if cuts else 0), a.size))
+    edges = [0] + cuts + [a.size]
+    log(f"Narration cut into {len(lines)} lines from the transcript")
+    return [a[edges[k]:edges[k + 1]] for k in range(len(lines))]
+
+
 def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voice: str):
     log(f"TTS ({lang}): {name} {voice}")
     label = f"{name} {voice}".strip()
@@ -264,7 +285,9 @@ def _voiceover(scenes: list[list[str]], out_wav: Path, lang: str, name: str, voi
         # request per line), cut back into lines at the pauses; per-line requests only if that fails
         flat = [_sentence(x, lang) for lines in scenes for x in lines]
         whole = synth("\n".join(flat))
-        parts = split_at_pauses(whole, [len(x) for x in flat])
+        parts = split_aligned(whole, flat, lang)
+        if parts is None:
+            parts = split_at_pauses(whole, [len(x) for x in flat])
         if parts is None:
             log(f"TTS ({lang}): could not cut the narration at its pauses; voicing line by line")
         else:
