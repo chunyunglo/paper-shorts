@@ -172,5 +172,35 @@
     "cost_usd": 0.0875,
     "id": "18084078422720179",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9"
+  },
+  {
+    "posted": "2026-11-13T05:53:28+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？\n\n一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 App 的用戶比其他散戶更常「因為被注意到而交易」。\n\n原因可能不只一個。一部分與用戶多為較沒經驗的投資人一致，但研究也指出，App 本身的獨特功能同樣有部分影響。\n\n摘要還提到，這群用戶集中買進的股票，後續 20 天的平均異常報酬為 -4.7%。\n\n這不代表用手機下單的人都如此，研究比較的是這款 App 用戶與其他散戶。\n\n（研究分享，不是投資建議）",
+    "why": "目前股市系列都用台灣證交所 1990 年代資料，這篇是較新的美股券商資料，也避免連續重複同一篇研究，並延伸 11-12 的注意力主題但切入點是 App 設計。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/jofi.13183",
+      "title": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
+      "abstract": "We study the influence of financial innovation by fintech brokerages on individual investors' trading and stock prices. Using data from Robinhood, we find that Robinhood investors engage in more attention-induced trading than other retail investors. For example, Robinhood outages disproportionately reduce trading in high-attention stocks. While this evidence is consistent with Robinhood attracting relatively inexperienced investors, we show that it is also driven in part by the app's unique features. Consistent with models of attention-induced trading, intense buying by Robinhood users forecasts negative returns. Average 20-day abnormal returns are -4.7% for the top stocks purchased each day.",
+      "authors": [
+        "Brad M. Barber",
+        "Xing Huang",
+        "Terrance Odean",
+        "Christopher Schwarz"
+      ],
+      "venue": "Journal of Finance",
+      "url": "https://doi.org/10.1111/jofi.13183",
+      "pdf_url": null,
+      "doi": "10.1111/jofi.13183",
+      "published": "2022",
+      "source": "journal"
+    },
+    "cost_usd": 0.075,
+    "id": "17956169463278692",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K"
   }
 ]

@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-13
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K)
+  - 內容 Text: 📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？ 一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 App 的用戶比其他散戶更常「因為被注意到而交易」。 原因可能不只一個。一部分與用戶…
+  - 論文 Paper: [Attention-Induced Trading and Returns: Evidence from Robinhood Users](https://doi.org/10.1111/jofi.13183) (Journal of Finance)
+  - 為什麼 Why: 目前股市系列都用台灣證交所 1990 年代資料，這篇是較新的美股券商資料，也避免連續重複同一篇研究，並延伸 11-12 的注意力主題但切入點是 App 設計。
+  - 花費 Claude cost: US$0.075
+
 ## 2026-11-12
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9)
