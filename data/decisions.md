@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-13
 
+- **短影音 Short** · [裁判偏心自己人，還會壓對手？ / Skating Judges: Taste or Strategy?](https://youtube.com/shorts/o4YTFOy84dc)
+  - 論文 Paper: [Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging](https://arxiv.org/abs/2611.13194) (arXiv econ.GN)
+  - 為什麼 Why: Uses a rich figure-skating judging dataset to separate favoritism from shared taste, showing a compatriot premium and a penalty on close rivals; the method is easy to explain in 3-4 visual steps and the finding is concrete and surprising. Signals: Notes favor concrete everyday-style behavior questions over abstract market mechanisms and non-AI topics, and this paper avoids recent episode topics and gives a clear answer early.
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K)
   - 內容 Text: 📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？ 一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 App 的用戶比其他散戶更常「因為被注意到而交易」。 原因可能不只一個。一部分與用戶…
   - 論文 Paper: [Attention-Induced Trading and Returns: Evidence from Robinhood Users](https://doi.org/10.1111/jofi.13183) (Journal of Finance)

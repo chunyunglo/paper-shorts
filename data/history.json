@@ -6243,5 +6243,341 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261111-retweeting-patterns-reveal-partisan-asym",
     "pick_reason": "It analyzes large-scale retweet networks from the 2020 US election to show partisan asymmetries in information sharing and links them to state-level voting outcomes, a clear computational method that is easy to explain in 3-4 visual steps. Signals: Notes favor concrete, everyday-relevant findings with a method that shows easily in steps and a second-person hook; this non-AI political-behavior network study adds variety, and recent episodes did not cover social media retweet networks."
+  },
+  {
+    "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+    "created": "2026-11-13T06:10:31+00:00",
+    "paper": {
+      "id": "arxiv:2611.13194",
+      "title": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+      "abstract": "Many decisions rest on expert panels whose members have ties to some candidates, and favoritism is hard to tell from shared taste or better information. Using a rich dataset from figure skating, we find evidence of a strategic compatriot premium and a targeted penalty on the compatriot's close rivals. The premium falls along a randomly drawn start order and, before 2022/23, rises when close rivals have their own judges on the panel. The penalty grows with the compatriot's placement chances and fades once she is out of contention. A counterfactual analysis shows that these biases can shape close competitions.",
+      "authors": [
+        "Jialin Liu",
+        "Shu Shen"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.13194",
+      "pdf_url": "https://arxiv.org/pdf/2611.13194v1",
+      "doi": null,
+      "published": "2026-11-09",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "裁判偏心自己人，還會壓對手？",
+      "title_en": "Skating Judges: Taste or Strategy?",
+      "paper_title_zh": "品味還是策略？花式滑冰評審中的民族主義偏見與對手懲罰",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "裁判偏心",
+          "heading_en": "JUDGE BIAS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "連對手也壓?",
+          "big_text_en": "Sinking rivals too?",
+          "lines": [
+            {
+              "zh": "裁判不只偏心，還會壓對手？",
+              "en": "Judges favor their own skater. And sink her rivals?"
+            },
+            {
+              "zh": "答案藏在一個抽籤設計裡。",
+              "en": "The twist: a random draw gave it away."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "加州大學經濟學者，發表於arXiv。",
+              "en": "Two UC Davis economists, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "評分筆數"
+          ],
+          "labels_en": [
+            "Judge scores"
+          ],
+          "values": [
+            206983.0
+          ],
+          "big_text": "約20萬筆",
+          "big_text_en": "About 200,000",
+          "lines": [
+            {
+              "zh": "他們蒐集十年、約二十萬筆裁判打分。",
+              "en": "Ten years of contests: about 200,000 judge scores."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "比較",
+          "heading_en": "COMPARE",
+          "labels": [
+            "選手",
+            "同國裁判",
+            "其他裁判"
+          ],
+          "labels_en": [
+            "Skater",
+            "Home judge",
+            "Other judges"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "同一場表演，同國裁判給得比別人高。",
+              "en": "Same performance: the home judge scored higher than the others."
+            }
+          ]
+        },
+        {
+          "visual": "timeline",
+          "heading_zh": "出場順序",
+          "heading_en": "START ORDER",
+          "labels": [
+            "第一位",
+            "最後一位"
+          ],
+          "labels_en": [
+            "First skater",
+            "Last skater"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "有些比賽，出場順序是抽籤決定的。",
+              "en": "Some contests draw the skating order by lot."
+            },
+            {
+              "zh": "結果同國加分，越晚出場越少。",
+              "en": "The home boost shrank for later skaters."
+            },
+            {
+              "zh": "抽籤不影響口味，所以至少部分是策略。",
+              "en": "A draw can't change taste, so some of it is strategy."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "壓對手",
+          "heading_en": "RIVAL PENALTY",
+          "labels": [
+            "對手",
+            "同國選手"
+          ],
+          "labels_en": [
+            "Rival",
+            "Home skater"
+          ],
+          "values": [],
+          "big_text": "出局後就淡掉",
+          "big_text_en": "Fades once she's out",
+          "lines": [
+            {
+              "zh": "裁判也會小幅壓低同國選手的對手。",
+              "en": "Judges also marked down their skater's close rivals, slightly."
+            },
+            {
+              "zh": "但她出局後，壓分就淡掉了。",
+              "en": "But once she was out of the race, that faded."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "假如重抽",
+          "heading_en": "WHAT IF",
+          "labels": [
+            "重抽裁判",
+            "重新計分",
+            "誰奪冠？"
+          ],
+          "labels_en": [
+            "Redraw panel",
+            "Rescore",
+            "Who wins?"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "模擬重抽2026冬奧的裁判組。",
+              "en": "They redrew the Milan Olympic judges and rescored."
+            },
+            {
+              "zh": "結果冰舞金牌在約一半重抽裡換人。",
+              "en": "Ice dance gold changed hands in about half the redraws."
+            },
+            {
+              "zh": "但這只是模擬，不代表正式結果有誤。",
+              "en": "But it's a simulation, not proof the real result was wrong."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "偏心可以是策略",
+          "big_text_en": "Bias can be strategy",
+          "lines": [
+            {
+              "zh": "偏心不只是口味，也可能是策略。",
+              "en": "Favoritism isn't just taste. It can be strategy."
+            },
+            {
+              "zh": "想看更多，請追蹤我們。",
+              "en": "Follow for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "花式滑冰裁判會給同國選手加分，還會小幅壓低她的近身對手嗎？兩位經濟學者分析十年、約二十萬筆裁判評分，發現抽籤決定的出場順序洩了底：加分會隨出場順序改變，不像單純的口味。研究也用模擬說明，這類偏差有可能影響很接近的比賽。",
+      "description_en": "When a figure skating judge scores a compatriot higher, is it taste, familiarity, or strategy? Two economists used about 200,000 individual judge scores and randomly drawn start orders to tell them apart. The home-country boost changed with start order, and judges marked down their skater's close rivals. A simulation shows such bias could change close results.",
+      "hashtags": [
+        "花式滑冰",
+        "裁判偏見",
+        "行為經濟學",
+        "行為解碼",
+        "FigureSkating",
+        "JudgingBias",
+        "BehaviorDecoded",
+        "冬季奧運"
+      ],
+      "method_summary": "The authors built a dataset of 172 international figure skating competitions from 2016/17 to 2025/26: 23,254 performances by 2,470 skaters and 206,983 individual judge marks from 620 judges of 59 federations. Judge marks (execution, program components, and a synthetic total score) were converted to percent of a reference scale. Comparing judges on the same performance, with performance and judge fixed effects, a judge scored a skater from her own federation about 1.7 percent of the scale higher. Close rivals were defined by start order (within three starts), not by final placement, to avoid reverse causality. Judges marked rivals down by a small amount, mostly in second segments and mostly while the compatriot was still in contention. In first segments with a random open draw, the compatriot premium fell from about 1.99 for the first starter to 1.29 for the last, so at least about a fifth of the average premium cannot be explained by fixed taste or familiarity. Before 2022/23, the premium rose when more of the compatriot's later rivals had their own judge on the panel. Finally, the authors redrew admissible Milan 2026 Olympic panels and rescored performances: the ice dance title changed hands in 45 to 57 percent of redraws and the women's title in 20 to 27 percent. The trimmed mean removes only a small part of such bias.",
+      "limitations": "The study is observational and cannot see judges' intentions; strategic scoring is inferred from patterns. Rivals are defined by start order, which measures true rivalry with noise. The evidence that the premium rises with rivals' judges appears only before 2022/23 and not in the later era. Several interaction estimates carry non-trivial negative weights. Judge-specific estimates are unstable, so the paper warns against using them to accuse individual judges. The counterfactual does not question official Olympic results, and the setting is only figure skating.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "裁判偏心自己人，還會壓對手？",
+          "關鍵線索，竟然是一次抽籤。"
+        ],
+        [
+          "加大戴維斯兩位學者，放上arXiv。"
+        ],
+        [
+          "十年比賽，約二十萬筆裁判評分。"
+        ],
+        [
+          "同一場表演，同國裁判打得比別人高。"
+        ],
+        [
+          "有些比賽，出場順序是抽籤決定的。",
+          "越晚出場，同國裁判給的加分越少。",
+          "抽籤改變不了口味，所以有部分是策略。"
+        ],
+        [
+          "裁判也小幅壓低同國選手的近身對手。",
+          "她出局後，排在後面的對手就不太被壓了。"
+        ],
+        [
+          "重抽米蘭冬奧裁判團，再重新計分。",
+          "冰舞金牌，約一半的重抽會換人。",
+          "但這只是模擬，不代表真實結果有錯。"
+        ],
+        [
+          "偏心不只是口味，也可能是策略。",
+          "追蹤看更多。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "clipboard-check"
+        ],
+        [
+          "ice-skating",
+          "home",
+          "users"
+        ],
+        [
+          "ice-skating",
+          "flag"
+        ],
+        [
+          "swords",
+          "home-star"
+        ],
+        [
+          "users",
+          "calculator",
+          "trophy"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 50.76,
+        "cover_offset_ms": 7584,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 43.29,
+        "cover_offset_ms": 6812,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "o4YTFOy84dc",
+          "url": "https://youtube.com/shorts/o4YTFOy84dc"
+        },
+        "instagram": {
+          "id": "18101941025540236",
+          "url": "https://www.instagram.com/reel/Dfrey1VjcQI/"
+        },
+        "threads": {
+          "id": "18022642850950709",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Dfre5KelY1j"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "K3-GSDT_iFA",
+          "url": "https://youtube.com/shorts/K3-GSDT_iFA"
+        },
+        "instagram": {
+          "id": "18430973680154272",
+          "url": "https://www.instagram.com/reel/Dfre-j4HLuo/"
+        },
+        "threads": {
+          "id": "18119997559808315",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfrfF-kT5sI"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261113-taste-or-strategy-nationalistic-bias-and",
+    "pick_reason": "Uses a rich figure-skating judging dataset to separate favoritism from shared taste, showing a compatriot premium and a penalty on close rivals; the method is easy to explain in 3-4 visual steps and the finding is concrete and surprising. Signals: Notes favor concrete everyday-style behavior questions over abstract market mechanisms and non-AI topics, and this paper avoids recent episode topics and gives a clear answer early."
   }
 ]
