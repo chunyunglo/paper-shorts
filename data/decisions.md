@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-13
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Dfrj5JMoJPd)
+  - 內容 Text: 🏭 產業前沿｜8萬顆AI加速器，每一顆都在自己的高頻寬記憶體（HBM）裡存一份一模一樣的模型權重，有必要嗎？ 瑞典烏普薩拉大學團隊提議：權重是唯讀的，改由一台伺服器透過光纖持續廣播，加速器直接接收，不先存進本地記憶體。 論文做到的是建模評估…
+  - 論文 Paper: [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](https://arxiv.org/abs/2611.17097) (arXiv cs.AR)
+  - 為什麼 Why: 今天要選一篇還沒用過的前沿技術論文，記憶體與 AI 伺服器是關注股市的人常聽到的供應鏈環節，跟前兩天的量子與 FPGA 題材不同，也不涉及任何公司。
+  - 花費 Claude cost: US$0.239
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfrg4kxEfs_)
   - 內容 Text: 花式滑冰的裁判，會偏心自己國家的選手嗎？ 我們今天介紹的研究（arXiv, 2026）整理了2016/17到2025/26球季的172場國際賽：23,254場表演、620位裁判打出的206,983個分數。研究比較的是「同一場表演，不同裁判給…
   - 為什麼 Why: The figure-skating judging paper is today's new episode and has no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline relates to it, today's news is mostly partisan or tragic, and Instagram image posts stay paused per the notes.

@@ -202,5 +202,35 @@
     "cost_usd": 0.075,
     "id": "17956169463278692",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K"
+  },
+  {
+    "posted": "2026-11-13T11:48:59+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜8萬顆AI加速器，每一顆都在自己的高頻寬記憶體（HBM）裡存一份一模一樣的模型權重，有必要嗎？\n\n瑞典烏普薩拉大學團隊提議：權重是唯讀的，改由一台伺服器透過光纖持續廣播，加速器直接接收，不先存進本地記憶體。\n\n論文做到的是建模評估：在8萬顆加速器的規模下，估計可省下約4.00–8.44 PB的HBM（39–82%）。在選定的權重切分方式下，解碼吞吐量為HBM基準系統的0.96–1.57倍，每個token的能耗低10–42%。但若把整個模型串流給每顆加速器，吞吐量只剩基準的0.25–0.47倍。\n\n如果成真，可能改變AI伺服器對HBM的需求結構。不過這是架構分析與模型估算，不是做出來的系統，論文也把部分硬體成本留給未來研究。\n\n（研究分享，不是投資建議）",
+    "why": "今天要選一篇還沒用過的前沿技術論文，記憶體與 AI 伺服器是關注股市的人常聽到的供應鏈環節，跟前兩天的量子與 FPGA 題材不同，也不涉及任何公司。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.17097",
+      "title": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
+      "abstract": "Large language model (LLM) inference at datacenter scale is fundamentally bottlenecked by memory capacity and bandwidth limits. Because model weights are read-only and identical across instances, conventional architectures that replicate these parameters across the local DRAM of tens of thousands of accelerators incur massive capital expenditures, significant static power dissipation, and redundant memory-fetch energy. A recent proposal to use optical fiber loops as delay-line memory alleviates these issues, but its recirculating loop must hold the whole model: loop length grows with model size, slack is fixed when the ring is built, and the layouts that serve modern Mixture of Experts (MoE) models efficiently do not fit in it. We propose Optical Broadcast Memory (OBM), an open-ended hierarchical Tap-and-Amplify fiber architecture that generalizes and replaces the optical ring paradigm. A centralized memory server continuously broadcasts weights to distributed inference nodes that passively tap the data stream using receive-only co-packaged optics, delivering parameters directly to compute units without intermediate buffering. To overcome the limitations of continuous weight streaming, we use dynamically-sized slack to accommodate large and variable context lengths. We show how removing the restrictions of the optical ring allows OBM to efficiently serve MoE models. Evaluated at a datacenter scale of 80,000 accelerators, OBM eliminates petabytes of HBM while being competitive or better in throughput and energy per token than an HBM-based system.",
+      "authors": [
+        "Hannah Atmer",
+        "Yuan Yao",
+        "Thiemo Voigt",
+        "Stefanos Kaxiras"
+      ],
+      "venue": "arXiv cs.AR",
+      "url": "https://arxiv.org/abs/2611.17097",
+      "pdf_url": "https://arxiv.org/pdf/2611.17097v1",
+      "doi": null,
+      "published": "2026-11-12",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2392,
+    "id": "18485274112114744",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfrj5JMoJPd"
   }
 ]
