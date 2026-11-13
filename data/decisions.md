@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-13
 
+- **股市篇 Stock series** · evening · self_check · [link](https://www.threads.com/@human__behavior__decode/post/DfsdSdNGEYn)
+  - 內容 Text: 🌙 盤後研究室｜晚上想問一個小問題：你上次點開某檔股票的頁面，是因為原本就在研究它，還是因為它剛好一直出現在眼前？ 早上提過的券商 App 當機研究，用的是一款金融科技券商 App 的資料。研究發現，這款 App 的投資人比其他散戶有更多「…
+  - 論文 Paper: [Attention-Induced Trading and Returns: Evidence from Robinhood Users](https://doi.org/10.1111/jofi.13183) (Journal of Finance)
+  - 為什麼 Why: 今天早上用了這篇研究的當機發現，晚上用同一篇換成自我檢視角度，且避開今天以單一公司為主的新聞頭條；同時避免連續重複前幾天已用過的台灣交易資料研究。
+  - 花費 Claude cost: US$0.113
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Dfrj5JMoJPd)
   - 內容 Text: 🏭 產業前沿｜8萬顆AI加速器，每一顆都在自己的高頻寬記憶體（HBM）裡存一份一模一樣的模型權重，有必要嗎？ 瑞典烏普薩拉大學團隊提議：權重是唯讀的，改由一台伺服器透過光纖持續廣播，加速器直接接收，不先存進本地記憶體。 論文做到的是建模評估…
   - 論文 Paper: [Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving](https://arxiv.org/abs/2611.17097) (arXiv cs.AR)

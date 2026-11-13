@@ -232,5 +232,35 @@
     "cost_usd": 0.2392,
     "id": "18485274112114744",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfrj5JMoJPd"
+  },
+  {
+    "posted": "2026-11-13T20:10:40+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "self_check",
+    "text": "🌙 盤後研究室｜晚上想問一個小問題：你上次點開某檔股票的頁面，是因為原本就在研究它，還是因為它剛好一直出現在眼前？\n\n早上提過的券商 App 當機研究，用的是一款金融科技券商 App 的資料。研究發現，這款 App 的投資人比其他散戶有更多「受注意力驅動」的交易。當機時，高關注股票的交易減少得比較多。作者指出，這與平台吸引較缺乏經驗的投資人一致，但部分也和 App 的獨特功能有關。\n\n摘要還提到，該平台用戶大量買進的股票，後續報酬為負：每天被買最多的那些股票，20 日平均異常報酬為 -4.7%。\n\n這只是針對單一平台的研究，不代表任何人該怎麼操作。它更像一面鏡子：下單前，先問自己是被吸引，還是早有功課。\n\n（研究分享，不是投資建議）",
+    "why": "今天早上用了這篇研究的當機發現，晚上用同一篇換成自我檢視角度，且避開今天以單一公司為主的新聞頭條；同時避免連續重複前幾天已用過的台灣交易資料研究。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/jofi.13183",
+      "title": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
+      "abstract": "We study the influence of financial innovation by fintech brokerages on individual investors' trading and stock prices. Using data from Robinhood, we find that Robinhood investors engage in more attention-induced trading than other retail investors. For example, Robinhood outages disproportionately reduce trading in high-attention stocks. While this evidence is consistent with Robinhood attracting relatively inexperienced investors, we show that it is also driven in part by the app's unique features. Consistent with models of attention-induced trading, intense buying by Robinhood users forecasts negative returns. Average 20-day abnormal returns are -4.7% for the top stocks purchased each day.",
+      "authors": [
+        "Brad M. Barber",
+        "Xing Huang",
+        "Terrance Odean",
+        "Christopher Schwarz"
+      ],
+      "venue": "Journal of Finance",
+      "url": "https://doi.org/10.1111/jofi.13183",
+      "pdf_url": null,
+      "doi": "10.1111/jofi.13183",
+      "published": "2022",
+      "source": "journal"
+    },
+    "cost_usd": 0.1127,
+    "id": "18092644661678429",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfsdSdNGEYn"
   }
 ]
