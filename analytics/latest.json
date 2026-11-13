@@ -1,9 +1,9 @@
 {
- "collected_at": "2026-11-12T09:04:02+00:00",
+ "collected_at": "2026-11-13T08:39:09+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 1654,
+   "viewCount": 1817,
    "videoCount": 40
   }
  },
@@ -1657,7 +1657,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 12,
+    "views": 13,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2049,15 +2049,15 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 127,
+    "views": 202,
     "likes": 0,
     "comments": 0,
     "duration": "PT49S",
     "privacy": "public",
     "published": "2026-11-09T11:07:23Z",
-    "estimatedMinutesWatched": 34,
-    "averageViewDuration": 31,
-    "averageViewPercentage": 63.56,
+    "estimatedMinutesWatched": 53,
+    "averageViewDuration": 29,
+    "averageViewPercentage": 60.64000000000001,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2175,15 +2175,15 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 92,
+    "views": 114,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
     "published": "2026-11-09T21:17:35Z",
-    "estimatedMinutesWatched": 12,
-    "averageViewDuration": 20,
-    "averageViewPercentage": 40.44,
+    "estimatedMinutesWatched": 13,
+    "averageViewDuration": 19,
+    "averageViewPercentage": 38.74,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -2219,7 +2219,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 23,
+    "views": 24,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2238,15 +2238,15 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 84,
+    "views": 88,
     "likes": 0,
     "comments": 1,
     "duration": "PT58S",
     "privacy": "public",
     "published": "2026-11-09T21:19:09Z",
     "estimatedMinutesWatched": 10,
-    "averageViewDuration": 27,
-    "averageViewPercentage": 48.12,
+    "averageViewDuration": 26,
+    "averageViewPercentage": 46.08,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2301,7 +2301,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 1,
+    "views": 152,
     "likes": 0,
     "comments": 1,
     "duration": "PT56S",
@@ -2320,8 +2320,8 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 149,
-    "reach": 133,
+    "views": 152,
+    "reach": 135,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -2359,7 +2359,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -2378,8 +2378,8 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 64,
-    "reach": 53,
+    "views": 76,
+    "reach": 66,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2557,7 +2557,7 @@
    "paper": "20261028-the-effects-of-generative-ai-on-collabor",
    "created": "2026-10-30T10:20:57+00:00",
    "metrics": {
-    "views": 9,
+    "views": 13,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2891,6 +2891,25 @@
    }
   },
   {
+   "kind": "social",
+   "episode": "social-24",
+   "title": "在東京通勤族的估算裡，晚到1分鐘的代價，約等於多坐0.49分鐘車；早到1分鐘約0.39分鐘。但在100%擁擠的車廂多待1分鐘，只約等於多坐0.04分鐘。\n\n我們",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18142738318617989",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu",
+   "paper": "20261108-estimating-rail-commuter-preferences-und",
+   "created": "2026-11-12T11:38:36+00:00",
+   "metrics": {
+    "views": 3,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "stock",
    "episode": "stock-0",
    "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
@@ -2901,7 +2920,7 @@
    "paper": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
    "created": "2026-11-10T23:25:51+00:00",
    "metrics": {
-    "views": 14,
+    "views": 16,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2939,7 +2958,7 @@
    "paper": "Just How Much Do Individual Investors Lose by Trading?",
    "created": "2026-11-11T19:56:31+00:00",
    "metrics": {
-    "views": 27,
+    "views": 28,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2959,6 +2978,63 @@
    "created": "2026-11-12T06:34:08+00:00",
    "metrics": {
     "views": 24,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-4",
+   "title": "🏭 產業前沿｜輸入有一半是零，算得反而更慢？\n\n這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17910126525657333",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar",
+   "paper": "SkipLane: Write-Once, Conflict-Free Accumulation for Zero-Skipping CNN Engines on FPGAs",
+   "created": "2026-11-12T12:07:45+00:00",
+   "metrics": {
+    "views": 25,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-5",
+   "title": "🌙 盤後研究室｜今年當沖賺最多的人，明年還會是贏家嗎？\n\n研究者分析台灣 1992 至 2006 年的當沖交易者：先依某一年（y 年）的報酬排名，再追蹤他們在隔",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18084078422720179",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9",
+   "paper": "The cross-section of speculator skill: Evidence from day trading",
+   "created": "2026-11-12T20:33:52+00:00",
+   "metrics": {
+    "views": 6,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-6",
+   "title": "📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？\n\n一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 A",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17956169463278692",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K",
+   "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
+   "created": "2026-11-13T05:53:28+00:00",
+   "metrics": {
+    "views": 43,
     "likes": 0,
     "replies": 1,
     "reposts": 0,

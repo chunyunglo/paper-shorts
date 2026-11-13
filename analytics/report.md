@@ -1,29 +1,29 @@
 # Channel analytics 頻道數據
 
-Updated 2026-11-12T09:04:02+00:00
+Updated 2026-11-13T08:39:09+00:00
 
 ```
-Collected 2026-11-12T09:04:02+00:00
-YouTube channel: 5 subscribers, 1654 total views, 40 videos
+Collected 2026-11-13T08:39:09+00:00
+YouTube channel: 5 subscribers, 1817 total views, 40 videos
 Note: every short and talk show has one comment from us (the paper citation), and our replies to viewers count too, so comment counts overstate viewer comments; likes may include our own.
 
-short on youtube: 39 posts, average 30 views
-  by language: zh 50, en 13, pt 10
-  - 127 views, 0 likes, 0 comments, avg watched 64%, +0 subs | zh | Higher Speeding Fines: Would You Actually Slow Down?
+short on youtube: 39 posts, average 37 views
+  by language: zh 64, en 13, pt 10
+  - 202 views, 0 likes, 0 comments, avg watched 61%, +0 subs | zh | Higher Speeding Fines: Would You Actually Slow Down?
+  - 152 views, 0 likes, 1 comments | zh | Does Seeing the Other Side Make You More Moderate?
+  - 114 views, 0 likes, 1 comments, avg watched 39%, +1 subs | zh | Talking Someone Out of a Conspiracy: Facts or Feelings?
   - 111 views, 0 likes, 0 comments, avg watched 42%, +0 subs | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 108 views, 0 likes, 0 comments, avg watched 43%, +0 subs | zh | Chat With AI Before You Argue? The Debate Got Better
-  - 92 views, 0 likes, 1 comments, avg watched 40%, +1 subs | zh | Talking Someone Out of a Conspiracy: Facts or Feelings?
-  - 84 views, 0 likes, 1 comments, avg watched 48%, +0 subs | en | Talking Someone Out of a Conspiracy: Facts or Feelings?
+  - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | Caught Using Slave Labor: Do Ranches Really Stop?
   - 1 views, 0 likes, 0 comments, avg watched 0%, +0 subs | en | You vs. the Algorithm: Who Knows Your Taste Better?
-  - 1 views, 0 likes, 1 comments | zh | Does Seeing the Other Side Make You More Moderate?
   - 0 views, 0 likes, 1 comments | zh | It's Packed. Why Do You Still Take That Train?
 
 short on instagram: 36 posts, average 147 views
-  by language: zh 238, en 55
+  by language: zh 239, en 56
   - 1794 views, 21 likes, 1 comments | zh | It's Packed. Why Do You Still Take That Train?
   - 1377 views, 22 likes, 1 comments | zh | Your Favorite Picture: Are You Sure a Human Made It?
   - 153 views, 2 likes, 1 comments | en | It's Packed. Why Do You Still Take That Train?
-  - 149 views, 1 likes, 1 comments | zh | Does Seeing the Other Side Make You More Moderate?
+  - 152 views, 1 likes, 1 comments | zh | Does Seeing the Other Side Make You More Moderate?
   - 118 views, 0 likes, 1 comments | zh | Higher Speeding Fines: Would You Actually Slow Down?
   - 8 views, 1 likes, 1 comments | en | Strangers Bet on Your Goals, a Bit Too Hopefully
   - 5 views, 1 likes, 1 comments | en | AI at Work Didn't Isolate People. It Rewired Their Teams
@@ -32,7 +32,7 @@ short on instagram: 36 posts, average 147 views
 short on threads: 36 posts, average 10 views
   by language: zh 15, en 5
   - 34 views, 0 likes, 1 comments | zh | AI at Work Didn't Isolate People. It Rewired Their Teams
-  - 23 views, 0 likes, 1 comments | zh | Talking Someone Out of a Conspiracy: Facts or Feelings?
+  - 24 views, 0 likes, 1 comments | zh | Talking Someone Out of a Conspiracy: Facts or Feelings?
   - 22 views, 0 likes, 1 comments | zh | Jobs Dropped the Degree. So Who Got Hired?
   - 21 views, 0 likes, 1 comments | zh | It's Packed. Why Do You Still Take That Train?
   - 20 views, 0 likes, 1 comments | zh | When Politicians Lean on the Fed, Do Markets Listen?
@@ -57,8 +57,8 @@ Change.o
 一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚
   - 0 views, 1 likes, 0 comments | en | Would strangers bet that you'll hit your goal? A new study says: yes, a little t
 
-social on threads: 20 posts, average 21 views
-  by language: zh 23, en 7
+social on threads: 21 posts, average 21 views
+  by language: zh 22, en 7
   - 185 views, 1 likes, 2 comments | zh | 職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局
@@ -84,19 +84,28 @@ social on threads: 20 posts, average 21 views
 
 我們介紹過的一篇研究（arXiv, 2026）蒐集了1988到2025年約11,500篇路透社報導。研究者讓三個開源
 
-stock on threads: 4 posts, average 19 views
-  - 27 views, 0 likes, 1 comments | zh | 🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？
+stock on threads: 7 posts, average 22 views
+  - 43 views, 0 likes, 1 comments | zh | 📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？
+
+一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 A
+  - 28 views, 0 likes, 1 comments | zh | 🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？
 
 研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時
+  - 25 views, 0 likes, 1 comments | zh | 🏭 產業前沿｜輸入有一半是零，算得反而更慢？
+
+這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7
   - 24 views, 0 likes, 1 comments | zh | 📈 盤前心理學｜打開看盤軟體，上千檔股票，你會從哪一檔開始看？
 
 Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而
-  - 14 views, 0 likes, 1 comments | zh | 📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？
+  - 16 views, 0 likes, 1 comments | zh | 📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？
 
 有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199
   - 12 views, 0 likes, 1 comments | zh | 🏭 產業前沿｜一次「讀入資料」要花多少電？
 
 量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量
+  - 6 views, 0 likes, 1 comments | zh | 🌙 盤後研究室｜今年當沖賺最多的人，明年還會是贏家嗎？
+
+研究者分析台灣 1992 至 2006 年的當沖交易者：先依某一年（y 年）的報酬排名，再追蹤他們在隔
 ```
 
 ## Strategy 經營策略 (written by Claude)
@@ -147,14 +156,16 @@ Written 2026-11-12
 |---|---|---|---|---|---|---|
 | short | instagram | zh | 1794 | 21 | 1 | [It's Packed. Why Do You Still Take That Train?](https://www.instagram.com/reel/DfenSBFj5HY/) |
 | short | instagram | zh | 1377 | 22 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAYT6jTDG/) |
+| short | youtube | zh | 202 | 0 | 0 | [Higher Speeding Fines: Would You Actually Slow Down?](https://youtube.com/shorts/POTOBQr_nwE) |
 | social | threads | zh | 185 | 1 | 2 | [職缺拿掉「大學學歷」門檻，就真的會錄取沒學歷的人嗎？
 
 我們昨天介紹的研究（Nature Human Behaviour, 2026）把美國職缺資料和人口普查局](https://www.threads.com/@human__behavior__decode/post/DfB0x5FGwYc) |
 | short | instagram | en | 153 | 2 | 1 | [It's Packed. Why Do You Still Take That Train?](https://www.instagram.com/reel/Dfem7NjiBb_/) |
-| short | instagram | zh | 149 | 1 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.instagram.com/reel/DfmV2F2AXVP/) |
-| short | youtube | zh | 127 | 0 | 0 | [Higher Speeding Fines: Would You Actually Slow Down?](https://youtube.com/shorts/POTOBQr_nwE) |
+| short | youtube | zh | 152 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/YpHckZ_TXxU) |
+| short | instagram | zh | 152 | 1 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.instagram.com/reel/DfmV2F2AXVP/) |
 | short | instagram | zh | 118 | 0 | 1 | [Higher Speeding Fines: Would You Actually Slow Down?](https://www.instagram.com/reel/DfhL6h7jboz/) |
 | short | instagram | zh | 115 | 1 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWuQxgGbw7/) |
+| short | youtube | zh | 114 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/mNU27zRj9dE) |
 | short | instagram | en | 112 | 1 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.instagram.com/reel/DfWugEXH7oi/) |
 | short | youtube | zh | 111 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/pwq_zfcaHyw) |
 | short | instagram | zh | 111 | 2 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQLtP_guS3/) |
@@ -165,13 +176,12 @@ Written 2026-11-12
 | short | instagram | en | 100 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKcKSDqUK/) |
 | short | instagram | zh | 97 | 1 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.instagram.com/reel/DfMlKMnlfkY/) |
 | short | instagram | en | 93 | 2 | 1 | [Could a Heat Wave Change Your Vote?](https://www.instagram.com/reel/DfZdavEnJQD/) |
-| short | youtube | zh | 92 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/mNU27zRj9dE) |
 | short | instagram | zh | 88 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tNpJjKGU/) |
-| short | youtube | en | 84 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/dBHNZqPBrDY) |
+| short | youtube | en | 88 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://youtube.com/shorts/dBHNZqPBrDY) |
+| short | instagram | en | 76 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.instagram.com/reel/DfmWFIrDGCN/) |
 | short | instagram | zh | 75 | 1 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.instagram.com/reel/DfPKM3iCiE8/) |
 | short | youtube | zh | 70 | 0 | 0 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://youtube.com/shorts/NIgmSuPHtns) |
 | short | instagram | zh | 69 | 1 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.instagram.com/reel/DfcB9MEjykm/) |
-| short | instagram | en | 64 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.instagram.com/reel/DfmWFIrDGCN/) |
 | short | youtube | zh | 60 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/YxYLOOt3LPA) |
 | social | threads | zh | 57 | 0 | 0 | [超速罰款大漲，你下次真的會開慢一點嗎？
 
@@ -183,12 +193,18 @@ Written 2026-11-12
 | short | youtube | zh | 53 | 0 | 0 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/AwrHfLLPPuM) |
 | short | youtube | zh | 51 | 0 | 0 | [Asking AI Before a Doctor Visit: Does It Help?](https://youtube.com/shorts/b0vIKagxvLU) |
 | short | instagram | en | 45 | 1 | 1 | [Near Cram Schools: Paying for Now or Betting on Later?](https://www.instagram.com/reel/DfcCR1-HNIH/) |
+| stock | threads | zh | 43 | 0 | 1 | [📈 盤前心理學｜如果券商 App 當機，哪些股票的交易會少得最多？
+
+一項美國研究用某手機券商的資料發現：高關注度的股票，交易減少得特別多。研究者認為，這款 A](https://www.threads.com/@human__behavior__decode/post/Dfq7MDuDu0K) |
 | short | threads | zh | 34 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSn8jD3NY) |
 | short | youtube | zh | 34 | 1 | 0 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/Ojva2O77_q0) |
 | short | youtube | zh | 33 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/xnKYllQJ9Ec) |
 | short | instagram | en | 30 | 1 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.instagram.com/reel/De_tacHiG1W/) |
 | short | instagram | en | 29 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.instagram.com/reel/De9MjXMCbng/) |
 | short | instagram | zh | 28 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE24wVFD3J/) |
+| stock | threads | zh | 28 | 0 | 1 | [🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？
+
+研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時](https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw) |
 | short | instagram | en | 27 | 1 | 1 | [Your Favorite Picture: Are You Sure a Human Made It?](https://www.instagram.com/reel/DfKAla1jFvW/) |
 | social | threads | zh | 27 | 0 | 0 | [猜自己之後會給電影幾顆星，人的猜測和實際評分相關0.69；MovieLens網站自己的預測只有0.34，訓練過的模型是0.54到0.59。
 
@@ -196,11 +212,12 @@ Written 2026-11-12
 | social | threads | zh | 27 | 0 | 0 | [過去一年特別熱，會改變你怎麼看氣候、甚至投給誰嗎？
 
 我們今天介紹的研究（PNAS, 2026）用了歐洲社會調查2012到2022年的資料：25國、151,36](https://www.threads.com/@human__behavior__decode/post/DfZe294lcNu) |
-| stock | threads | zh | 27 | 0 | 1 | [🌙 盤後研究室｜如果手上有一個股市每一筆交易、每一張委託單的完整紀錄，會看到什麼？
-
-研究者取得台灣證交所 1995 至 1999 年所有投資人的交易資料。當時](https://www.threads.com/@human__behavior__decode/post/DfnSE_xGHgw) |
 | short | youtube | zh | 25 | 0 | 0 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/gV6yitxMhIE) |
+| stock | threads | zh | 25 | 0 | 1 | [🏭 產業前沿｜輸入有一半是零，算得反而更慢？
+
+這篇 FPGA 論文的作者就遇到：跳過零值後，他們原本的引擎在 50% 稀疏度時，整張影像比密集輸入慢了 2.7](https://www.threads.com/@human__behavior__decode/post/DfpBOnzG2Ar) |
 | short | youtube | zh | 24 | 0 | 0 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://youtube.com/shorts/rM83WVFkW5U) |
+| short | threads | zh | 24 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://www.threads.com/@human__behavior__decode/post/DfiR0fpsGrD) |
 | social | threads | zh | 24 | 0 | 0 | [在一個實驗裡，受試者跟AI來回聊三輪後，對一個陰謀論的相信程度（0到100分）平均降了14.6分。聊無關話題的對照組只降1.4分。
 
 我們介紹過的一篇研究（ar](https://www.threads.com/@human__behavior__decode/post/Dfj96ACERwR) |
@@ -209,7 +226,6 @@ Written 2026-11-12
 Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個人投資者整體而](https://www.threads.com/@human__behavior__decode/post/DfobDFCkWA_) |
 | short | youtube | zh | 23 | 0 | 0 | [Can a Time-Ordered Feed Break Echo Chambers?](https://youtube.com/shorts/RVl_p7qwrP8) |
 | short | youtube | zh | 23 | 0 | 0 | [Near Cram Schools: Paying for Now or Betting on Later?](https://youtube.com/shorts/2EEhYenOyx4) |
-| short | threads | zh | 23 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://www.threads.com/@human__behavior__decode/post/DfiR0fpsGrD) |
 | short | threads | zh | 22 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tTNLFJVR) |
 | short | youtube | pt | 21 | 0 | 0 | [Jobs Dropped the Degree. So Who Got Hired?](https://youtube.com/shorts/I5rjoNK0K8g) |
 | short | instagram | zh | 21 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCSh6jjrjG/) |
@@ -231,25 +247,28 @@ Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個
 | short | instagram | zh | 16 | 1 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.instagram.com/reel/DfVGZnpgXw1/) |
 | short | threads | zh | 16 | 0 | 1 | [Higher Speeding Fines: Would You Actually Slow Down?](https://www.threads.com/@human__behavior__decode/post/DfhL_cPsilM) |
 | short | instagram | zh | 16 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://www.instagram.com/reel/DfiRvuio9d4/) |
+| stock | threads | zh | 16 | 0 | 1 | [📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？
+
+有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199](https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R) |
 | short | threads | zh | 15 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nkzJj4hg) |
 | short | threads | zh | 15 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWuVtuBYJe) |
 | short | youtube | zh | 14 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/dzkB79epmBg) |
 | short | instagram | en | 14 | 1 | 1 | [Asking AI Before a Doctor Visit: Does It Help?](https://www.instagram.com/reel/DfQL6n7lITb/) |
 | short | threads | zh | 14 | 0 | 1 | [Your Chatbot Questions May Already Pick a Side](https://www.threads.com/@human__behavior__decode/post/DfVGeY7hGHv) |
 | short | youtube | en | 14 | 0 | 0 | [Your Chatbot Questions May Already Pick a Side](https://youtube.com/shorts/TFCFGn3NrNM) |
-| stock | threads | zh | 14 | 0 | 1 | [📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？
-
-有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199](https://www.threads.com/@human__behavior__decode/post/DflFO8UlI5R) |
+| short | youtube | en | 14 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/Ps6zSKRnAa0) |
 | short | youtube | en | 13 | 0 | 0 | [When Politicians Lean on the Fed, Do Markets Listen?](https://youtube.com/shorts/nHROFRQuyuY) |
 | short | youtube | en | 13 | 0 | 0 | [Chat With AI Before You Argue? The Debate Got Better](https://youtube.com/shorts/8hR_5Y3olQk) |
+| short | threads | en | 13 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah) |
 | short | instagram | en | 13 | 0 | 1 | [Talking Someone Out of a Conspiracy: Facts or Feelings?](https://www.instagram.com/reel/DfiR7grmTOB/) |
-| short | youtube | en | 13 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/Ps6zSKRnAa0) |
+| social | threads | zh | 13 | 0 | 0 | [AI進辦公室，大家會不會越來越少跟同事講話？
+
+我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T) |
 | social | threads | zh | 13 | 0 | 0 | [看醫生前先跟AI聊聊，會比較有準備嗎？
 
 我們昨天介紹的研究（arXiv, 2026）由Google Research在美國的Google Health app](https://www.threads.com/@human__behavior__decode/post/DfRvyCMIIl_) |
 | short | threads | en | 12 | 0 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.threads.com/@human__behavior__decode/post/DfCSzwVFI8c) |
 | short | youtube | en | 12 | 0 | 0 | [Your Favorite Picture: Are You Sure a Human Made It?](https://youtube.com/shorts/Mqje8Ha4bv8) |
-| short | threads | en | 12 | 0 | 1 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://www.threads.com/@human__behavior__decode/post/DfWunHgNRah) |
 | stock | threads | zh | 12 | 0 | 1 | [🏭 產業前沿｜一次「讀入資料」要花多少電？
 
 量子演算法常假設，把傳統資料讀進量子電腦幾乎免費。這篇論文改把它當成硬體耗能來算：以超導量子處理器上、12個位址量](https://www.threads.com/@human__behavior__decode/post/DfmZUUPoJBB) |
@@ -257,9 +276,6 @@ Barber 與 Odean 在 2008 年發表的研究，檢驗並證實一個假說：個
 | short | threads | zh | 10 | 0 | 1 | [Can a Time-Ordered Feed Break Echo Chambers?](https://www.threads.com/@human__behavior__decode/post/DfPKUC_AvcU) |
 | short | youtube | en | 10 | 0 | 0 | [Could a Heat Wave Change Your Vote?](https://youtube.com/shorts/dSoqOfinKmw) |
 | short | threads | en | 9 | 1 | 1 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://www.threads.com/@human__behavior__decode/post/De9Mny4jig5) |
-| social | threads | zh | 9 | 0 | 0 | [AI進辦公室，大家會不會越來越少跟同事講話？
-
-我們介紹過的一篇研究（arXiv, 2026）追蹤一家大型跨國消費品公司某事業單位的12,040名員工。在202](https://www.threads.com/@human__behavior__decode/post/DfHWtP-G54T) |
 | short | instagram | en | 8 | 1 | 1 | [When Politicians Lean on the Fed, Do Markets Listen?](https://www.instagram.com/reel/DfE3H1dDZhs/) |
 | short | instagram | en | 8 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHb30UEx6g/) |
 | short | threads | en | 8 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.threads.com/@human__behavior__decode/post/DfmWJQdy-Aa) |
@@ -278,6 +294,9 @@ A st](https://www.threads.com/@human__behavior__decode/post/DfB1KvJFpvO) |
 | short | youtube | pt | 6 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/-ozetwZih0k) |
 | short | threads | zh | 6 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://www.threads.com/@human__behavior__decode/post/DfmV9mZuCN8) |
 | social | threads | en | 6 | 0 | 0 | [Adam Mosseri says negativity around AI is 'going to get worse.' One common fear:](https://www.threads.com/@human__behavior__decode/post/DfExv4EICQ4) |
+| stock | threads | zh | 6 | 0 | 1 | [🌙 盤後研究室｜今年當沖賺最多的人，明年還會是贏家嗎？
+
+研究者分析台灣 1992 至 2006 年的當沖交易者：先依某一年（y 年）的報酬排名，再追蹤他們在隔](https://www.threads.com/@human__behavior__decode/post/Dfp7JZIjwy9) |
 | short | threads | en | 5 | 1 | 1 | [AI Wrote the Petitions. Did They Win More?](https://www.threads.com/@human__behavior__decode/post/De5nxS2DZN6) |
 | short | instagram | en | 5 | 1 | 1 | [AI at Work Didn't Isolate People. It Rewired Their Teams](https://www.instagram.com/reel/DfCStp0EasQ/) |
 | short | instagram | zh | 5 | 1 | 1 | [Strangers Bet on Your Goals, a Bit Too Hopefully](https://www.instagram.com/reel/DfHbmtGDgCS/) |
@@ -317,6 +336,9 @@ Change.o](https://www.instagram.com/p/DfB1Nj-luRP/) |
 | social | instagram | zh | 3 | 1 | 0 | [AI幫你寫作業，考試就會變好嗎？
 
 一篇新研究（arXiv, 2026）在卡內基美隆大學一門大學部數學證明課做了實驗。期中考1之後，學生被隨機分成「提早」或「晚](https://www.instagram.com/p/DfEx0i-oKHy/) |
+| social | threads | zh | 3 | 0 | 0 | [在東京通勤族的估算裡，晚到1分鐘的代價，約等於多坐0.49分鐘車；早到1分鐘約0.39分鐘。但在100%擁擠的車廂多待1分鐘，只約等於多坐0.04分鐘。
+
+我們](https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu) |
 | short | youtube | en | 2 | 0 | 0 | [AI Wrote the Petitions. Did They Win More?](https://youtube.com/shorts/NsR5-mIU90A) |
 | short | threads | zh | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlRs4jdCh) |
 | short | threads | en | 2 | 0 | 1 | [Chat With AI Before You Argue? The Debate Got Better](https://www.threads.com/@human__behavior__decode/post/DfMlet6AeSJ) |
@@ -325,7 +347,6 @@ Change.o](https://www.instagram.com/p/DfB1Nj-luRP/) |
 | short | youtube | en | 1 | 0 | 0 | [Caught Using Slave Labor: Do Ranches Really Stop?](https://youtube.com/shorts/l6unhYxCxGw) |
 | short | threads | en | 1 | 0 | 1 | [Jobs Dropped the Degree. So Who Got Hired?](https://www.threads.com/@human__behavior__decode/post/De_tfMCk77X) |
 | short | youtube | en | 1 | 0 | 0 | [You vs. the Algorithm: Who Knows Your Taste Better?](https://youtube.com/shorts/3GkKhtr082Q) |
-| short | youtube | zh | 1 | 0 | 1 | [Does Seeing the Other Side Make You More Moderate?](https://youtube.com/shorts/YpHckZ_TXxU) |
 | social | threads | zh | 1 | 0 | 0 | [如果你在網路上開一盤「我會不會達成目標？」，其他網友會怎麼押？
 
 我們介紹過的一篇研究（arXiv, 2026）分析了遊戲幣預測市場 Manifold 在202](https://www.threads.com/@human__behavior__decode/post/DfJ4YPdlVm8) |
