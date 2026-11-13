@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-13
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Dfrg4kxEfs_)
+  - 內容 Text: 花式滑冰的裁判，會偏心自己國家的選手嗎？ 我們今天介紹的研究（arXiv, 2026）整理了2016/17到2025/26球季的172場國際賽：23,254場表演、620位裁判打出的206,983個分數。研究比較的是「同一場表演，不同裁判給…
+  - 為什麼 Why: The figure-skating judging paper is today's new episode and has no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline relates to it, today's news is mostly partisan or tragic, and Instagram image posts stay paused per the notes.
+  - 根據的集數 Based on: 20261113-taste-or-strategy-nationalistic-bias-and
 - **短影音 Short** · [裁判偏心自己人，還會壓對手？ / Skating Judges: Taste or Strategy?](https://youtube.com/shorts/o4YTFOy84dc)
   - 論文 Paper: [Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging](https://arxiv.org/abs/2611.13194) (arXiv econ.GN)
   - 為什麼 Why: Uses a rich figure-skating judging dataset to separate favoritism from shared taste, showing a compatriot premium and a penalty on close rivals; the method is easy to explain in 3-4 visual steps and the finding is concrete and surprising. Signals: Notes favor concrete everyday-style behavior questions over abstract market mechanisms and non-AI topics, and this paper avoids recent episode topics and gives a clear answer early.

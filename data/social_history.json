@@ -352,5 +352,19 @@
     "why": "The Tokyo commute episode is our strongest Instagram short but still has no Chinese Threads follow-up, the notes favour one daily zh follow-up on everyday-decision topics with today's turn being a number-led opener (yesterday was question-led), Instagram image posts stay paused and roundups underperform, and today's headlines are mostly partisan, scandal or disaster news that can't be linked responsibly.",
     "id": "18142738318617989",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfo97BCkXXu"
+  },
+  {
+    "posted": "2026-11-13T11:22:35+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261113-taste-or-strategy-nationalistic-bias-and"
+    ],
+    "text": "花式滑冰的裁判，會偏心自己國家的選手嗎？\n\n我們今天介紹的研究（arXiv, 2026）整理了2016/17到2025/26球季的172場國際賽：23,254場表演、620位裁判打出的206,983個分數。研究比較的是「同一場表演，不同裁判給的分」。\n\n發現：\n・裁判給自己協會的選手，分數約高出量表的1.7%。\n・對同胞的近身對手（出場順序相差三位以內），會再壓低一點點，多出現在第二段比賽、同胞還在爭名次時。\n・研究者重抽2026米蘭冬奧可能的裁判組合再重算：冰舞冠軍在45%到57%的重抽中易主。\n\n限制：這是觀察研究，看不到裁判的動機，「策略性打分」是從分數模式推論的。作者也提醒，不能拿來指控個別裁判，重算也不是在質疑奧運官方結果。\n\n論文：arxiv.org/abs/2611.13194",
+    "news": null,
+    "why": "The figure-skating judging paper is today's new episode and has no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline relates to it, today's news is mostly partisan or tragic, and Instagram image posts stay paused per the notes.",
+    "id": "18089535767312849",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfrg4kxEfs_"
   }
 ]
