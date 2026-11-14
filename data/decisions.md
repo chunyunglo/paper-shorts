@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-14
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfuEUd7lV_T)
+  - 內容 Text: 🏭 產業前沿｜AI資料中心選電源，關鍵可能不是電價，而是「多久才有電」。 這篇美國研究用模型比較四種供電方式：交流或直流耦合的太陽能+儲能、離網天然氣、併聯電網。把等電期間閒置晶片的運算價值（以每GPU小時2.4美元估算）算進去後，直流耦合…
+  - 論文 Paper: [Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States](https://arxiv.org/abs/2611.17098) (arXiv cs.AI)
+  - 為什麼 Why: 近日產業前沿多為晶片與量子題材，這篇講電力與資料中心基礎設施，角度不同，且與市場關注的AI投資主題相關，又不涉及個股。
+  - 花費 Claude cost: US$0.279
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfuBjo5lWnk)
   - 內容 Text: 3.8分 vs 10.9分。 我們介紹過的一篇研究（arXiv, 2026）請美國線上受試者寫下一個自己覺得可信的陰謀論，跟GPT-4聊三輪，再重新為相信程度打分（0到100）。 研究1準備了好幾個版本，每次只改一個地方： ・事先說「AI會…
   - 為什麼 Why: Every episode this week already has a follow-up and roundups have underperformed, so per the notes we skip the weekly roundup and instead give the week's strongest-performing paper (the conspiracy short leads YouTube in both languages) a second, non-overlapping angle—the Study 1 variants and the No Facts result—with a number-led first line after yesterday's question-led one; Instagram static posts stay paused and no headline links responsibly (today's news is mostly election, crime, disaster or scandal).

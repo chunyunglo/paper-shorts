@@ -292,5 +292,39 @@
     "cost_usd": 0.2409,
     "id": "18121917640952077",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dftevz4FhrM"
+  },
+  {
+    "posted": "2026-11-14T11:10:57+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜AI資料中心選電源，關鍵可能不是電價，而是「多久才有電」。\n\n這篇美國研究用模型比較四種供電方式：交流或直流耦合的太陽能+儲能、離網天然氣、併聯電網。把等電期間閒置晶片的運算價值（以每GPU小時2.4美元估算）算進去後，直流耦合太陽能+儲能在約85%的美國地點成本最低；若天然氣縮短到3年，降到約55%。直流平均也比交流省約18%。\n\n論文做到的是這個成本比較；如果成真，可能讓儲能電池與電力轉換設備更受重視。作者提到，直流的節能幅度與一個示範設施的觀察相符，但100 MW以上的整合系統仍需實證，部分直流設備的供應鏈也尚未成熟。\n\n（研究分享，不是投資建議）",
+    "why": "近日產業前沿多為晶片與量子題材，這篇講電力與資料中心基礎設施，角度不同，且與市場關注的AI投資主題相關，又不涉及個股。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.17098",
+      "title": "Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States",
+      "abstract": "The rapid growth of artificial intelligence is driving demand for new data centers at large scale and on short deployment timelines. To power them, firms connect to the commercial grid or contract generation directly, but interconnection and gas-turbine delays now incentivize on-site generation. We compare grid-connected and off-grid data center energy infrastructure (AC- and DC-coupled solar-plus-storage, islanded natural gas, and grid interconnection) across the continental U.S. Using an open-source technoeconomic framework built on empirically calibrated AI training loads, climate-driven cooling, stage-by-stage power conversion, and physics-based battery degradation, we model designs providing equivalent energy services. Our central contribution is a speed-adjusted cost of energy that values the compute unlocked by faster construction, making options with different deployment timelines directly comparable on one physically consistent basis. We find DC coupling reduces lifetime energy costs by 18% ($0.09/ kWh) on average versus AC counterparts by eliminating inverters and improving efficiency. Though rarely cheapest on unadjusted energy cost, DC-coupled microgrids' faster deployment makes them the lowest-cost modeled option in 85% of U.S. locations once foregone compute is valued, or 55% under accelerated natural gas timelines. For AI infrastructure, deployment speed rather than unit energy cost determines the economically preferred path to power.",
+      "authors": [
+        "Alex C. Newkirk",
+        "Daniel L. Gerber",
+        "Erica R. H. Fuchs",
+        "Alex Hubbard",
+        "M. Granger Morgan",
+        "Arman Shehabi",
+        "Sarah J. Smith",
+        "Constantine Samaras"
+      ],
+      "venue": "arXiv cs.AI",
+      "url": "https://arxiv.org/abs/2611.17098",
+      "pdf_url": "https://arxiv.org/pdf/2611.17098v1",
+      "doi": null,
+      "published": "2026-11-12",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2792,
+    "id": "18063296270584601",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfuEUd7lV_T"
   }
 ]
