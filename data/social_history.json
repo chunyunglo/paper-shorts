@@ -366,5 +366,19 @@
     "why": "The figure-skating judging paper is today's new episode and has no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline relates to it, today's news is mostly partisan or tragic, and Instagram image posts stay paused per the notes.",
     "id": "18089535767312849",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfrg4kxEfs_"
+  },
+  {
+    "posted": "2026-11-14T10:46:34+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261109-just-the-facts-how-dialogues-with-ai-red"
+    ],
+    "text": "3.8分 vs 10.9分。\n\n我們介紹過的一篇研究（arXiv, 2026）請美國線上受試者寫下一個自己覺得可信的陰謀論，跟GPT-4聊三輪，再重新為相信程度打分（0到100）。\n\n研究1準備了好幾個版本，每次只改一個地方：\n・事先說「AI會試著說服你」：降9.1分\n・改成「提供資訊」而不是說服：降11.6分\n・回覆縮短約一半：降13.8分\n原版降10.9分，這幾種都差不多。\n\n只有「No Facts」版本明顯變弱：AI照樣說服，但不給證據和推理，只降3.8分。\n\n看起來，重點比較像是事實本身，而不是語氣或包裝。\n\n但要注意三件事：\n・相信度是聊完馬上測的\n・受試者是自願參加的美國網友\n・No Facts一次拿掉了事實、來源和精確度好幾樣東西，不是只拿掉一樣\n\n完整設計在我們的影片和論文裡：arxiv.org/abs/2611.05572",
+    "news": null,
+    "why": "Every episode this week already has a follow-up and roundups have underperformed, so per the notes we skip the weekly roundup and instead give the week's strongest-performing paper (the conspiracy short leads YouTube in both languages) a second, non-overlapping angle—the Study 1 variants and the No Facts result—with a number-led first line after yesterday's question-led one; Instagram static posts stay paused and no headline links responsibly (today's news is mostly election, crime, disaster or scandal).",
+    "id": "18115286873268058",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfuBjo5lWnk"
   }
 ]

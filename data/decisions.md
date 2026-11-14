@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-14
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfuBjo5lWnk)
+  - 內容 Text: 3.8分 vs 10.9分。 我們介紹過的一篇研究（arXiv, 2026）請美國線上受試者寫下一個自己覺得可信的陰謀論，跟GPT-4聊三輪，再重新為相信程度打分（0到100）。 研究1準備了好幾個版本，每次只改一個地方： ・事先說「AI會…
+  - 為什麼 Why: Every episode this week already has a follow-up and roundups have underperformed, so per the notes we skip the weekly roundup and instead give the week's strongest-performing paper (the conspiracy short leads YouTube in both languages) a second, non-overlapping angle—the Study 1 variants and the No Facts result—with a number-led first line after yesterday's question-led one; Instagram static posts stay paused and no headline links responsibly (today's news is mostly election, crime, disaster or scandal).
+  - 根據的集數 Based on: 20261109-just-the-facts-how-dialogues-with-ai-red
 - **股市篇 Stock series** · morning · myth_check · [link](https://www.threads.com/@human__behavior__decode/post/Dftevz4FhrM)
   - 內容 Text: 📈 盤前心理學｜散戶虧錢，是因為選錯股票嗎？ 有篇研究取得1995至1999年台灣證交所全市場的逐筆交易與委託資料。研究發現，個人投資者的損失幾乎都來自「積極下單」，也就是為了快點成交，買價掛得高、賣價掛得低。被動掛單短期反而有獲利，拉長時…
   - 論文 Paper: [Just How Much Do Individual Investors Lose by Trading?](https://doi.org/10.1093/rfs/hhn046) (Review of Financial Studies)
