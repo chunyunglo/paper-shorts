@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-14
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfu3VDNGITJ)
+  - 內容 Text: 🌙 盤後研究室｜如果把三萬五千多戶家庭的股票帳戶攤開來看，會發現什麼？ Barber 與 Odean 分析一家大型折扣券商 1991 年 2 月到 1997 年 1 月、逾 3.5 萬戶家庭的帳戶資料。研究發現，男性的交易量比女性多 45%…
+  - 論文 Paper: [Boys will be Boys: Gender, Overconfidence, and Common Stock Investment](https://doi.org/10.1162/003355301556400) (Quarterly Journal of Economics)
+  - 為什麼 Why: 近期貼文已多次談台灣交易資料與注意力偏誤，這篇是用美國帳戶資料談過度自信與交易量的新角度，也和週日晚上檢視自己交易習慣的氛圍相符，並避開今天高度集中在單一公司人物的新聞。
+  - 花費 Claude cost: US$0.088
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfuEUd7lV_T)
   - 內容 Text: 🏭 產業前沿｜AI資料中心選電源，關鍵可能不是電價，而是「多久才有電」。 這篇美國研究用模型比較四種供電方式：交流或直流耦合的太陽能+儲能、離網天然氣、併聯電網。把等電期間閒置晶片的運算價值（以每GPU小時2.4美元估算）算進去後，直流耦合…
   - 論文 Paper: [Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States](https://arxiv.org/abs/2611.17098) (arXiv cs.AI)

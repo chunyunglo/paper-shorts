@@ -326,5 +326,33 @@
     "cost_usd": 0.2792,
     "id": "18063296270584601",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfuEUd7lV_T"
+  },
+  {
+    "posted": "2026-11-14T18:36:41+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜如果把三萬五千多戶家庭的股票帳戶攤開來看，會發現什麼？\n\nBarber 與 Odean 分析一家大型折扣券商 1991 年 2 月到 1997 年 1 月、逾 3.5 萬戶家庭的帳戶資料。研究發現，男性的交易量比女性多 45%。交易也讓男性的淨報酬每年少掉 2.65 個百分點，女性則是 1.72 個百分點。\n\n研究者的解釋是：理論預測過度自信的投資人會交易過度，而心理學研究顯示，在金融這類領域男性比女性更過度自信。所以他們用性別來檢驗這個預測。\n\n但要留意，這是對群體平均的描述，不代表每個人。資料也只來自 1990 年代的單一券商，不能直接套用到現在的台股或美股。摘要沒有直接測量每個人的自信程度。\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文已多次談台灣交易資料與注意力偏誤，這篇是用美國帳戶資料談過度自信與交易量的新角度，也和週日晚上檢視自己交易習慣的氛圍相符，並避開今天高度集中在單一公司人物的新聞。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1162/003355301556400",
+      "title": "Boys will be Boys: Gender, Overconfidence, and Common Stock Investment",
+      "abstract": "Theoretical models predict that overconfident investors trade excessively. We test this prediction by partitioning investors on gender. Psychological research demonstrates that, in areas such as finance, men are more overconfident than women. Thus, theory predicts that men will trade more excessively than women. Using account data for over 35,000 households from a large discount brokerage, we analyze the common stock investments of men and women from February 1991 through January 1997. We document that men trade 45 percent more than women. Trading reduces men's net returns by 2.65 percentage points a year as opposed to 1.72 percentage points for women.",
+      "authors": [
+        "Brad M. Barber",
+        "Terrance Odean"
+      ],
+      "venue": "Quarterly Journal of Economics",
+      "url": "https://doi.org/10.1162/003355301556400",
+      "pdf_url": null,
+      "doi": "10.1162/003355301556400",
+      "published": "2001",
+      "source": "journal"
+    },
+    "cost_usd": 0.0884,
+    "id": "18094212062230067",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfu3VDNGITJ"
   }
 ]
