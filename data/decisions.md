@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-14
+
+- **股市篇 Stock series** · morning · myth_check · [link](https://www.threads.com/@human__behavior__decode/post/Dftevz4FhrM)
+  - 內容 Text: 📈 盤前心理學｜散戶虧錢，是因為選錯股票嗎？ 有篇研究取得1995至1999年台灣證交所全市場的逐筆交易與委託資料。研究發現，個人投資者的損失幾乎都來自「積極下單」，也就是為了快點成交，買價掛得高、賣價掛得低。被動掛單短期反而有獲利，拉長時…
+  - 論文 Paper: [Just How Much Do Individual Investors Lose by Trading?](https://doi.org/10.1093/rfs/hhn046) (Review of Financial Studies)
+  - 為什麼 Why: 這篇11-11晚間用過整體虧損的發現，今天改從「虧損來自哪裡」這個新角度切入，不重複同一個數字開場，也避開昨天的注意力主題與連續使用同一篇的問題。
+  - 花費 Claude cost: US$0.241
+
 ## 2026-11-13
 
 - **股市篇 Stock series** · evening · self_check · [link](https://www.threads.com/@human__behavior__decode/post/DfsdSdNGEYn)

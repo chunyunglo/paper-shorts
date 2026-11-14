@@ -262,5 +262,35 @@
     "cost_usd": 0.1127,
     "id": "18092644661678429",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfsdSdNGEYn"
+  },
+  {
+    "posted": "2026-11-14T05:42:40+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "myth_check",
+    "text": "📈 盤前心理學｜散戶虧錢，是因為選錯股票嗎？\n\n有篇研究取得1995至1999年台灣證交所全市場的逐筆交易與委託資料。研究發現，個人投資者的損失幾乎都來自「積極下單」，也就是為了快點成交，買價掛得高、賣價掛得低。被動掛單短期反而有獲利，拉長時間則是小幅虧損。\n\n整體來看，個人投資者的合計投資組合每年被拉低約3.8個百分點（含手續費與交易稅）。機構投資人扣除手續費與稅後，每年則多出約1.5個百分點。\n\n這不等於現在的市場也一樣：資料是二十多年前的台灣。作者也說，無法分辨積極下單是出於過度自信，還是單純覺得交易好玩。\n\n（研究分享，不是投資建議）",
+    "why": "這篇11-11晚間用過整體虧損的發現，今天改從「虧損來自哪裡」這個新角度切入，不重複同一個數字開場，也避開昨天的注意力主題與連續使用同一篇的問題。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rfs/hhn046",
+      "title": "Just How Much Do Individual Investors Lose by Trading?",
+      "abstract": "Individual investor trading results in systematic and economically large losses. Using a complete trading history of all investors in Taiwan, we document that the aggregate portfolio of individuals suffers an annual performance penalty of 3.8 percentage points. Individual investor losses are equivalent to 2.2% of Taiwan's gross domestic product or 2.8% of the total personal income. Virtually all individual trading losses can be traced to their aggressive orders. In contrast, institutions enjoy an annual performance boost of 1.5 percentage points, and both the aggressive and passive trades of institutions are profitable.",
+      "authors": [
+        "Brad M. Barber",
+        "Yi-Tsung Lee",
+        "Yu-Jane Liu",
+        "Terrance Odean"
+      ],
+      "venue": "Review of Financial Studies",
+      "url": "https://doi.org/10.1093/rfs/hhn046",
+      "pdf_url": "https://faculty.haas.berkeley.edu/odean/papers/taiwan%20performance/just%20how%20much%20do%20investors%20lose.pdf",
+      "doi": "10.1093/rfs/hhn046",
+      "published": "2009",
+      "source": "journal"
+    },
+    "cost_usd": 0.2409,
+    "id": "18121917640952077",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dftevz4FhrM"
   }
 ]
