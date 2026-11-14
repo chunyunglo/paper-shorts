@@ -35,9 +35,9 @@ def test_posted_today_uses_taiwan_date():
 
 def test_library_loads_as_papers():
     lib = stocks.library()
-    assert len(lib) >= 5
-    assert all(p.abstract and p.url.startswith("https://doi.org/") for p in lib)
-    assert all(p.doi for p in lib)
+    assert len(lib) >= 11
+    assert all(p.abstract and p.url.startswith("https://") for p in lib)
+    assert len({p.id for p in lib}) == len(lib)
 
 
 def test_pool_listing_marks_used_studies(monkeypatch):
@@ -75,3 +75,16 @@ def test_noon_slot_and_daily_costs():
 def test_noon_rules_ban_stock_picks():
     for text in ["這項技術的受惠股", "先進封裝概念股"]:
         assert stocks.compliance(text), text
+
+
+def test_rested_skips_recent_and_worn_out_studies():
+    from shorts.papers import Paper
+
+    ps = [Paper(id=f"p{i}", title="t", abstract="a", venue="v", url="u", source="journal") for i in range(5)]
+    now = datetime(2026, 11, 14, tzinfo=timezone.utc)
+    h = [{"posted": "2026-11-13T00:00:00+00:00", "paper": {"id": "p0"}},            # used yesterday
+         *({"posted": "2026-09-01T00:00:00+00:00", "paper": {"id": "p1"}} for _ in range(3)),  # used 3 times
+         {"posted": "2026-10-01T00:00:00+00:00", "paper": {"id": "p2"}}]            # rested long enough
+    assert [p.id for p in stocks.rested(ps, h, now)] == ["p2", "p3", "p4"]
+    # too few left: the least recently used come back
+    assert [p.id for p in stocks.rested(ps[:2], h, now)] == ["p1", "p0"]
