@@ -5,14 +5,15 @@ Slots (Taiwan time):
   morning  08:00, before the Taiwan market opens: 「盤前心理學」 one finding or bias from a study
   noon     12:00: 「產業前沿」 a frontier-technology paper and what it could mean for an industry, or a
            study of whether technical analysis works
-  evening  21:00, after the Taiwan close and before the US open: 「盤後研究室」 a second angle on
-           the same study, or a link between today's market headline and a study we have used
+  evening  21:00, after the Taiwan close and before the US open: 「盤後研究室」 a different study
+           (a question, a self-check, or today's market headline meeting a study)
 
 Each run: gather studies (a curated library of classics, recent arXiv q-fin / econ papers, and the
 channel's journal feeds filtered to finance), let Claude pick one and an angle, write the post from
 the paper's text (full text when we can read it, otherwise only the abstract), then a second Claude
-pass checks it against the paper and the series' rules. A study can carry several posts on
-different days, so the series doesn't need a new paper every day.
+pass checks it against the paper and the series' rules. Every post uses a different study: a study
+used in the last COOLDOWN_DAYS, or MAX_USES times in all, is left out of the list (readers noticed
+the same few papers coming back when the evening post followed up the morning one).
 
 Hard rules (education, not advice; Taiwan's rules on unlicensed investment advice): no individual
 companies, tickers, ETFs or coins; no buy/sell/hold calls, price targets or market forecasts; market
@@ -46,7 +47,9 @@ DISCLAIMER = "（研究分享，不是投資建議）"
 # Sonnet for this series (the owner's call: cheaper, and each post is short); STOCKS_MODEL overrides
 MODEL = config.env("STOCKS_MODEL", "claude-sonnet-5-5")
 MAX_BODY = 430
-MAX_POOL = 60  # Threads allows 500 characters; the header and disclaimer take the rest
+MAX_POOL = 60
+COOLDOWN_DAYS = 14
+MAX_USES = 3  # Threads allows 500 characters; the header and disclaimer take the rest
 
 ARXIV_CATS = ["q-fin.TR", "q-fin.GN", "q-fin.ST", "econ.GN", "cs.SI", "cs.CY"]
 ARXIV_TERMS = ["investor", "investors", "retail", "herding", "overconfidence", "disposition", "sentiment",
@@ -98,7 +101,111 @@ def library() -> list[papers.Paper]:
         return []
     return [papers.Paper(**{k: v for k, v in p.items() if k in papers.Paper.model_fields}, source="journal",
                          doi=p["id"].removeprefix("doi:") if p["id"].startswith("doi:") else None)
-            for p in json.loads(LIBRARY.read_text(encoding="utf-8"))]
+            for p in reversed(json.loads(LIBRARY.read_text(encoding="utf-8")))]  # newest additions first
+
+
+# The library grows by itself: each morning run searches Semantic Scholar (Crossref when it is busy)
+# for one of these topics
+# (rotating by day) and adds up to DISCOVER_PER_DAY well-cited studies it doesn't have yet.
+TOPICS = ["disposition effect investors", "investor overconfidence trading", "investor attention stock returns",
+          "social media investor sentiment stock", "retail investors herding", "lottery-type stocks investors",
+          "investor inattention earnings announcements", "weather mood stock returns",
+          "sports sentiment stock market", "Google search volume stock returns", "WallStreetBets retail trading",
+          "Robinhood retail investors", "day traders performance", "local bias individual investors",
+          "media coverage stock returns", "peer effects stock market participation", "52-week high anchoring",
+          "investor sentiment index stock returns", "gamification trading app investors",
+          "financial literacy stock market participation", "individual investors Taiwan stock exchange",
+          "StockTwits investor disagreement", "news sentiment textual analysis stock returns",
+          "salience investor behavior", "extrapolative expectations investors", "noise traders individual investors",
+          "attention-grabbing stocks individual investors", "investor emotions trading decisions",
+          "cryptocurrency retail investors behavior", "realization utility trading"]
+DISCOVER_PER_DAY = 2
+S2_URL = "https://api.semanticscholar.org/graph/v1/paper/search"
+CROSSREF_URL = "https://api.crossref.org/works"
+WEAK_DESIGN = re.compile(r"questionnaire|structural equation|SmartPLS|survey (data )?(of|from) \d+|respondents", re.I)
+
+
+def norm(title: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", title.lower())
+
+
+def _s2(topic: str) -> list[dict]:
+    """Semantic Scholar search, most cited first; [] when the keyless pool stays busy."""
+    import time
+
+    headers = {"x-api-key": key} if (key := config.env("SEMANTIC_SCHOLAR_API_KEY")) else {}
+    params = {"query": topic, "limit": 40, "minCitationCount": 30,
+              "fields": "title,abstract,year,citationCount,externalIds,venue,openAccessPdf,authors"}
+    for wait in (0, 5, 15):  # the keyless pool answers 429 when it is busy
+        time.sleep(wait)
+        resp = http("semanticscholar", "search", "GET", S2_URL, params=params, headers=headers,
+                    ok=(200, 429), timeout=30)
+        if resp.status_code == 200:
+            break
+    else:
+        return []
+    out = []
+    for w in resp.json().get("data", []):
+        doi = (w.get("externalIds") or {}).get("DOI")
+        out.append({"id": f"doi:{doi.lower()}" if doi else f"s2:{w['paperId']}", "title": w.get("title") or "",
+                    "authors": [a["name"] for a in w.get("authors", [])][:6], "venue": w.get("venue") or "",
+                    "published": str(w.get("year") or ""), "cites": w.get("citationCount") or 0,
+                    "url": f"https://doi.org/{doi}" if doi else f"https://www.semanticscholar.org/paper/{w['paperId']}",
+                    "pdf_url": (w.get("openAccessPdf") or {}).get("url") or None,
+                    "abstract": (w.get("abstract") or "").strip(), "source": "Semantic Scholar"})
+    return out
+
+
+def _crossref(topic: str) -> list[dict]:
+    """Crossref search (keyless and steady), the fallback when Semantic Scholar is busy."""
+    resp = http("crossref", "search", "GET", CROSSREF_URL, timeout=30, params={
+        "query.bibliographic": topic, "filter": "has-abstract:true,type:journal-article", "rows": 40,
+        "select": "DOI,title,abstract,container-title,issued,is-referenced-by-count,author"})
+    out = []
+    for w in resp.json().get("message", {}).get("items", []):
+        if (w.get("is-referenced-by-count") or 0) < 30 or not w.get("title"):
+            continue
+        abstract = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", w.get("abstract", ""))).strip()
+        abstract = re.sub(r"^(Abstract|ABSTRACT)\s*", "", abstract)
+        year = ((w.get("issued") or {}).get("date-parts") or [[None]])[0][0]
+        out.append({"id": f"doi:{w['DOI'].lower()}", "title": w["title"][0],
+                    "authors": [f"{a.get('given', '')} {a.get('family', '')}".strip() for a in w.get("author", [])][:6],
+                    "venue": (w.get("container-title") or [""])[0], "published": str(year or ""),
+                    "cites": w.get("is-referenced-by-count") or 0, "url": f"https://doi.org/{w['DOI']}",
+                    "pdf_url": None, "abstract": abstract, "source": "Crossref"})
+    return out
+
+
+def discover(now: datetime | None = None, topic: str | None = None) -> list[dict]:
+    """Add up to DISCOVER_PER_DAY new studies to the library (data/stock_library.json) and return
+    them. Never fails: a search that doesn't answer only means the library doesn't grow today."""
+    now = now or datetime.now(timezone.utc)
+    topic = topic or TOPICS[now_tw(now).timetuple().tm_yday % len(TOPICS)]
+    lib = json.loads(LIBRARY.read_text(encoding="utf-8")) if LIBRARY.exists() else []
+    have = {norm(p["title"]) for p in lib} | {p["id"].lower() for p in lib}
+    cands: list[dict] = []
+    for search in (_s2, _crossref):
+        try:
+            cands = search(topic)
+        except Exception as exc:
+            log(f"Stocks: library search via {search.__name__} skipped: {exc}")
+        if cands:
+            break
+    found = []
+    for w in sorted(cands, key=lambda w: -w["cites"]):
+        if (len(w["abstract"]) < 400 or not w["venue"] or not FINANCE_WORDS.search(f"{w['title']} {w['abstract']}")
+                or WEAK_DESIGN.search(w["abstract"]) or {w["id"], norm(w["title"])} & have):
+            continue
+        source = w.pop("source")
+        w.pop("cites")
+        found.append(w | {"added": now_tw(now).date().isoformat(), "found_by": f"{source}: {topic}"})
+        have |= {w["id"], norm(w["title"])}
+        if len(found) >= DISCOVER_PER_DAY:
+            break
+    if found:
+        LIBRARY.write_text(json.dumps(lib + found, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    log(f"Stocks: library +{len(found)} from '{topic}' (now {len(lib) + len(found)} studies)")
+    return found
 
 
 def pool(history: list[dict], slot: str = "morning") -> list[papers.Paper]:
@@ -128,6 +235,25 @@ def pool(history: list[dict], slot: str = "morning") -> list[papers.Paper]:
             seen.add(p.id.lower())
             uniq.append(p)
     return uniq
+
+
+def rested(ps: list[papers.Paper], history: list[dict], now: datetime | None = None) -> list[papers.Paper]:
+    """Studies not used in the last COOLDOWN_DAYS and used fewer than MAX_USES times. If that leaves
+    fewer than 3, the least recently used come back so a slot never goes empty."""
+    now = now or datetime.now(timezone.utc)
+    last: dict[str, datetime] = {}
+    count: dict[str, int] = {}
+    for h in history:
+        pid = h["paper"]["id"]
+        last[pid] = max(last.get(pid, datetime.min.replace(tzinfo=timezone.utc)), datetime.fromisoformat(h["posted"]))
+        count[pid] = count.get(pid, 0) + 1
+    ok = [p for p in ps if p.id not in last or
+          (now - last[p.id] >= timedelta(days=COOLDOWN_DAYS) and count[p.id] < MAX_USES)]
+    ok.sort(key=lambda p: count.get(p.id, 0))  # never-used studies first (stable, so source order holds)
+    if len(ok) >= 3:
+        return ok
+    spare = sorted((p for p in ps if p not in ok), key=lambda p: last[p.id])
+    return ok + spare[:3 - len(ok)]
 
 
 def market_headlines(per_feed: int = 20) -> list[newsmod.Headline]:
@@ -227,8 +353,8 @@ Now choose today's study and angle. In the noon slot (「產業前沿」) choose
 and technical-analysis papers: a technology paper gets industry_implication (what it could mean for \
 an industry, framed for people who follow the stock market), a technical-analysis paper gets \
 technical_analysis or myth_check. Vary the studies and angles across the week; a study can carry \
-several posts if each angle is new, but don't use the same study two days in a row unless it is the \
-evening follow-up to this morning's post. Prefer studies with real trading or behavioral data over \
+several posts over the months if each angle is new, but the list you get only holds studies we have \
+not used recently. Prefer studies with real trading or behavioral data over \
 pure forecasting or model-benchmark papers (those rarely say anything about people)."""
 
 CHECK_SYSTEM = f"""You check posts for a Threads series on research about investor behavior before \
@@ -280,7 +406,9 @@ def make(slot: str, now: datetime | None = None) -> Path | None:
         return None
     # the pick call reads every listed abstract, so the list is capped: the first run listed ~200
     # studies (94k tokens, most of that post's cost); the library and used studies come first
-    ps = pool(history, slot)[:MAX_POOL]
+    if slot == "morning":
+        discover(now)
+    ps = rested(pool(history, slot), history, now)[:MAX_POOL]
     by_id = {p.id: p for p in ps}
     heads = market_headlines() if slot == "evening" else []
     today = now_tw(now).date().isoformat()
@@ -293,10 +421,10 @@ def make(slot: str, now: datetime | None = None) -> Path | None:
                  "Noon slot 「產業前沿」: one frontier-technology paper and what it could mean for an industry "
                  "(industry_implication), or one study of technical analysis (technical_analysis / myth_check)."
                  if slot == "noon" else
-                 "Evening slot (after the Taiwan close): a second angle on this morning's study (question, "
-                 "self_check, or another finding), or market_link if a market-wide headline today fits a "
-                 "study naturally." + (f"\nThis morning's post used [{morning['paper']['id']}] as "
-                                       f"{morning['kind']}: {morning['text'][:200]}" if morning else ""))
+                 "Evening slot (after the Taiwan close): a different study from this morning's (question, "
+                 "self_check, or finding), or market_link if a market-wide headline today fits a study "
+                 "naturally." + (f"\nThis morning's post used [{morning['paper']['id']}]; pick another "
+                                 "study and another theme." if morning else ""))
     prompt = (f"Today: {now_tw(now):%A %Y-%m-%d} (Taiwan). {slot_note}\n\nOur recent posts in the series "
               f"(don't repeat):\n{recent}\n\nChannel notes:\n<notes>\n{analytics.guidance() or '(no data yet)'}\n"
               f"</notes>\n\nStudies:\n<studies>\n{pool_listing(ps, history)}\n</studies>\n\n"

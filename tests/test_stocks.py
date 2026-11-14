@@ -35,9 +35,9 @@ def test_posted_today_uses_taiwan_date():
 
 def test_library_loads_as_papers():
     lib = stocks.library()
-    assert len(lib) >= 5
-    assert all(p.abstract and p.url.startswith("https://doi.org/") for p in lib)
-    assert all(p.doi for p in lib)
+    assert len(lib) >= 11
+    assert all(p.abstract and p.url.startswith("https://") for p in lib)
+    assert len({p.id for p in lib}) == len(lib)
 
 
 def test_pool_listing_marks_used_studies(monkeypatch):
@@ -75,3 +75,73 @@ def test_noon_slot_and_daily_costs():
 def test_noon_rules_ban_stock_picks():
     for text in ["這項技術的受惠股", "先進封裝概念股"]:
         assert stocks.compliance(text), text
+
+
+def test_rested_skips_recent_and_worn_out_studies():
+    from shorts.papers import Paper
+
+    ps = [Paper(id=f"p{i}", title="t", abstract="a", venue="v", url="u", source="journal") for i in range(5)]
+    now = datetime(2026, 11, 14, tzinfo=timezone.utc)
+    h = [{"posted": "2026-11-13T00:00:00+00:00", "paper": {"id": "p0"}},            # used yesterday
+         *({"posted": "2026-09-01T00:00:00+00:00", "paper": {"id": "p1"}} for _ in range(3)),  # used 3 times
+         {"posted": "2026-10-01T00:00:00+00:00", "paper": {"id": "p2"}}]            # rested long enough
+    assert [p.id for p in stocks.rested(ps, h, now)] == ["p3", "p4", "p2"]  # unused first
+    # too few left: the least recently used come back
+    assert [p.id for p in stocks.rested(ps[:2], h, now)] == ["p1", "p0"]
+
+
+def test_discover_adds_new_relevant_studies(monkeypatch, tmp_path):
+    lib = tmp_path / "lib.json"
+    lib.write_text(json.dumps([{"id": "doi:10.1/old", "title": "Old Study", "abstract": "a", "venue": "J", "url": "https://doi.org/10.1/old"}]), encoding="utf-8")
+    monkeypatch.setattr(stocks, "LIBRARY", lib)
+    long = "Individual investors trading stock " * 20
+
+    def w(i, title, abstract=long, venue="J", doi=None, cites=100):
+        return {"paperId": f"s{i}", "title": title, "abstract": abstract, "venue": venue, "year": 2020,
+                "citationCount": cites, "externalIds": {"DOI": doi} if doi else {}, "authors": [{"name": "A"}],
+                "openAccessPdf": {"url": ""}}
+
+    class Resp:
+        status_code = 200
+
+        def json(self):
+            return {"data": [w(1, "Old Study", doi="10.1/OLD"),               # already in the library
+                             w(2, "Short", abstract="stock investors"),        # abstract too short
+                             w(3, "Survey", abstract=long + " questionnaire"),  # weak design
+                             w(4, "Cells", abstract="protein folding " * 40),  # not about markets
+                             w(5, "Good A", doi="10.1/a", cites=50),
+                             w(6, "Good B", cites=300),
+                             w(7, "Good C", cites=10)]}
+
+    monkeypatch.setattr(stocks, "http", lambda *a, **k: Resp())
+    monkeypatch.setattr(stocks, "_crossref", lambda topic: [])
+    found = stocks.discover(datetime(2026, 11, 14, tzinfo=timezone.utc), topic="t")
+    assert [f["title"] for f in found] == ["Good B", "Good A"]
+    assert found[1]["id"] == "doi:10.1/a" and found[1]["url"] == "https://doi.org/10.1/a"
+    assert found[0]["pdf_url"] is None and found[0]["found_by"] == "Semantic Scholar: t"
+    saved = json.loads(lib.read_text(encoding="utf-8"))
+    assert len(saved) == 3
+    assert stocks.library()[0].title == "Good A"  # newest additions first
+
+
+def test_discover_falls_back_to_crossref(tmp_path, monkeypatch):
+    lib = tmp_path / "lib.json"
+    lib.write_text("[]", encoding="utf-8")
+    monkeypatch.setattr(stocks, "LIBRARY", lib)
+    monkeypatch.setattr(stocks, "_s2", lambda topic: [])
+
+    class Resp:
+        status_code = 200
+
+        def json(self):
+            item = {"DOI": "10.1/X", "title": ["Retail Investors and Stock Returns"], "is-referenced-by-count": 80,
+                    "abstract": "<jats:p>" + "We study how retail investor trading predicts stock returns. " * 10 + "</jats:p>",
+                    "container-title": ["Journal of Finance"], "issued": {"date-parts": [[2020]]},
+                    "author": [{"given": "A", "family": "B"}]}
+            return {"message": {"items": [item, item | {"DOI": "10.1/Y", "is-referenced-by-count": 3}]}}
+
+    monkeypatch.setattr(stocks, "http", lambda *a, **k: Resp())
+    found = stocks.discover(topic="retail")
+    assert [f["id"] for f in found] == ["doi:10.1/x"]
+    assert "<" not in found[0]["abstract"] and found[0]["found_by"] == "Crossref: retail"
+    assert found[0]["authors"] == ["A B"] and found[0]["published"] == "2020"

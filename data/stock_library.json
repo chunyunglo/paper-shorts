@@ -2,7 +2,12 @@
   {
     "id": "doi:10.1093/rfs/hhn046",
     "title": "Just How Much Do Individual Investors Lose by Trading?",
-    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "authors": [
+      "Brad M. Barber",
+      "Yi-Tsung Lee",
+      "Yu-Jane Liu",
+      "Terrance Odean"
+    ],
     "venue": "Review of Financial Studies",
     "published": "2009",
     "url": "https://doi.org/10.1093/rfs/hhn046",
@@ -12,7 +17,12 @@
   {
     "id": "doi:10.1016/j.finmar.2013.05.006",
     "title": "The cross-section of speculator skill: Evidence from day trading",
-    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "authors": [
+      "Brad M. Barber",
+      "Yi-Tsung Lee",
+      "Yu-Jane Liu",
+      "Terrance Odean"
+    ],
     "venue": "Journal of Financial Markets",
     "published": "2014",
     "url": "https://doi.org/10.1016/j.finmar.2013.05.006",
@@ -22,7 +32,12 @@
   {
     "id": "doi:10.1111/j.1468-036X.2007.00367.x",
     "title": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
-    "authors": ["Brad M. Barber", "Yi-Tsung Lee", "Yu-Jane Liu", "Terrance Odean"],
+    "authors": [
+      "Brad M. Barber",
+      "Yi-Tsung Lee",
+      "Yu-Jane Liu",
+      "Terrance Odean"
+    ],
     "venue": "European Financial Management",
     "published": "2007",
     "url": "https://doi.org/10.1111/j.1468-036X.2007.00367.x",
@@ -32,7 +47,10 @@
   {
     "id": "doi:10.1093/rfs/hhm079",
     "title": "All That Glitters: The Effect of Attention and News on the Buying Behavior of Individual and Institutional Investors",
-    "authors": ["Brad M. Barber", "Terrance Odean"],
+    "authors": [
+      "Brad M. Barber",
+      "Terrance Odean"
+    ],
     "venue": "Review of Financial Studies",
     "published": "2008",
     "url": "https://doi.org/10.1093/rfs/hhm079",
@@ -42,11 +60,97 @@
   {
     "id": "doi:10.1111/jofi.13183",
     "title": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
-    "authors": ["Brad M. Barber", "Xing Huang", "Terrance Odean", "Christopher Schwarz"],
+    "authors": [
+      "Brad M. Barber",
+      "Xing Huang",
+      "Terrance Odean",
+      "Christopher Schwarz"
+    ],
     "venue": "Journal of Finance",
     "published": "2022",
     "url": "https://doi.org/10.1111/jofi.13183",
     "pdf_url": null,
     "abstract": "We study the influence of financial innovation by fintech brokerages on individual investors' trading and stock prices. Using data from Robinhood, we find that Robinhood investors engage in more attention-induced trading than other retail investors. For example, Robinhood outages disproportionately reduce trading in high-attention stocks. While this evidence is consistent with Robinhood attracting relatively inexperienced investors, we show that it is also driven in part by the app's unique features. Consistent with models of attention-induced trading, intense buying by Robinhood users forecasts negative returns. Average 20-day abnormal returns are -4.7% for the top stocks purchased each day."
+  },
+  {
+    "id": "doi:10.1111/0022-1082.00226",
+    "title": "Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors",
+    "authors": [
+      "Brad M. Barber",
+      "Terrance Odean"
+    ],
+    "venue": "Journal of Finance",
+    "published": "2000",
+    "url": "https://doi.org/10.1111/0022-1082.00226",
+    "pdf_url": null,
+    "abstract": "Individual investors who hold common stocks directly pay a tremendous performance penalty for active trading. Of 66,465 households with accounts at a large discount broker during 1991 to 1996, those that trade most earn an annual return of 11.4 percent, while the market returns 17.9 percent. The average household earns an annual return of 16.4 percent, tilts its common stock investment toward high-beta, small, value stocks, and turns over 75 percent of its portfolio annually. Overconfidence can explain high trading levels and the resulting poor performance of individual investors. Our central message is that trading is hazardous to your wealth."
+  },
+  {
+    "id": "doi:10.1162/003355301556400",
+    "title": "Boys will be Boys: Gender, Overconfidence, and Common Stock Investment",
+    "authors": [
+      "Brad M. Barber",
+      "Terrance Odean"
+    ],
+    "venue": "Quarterly Journal of Economics",
+    "published": "2001",
+    "url": "https://doi.org/10.1162/003355301556400",
+    "pdf_url": null,
+    "abstract": "Theoretical models predict that overconfident investors trade excessively. We test this prediction by partitioning investors on gender. Psychological research demonstrates that, in areas such as finance, men are more overconfident than women. Thus, theory predicts that men will trade more excessively than women. Using account data for over 35,000 households from a large discount brokerage, we analyze the common stock investments of men and women from February 1991 through January 1997. We document that men trade 45 percent more than women. Trading reduces men's net returns by 2.65 percentage points a year as opposed to 1.72 percentage points for women."
+  },
+  {
+    "id": "doi:10.1111/j.1540-6261.2009.01483.x",
+    "title": "Who Gambles in the Stock Market?",
+    "authors": [
+      "Alok Kumar"
+    ],
+    "venue": "Journal of Finance",
+    "published": "2009",
+    "url": "https://doi.org/10.1111/j.1540-6261.2009.01483.x",
+    "pdf_url": null,
+    "abstract": "This study shows that the propensity to gamble and investment decisions are correlated. At the aggregate level, individual investors prefer stocks with lottery features, and like lottery demand, the demand for lottery-type stocks increases during economic downturns. In the cross-section, socioeconomic factors that induce greater expenditure in lotteries are associated with greater investment in lottery-type stocks. Further, lottery investment levels are higher in regions with favorable lottery environments. Because lottery-type stocks underperform, gambling-related underperformance is greater among low-income investors who excessively overweight lottery-type stocks. These results indicate that state lotteries and lottery-type stocks attract very similar socioeconomic clienteles."
+  },
+  {
+    "id": "doi:10.1111/j.1540-6261.2011.01679.x",
+    "title": "In Search of Attention",
+    "authors": [
+      "Zhi Da",
+      "Joseph Engelberg",
+      "Pengjie Gao"
+    ],
+    "venue": "Journal of Finance",
+    "published": "2011",
+    "url": "https://doi.org/10.1111/j.1540-6261.2011.01679.x",
+    "pdf_url": null,
+    "abstract": "We propose a new and direct measure of investor attention using search frequency in Google (Search Volume Index (SVI)). In a sample of Russell 3000 stocks from 2004 to 2008, we find that SVI (1) is correlated with but different from existing proxies of investor attention; (2) captures investor attention in a more timely fashion and (3) likely measures the attention of retail investors. An increase in SVI predicts higher stock prices in the next 2 weeks and an eventual price reversal within the year. It also contributes to the large first-day return and long-run underperformance of IPO stocks."
+  },
+  {
+    "id": "doi:10.1016/j.jocs.2010.12.007",
+    "title": "Twitter mood predicts the stock market",
+    "authors": [
+      "Johan Bollen",
+      "Huina Mao",
+      "Xiaojun Zeng"
+    ],
+    "venue": "Journal of Computational Science",
+    "published": "2011",
+    "url": "https://doi.org/10.1016/j.jocs.2010.12.007",
+    "pdf_url": "https://arxiv.org/pdf/1010.3003",
+    "abstract": "Behavioral economics tells us that emotions can profoundly affect individual behavior and decision-making. Does this also apply to societies at large, i.e. can societies experience mood states that affect their collective decision making? By extension is the public mood correlated or even predictive of economic indicators? Here we investigate whether measurements of collective mood states derived from large-scale Twitter feeds are correlated to the value of the Dow Jones Industrial Average (DJIA) over time. We analyze the text content of daily Twitter feeds by two mood tracking tools, namely OpinionFinder that measures positive vs. negative mood and Google-Profile of Mood States (GPOMS) that measures mood in terms of 6 dimensions (Calm, Alert, Sure, Vital, Kind, and Happy). We cross-validate the resulting mood time series by comparing their ability to detect the public's response to the presidential election and Thanksgiving day in 2008. A Granger causality analysis and a Self-Organizing Fuzzy Neural Network are then used to investigate the hypothesis that public mood states, as measured by the OpinionFinder and GPOMS mood time series, are predictive of changes in DJIA closing values. Our results indicate that the accuracy of DJIA predictions can be significantly improved by the inclusion of specific public mood dimensions but not others. We find an accuracy of 86.7% in predicting the daily up and down changes in the closing values of the DJIA and a reduction of the Mean Average Percentage Error (MAPE) by more than 6%."
+  },
+  {
+    "id": "sciencedirect:S0304405X2400093X",
+    "title": "The social signal",
+    "authors": [
+      "J. Anthony Cookson",
+      "Runjing Lu",
+      "William Mullins",
+      "Marina Niessner"
+    ],
+    "venue": "Journal of Financial Economics",
+    "published": "2024",
+    "url": "https://www.sciencedirect.com/science/article/pii/S0304405X2400093X",
+    "pdf_url": null,
+    "abstract": "We examine social media attention and sentiment from three major platforms: Twitter, StockTwits, and Seeking Alpha. We find that, even after controlling for firm disclosures and news, attention is highly correlated across platforms, but sentiment is not: its first principal component explains little more variation than purely idiosyncratic sentiment. Using market events, we attribute differences across platforms to differences in users (e.g., professionals versus novices) and differences in platform design (e.g., character limits in posts). We also find that sentiment and attention contain different return-relevant information. Sentiment predicts positive next-day returns, but attention predicts negative next-day returns. These results highlight the importance of considering both social media sentiment and attention, and of distinguishing between different investor social media platforms."
   }
 ]

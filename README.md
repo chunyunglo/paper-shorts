@@ -39,7 +39,7 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 | `podcast.yml` | **暫停中**（原本每週五 04:00 UTC） | 長片 Behavior Decoded Tonight 已暫停：排程拿掉了，程式都保留。要恢復，把 `podcast.yml` 裡兩行 cron 的註解拿掉即可。手動執行仍然可以跑 |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
-| `stocks.yml` | 每天 08:00、12:00、21:00（台灣） | 股市篇串文：Claude 選研究和角度、根據論文寫、另一個 Claude 對照論文和「不給投資建議」規則查核，再發到 Threads，第一則回覆附出處。repo variable `STOCKS_AUTO=true` 才會自動跑；手動執行預設只產生草稿（顯示在 run 的 Summary），勾 `post` 才會發。研究來源：`data/stock_library.json`（精選經典，可自己加）、arXiv q-fin／econ 近 120 天、頻道期刊 RSS 裡和金融有關的論文 |
+| `stocks.yml` | 每天 08:00、12:00、21:00（台灣） | 股市篇串文：Claude 選研究和角度、根據論文寫、另一個 Claude 對照論文和「不給投資建議」規則查核，再發到 Threads，第一則回覆附出處。repo variable `STOCKS_AUTO=true` 才會自動跑；手動執行預設只產生草稿（顯示在 run 的 Summary），勾 `post` 才會發。研究來源：`data/stock_library.json`（精選經典，可自己加；每天早上那篇會先用 Semantic Scholar 搜一個主題，忙線時改用 Crossref，把 2 篇被引用 30 次以上、跟金融有關的新研究加進來；可選 secret `SEMANTIC_SCHOLAR_API_KEY`）、arXiv q-fin／econ 近 120 天、頻道期刊 RSS 裡和金融有關的論文 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
 
 開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO`、`STOCKS_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
