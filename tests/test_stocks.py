@@ -91,6 +91,7 @@ def test_rested_skips_recent_and_worn_out_studies():
 
 
 def test_discover_adds_new_relevant_studies(monkeypatch, tmp_path):
+    monkeypatch.setattr(stocks, "HISTORY", tmp_path / "none.json")
     lib = tmp_path / "lib.json"
     lib.write_text(json.dumps([{"id": "doi:10.1/old", "title": "Old Study", "abstract": "a", "venue": "J", "url": "https://doi.org/10.1/old"}]), encoding="utf-8")
     monkeypatch.setattr(stocks, "LIBRARY", lib)
@@ -125,6 +126,7 @@ def test_discover_adds_new_relevant_studies(monkeypatch, tmp_path):
 
 
 def test_discover_falls_back_to_crossref(tmp_path, monkeypatch):
+    monkeypatch.setattr(stocks, "HISTORY", tmp_path / "none.json")
     lib = tmp_path / "lib.json"
     lib.write_text("[]", encoding="utf-8")
     monkeypatch.setattr(stocks, "LIBRARY", lib)
@@ -145,3 +147,10 @@ def test_discover_falls_back_to_crossref(tmp_path, monkeypatch):
     assert [f["id"] for f in found] == ["doi:10.1/x"]
     assert "<" not in found[0]["abstract"] and found[0]["found_by"] == "Crossref: retail"
     assert found[0]["authors"] == ["A B"] and found[0]["published"] == "2020"
+
+
+def test_retire_drops_worn_out_and_oldest(monkeypatch):
+    monkeypatch.setattr(stocks, "LIBRARY_MAX", 3)
+    lib = [{"id": f"p{i}", "title": f"T{i}"} for i in range(6)]
+    history = [{"paper": {"id": "p5", "title": "T5"}}] * 3 + [{"paper": {"id": "p4", "title": "T4"}}]
+    assert [p["id"] for p in stocks.retire(lib, history)] == ["p2", "p3", "p4"]
