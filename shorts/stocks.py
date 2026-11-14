@@ -49,7 +49,8 @@ MODEL = config.env("STOCKS_MODEL", "claude-sonnet-5-5")
 MAX_BODY = 430
 MAX_POOL = 60
 COOLDOWN_DAYS = 14
-MAX_USES = 3  # Threads allows 500 characters; the header and disclaimer take the rest
+MAX_USES = 3
+LIBRARY_MAX = 40  # discover() retires studies past this, oldest first, so the library stays small  # Threads allows 500 characters; the header and disclaimer take the rest
 
 ARXIV_CATS = ["q-fin.TR", "q-fin.GN", "q-fin.ST", "econ.GN", "cs.SI", "cs.CY"]
 ARXIV_TERMS = ["investor", "investors", "retail", "herding", "overconfidence", "disposition", "sentiment",
@@ -182,7 +183,9 @@ def discover(now: datetime | None = None, topic: str | None = None) -> list[dict
     now = now or datetime.now(timezone.utc)
     topic = topic or TOPICS[now_tw(now).timetuple().tm_yday % len(TOPICS)]
     lib = json.loads(LIBRARY.read_text(encoding="utf-8")) if LIBRARY.exists() else []
-    have = {norm(p["title"]) for p in lib} | {p["id"].lower() for p in lib}
+    history = load()
+    have = ({norm(p["title"]) for p in lib} | {p["id"].lower() for p in lib}
+            | {norm(h["paper"]["title"]) for h in history} | {h["paper"]["id"].lower() for h in history})
     cands: list[dict] = []
     for search in (_s2, _crossref):
         try:
@@ -202,10 +205,23 @@ def discover(now: datetime | None = None, topic: str | None = None) -> list[dict
         have |= {w["id"], norm(w["title"])}
         if len(found) >= DISCOVER_PER_DAY:
             break
-    if found:
-        LIBRARY.write_text(json.dumps(lib + found, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    log(f"Stocks: library +{len(found)} from '{topic}' (now {len(lib) + len(found)} studies)")
+    kept = retire(lib + found, history)
+    if kept != lib:
+        LIBRARY.write_text(json.dumps(kept, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    log(f"Stocks: library +{len(found)} from '{topic}', -{len(lib) + len(found) - len(kept)} retired "
+        f"(now {len(kept)} studies)")
     return found
+
+
+def retire(lib: list[dict], history: list[dict]) -> list[dict]:
+    """Drop studies already used MAX_USES times, then the oldest entries past LIBRARY_MAX, so the
+    library (and what the picker reads) doesn't keep growing. Retired studies stay in the history,
+    which discover() checks, so they are not found again."""
+    uses: dict[str, int] = {}
+    for h in history:
+        uses[h["paper"]["id"]] = uses.get(h["paper"]["id"], 0) + 1
+    lib = [p for p in lib if uses.get(p["id"], 0) < MAX_USES]
+    return lib[-LIBRARY_MAX:]
 
 
 def pool(history: list[dict], slot: str = "morning") -> list[papers.Paper]:
@@ -214,7 +230,11 @@ def pool(history: list[dict], slot: str = "morning") -> list[papers.Paper]:
     from the journal feeds. noon: recent frontier-technology papers and studies of technical analysis."""
     noon = slot == "noon"
     out = [] if noon else library()
-    used = {p["paper"]["id"]: p["paper"] for p in history if (p["slot"] == "noon") == noon}
+    uses: dict[str, int] = {}
+    for h in history:
+        uses[h["paper"]["id"]] = uses.get(h["paper"]["id"], 0) + 1
+    used = {p["paper"]["id"]: p["paper"] for p in history
+            if (p["slot"] == "noon") == noon and uses[p["paper"]["id"]] < MAX_USES}
     out += [papers.Paper(**{k: v for k, v in p.items() if k in papers.Paper.model_fields})
             for p in used.values() if p.get("abstract")]
     queries = ([(30, TECH_CATS, TECH_TERMS), (365, TA_CATS, TA_TERMS)] if noon
