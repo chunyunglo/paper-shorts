@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-13T08:39:09+00:00",
+ "collected_at": "2026-11-14T07:56:07+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 1817,
-   "videoCount": 40
+   "viewCount": 1907,
+   "videoCount": 42
   }
  },
  "notes": [],
@@ -1322,8 +1322,8 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 111,
-    "reach": 103,
+    "views": 112,
+    "reach": 104,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -1574,8 +1574,8 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 115,
-    "reach": 104,
+    "views": 116,
+    "reach": 105,
     "likes": 1,
     "comments": 1,
     "saved": 1,
@@ -2049,15 +2049,15 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 202,
+    "views": 321,
     "likes": 0,
     "comments": 0,
     "duration": "PT49S",
     "privacy": "public",
     "published": "2026-11-09T11:07:23Z",
-    "estimatedMinutesWatched": 53,
+    "estimatedMinutesWatched": 83,
     "averageViewDuration": 29,
-    "averageViewPercentage": 60.64000000000001,
+    "averageViewPercentage": 59.82999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2112,15 +2112,15 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 18,
+    "views": 19,
     "likes": 0,
     "comments": 0,
     "duration": "PT54S",
     "privacy": "public",
     "published": "2026-11-09T11:08:57Z",
-    "estimatedMinutesWatched": 6,
+    "estimatedMinutesWatched": 7,
     "averageViewDuration": 47,
-    "averageViewPercentage": 87.16,
+    "averageViewPercentage": 88.14,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2175,15 +2175,15 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 114,
+    "views": 386,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
     "published": "2026-11-09T21:17:35Z",
-    "estimatedMinutesWatched": 13,
-    "averageViewDuration": 19,
-    "averageViewPercentage": 38.74,
+    "estimatedMinutesWatched": 26,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 34.7,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -2219,7 +2219,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 24,
+    "views": 26,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2301,12 +2301,17 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 152,
+    "views": 1,
     "likes": 0,
     "comments": 1,
     "duration": "PT56S",
     "privacy": "public",
-    "published": "2026-11-11T11:10:19Z"
+    "published": "2026-11-11T11:10:19Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2340,7 +2345,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 6,
+    "views": 7,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2359,12 +2364,17 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 14,
+    "views": 13,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
     "privacy": "public",
-    "published": "2026-11-11T11:12:16Z"
+    "published": "2026-11-11T11:12:16Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 13,
+    "averageViewPercentage": 26.369999999999997,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2399,6 +2409,122 @@
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
     "views": 8,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "o4YTFOy84dc",
+   "url": "https://youtube.com/shorts/o4YTFOy84dc",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 69,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT51S",
+    "privacy": "public",
+    "published": "2026-11-13T11:04:37Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18101941025540236",
+   "url": "https://www.instagram.com/reel/Dfrey1VjcQI/",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 145,
+    "reach": 134,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18022642850950709",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfre5KelY1j",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "K3-GSDT_iFA",
+   "url": "https://youtube.com/shorts/K3-GSDT_iFA",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 50,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT44S",
+    "privacy": "public",
+    "published": "2026-11-13T11:06:22Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18430973680154272",
+   "url": "https://www.instagram.com/reel/Dfre-j4HLuo/",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 137,
+    "reach": 123,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "title": "Skating Judges: Taste or Strategy?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18119997559808315",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfrfF-kT5sI",
+   "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
+   "created": "2026-11-13T06:10:31+00:00",
+   "metrics": {
+    "views": 10,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2901,7 +3027,26 @@
    "paper": "20261108-estimating-rail-commuter-preferences-und",
    "created": "2026-11-12T11:38:36+00:00",
    "metrics": {
-    "views": 3,
+    "views": 4,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-25",
+   "title": "花式滑冰的裁判，會偏心自己國家的選手嗎？\n\n我們今天介紹的研究（arXiv, 2026）整理了2016/17到2025/26球季的172場國際賽：23,254場",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18089535767312849",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfrg4kxEfs_",
+   "paper": "20261113-taste-or-strategy-nationalistic-bias-and",
+   "created": "2026-11-13T11:22:35+00:00",
+   "metrics": {
+    "views": 35,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -2920,7 +3065,7 @@
    "paper": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
    "created": "2026-11-10T23:25:51+00:00",
    "metrics": {
-    "views": 16,
+    "views": 17,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2958,7 +3103,7 @@
    "paper": "Just How Much Do Individual Investors Lose by Trading?",
    "created": "2026-11-11T19:56:31+00:00",
    "metrics": {
-    "views": 28,
+    "views": 29,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3034,7 +3179,64 @@
    "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
    "created": "2026-11-13T05:53:28+00:00",
    "metrics": {
-    "views": 43,
+    "views": 51,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-7",
+   "title": "🏭 產業前沿｜8萬顆AI加速器，每一顆都在自己的高頻寬記憶體（HBM）裡存一份一模一樣的模型權重，有必要嗎？\n\n瑞典烏普薩拉大學團隊提議：權重是唯讀的，改由一台",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18485274112114744",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfrj5JMoJPd",
+   "paper": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
+   "created": "2026-11-13T11:48:59+00:00",
+   "metrics": {
+    "views": 33,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-8",
+   "title": "🌙 盤後研究室｜晚上想問一個小問題：你上次點開某檔股票的頁面，是因為原本就在研究它，還是因為它剛好一直出現在眼前？\n\n早上提過的券商 App 當機研究，用的是一",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18092644661678429",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfsdSdNGEYn",
+   "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
+   "created": "2026-11-13T20:10:40+00:00",
+   "metrics": {
+    "views": 33,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-9",
+   "title": "📈 盤前心理學｜散戶虧錢，是因為選錯股票嗎？\n\n有篇研究取得1995至1999年台灣證交所全市場的逐筆交易與委託資料。研究發現，個人投資者的損失幾乎都來自「積極",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18121917640952077",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dftevz4FhrM",
+   "paper": "Just How Much Do Individual Investors Lose by Trading?",
+   "created": "2026-11-14T05:42:40+00:00",
+   "metrics": {
+    "views": 50,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
