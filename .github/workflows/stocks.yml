@@ -37,6 +37,7 @@ jobs:
       POST: ${{ (github.event_name == 'schedule' || inputs.post) && 'true' || 'false' }}
       SLOT: ${{ inputs.slot || (github.event.schedule == '0 0 * * *' && 'morning' || (github.event.schedule == '0 4 * * *' && 'noon' || 'evening')) }}
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      SEMANTIC_SCHOLAR_API_KEY: ${{ secrets.SEMANTIC_SCHOLAR_API_KEY }}  # optional; Crossref covers it when unset
       STATE_DIR: state
     steps:
       - uses: actions/checkout@v4
@@ -75,7 +76,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/stock_history.json data/decisions.md
+          git add data/stock_history.json data/stock_library.json data/decisions.md
           git diff --cached --quiet && exit 0
           git commit -qm "Record stock series post $(basename "$DIR")"
           for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done
