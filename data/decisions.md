@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-15
 
+- **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/DfxgN-rI66k)
+  - 內容 Text: 🌙 盤後研究室｜經濟不景氣時，樂透的需求會上升；股票市場裡，有沒有類似的模式？ Alok Kumar 發表於《Journal of Finance》（2009）的研究發現，個人投資者整體偏愛帶有樂透特徵的股票，而且和樂透需求一樣，這類股票的…
+  - 論文 Paper: [Who Gambles in the Stock Market?](https://doi.org/10.1111/j.1540-6261.2009.01483.x) (Journal of Finance)
+  - 為什麼 Why: 目前系列已談過處分效果、注意力、過度交易與性別，還沒碰「賭博傾向」這個角度；選它能增加變化，且今天的頭條都圍繞單一人物與公司，不適合硬扯成市場連結，所以用提問收尾。
+  - 花費 Claude cost: US$0.101
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Dfws70JIEKE)
   - 內容 Text: 🏭 產業前沿｜一個 70 億參數的模型，用 16 位元存要約 14 GB，比多數邊緣模組的記憶體還大。 論文指出，現行量化格式對每個編碼都花一樣多位元，但實際數值分布很不均勻。研究團隊把編碼調得更好壓縮，再做無損壓縮，用到時才由小型解碼單元…
   - 論文 Paper: [LazyWeights: Decode-on-Demand Edge LLMs](https://arxiv.org/abs/2611.17108) (arXiv cs.LG)

@@ -411,5 +411,32 @@
     "cost_usd": 0.2078,
     "id": "17957389677335304",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfws70JIEKE"
+  },
+  {
+    "posted": "2026-11-15T19:12:30+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "question",
+    "text": "🌙 盤後研究室｜經濟不景氣時，樂透的需求會上升；股票市場裡，有沒有類似的模式？\n\nAlok Kumar 發表於《Journal of Finance》（2009）的研究發現，個人投資者整體偏愛帶有樂透特徵的股票，而且和樂透需求一樣，這類股票的需求在不景氣時更高。\n\n研究也發現，會讓人花更多錢買樂透的社經因素，與更多投資樂透型股票相關。摘要指出這類股票表現不佳，而過度重押它們的低收入投資者，與賭博相關的落後幅度更大。\n\n這說的是群體層面的相關模式，不代表每位投資人的動機，也不是在評斷誰。以上僅依據論文摘要。\n\n回頭想想：自己選股時，最先看的是什麼？\n\n（研究分享，不是投資建議）",
+    "why": "目前系列已談過處分效果、注意力、過度交易與性別，還沒碰「賭博傾向」這個角度；選它能增加變化，且今天的頭條都圍繞單一人物與公司，不適合硬扯成市場連結，所以用提問收尾。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/j.1540-6261.2009.01483.x",
+      "title": "Who Gambles in the Stock Market?",
+      "abstract": "This study shows that the propensity to gamble and investment decisions are correlated. At the aggregate level, individual investors prefer stocks with lottery features, and like lottery demand, the demand for lottery-type stocks increases during economic downturns. In the cross-section, socioeconomic factors that induce greater expenditure in lotteries are associated with greater investment in lottery-type stocks. Further, lottery investment levels are higher in regions with favorable lottery environments. Because lottery-type stocks underperform, gambling-related underperformance is greater among low-income investors who excessively overweight lottery-type stocks. These results indicate that state lotteries and lottery-type stocks attract very similar socioeconomic clienteles.",
+      "authors": [
+        "Alok Kumar"
+      ],
+      "venue": "Journal of Finance",
+      "url": "https://doi.org/10.1111/j.1540-6261.2009.01483.x",
+      "pdf_url": null,
+      "doi": "10.1111/j.1540-6261.2009.01483.x",
+      "published": "2009",
+      "source": "journal"
+    },
+    "cost_usd": 0.1013,
+    "id": "18128194109489218",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfxgN-rI66k"
   }
 ]
