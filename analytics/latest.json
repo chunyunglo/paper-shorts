@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-14T07:56:07+00:00",
+ "collected_at": "2026-11-15T08:20:06+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 1907,
-   "videoCount": 42
+   "viewCount": 2068,
+   "videoCount": 44
   }
  },
  "notes": [],
@@ -301,7 +301,7 @@
    "paper": "Laundering and evasion in response to antislavery policies in Brazil’s cattle sector",
    "created": "2026-10-26T08:29:20+00:00",
    "metrics": {
-    "views": 9,
+    "views": 10,
     "likes": 1,
     "replies": 1,
     "reposts": 0,
@@ -2175,15 +2175,15 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 386,
+    "views": 387,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
     "published": "2026-11-09T21:17:35Z",
-    "estimatedMinutesWatched": 26,
+    "estimatedMinutesWatched": 27,
     "averageViewDuration": 17,
-    "averageViewPercentage": 34.7,
+    "averageViewPercentage": 35.63,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -2238,7 +2238,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 88,
+    "views": 89,
     "likes": 0,
     "comments": 1,
     "duration": "PT58S",
@@ -2301,15 +2301,15 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 1,
+    "views": 151,
     "likes": 0,
     "comments": 1,
     "duration": "PT56S",
     "privacy": "public",
     "published": "2026-11-11T11:10:19Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 0,
-    "averageViewPercentage": 0,
+    "estimatedMinutesWatched": 10,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 31.06,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2364,7 +2364,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 13,
+    "views": 15,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -2427,7 +2427,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 69,
+    "views": 172,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -2466,7 +2466,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 24,
+    "views": 27,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2485,7 +2485,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 50,
+    "views": 75,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
@@ -2525,6 +2525,122 @@
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
     "views": 10,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "hdFiqU1_80M",
+   "url": "https://youtube.com/shorts/hdFiqU1_80M",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT42S",
+    "privacy": "public",
+    "published": "2026-11-14T11:03:51Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18100676315421674",
+   "url": "https://www.instagram.com/reel/DfuDf_BEauE/",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 481,
+    "reach": 439,
+    "likes": 4,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 5
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18135090727777025",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfuDl4nRflX",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 33,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "9YqlSgSTGSs",
+   "url": "https://youtube.com/shorts/9YqlSgSTGSs",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 45,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT50S",
+    "privacy": "public",
+    "published": "2026-11-14T11:05:38Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18240062158316490",
+   "url": "https://www.instagram.com/reel/DfuDvdyFK6a/",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 116,
+    "reach": 96,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261114-where-language-model-vocabulary-rose-on",
+   "title": "ChatGPT-Style Words Rose Unevenly Across Q&A Sites",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18127768867903454",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfuD2B0IOzG",
+   "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
+   "created": "2026-11-14T06:10:08+00:00",
+   "metrics": {
+    "views": 7,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3046,7 +3162,26 @@
    "paper": "20261113-taste-or-strategy-nationalistic-bias-and",
    "created": "2026-11-13T11:22:35+00:00",
    "metrics": {
-    "views": 35,
+    "views": 39,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-26",
+   "title": "3.8分 vs 10.9分。\n\n我們介紹過的一篇研究（arXiv, 2026）請美國線上受試者寫下一個自己覺得可信的陰謀論，跟GPT-4聊三輪，再重新為相信程度",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18115286873268058",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfuBjo5lWnk",
+   "paper": "20261109-just-the-facts-how-dialogues-with-ai-red",
+   "created": "2026-11-14T10:46:34+00:00",
+   "metrics": {
+    "views": 23,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3198,7 +3333,7 @@
    "paper": "Broadcast, Don't Replicate: Eliminating Weight HBM in Datacenter LLM Serving",
    "created": "2026-11-13T11:48:59+00:00",
    "metrics": {
-    "views": 33,
+    "views": 35,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3217,7 +3352,7 @@
    "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
    "created": "2026-11-13T20:10:40+00:00",
    "metrics": {
-    "views": 33,
+    "views": 35,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3236,7 +3371,64 @@
    "paper": "Just How Much Do Individual Investors Lose by Trading?",
    "created": "2026-11-14T05:42:40+00:00",
    "metrics": {
-    "views": 50,
+    "views": 58,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-10",
+   "title": "🏭 產業前沿｜AI資料中心選電源，關鍵可能不是電價，而是「多久才有電」。\n\n這篇美國研究用模型比較四種供電方式：交流或直流耦合的太陽能+儲能、離網天然氣、併聯電",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18063296270584601",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfuEUd7lV_T",
+   "paper": "Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States",
+   "created": "2026-11-14T11:10:57+00:00",
+   "metrics": {
+    "views": 35,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-11",
+   "title": "🌙 盤後研究室｜如果把三萬五千多戶家庭的股票帳戶攤開來看，會發現什麼？\n\nBarber 與 Odean 分析一家大型折扣券商 1991 年 2 月到 1997 ",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18094212062230067",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfu3VDNGITJ",
+   "paper": "Boys will be Boys: Gender, Overconfidence, and Common Stock Investment",
+   "created": "2026-11-14T18:36:41+00:00",
+   "metrics": {
+    "views": 65,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-12",
+   "title": "📈 盤前心理學｜11.4% 對 17.9%。\n\n這是一項研究裡，交易最頻繁的家庭，和同期整體市場的年報酬差距。\n\n研究者追蹤美國一家大型折扣券商 1991 至 ",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17921605608540443",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfwDccqjhQ2",
+   "paper": "Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors",
+   "created": "2026-11-15T05:41:49+00:00",
+   "metrics": {
+    "views": 25,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
