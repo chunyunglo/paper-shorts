@@ -380,5 +380,19 @@
     "why": "Every episode this week already has a follow-up and roundups have underperformed, so per the notes we skip the weekly roundup and instead give the week's strongest-performing paper (the conspiracy short leads YouTube in both languages) a second, non-overlapping angle—the Study 1 variants and the No Facts result—with a number-led first line after yesterday's question-led one; Instagram static posts stay paused and no headline links responsibly (today's news is mostly election, crime, disaster or scandal).",
     "id": "18115286873268058",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfuBjo5lWnk"
+  },
+  {
+    "posted": "2026-11-15T11:21:26+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261115-the-rebundling-of-freelance-work-in-the"
+    ],
+    "text": "接案平台上「跟AI有關」的案子，預算為什麼比較高？\n\n我們今天介紹的研究（arXiv, 2026）用了兩份資料：約3.69萬則ChatGPT對話樣本，以及接案平台Upwork的職缺。研究者把每個職缺拆成一組「任務」來比較。\n\n發現：\n・AI相關職缺平均有3.35項不同任務，其他職缺是3.19項\n・「過去很少一起出現」的任務組合，在AI相關職缺佔8.4%，其他職缺只有2.4%\n・控制其他條件後，固定價格預算約高52%，時薪只高約1.5%\n・受雇的時薪案，前90天工時約多41%\n\n時薪幾乎一樣，工時和任務組合卻不一樣。\n\n要注意：這些都是描述性的關聯，不能說是AI造成的。預算是刊登價，不是最後實付。資料只到生成式AI的早期階段。\n\n你接過或發過「一個案子包好幾種事」的工作嗎？細節在我們的影片裡。",
+    "news": null,
+    "why": "The freelance paper is today's new episode and has no Chinese Threads follow-up yet; the notes favour one daily zh design-and-finding post, suggest skipping or shrinking the weekly roundup, keep Instagram image posts paused, and since yesterday's post opened with numbers this one opens with a question, while today's headlines are partisan, scandal-driven or unrelated to our papers.",
+    "id": "17904240072609215",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfwqV1bmz6E"
   }
 ]

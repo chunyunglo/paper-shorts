@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-15
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfwqV1bmz6E)
+  - 內容 Text: 接案平台上「跟AI有關」的案子，預算為什麼比較高？ 我們今天介紹的研究（arXiv, 2026）用了兩份資料：約3.69萬則ChatGPT對話樣本，以及接案平台Upwork的職缺。研究者把每個職缺拆成一組「任務」來比較。 發現： ・AI相關…
+  - 為什麼 Why: The freelance paper is today's new episode and has no Chinese Threads follow-up yet; the notes favour one daily zh design-and-finding post, suggest skipping or shrinking the weekly roundup, keep Instagram image posts paused, and since yesterday's post opened with numbers this one opens with a question, while today's headlines are partisan, scandal-driven or unrelated to our papers.
+  - 根據的集數 Based on: 20261115-the-rebundling-of-freelance-work-in-the
 - **短影音 Short** · [AI接案，預算為何比較高？ / Why AI-Related Freelance Jobs Come With Bigger Budgets](https://youtube.com/shorts/fXQwLOq2XKo)
   - 論文 Paper: [The Rebundling of Freelance Work in the AI Age](https://arxiv.org/abs/2611.14708) (arXiv econ.GN)
   - 為什麼 Why: It combines ChatGPT usage logs with Upwork job postings at scale to show which kinds of freelance tasks AI is absorbing, and the finding is concrete, everyday, and easy to show in 3-4 visual steps. Signals: Notes favor concrete everyday decisions with an answer given early, and this paper has non-abstract labor stakes without repeating recent episodes.
