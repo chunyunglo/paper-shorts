@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-15
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfwDccqjhQ2)
+  - 內容 Text: 📈 盤前心理學｜11.4% 對 17.9%。 這是一項研究裡，交易最頻繁的家庭，和同期整體市場的年報酬差距。 研究者追蹤美國一家大型折扣券商 1991 至 1996 年間 66,465 戶家庭的帳戶。結果發現，交易最勤的那群家庭年報酬 11…
+  - 論文 Paper: [Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors](https://doi.org/10.1111/0022-1082.00226) (Journal of Finance)
+  - 為什麼 Why: 這是還沒用過的經典散戶交易研究，有具體數字，並與近期台灣交易資料的貼文形成互補，不重複已講過的處分效果、注意力與當沖題材。
+  - 花費 Claude cost: US$0.064
+
 ## 2026-11-14
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Dfu3VDNGITJ)

@@ -152,5 +152,35 @@
     "url": "https://www.sciencedirect.com/science/article/pii/S0304405X2400093X",
     "pdf_url": null,
     "abstract": "We examine social media attention and sentiment from three major platforms: Twitter, StockTwits, and Seeking Alpha. We find that, even after controlling for firm disclosures and news, attention is highly correlated across platforms, but sentiment is not: its first principal component explains little more variation than purely idiosyncratic sentiment. Using market events, we attribute differences across platforms to differences in users (e.g., professionals versus novices) and differences in platform design (e.g., character limits in posts). We also find that sentiment and attention contain different return-relevant information. Sentiment predicts positive next-day returns, but attention predicts negative next-day returns. These results highlight the importance of considering both social media sentiment and attention, and of distinguishing between different investor social media platforms."
+  },
+  {
+    "id": "doi:10.1017/s0022109000002799",
+    "title": "Stock Market Participation and the Internet",
+    "authors": [
+      "Vicki Bogan"
+    ],
+    "venue": "Journal of Financial and Quantitative Analysis",
+    "published": "2008",
+    "url": "https://doi.org/10.1017/s0022109000002799",
+    "pdf_url": null,
+    "abstract": "Theory indicates that frictions (e. g., information and transaction costs) could account for the lower than expected stock market participation rates. This paper examines the hypothesis that there has been a fundamental change in participation and links this change to the reduction of these frictions by the advent of the Internet. Using panel data on household participation rates over the past decade, the results show computer/Internet using households raised participation substantially more than non-computer using households. The increased probability of participation was equivalent to having over $27,000 in additional household income or over two more mean years of education.",
+    "added": "2026-11-15",
+    "found_by": "Crossref: financial literacy stock market participation"
+  },
+  {
+    "id": "doi:10.1093/rof/rfu040",
+    "title": "Stock Market Literacy, Trust, and Participation",
+    "authors": [
+      "Adnan Balloch",
+      "Anamaria Nicolae",
+      "Dennis Philip"
+    ],
+    "venue": "Review of Finance",
+    "published": "2014",
+    "url": "https://doi.org/10.1093/rof/rfu040",
+    "pdf_url": null,
+    "abstract": "This article studies the importance of stock market literacy and trust for stock ownership decisions. We find that these two distinct channels simultaneously explain not only the probability of participation, but, conditional on participation, also explain the share of investment in stocks. Once we account for stock market literacy, sociability is no longer significant for participation; what matters is literacy rather than sociability. Further, we observe that economic shocks and future expectations are key behavioral characteristics that explain a household’s decision to invest in stocks. However, upon participation, a larger set of behavioral characteristics explains the level of stock investment.",
+    "added": "2026-11-15",
+    "found_by": "Crossref: financial literacy stock market participation"
   }
 ]

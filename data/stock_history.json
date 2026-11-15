@@ -354,5 +354,33 @@
     "cost_usd": 0.0884,
     "id": "18094212062230067",
     "url": "https://www.threads.com/@human__behavior__decode/post/Dfu3VDNGITJ"
+  },
+  {
+    "posted": "2026-11-15T05:41:49+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜11.4% 對 17.9%。\n\n這是一項研究裡，交易最頻繁的家庭，和同期整體市場的年報酬差距。\n\n研究者追蹤美國一家大型折扣券商 1991 至 1996 年間 66,465 戶家庭的帳戶。結果發現，交易最勤的那群家庭年報酬 11.4%，市場是 17.9%。平均家庭是 16.4%，投資組合每年約換手 75%。\n\n作者認為，過度自信可以解釋為什麼交易這麼頻繁，績效又偏弱。\n\n這代表什麼、不代表什麼：這是 1991 至 1996 年美國單一券商的資料，摘要說的是這段期間的結果，並不能直接推論到今天的台股或每個人。\n\n（研究分享，不是投資建議）",
+    "why": "這是還沒用過的經典散戶交易研究，有具體數字，並與近期台灣交易資料的貼文形成互補，不重複已講過的處分效果、注意力與當沖題材。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/0022-1082.00226",
+      "title": "Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors",
+      "abstract": "Individual investors who hold common stocks directly pay a tremendous performance penalty for active trading. Of 66,465 households with accounts at a large discount broker during 1991 to 1996, those that trade most earn an annual return of 11.4 percent, while the market returns 17.9 percent. The average household earns an annual return of 16.4 percent, tilts its common stock investment toward high-beta, small, value stocks, and turns over 75 percent of its portfolio annually. Overconfidence can explain high trading levels and the resulting poor performance of individual investors. Our central message is that trading is hazardous to your wealth.",
+      "authors": [
+        "Brad M. Barber",
+        "Terrance Odean"
+      ],
+      "venue": "Journal of Finance",
+      "url": "https://doi.org/10.1111/0022-1082.00226",
+      "pdf_url": null,
+      "doi": "10.1111/0022-1082.00226",
+      "published": "2000",
+      "source": "journal"
+    },
+    "cost_usd": 0.0642,
+    "id": "17921605608540443",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfwDccqjhQ2"
   }
 ]
