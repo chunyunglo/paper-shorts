@@ -382,5 +382,34 @@
     "cost_usd": 0.0642,
     "id": "17921605608540443",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfwDccqjhQ2"
+  },
+  {
+    "posted": "2026-11-15T11:44:21+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜一個 70 億參數的模型，用 16 位元存要約 14 GB，比多數邊緣模組的記憶體還大。\n\n論文指出，現行量化格式對每個編碼都花一樣多位元，但實際數值分布很不均勻。研究團隊把編碼調得更好壓縮，再做無損壓縮，用到時才由小型解碼單元還原。在相同困惑度預算下，模型比最佳的固定位寬格式小 5.7–31.4%。\n\n論文做到的是減少記憶體搬運量；如果成真，可能影響的是端側 AI 裝置在記憶體容量與頻寬之間的取捨。\n\n但離產品還遠：解碼單元只做到合成與 FPGA 驗證，不是實際晶片，延遲最多降 36%、能耗最多降 38% 是推算值，也只測了三個模型。\n\n（研究分享，不是投資建議）",
+    "why": "本週noon已連續談量子、FPGA稀疏、HBM廣播與資料中心供電，今天換成邊緣裝置的記憶體瓶頸，是新角度；也避開純模型基準或無關行為的論文。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.17108",
+      "title": "LazyWeights: Decode-on-Demand Edge LLMs",
+      "abstract": "Memory decides which LLMs an edge device runs, and how fast: capacity on a $4$ GB Jetson Nano, bandwidth on an $8$ GB Jetson Orin Nano Super. Deployed formats (GPTQ, AWQ, $\\texttt{llama.cpp}$'s K- and I-quants) spend equal bits on every integer code of a matrix, although the codes are far from uniform. $\\texttt{LazyWeights}$ keeps these formats but tunes GPTQ so the codes compress, Huffman-codes them losslessly in interleaved lanes, and decodes them on demand in a small unit between DRAM and L2, so GPU kernels run unchanged and DRAM moves only coded bytes. At $1\\%$ and $3.5\\%$ perplexity budgets, coded Phi-3-mini, Mistral-7B and SmolLM-1.7B are $5.7-31.4\\%$ smaller than the best $\\texttt{llama.cpp}$ format. A bit-exact $0.21$ mm$^2$ ASIC decoder unit ($1$ GHz, $7$ nm) cuts Orin latency and energy per token by up to $36\\%$ and $38\\%$ ($54\\%$ and $44\\%$ with prompt-lookup speculation). On the Nano, $\\texttt{LazyWeights}$ needs $58-64\\%$ less time and $53-57\\%$ less energy per token than CPU $\\texttt{llama.cpp}$, and runs a streamed Mistral-7B 6.6$\\times$ faster at $3.89$ bits per weight. A Huffman decoder beats an rANS decoder in rate and area at equal throughput; the ASIC decoder unit runs bit-exact on a Zynq UltraScale+ FPGA (AMD ZCU102).",
+      "authors": [
+        "Arnab Sanyal",
+        "Gourav Datta",
+        "Sandeep P. Chinchali"
+      ],
+      "venue": "arXiv cs.LG",
+      "url": "https://arxiv.org/abs/2611.17108",
+      "pdf_url": "https://arxiv.org/pdf/2611.17108v1",
+      "doi": null,
+      "published": "2026-11-12",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2078,
+    "id": "17957389677335304",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Dfws70JIEKE"
   }
 ]

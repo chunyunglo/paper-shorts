@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-15
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Dfws70JIEKE)
+  - 內容 Text: 🏭 產業前沿｜一個 70 億參數的模型，用 16 位元存要約 14 GB，比多數邊緣模組的記憶體還大。 論文指出，現行量化格式對每個編碼都花一樣多位元，但實際數值分布很不均勻。研究團隊把編碼調得更好壓縮，再做無損壓縮，用到時才由小型解碼單元…
+  - 論文 Paper: [LazyWeights: Decode-on-Demand Edge LLMs](https://arxiv.org/abs/2611.17108) (arXiv cs.LG)
+  - 為什麼 Why: 本週noon已連續談量子、FPGA稀疏、HBM廣播與資料中心供電，今天換成邊緣裝置的記憶體瓶頸，是新角度；也避開純模型基準或無關行為的論文。
+  - 花費 Claude cost: US$0.208
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfwqV1bmz6E)
   - 內容 Text: 接案平台上「跟AI有關」的案子，預算為什麼比較高？ 我們今天介紹的研究（arXiv, 2026）用了兩份資料：約3.69萬則ChatGPT對話樣本，以及接案平台Upwork的職缺。研究者把每個職缺拆成一組「任務」來比較。 發現： ・AI相關…
   - 為什麼 Why: The freelance paper is today's new episode and has no Chinese Threads follow-up yet; the notes favour one daily zh design-and-finding post, suggest skipping or shrinking the weekly roundup, keep Instagram image posts paused, and since yesterday's post opened with numbers this one opens with a question, while today's headlines are partisan, scandal-driven or unrelated to our papers.
