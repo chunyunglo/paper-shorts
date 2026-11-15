@@ -6938,5 +6938,349 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261114-where-language-model-vocabulary-rose-on",
     "pick_reason": "A concrete large-scale analysis of 3.8 million Stack Exchange answers across 170 sites shows that ChatGPT-favored words rose even after bans, which is easy to explain in 3-4 visual steps (word list, before/after trend, ban comparison) and gives a surprising everyday-behavior finding. Signals: Notes favor concrete everyday behavior questions about rules changing and what people do, and the recent episodes avoid heavy AI-chatbot-belief topics; this one is a rule-change (ban) question with a clear early answer."
+  },
+  {
+    "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+    "created": "2026-11-15T06:13:01+00:00",
+    "paper": {
+      "id": "arxiv:2611.14708",
+      "title": "The Rebundling of Freelance Work in the AI Age",
+      "abstract": "This paper examines how freelance work is changing in the AI era. We compare the activities people undertake in ChatGPT with the work clients request on Upwork, an online freelance platform, and examine how clients combine tasks into projects. We find that activities more prevalent in ChatGPT tend to lose marketplace share on Upwork, while those less prevalent tend to gain share. Within AI-related work, demand is becoming more diverse, and job postings combine tasks that were rarely requested together before the generative AI era. AI-related postings also have substantially larger project budgets and involve more hours of work, while differences in hourly rates are small. Together, these findings suggest that AI is reshaping not only which tasks clients outsource, but also how they combine tasks into larger, higher-value projects.",
+      "authors": [
+        "Caroline Chin",
+        "Shagun Kala",
+        "Nadav Kunievsky",
+        "Teng Liu",
+        "Alex Martin Richmond",
+        "Carl Shan"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.14708",
+      "pdf_url": "https://arxiv.org/pdf/2611.14708v1",
+      "doi": null,
+      "published": "2026-11-10",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "AI接案，預算為何比較高？",
+      "title_en": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+      "paper_title_zh": "AI時代自由工作的重新打包",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "重點",
+          "heading_en": "HOOK",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "預算較高",
+          "big_text_en": "Bigger budgets",
+          "lines": [
+            {
+              "zh": "AI相關案子的預算，為何高一截？",
+              "en": "Why do AI-related freelance jobs have bigger budgets?"
+            },
+            {
+              "zh": "線索可能在客戶怎麼把工作打包。",
+              "en": "A clue may be in how clients bundle the work."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "OpenAI與Upwork合寫的預印本。",
+              "en": "By OpenAI and Upwork researchers, posted as a preprint on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "聊天",
+            "徵才文"
+          ],
+          "labels_en": [
+            "Chats",
+            "Job posts"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "比較人們用ChatGPT做的事，",
+              "en": "They compared what people do in ChatGPT,"
+            },
+            {
+              "zh": "和客戶在Upwork請人做的事。",
+              "en": "with what clients pay freelancers to do on Upwork."
+            }
+          ]
+        },
+        {
+          "visual": "scatter",
+          "heading_zh": "對照",
+          "heading_en": "COMPARISON",
+          "labels": [
+            "相對用量",
+            "占比變化"
+          ],
+          "labels_en": [
+            "Relative use",
+            "Share change"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "63類工作中，ChatGPT上相對熱門的，",
+              "en": "Work types popular on ChatGPT tended to lose Upwork share,"
+            },
+            {
+              "zh": "在Upwork的占比多半下降，但有例外。",
+              "en": "but about 20 of the 63 broke that pattern."
+            }
+          ]
+        },
+        {
+          "visual": "network",
+          "heading_zh": "組合",
+          "heading_en": "BUNDLES",
+          "labels": [
+            "AI影片",
+            "剪輯",
+            "動態圖像"
+          ],
+          "labels_en": [
+            "AI video",
+            "Editing",
+            "Motion graphics"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們把貼文拆成任務，看哪些成對出現。",
+              "en": "They split job posts into tasks and checked which come in pairs."
+            },
+            {
+              "zh": "AI出現前很少一起請的，算少見搭配。",
+              "en": "Pairs rarely seen together before AI count as unusual."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "FINDING",
+          "labels": [
+            "AI案子",
+            "其他案子"
+          ],
+          "labels_en": [
+            "AI jobs",
+            "Other jobs"
+          ],
+          "values": [
+            8.4,
+            2.4
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果，AI案子有8.4%是少見搭配，",
+              "en": "In AI-related jobs, 8.4 percent of pairs were unusual."
+            },
+            {
+              "zh": "其他案子只有2.4%。",
+              "en": "In other jobs, only 2.4 percent."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "預算",
+          "heading_en": "BUDGETS",
+          "labels": [
+            "固定預算"
+          ],
+          "labels_en": [
+            "Fixed budget"
+          ],
+          "values": [],
+          "big_text": "高約52%",
+          "big_text_en": "Budgets ~52% higher",
+          "lines": [
+            {
+              "zh": "同類別同月份比，AI案子預算高約五成。",
+              "en": "Same category and month, AI jobs' fixed budgets ran 52% higher."
+            },
+            {
+              "zh": "但這只是描述，不代表AI造成。",
+              "en": "That's descriptive, not proof that AI caused it."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "結論",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "打包不同",
+          "big_text_en": "Bundled differently",
+          "lines": [
+            {
+              "zh": "AI相關工作，打包方式似乎不太一樣。",
+              "en": "AI-related work seems to be bundled differently."
+            },
+            {
+              "zh": "但這只是描述，還不能說是AI造成。",
+              "en": "But that's descriptive, not proof AI caused it."
+            },
+            {
+              "zh": "歡迎追蹤，看更多行為研究。",
+              "en": "Follow for more research on human behavior."
+            }
+          ]
+        }
+      ],
+      "description_zh": "AI相關的接案工作，預算好像比較高。這篇預印本比對ChatGPT的用途和Upwork上的案子，看客戶怎麼把任務打包。結果只是描述，不能說是AI造成的。",
+      "description_en": "How is freelance work changing in the AI era? This OpenAI and Upwork preprint compares what people do in ChatGPT with what clients hire for on Upwork. AI-related jobs combine more unusual task pairs and carry bigger budgets. The findings are descriptive and do not prove AI caused them.",
+      "hashtags": [
+        "AI",
+        "自由工作",
+        "Upwork",
+        "ChatGPT",
+        "未來工作",
+        "FreelanceWork",
+        "AIandJobs",
+        "行為解碼"
+      ],
+      "method_summary": "The study combines two datasets. First, about 36,900 sampled ChatGPT conversations (consumer accounts, January 2025 to June 2026) were each assigned by a classifier to one of Upwork's work subcategories, excluding schoolwork and unclear conversations. Second, Upwork Marketplace job postings were classified as AI-related or not by an LLM-based pipeline. The authors defined ChatGPT intensity for each of 63 matched subcategories as its share of ChatGPT use in H2 2025 relative to its share of Upwork postings in H1 2023, and compared it with how its share of postings changed. About 68 percent of subcategories either had higher ChatGPT intensity and lost share or lower intensity and gained share. Next, more than 3,000 activity descriptions were grouped into 400+ standardized tasks, and each posting's bundle is its distinct tasks. AI-related postings averaged 3.35 distinct tasks versus 3.19 for other postings. Task pairs seen in fewer than 200 pre-generative-AI postings were called historically uncommon; they made up 8.4 percent of pairs in AI-related jobs versus 2.4 percent in other jobs. Even among jobs of similar size, subcategory and month, AI-related jobs combined tasks with lower historical prevalence. Fixed-price budgets were about 52 percent higher after controls, hourly rates only about 1.5 percent higher, and hours worked in the first 90 days of hired hourly contracts about 41 percent higher.",
+      "limitations": "The ChatGPT and Upwork datasets are not directly matched, and neither represents the whole labor market. All comparisons are descriptive associations and do not identify causal effects of AI or of ChatGPT use on freelance demand. Classification of AI-related jobs and tasks relies on LLM-based pipelines. Budgets and rates are posted prices, not final payments. The task analysis covers only an early phase of generative AI adoption, through 2025.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "AI案子的預算，為什麼比較高？",
+          "線索可能藏在客戶怎麼打包工作。"
+        ],
+        [
+          "OpenAI和Upwork的預印本。"
+        ],
+        [
+          "比對大家用ChatGPT做的事，",
+          "和Upwork上客戶請人做的事。"
+        ],
+        [
+          "ChatGPT常見的工作，",
+          "在Upwork占比多半下滑。",
+          "但63類裡有約20類例外。"
+        ],
+        [
+          "把徵才文拆成任務，看哪些常成對。",
+          "AI前少見的組合，算不尋常。"
+        ],
+        [
+          "AI案子裡，不尋常組合占8.4%。",
+          "其他案子只有2.4%。"
+        ],
+        [
+          "同類別同月份比，AI案子預算高約52%。",
+          "這只是描述，不代表AI造成。"
+        ],
+        [
+          "AI案子的打包方式似乎不同。",
+          "但不能說是AI造成的。",
+          "想看更多，追蹤一下。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "messages",
+          "briefcase"
+        ],
+        [
+          "chart-scatter",
+          "trending-up"
+        ],
+        [
+          "video",
+          "cut",
+          "photo-video"
+        ],
+        [
+          "robot",
+          "briefcase"
+        ],
+        [
+          "cash"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 46.56,
+        "cover_offset_ms": 6888,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 47.96,
+        "cover_offset_ms": 6658,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "fXQwLOq2XKo",
+          "url": "https://youtube.com/shorts/fXQwLOq2XKo"
+        },
+        "instagram": {
+          "id": "18119996278811329",
+          "url": "https://www.instagram.com/reel/DfwoWjuDa_k/"
+        },
+        "threads": {
+          "id": "17964199860243627",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Dfwofk0Nc3D"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "JEuV5Sitkos",
+          "url": "https://youtube.com/shorts/JEuV5Sitkos"
+        },
+        "instagram": {
+          "id": "18125815460590798",
+          "url": "https://www.instagram.com/reel/DfwomgAAqZd/"
+        },
+        "threads": {
+          "id": "18048072761817446",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfwotprIGCB"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261115-the-rebundling-of-freelance-work-in-the",
+    "pick_reason": "It combines ChatGPT usage logs with Upwork job postings at scale to show which kinds of freelance tasks AI is absorbing, and the finding is concrete, everyday, and easy to show in 3-4 visual steps. Signals: Notes favor concrete everyday decisions with an answer given early, and this paper has non-abstract labor stakes without repeating recent episodes."
   }
 ]

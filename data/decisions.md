@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-15
 
+- **短影音 Short** · [AI接案，預算為何比較高？ / Why AI-Related Freelance Jobs Come With Bigger Budgets](https://youtube.com/shorts/fXQwLOq2XKo)
+  - 論文 Paper: [The Rebundling of Freelance Work in the AI Age](https://arxiv.org/abs/2611.14708) (arXiv econ.GN)
+  - 為什麼 Why: It combines ChatGPT usage logs with Upwork job postings at scale to show which kinds of freelance tasks AI is absorbing, and the finding is concrete, everyday, and easy to show in 3-4 visual steps. Signals: Notes favor concrete everyday decisions with an answer given early, and this paper has non-abstract labor stakes without repeating recent episodes.
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfwDccqjhQ2)
   - 內容 Text: 📈 盤前心理學｜11.4% 對 17.9%。 這是一項研究裡，交易最頻繁的家庭，和同期整體市場的年報酬差距。 研究者追蹤美國一家大型折扣券商 1991 至 1996 年間 66,465 戶家庭的帳戶。結果發現，交易最勤的那群家庭年報酬 11…
   - 論文 Paper: [Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors](https://doi.org/10.1111/0022-1082.00226) (Journal of Finance)
