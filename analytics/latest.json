@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-15T08:20:06+00:00",
+ "collected_at": "2026-11-16T08:29:40+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2068,
-   "videoCount": 44
+   "viewCount": 2233,
+   "videoCount": 46
   }
  },
  "notes": [],
@@ -1405,7 +1405,7 @@
    "paper": "A prospective randomized study of patient-centered AI for clinical visit preparation",
    "created": "2026-11-02T17:25:26+00:00",
    "metrics": {
-    "views": 5,
+    "views": 6,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1657,7 +1657,7 @@
    "paper": "You Know What You Will Like: People Predict Their Own Ratings Better Than Recommender Systems",
    "created": "2026-11-05T09:33:56+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1720,7 +1720,7 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 5,
+    "views": 6,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1846,7 +1846,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 20,
+    "views": 21,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1947,7 +1947,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 21,
+    "views": 22,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2093,7 +2093,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 16,
+    "views": 18,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2219,7 +2219,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 26,
+    "views": 30,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2345,7 +2345,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 7,
+    "views": 10,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2427,12 +2427,17 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 172,
+    "views": 78,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
     "privacy": "public",
-    "published": "2026-11-13T11:04:37Z"
+    "published": "2026-11-13T11:04:37Z",
+    "estimatedMinutesWatched": 7,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 27.88,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2466,7 +2471,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 27,
+    "views": 31,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2485,12 +2490,17 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 75,
+    "views": 53,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
     "privacy": "public",
-    "published": "2026-11-13T11:06:22Z"
+    "published": "2026-11-13T11:06:22Z",
+    "estimatedMinutesWatched": 2,
+    "averageViewDuration": 9,
+    "averageViewPercentage": 20.67,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2562,8 +2572,8 @@
    "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
    "created": "2026-11-14T06:10:08+00:00",
    "metrics": {
-    "views": 481,
-    "reach": 439,
+    "views": 559,
+    "reach": 516,
     "likes": 4,
     "comments": 1,
     "saved": 0,
@@ -2582,7 +2592,7 @@
    "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
    "created": "2026-11-14T06:10:08+00:00",
    "metrics": {
-    "views": 33,
+    "views": 38,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2640,7 +2650,123 @@
    "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
    "created": "2026-11-14T06:10:08+00:00",
    "metrics": {
-    "views": 7,
+    "views": 8,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "fXQwLOq2XKo",
+   "url": "https://youtube.com/shorts/fXQwLOq2XKo",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 105,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT47S",
+    "privacy": "public",
+    "published": "2026-11-15T11:04:13Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18119996278811329",
+   "url": "https://www.instagram.com/reel/DfwoWjuDa_k/",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 109,
+    "reach": 104,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17964199860243627",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfwofk0Nc3D",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 22,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "JEuV5Sitkos",
+   "url": "https://youtube.com/shorts/JEuV5Sitkos",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 23,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT48S",
+    "privacy": "public",
+    "published": "2026-11-15T11:06:36Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18125815460590798",
+   "url": "https://www.instagram.com/reel/DfwomgAAqZd/",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 57,
+    "reach": 57,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261115-the-rebundling-of-freelance-work-in-the",
+   "title": "Why AI-Related Freelance Jobs Come With Bigger Budgets",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18048072761817446",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfwotprIGCB",
+   "paper": "The Rebundling of Freelance Work in the AI Age",
+   "created": "2026-11-15T06:13:01+00:00",
+   "metrics": {
+    "views": 5,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3067,7 +3193,7 @@
    "paper": "20261107-priced-in-or-bet-on-cram-school-lessons",
    "created": "2026-11-08T10:40:18+00:00",
    "metrics": {
-    "views": 7,
+    "views": 8,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3162,7 +3288,7 @@
    "paper": "20261113-taste-or-strategy-nationalistic-bias-and",
    "created": "2026-11-13T11:22:35+00:00",
    "metrics": {
-    "views": 39,
+    "views": 41,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3181,8 +3307,27 @@
    "paper": "20261109-just-the-facts-how-dialogues-with-ai-red",
    "created": "2026-11-14T10:46:34+00:00",
    "metrics": {
-    "views": 23,
+    "views": 24,
     "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-27",
+   "title": "接案平台上「跟AI有關」的案子，預算為什麼比較高？\n\n我們今天介紹的研究（arXiv, 2026）用了兩份資料：約3.69萬則ChatGPT對話樣本，以及接案平",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17904240072609215",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfwqV1bmz6E",
+   "paper": "20261115-the-rebundling-of-freelance-work-in-the",
+   "created": "2026-11-15T11:21:26+00:00",
+   "metrics": {
+    "views": 39,
+    "likes": 1,
     "replies": 0,
     "reposts": 0,
     "quotes": 0,
@@ -3200,7 +3345,7 @@
    "paper": "Is the Aggregate Investor Reluctant to Realise Losses? Evidence from Taiwan",
    "created": "2026-11-10T23:25:51+00:00",
    "metrics": {
-    "views": 17,
+    "views": 18,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3390,7 +3535,7 @@
    "paper": "Speed-to-Power Dominates Energy Costs for AI Data Centers: Technoeconomic Analysis of Powering AI in the Continental United States",
    "created": "2026-11-14T11:10:57+00:00",
    "metrics": {
-    "views": 35,
+    "views": 36,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3409,7 +3554,7 @@
    "paper": "Boys will be Boys: Gender, Overconfidence, and Common Stock Investment",
    "created": "2026-11-14T18:36:41+00:00",
    "metrics": {
-    "views": 65,
+    "views": 68,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3428,7 +3573,64 @@
    "paper": "Trading Is Hazardous to Your Wealth: The Common Stock Investment Performance of Individual Investors",
    "created": "2026-11-15T05:41:49+00:00",
    "metrics": {
-    "views": 25,
+    "views": 28,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-13",
+   "title": "🏭 產業前沿｜一個 70 億參數的模型，用 16 位元存要約 14 GB，比多數邊緣模組的記憶體還大。\n\n論文指出，現行量化格式對每個編碼都花一樣多位元，但實際",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17957389677335304",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Dfws70JIEKE",
+   "paper": "LazyWeights: Decode-on-Demand Edge LLMs",
+   "created": "2026-11-15T11:44:21+00:00",
+   "metrics": {
+    "views": 9,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-14",
+   "title": "🌙 盤後研究室｜經濟不景氣時，樂透的需求會上升；股票市場裡，有沒有類似的模式？\n\nAlok Kumar 發表於《Journal of Finance》（2009",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18128194109489218",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfxgN-rI66k",
+   "paper": "Who Gambles in the Stock Market?",
+   "created": "2026-11-15T19:12:30+00:00",
+   "metrics": {
+    "views": 19,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-15",
+   "title": "📈 盤前心理學｜如果你想知道大家最近在關注哪支股票，最直接的辦法可能是看他們在 Google 搜尋什麼。\n\nDa、Engelberg 與 Gao 就這樣做了。他",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18102618872401241",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DfyoJT8EVAW",
+   "paper": "In Search of Attention",
+   "created": "2026-11-16T05:41:04+00:00",
+   "metrics": {
+    "views": 11,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
