@@ -7282,5 +7282,356 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261115-the-rebundling-of-freelance-work-in-the",
     "pick_reason": "It combines ChatGPT usage logs with Upwork job postings at scale to show which kinds of freelance tasks AI is absorbing, and the finding is concrete, everyday, and easy to show in 3-4 visual steps. Signals: Notes favor concrete everyday decisions with an answer given early, and this paper has non-abstract labor stakes without repeating recent episodes."
+  },
+  {
+    "episode": "20261116-trust-as-a-hidden-driver-of-epidemic-rel",
+    "created": "2026-11-16T06:09:39+00:00",
+    "paper": {
+      "id": "doi:10.1073/pnas.2622260123",
+      "title": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
+      "abstract": "Proceedings of the National Academy of Sciences, Volume 123, Issue 45, November 2026. SignificanceHuman behavior drives infectious disease transmission: whether people wear masks, avoid crowds, or get vaccinated shapes how much a disease spreads. Drawing on national survey data across the COVID-19 pandemic, we show that institutional trust—...",
+      "authors": [
+        "Alexander J. Zapf",
+        "George Dewey",
+        "Katherine Ognyanova",
+        "Matthew A. Baum",
+        "William P. Hanage",
+        "Marc Lipsitch",
+        "Ata A. Uslu",
+        "James N. Druckman",
+        "Roy H. Perlis",
+        "David Lazer",
+        "Mauricio Santillana"
+      ],
+      "venue": "PNAS",
+      "url": "https://www.pnas.org/doi/abs/10.1073/pnas.2622260123?af=R",
+      "pdf_url": "https://www.medrxiv.org/content/medrxiv/early/2026/06/24/2026.06.15.26355705.full.pdf",
+      "doi": "10.1073/pnas.2622260123",
+      "published": "2026-11-05",
+      "source": "journal"
+    },
+    "script": {
+      "title_zh": "信任CDC的人，真的比較會戴口罩",
+      "title_en": "Do You Trust the CDC? It Tracked Who Wore Masks",
+      "paper_title_zh": "信任是流行病動態的隱藏驅動力：傳染病模型中遺漏的參數",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "",
+          "heading_en": "",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "信任差距",
+          "big_text_en": "The trust gap",
+          "lines": [
+            {
+              "zh": "口罩戴不戴，看你信不信CDC？",
+              "en": "Masks? It depends on who you trust."
+            },
+            {
+              "zh": "看完就知道，模型漏掉了什麼。",
+              "en": "Stay to see what disease models leave out."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "哈佛等團隊，發表在PNAS期刊。",
+              "en": "Harvard and Northeastern teams, published in PNAS."
+            }
+          ]
+        },
+        {
+          "visual": "survey",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "很信任",
+            "完全不信"
+          ],
+          "labels_en": [
+            "A lot",
+            "Not at all"
+          ],
+          "values": [],
+          "big_text": "你信任CDC嗎？",
+          "big_text_en": "How much do you trust the CDC?",
+          "lines": [
+            {
+              "zh": "疫情期間，他們做了20輪全美問卷。",
+              "en": "During COVID, they ran 20 rounds of a national online survey."
+            },
+            {
+              "zh": "問大家：你多信任美國疾管署CDC？",
+              "en": "It asked: how much do you trust the US CDC?"
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "差距",
+          "heading_en": "THE GAP",
+          "labels": [
+            "信任",
+            "黨派"
+          ],
+          "labels_en": [
+            "Trust",
+            "Party"
+          ],
+          "values": [
+            38.8,
+            25.9
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "最信任的人比最不信任的，多近4成總是戴口罩。",
+              "en": "Most trusting vs. least: nearly 40 points more always masked."
+            },
+            {
+              "zh": "這比黨派的差距還大。",
+              "en": "That's bigger than the party gap."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "公平檢驗",
+          "heading_en": "FAIR TEST",
+          "labels": [
+            "年齡收入",
+            "黨派立場",
+            "居住地區"
+          ],
+          "labels_en": [
+            "Age & income",
+            "Party & views",
+            "Where you live"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但信任可能只是政黨的替身。",
+              "en": "But trust might just be a stand-in for politics."
+            },
+            {
+              "zh": "把年齡、政黨、地區都算進去，差距仍有三成。",
+              "en": "Adjusting for age, party and region, a 3-in-10 gap remained."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "行為",
+          "heading_en": "BEHAVIORS",
+          "labels": [
+            "口罩",
+            "疫苗",
+            "看醫生"
+          ],
+          "labels_en": [
+            "Masks",
+            "Vaccines",
+            "Doctor visits"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "信任高的人更常戴口罩打疫苗，但看醫生沒差。",
+              "en": "Trusting people masked and got vaccinated more, but doctor visits barely differed."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "FINDING",
+          "labels": [
+            "信任",
+            "疾病模型"
+          ],
+          "labels_en": [
+            "Trust",
+            "Disease models"
+          ],
+          "values": [],
+          "big_text": "缺了信任這塊",
+          "big_text_en": "Trust: a missing piece",
+          "lines": [
+            {
+              "zh": "作者認為，疫情模型該把信任算進去。",
+              "en": "The authors say disease models should count trust."
+            },
+            {
+              "zh": "但這只是關聯，不能證明信任造成行為。",
+              "en": "But it's a survey link, not proof trust causes behavior."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "信任與防疫行為有關",
+          "big_text_en": "Trust is linked to protective behavior",
+          "lines": [
+            {
+              "zh": "記住：信任和防疫行為有關。",
+              "en": "Remember: trust is linked to protective behavior."
+            },
+            {
+              "zh": "作者建議，疾病模型也該納入。",
+              "en": "The authors suggest adding it to disease models."
+            },
+            {
+              "zh": "想看更多，歡迎追蹤。",
+              "en": "Follow for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "美國二十輪全國網路調查發現，越信任CDC的人，越常固定戴口罩、也越常打疫苗，差距比黨派還大。但看醫生的比例幾乎沒差。這只是問卷上的關聯，不能證明因果，作者建議把信任加進疾病模型。",
+      "description_en": "Does trust in the CDC predict who wore masks and got vaccinated? This PNAS study analyzed 20 rounds of a US national survey and found trust gaps larger than those by age, income, education or party. It shows an association, not proof of cause.",
+      "hashtags": [
+        "行為解碼",
+        "信任",
+        "疫情",
+        "口罩",
+        "公共衛生",
+        "BehaviorDecoded",
+        "COVID19",
+        "PublicHealth"
+      ],
+      "method_summary": "The authors used 20 waves of CHIP50, a nationally representative nonprobability online survey of US adults run roughly every one to two months from April 2020 to January 2024, weighted to Census benchmarks. Respondents rated trust in the CDC, doctors and hospitals, state governments and banks on a four-point scale (a lot to not at all). Outcomes were self-reported protective behaviors: always wearing a mask, always avoiding contact, always avoiding crowds, frequent handwashing, plus vaccination and visiting a doctor or hospital. Unadjusted, the mask-wearing gap between highest and lowest CDC trust averaged 38.8 percentage points, versus 25.9 for Democrats vs. Republicans and about 6 to 10 for age, education and income. Survey-weighted logistic regressions adjusted for age, race, education, income, urbanicity, party, ideology, region and employment; the adjusted mask gap stayed around 32 to 37 points in landmark waves. Adding blocks of covariates step by step showed only political identity noticeably shrank the trust gap (about 41 to 31 points). Removing trust hurt model fit more than removing any other block. Trust in banks, used as a negative control, showed a much smaller gap (about 3 to 6 points), and trust in the CDC was unrelated to doctor visits. The authors propose splitting epidemic models into high, medium and low trust groups with different contact and vaccination rates.",
+      "limitations": "The results are observational associations, not causal effects; political identity may be a mediator or competing factor rather than a simple confounder. Behaviors are self-reported. Trust was measured with a single survey item. The parallel decline of trust and protective behavior cannot be separated from pandemic fatigue. CHIP50 is a nonprobability US sample, so low-trust people may be underrepresented. The proposed trust-based transmission model is a framework and was not tested against epidemic data.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "戴不戴口罩，看你信誰？",
+          "看完就知道，疫情模型漏了什麼。"
+        ],
+        [
+          "哈佛、東北大學團隊，登在 PNAS。"
+        ],
+        [
+          "疫情期間，做了二十輪全國網路調查。",
+          "問一句：你多信任美國疾管署？"
+        ],
+        [
+          "最信任和最不信任的人，",
+          "固定戴口罩的差了近四十個百分點。",
+          "比黨派的差距還大。"
+        ],
+        [
+          "但信任會不會只是政治的替身？",
+          "排除年齡、黨派、地區後，仍差三成。"
+        ],
+        [
+          "信任的人更常戴口罩、打疫苗，",
+          "但看醫生的比例幾乎沒差。"
+        ],
+        [
+          "作者建議，疾病模型要把信任算進去。",
+          "但這只是問卷關聯，不能證明因果。"
+        ],
+        [
+          "記住，信任和防疫行為有關。",
+          "作者建議，把它加進疾病模型。",
+          "追蹤我們看更多。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "thumb-up",
+          "thumb-down"
+        ],
+        [
+          "heart-handshake",
+          "flag"
+        ],
+        [
+          "calendar",
+          "users-group",
+          "map-pin"
+        ],
+        [
+          "face-mask",
+          "vaccine",
+          "stethoscope"
+        ],
+        [
+          "heart-handshake",
+          "virus"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 49.46,
+        "cover_offset_ms": 5875,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 41.36,
+        "cover_offset_ms": 5488,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "RX7_DlP9JNA",
+          "url": "https://youtube.com/shorts/RX7_DlP9JNA"
+        },
+        "instagram": {
+          "id": "18109566815526730",
+          "url": "https://www.instagram.com/reel/DfzNIogAnzk/"
+        },
+        "threads": {
+          "id": "18351313483251216",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfzNPzDhxym"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "HQ2eUSb7yqI",
+          "url": "https://youtube.com/shorts/HQ2eUSb7yqI"
+        },
+        "instagram": {
+          "id": "18112384805580815",
+          "url": "https://www.instagram.com/reel/DfzNY-vjwOQ/"
+        },
+        "threads": {
+          "id": "18502111444096495",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DfzNdtiPvmz"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261116-trust-as-a-hidden-driver-of-epidemic-rel",
+    "pick_reason": "A multi-wave national survey analysis showing that institutional trust predicts mask-wearing, avoiding crowds and vaccination is a concrete health-behavior question and easy to explain in 3-4 steps. Signals: Channel notes favor concrete everyday decisions and non-AI topics over abstract market mechanisms; this topic is not close to any recent episode."
   }
 ]

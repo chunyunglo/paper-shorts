@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-16
 
+- **短影音 Short** · [信任CDC的人，真的比較會戴口罩 / Do You Trust the CDC? It Tracked Who Wore Masks](https://youtube.com/shorts/RX7_DlP9JNA)
+  - 論文 Paper: [Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves](https://www.pnas.org/doi/abs/10.1073/pnas.2622260123?af=R) (PNAS)
+  - 為什麼 Why: A multi-wave national survey analysis showing that institutional trust predicts mask-wearing, avoiding crowds and vaccination is a concrete health-behavior question and easy to explain in 3-4 steps. Signals: Channel notes favor concrete everyday decisions and non-AI topics over abstract market mechanisms; this topic is not close to any recent episode.
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfyoJT8EVAW)
   - 內容 Text: 📈 盤前心理學｜如果你想知道大家最近在關注哪支股票，最直接的辦法可能是看他們在 Google 搜尋什麼。 Da、Engelberg 與 Gao 就這樣做了。他們用 Google 搜尋量指數（SVI）當作投資人注意力的直接指標，分析 2004…
   - 論文 Paper: [In Search of Attention](https://doi.org/10.1111/j.1540-6261.2011.01679.x) (Journal of Finance)
