@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-16
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df0ciB_lX6e)
+  - 內容 Text: 🌙 盤後研究室｜為什麼有些人明明可以投資股市，卻一直沒進場？理論上，資訊成本與交易成本這類「摩擦」，可能是原因之一。 Bogan（2008）用家戶的追蹤資料，看股市參與率的變化。摘要只寫「過去十年」，沒有列出確切年份，也沒有說是哪個地區的家…
+  - 論文 Paper: [Stock Market Participation and the Internet](https://doi.org/10.1017/s0022109000002799) (Journal of Financial and Quantitative Analysis)
+  - 為什麼 Why: 近期貼文都在談交易偏誤與注意力,這篇換成「誰會進入股市」的參與題材,而且今天的標題多為恐慌式個股新聞,不適合硬掛,用研究本身帶出新角度。
+  - 花費 Claude cost: US$0.093
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfzWQEGoHVD)
   - 內容 Text: 🏭 產業前沿｜一個通用的 AI 原子模型，在鈉離子電池的硬碳上，連「兩個鈉原子會不會靠在一起」都算錯，你會怎麼辦？ 這篇論文測了多個預訓練模型，發現它們在鈉簇聚在石墨烯上的情況表現不佳：第一原理計算(DFT)顯示兩個鈉有穩定距離，預訓練模型…
   - 論文 Paper: [Fine-tuned atomistic foundation model for accurate sodium-carbon chemistry in Na-ion batteries](https://arxiv.org/abs/2611.18490) (arXiv cond-mat.mtrl-sci)

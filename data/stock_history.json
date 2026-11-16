@@ -497,5 +497,32 @@
     "cost_usd": 0.194,
     "id": "17956644456272435",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfzWQEGoHVD"
+  },
+  {
+    "posted": "2026-11-16T22:38:00+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜為什麼有些人明明可以投資股市，卻一直沒進場？理論上，資訊成本與交易成本這類「摩擦」，可能是原因之一。\n\nBogan（2008）用家戶的追蹤資料，看股市參與率的變化。摘要只寫「過去十年」，沒有列出確切年份，也沒有說是哪個地區的家戶。研究發現，使用電腦與網路的家庭，參與率提高的幅度，大於沒有使用的家庭。作者把這個變化連結到網路降低了這些摩擦。\n\n摘要還有一個換算：參與機率的增幅，相當於多了超過 27,000 美元的家戶收入，或多了超過兩年的平均教育年數。\n\n這不代表上網就會讓人投資，也不是在談今天的行情。摘要呈現的是「門檻變低」與「參與提高」連在一起，我們能讀到的就是這一層。\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文都在談交易偏誤與注意力,這篇換成「誰會進入股市」的參與題材,而且今天的標題多為恐慌式個股新聞,不適合硬掛,用研究本身帶出新角度。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1017/s0022109000002799",
+      "title": "Stock Market Participation and the Internet",
+      "abstract": "Theory indicates that frictions (e. g., information and transaction costs) could account for the lower than expected stock market participation rates. This paper examines the hypothesis that there has been a fundamental change in participation and links this change to the reduction of these frictions by the advent of the Internet. Using panel data on household participation rates over the past decade, the results show computer/Internet using households raised participation substantially more than non-computer using households. The increased probability of participation was equivalent to having over $27,000 in additional household income or over two more mean years of education.",
+      "authors": [
+        "Vicki Bogan"
+      ],
+      "venue": "Journal of Financial and Quantitative Analysis",
+      "url": "https://doi.org/10.1017/s0022109000002799",
+      "pdf_url": null,
+      "doi": "10.1017/s0022109000002799",
+      "published": "2008",
+      "source": "journal"
+    },
+    "cost_usd": 0.0926,
+    "id": "18083466986379901",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df0ciB_lX6e"
   }
 ]
