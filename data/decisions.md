@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-16
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfzSzWjmznC)
+  - 內容 Text: 最信任CDC和最不信任CDC的美國人，「總是戴口罩」的比例平均差了38.8個百分點。同一份資料裡，兩大黨支持者之間差25.9個百分點，年齡、教育、收入的差距約6到10個百分點。 我們今天介紹的研究（PNAS, 2026）用了美國CHIP50…
+  - 為什麼 Why: The CDC-trust paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was a question; Instagram image posts stay paused per the notes, roundups have underperformed, and no headline links to it without partisan or tragic framing.
+  - 根據的集數 Based on: 20261116-trust-as-a-hidden-driver-of-epidemic-rel
 - **短影音 Short** · [信任CDC的人，真的比較會戴口罩 / Do You Trust the CDC? It Tracked Who Wore Masks](https://youtube.com/shorts/RX7_DlP9JNA)
   - 論文 Paper: [Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves](https://www.pnas.org/doi/abs/10.1073/pnas.2622260123?af=R) (PNAS)
   - 為什麼 Why: A multi-wave national survey analysis showing that institutional trust predicts mask-wearing, avoiding crowds and vaccination is a concrete health-behavior question and easy to explain in 3-4 steps. Signals: Channel notes favor concrete everyday decisions and non-AI topics over abstract market mechanisms; this topic is not close to any recent episode.
