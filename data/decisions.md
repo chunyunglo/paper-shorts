@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-16
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DfyoJT8EVAW)
+  - 內容 Text: 📈 盤前心理學｜如果你想知道大家最近在關注哪支股票，最直接的辦法可能是看他們在 Google 搜尋什麼。 Da、Engelberg 與 Gao 就這樣做了。他們用 Google 搜尋量指數（SVI）當作投資人注意力的直接指標，分析 2004…
+  - 論文 Paper: [In Search of Attention](https://doi.org/10.1111/j.1540-6261.2011.01679.x) (Journal of Finance)
+  - 為什麼 Why: 近日已連發多篇台灣交易資料與券商App注意力研究，這篇換成搜尋行為的新資料來源，延續注意力主題但角度不同，且尚未用過。
+  - 花費 Claude cost: US$0.072
+
 ## 2026-11-15
 
 - **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/DfxgN-rI66k)

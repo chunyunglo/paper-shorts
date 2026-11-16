@@ -438,5 +438,34 @@
     "cost_usd": 0.1013,
     "id": "18128194109489218",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfxgN-rI66k"
+  },
+  {
+    "posted": "2026-11-16T05:41:04+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜如果你想知道大家最近在關注哪支股票，最直接的辦法可能是看他們在 Google 搜尋什麼。\n\nDa、Engelberg 與 Gao 就這樣做了。他們用 Google 搜尋量指數（SVI）當作投資人注意力的直接指標，分析 2004 至 2008 年美國羅素 3000 成分股。\n\n研究發現，SVI 和既有的注意力指標相關但不相同，反應也更即時，而且可能反映的是散戶的注意力。搜尋量上升後，股價在接下來兩週傾向偏高，一年內則出現反轉。SVI 也和 IPO 股票首日的大幅報酬、長期表現落後有關。\n\n這是特定年份、特定市場的研究結果，描述的是注意力與價格的關係，不是進出場的依據。\n\n（研究分享，不是投資建議）",
+    "why": "近日已連發多篇台灣交易資料與券商App注意力研究，這篇換成搜尋行為的新資料來源，延續注意力主題但角度不同，且尚未用過。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/j.1540-6261.2011.01679.x",
+      "title": "In Search of Attention",
+      "abstract": "We propose a new and direct measure of investor attention using search frequency in Google (Search Volume Index (SVI)). In a sample of Russell 3000 stocks from 2004 to 2008, we find that SVI (1) is correlated with but different from existing proxies of investor attention; (2) captures investor attention in a more timely fashion and (3) likely measures the attention of retail investors. An increase in SVI predicts higher stock prices in the next 2 weeks and an eventual price reversal within the year. It also contributes to the large first-day return and long-run underperformance of IPO stocks.",
+      "authors": [
+        "Zhi Da",
+        "Joseph Engelberg",
+        "Pengjie Gao"
+      ],
+      "venue": "Journal of Finance",
+      "url": "https://doi.org/10.1111/j.1540-6261.2011.01679.x",
+      "pdf_url": null,
+      "doi": "10.1111/j.1540-6261.2011.01679.x",
+      "published": "2011",
+      "source": "journal"
+    },
+    "cost_usd": 0.0717,
+    "id": "18102618872401241",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfyoJT8EVAW"
   }
 ]
