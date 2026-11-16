@@ -467,5 +467,35 @@
     "cost_usd": 0.0717,
     "id": "18102618872401241",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfyoJT8EVAW"
+  },
+  {
+    "posted": "2026-11-16T12:23:52+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜一個通用的 AI 原子模型，在鈉離子電池的硬碳上，連「兩個鈉原子會不會靠在一起」都算錯，你會怎麼辦？\n\n這篇論文測了多個預訓練模型，發現它們在鈉簇聚在石墨烯上的情況表現不佳：第一原理計算(DFT)顯示兩個鈉有穩定距離，預訓練模型卻預測互相排斥。作者用針對性資料微調後，誤差從 32.43 降到 1.65 meV/原子。更廣的資料集微調後，測試集誤差約 10.70 meV/原子。\n\n論文做到的是模擬層面的準確度，也看到小孔洞的電壓較高、大孔洞較低。如果成真，可能讓材料篩選的計算更快；但這是理想化的圓柱孔模型，離實際電池產品還有一段距離，作者也坦承部分結構的預測仍和 DFT 有差。\n\n（研究分享，不是投資建議）",
+    "why": "近日產業前沿多談AI硬體、記憶體與資料中心電力，這篇換成電池材料，補上較少出現的材料領域，也避開已用過的主題。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.18490",
+      "title": "Fine-tuned atomistic foundation model for accurate sodium-carbon chemistry in Na-ion batteries",
+      "abstract": "Atomistic foundation models have emerged as a promising route to DFT-level accuracy for materials simulation with complex chemical environments. However, their reliability across competing bonding regimes and, more importantly, how complex bonding affects predictions of material properties remain unclear. Among materials with competing bonding regimes, sodium storage in hard carbon poses a substantial challenge. Hard carbon features diverse local structural motifs, including defective and curved graphitic regions, amorphous regions, and closed/open pores. Motivated by its importance for Na-ion batteries, we systematically evaluate existing pretrained foundation models based on the MACE architecture across different local Na/C motifs. We find that the pretrained models fail to accurately capture Na-Na and Na-C interactions for metallic Na clusters on graphene. To recover a DFT-level energetic description, we employ targeted fine-tuning, showing that it can describe the energetic stability of local motifs and achieve sufficient transferability to unseen Na/C environments. With the developed fine-tuned model, we establish a correlation between closed-pore radius in hard carbon and plateau voltage, showing that the small pores contribute at larger voltages than large ones, suggesting thus how the developed fine-tuned foundation model can link atomistic information with materials design for complex bonding environments.",
+      "authors": [
+        "Andres Felipe Usuga",
+        "Ihor Radchenko",
+        "Yuxin Tang",
+        "Oleksandr I. Malyi"
+      ],
+      "venue": "arXiv cond-mat.mtrl-sci",
+      "url": "https://arxiv.org/abs/2611.18490",
+      "pdf_url": "https://arxiv.org/pdf/2611.18490v1",
+      "doi": null,
+      "published": "2026-11-13",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.194,
+    "id": "17956644456272435",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DfzWQEGoHVD"
   }
 ]

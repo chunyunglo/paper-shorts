@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-16
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DfzWQEGoHVD)
+  - 內容 Text: 🏭 產業前沿｜一個通用的 AI 原子模型，在鈉離子電池的硬碳上，連「兩個鈉原子會不會靠在一起」都算錯，你會怎麼辦？ 這篇論文測了多個預訓練模型，發現它們在鈉簇聚在石墨烯上的情況表現不佳：第一原理計算(DFT)顯示兩個鈉有穩定距離，預訓練模型…
+  - 論文 Paper: [Fine-tuned atomistic foundation model for accurate sodium-carbon chemistry in Na-ion batteries](https://arxiv.org/abs/2611.18490) (arXiv cond-mat.mtrl-sci)
+  - 為什麼 Why: 近日產業前沿多談AI硬體、記憶體與資料中心電力，這篇換成電池材料，補上較少出現的材料領域，也避開已用過的主題。
+  - 花費 Claude cost: US$0.194
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DfzSzWjmznC)
   - 內容 Text: 最信任CDC和最不信任CDC的美國人，「總是戴口罩」的比例平均差了38.8個百分點。同一份資料裡，兩大黨支持者之間差25.9個百分點，年齡、教育、收入的差距約6到10個百分點。 我們今天介紹的研究（PNAS, 2026）用了美國CHIP50…
   - 為什麼 Why: The CDC-trust paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was a question; Instagram image posts stay paused per the notes, roundups have underperformed, and no headline links to it without partisan or tragic framing.
