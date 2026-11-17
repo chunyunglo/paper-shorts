@@ -115,12 +115,20 @@ def fetch_journal(venue: str, url: str) -> list[Paper]:
 REJECTED = Path(os.environ.get("REJECTED_PAPERS", "rejected_papers.txt"))
 
 
+SKIPPED = Path(__file__).resolve().parent.parent / "data" / "skip_papers.txt"
+
+
 def rejected_keys() -> set[str]:
-    """Papers whose script failed the fact check earlier in this run (one key per line)."""
-    try:
-        return {ln.strip() for ln in REJECTED.read_text(encoding="utf-8").splitlines() if ln.strip()}
-    except FileNotFoundError:
-        return set()
+    """Papers to leave out (one key per line): those whose script failed the fact check earlier in
+    this run, and those listed for good in data/skip_papers.txt."""
+    keys: set[str] = set()
+    for f in (REJECTED, SKIPPED):
+        try:
+            keys |= {ln.strip().lower() for ln in f.read_text(encoding="utf-8").splitlines()
+                     if ln.strip() and not ln.startswith("#")}
+        except FileNotFoundError:
+            pass
+    return keys
 
 
 def reject(paper: "Paper") -> None:

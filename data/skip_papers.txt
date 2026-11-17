@@ -1,0 +1,3 @@
+# Papers never to pick again (one id, DOI or normalized title per line)
+# 2026-11-17: the script failed the fact check on two tries
+straighttotheproductwhatonlineretailersmisswhenshoppersaskaifirst

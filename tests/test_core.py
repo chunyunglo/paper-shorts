@@ -671,6 +671,7 @@ def test_paper_failing_fact_check_is_skipped_by_the_retry(monkeypatch, tmp_path)
     from shorts import papers
 
     monkeypatch.setattr(papers, "REJECTED", tmp_path / "rejected.txt")
+    monkeypatch.setattr(papers, "SKIPPED", tmp_path / "none.txt")
     p = papers.Paper(id="arxiv:1", title="Straight to the Product", abstract="a", url="u", venue="v", source="arxiv")
     assert papers.rejected_keys() == set()
     papers.reject(p)
