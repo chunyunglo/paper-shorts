@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-17
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df25cQLElMU)
+  - 內容 Text: 🌙 盤後研究室｜單一股票的槓桿型 ETF，都選在什麼樣的股票上推出？ 研究看的是美股 2023 年 2 月以後推出的這類產品（單一股票槓桿 ETF 最早 2022 年才出現）。推出前，標的股票的波動度中位數約在前 1,000 大股票的第 9…
+  - 論文 Paper: [The Costs and Benefits of Leveraged ETFs](https://arxiv.org/abs/2611.01392) (arXiv econ.GN)
+  - 為什麼 Why: 這是未用過的新論文，主題是散戶偏好與產品設計，和近期的注意力、交易頻率題材不同，今天沒有大盤新聞，所以用 finding 當盤後研究室。
+  - 花費 Claude cost: US$0.284
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df19WQwlh1L)
   - 內容 Text: 🏭 產業前沿｜把一個記憶體單元的面積縮小約625倍，代價是什麼？ 這篇論文把鋁鈧氮（AlScN）鐵電層薄到10奈米，在2KB（128×128）的無選擇器交叉陣列中做出200奈米單元。和先前同容量、5微米單元的陣列相比，面積縮小約625倍；單…
   - 論文 Paper: [Multilevel AlScN Ferroelectric Diode Crossbar Arrays with Sub-200 nm Cells for Selector-Free Nonvolatile Memory](https://arxiv.org/abs/2611.21381) (arXiv physics.app-ph)

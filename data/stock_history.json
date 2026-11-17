@@ -590,5 +590,33 @@
     "cost_usd": 0.246,
     "id": "18121576981779214",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df19WQwlh1L"
+  },
+  {
+    "posted": "2026-11-17T21:29:05+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜單一股票的槓桿型 ETF，都選在什麼樣的股票上推出？\n\n研究看的是美股 2023 年 2 月以後推出的這類產品（單一股票槓桿 ETF 最早 2022 年才出現）。推出前，標的股票的波動度中位數約在前 1,000 大股票的第 94 百分位，過去六個月報酬約第 92 百分位。也就是波動大、又剛漲過一輪。研究者認為，這可能是在迎合散戶對樂透式報酬的偏好。\n\n但波動大也會墊高成本。在研究的假設下，標的每日波動 5% 時，2 倍產品要標的全年漲近 100%，才追平直接持有。\n\n對照之下，廣泛指數型槓桿 ETF 在 2006 年至 2025 年 9 月的樣本中，為投資人帶來逾 1,000 億美元獲利，比同樣資金投入標的資產多逾 400 億美元。不過這段期間股市報酬偏強。\n\n這不是買賣建議，只說明：同樣是槓桿，標的不同，結果差很多。\n\n（研究分享，不是投資建議）",
+    "why": "這是未用過的新論文，主題是散戶偏好與產品設計，和近期的注意力、交易頻率題材不同，今天沒有大盤新聞，所以用 finding 當盤後研究室。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.01392",
+      "title": "The Costs and Benefits of Leveraged ETFs",
+      "abstract": "We study the costs and benefits of leveraged ETFs (LETFs), focusing on five determinants of performance: volatility drag, fees, financing costs, product launches, and market timing. Long broad-equity-index LETFs generated more than 100 billion US dollars in investor gains, including over 40 billion US dollars relative to counterfactual investments in the underlying assets, due to modest structural headwinds and rising markets. Single-stock LETFs, however, are launched on stocks near the top of the volatility and past-return distributions. This caters to retail demand for lottery-like payoffs, but it also creates larger volatility drag, higher financing costs, and greater exposure to losses from poor market timing.",
+      "authors": [
+        "Chris Murray",
+        "Marco Sammon"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.01392",
+      "pdf_url": "https://arxiv.org/pdf/2611.01392v2",
+      "doi": null,
+      "published": "2026-11-01",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2837,
+    "id": "18348213679257494",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df25cQLElMU"
   }
 ]
