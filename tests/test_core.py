@@ -665,3 +665,14 @@ def test_visual_check_frames_come_late_in_each_scene():
     assert look.settled_times([(0.0, 4.0), (4.0, 8.0)], 8) == [3.0, 7.0]
     many = look.settled_times([(float(k), k + 1.0) for k in range(20)], 8)
     assert len(many) == 8 and many[0] == 0.75 and many[-1] == 19.75
+
+
+def test_paper_failing_fact_check_is_skipped_by_the_retry(monkeypatch, tmp_path):
+    from shorts import papers
+
+    monkeypatch.setattr(papers, "REJECTED", tmp_path / "rejected.txt")
+    monkeypatch.setattr(papers, "SKIPPED", tmp_path / "none.txt")
+    p = papers.Paper(id="arxiv:1", title="Straight to the Product", abstract="a", url="u", venue="v", source="arxiv")
+    assert papers.rejected_keys() == set()
+    papers.reject(p)
+    assert "arxiv:1" in papers.rejected_keys() and "straighttotheproduct" in papers.rejected_keys()

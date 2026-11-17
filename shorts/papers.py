@@ -1,6 +1,9 @@
 """Find candidate papers and let Claude pick this episode's paper."""
 from __future__ import annotations
 
+import os
+from pathlib import Path
+
 import base64
 import html
 import re
@@ -109,6 +112,32 @@ def fetch_journal(venue: str, url: str) -> list[Paper]:
     return out
 
 
+REJECTED = Path(os.environ.get("REJECTED_PAPERS", "rejected_papers.txt"))
+
+
+SKIPPED = Path(__file__).resolve().parent.parent / "data" / "skip_papers.txt"
+
+
+def rejected_keys() -> set[str]:
+    """Papers to leave out (one key per line): those whose script failed the fact check earlier in
+    this run, and those listed for good in data/skip_papers.txt."""
+    keys: set[str] = set()
+    for f in (REJECTED, SKIPPED):
+        try:
+            keys |= {ln.strip().lower() for ln in f.read_text(encoding="utf-8").splitlines()
+                     if ln.strip() and not ln.startswith("#")}
+        except FileNotFoundError:
+            pass
+    return keys
+
+
+def reject(paper: "Paper") -> None:
+    keys = [paper.id.lower(), norm_title(paper.title)] + ([paper.doi.lower()] if paper.doi else [])
+    with REJECTED.open("a", encoding="utf-8") as fh:
+        fh.write("\n".join(k for k in keys if k) + "\n")
+    log("Paper set aside for this run (fact check failed)")
+
+
 def candidates(history: list[dict]) -> list[Paper]:
     papers: list[Paper] = []
     try:
@@ -120,7 +149,7 @@ def candidates(history: list[dict]) -> list[Paper]:
             papers += fetch_journal(venue, url)
         except Exception as exc:
             log(f"{venue} feed skipped: {exc}")
-    seen = seen_keys(history)
+    seen = seen_keys(history) | rejected_keys()
     fresh, dedupe = [], set()
     for p in papers:
         keys = {p.id.lower(), norm_title(p.title)} | ({p.doi.lower()} if p.doi else set())
