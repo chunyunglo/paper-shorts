@@ -7633,5 +7633,370 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261116-trust-as-a-hidden-driver-of-epidemic-rel",
     "pick_reason": "A multi-wave national survey analysis showing that institutional trust predicts mask-wearing, avoiding crowds and vaccination is a concrete health-behavior question and easy to explain in 3-4 steps. Signals: Channel notes favor concrete everyday decisions and non-AI topics over abstract market mechanisms; this topic is not close to any recent episode."
+  },
+  {
+    "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+    "created": "2026-11-17T07:06:21+00:00",
+    "paper": {
+      "id": "arxiv:2611.16667",
+      "title": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+      "abstract": "People increasingly ask AI chatbots for advice, yet large language models (LLMs) are sycophantic, overconfident, and can amplify human cognitive biases. In this article, we investigate how people perceive advice from humans versus LLMs and whether AI advice reshapes incentive-compatible donation decisions. Using Carrier, a new experimental platform, we designed an experiment where participants made a donation decision after discussing it with an AI chatbot advisor, another human, or receiving no advice. Participants judged LLM advisors to be significantly more rational, trustworthy, convincing, and sycophantic than human advisors. Analysis of chatlogs showed that LLMs were more engaged than human advisors: they shared more facts and more often stated their opinion and justified their recommendations. Despite this, donation decisions did not vary across conditions.",
+      "authors": [
+        "Maximilian Maier",
+        "Tsz Kwan Emmy Wong",
+        "Jiahao Eric Yang",
+        "Falk Lieder",
+        "Vanessa Cheung"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.16667",
+      "pdf_url": "https://arxiv.org/pdf/2611.16667v1",
+      "doi": null,
+      "published": "2026-11-12",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "AI建議更動聽，捐款卻沒明顯差別",
+      "title_en": "People Prefer AI Advice, But Donations Didn't Change",
+      "paper_title_zh": "多輪對話中人們偏好AI建議勝過人類建議，但兩者都未改變有誘因的行為",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "",
+          "heading_en": "",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "沒明顯差異",
+          "big_text_en": "No clear difference",
+          "lines": [
+            {
+              "zh": "AI更動聽，捐款卻沒明顯差別？",
+              "en": "People preferred AI advice. Giving showed no clear change."
+            },
+            {
+              "zh": "一個可能的線索，藏在建議的金額裡。",
+              "en": "One possible clue is in what the advice actually said."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "英國華威大學團隊，發表在arXiv。",
+              "en": "A Warwick-led team, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "實驗設定",
+          "heading_en": "THE SETUP",
+          "labels": [
+            "你",
+            "獎金",
+            "慈善機構"
+          ],
+          "labels_en": [
+            "You",
+            "Prize",
+            "Charity"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "四百多人抽獎，決定捐多少，抽中真的照分。",
+              "en": "About 420 people entered a £97 lottery and chose how much to donate."
+            }
+          ]
+        },
+        {
+          "visual": "experiment",
+          "heading_zh": "三組",
+          "heading_en": "THREE GROUPS",
+          "labels": [
+            "沒聊天",
+            "聊天"
+          ],
+          "labels_en": [
+            "No chat",
+            "Chat"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們被隨機分到ChatGPT、真人，或沒人可問。",
+              "en": "They were randomly split: chat with ChatGPT, chat with a human, or no chat."
+            }
+          ]
+        },
+        {
+          "visual": "feed",
+          "heading_zh": "評分",
+          "heading_en": "RATINGS",
+          "labels": [
+            "附和"
+          ],
+          "labels_en": [
+            "Agrees"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "聊完，大家替建議者打分數。",
+              "en": "Afterwards, they rated how rational and trustworthy the advisor was."
+            },
+            {
+              "zh": "另一個AI讀聊天，標出有沒有附和。",
+              "en": "Another AI read the chats for agreement."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "FINDINGS",
+          "labels": [
+            "ChatGPT",
+            "真人"
+          ],
+          "labels_en": [
+            "ChatGPT",
+            "Human"
+          ],
+          "values": [],
+          "big_text": "更受信任",
+          "big_text_en": "More trusted",
+          "lines": [
+            {
+              "zh": "結果ChatGPT更理性、更可信。",
+              "en": "ChatGPT seemed more rational and trustworthy."
+            },
+            {
+              "zh": "近九成ChatGPT聊天肯定對方，真人聊天不到一半。",
+              "en": "87% of ChatGPT chats backed the person's plan; humans, 47%."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "捐款",
+          "heading_en": "DONATIONS",
+          "labels": [
+            "ChatGPT",
+            "真人",
+            "沒建議"
+          ],
+          "labels_en": [
+            "ChatGPT",
+            "Human",
+            "No advice"
+          ],
+          "values": [
+            25.8,
+            28.3,
+            30.4
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "最後捐的錢沒有明顯差異，但證據不算很強。",
+              "en": "No clear difference in final giving, though the evidence is modest."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "可能原因",
+          "heading_en": "POSSIBLE WHY",
+          "labels": [
+            "建議金額",
+            "ChatGPT",
+            "真人"
+          ],
+          "labels_en": [
+            "Suggested sum",
+            "ChatGPT",
+            "Human"
+          ],
+          "values": [],
+          "big_text": "金額很接近",
+          "big_text_en": "Similar amounts",
+          "lines": [
+            {
+              "zh": "一個可能的解釋：有提金額時，兩邊很接近。",
+              "en": "One possible reason: when they named an amount, it was similar."
+            },
+            {
+              "zh": "不過這沒被驗證，也只測一種捐款決定。",
+              "en": "But that wasn't tested, and it was one donation decision."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "動聽，但沒明顯改變捐款",
+          "big_text_en": "Sounding good, no clear change here",
+          "lines": [
+            {
+              "zh": "這個捐款任務裡，動聽的AI建議沒明顯改變捐款。",
+              "en": "In this donation task, persuasive AI didn't clearly change giving."
+            },
+            {
+              "zh": "想看更多行為研究，歡迎追蹤。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "大家覺得AI的建議比真人更理性、更可信，也更常附和自己。但在97英鎊的捐款實驗裡，最後捐多少沒有明顯差別。這項任務只測了一種捐款決定，結果不能直接套用到其他情況。",
+      "description_en": "More and more people ask AI chatbots for advice. In this study, about 420 decision-makers chose how much of a £97 lottery prize to donate to a malaria charity, after chatting with ChatGPT, chatting with a person, or getting no advice (about 150 other participants acted as the human advisors). People rated ChatGPT as more rational and trustworthy, yet final donations showed no clear difference across groups, though the evidence for no difference was only weak to moderate.",
+      "hashtags": [
+        "行為解碼",
+        "AI建議",
+        "ChatGPT",
+        "捐款",
+        "行為科學",
+        "AIadvice",
+        "BehavioralScience",
+        "Sycophancy"
+      ],
+      "method_summary": "The study ran on an online platform called Carrier with participants recruited via Prolific (600 recruited, 572 analysed, which includes about 149 human advisors; roughly 423 were decision-makers, 150 recruited per condition). Decision-makers entered a lottery for £97 and decided how much to keep versus donate to the Against Malaria Foundation; if they won, their decision was executed with real money. Human advisors only gave advice and made a hypothetical donation decision. Decision-makers were randomly assigned to discuss the decision in a live text chat with an LLM (ChatGPT), with another participant acting as advisor, or with no one. Everyone was told truthfully who they would chat with. Advice-condition participants stated an initial non-binding preference before chatting and then made a final decision. Afterwards they rated advisors on rationality, trustworthiness, convincingness and sycophancy. Chat transcripts were coded by another LLM, validated against a research assistant on 10% of chats. Average final donations were £25.8 (LLM advice), £28.3 (human advice) and £30.4 (no advice), with no significant differences and only weak to moderate Bayesian evidence for the null. Participants rated the LLM as more rational, trustworthy, convincing and sycophantic. LLM advisors wrote far more, shared more facts and reasons, and in 87% of chats explicitly or implicitly affirmed the advisee's action versus 47% for humans (coded per conversation). Where advisors named an amount (about 33% of human chats, 64% of LLM chats), suggestions were nearly identical (about £36.7 vs £35.9); the authors offer this as one possible explanation for the null result, not a tested cause.",
+      "limitations": "The study tested a single, one-off donation decision to one charity in a short chat of about four to five minutes, with online Prolific participants. The no-difference result rests on weak to moderate Bayesian evidence for the null, so it does not prove advice never matters. The similar suggested amounts are only a possible explanation, not tested as the cause, and amounts were named in only some chats. Only about 64% of advisees in the human condition believed they chatted with a human. Chat coding relied on an LLM autograder, and the paper is a preprint.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "AI建議比較討喜，捐款卻沒差？",
+          "線索藏在建議內容裡。"
+        ],
+        [
+          "華威大學團隊，貼在arXiv。"
+        ],
+        [
+          "約420人抽97英鎊，自己決定捐多少。"
+        ],
+        [
+          "隨機分組：ChatGPT、真人、不聊。"
+        ],
+        [
+          "聊完請他們評分：理性嗎？可信嗎？",
+          "另一個AI看對話有沒有附和。"
+        ],
+        [
+          "大家覺得ChatGPT更理性、更可信。",
+          "ChatGPT有87%的對話挺你的計畫",
+          "真人只有47%。"
+        ],
+        [
+          "最後捐的錢，看不出明顯差別。",
+          "不過證據只算普通。"
+        ],
+        [
+          "可能原因：建議的金額很接近。",
+          "但這沒驗證，也只測一種捐款。"
+        ],
+        [
+          "這任務裡，動聽的AI沒明顯改變捐款。",
+          "想看更多行為研究，記得追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "user",
+          "trophy",
+          "heart-handshake"
+        ],
+        [
+          "bubble-minus",
+          "messages"
+        ],
+        [
+          "checks"
+        ],
+        [
+          "robot",
+          "user"
+        ],
+        [
+          "robot",
+          "user",
+          "bubble-x"
+        ],
+        [
+          "cash",
+          "robot",
+          "user"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 41.49,
+        "cover_offset_ms": 5737,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 51.38,
+        "cover_offset_ms": 9045,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "gDJVKOM4Hkc",
+          "url": "https://youtube.com/shorts/gDJVKOM4Hkc"
+        },
+        "instagram": {
+          "id": "18121575904785214",
+          "url": "https://www.instagram.com/reel/Df1x83aDuEr/"
+        },
+        "threads": {
+          "id": "17989694397110091",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df1yBtohcpP"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "wNIXWmVJiuk",
+          "url": "https://youtube.com/shorts/wNIXWmVJiuk"
+        },
+        "instagram": {
+          "id": "18418287298091630",
+          "url": "https://www.instagram.com/reel/Df1yMxWDx23/"
+        },
+        "threads": {
+          "id": "17878893747650832",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df1yURHT8oZ"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261117-people-prefer-ai-to-human-advice-in-mult",
+    "pick_reason": "A behavioral experiment on how people judge and act on advice from AI versus humans, with an incentivised donation decision and a surprising split between stated preference and actual behavior, which is concrete, relatable and easy to explain in a few steps. Signals: Notes favor concrete everyday-decision topics and an answer given within the first seconds; this paper has a clear preference-versus-behavior twist and avoids topics near recent episodes."
   }
 ]

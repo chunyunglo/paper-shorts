@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [Stock Market Literacy, Trust, and Participation](https://doi.org/10.1093/rof/rfu040) (Review of Finance)
   - 為什麼 Why: 近期貼文已連續談過台灣交易資料、注意力與參與摩擦，這篇切入「金融知識與信任」是新角度，且屬於真實家戶資料的行為研究，能讓本週題材更多元。
   - 花費 Claude cost: US$0.079
+- **短影音 Short** · [AI建議更動聽，捐款卻沒明顯差別 / People Prefer AI Advice, But Donations Didn't Change](https://youtube.com/shorts/gDJVKOM4Hkc)
+  - 論文 Paper: [People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour](https://arxiv.org/abs/2611.16667) (arXiv cs.HC)
+  - 為什麼 Why: A behavioral experiment on how people judge and act on advice from AI versus humans, with an incentivised donation decision and a surprising split between stated preference and actual behavior, which is concrete, relatable and easy to explain in a few steps. Signals: Notes favor concrete everyday-decision topics and an answer given within the first seconds; this paper has a clear preference-versus-behavior twist and avoids topics near recent episodes.
 
 ## 2026-11-16
 
