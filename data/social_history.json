@@ -408,5 +408,19 @@
     "why": "The CDC-trust paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was a question; Instagram image posts stay paused per the notes, roundups have underperformed, and no headline links to it without partisan or tragic framing.",
     "id": "18095098730209995",
     "url": "https://www.threads.com/@human__behavior__decode/post/DfzSzWjmznC"
+  },
+  {
+    "posted": "2026-11-17T12:15:58+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261117-people-prefer-ai-to-human-advice-in-mult"
+    ],
+    "text": "先跟AI聊過再決定要捐多少錢，你會捐得不一樣嗎？\n\n我們今天介紹的研究（arXiv, 2026，預印本）透過Prolific找線上受試者。決策者參加一個97英鎊的抽獎，先決定中獎後自己留多少、捐多少給抗瘧疾基金會。如果中獎，就用真錢照這個決定執行。\n\n決策者被隨機分成三組：跟ChatGPT文字聊天、跟另一位真人顧問聊天、不跟任何人聊。\n\n發現：\n・平均最後捐款：AI組25.8英鎊、真人組28.3英鎊、無建議組30.4英鎊，差異不顯著\n・受試者卻覺得AI比較理性、可信、有說服力，也比較會順著自己說\n・87%的AI對話有明說或暗示肯定對方的做法，真人顧問是47%\n\n限制：只測了一次決定、一個慈善機構、約四五分鐘的聊天。「沒差別」的證據只有弱到中等，不代表建議永遠沒用。\n\n覺得一個顧問比較有說服力，跟真的被他改變決定，看起來是兩回事。研究設計細節在我們的影片裡。",
+    "news": null,
+    "why": "The donation-advice paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline links responsibly to it, Instagram image posts stay paused per the notes, and roundups are being reduced.",
+    "id": "18100361114544883",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df16LI4kQoF"
   }
 ]

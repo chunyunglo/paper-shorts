@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-17
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df16LI4kQoF)
+  - 內容 Text: 先跟AI聊過再決定要捐多少錢，你會捐得不一樣嗎？ 我們今天介紹的研究（arXiv, 2026，預印本）透過Prolific找線上受試者。決策者參加一個97英鎊的抽獎，先決定中獎後自己留多少、捐多少給抗瘧疾基金會。如果中獎，就用真錢照這個決定…
+  - 為什麼 Why: The donation-advice paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline links responsibly to it, Instagram image posts stay paused per the notes, and roundups are being reduced.
+  - 根據的集數 Based on: 20261117-people-prefer-ai-to-human-advice-in-mult
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df1YFS3Fn2S)
   - 內容 Text: 📈 盤前心理學｜愛社交的人，比較會買股票嗎？ 《Review of Finance》上的一篇研究（Balloch 等人），探討家庭為什麼參與股市。研究發現，「對股市的理解程度」和「對股市的信任」是兩條各自獨立的管道，同時解釋了家庭有沒有持股…
   - 論文 Paper: [Stock Market Literacy, Trust, and Participation](https://doi.org/10.1093/rof/rfu040) (Review of Finance)
