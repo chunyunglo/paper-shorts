@@ -52,7 +52,12 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
             scriptmod.validate(script)
         else:
             script = scriptmod.write(paper, news, notes)
-            script = scriptmod.fact_check(paper, script, news)
+            try:
+                script = scriptmod.fact_check(paper, script, news)
+            except SystemExit:
+                # remember the paper, so the run's second try picks a different one
+                papers.reject(paper)
+                raise
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
     if "pt" in LANGS and not script.pt:
         script.pt = scriptmod.translate_pt(script)
