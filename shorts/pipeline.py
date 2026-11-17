@@ -75,7 +75,9 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
     if len(script.icons) != len(script.scenes):  # new, revised, or made before icons existed
         scriptmod.pick_icons(script)
 
-    videos = {}
+    from .look import settled_times as look_times
+
+    videos, check_times = {}, {}
     for lang in LANGS:
         audio = out / f"voice_{lang}.wav"
         timings, total = tts.voiceover(spoken(script, lang), audio, lang)
@@ -84,6 +86,8 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
         render.encode(r, audio, out / f"video_{lang}.mp4", preview_every=preview_every)
         cover_at = timings[1 if len(timings) > 1 else 0].start + 1.2
         r.frame(int(cover_at * 30)).convert("RGB").save(out / f"cover_{lang}.jpg", quality=90)
+        # frames for the visual check come from late in each scene, once its pictures have settled
+        check_times[lang] = look_times([(x.start, x.end) for x in timings])
         videos[lang] = {"file": f"video_{lang}.mp4", "duration": round(r.duration, 2),
                         "cover_offset_ms": int(cover_at * 1000), "tts": tts.used.get(lang) or " ".join(tts.choose(lang)).strip()}
 
@@ -101,11 +105,12 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
     if config.env("ANTHROPIC_API_KEY") and config.env("VISUAL_CHECK") != "off":
         from . import look
 
-        problems = look.check({f"{lang} ({v['duration']:.0f}s, 1080x1920 vertical short)": out / v["file"]
-                               for lang, v in videos.items()},
+        label = {lang: f"{lang} ({v['duration']:.0f}s, 1080x1920 vertical short)" for lang, v in videos.items()}
+        problems = look.check({label[lang]: out / v["file"] for lang, v in videos.items()},
                               "Each video is the same episode in one language (zh = Traditional Chinese, en = "
                               "English, pt = Brazilian Portuguese): narration subtitles, scene headings, labels and "
-                              "numbers come from this script.\n\n" + script_markdown(meta))
+                              "numbers come from this script.\n\n" + script_markdown(meta),
+                              times={label[lang]: t for lang, t in check_times.items()})
         if problems and fix_visual:
             # usually on-screen text that is too long for its box: let Claude shorten it and render once more
             log("Visual check found problems; fixing the on-screen text and rendering again: " + "; ".join(problems))

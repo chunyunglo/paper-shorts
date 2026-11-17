@@ -403,7 +403,7 @@ def test_failed_visual_check_fixes_the_text_once_then_stops(monkeypatch, tmp_pat
     monkeypatch.setattr(pipeline, "OUT", tmp_path)
     monkeypatch.setattr(pipeline, "LANGS", ["en"])
     monkeypatch.setattr(pipeline, "build", fake_build)
-    monkeypatch.setattr(pipeline.tts, "voiceover", lambda *a: ([types.SimpleNamespace(start=0.0)], 1.0))
+    monkeypatch.setattr(pipeline.tts, "voiceover", lambda *a: ([types.SimpleNamespace(start=0.0, end=1.0)], 1.0))
     monkeypatch.setattr(pipeline.tts, "choose", lambda lang: ("silent", ""))
     monkeypatch.setattr(pipeline.render, "Renderer", R)
     monkeypatch.setattr(pipeline.render, "encode", lambda *a, **k: None)
@@ -657,3 +657,11 @@ def test_gemini_voices_each_language_in_one_request(monkeypatch, tmp_path):
     assert [len(s.lines) for s in timings] == [2, 1]
     tts.voiceover([["你以為呢", "其實不是，"], ["答案在這裡"]], tmp_path / "b.wav", "zh")
     assert len(calls) == 1   # the re-render reuses it
+
+
+def test_visual_check_frames_come_late_in_each_scene():
+    from shorts import look
+
+    assert look.settled_times([(0.0, 4.0), (4.0, 8.0)], 8) == [3.0, 7.0]
+    many = look.settled_times([(float(k), k + 1.0) for k in range(20)], 8)
+    assert len(many) == 8 and many[0] == 0.75 and many[-1] == 19.75
