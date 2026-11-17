@@ -117,6 +117,8 @@ jobs:
           elif ! python -m shorts make; then
             # one more try (a new script, about US$0.8) when the fact check or the visual check stops the first
             echo "First try failed; trying once more"
+            # keep the first try's videos: if the retry fails too, they are saved for the owner below
+            mkdir -p stopped && cp out/*/video_*.mp4 out/*/cover_*.jpg out/*/script.md out/*/visual_problems.txt stopped/ 2>/dev/null || true
             rm -rf out
             python -m shorts make
           fi
@@ -137,6 +139,20 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           PUBLISH_AT: '中文、英文今晚 19:00'
         run: python -m shorts review-open "$EP_DIR" "$TAG"
+      - name: Save the stopped videos
+        # a check that stops the post should not lose the videos: the owner can watch them and decide
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stopped-videos
+          path: |
+            stopped/
+            out/*/video_*.mp4
+            out/*/cover_*.jpg
+            out/*/script.md
+            out/*/visual_problems.txt
+          if-no-files-found: ignore
+          retention-days: 14
       - name: Tell the owner today's episode stopped
         if: failure() && (github.event_name == 'schedule' || inputs.auto)
         env:
