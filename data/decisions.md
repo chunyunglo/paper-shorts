@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-17
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df19WQwlh1L)
+  - 內容 Text: 🏭 產業前沿｜把一個記憶體單元的面積縮小約625倍，代價是什麼？ 這篇論文把鋁鈧氮（AlScN）鐵電層薄到10奈米，在2KB（128×128）的無選擇器交叉陣列中做出200奈米單元。和先前同容量、5微米單元的陣列相比，面積縮小約625倍；單…
+  - 論文 Paper: [Multilevel AlScN Ferroelectric Diode Crossbar Arrays with Sub-200 nm Cells for Selector-Free Nonvolatile Memory](https://arxiv.org/abs/2611.21381) (arXiv physics.app-ph)
+  - 為什麼 Why: 近日產業前沿多談AI加速器、FPGA、電源與量化壓縮，這篇換成記憶體材料與元件層級的題目，有具體數字，也和關注記憶體產業的台股讀者相關。
+  - 花費 Claude cost: US$0.246
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df16LI4kQoF)
   - 內容 Text: 先跟AI聊過再決定要捐多少錢，你會捐得不一樣嗎？ 我們今天介紹的研究（arXiv, 2026，預印本）透過Prolific找線上受試者。決策者參加一個97英鎊的抽獎，先決定中獎後自己留多少、捐多少給抗瘧疾基金會。如果中獎，就用真錢照這個決定…
   - 為什麼 Why: The donation-advice paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline links responsibly to it, Instagram image posts stay paused per the notes, and roundups are being reduced.

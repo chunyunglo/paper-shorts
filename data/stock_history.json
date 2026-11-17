@@ -553,5 +553,42 @@
     "cost_usd": 0.0787,
     "id": "18405976267202281",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df1YFS3Fn2S"
+  },
+  {
+    "posted": "2026-11-17T12:43:59+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜把一個記憶體單元的面積縮小約625倍，代價是什麼？\n\n這篇論文把鋁鈧氮（AlScN）鐵電層薄到10奈米，在2KB（128×128）的無選擇器交叉陣列中做出200奈米單元。和先前同容量、5微米單元的陣列相比，面積縮小約625倍；單顆接面最小做到100奈米。\n\n代價在數據裡：283顆隨機抽測單元，ON/OFF比平均約43、整流比平均約61。以10%讀取餘裕估算，免選擇器只能讀約26×26的子陣列。實際寫入速率約10–50 kHz，遠慢於電容測得的50奈秒，寫入耐久度也還沒確立。\n\n論文做到的是元件展示；如果成真，可能影響的是高密度非揮發記憶體與記憶體內運算這類供應鏈環節，但上述限制，論文都列為待解決的問題。\n\n（研究分享，不是投資建議）",
+    "why": "近日產業前沿多談AI加速器、FPGA、電源與量化壓縮，這篇換成記憶體材料與元件層級的題目，有具體數字，也和關注記憶體產業的台股讀者相關。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.21381",
+      "title": "Multilevel AlScN Ferroelectric Diode Crossbar Arrays with Sub-200 nm Cells for Selector-Free Nonvolatile Memory",
+      "abstract": "Passive crossbar arrays are a leading route to high-density nonvolatile memory and in-memory computing, but without a selector the memory element itself must supply the nonlinearity that suppresses sneak-path currents. Here we scale aluminum scandium nitride (AlScN) ferroelectric diodes (FeDs) in both dimensions that matter - the ferroelectric is thinned to 10 nm and the junction diameter is reduced to 100 nm. We further integrate 200 nm cells into a 2-kilobyte (128 * 128) passive crossbar. At a junction area of 0.0314 um2 this is a ~625 reduction in cell area, at equal array capacity, relative to kilobyte-scale AlScN FeD crossbars built on 5 μm cells. The 10 nm Al0.64Sc0.36N layer reverses its polarization under pulses of 50 ns full width at half maximum at a pulse-energy density of ~16 pJ μm-2, corresponding to ~0.5 pJ per 200 nm cell. Pulsed programming at 17.5 V and 1 kHz yields an ON/OFF ratio of 4.2 * 103 in a 200 nm cell, while DC characterization of 283 randomly addressed cells of the 2-kB array gives ON/OFF and rectification ratios at 5 V of 43 33 and 61 74, from which we derive the sub-array size that selector-free reading currently supports. Eight conductance levels (three bits) written into a 200 nm array cell remain resolvable for 103 s, and the two extreme states are stable beyond 5 * 104 s. Mapping the measured, nonuniformly spaced levels onto a ResNet-20 network recovers 91.7 +- 0.1 % CIFAR-10 accuracy after quantization-aware training, against a 92.2 +- 0.1 % full-precision baseline. AlScN FeDs thus combine nanosecond switching, three-bit storage and sub-0.05 μm2 cells in a BEOL-compatible, selector-free crossbar.",
+      "authors": [
+        "Kwan-Ho Kim",
+        "Zekun Hu",
+        "Krishna Karthikeya Chemudupati",
+        "Taarana Jammula",
+        "Yinuo Zhang",
+        "Rajeev Kumar Rai",
+        "Dhiren K. Pradhan",
+        "Zirun Han",
+        "Eric A. Stach",
+        "Roy H. Olsson",
+        "Deep Jariwala"
+      ],
+      "venue": "arXiv physics.app-ph",
+      "url": "https://arxiv.org/abs/2611.21381",
+      "pdf_url": "https://arxiv.org/pdf/2611.21381v1",
+      "doi": null,
+      "published": "2026-11-16",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.246,
+    "id": "18121576981779214",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df19WQwlh1L"
   }
 ]
