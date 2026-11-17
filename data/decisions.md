@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-17
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df1YFS3Fn2S)
+  - 內容 Text: 📈 盤前心理學｜愛社交的人，比較會買股票嗎？ 《Review of Finance》上的一篇研究（Balloch 等人），探討家庭為什麼參與股市。研究發現，「對股市的理解程度」和「對股市的信任」是兩條各自獨立的管道，同時解釋了家庭有沒有持股…
+  - 論文 Paper: [Stock Market Literacy, Trust, and Participation](https://doi.org/10.1093/rof/rfu040) (Review of Finance)
+  - 為什麼 Why: 近期貼文已連續談過台灣交易資料、注意力與參與摩擦，這篇切入「金融知識與信任」是新角度，且屬於真實家戶資料的行為研究，能讓本週題材更多元。
+  - 花費 Claude cost: US$0.079
+
 ## 2026-11-16
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df0ciB_lX6e)

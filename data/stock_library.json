@@ -182,5 +182,36 @@
     "abstract": "This article studies the importance of stock market literacy and trust for stock ownership decisions. We find that these two distinct channels simultaneously explain not only the probability of participation, but, conditional on participation, also explain the share of investment in stocks. Once we account for stock market literacy, sociability is no longer significant for participation; what matters is literacy rather than sociability. Further, we observe that economic shocks and future expectations are key behavioral characteristics that explain a household’s decision to invest in stocks. However, upon participation, a larger set of behavioral characteristics explains the level of stock investment.",
     "added": "2026-11-15",
     "found_by": "Crossref: financial literacy stock market participation"
+  },
+  {
+    "id": "doi:10.1287/mnsc.1120.1633",
+    "title": "Investor Sentiment, Disagreement, and the Breadth–Return Relationship",
+    "authors": [
+      "Ling Cen",
+      "Hai Lu",
+      "Liyan Yang"
+    ],
+    "venue": "Management Science",
+    "published": "2013",
+    "url": "https://doi.org/10.1287/mnsc.1120.1633",
+    "pdf_url": null,
+    "abstract": "We study the cross-sectional breadth–return relation by assuming that investors subject to market sentiment hold a biased belief in the aggregate. With a dynamic multiasset model, we predict that the breadth–return relationship can be either positive or negative depending on the relative strength of two offsetting forces—disagreement and sentiment. We find evidence consistent with our predictions. The breadth–return relationship is positive when the sentiment effect is small. However, the relationship becomes negative when (i) the time-series variation of market-wide sentiment is high and (ii) the cross-sectional dispersion of firm-specific exposure to market-wide sentiment variation is large. Our unified framework reconciles a few seemingly inconsistent empirical studies in this literature and explains puzzling cross-sectional return patterns observed during the Internet bubble and the subprime crisis periods. This paper was accepted by Brad Barber, finance.",
+    "added": "2026-11-17",
+    "found_by": "Crossref: StockTwits investor disagreement"
+  },
+  {
+    "id": "doi:10.1111/jofi.12165",
+    "title": "Alpha and Performance Measurement: The Effects of Investor Disagreement and Heterogeneity",
+    "authors": [
+      "WAYNE FERSON",
+      "JERCHERN LIN"
+    ],
+    "venue": "The Journal of Finance",
+    "published": "2014",
+    "url": "https://doi.org/10.1111/jofi.12165",
+    "pdf_url": null,
+    "abstract": "The literature has not established that a positive alpha, as traditionally measured, means that an investor would want to buy a fund. When alpha is defined using the client's utility function, a positive alpha generally means the client would want to buy. When markets are incomplete, investors will disagree about the attractiveness of a fund. We provide bounds on the expected disagreement with a traditional alpha and study the cross‐sectional relation of disagreement and investor heterogeneity with the flow response to past fund alphas. The effects are both economically and statistically significant.",
+    "added": "2026-11-17",
+    "found_by": "Crossref: StockTwits investor disagreement"
   }
 ]

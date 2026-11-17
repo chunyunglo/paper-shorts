@@ -524,5 +524,34 @@
     "cost_usd": 0.0926,
     "id": "18083466986379901",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df0ciB_lX6e"
+  },
+  {
+    "posted": "2026-11-17T07:18:21+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜愛社交的人，比較會買股票嗎？\n\n《Review of Finance》上的一篇研究（Balloch 等人），探討家庭為什麼參與股市。研究發現，「對股市的理解程度」和「對股市的信任」是兩條各自獨立的管道，同時解釋了家庭有沒有持股，以及有持股的家庭把多少比例放在股票上。\n\n有趣的是，一旦把股市理解程度考慮進去，社交性對是否參與就不再顯著。研究的結論是：重要的是理解，而不是社交。\n\n另外，經濟衝擊與對未來的預期，也是解釋是否參與的關鍵行為特徵。至於投多少，則需要更多的行為特徵來解釋。\n\n這是在看研究如何解釋「參與股市」，不是建議誰該不該進場。\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文已連續談過台灣交易資料、注意力與參與摩擦，這篇切入「金融知識與信任」是新角度，且屬於真實家戶資料的行為研究，能讓本週題材更多元。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rof/rfu040",
+      "title": "Stock Market Literacy, Trust, and Participation",
+      "abstract": "This article studies the importance of stock market literacy and trust for stock ownership decisions. We find that these two distinct channels simultaneously explain not only the probability of participation, but, conditional on participation, also explain the share of investment in stocks. Once we account for stock market literacy, sociability is no longer significant for participation; what matters is literacy rather than sociability. Further, we observe that economic shocks and future expectations are key behavioral characteristics that explain a household’s decision to invest in stocks. However, upon participation, a larger set of behavioral characteristics explains the level of stock investment.",
+      "authors": [
+        "Adnan Balloch",
+        "Anamaria Nicolae",
+        "Dennis Philip"
+      ],
+      "venue": "Review of Finance",
+      "url": "https://doi.org/10.1093/rof/rfu040",
+      "pdf_url": null,
+      "doi": "10.1093/rof/rfu040",
+      "published": "2014",
+      "source": "journal"
+    },
+    "cost_usd": 0.0787,
+    "id": "18405976267202281",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df1YFS3Fn2S"
   }
 ]
