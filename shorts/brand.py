@@ -49,7 +49,8 @@ class Cards:
         img = self.bg.copy()
         self._brand(img, t, 660)
         d = ImageDraw.Draw(img)
-        a = _ease((t - 0.5) / 0.4)
+        # quick, so a frame sampled near the end never catches cream text on a half-faded pill
+        a = _ease((t - 0.2) / 0.2)
         d.rounded_rectangle([140, 1160, W - 140, 1290], 65, fill=_mix(NAVY, a))
         d.text((W / 2, 1225), FOLLOW[self.lang], font=font("bold", {"zh": 44, "en": 40}.get(self.lang, 34)),
                fill=CREAM, anchor="mm")

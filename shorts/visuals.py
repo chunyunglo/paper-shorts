@@ -1172,8 +1172,9 @@ def v_chat(c: Canvas, sc, p, ctx):
         else:
             c.rrect((box[0] + 6, box[1] + 8, box[2] + 6, box[3] + 8), 34, fill=NAVY_20)
             c.rrect(box, 34, fill=col + (255,), outline=NAVY, width=4)
-        if b > 0.6:
-            c.text_block(bx + 32, y + 34, lines, "bold", f.size, fg, gap=1.3)
+        ta = clamp((b - 0.15) / 0.35)  # the words fade in with the bubble, so no frame shows it empty
+        if ta > 0:
+            c.text_block(bx + 32, y + 34, lines, "bold", f.size, fg + (int(255 * ta),), gap=1.3)
 
 
 def v_geo(c: Canvas, sc, p, ctx):
