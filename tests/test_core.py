@@ -690,3 +690,51 @@ def test_http_waits_and_retries_when_rate_limited(monkeypatch):
     monkeypatch.setattr(safelog.time, "sleep", calls.append)
     assert safelog.http("arxiv", "query", "GET", "https://x", retries=3).status_code == 200
     assert calls == [15.0, 45.0]
+
+
+ARXIV_RSS_SAMPLE = b"""<?xml version='1.0' encoding='UTF-8'?>
+<rss xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+<channel><title>cs.SI updates on arXiv.org</title>
+<item>
+ <title>How Rumors Spread in Group Chats</title>
+ <link>https://arxiv.org/abs/2511.01234</link>
+ <description>arXiv:2511.01234v1 Announce Type: new
+Abstract: We study how rumors move through group chats using a large data set of messages.</description>
+ <guid isPermaLink="false">oai:arXiv.org:2511.01234v1</guid>
+ <category>cs.SI</category>
+ <pubDate>Tue, 18 Nov 2026 00:00:00 -0500</pubDate>
+ <arxiv:announce_type>new</arxiv:announce_type>
+ <dc:creator>Ada Lovelace, Alan Turing</dc:creator>
+</item>
+<item>
+ <title>An Old Paper, Revised</title>
+ <link>https://arxiv.org/abs/2401.00001</link>
+ <description>arXiv:2401.00001v3 Announce Type: replace
+Abstract: Revised.</description>
+ <guid isPermaLink="false">oai:arXiv.org:2401.00001v3</guid>
+ <arxiv:announce_type>replace</arxiv:announce_type>
+ <dc:creator>Someone</dc:creator>
+</item>
+</channel></rss>"""
+
+
+def test_arxiv_listing_is_used_when_the_query_api_fails(monkeypatch):
+    import types
+
+    from shorts import papers
+
+    def fake_http(service, what, method, url, **kw):
+        if what == "query":
+            raise papers.ApiError("arxiv query failed (status=503, code=None)")
+        return types.SimpleNamespace(content=ARXIV_RSS_SAMPLE)
+
+    monkeypatch.setattr(papers, "http", fake_http)
+    monkeypatch.setattr(papers, "JOURNAL_FEEDS", {})
+    monkeypatch.setattr(papers, "rejected_keys", set)
+    got = papers.candidates([])
+    assert [p.id for p in got] == ["arxiv:2511.01234"]
+    p = got[0]
+    assert p.abstract.startswith("We study how rumors")
+    assert p.authors == ["Ada Lovelace", "Alan Turing"]
+    assert p.pdf_url == "https://arxiv.org/pdf/2511.01234" and p.venue == "arXiv cs.SI"
+    assert p.published == "2026-11-18"

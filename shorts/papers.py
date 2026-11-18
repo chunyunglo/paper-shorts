@@ -20,6 +20,8 @@ from .state import norm_title, seen_keys
 ARXIV_CATS = ["cs.SI", "cs.CY", "physics.soc-ph", "econ.GN", "cs.HC"]
 ARXIV_URL = ("https://export.arxiv.org/api/query?search_query={q}"
              "&sortBy=submittedDate&sortOrder=descending&max_results=200")
+# the daily listing: a separate service, used when the query API is down or rate limited
+ARXIV_RSS = "https://rss.arxiv.org/rss/{cats}"
 
 JOURNAL_FEEDS = {
     "Nature Human Behaviour": "https://www.nature.com/nathumbehav.rss",
@@ -85,6 +87,40 @@ def fetch_arxiv(days: int = 14, cats: list[str] | None = None, terms: list[str] 
     return out
 
 
+def fetch_arxiv_rss(cats: list[str] | None = None) -> list[Paper]:
+    """Today's arXiv announcements in `cats` (new papers and cross-lists, not replacements)."""
+    resp = http("arxiv", "rss", "GET", ARXIV_RSS.format(cats="+".join(cats or ARXIV_CATS)), headers=UA, retries=3)
+    feed = feedparser.parse(resp.content)
+    out = []
+    for e in feed.entries:
+        if e.get("arxiv_announce_type", "new") not in ("new", "cross"):
+            continue
+        m = re.search(r"arxiv\.org/abs/([^\s?#]+)", e.get("link", "")) or re.search(r"arXiv\.org:(\S+)", e.get("id", ""))
+        if not m:
+            continue
+        base_id = re.sub(r"v\d+$", "", m.group(1))
+        abstract = _clean(e.get("summary", ""))
+        abstract = re.sub(r"^arXiv:\S+\s+Announce Type:\s*\S+\s*", "", abstract).removeprefix("Abstract:").strip()
+        authors = [a.strip() for a in _clean(e.get("author", "")).split(",") if a.strip()]
+        try:
+            published = datetime(*e.published_parsed[:6], tzinfo=timezone.utc).date().isoformat()
+        except (AttributeError, TypeError):
+            published = ""
+        tags = [t.get("term", "") for t in e.get("tags", [])]
+        out.append(Paper(
+            id=f"arxiv:{base_id}",
+            title=_clean(e.title),
+            abstract=abstract,
+            authors=authors,
+            venue=f"arXiv {tags[0] if tags else ''}".strip(),
+            url=f"https://arxiv.org/abs/{base_id}",
+            pdf_url=f"https://arxiv.org/pdf/{base_id}",
+            published=published,
+            source="arxiv",
+        ))
+    return out
+
+
 def fetch_journal(venue: str, url: str) -> list[Paper]:
     resp = http("rss", venue, "GET", url, headers=UA)
     feed = feedparser.parse(resp.content)
@@ -143,7 +179,11 @@ def candidates(history: list[dict]) -> list[Paper]:
     try:
         papers += fetch_arxiv()
     except Exception as exc:  # one source failing should not stop the episode
-        log(f"arXiv fetch skipped: {exc}")
+        log(f"arXiv query failed ({exc}); using today's arXiv listing instead")
+        try:
+            papers += fetch_arxiv_rss()
+        except Exception as exc2:
+            log(f"arXiv fetch skipped: {exc2}")
     for venue, url in JOURNAL_FEEDS.items():
         try:
             papers += fetch_journal(venue, url)
