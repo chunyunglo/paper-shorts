@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-17T09:40:40+00:00",
+ "collected_at": "2026-11-18T08:59:07+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2403,
-   "videoCount": 48
+   "viewCount": 2439,
+   "videoCount": 50
   }
  },
  "notes": [],
@@ -2175,7 +2175,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 387,
+    "views": 388,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2183,7 +2183,7 @@
     "published": "2026-11-09T21:17:35Z",
     "estimatedMinutesWatched": 27,
     "averageViewDuration": 17,
-    "averageViewPercentage": 35.63,
+    "averageViewPercentage": 35.26,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -2427,15 +2427,15 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 179,
+    "views": 184,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
     "privacy": "public",
     "published": "2026-11-13T11:04:37Z",
-    "estimatedMinutesWatched": 17,
+    "estimatedMinutesWatched": 18,
     "averageViewDuration": 14,
-    "averageViewPercentage": 29.299999999999997,
+    "averageViewPercentage": 28.99,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2490,15 +2490,15 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 75,
-    "likes": 0,
+    "views": 87,
+    "likes": 1,
     "comments": 1,
     "duration": "PT44S",
     "privacy": "public",
     "published": "2026-11-13T11:06:22Z",
-    "estimatedMinutesWatched": 2,
-    "averageViewDuration": 8,
-    "averageViewPercentage": 19.13,
+    "estimatedMinutesWatched": 3,
+    "averageViewDuration": 11,
+    "averageViewPercentage": 25.77,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2679,12 +2679,17 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 136,
-    "likes": 1,
+    "views": 106,
+    "likes": 0,
     "comments": 1,
     "duration": "PT47S",
     "privacy": "public",
-    "published": "2026-11-15T11:04:13Z"
+    "published": "2026-11-15T11:04:13Z",
+    "estimatedMinutesWatched": 13,
+    "averageViewDuration": 18,
+    "averageViewPercentage": 39.99,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2698,7 +2703,7 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 109,
+    "views": 112,
     "reach": 104,
     "likes": 0,
     "comments": 1,
@@ -2737,12 +2742,17 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 28,
+    "views": 23,
     "likes": 0,
     "comments": 1,
     "duration": "PT48S",
     "privacy": "public",
-    "published": "2026-11-15T11:06:36Z"
+    "published": "2026-11-15T11:06:36Z",
+    "estimatedMinutesWatched": 4,
+    "averageViewDuration": 22,
+    "averageViewPercentage": 46.71,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2795,7 +2805,7 @@
    "paper": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
-    "views": 79,
+    "views": 80,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2814,7 +2824,7 @@
    "paper": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
-    "views": 137,
+    "views": 138,
     "reach": 130,
     "likes": 2,
     "comments": 1,
@@ -2872,8 +2882,8 @@
    "paper": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
-    "views": 72,
-    "reach": 66,
+    "views": 76,
+    "reach": 70,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2893,6 +2903,122 @@
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
     "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "gDJVKOM4Hkc",
+   "url": "https://youtube.com/shorts/gDJVKOM4Hkc",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 14,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT42S",
+    "privacy": "public",
+    "published": "2026-11-17T11:04:26Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18121575904785214",
+   "url": "https://www.instagram.com/reel/Df1x83aDuEr/",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 116,
+    "reach": 99,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17989694397110091",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df1yBtohcpP",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "wNIXWmVJiuk",
+   "url": "https://youtube.com/shorts/wNIXWmVJiuk",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT52S",
+    "privacy": "public",
+    "published": "2026-11-17T11:06:08Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18418287298091630",
+   "url": "https://www.instagram.com/reel/Df1yMxWDx23/",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 121,
+    "reach": 105,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "title": "People Prefer AI Advice, But Donations Didn't Change",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17878893747650832",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df1yURHT8oZ",
+   "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
+   "created": "2026-11-17T07:06:21+00:00",
+   "metrics": {
+    "views": 11,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3452,7 +3578,7 @@
    "paper": "20261115-the-rebundling-of-freelance-work-in-the",
    "created": "2026-11-15T11:21:26+00:00",
    "metrics": {
-    "views": 39,
+    "views": 40,
     "likes": 1,
     "replies": 0,
     "reposts": 0,
@@ -3471,7 +3597,26 @@
    "paper": "20261116-trust-as-a-hidden-driver-of-epidemic-rel",
    "created": "2026-11-16T11:53:28+00:00",
    "metrics": {
-    "views": 18,
+    "views": 19,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-29",
+   "title": "先跟AI聊過再決定要捐多少錢，你會捐得不一樣嗎？\n\n我們今天介紹的研究（arXiv, 2026，預印本）透過Prolific找線上受試者。決策者參加一個97英鎊",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18100361114544883",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df16LI4kQoF",
+   "paper": "20261117-people-prefer-ai-to-human-advice-in-mult",
+   "created": "2026-11-17T12:15:58+00:00",
+   "metrics": {
+    "views": 5,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3756,7 +3901,7 @@
    "paper": "Who Gambles in the Stock Market?",
    "created": "2026-11-15T19:12:30+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3775,7 +3920,7 @@
    "paper": "In Search of Attention",
    "created": "2026-11-16T05:41:04+00:00",
    "metrics": {
-    "views": 14,
+    "views": 16,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3833,6 +3978,63 @@
    "created": "2026-11-17T07:18:21+00:00",
    "metrics": {
     "views": 31,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-19",
+   "title": "🏭 產業前沿｜把一個記憶體單元的面積縮小約625倍，代價是什麼？\n\n這篇論文把鋁鈧氮（AlScN）鐵電層薄到10奈米，在2KB（128×128）的無選擇器交叉陣",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18121576981779214",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df19WQwlh1L",
+   "paper": "Multilevel AlScN Ferroelectric Diode Crossbar Arrays with Sub-200 nm Cells for Selector-Free Nonvolatile Memory",
+   "created": "2026-11-17T12:43:59+00:00",
+   "metrics": {
+    "views": 17,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-20",
+   "title": "🌙 盤後研究室｜單一股票的槓桿型 ETF，都選在什麼樣的股票上推出？\n\n研究看的是美股 2023 年 2 月以後推出的這類產品（單一股票槓桿 ETF 最早 20",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18348213679257494",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df25cQLElMU",
+   "paper": "The Costs and Benefits of Leveraged ETFs",
+   "created": "2026-11-17T21:29:05+00:00",
+   "metrics": {
+    "views": 34,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-21",
+   "title": "📈 盤前心理學｜同一個股票話題，在三個社群平台上，「大家」的看法會一樣嗎？\n\nCookson 等人比較了 Twitter、StockTwits 與 Seekin",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18360550360170210",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df35OHtFSTi",
+   "paper": "The social signal",
+   "created": "2026-11-18T06:46:24+00:00",
+   "metrics": {
+    "views": 19,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
