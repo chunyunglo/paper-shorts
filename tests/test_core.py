@@ -679,6 +679,8 @@ def test_paper_failing_fact_check_is_skipped_by_the_retry(monkeypatch, tmp_path)
 
 
 def test_http_waits_and_retries_when_rate_limited(monkeypatch):
+    import types
+
     from shorts import safelog
 
     codes = iter([429, 429, 200])
