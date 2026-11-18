@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-18
 
+- **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/Df5a0opHwdG)
+  - 內容 Text: 🌙 盤後研究室｜同一個盈餘數字,其實要回答兩個問題:這消息有多好?以及這個數字值多少錢? 研究者請約900位有交易帳戶的美國成人,預測財報公布當天的股價反應(2024年12月的實驗,財報意外大小為隨機設定)。一半人被加上多餘的背景文字,還要…
+  - 論文 Paper: [Huge If True: Learning from the Size of the Surprise](https://arxiv.org/abs/2611.15747) (arXiv econ.GN)
+  - 為什麼 Why: 近期貼文多在談注意力、散戶虧損與參與率，這篇是新的盈餘公告與學習題材，有實驗加真實公告資料，也能避開今天以特定公司為主的新聞標題。
+  - 花費 Claude cost: US$0.247
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df4hNAyEX3M)
   - 內容 Text: 🏭 產業前沿｜每秒 12.8 億個取樣，延遲約 40 奈秒：這是一篇論文替 320 MHz 的 Wi-Fi 7 訊號設定的處理規格。 論文做到的是：數位預失真（先把訊號反向扭曲，抵消功率放大器的非線性）改用只有 207 個參數、沒有遞迴的小…
   - 論文 Paper: [StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion](https://arxiv.org/abs/2611.23101) (arXiv eess.SP)

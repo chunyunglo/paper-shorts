@@ -677,5 +677,35 @@
     "cost_usd": 0.2171,
     "id": "18030109580700576",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df4hNAyEX3M"
+  },
+  {
+    "posted": "2026-11-18T20:59:16+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "question",
+    "text": "🌙 盤後研究室｜同一個盈餘數字,其實要回答兩個問題:這消息有多好?以及這個數字值多少錢?\n\n研究者請約900位有交易帳戶的美國成人,預測財報公布當天的股價反應(2024年12月的實驗,財報意外大小為隨機設定)。一半人被加上多餘的背景文字,還要在40秒內作答。\n\n研究發現,受限組別的整體反應約減少四分之一,但對接近零的小意外,反應反而增加約四分之一。美股1984至2023年約22萬筆財報,也看到類似型態:估值不確定性較高的股票,平均反應較弱,小意外附近卻較敏感。\n\n這是實驗預測加上統計關聯,不代表誰判斷錯了;作者認為這未必是失誤,也沒發現後續反轉。\n\n你看財報時,注意的是數字的大小,還是「有沒有超預期」?\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文多在談注意力、散戶虧損與參與率，這篇是新的盈餘公告與學習題材，有實驗加真實公告資料，也能避開今天以特定公司為主的新聞標題。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.15747",
+      "title": "Huge If True: Learning from the Size of the Surprise",
+      "abstract": "Responses to earnings surprises depend on an unknown multiplier mapping earnings to value. Investors, however, learn about the news and the multiplier from the same number. Large surprises may indicate small multipliers and tiny surprises large ones. We model how greater uncertainty about the multiplier attenuates responses on average but makes them steeper near zero surprises. In an incentivized experiment, we find that greater processing constraints lower average sensitivity but raise it near zero. We confirm this with real-world earnings announcements: stocks with higher valuation uncertainty, our proxy for multiplier uncertainty, respond less on average but more steeply near zero.",
+      "authors": [
+        "Thomas Graeber",
+        "Christopher Roth",
+        "Marco Sammon",
+        "Constantin Schesch"
+      ],
+      "venue": "arXiv econ.GN",
+      "url": "https://arxiv.org/abs/2611.15747",
+      "pdf_url": "https://arxiv.org/pdf/2611.15747v2",
+      "doi": null,
+      "published": "2026-11-11",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2472,
+    "id": "18131633849497486",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df5a0opHwdG"
   }
 ]
