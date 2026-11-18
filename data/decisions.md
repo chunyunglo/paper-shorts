@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-18
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df35OHtFSTi)
+  - 內容 Text: 📈 盤前心理學｜同一個股票話題，在三個社群平台上，「大家」的看法會一樣嗎？ Cookson 等人比較了 Twitter、StockTwits 與 Seeking Alpha。研究發現，即使控制公司公告與新聞，各平台的「關注度」（討論熱度）仍…
+  - 論文 Paper: [The social signal](https://www.sciencedirect.com/science/article/pii/S0304405X2400093X) (Journal of Financial Economics)
+  - 為什麼 Why: 近期盤前已談過注意力、Google 搜尋與券商 App，這篇換成社群平台情緒的角度，補上新的資料來源，也不重複台灣交易紀錄與散戶績效。
+  - 花費 Claude cost: US$0.053
+
 ## 2026-11-17
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df25cQLElMU)

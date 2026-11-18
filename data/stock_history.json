@@ -618,5 +618,35 @@
     "cost_usd": 0.2837,
     "id": "18348213679257494",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df25cQLElMU"
+  },
+  {
+    "posted": "2026-11-18T06:46:24+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜同一個股票話題，在三個社群平台上，「大家」的看法會一樣嗎？\n\nCookson 等人比較了 Twitter、StockTwits 與 Seeking Alpha。研究發現，即使控制公司公告與新聞，各平台的「關注度」（討論熱度）仍高度相關；但「情緒」（偏樂觀或悲觀）卻不一致，各平台共通的情緒成分，解釋力只比各平台自己的獨特情緒多一點點。\n\n作者利用市場事件，把差異歸因於使用者不同（例如專業人士或新手）與平台設計不同（例如貼文字數限制）。\n\n這不代表哪個平台比較準，摘要並沒有這樣說。它提醒的是：網路上的「大家怎麼看」，要先問是哪個平台的大家。\n\n（研究分享，不是投資建議）",
+    "why": "近期盤前已談過注意力、Google 搜尋與券商 App，這篇換成社群平台情緒的角度，補上新的資料來源，也不重複台灣交易紀錄與散戶績效。",
+    "news": null,
+    "paper": {
+      "id": "sciencedirect:S0304405X2400093X",
+      "title": "The social signal",
+      "abstract": "We examine social media attention and sentiment from three major platforms: Twitter, StockTwits, and Seeking Alpha. We find that, even after controlling for firm disclosures and news, attention is highly correlated across platforms, but sentiment is not: its first principal component explains little more variation than purely idiosyncratic sentiment. Using market events, we attribute differences across platforms to differences in users (e.g., professionals versus novices) and differences in platform design (e.g., character limits in posts). We also find that sentiment and attention contain different return-relevant information. Sentiment predicts positive next-day returns, but attention predicts negative next-day returns. These results highlight the importance of considering both social media sentiment and attention, and of distinguishing between different investor social media platforms.",
+      "authors": [
+        "J. Anthony Cookson",
+        "Runjing Lu",
+        "William Mullins",
+        "Marina Niessner"
+      ],
+      "venue": "Journal of Financial Economics",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0304405X2400093X",
+      "pdf_url": null,
+      "doi": null,
+      "published": "2024",
+      "source": "journal"
+    },
+    "cost_usd": 0.0526,
+    "id": "18360550360170210",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df35OHtFSTi"
   }
 ]

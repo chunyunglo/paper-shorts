@@ -213,5 +213,22 @@
     "abstract": "The literature has not established that a positive alpha, as traditionally measured, means that an investor would want to buy a fund. When alpha is defined using the client's utility function, a positive alpha generally means the client would want to buy. When markets are incomplete, investors will disagree about the attractiveness of a fund. We provide bounds on the expected disagreement with a traditional alpha and study the cross‐sectional relation of disagreement and investor heterogeneity with the flow response to past fund alphas. The effects are both economically and statistically significant.",
     "added": "2026-11-17",
     "found_by": "Crossref: StockTwits investor disagreement"
+  },
+  {
+    "id": "doi:10.1002/for.2777",
+    "title": "Predicting stock market volatility based on textual sentiment: A nonlinear analysis",
+    "authors": [
+      "Weiguo Zhang",
+      "Xue Gong",
+      "Chao Wang",
+      "Xin Ye"
+    ],
+    "venue": "Journal of Forecasting",
+    "published": "2021",
+    "url": "https://doi.org/10.1002/for.2777",
+    "pdf_url": null,
+    "abstract": "This paper investigates whether and how investor sentiment affects stock market volatility forecasting from a nonlinear theory perspective. With the use of a novel dataset that contains massive articles about stock market analysis obtained from a Chinese investors' community, we construct four sentiment indices to measure investor sentiment by applying textual analysis techniques. Differing from the developed market, we find that the investor sentiment from an emerging market causes stock volatility by a nonlinear pattern rather than a linear style. Furthermore, we show that the investor sentiment improves stock volatility prediction based on the long short‐term memory model. And the predictability is still significant after considering another sentiment proxy variable. Finally, we demonstrate that this improvement of predictive performance is meaningful from an economic point of view.",
+    "added": "2026-11-18",
+    "found_by": "Crossref: news sentiment textual analysis stock returns"
   }
 ]
