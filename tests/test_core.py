@@ -738,3 +738,15 @@ def test_arxiv_listing_is_used_when_the_query_api_fails(monkeypatch):
     assert p.authors == ["Ada Lovelace", "Alan Turing"]
     assert p.pdf_url == "https://arxiv.org/pdf/2511.01234" and p.venue == "arXiv cs.SI"
     assert p.published == "2026-11-18"
+
+
+def test_fit_shrinks_a_long_word_until_it_fits_the_card():
+    from shorts.fonts import fit
+
+    # Nov 18: "Prescriptions" came out at 40px and 261px wide in a 200px card
+    f, lines = fit("Prescriptions", "black", 200, [40, 34, 28, 24], 2)
+    assert lines == ["Prescriptions"] and f.getlength(lines[0]) <= 200
+    f, lines = fit("Supercalifragilisticexpialidocious", "bold", 200, [40], 1)
+    assert f.getlength(lines[0]) <= 200 and lines[0].endswith("…")
+    f, lines = fit("短標", "bold", 300, [40, 34], 1)
+    assert f.size == 40

@@ -87,15 +87,29 @@ def clause_wrap(text: str, f: ImageFont.FreeTypeFont, max_w: int) -> list[str] |
 
 
 def fit(text: str, weight: str, max_w: int, sizes: list[int], max_lines: int):
-    """Largest size whose wrap fits within max_lines; returns (font, lines).
-    Multi-line text breaks at punctuation when it can, so phrases stay whole."""
-    for s in sizes:
+    """Largest size whose wrap fits within max_lines and max_w; returns (font, lines).
+    Multi-line text breaks at punctuation when it can, so phrases stay whole. When even the
+    smallest size given is too big (a long word in a narrow card), it keeps shrinking, down to
+    60% of that size, before it cuts the text short."""
+    last = sizes[-1]
+    smaller = [s for s in (round(last * k) for k in (0.9, 0.8, 0.7, 0.6)) if s < last]
+    for s in [*sizes, *smaller]:
         f = font(weight, s)
         lines = wrap(text, f, max_w, max_lines=99)
+        if len(lines) > max_lines or any(f.getlength(ln) > max_w for ln in lines):
+            continue
         if len(lines) == 1:
             return f, lines
-        if len(lines) <= max_lines:
-            nicer = clause_wrap(text, f, max_w)
-            return f, nicer if nicer and len(nicer) <= max_lines else lines
-    f = font(weight, sizes[-1])
-    return f, wrap(text, f, max_w, max_lines)
+        nicer = clause_wrap(text, f, max_w)
+        return f, nicer if nicer and len(nicer) <= max_lines else lines
+    f = font(weight, smaller[-1] if smaller else last)
+    lines = wrap(text, f, max_w, max_lines)
+    return f, [_shorten(ln, f, max_w) for ln in lines]
+
+
+def _shorten(line: str, f: ImageFont.FreeTypeFont, max_w: int) -> str:
+    if f.getlength(line) <= max_w:
+        return line
+    while line and f.getlength(line + "…") > max_w:
+        line = line[:-1]
+    return line + "…"
