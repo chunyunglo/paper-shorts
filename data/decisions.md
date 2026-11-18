@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-18
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df4hNAyEX3M)
+  - 內容 Text: 🏭 產業前沿｜每秒 12.8 億個取樣，延遲約 40 奈秒：這是一篇論文替 320 MHz 的 Wi-Fi 7 訊號設定的處理規格。 論文做到的是：數位預失真（先把訊號反向扭曲，抵消功率放大器的非線性）改用只有 207 個參數、沒有遞迴的小…
+  - 論文 Paper: [StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion](https://arxiv.org/abs/2611.23101) (arXiv eess.SP)
+  - 為什麼 Why: 近幾天的產業前沿多是 AI 記憶體、電源與電池材料，這篇切入無線通訊射頻與專用硬體加速器，主題不同，也避開已用過的題材。
+  - 花費 Claude cost: US$0.217
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df4dgPrFreL)
   - 內容 Text: 在丹麥的偏遠小鎮，「蔬菜配起司」一起被買的比例，只有大城市核心的約28%。 我們今天介紹的研究（arXiv, 2026）分析了丹麥Netto超市553家分店、約5,100萬張收據，時間是2025年初約79天，涵蓋98個市鎮中的95個。研究者…
   - 為什麼 Why: The grocery co-purchasing paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, opening with a number since yesterday's post was question-led; Instagram free posts stay paused per the notes, no headline connects responsibly, and the notes advise against filling extra slots.

@@ -648,5 +648,34 @@
     "cost_usd": 0.0526,
     "id": "18360550360170210",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df35OHtFSTi"
+  },
+  {
+    "posted": "2026-11-18T12:35:38+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜每秒 12.8 億個取樣，延遲約 40 奈秒：這是一篇論文替 320 MHz 的 Wi-Fi 7 訊號設定的處理規格。\n\n論文做到的是：數位預失真（先把訊號反向扭曲，抵消功率放大器的非線性）改用只有 207 個參數、沒有遞迴的小網路。FPGA 即時測試在 320 MHz、4096-QAM 訊號上，鄰頻功率比為 −45.82 dBc。12 奈米晶片的數字是佈局後估計，每樣本約 111 pJ，比先前遞迴式設計低約七倍。\n\n還沒做到的是：晶片尚未製造，論文把製造列為下一步；三個放大器的比較也是離線播放波形。如果成真，可能影響的是寬頻發射端在功耗與面積上的取捨，但這只是推論，論文並未驗證。\n\n（研究分享，不是投資建議）",
+    "why": "近幾天的產業前沿多是 AI 記憶體、電源與電池材料，這篇切入無線通訊射頻與專用硬體加速器，主題不同，也避開已用過的題材。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.23101",
+      "title": "StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion",
+      "abstract": "State feedback between successive samples limits the streaming throughput of recurrent neural networks for digital predistortion (DPD). We present StreamingDPD, an accelerator that processes 320-MHz signals at 1.28 GSa/s. Its 207-parameter instantaneous-power-gated depthwise temporal convolutional network (IPG-DWTCN) uses $|x[n]|^2$ to gate feature channels and causal dilated depthwise convolutions to model power amplifier memory. The network maps to a spatially unrolled fixed-point pipeline with shift-based quadratic activations and layer-wise mixed precision, sustaining one complex sample per cycle per lane. Its algorithmic cost is 554 floating-point operations per complex sample, 30.1% fewer than the recurrent baseline with the best linearization performance. In RF playback measurements on three power amplifiers driven by 40- to 320-MHz Wi-Fi 6/7 and 5G NR waveforms, IPG-DWTCN achieves the lowest mean adjacent-channel power ratio (ACPR) and ranks first or ties for first in mean error vector magnitude (EVM) against five neural baselines of comparable size. Four-lane FPGA hardware-in-the-loop tests on a 320-MHz 4096-QAM Wi-Fi 7 waveform achieve -45.82 dBc ACPR and -42.94 dB EVM at 1.28 GSa/s. At the same sample rate, post-layout evaluation of a single-lane 12-nm FinFET ASIC yields a 0.10 mm$^2$ core, a 52-cycle (40.63 ns) latency, and an estimated typical-corner power of 142.21 mW (111.10 pJ/sample). Relative to the prior 22-nm recurrent DPD ASIC, the design provides 5.1 times the throughput at about one-seventh the energy per sample.",
+      "authors": [
+        "Yizhuo Wu",
+        "Xinling Wang",
+        "Chang Gao"
+      ],
+      "venue": "arXiv eess.SP",
+      "url": "https://arxiv.org/abs/2611.23101",
+      "pdf_url": "https://arxiv.org/pdf/2611.23101v1",
+      "doi": null,
+      "published": "2026-11-17",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2171,
+    "id": "18030109580700576",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df4hNAyEX3M"
   }
 ]
