@@ -56,7 +56,7 @@ def fetch_arxiv(days: int = 14, cats: list[str] | None = None, terms: list[str] 
     q = "+OR+".join(f"cat:{c}" for c in cats or ARXIV_CATS)
     if terms:
         q = f"({q})+AND+(" + "+OR+".join(f"abs:{t}" for t in terms) + ")"
-    resp = http("arxiv", "query", "GET", ARXIV_URL.format(q=q), headers=UA)
+    resp = http("arxiv", "query", "GET", ARXIV_URL.format(q=q), headers=UA, retries=3)
     feed = feedparser.parse(resp.content)
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     out = []
@@ -356,7 +356,7 @@ def pick(papers: list[Paper], history: list[dict], headlines: list[newsmod.Headl
                    "(paraphrased). A tiebreaker, not a rule:\n<notes>\n" + notes + "\n</notes>")
     # the script is written from the full paper, so skip picks we cannot read in full
     skipped: set[int] = set()
-    for _ in range(6):
+    for _ in range(10):
         note = ("" if not skipped else "\n\nThese candidates have no open full text, do not pick them: "
                 + ", ".join(map(str, sorted(skipped))))
         # the listing is cached: a pick with no open full text means asking again with the same list
@@ -373,6 +373,17 @@ def pick(papers: list[Paper], history: list[dict], headlines: list[newsmod.Headl
         log(f"No open full text for pick {choice.index}; picking again")
         skipped.add(choice.index)
     else:
+        # Claude kept choosing papers we cannot read; take the first candidate we can read in full
+        for i, p in enumerate(papers):
+            if i in skipped or p.source != "arxiv":  # arXiv candidates are already on topic
+                continue
+            chosen = enrich(p)
+            if attach_full_text(chosen):
+                log(f"Picked the first readable candidate instead: {chosen.title} [{chosen.venue}]")
+                return chosen, "The first candidate with open full text (the preferred picks had none)", None
+            skipped.add(i)
+            if len(skipped) > 25:
+                break
         raise SystemExit("Could not find a good paper with open full text today")
     log(f"Picked (full text): {chosen.title} [{chosen.venue}]")
     news = None
