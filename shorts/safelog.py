@@ -64,6 +64,14 @@ def http(service: str, what: str, method: str, url: str, *, retries: int = 2,
         if resp.status_code >= 500 and attempt < retries:
             time.sleep(2 ** (attempt + 1))
             continue
+        if resp.status_code == 429 and attempt < retries:
+            # rate limited (arXiv and news feeds do this to shared CI addresses): wait, then try again
+            try:
+                wait = min(float(resp.headers.get("Retry-After", "")), 120.0)
+            except ValueError:
+                wait = 15.0 * 3 ** attempt
+            time.sleep(wait)
+            continue
         raise ApiError(service, what, resp.status_code, _error_code(resp)) from None
     raise AssertionError("unreachable")
 

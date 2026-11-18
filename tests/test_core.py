@@ -676,3 +676,17 @@ def test_paper_failing_fact_check_is_skipped_by_the_retry(monkeypatch, tmp_path)
     assert papers.rejected_keys() == set()
     papers.reject(p)
     assert "arxiv:1" in papers.rejected_keys() and "straighttotheproduct" in papers.rejected_keys()
+
+
+def test_http_waits_and_retries_when_rate_limited(monkeypatch):
+    import types
+
+    from shorts import safelog
+
+    codes = iter([429, 429, 200])
+    calls = []
+    monkeypatch.setattr(safelog.requests, "request",
+                        lambda *a, **k: types.SimpleNamespace(status_code=next(codes), headers={}, text="", content=b""))
+    monkeypatch.setattr(safelog.time, "sleep", calls.append)
+    assert safelog.http("arxiv", "query", "GET", "https://x", retries=3).status_code == 200
+    assert calls == [15.0, 45.0]
