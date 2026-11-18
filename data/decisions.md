@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-18
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df4dgPrFreL)
+  - 內容 Text: 在丹麥的偏遠小鎮，「蔬菜配起司」一起被買的比例，只有大城市核心的約28%。 我們今天介紹的研究（arXiv, 2026）分析了丹麥Netto超市553家分店、約5,100萬張收據，時間是2025年初約79天，涵蓋98個市鎮中的95個。研究者…
+  - 為什麼 Why: The grocery co-purchasing paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, opening with a number since yesterday's post was question-led; Instagram free posts stay paused per the notes, no headline connects responsibly, and the notes advise against filling extra slots.
+  - 根據的集數 Based on: 20261118-food-co-purchasing-networks-encode-geogr
 - **短影音 Short** · [買的菜一樣，搭法為什麼不同？ / Same Groceries, Different Combos: A Health Clue](https://youtube.com/shorts/iKL7Hl23DQg)
   - 論文 Paper: [Food co-purchasing networks encode geographic disparities in cardiometabolic health](https://arxiv.org/abs/2611.19420) (arXiv physics.soc-ph)
   - 為什麼 Why: Uses large-scale retail transaction data and co-purchasing networks to link everyday food-buying behavior to geographic differences in cardiometabolic health, a concrete non-AI daily-life topic that can be shown in 3-4 visual steps. Signals: Channel notes favor concrete everyday, non-AI behavior topics over abstract or AI-centered ones, and this topic is far from the recent episodes.

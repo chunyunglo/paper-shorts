@@ -422,5 +422,19 @@
     "why": "The donation-advice paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a question-led opener since yesterday's was number-led; no headline links responsibly to it, Instagram image posts stay paused per the notes, and roundups are being reduced.",
     "id": "18100361114544883",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df16LI4kQoF"
+  },
+  {
+    "posted": "2026-11-18T12:03:11+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261118-food-co-purchasing-networks-encode-geogr"
+    ],
+    "text": "在丹麥的偏遠小鎮，「蔬菜配起司」一起被買的比例，只有大城市核心的約28%。\n\n我們今天介紹的研究（arXiv, 2026）分析了丹麥Netto超市553家分店、約5,100萬張收據，時間是2025年初約79天，涵蓋98個市鎮中的95個。研究者把每張收據當成一個購物籃，只留下「比隨機更常一起被買」的商品組合。\n\n發現：\n・各地賣的商品大多相同，但搭配方式從大城市到偏遠地區逐漸不同\n・全國網絡分成12群。某一群食物在當地被一起買得越緊密，越能預測2024年糖尿病、心血管和血脂用藥的處方率，這在人口社經因素之外仍成立\n・超加工食品的購買比例沒有地區差異\n\n限制：收據只代表在一家連鎖超市買了什麼，不是每個人吃了什麼。資料以市鎮彙總，不是個人層級，而且是相關研究，不能說搭配方式造成疾病。\n\n你家附近的超市，大家常把什麼一起放進購物籃？",
+    "news": null,
+    "why": "The grocery co-purchasing paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, opening with a number since yesterday's post was question-led; Instagram free posts stay paused per the notes, no headline connects responsibly, and the notes advise against filling extra slots.",
+    "id": "18147838186598250",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df4dgPrFreL"
   }
 ]
