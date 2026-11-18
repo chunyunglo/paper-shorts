@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-18
 
+- **短影音 Short** · [買的菜一樣，搭法為什麼不同？ / Same Groceries, Different Combos: A Health Clue](https://youtube.com/shorts/iKL7Hl23DQg)
+  - 論文 Paper: [Food co-purchasing networks encode geographic disparities in cardiometabolic health](https://arxiv.org/abs/2611.19420) (arXiv physics.soc-ph)
+  - 為什麼 Why: Uses large-scale retail transaction data and co-purchasing networks to link everyday food-buying behavior to geographic differences in cardiometabolic health, a concrete non-AI daily-life topic that can be shown in 3-4 visual steps. Signals: Channel notes favor concrete everyday, non-AI behavior topics over abstract or AI-centered ones, and this topic is far from the recent episodes.
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df35OHtFSTi)
   - 內容 Text: 📈 盤前心理學｜同一個股票話題，在三個社群平台上，「大家」的看法會一樣嗎？ Cookson 等人比較了 Twitter、StockTwits 與 Seeking Alpha。研究發現，即使控制公司公告與新聞，各平台的「關注度」（討論熱度）仍…
   - 論文 Paper: [The social signal](https://www.sciencedirect.com/science/article/pii/S0304405X2400093X) (Journal of Financial Economics)

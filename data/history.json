@@ -7998,5 +7998,344 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261117-people-prefer-ai-to-human-advice-in-mult",
     "pick_reason": "A behavioral experiment on how people judge and act on advice from AI versus humans, with an incentivised donation decision and a surprising split between stated preference and actual behavior, which is concrete, relatable and easy to explain in a few steps. Signals: Notes favor concrete everyday-decision topics and an answer given within the first seconds; this paper has a clear preference-versus-behavior twist and avoids topics near recent episodes."
+  },
+  {
+    "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+    "created": "2026-11-18T07:20:27+00:00",
+    "paper": {
+      "id": "arxiv:2611.19420",
+      "title": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+      "abstract": "Unhealthy diets are a major driver of cardiometabolic disease, yet the geospatial structure of dietary behavior and its links to population health remain poorly understood. While large-scale retail transaction data offer a unique view of population dietary behavior, conventional approaches reduce purchases to isolated items, not accounting for how foods are actually combined. Here, we analyze 51 million grocery receipts across 95 Danish municipalities using a statistically validated bipartite network framework to isolate co-purchases that product popularity alone cannot explain. We find that, although municipalities buy largely the same products, their co-purchasing networks reorganize along a continuous urban-to-peripheral gradient in how those products are combined. The network backbone can be resolved into modular dietary communities whose local cohesion allows us to predict cardiometabolic prescriptions, explaining a quarter to a half of the variance left after sociodemographic adjustment, beyond what product prevalence alone accounts for. Ultra-processed foods (UPFs) show no spatial gradient in prevalence and are located at the network periphery, where they share baskets with fresh foods but rarely form the combinations that hold the network together. Taken together, our findings show that geographic dietary differences are encoded not only in what people purchase, but in how foods are systematically combined within shopping baskets, offering a scalable network approach for population nutritional epidemiology.",
+      "authors": [
+        "Antonio Desiderio",
+        "Leonardo Rodovero",
+        "Sune Lehmann"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2611.19420",
+      "pdf_url": "https://arxiv.org/pdf/2611.19420v1",
+      "doi": null,
+      "published": "2026-11-14",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "買的菜一樣，搭法為什麼不同？",
+      "title_en": "Same Groceries, Different Combos: A Health Clue",
+      "paper_title_zh": "食物共同購買網路編碼了心血管代謝健康的地理差異",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "開場",
+          "heading_en": "HOOK",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "買一樣，搭不同",
+          "big_text_en": "Same groceries, different combos",
+          "lines": [
+            {
+              "zh": "買的東西一樣，搭配卻不一樣？",
+              "en": "Same groceries, different combinations?"
+            },
+            {
+              "zh": "看完就知道，搭配怎麼對上用藥。",
+              "en": "Stay to see how combos match local prescriptions."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "丹麥科技大學團隊，arXiv 預印本。",
+              "en": "Danish university team, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "收據",
+            "食物",
+            "處方"
+          ],
+          "labels_en": [
+            "Receipts",
+            "Foods",
+            "Meds"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "五千一百萬張丹麥超市收據，加上領藥紀錄。",
+              "en": "51 million Danish supermarket receipts, plus local prescription records."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "購物籃",
+            "食物配對",
+            "扣掉熱門品"
+          ],
+          "labels_en": [
+            "Baskets",
+            "Food pairs",
+            "Drop staples"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "每張收據是購物籃，看哪些食物常一起買。",
+              "en": "Each receipt is a basket. Which foods go together?"
+            },
+            {
+              "zh": "再扣掉牛奶這類熱門品的影響。",
+              "en": "They removed the pull of staples like milk."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "地區差異",
+          "heading_en": "BY PLACE",
+          "labels": [
+            "大城市",
+            "小鄉鎮"
+          ],
+          "labels_en": [
+            "Big cities",
+            "Rural towns"
+          ],
+          "values": [],
+          "big_text": "搭配不同",
+          "big_text_en": "Different combos",
+          "lines": [
+            {
+              "zh": "各地買的東西差不多，搭配卻不同。",
+              "en": "Towns buy the same products, but combine them differently."
+            },
+            {
+              "zh": "蔬菜配起司，離大城市越遠越少。",
+              "en": "Veggies with cheese get rarer far from big cities."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "加工食品",
+          "heading_en": "PROCESSED FOOD",
+          "labels": [
+            "加工食品",
+            "生鮮食物"
+          ],
+          "labels_en": [
+            "Processed food",
+            "Fresh food"
+          ],
+          "values": [],
+          "big_text": "邊緣角色",
+          "big_text_en": "On the edge",
+          "lines": [
+            {
+              "zh": "高度加工食品常和新鮮食物同籃，卻少是關鍵搭配。",
+              "en": "Heavily processed foods share baskets with fresh food, but rarely anchor combos."
+            }
+          ]
+        },
+        {
+          "visual": "predict",
+          "heading_zh": "發現",
+          "heading_en": "FINDING",
+          "labels": [
+            "搭配緊密",
+            "處方"
+          ],
+          "labels_en": [
+            "Combo tightness",
+            "Meds"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "用各市鎮的搭配緊密度，猜領藥比例。",
+              "en": "Combo tightness in each town helped guess prescription rates."
+            },
+            {
+              "zh": "年齡收入以外，多解釋四分之一到近一半。",
+              "en": "Beyond age and income, it explained another quarter to half."
+            },
+            {
+              "zh": "只是關聯，不代表搭配造成疾病。",
+              "en": "But it's correlation, not proof combos cause disease."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "搭配藏線索",
+          "big_text_en": "Combos hold health clues",
+          "lines": [
+            {
+              "zh": "食物搭配，藏著健康線索。",
+              "en": "Food combos carry health clues."
+            },
+            {
+              "zh": "喜歡就追蹤我們。",
+              "en": "Follow for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "丹麥研究團隊分析五千一百萬張超市收據，發現各地買的東西差不多，食物的搭配方式卻不一樣。各地搭配得多緊密，能幫忙猜當地的處方率，不過這只是相關，不代表搭配造成疾病。",
+      "description_en": "Danish towns buy nearly the same groceries, but combine them differently. Researchers analyzed 51 million receipts and found that how tightly foods are combined tracks local prescription rates. It is an area-level link, not proof that combinations cause disease.",
+      "hashtags": [
+        "行為解碼",
+        "飲食行為",
+        "超加工食品",
+        "丹麥",
+        "網路科學",
+        "FoodNetwork",
+        "Nutrition",
+        "DataScience"
+      ],
+      "method_summary": "The researchers analyzed 51 million point-of-sale receipts from 553 Netto supermarkets (Salling Group) across 95 of Denmark's 98 municipalities, collected over about 79 days in early 2025. Non-food items were removed and edible items were grouped into 3,405 products, which were matched to the Danish food-composition database and given processing scores. Receipts were treated as baskets, and a statistical null model that preserves basket sizes and product popularity was used to keep only product pairs bought together more often than chance. This was done for each municipality and for a national network. Municipal networks differed along an urban-to-peripheral gradient: four big cities clustered together, and far-away towns combined foods differently despite largely shared catalogs, e.g. vegetable-cheese pairs shrank to about 28% of the urban-core share. The national network split into 12 communities. How cohesively each community was co-purchased locally predicted 2024 prescription rates for diabetes, cardiovascular and lipid medicines beyond sociodemographics, and a version that removes product prevalence added about a quarter to nearly half of the remaining variance. Ultra-processed foods had no geographic gradient in purchase share and sat at the network periphery everywhere.",
+      "limitations": "Receipts show what households buy at one chain, not what each person eats, and miss food bought elsewhere or wasted. The design is cross-sectional and correlational, so it cannot show that food combinations cause cardiometabolic disease. Purchases and prescriptions are aggregated by municipality and not linked at the individual level, so the shoppers need not be the people filling prescriptions. Prescription rates are proxies for treated disease. Physical activity and other confounders are not measured. Purchases cover about three months in 2025, while health data are from 2024.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "買的東西一樣，搭法卻不一樣？",
+          "還對得上當地用藥率。"
+        ],
+        [
+          "丹麥大學團隊，論文放上arXiv。"
+        ],
+        [
+          "五千一百萬張丹麥超市收據，",
+          "再配上各地的處方紀錄。"
+        ],
+        [
+          "一張收據就是一個購物籃，",
+          "看哪些食物常一起買。",
+          "牛奶這類常客，先扣掉影響。"
+        ],
+        [
+          "各地買的東西差不多，",
+          "搭配方式卻不同。",
+          "離大城市越遠，",
+          "蔬菜配起司越少見。"
+        ],
+        [
+          "加工食品跟生鮮常同車結帳，",
+          "卻很少是搭配的核心。"
+        ],
+        [
+          "各地搭配得多緊密，",
+          "能幫忙猜處方率。",
+          "年齡收入之外，還多解釋剩餘差異四分之一到一半。",
+          "但這只是相關，不是搭配造成疾病。"
+        ],
+        [
+          "食物怎麼搭，藏著健康線索。",
+          "想看更多，追蹤一下。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "receipt",
+          "apple",
+          "pill"
+        ],
+        [
+          "basket",
+          "link",
+          "milk"
+        ],
+        [
+          "building-skyscraper",
+          "tractor"
+        ],
+        [
+          "burger",
+          "salad"
+        ],
+        [
+          "chart-scatter",
+          "prescription"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 43.2,
+        "cover_offset_ms": 5333,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 44.33,
+        "cover_offset_ms": 6541,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "iKL7Hl23DQg",
+          "url": "https://youtube.com/shorts/iKL7Hl23DQg"
+        },
+        "instagram": {
+          "id": "18161064259514092",
+          "url": "https://www.instagram.com/reel/Df4WwNOlXEj/"
+        },
+        "threads": {
+          "id": "17871642789658842",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df4W1NdsiWH"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "THHE0wMWU1M",
+          "url": "https://youtube.com/shorts/THHE0wMWU1M"
+        },
+        "instagram": {
+          "id": "18121225240785829",
+          "url": "https://www.instagram.com/reel/Df4W8ZJiWFD/"
+        },
+        "threads": {
+          "id": "18143876713621741",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df4XBePh33F"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261118-food-co-purchasing-networks-encode-geogr",
+    "pick_reason": "Uses large-scale retail transaction data and co-purchasing networks to link everyday food-buying behavior to geographic differences in cardiometabolic health, a concrete non-AI daily-life topic that can be shown in 3-4 visual steps. Signals: Channel notes favor concrete everyday, non-AI behavior topics over abstract or AI-centered ones, and this topic is far from the recent episodes."
   }
 ]
