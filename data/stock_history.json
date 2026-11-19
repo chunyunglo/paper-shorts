@@ -735,5 +735,35 @@
     "cost_usd": 0.0926,
     "id": "18161045428506877",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df6d4XgnEbu"
+  },
+  {
+    "posted": "2026-11-19T12:26:47+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜資料中心蓋得快,電網卻接不上:論文引用的資料指出,新輸電設施常要四到八年,資料中心約兩到三年就能營運。\n\n愛丁堡大學團隊問:如果運算工作能「換地方做」(互動請求轉送)、「晚點做」(批次工作最多延後6小時),同一張電網能多接多少容量?\n\n他們用修改過的IEEE 118匯流排測試系統,模擬三座資料中心、全年8760小時。只延後執行,容量增加21.26%;只跨地點調度,增加5.37%;兩者並用,從4635.1 MW增至6231.5 MW,增加34.44%,且不擴建電網。\n\n論文做到的是模擬量化,不是實際部署;工作類型比例是假設,模擬中的年運作成本也較高。如果成真,可能影響的是電網擴建與資料中心建置的節奏,但這點論文並未檢驗。\n\n（研究分享，不是投資建議）",
+    "why": "近期午間已談過記憶體、電池材料、HBM與資料中心供電，這篇接續AI基礎設施主題，但切入點是運算彈性與電網容量，角度不重複，也符合本週AI基礎設施與非AI硬體交替的計畫。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.24506",
+      "title": "Quantifying the hosting capacity value of workload flexibility for AI data centers: A two-stage electricity-computation co-optimization framework",
+      "abstract": "Grid connection constraints increasingly limit the expansion of AI data centers, yet the additional hosting capacity enabled by computational workload flexibility remains insufficiently quantified. This paper develops a two-stage electricity--computation co-optimization framework to quantify the individual and coordinated hosting capacity values of spatial and temporal workload flexibility. Data center capacities are determined endogenously, with computational task arrivals scaling with admitted capacity. Spatial routing of eligible interactive requests and temporal deferral of batch workloads are linked to server operation and facility power demand, subject to workload completion requirements and transmission constraints. The first stage maximizes aggregate hosting capacity; the second fixes the resulting site capacities and optimizes annual workload scheduling and generation dispatch to minimize generation and carbon costs. An 8760-hour case study with three data centers on a modified IEEE 118-bus system shows that temporal and spatial flexibility individually increase hosting capacity by 21.26\\% and 5.37\\%, respectively. Their coordinated use raises hosting capacity from 4635.1~MW to 6231.5~MW, a 34.44\\% increase without network reinforcement. The coordinated gain exceeds the sum of the individual gains by 361.9~MW, demonstrating complementarity between spatial migration and temporal deferral. By redistributing computational demand across locations and operating hours, these mechanisms enable fuller utilization of existing transmission capacity. The findings establish workload flexibility as a quantifiable planning resource for accommodating additional data center capacity within existing transmission networks.",
+      "authors": [
+        "Jiakai Wu",
+        "Wei Sun",
+        "Pengyu Ren",
+        "Yifan Wang"
+      ],
+      "venue": "arXiv eess.SY",
+      "url": "https://arxiv.org/abs/2611.24506",
+      "pdf_url": "https://arxiv.org/pdf/2611.24506v1",
+      "doi": null,
+      "published": "2026-11-18",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2082,
+    "id": "18083719163737924",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df7E-BtG7L2"
   }
 ]

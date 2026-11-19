@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-19
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df7E-BtG7L2)
+  - 內容 Text: 🏭 產業前沿｜資料中心蓋得快,電網卻接不上:論文引用的資料指出,新輸電設施常要四到八年,資料中心約兩到三年就能營運。 愛丁堡大學團隊問:如果運算工作能「換地方做」(互動請求轉送)、「晚點做」(批次工作最多延後6小時),同一張電網能多接多少容…
+  - 論文 Paper: [Quantifying the hosting capacity value of workload flexibility for AI data centers: A two-stage electricity-computation co-optimization framework](https://arxiv.org/abs/2611.24506) (arXiv eess.SY)
+  - 為什麼 Why: 近期午間已談過記憶體、電池材料、HBM與資料中心供電，這篇接續AI基礎設施主題，但切入點是運算彈性與電網容量，角度不重複，也符合本週AI基礎設施與非AI硬體交替的計畫。
+  - 花費 Claude cost: US$0.208
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df7B13eINdd)
   - 內容 Text: 問AI該投給誰，它的建議靠得住嗎？ 我們今天介紹的研究（arXiv, 2026）用了德國2025年大選後的調查，只看6,022位有投票的受訪者。每人只提供三個議題的立場和重視程度：稅與社福、移民、氣候與經濟。研究者把這些答案交給 Gemin…
   - 為什麼 Why: This is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener since yesterday's post led with a number; today's election headlines are partisan so no news link is attempted, and Instagram free posts stay paused per the notes.
