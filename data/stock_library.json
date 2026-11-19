@@ -230,5 +230,37 @@
     "abstract": "This paper investigates whether and how investor sentiment affects stock market volatility forecasting from a nonlinear theory perspective. With the use of a novel dataset that contains massive articles about stock market analysis obtained from a Chinese investors' community, we construct four sentiment indices to measure investor sentiment by applying textual analysis techniques. Differing from the developed market, we find that the investor sentiment from an emerging market causes stock volatility by a nonlinear pattern rather than a linear style. Furthermore, we show that the investor sentiment improves stock volatility prediction based on the long short‐term memory model. And the predictability is still significant after considering another sentiment proxy variable. Finally, we demonstrate that this improvement of predictive performance is meaningful from an economic point of view.",
     "added": "2026-11-18",
     "found_by": "Crossref: news sentiment textual analysis stock returns"
+  },
+  {
+    "id": "doi:10.1111/jofi.12851",
+    "title": "The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment",
+    "authors": [
+      "CARY FRYDMAN",
+      "BAOLIAN WANG"
+    ],
+    "venue": "The Journal of Finance",
+    "published": "2019",
+    "url": "https://doi.org/10.1111/jofi.12851",
+    "pdf_url": null,
+    "abstract": "We test whether the display of information causally affects investor behavior in a high‐stakes trading environment. Using investor‐level brokerage data from China and a natural experiment, we estimate the impact of a shock that increased the salience of a stock's purchase price but did not change the investor's information set. We employ a difference‐in‐differences approach and find that the salience shock causally increased the disposition effect by 17%. We use microdata to document substantial heterogeneity across investors in the treatment effect. A previously documented trading pattern, the “rank effect,” explains heterogeneity in the change in the disposition effect.",
+    "added": "2026-11-19",
+    "found_by": "Crossref: salience investor behavior"
+  },
+  {
+    "id": "doi:10.1287/mnsc.2020.3716",
+    "title": "Salience and Mutual Fund Investor Demand for Idiosyncratic Volatility",
+    "authors": [
+      "Christopher P. Clifford",
+      "Jon A. Fulkerson",
+      "Russell Jame",
+      "Bradford D. Jordan"
+    ],
+    "venue": "Management Science",
+    "published": "2021",
+    "url": "https://doi.org/10.1287/mnsc.2020.3716",
+    "pdf_url": null,
+    "abstract": "We find that mutual fund investors are more likely to both purchase and redeem funds with high idiosyncratic volatility (IV). Investors’ tendency to purchase high IV funds is largely driven by high IV funds having more extreme returns, which increases the salience of the fund. Including flexible controls for extreme past returns over multiple horizons decreases the effect of IV on new investment, and experimental evidence corroborates that increasing the salience of extreme returns increases investor demand for IV. Demand for IV is higher among retail investors and funds with otherwise lower salience. Collectively, the evidence suggests that extreme returns attract investor attention and contribute to investors’ risk seeking behavior when purchasing mutual funds. This paper was accepted by David Simchi-Levi, finance.",
+    "added": "2026-11-19",
+    "found_by": "Crossref: salience investor behavior"
   }
 ]

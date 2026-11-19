@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-19
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df6d4XgnEbu)
+  - 內容 Text: 📈 盤前心理學｜同一張帳單，換個排版，你的決定會不會跟著變？ 《The Journal of Finance》2019 年的一項研究，用中國券商的投資人層級資料做了自然實驗。有一次改變，讓一檔股票的「買進價格」變得更顯眼，但投資人手上的資訊…
+  - 論文 Paper: [The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment](https://doi.org/10.1111/jofi.12851) (The Journal of Finance)
+  - 為什麼 Why: 這是還沒用過的因果證據研究，主題（介面呈現）和近日重複的注意力、當沖、散戶虧損不同，且有真實券商資料與具體數字可當開頭。
+  - 花費 Claude cost: US$0.093
+
 ## 2026-11-18
 
 - **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/Df5a0opHwdG)

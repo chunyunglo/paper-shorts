@@ -707,5 +707,33 @@
     "cost_usd": 0.2472,
     "id": "18131633849497486",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df5a0opHwdG"
+  },
+  {
+    "posted": "2026-11-19T06:45:13+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜同一張帳單，換個排版，你的決定會不會跟著變？\n\n《The Journal of Finance》2019 年的一項研究，用中國券商的投資人層級資料做了自然實驗。有一次改變，讓一檔股票的「買進價格」變得更顯眼，但投資人手上的資訊其實沒有增加。\n\n研究用差異中差異法比較後發現，這個顯眼度的衝擊，使處分效果（傾向賣出賺錢的股票、抱著賠錢的股票）增加了17%。研究也發現不同投資人受到的影響差異很大，而先前文獻提過的「排名效應」可以解釋這種差異。\n\n這代表什麼？研究發現，資訊怎麼呈現，可能實際影響交易行為。但這不代表每個人都會同樣反應，更不是在告訴誰該怎麼操作。\n\n註：以上僅根據論文摘要。\n\n（研究分享，不是投資建議）",
+    "why": "這是還沒用過的因果證據研究，主題（介面呈現）和近日重複的注意力、當沖、散戶虧損不同，且有真實券商資料與具體數字可當開頭。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/jofi.12851",
+      "title": "The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment",
+      "abstract": "We test whether the display of information causally affects investor behavior in a high‐stakes trading environment. Using investor‐level brokerage data from China and a natural experiment, we estimate the impact of a shock that increased the salience of a stock's purchase price but did not change the investor's information set. We employ a difference‐in‐differences approach and find that the salience shock causally increased the disposition effect by 17%. We use microdata to document substantial heterogeneity across investors in the treatment effect. A previously documented trading pattern, the “rank effect,” explains heterogeneity in the change in the disposition effect.",
+      "authors": [
+        "CARY FRYDMAN",
+        "BAOLIAN WANG"
+      ],
+      "venue": "The Journal of Finance",
+      "url": "https://doi.org/10.1111/jofi.12851",
+      "pdf_url": null,
+      "doi": "10.1111/jofi.12851",
+      "published": "2019",
+      "source": "journal"
+    },
+    "cost_usd": 0.0926,
+    "id": "18161045428506877",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df6d4XgnEbu"
   }
 ]
