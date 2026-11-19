@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-19
 
+- **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/Df8ASHDklUZ)
+  - 內容 Text: 🌙 盤後研究室｜一個有點反直覺的現象：有一類基金，投資人比較常申購它，也比較常贖回它。 研究發現，共同基金投資人對「特異波動」高的基金，申購與贖回的可能性都更高。作者的解釋之一是，這類基金的報酬更極端，因此更顯眼。研究把過去多個期間的極端報…
+  - 論文 Paper: [Salience and Mutual Fund Investor Demand for Idiosyncratic Volatility](https://doi.org/10.1287/mnsc.2020.3716) (Management Science)
+  - 為什麼 Why: 近期貼文多談個股與當沖，這篇是基金投資人資料加實驗，延續讀者愛看的自身行為題材，又與之前的關注度研究換了角度，也避開今天的市場大跌與個股新聞。
+  - 花費 Claude cost: US$0.095
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df7E-BtG7L2)
   - 內容 Text: 🏭 產業前沿｜資料中心蓋得快,電網卻接不上:論文引用的資料指出,新輸電設施常要四到八年,資料中心約兩到三年就能營運。 愛丁堡大學團隊問:如果運算工作能「換地方做」(互動請求轉送)、「晚點做」(批次工作最多延後6小時),同一張電網能多接多少容…
   - 論文 Paper: [Quantifying the hosting capacity value of workload flexibility for AI data centers: A two-stage electricity-computation co-optimization framework](https://arxiv.org/abs/2611.24506) (arXiv eess.SY)

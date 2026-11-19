@@ -765,5 +765,35 @@
     "cost_usd": 0.2082,
     "id": "18083719163737924",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df7E-BtG7L2"
+  },
+  {
+    "posted": "2026-11-19T21:05:05+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "question",
+    "text": "🌙 盤後研究室｜一個有點反直覺的現象：有一類基金，投資人比較常申購它，也比較常贖回它。\n\n研究發現，共同基金投資人對「特異波動」高的基金，申購與贖回的可能性都更高。作者的解釋之一是，這類基金的報酬更極端，因此更顯眼。研究把過去多個期間的極端報酬納入控制後，特異波動對新資金流入的影響下降；實驗證據也顯示，讓極端報酬更醒目，投資人對特異波動的需求會上升。研究還發現，散戶與原本較不顯眼的基金，這種需求更高。\n\n這不代表投資人都被極端報酬牽著走，摘要只說極端報酬吸引注意力，並可能助長申購時的追求風險傾向。\n\n晚上問問自己：上次注意到某檔標的，是因為研究過它，還是因為它的極端漲跌剛好很搶眼？\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文多談個股與當沖，這篇是基金投資人資料加實驗，延續讀者愛看的自身行為題材，又與之前的關注度研究換了角度，也避開今天的市場大跌與個股新聞。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1287/mnsc.2020.3716",
+      "title": "Salience and Mutual Fund Investor Demand for Idiosyncratic Volatility",
+      "abstract": "We find that mutual fund investors are more likely to both purchase and redeem funds with high idiosyncratic volatility (IV). Investors’ tendency to purchase high IV funds is largely driven by high IV funds having more extreme returns, which increases the salience of the fund. Including flexible controls for extreme past returns over multiple horizons decreases the effect of IV on new investment, and experimental evidence corroborates that increasing the salience of extreme returns increases investor demand for IV. Demand for IV is higher among retail investors and funds with otherwise lower salience. Collectively, the evidence suggests that extreme returns attract investor attention and contribute to investors’ risk seeking behavior when purchasing mutual funds. This paper was accepted by David Simchi-Levi, finance.",
+      "authors": [
+        "Christopher P. Clifford",
+        "Jon A. Fulkerson",
+        "Russell Jame",
+        "Bradford D. Jordan"
+      ],
+      "venue": "Management Science",
+      "url": "https://doi.org/10.1287/mnsc.2020.3716",
+      "pdf_url": null,
+      "doi": "10.1287/mnsc.2020.3716",
+      "published": "2021",
+      "source": "journal"
+    },
+    "cost_usd": 0.0947,
+    "id": "17914289955570483",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df8ASHDklUZ"
   }
 ]
