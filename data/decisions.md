@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment](https://doi.org/10.1111/jofi.12851) (The Journal of Finance)
   - 為什麼 Why: 這是還沒用過的因果證據研究，主題（介面呈現）和近日重複的注意力、當沖、散戶虧損不同，且有真實券商資料與具體數字可當開頭。
   - 花費 Claude cost: US$0.093
+- **短影音 Short** · [問AI該投誰？有幫助，但會偏心 / Ask AI Who to Vote For? Helpful, but Biased](https://youtube.com/shorts/8MspMjmnN2I)
+  - 論文 Paper: [Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications](https://arxiv.org/abs/2611.24684) (arXiv cs.CY)
+  - 為什麼 Why: It tests how well an off-the-shelf LLM works as a voting advice app, using 6,022 simulated voters, a concrete method that can be shown in 3-4 visual steps (voters, questions, advice, comparison with party positions), and a useful finding about everyday AI use. Signals: Notes favor concrete everyday decisions and chatbot-use topics, but the abstract market topics did worse, so this pick leans on a practical, relatable question and avoids topics too close to recent episodes.
 
 ## 2026-11-18
 

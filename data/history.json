@@ -8337,5 +8337,355 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261118-food-co-purchasing-networks-encode-geogr",
     "pick_reason": "Uses large-scale retail transaction data and co-purchasing networks to link everyday food-buying behavior to geographic differences in cardiometabolic health, a concrete non-AI daily-life topic that can be shown in 3-4 visual steps. Signals: Channel notes favor concrete everyday, non-AI behavior topics over abstract or AI-centered ones, and this topic is far from the recent episodes."
+  },
+  {
+    "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+    "created": "2026-11-19T06:15:44+00:00",
+    "paper": {
+      "id": "arxiv:2611.24684",
+      "title": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+      "abstract": "Large language models (LLMs) can provide voters information about political issues, party positions, and even advise on which party to vote for. However, no previous study explores how well off-the-shelf LLMs function as voting advice applications (VAAs). In this article, we address this gap by examining how Gemini 3 Flash advises a sample of 6,022 German survey respondents on which party to vote for, based on their policy preferences and priorities alone. In brief, we find that for most respondents, following the LLM's advice would benefit voter-party policy alignment (i.e. congruence), with a significantly stronger remedial effect among voters with low levels of political interest and formal education. However, our analysis also reveals concerning biases in the LLM's recommendations. For instance, the LLM suggested voting for the AfD at approximately 1.5 times the frequency of a standard salience-weighted proximity model. In addition, the LLM hardly ever advised voting for either Die Linke or the BSW. We conclude that while LLMs can approximate the behaviour of VAAs, users should be aware that the LLM's recommendations are still biased in ways that are extremely difficult to trace.",
+      "authors": [
+        "William John Atkinson",
+        "Paul Saproza"
+      ],
+      "venue": "arXiv cs.CY",
+      "url": "https://arxiv.org/abs/2611.24684",
+      "pdf_url": "https://arxiv.org/pdf/2611.24684",
+      "doi": null,
+      "published": "2026-11-19",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "問AI該投誰？有幫助，但會偏心",
+      "title_en": "Ask AI Who to Vote For? Helpful, but Biased",
+      "paper_title_zh": "嗨，Gemini，我該投給誰？用大型語言模型當投票建議工具的好處（與問題）",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "開場",
+          "heading_en": "HOOK",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI幫你投票",
+          "big_text_en": "AI picks your vote",
+          "lines": [
+            {
+              "zh": "AI幫你決定投誰，可信嗎？",
+              "en": "Would you let AI pick your vote?"
+            },
+            {
+              "zh": "它大多有幫助，卻偏愛某個黨。",
+              "en": "It mostly helps, but it has a favorite party."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "義大利政治學者，發表在arXiv。",
+              "en": "Political scientists at LUISS University in Italy, on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "德國選民"
+          ],
+          "labels_en": [
+            "German voters"
+          ],
+          "values": [
+            6022.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "研究用了六千多位投過票的德國人。",
+              "en": "They used over 6,000 Germans who voted in 2025."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "問卷",
+          "heading_en": "THE SURVEY",
+          "labels": [
+            "稅收",
+            "移民",
+            "氣候"
+          ],
+          "labels_en": [
+            "Taxes",
+            "Immigration",
+            "Climate"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們問稅與福利、移民、氣候的立場，和有多重要。",
+              "en": "They asked about taxes, immigration, and climate, and how much each matters."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "你的立場",
+            "Gemini",
+            "推薦政黨"
+          ],
+          "labels_en": [
+            "Your views",
+            "Gemini",
+            "Party pick"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "Gemini只看這些答案，就推薦一個政黨。",
+              "en": "Gemini saw only those answers, then named one party for each person."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "對照",
+          "heading_en": "THE BENCHMARK",
+          "labels": [
+            "Gemini推薦",
+            "專家算法"
+          ],
+          "labels_en": [
+            "Gemini's pick",
+            "Expert method"
+          ],
+          "values": [],
+          "big_text": "比較基準",
+          "big_text_en": "A benchmark",
+          "lines": [
+            {
+              "zh": "再跟專家評分算出的最近政黨比對。",
+              "en": "They compared that with the closest party by expert ratings."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "更貼近立場"
+          ],
+          "labels_en": [
+            "Closer to views"
+          ],
+          "values": [],
+          "big_text": "過半更貼近",
+          "big_text_en": "Over half closer",
+          "lines": [
+            {
+              "zh": "結果過半的人照AI建議，會更貼近自己的立場。",
+              "en": "Over half would land on a party closer to their views."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "偏見",
+          "heading_en": "THE BIAS",
+          "labels": [
+            "實際投票",
+            "專家算法",
+            "Gemini"
+          ],
+          "labels_en": [
+            "Actual vote",
+            "Expert method",
+            "Gemini"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但AI偏愛極右的AfD，比專家算法多很多。",
+              "en": "But Gemini picked the far-right AfD far more than the experts' math."
+            },
+            {
+              "zh": "卻幾乎不推薦左翼的Die Linke。",
+              "en": "And the left-wing Die Linke was almost never picked."
+            },
+            {
+              "zh": "不過只看三題，偏心的原因也很難追查。",
+              "en": "But it covered just three issues, and the cause is hard to trace."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "參考，不是答案",
+          "big_text_en": "A guide, not a verdict",
+          "lines": [
+            {
+              "zh": "AI建議大致有用，但偏心的原因很難追查。",
+              "en": "Handy, but the bias is hard to trace."
+            },
+            {
+              "zh": "想看更多，請追蹤我們。",
+              "en": "Follow us for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "如果請AI幫你決定投哪個政黨，會怎麼樣？義大利LUISS大學的研究團隊，拿六千多位德國選民在稅收、移民、氣候的立場，請Gemini推薦政黨。結果超過一半的人會換到更貼近自己立場的政黨，但Gemini明顯偏推AfD，而且推薦的理由很難追查。",
+      "description_en": "Would an AI chatbot give good voting advice? This study fed Gemini 3 Flash the views of over 6,000 German voters on taxes, immigration, and climate, and asked it to pick a party for each. For over half, the pick matched their views better than their actual vote, but Gemini favored the AfD and almost never picked Die Linke.",
+      "hashtags": [
+        "行為解碼",
+        "AI投票",
+        "德國大選",
+        "LLM",
+        "VotingAdvice",
+        "Gemini",
+        "政治心理",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "The authors tested whether an off-the-shelf large language model, Gemini 3 Flash Preview, can work like a voting advice application. They used the post-election 2025 German Longitudinal Election Study, restricted to 6,022 respondents who reported voting. Each respondent gave a position on a 1-11 scale and an importance rating on a 1-5 scale for three issues: taxes versus social services, immigration, and climate change versus economic growth. Respondents were sent to the LLM in 354 batches of 20, with only these answers (no demographics or party identification), and the LLM named one party for each person's party vote. Congruence was the importance-weighted distance between a voter and a party, using party positions from the 2024 Chapel Hill expert survey. The LLM's pick was compared with the party the respondent actually voted for and with an Expert model, a salience-weighted proximity model that picks the closest party. For just over 50% of respondents the LLM pick was more congruent than their actual vote, for just over a third it was the same, and for just over 12% it was worse. The LLM matched the Expert model for just under 70%. Gemini recommended the AfD to 29% (Expert model about 19-20%, actual vote about 15%) and Die Linke to under 2% (Expert model 5%). Gains were larger for people with low political interest (43% higher predicted gain) and low education (32% higher). A repeat run gave the same party in 85% of cases.",
+      "limitations": "The study covers only three issues, so it cannot show that following the LLM's advice would make voters better off overall. It tests one model, Gemini 3 Flash, with respondents processed in batches of 20, and uses a structured numeric input unlike real chats. Congruence relies on expert party ratings, not the parties' actual platforms, and some respondents may have underreported voting AfD. The authors cannot explain why the biases occur, and it is untested whether people would follow the advice or whether other LLMs behave the same.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "AI叫你投誰，你會聽嗎？",
+          "它多半幫得上忙，卻偏心某個黨。"
+        ],
+        [
+          "義大利LUISS大學的政治學者，發表在arXiv。"
+        ],
+        [
+          "研究團隊找來六千多位在2025年投過票的德國人。"
+        ],
+        [
+          "問他們對稅收、移民、氣候的立場，還有各自多重要。"
+        ],
+        [
+          "Gemini只看這些答案，替每個人挑一個政黨。"
+        ],
+        [
+          "再拿專家評分算出的最近政黨來對照。"
+        ],
+        [
+          "超過一半的人，會換到更貼近自己立場的政黨。"
+        ],
+        [
+          "但它推極右的AfD，比專家算法多很多。",
+          "左派的Die Linke，幾乎沒被推薦過。",
+          "不過只看三個議題，原因也很難追查。"
+        ],
+        [
+          "好用，但偏見的來源很難追查。",
+          "想看更多研究，歡迎追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "receipt-tax",
+          "world",
+          "sun"
+        ],
+        [
+          "user",
+          "ai",
+          "flag"
+        ],
+        [
+          "ai",
+          "scale"
+        ],
+        [
+          "target-arrow"
+        ],
+        [
+          "checkbox",
+          "scale",
+          "ai"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 45.98,
+        "cover_offset_ms": 6318,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 44.15,
+        "cover_offset_ms": 5997,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "8MspMjmnN2I",
+          "url": "https://youtube.com/shorts/8MspMjmnN2I"
+        },
+        "instagram": {
+          "id": "18196060729405349",
+          "url": "https://www.instagram.com/reel/Df67k0oGd3O/"
+        },
+        "threads": {
+          "id": "17952626196343445",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df67o6mBHRx"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "FJ8h6qcuHi4",
+          "url": "https://youtube.com/shorts/FJ8h6qcuHi4"
+        },
+        "instagram": {
+          "id": "18100353548414614",
+          "url": "https://www.instagram.com/reel/Df67vt9kzIP/"
+        },
+        "threads": {
+          "id": "17920123434263058",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df670mnqInU"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261119-hi-gemini-who-should-i-vote-for-the-bene",
+    "pick_reason": "It tests how well an off-the-shelf LLM works as a voting advice app, using 6,022 simulated voters, a concrete method that can be shown in 3-4 visual steps (voters, questions, advice, comparison with party positions), and a useful finding about everyday AI use. Signals: Notes favor concrete everyday decisions and chatbot-use topics, but the abstract market topics did worse, so this pick leans on a practical, relatable question and avoids topics too close to recent episodes."
   }
 ]
