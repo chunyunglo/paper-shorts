@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-18T08:59:07+00:00",
+ "collected_at": "2026-11-19T09:19:28+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2439,
-   "videoCount": 50
+   "viewCount": 2475,
+   "videoCount": 52
   }
  },
  "notes": [],
@@ -712,7 +712,7 @@
    "paper": "Jawboning the Fed: Do Markets Listen When Administrations Talk?",
    "created": "2026-10-29T06:14:48+00:00",
    "metrics": {
-    "views": 20,
+    "views": 21,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -1676,7 +1676,7 @@
    "paper": "Heterogeneous impacts of temperature extremes on climate attitudes and Green voting",
    "created": "2026-11-06T06:18:40+00:00",
    "metrics": {
-    "views": 53,
+    "views": 52,
     "likes": 0,
     "comments": 0,
     "duration": "PT54S",
@@ -1802,7 +1802,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 23,
+    "views": 22,
     "likes": 0,
     "comments": 0,
     "duration": "PT53S",
@@ -2049,7 +2049,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 321,
+    "views": 320,
     "likes": 0,
     "comments": 0,
     "duration": "PT49S",
@@ -2112,7 +2112,7 @@
    "paper": "Sanctions, Evasion, and Deterrence: Evidence from Speeding Enforcement",
    "created": "2026-11-09T06:17:28+00:00",
    "metrics": {
-    "views": 19,
+    "views": 18,
     "likes": 0,
     "comments": 0,
     "duration": "PT54S",
@@ -2175,7 +2175,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 388,
+    "views": 386,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2238,7 +2238,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 90,
+    "views": 88,
     "likes": 0,
     "comments": 1,
     "duration": "PT58S",
@@ -2427,7 +2427,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 184,
+    "views": 182,
     "likes": 0,
     "comments": 1,
     "duration": "PT51S",
@@ -2471,7 +2471,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 33,
+    "views": 34,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2490,7 +2490,7 @@
    "paper": "Taste or Strategy? Nationalistic Bias and Competitor Penalties in Figure Skating Judging",
    "created": "2026-11-13T06:10:31+00:00",
    "metrics": {
-    "views": 87,
+    "views": 86,
     "likes": 1,
     "comments": 1,
     "duration": "PT44S",
@@ -2616,7 +2616,7 @@
    "paper": "Where Language-Model Vocabulary Rose on Stack Exchange",
    "created": "2026-11-14T06:10:08+00:00",
    "metrics": {
-    "views": 45,
+    "views": 46,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2679,15 +2679,15 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 106,
-    "likes": 0,
+    "views": 134,
+    "likes": 1,
     "comments": 1,
     "duration": "PT47S",
     "privacy": "public",
     "published": "2026-11-15T11:04:13Z",
-    "estimatedMinutesWatched": 13,
+    "estimatedMinutesWatched": 17,
     "averageViewDuration": 18,
-    "averageViewPercentage": 39.99,
+    "averageViewPercentage": 39.17,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2742,15 +2742,15 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 23,
+    "views": 28,
     "likes": 0,
     "comments": 1,
     "duration": "PT48S",
     "privacy": "public",
     "published": "2026-11-15T11:06:36Z",
-    "estimatedMinutesWatched": 4,
-    "averageViewDuration": 22,
-    "averageViewPercentage": 46.71,
+    "estimatedMinutesWatched": 5,
+    "averageViewDuration": 24,
+    "averageViewPercentage": 50.47999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2805,12 +2805,17 @@
    "paper": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
-    "views": 80,
+    "views": 77,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
-    "published": "2026-11-16T11:04:21Z"
+    "published": "2026-11-16T11:04:21Z",
+    "estimatedMinutesWatched": 36,
+    "averageViewDuration": 102,
+    "averageViewPercentage": 204.4,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2868,7 +2873,12 @@
     "comments": 1,
     "duration": "PT42S",
     "privacy": "public",
-    "published": "2026-11-16T11:06:33Z"
+    "published": "2026-11-16T11:06:33Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2921,7 +2931,7 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 14,
+    "views": 22,
     "likes": 0,
     "comments": 1,
     "duration": "PT42S",
@@ -2940,8 +2950,8 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 116,
-    "reach": 99,
+    "views": 119,
+    "reach": 103,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -2979,7 +2989,7 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 18,
+    "views": 20,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
@@ -3027,6 +3037,122 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "iKL7Hl23DQg",
+   "url": "https://youtube.com/shorts/iKL7Hl23DQg",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT44S",
+    "privacy": "public",
+    "published": "2026-11-18T11:04:35Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18161064259514092",
+   "url": "https://www.instagram.com/reel/Df4WwNOlXEj/",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 106,
+    "reach": 101,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17871642789658842",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df4W1NdsiWH",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 6,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "THHE0wMWU1M",
+   "url": "https://youtube.com/shorts/THHE0wMWU1M",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT45S",
+    "privacy": "public",
+    "published": "2026-11-18T11:06:12Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18121225240785829",
+   "url": "https://www.instagram.com/reel/Df4W8ZJiWFD/",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 93,
+    "reach": 83,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261118-food-co-purchasing-networks-encode-geogr",
+   "title": "Same Groceries, Different Combos: A Health Clue",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18143876713621741",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df4XBePh33F",
+   "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
+   "created": "2026-11-18T07:20:27+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -3061,7 +3187,7 @@
    "paper": "20261027-decredentialed-jobs-and-upward-mobility",
    "created": "2026-10-28T06:48:20+00:00",
    "metrics": {
-    "views": 185,
+    "views": 186,
     "likes": 1,
     "replies": 2,
     "reposts": 1,
@@ -3625,6 +3751,25 @@
    }
   },
   {
+   "kind": "social",
+   "episode": "social-30",
+   "title": "在丹麥的偏遠小鎮，「蔬菜配起司」一起被買的比例，只有大城市核心的約28%。\n\n我們今天介紹的研究（arXiv, 2026）分析了丹麥Netto超市553家分店、",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18147838186598250",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df4dgPrFreL",
+   "paper": "20261118-food-co-purchasing-networks-encode-geogr",
+   "created": "2026-11-18T12:03:11+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "stock",
    "episode": "stock-0",
    "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
@@ -3787,7 +3932,7 @@
    "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
    "created": "2026-11-13T20:10:40+00:00",
    "metrics": {
-    "views": 35,
+    "views": 36,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3882,7 +4027,7 @@
    "paper": "LazyWeights: Decode-on-Demand Edge LLMs",
    "created": "2026-11-15T11:44:21+00:00",
    "metrics": {
-    "views": 9,
+    "views": 10,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3901,7 +4046,7 @@
    "paper": "Who Gambles in the Stock Market?",
    "created": "2026-11-15T19:12:30+00:00",
    "metrics": {
-    "views": 20,
+    "views": 21,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3939,7 +4084,7 @@
    "paper": "Fine-tuned atomistic foundation model for accurate sodium-carbon chemistry in Na-ion batteries",
    "created": "2026-11-16T12:23:52+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4034,7 +4179,64 @@
    "paper": "The social signal",
    "created": "2026-11-18T06:46:24+00:00",
    "metrics": {
+    "views": 22,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-22",
+   "title": "🏭 產業前沿｜每秒 12.8 億個取樣，延遲約 40 奈秒：這是一篇論文替 320 MHz 的 Wi-Fi 7 訊號設定的處理規格。\n\n論文做到的是：數位預失真",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18030109580700576",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df4hNAyEX3M",
+   "paper": "StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion",
+   "created": "2026-11-18T12:35:38+00:00",
+   "metrics": {
     "views": 19,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-23",
+   "title": "🌙 盤後研究室｜同一個盈餘數字,其實要回答兩個問題:這消息有多好?以及這個數字值多少錢?\n\n研究者請約900位有交易帳戶的美國成人,預測財報公布當天的股價反應(",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18131633849497486",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df5a0opHwdG",
+   "paper": "Huge If True: Learning from the Size of the Surprise",
+   "created": "2026-11-18T20:59:16+00:00",
+   "metrics": {
+    "views": 42,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-24",
+   "title": "📈 盤前心理學｜同一張帳單，換個排版，你的決定會不會跟著變？\n\n《The Journal of Finance》2019 年的一項研究，用中國券商的投資人層級資",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18161045428506877",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df6d4XgnEbu",
+   "paper": "The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment",
+   "created": "2026-11-19T06:45:13+00:00",
+   "metrics": {
+    "views": 45,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
