@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-19
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df7B13eINdd)
+  - 內容 Text: 問AI該投給誰，它的建議靠得住嗎？ 我們今天介紹的研究（arXiv, 2026）用了德國2025年大選後的調查，只看6,022位有投票的受訪者。每人只提供三個議題的立場和重視程度：稅與社福、移民、氣候與經濟。研究者把這些答案交給 Gemin…
+  - 為什麼 Why: This is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener since yesterday's post led with a number; today's election headlines are partisan so no news link is attempted, and Instagram free posts stay paused per the notes.
+  - 根據的集數 Based on: 20261119-hi-gemini-who-should-i-vote-for-the-bene
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df6d4XgnEbu)
   - 內容 Text: 📈 盤前心理學｜同一張帳單，換個排版，你的決定會不會跟著變？ 《The Journal of Finance》2019 年的一項研究，用中國券商的投資人層級資料做了自然實驗。有一次改變，讓一檔股票的「買進價格」變得更顯眼，但投資人手上的資訊…
   - 論文 Paper: [The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment](https://doi.org/10.1111/jofi.12851) (The Journal of Finance)

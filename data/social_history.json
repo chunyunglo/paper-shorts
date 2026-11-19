@@ -436,5 +436,19 @@
     "why": "The grocery co-purchasing paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, opening with a number since yesterday's post was question-led; Instagram free posts stay paused per the notes, no headline connects responsibly, and the notes advise against filling extra slots.",
     "id": "18147838186598250",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df4dgPrFreL"
+  },
+  {
+    "posted": "2026-11-19T11:59:11+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261119-hi-gemini-who-should-i-vote-for-the-bene"
+    ],
+    "text": "問AI該投給誰，它的建議靠得住嗎？\n\n我們今天介紹的研究（arXiv, 2026）用了德國2025年大選後的調查，只看6,022位有投票的受訪者。每人只提供三個議題的立場和重視程度：稅與社福、移民、氣候與經濟。研究者把這些答案交給 Gemini 3 Flash，請它推薦一個政黨。\n\n發現：\n・略超過一半的人，AI推薦的政黨比他實際投的更貼近他自己的立場；約三分之一一樣；略超過12%反而更遠。\n・但有偏差：AI推薦AfD給29%的人，按立場距離挑最近政黨的「專家模型」約19-20%；推薦左翼黨不到2%，專家模型是5%。\n・政治興趣低、教育程度低的人，預期改善較大。\n\n限制：只看三個議題，不能說照AI投票整體會更好；只測一個模型，輸入是數字不是真實聊天；也沒測人會不會照做。作者也還解釋不了偏差從哪來。\n\n細節在我們今天的影片裡。",
+    "news": null,
+    "why": "This is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener since yesterday's post led with a number; today's election headlines are partisan so no news link is attempted, and Instagram free posts stay paused per the notes.",
+    "id": "17984387595126058",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df7B13eINdd"
   }
 ]
