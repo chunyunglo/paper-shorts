@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-20
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df9p5vzGxzK)
+  - 內容 Text: 🏭 產業前沿｜AI 代理程式等一次模型回覆，中位數約 2.7 秒；實際運算只佔估計的 5 到 40 毫秒（區間估計，非直接量測）。 在作者部署的「每段對話一個獨立環境」代理平台上（單一客服基準、一種模型、兩套框架），一千段對話據推算只用 2…
+  - 論文 Paper: [Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes](https://arxiv.org/abs/2611.26480) (arXiv cs.PF)
+  - 為什麼 Why: 近幾天午間產業前沿多談記憶體、電力與無線訊號，這篇改談 AI 代理服務在雲端的資源預留，角度新、有具體數字，也呼應頻道自我檢討中偏向 AI 基礎設施的建議。
+  - 花費 Claude cost: US$0.251
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df9mwDdmxJR)
   - 內容 Text: 69.8% 和 61.6%。 這是福斯新聞（Fox News）的片段中，「強化共和黨觀點」和「對民主黨帶負面情緒」各自的比例。MSNBC剛好倒過來：對共和黨帶負面情緒52.5%，強化民主黨觀點39.3%；CNN是35.0%對22.7%。 我…
   - 為什麼 Why: The TV-news rhetoric paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was question-led, framed neutrally across both sides; no headline links responsibly (mostly partisan, conflict or tragedy news), Instagram free posts stay paused per the notes, and the weekly second-angle post is better saved for tomorrow.

@@ -827,5 +827,32 @@
     "cost_usd": 0.2362,
     "id": "18116226557618263",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df9BOy8kWJW"
+  },
+  {
+    "posted": "2026-11-20T12:27:58+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜AI 代理程式等一次模型回覆，中位數約 2.7 秒；實際運算只佔估計的 5 到 40 毫秒（區間估計，非直接量測）。\n\n在作者部署的「每段對話一個獨立環境」代理平台上（單一客服基準、一種模型、兩套框架），一千段對話據推算只用 2 到 15 顆核心；桌機模擬模型的直接測量約 3.8 到 9.3 顆。並非所有平台都這樣設計。\n\n以下皆為模擬：該平台閒置預設 15 分鐘才回收，33 秒的對話若不關閉，佔用是 28 倍（933/33）；64 段共用一個環境可少 59 倍，第 99 百分位最多多等 40 毫秒（無思考時間、2 vCPU 環境；256 段且運算偏高時過載）。\n\n論文做到的是量測與模擬；如果成真，容量規劃可能要看同時對話數。這是客戶端視角，並非平台成本。\n\n（研究分享，不是投資建議）",
+    "why": "近幾天午間產業前沿多談記憶體、電力與無線訊號，這篇改談 AI 代理服務在雲端的資源預留，角度新、有具體數字，也呼應頻道自我檢討中偏向 AI 基礎設施的建議。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.26480",
+      "title": "Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes",
+      "abstract": "LLM agents spend nearly all their time waiting for the model. On Amazon Bedrock AgentCore, our agents waited a median of 2.7 seconds for each model reply, then computed for an estimated 5 to 40 milliseconds. AgentCore does not charge for CPU during the wait. But it reserves a separate environment, a virtual machine with its own memory, for every conversation, and keeps it reserved until the conversation is closed. So 1,000 conversations reserve 1,000 environments to do the work of 2 to 15 processor cores. A service runs out of environments long before it runs out of processing power. The shortage has two causes, and each has a fix. An environment stays reserved after its conversation ends: in the customer-service benchmark we ran, a conversation lasts 33 seconds on average, but its environment is held for 15 minutes more unless the client closes it. And an environment serves only one conversation, which is mostly waiting: in our simulation, 64 conversations sharing one environment need 59 times fewer environments, and 99 of every 100 replies are delayed by at most 40 milliseconds. The milliseconds are an estimate because they are hard to measure: a stubbed model, a timer around the model call, and steps run back to back each gave a plausible number that was too low. We show how to avoid all three. Of the two fixes, closing needs only the client. Sharing needs the platform, and of the agent runtimes we surveyed only one allows it, in part. They keep conversations apart because an agent runs tools, and sometimes code, chosen by a model. The open problem is to keep them apart without reserving an environment for each while it waits.",
+      "authors": [
+        "Mekhala Hithyshini Sreenivasa"
+      ],
+      "venue": "arXiv cs.PF",
+      "url": "https://arxiv.org/abs/2611.26480",
+      "pdf_url": "https://arxiv.org/pdf/2611.26480v1",
+      "doi": null,
+      "published": "2026-11-19",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2512,
+    "id": "18179259763451528",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df9p5vzGxzK"
   }
 ]
