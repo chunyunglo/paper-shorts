@@ -450,5 +450,19 @@
     "why": "This is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener since yesterday's post led with a number; today's election headlines are partisan so no news link is attempted, and Instagram free posts stay paused per the notes.",
     "id": "17984387595126058",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df7B13eINdd"
+  },
+  {
+    "posted": "2026-11-20T12:00:11+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261120-asymmetric-rhetorical-strategies-drive-p"
+    ],
+    "text": "69.8% 和 61.6%。\n\n這是福斯新聞（Fox News）的片段中，「強化共和黨觀點」和「對民主黨帶負面情緒」各自的比例。MSNBC剛好倒過來：對共和黨帶負面情緒52.5%，強化民主黨觀點39.3%；CNN是35.0%對22.7%。\n\n我們今天介紹的研究（arXiv, 2026）分析了2013年1月到2025年3月，六家美國電視台約40.8萬集新聞、350萬個約5分鐘的片段。GPT-4o先替8.6萬個片段打黨派分數（0到100），再訓練模型替其餘片段打分；和三位人工評分者的相關是0.92。三家無線台（ABC、CBS、NBC）大致維持在中立附近。\n\n要注意：\n・這是相關分析，看不出電台為什麼這樣說，也看不出對觀眾有什麼影響。\n・分數和標籤都來自AI，只用小樣本人工檢查。\n・川普第二任只涵蓋三個月，這段時間的結論較弱。\n\n這篇研究談的是「怎麼說」，不是誰對誰錯。完整來源在我們今天的影片。",
+    "news": null,
+    "why": "The TV-news rhetoric paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was question-led, framed neutrally across both sides; no headline links responsibly (mostly partisan, conflict or tragedy news), Instagram free posts stay paused per the notes, and the weekly second-angle post is better saved for tomorrow.",
+    "id": "18141137821631883",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df9mwDdmxJR"
   }
 ]

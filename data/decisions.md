@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-20
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/Df9mwDdmxJR)
+  - 內容 Text: 69.8% 和 61.6%。 這是福斯新聞（Fox News）的片段中，「強化共和黨觀點」和「對民主黨帶負面情緒」各自的比例。MSNBC剛好倒過來：對共和黨帶負面情緒52.5%，強化民主黨觀點39.3%；CNN是35.0%對22.7%。 我…
+  - 為什麼 Why: The TV-news rhetoric paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was question-led, framed neutrally across both sides; no headline links responsibly (mostly partisan, conflict or tragedy news), Instagram free posts stay paused per the notes, and the weekly second-angle post is better saved for tomorrow.
+  - 根據的集數 Based on: 20261120-asymmetric-rhetorical-strategies-drive-p
 - **股市篇 Stock series** · morning · self_check · [link](https://www.threads.com/@human__behavior__decode/post/Df9BOy8kWJW)
   - 內容 Text: 📈 盤前心理學｜62.5%——這是近千人看無聲短影片，猜「AI 生成還是真人拍攝」的平均正確率。 這項線上實驗收了 973 位美國成人的資料（2025 年 11 月）。研究發現，大家平均把自己排在比實際高約 12.8 個百分位的位置；表現最…
   - 論文 Paper: [Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions](https://arxiv.org/abs/2611.05844) (arXiv cs.HC)
