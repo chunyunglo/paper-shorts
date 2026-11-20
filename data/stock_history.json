@@ -854,5 +854,32 @@
     "cost_usd": 0.2512,
     "id": "18179259763451528",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df9p5vzGxzK"
+  },
+  {
+    "posted": "2026-11-20T20:51:31+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜住在一個房價連漲好幾年的城市，你會覺得接下來房價會怎麼走？\n\n一篇用密西根消費者調查的研究發現，人們的房價預期，會跟著所在城市最近的房價走勢走。而且預測誤差是可預測的：人們傾向低估動能、忽略均值回歸。長期上漲之後，樂觀情緒會再持續好幾季；下跌時則反過來。研究也發現，房價上漲會讓更多人認為房地產是好的投資。\n\n這是一種「用近期經驗推測未來」的偏誤。\n\n要留意的是，這項研究談的是預期如何形成，不是在預測房價，也不代表每個人都這樣想。🏠\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文多集中在券商交易、注意力與搜尋量，這篇是房市預期的新題材，且可帶出經驗外推的概念，與今天的市場標題保持距離，避免把研究說成能解釋當日走勢。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/1540-6229.12328",
+      "title": "House price history, biased expectations, and credit cycles: The role of housing investors",
+      "abstract": "Using the Michigan Survey, I show that consumers' house price expectations depend upon the recent history of house price developments in their city of residence. Forecast errors are predictable: people systematically underestimate momentum and neglect mean reversion, remaining over‐optimistic for several quarters after a prolonged trend of house price growth, and vice versa. Housing appreciation also increases the share of consumers who believe that real estate is a good investment. Combining loan‐level data from Freddie Mac to regional measures of housing sentiment, I show that an exogenous shift in house price expectations leads to an increase in leverage on new mortgage originations. The effect is concentrated on investment properties and among prime borrowers in nonrecourse states.",
+      "authors": [
+        "Alessia De Stefani"
+      ],
+      "venue": "Real Estate Economics",
+      "url": "https://doi.org/10.1111/1540-6229.12328",
+      "pdf_url": null,
+      "doi": "10.1111/1540-6229.12328",
+      "published": "2020",
+      "source": "journal"
+    },
+    "cost_usd": 0.0814,
+    "id": "17968549332239213",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df-jhjdI21a"
   }
 ]

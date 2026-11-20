@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-20
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df-jhjdI21a)
+  - 內容 Text: 🌙 盤後研究室｜住在一個房價連漲好幾年的城市，你會覺得接下來房價會怎麼走？ 一篇用密西根消費者調查的研究發現，人們的房價預期，會跟著所在城市最近的房價走勢走。而且預測誤差是可預測的：人們傾向低估動能、忽略均值回歸。長期上漲之後，樂觀情緒會再…
+  - 論文 Paper: [House price history, biased expectations, and credit cycles: The role of housing investors](https://doi.org/10.1111/1540-6229.12328) (Real Estate Economics)
+  - 為什麼 Why: 近期貼文多集中在券商交易、注意力與搜尋量，這篇是房市預期的新題材，且可帶出經驗外推的概念，與今天的市場標題保持距離，避免把研究說成能解釋當日走勢。
+  - 花費 Claude cost: US$0.081
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/Df9p5vzGxzK)
   - 內容 Text: 🏭 產業前沿｜AI 代理程式等一次模型回覆，中位數約 2.7 秒；實際運算只佔估計的 5 到 40 毫秒（區間估計，非直接量測）。 在作者部署的「每段對話一個獨立環境」代理平台上（單一客服基準、一種模型、兩套框架），一千段對話據推算只用 2…
   - 論文 Paper: [Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes](https://arxiv.org/abs/2611.26480) (arXiv cs.PF)
