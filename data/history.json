@@ -8687,5 +8687,380 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261119-hi-gemini-who-should-i-vote-for-the-bene",
     "pick_reason": "It tests how well an off-the-shelf LLM works as a voting advice app, using 6,022 simulated voters, a concrete method that can be shown in 3-4 visual steps (voters, questions, advice, comparison with party positions), and a useful finding about everyday AI use. Signals: Notes favor concrete everyday decisions and chatbot-use topics, but the abstract market topics did worse, so this pick leans on a practical, relatable question and avoids topics too close to recent episodes."
+  },
+  {
+    "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+    "created": "2026-11-20T06:22:22+00:00",
+    "paper": {
+      "id": "arxiv:2611.25140",
+      "title": "Asymmetric rhetorical strategies drive partisanship in television news",
+      "abstract": "Television remains a dominant source of political information in the United States, yet systematic evidence on how partisanship is expressed in televised news remains limited. Prior research has largely treated partisanship as a one-dimensional construct, offering limited insight into the rhetorical strategies that underlie ideological bias. Here, by analyzing over 400,000 news episodes using large language models (LLMs), we provide a multi-dimensional measure of partisanship bias in television news across six major U.S. news stations (2013--2025). We identify eight interpretable linguistic features that explain 73% of partisanship variance in television news.\\ Our findings reveal systematic asymmetries across stations. While MSNBC and CNN shifted leftward during Republican presidencies and moderated under Democratic presidencies, Fox News increased its conservative alignment following each election regardless of the electoral outcome. Beyond aggregate trends, MSNBC and CNN emphasized attacks on Republican actors more than reinforcement of Democratic positions, whereas Fox News reinforced Republican viewpoints substantially more than it attacked Democratic viewpoints. The association between in-group praise and out-group attacks was also threefold stronger on Fox News than on MSNBC. These results are validated against trained human raters and replicated with four additional LLMs with differing political leanings. Together, our study reveals systematic station-level differences in the rhetorical strategies with which ideological slant is communicated in television news, opening new opportunities for future research on media effects, audience attitudes, and political communication.",
+      "authors": [
+        "Upasana Dutta",
+        "Homa Hosseinmardi",
+        "Amir Ghasemian",
+        "Aaron Clauset",
+        "Duncan J. Watts"
+      ],
+      "venue": "arXiv cs.CY",
+      "url": "https://arxiv.org/abs/2611.25140",
+      "pdf_url": "https://arxiv.org/pdf/2611.25140",
+      "doi": null,
+      "published": "2026-11-20",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "福斯罵得最多，卻更愛誇自己人",
+      "title_en": "Fox Attacks Most, Yet Praises Its Own Even More",
+      "paper_title_zh": "不對稱的修辭策略驅動電視新聞的黨派性",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "電視新聞",
+          "heading_en": "TV NEWS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "不同劇本",
+          "big_text_en": "Different playbooks",
+          "lines": [
+            {
+              "zh": "左右兩派電視台，吵法一樣嗎？",
+              "en": "Left and right TV news: same playbook?"
+            },
+            {
+              "zh": "看完告訴你，各台是誇多、還是罵多。",
+              "en": "Stay to see which stations praise more, or attack more."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "賓州大學團隊的研究，登在arXiv。",
+              "en": "From a University of Pennsylvania-led team, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "新聞節目集數"
+          ],
+          "labels_en": [
+            "news episodes"
+          ],
+          "values": [
+            408464.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "十二年、六家電視台，超過四十萬集新聞。",
+              "en": "Twelve years, six TV stations, over 400,000 news episodes."
+            }
+          ]
+        },
+        {
+          "visual": "feed",
+          "heading_zh": "AI打分",
+          "heading_en": "AI SCORING",
+          "labels": [
+            "自由派",
+            "保守派"
+          ],
+          "labels_en": [
+            "Liberal",
+            "Conservative"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "AI讀每五分鐘新聞，打0到100分，越高越保守。",
+              "en": "AI scores each five-minute chunk from 0 to 100; higher means more conservative."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "擴大規模",
+          "heading_en": "SCALING UP",
+          "labels": [
+            "AI先評一批",
+            "訓練小程式",
+            "全部打分"
+          ],
+          "labels_en": [
+            "AI scores some",
+            "Train a tool",
+            "Score all"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "AI只標一部分，小程式學會後標完全部。",
+              "en": "AI scores a sample, then a small program learns to score the rest."
+            },
+            {
+              "zh": "真人評分檢查，結果很接近。",
+              "en": "Human raters checked it and agreed closely."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "八種手法",
+          "heading_en": "EIGHT TACTICS",
+          "labels": [
+            "誇自己人",
+            "罵對手",
+            "怪對手",
+            "火爆用詞"
+          ],
+          "labels_en": [
+            "Praise own",
+            "Attack other",
+            "Blame other",
+            "Heated words"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "AI也標八種手法，像誇己方、罵對方。",
+              "en": "AI also tagged eight tactics, like praising or attacking."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "結果",
+          "heading_en": "THE RESULT",
+          "labels": [
+            "福斯誇自己",
+            "福斯罵對手",
+            "MSNBC罵對手",
+            "MSNBC誇自己"
+          ],
+          "labels_en": [
+            "Fox praises",
+            "Fox attacks",
+            "MSNBC attacks",
+            "MSNBC praises"
+          ],
+          "values": [
+            69.8,
+            61.6,
+            52.5,
+            39.3
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "福斯誇自己這邊，比罵對方還多。",
+              "en": "Fox had more segments praising its side than attacking the other."
+            },
+            {
+              "zh": "MSNBC和CNN相反，罵多過誇。",
+              "en": "MSNBC and CNN flipped it: more attacks than praise."
+            }
+          ]
+        },
+        {
+          "visual": "timeline",
+          "heading_zh": "時間變化",
+          "heading_en": "OVER TIME",
+          "labels": [
+            "歐巴馬時期",
+            "川普時期",
+            "拜登時期"
+          ],
+          "labels_en": [
+            "Obama era",
+            "Trump era",
+            "Biden era"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "福斯每次大選後，都更偏保守。",
+              "en": "Fox moved more conservative after every election."
+            },
+            {
+              "zh": "但這只是相關，不是因果。",
+              "en": "But this shows correlation, not cause."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "偏見有方向，也有套路",
+          "big_text_en": "Bias has a direction and a playbook",
+          "lines": [
+            {
+              "zh": "偏見不只看方向，還要看手法。",
+              "en": "Bias isn't just a direction; it's also a playbook."
+            },
+            {
+              "zh": "追蹤行為解碼，下次繼續解密。",
+              "en": "Follow Behavior Decoded for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "電視新聞的偏見不只有方向，還有各家的套路。研究團隊分析了六家電視台、四十多萬集新聞，發現福斯罵對手的比例最高，但牠誇自己人的段落更多；MSNBC 和 CNN 則是罵的比誇的多。這只是相關，不代表因果。",
+      "description_en": "Are Fox News and MSNBC mirror images? A study used AI to read over 400,000 US TV news episodes from 2013 to 2025. Fox leaned on praising its own side, while MSNBC and CNN leaned on attacking the other side. The analysis shows correlation, not cause.",
+      "hashtags": [
+        "電視新聞",
+        "媒體偏見",
+        "政治傳播",
+        "行為解碼",
+        "TVNews",
+        "MediaBias",
+        "Partisanship",
+        "BehaviorDecoded"
+      ],
+      "method_summary": "The authors analyzed 408,464 US television news episodes (3,505,401 segments of about 800 words, roughly five minutes each) from Fox News, MSNBC, CNN, ABC, CBS and NBC, January 2013 to March 2025. GPT-4o was prompted to give each segment a partisanship score from 0 (strongly liberal) to 100 (strongly conservative) plus a short explanation. It scored a stratified sample of 10,000 episodes (86,131 segments); a neural network trained on those labels then scored the rest. The scores agreed strongly with three trained human raters on 250 segments (r = 0.92), about as well as the raters agreed with each other. From reading the explanations, the authors defined eight features: negative sentiment toward Democrats or Republicans, reinforcing each party's viewpoints, blaming each party, inflammatory language, and fact-based reporting. A linear regression with these eight binary labels explained 73% of held-out variance in partisanship scores. Fox reinforced Republican views in 69.8% of segments versus 61.6% with negative sentiment toward Democrats, whereas MSNBC (52.5% vs 39.3%) and CNN (35.0% vs 22.7%) attacked Republicans more than they reinforced Democratic views. Fox moved more conservative after every election, while MSNBC and CNN moved with presidential incumbency. Fox paired praise and attacks about three times more strongly than MSNBC. Broadcast networks stayed near neutral. Results replicated with four other LLMs.",
+      "limitations": "The analysis is correlational and cannot say why stations changed or how audiences are affected. All scores and rhetorical labels come from LLMs (then a neural network copying them), validated on small human-coded samples. The eight features leave about 27% of the variance unexplained. Only three months of the second Trump presidency are included, so conclusions about that period are weak. Transcripts come from closed captions, and broadcast data come from New York affiliates.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "左右電視新聞，套路一樣嗎？",
+          "看完就知道，各台的重心在哪。"
+        ],
+        [
+          "賓州大學領軍的團隊，論文放上 arXiv。"
+        ],
+        [
+          "六家電視台，十二年，四十多萬集新聞。"
+        ],
+        [
+          "AI 每五分鐘一段打分數，越高越保守。"
+        ],
+        [
+          "AI先評一批，小程式再學著評剩下的。",
+          "真人評審也比對過，結果很接近。"
+        ],
+        [
+          "AI還標了八種手法，像是誇人、罵人。"
+        ],
+        [
+          "福斯罵對手最兇，但誇自己人還更多。",
+          "MSNBC和CNN反過來，罵的比誇的多。"
+        ],
+        [
+          "每次大選後，福斯都更偏保守。",
+          "不過這只是相關，不能說是因果。"
+        ],
+        [
+          "偏見不只有方向，還有套路。",
+          "想看更多，就追蹤行為解碼。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "device-tv"
+        ],
+        [
+          "thumb-down",
+          "thumb-up"
+        ],
+        [
+          "robot",
+          "settings",
+          "checks"
+        ],
+        [
+          "heart",
+          "swords",
+          "hand-finger-right",
+          "flame"
+        ],
+        [
+          "thumb-up",
+          "swords",
+          "swords",
+          "thumb-up"
+        ],
+        [
+          "calendar",
+          "calendar",
+          "calendar"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 49.16,
+        "cover_offset_ms": 7302,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 51.32,
+        "cover_offset_ms": 7570,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "lVgjo-hfeVU",
+          "url": "https://youtube.com/shorts/lVgjo-hfeVU"
+        },
+        "instagram": {
+          "id": "18166386568496242",
+          "url": "https://www.instagram.com/reel/Df9gSbUjam1/"
+        },
+        "threads": {
+          "id": "18203077576386955",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df9gWCwsxvy"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "xX0RdyaFEH4",
+          "url": "https://youtube.com/shorts/xX0RdyaFEH4"
+        },
+        "instagram": {
+          "id": "18656197570043845",
+          "url": "https://www.instagram.com/reel/Df9gc-LjBB4/"
+        },
+        "threads": {
+          "id": "18111605999216065",
+          "url": "https://www.threads.com/@human__behavior__decode/post/Df9gh2QuamJ"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261120-asymmetric-rhetorical-strategies-drive-p",
+    "pick_reason": "A large-scale computational analysis of US television news that breaks partisanship into distinct rhetorical strategies is easy to show in a few visual steps, and it gives a concrete finding about asymmetry between the two sides. Signals: Political information topics have done well on the channel, but the last episodes already covered retweet partisanship and LLM voting advice, so this pick leans on a different medium (TV) and a multi-dimensional method; news was not a deciding factor."
   }
 ]

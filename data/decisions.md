@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions](https://arxiv.org/abs/2611.05844) (arXiv cs.HC)
   - 為什麼 Why: 最近幾天都在談交易頻率、注意力與介面，這篇是新的過度自信題材，樣本近千人、有明確數字，也貼近讀者每天刷到真假難辨資訊的經驗，且完全不涉及個股或行情。
   - 花費 Claude cost: US$0.236
+- **短影音 Short** · [福斯罵得最多，卻更愛誇自己人 / Fox Attacks Most, Yet Praises Its Own Even More](https://youtube.com/shorts/lVgjo-hfeVU)
+  - 論文 Paper: [Asymmetric rhetorical strategies drive partisanship in television news](https://arxiv.org/abs/2611.25140) (arXiv cs.CY)
+  - 為什麼 Why: A large-scale computational analysis of US television news that breaks partisanship into distinct rhetorical strategies is easy to show in a few visual steps, and it gives a concrete finding about asymmetry between the two sides. Signals: Political information topics have done well on the channel, but the last episodes already covered retweet partisanship and LLM voting advice, so this pick leans on a different medium (TV) and a multi-dimensional method; news was not a deciding factor.
 
 ## 2026-11-19
 
