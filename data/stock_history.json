@@ -795,5 +795,37 @@
     "cost_usd": 0.0947,
     "id": "17914289955570483",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df8ASHDklUZ"
+  },
+  {
+    "posted": "2026-11-20T06:32:36+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "self_check",
+    "text": "📈 盤前心理學｜62.5%——這是近千人看無聲短影片，猜「AI 生成還是真人拍攝」的平均正確率。\n\n這項線上實驗收了 973 位美國成人的資料（2025 年 11 月）。研究發現，大家平均把自己排在比實際高約 12.8 個百分位的位置；表現最差的四分之一正確率約 45%，卻預期自己能答對約 59%。另外，確定感超過實際表現的人，分享意願也較高。\n\n這是影片辨識，不是投資研究，也只是相關，不能說自信過頭「造成」分享。但可以當面鏡子：看到網路上的消息時，我的把握有多少是真的有根據？🤔\n\n（研究分享，不是投資建議）",
+    "why": "最近幾天都在談交易頻率、注意力與介面，這篇是新的過度自信題材，樣本近千人、有明確數字，也貼近讀者每天刷到真假難辨資訊的經驗，且完全不涉及個股或行情。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.05844",
+      "title": "Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions",
+      "abstract": "Generative Artificial Intelligence (GenAI) is blurring the line between synthesized and recorded videos, but less is known about people's awareness of their discernment abilities and the consequences of miscalibration. This study examines three forms of overconfidence in GenAI video discernment (i.e., overestimation, overplacement, and overprecision) and their associations with source judgments and sharing intentions in an online study (N = 973). Participants evaluated videos depicting everyday scenes and achieved 62.5% accuracy. Three forms of overconfidence showed distinct patterns: participants overplaced themselves by 12.8 percentile points, but overprecision showed consistent positive associations with sharing intentions and the tendency to classify videos as human-made. Age, GenAI usage, and AI literacy showed consistent positive associations with all three forms of overconfidence. These findings highlight the importance of distinguishing the three forms of overconfidence to better understand GenAI engagement and incorporating metacognition into interventions to support informed media consumption.",
+      "authors": [
+        "Haoning Xue",
+        "Sijia Qian",
+        "Christopher Calabrese",
+        "Cuihua Shen",
+        "Laramie Taylor",
+        "Yixuan Wang"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.05844",
+      "pdf_url": "https://arxiv.org/pdf/2611.05844v1",
+      "doi": null,
+      "published": "2026-11-04",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2362,
+    "id": "18116226557618263",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df9BOy8kWJW"
   }
 ]

@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-20
+
+- **股市篇 Stock series** · morning · self_check · [link](https://www.threads.com/@human__behavior__decode/post/Df9BOy8kWJW)
+  - 內容 Text: 📈 盤前心理學｜62.5%——這是近千人看無聲短影片，猜「AI 生成還是真人拍攝」的平均正確率。 這項線上實驗收了 973 位美國成人的資料（2025 年 11 月）。研究發現，大家平均把自己排在比實際高約 12.8 個百分位的位置；表現最…
+  - 論文 Paper: [Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions](https://arxiv.org/abs/2611.05844) (arXiv cs.HC)
+  - 為什麼 Why: 最近幾天都在談交易頻率、注意力與介面，這篇是新的過度自信題材，樣本近千人、有明確數字，也貼近讀者每天刷到真假難辨資訊的經驗，且完全不涉及個股或行情。
+  - 花費 Claude cost: US$0.236
+
 ## 2026-11-19
 
 - **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/Df8ASHDklUZ)

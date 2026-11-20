@@ -262,5 +262,35 @@
     "abstract": "We find that mutual fund investors are more likely to both purchase and redeem funds with high idiosyncratic volatility (IV). Investors’ tendency to purchase high IV funds is largely driven by high IV funds having more extreme returns, which increases the salience of the fund. Including flexible controls for extreme past returns over multiple horizons decreases the effect of IV on new investment, and experimental evidence corroborates that increasing the salience of extreme returns increases investor demand for IV. Demand for IV is higher among retail investors and funds with otherwise lower salience. Collectively, the evidence suggests that extreme returns attract investor attention and contribute to investors’ risk seeking behavior when purchasing mutual funds. This paper was accepted by David Simchi-Levi, finance.",
     "added": "2026-11-19",
     "found_by": "Crossref: salience investor behavior"
+  },
+  {
+    "id": "doi:10.1111/joes.12599",
+    "title": "A review on ESG investing: Investors’ expectations, beliefs and perceptions",
+    "authors": [
+      "Roman Kräussl",
+      "Tobi Oladiran",
+      "Denitsa Stefanova"
+    ],
+    "venue": "Journal of Economic Surveys",
+    "published": "2023",
+    "url": "https://doi.org/10.1111/joes.12599",
+    "pdf_url": null,
+    "abstract": "This study examines the recent literature on the expectations, beliefs and perceptions of investors who incorporate Environmental, Social, Governance (ESG) considerations in investment decisions with the aim to generate superior performance or make a societal impact. Through the lens of equilibrium models of agents with heterogeneous tastes for ESG investments, green assets are expected to generate lower returns in the long run compared to their non‐ESG counterparts. However, in the short run, ESG investments can outperform non‐ESG investments through various channels. Empirically, results for the relative performance to ESG investment are mixed. We find strong empirical evidence in the literature that investors have a preference for ESG and that their actions can generate positive social impact through engagement. The shift towards more sustainable policies in firms is motivated by the increased market values and the lower cost of capital of green firms driven by investors’ choices.",
+    "added": "2026-11-20",
+    "found_by": "Crossref: extrapolative expectations investors"
+  },
+  {
+    "id": "doi:10.1111/1540-6229.12328",
+    "title": "House price history, biased expectations, and credit cycles: The role of housing investors",
+    "authors": [
+      "Alessia De Stefani"
+    ],
+    "venue": "Real Estate Economics",
+    "published": "2020",
+    "url": "https://doi.org/10.1111/1540-6229.12328",
+    "pdf_url": null,
+    "abstract": "Using the Michigan Survey, I show that consumers' house price expectations depend upon the recent history of house price developments in their city of residence. Forecast errors are predictable: people systematically underestimate momentum and neglect mean reversion, remaining over‐optimistic for several quarters after a prolonged trend of house price growth, and vice versa. Housing appreciation also increases the share of consumers who believe that real estate is a good investment. Combining loan‐level data from Freddie Mac to regional measures of housing sentiment, I show that an exogenous shift in house price expectations leads to an increase in leverage on new mortgage originations. The effect is concentrated on investment properties and among prime borrowers in nonrecourse states.",
+    "added": "2026-11-20",
+    "found_by": "Crossref: extrapolative expectations investors"
   }
 ]
