@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-19T09:19:28+00:00",
+ "collected_at": "2026-11-20T09:01:49+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2475,
-   "videoCount": 52
+   "viewCount": 2524,
+   "videoCount": 54
   }
  },
  "notes": [],
@@ -368,15 +368,15 @@
    "paper": "Decredentialed jobs and upward mobility among non-college workers in the USA",
    "created": "2026-10-27T08:26:36+00:00",
    "metrics": {
-    "views": 111,
+    "views": 113,
     "likes": 0,
     "comments": 0,
     "duration": "PT52S",
     "privacy": "public",
     "published": "2026-10-27T11:04:42Z",
     "estimatedMinutesWatched": 12,
-    "averageViewDuration": 21,
-    "averageViewPercentage": 42.22,
+    "averageViewDuration": 22,
+    "averageViewPercentage": 43.21,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2175,7 +2175,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 386,
+    "views": 385,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2301,7 +2301,7 @@
    "paper": "Retweeting patterns reveal partisan asymmetries in information sharing and signal state-level electoral outcomes in the 2020 US presidential election",
    "created": "2026-11-11T06:18:23+00:00",
    "metrics": {
-    "views": 151,
+    "views": 152,
     "likes": 0,
     "comments": 1,
     "duration": "PT56S",
@@ -2679,7 +2679,7 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 134,
+    "views": 133,
     "likes": 1,
     "comments": 1,
     "duration": "PT47S",
@@ -2805,7 +2805,7 @@
    "paper": "Trust as a hidden driver of epidemic-relevant behavior: Institution- and behavior-specific associations across 20 national survey waves",
    "created": "2026-11-16T06:09:39+00:00",
    "metrics": {
-    "views": 77,
+    "views": 78,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -2931,12 +2931,17 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 22,
+    "views": 14,
     "likes": 0,
     "comments": 1,
     "duration": "PT42S",
     "privacy": "public",
-    "published": "2026-11-17T11:04:26Z"
+    "published": "2026-11-17T11:04:26Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 7,
+    "averageViewPercentage": 16.8,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -2989,12 +2994,17 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 20,
+    "views": 19,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
     "privacy": "public",
-    "published": "2026-11-17T11:06:08Z"
+    "published": "2026-11-17T11:06:08Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 12,
+    "averageViewPercentage": 23.27,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3047,7 +3057,7 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 24,
+    "views": 37,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
@@ -3066,8 +3076,8 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 106,
-    "reach": 101,
+    "views": 111,
+    "reach": 103,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -3125,7 +3135,7 @@
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
     "views": 93,
-    "reach": 83,
+    "reach": 84,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3153,6 +3163,122 @@
    }
   },
   {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "8MspMjmnN2I",
+   "url": "https://youtube.com/shorts/8MspMjmnN2I",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 41,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-19T11:04:09Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18196060729405349",
+   "url": "https://www.instagram.com/reel/Df67k0oGd3O/",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 86,
+    "reach": 81,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17952626196343445",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df67o6mBHRx",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 1,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "FJ8h6qcuHi4",
+   "url": "https://youtube.com/shorts/FJ8h6qcuHi4",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 7,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT45S",
+    "privacy": "public",
+    "published": "2026-11-19T11:06:13Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18100353548414614",
+   "url": "https://www.instagram.com/reel/Df67vt9kzIP/",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 82,
+    "reach": 74,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "title": "Ask AI Who to Vote For? Helpful, but Biased",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17920123434263058",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df670mnqInU",
+   "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
+   "created": "2026-11-19T06:15:44+00:00",
+   "metrics": {
+    "views": 9,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "podcast",
    "episode": "20261028-ai-helped-with-homework-did-it-help-on-t",
    "title": "AI Helped With Homework. Did It Help on the Exam?",
@@ -3163,7 +3289,7 @@
    "paper": "Supporting or Replacing Students' Reasoning? Cognitive Offloading in AI-Assisted Proof Learning",
    "created": "2026-10-28T07:27:11+00:00",
    "metrics": {
-    "views": 3,
+    "views": 4,
     "likes": 1,
     "comments": 0,
     "duration": "PT7M4S",
@@ -3437,7 +3563,7 @@
    "paper": "20261102-a-prospective-randomized-study-of-patien",
    "created": "2026-11-03T11:12:31+00:00",
    "metrics": {
-    "views": 13,
+    "views": 16,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3514,7 +3640,7 @@
    "paper": "20261105-you-know-what-you-will-like-people-predi",
    "created": "2026-11-05T11:22:23+00:00",
    "metrics": {
-    "views": 27,
+    "views": 30,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3762,6 +3888,25 @@
    "created": "2026-11-18T12:03:11+00:00",
    "metrics": {
     "views": 18,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-31",
+   "title": "問AI該投給誰，它的建議靠得住嗎？\n\n我們今天介紹的研究（arXiv, 2026）用了德國2025年大選後的調查，只看6,022位有投票的受訪者。每人只提供三個",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17984387595126058",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df7B13eINdd",
+   "paper": "20261119-hi-gemini-who-should-i-vote-for-the-bene",
+   "created": "2026-11-19T11:59:11+00:00",
+   "metrics": {
+    "views": 15,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4198,7 +4343,7 @@
    "paper": "StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion",
    "created": "2026-11-18T12:35:38+00:00",
    "metrics": {
-    "views": 19,
+    "views": 25,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4237,6 +4382,63 @@
    "created": "2026-11-19T06:45:13+00:00",
    "metrics": {
     "views": 45,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-25",
+   "title": "🏭 產業前沿｜資料中心蓋得快,電網卻接不上:論文引用的資料指出,新輸電設施常要四到八年,資料中心約兩到三年就能營運。\n\n愛丁堡大學團隊問:如果運算工作能「換地方",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18083719163737924",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df7E-BtG7L2",
+   "paper": "Quantifying the hosting capacity value of workload flexibility for AI data centers: A two-stage electricity-computation co-optimization framework",
+   "created": "2026-11-19T12:26:47+00:00",
+   "metrics": {
+    "views": 32,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-26",
+   "title": "🌙 盤後研究室｜一個有點反直覺的現象：有一類基金，投資人比較常申購它，也比較常贖回它。\n\n研究發現，共同基金投資人對「特異波動」高的基金，申購與贖回的可能性都更",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17914289955570483",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df8ASHDklUZ",
+   "paper": "Salience and Mutual Fund Investor Demand for Idiosyncratic Volatility",
+   "created": "2026-11-19T21:05:05+00:00",
+   "metrics": {
+    "views": 17,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-27",
+   "title": "📈 盤前心理學｜62.5%——這是近千人看無聲短影片，猜「AI 生成還是真人拍攝」的平均正確率。\n\n這項線上實驗收了 973 位美國成人的資料（2025 年 1",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18116226557618263",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df9BOy8kWJW",
+   "paper": "Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions",
+   "created": "2026-11-20T06:32:36+00:00",
+   "metrics": {
+    "views": 12,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
