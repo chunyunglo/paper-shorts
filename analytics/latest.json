@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-20T09:01:49+00:00",
+ "collected_at": "2026-11-21T08:41:13+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2524,
-   "videoCount": 54
+   "viewCount": 2536,
+   "videoCount": 56
   }
  },
  "notes": [],
@@ -1683,8 +1683,8 @@
     "privacy": "public",
     "published": "2026-11-06T11:04:21Z",
     "estimatedMinutesWatched": 8,
-    "averageViewDuration": 40,
-    "averageViewPercentage": 74.64,
+    "averageViewDuration": 43,
+    "averageViewPercentage": 81.33,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2057,7 +2057,7 @@
     "published": "2026-11-09T11:07:23Z",
     "estimatedMinutesWatched": 83,
     "averageViewDuration": 29,
-    "averageViewPercentage": 59.82999999999999,
+    "averageViewPercentage": 59.81999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2119,8 +2119,8 @@
     "privacy": "public",
     "published": "2026-11-09T11:08:57Z",
     "estimatedMinutesWatched": 7,
-    "averageViewDuration": 47,
-    "averageViewPercentage": 88.14,
+    "averageViewDuration": 52,
+    "averageViewPercentage": 97.15,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2183,7 +2183,7 @@
     "published": "2026-11-09T21:17:35Z",
     "estimatedMinutesWatched": 27,
     "averageViewDuration": 17,
-    "averageViewPercentage": 35.26,
+    "averageViewPercentage": 35.63,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -2679,7 +2679,7 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 133,
+    "views": 134,
     "likes": 1,
     "comments": 1,
     "duration": "PT47S",
@@ -2723,7 +2723,7 @@
    "paper": "The Rebundling of Freelance Work in the AI Age",
    "created": "2026-11-15T06:13:01+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2931,15 +2931,15 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 14,
+    "views": 22,
     "likes": 0,
     "comments": 1,
     "duration": "PT42S",
     "privacy": "public",
     "published": "2026-11-17T11:04:26Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 7,
-    "averageViewPercentage": 16.8,
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 12,
+    "averageViewPercentage": 28.88,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -2994,7 +2994,7 @@
    "paper": "People prefer AI to human advice in multi-turn conversations but neither changes incentivised behaviour",
    "created": "2026-11-17T07:06:21+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
@@ -3057,12 +3057,17 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 37,
+    "views": 25,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
     "privacy": "public",
-    "published": "2026-11-18T11:04:35Z"
+    "published": "2026-11-18T11:04:35Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 12,
+    "averageViewPercentage": 28.02,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3120,7 +3125,12 @@
     "comments": 1,
     "duration": "PT45S",
     "privacy": "public",
-    "published": "2026-11-18T11:06:12Z"
+    "published": "2026-11-18T11:06:12Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3173,7 +3183,7 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 41,
+    "views": 51,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
@@ -3192,8 +3202,8 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 86,
-    "reach": 81,
+    "views": 99,
+    "reach": 94,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3250,8 +3260,8 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 82,
-    "reach": 74,
+    "views": 85,
+    "reach": 77,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -3271,6 +3281,122 @@
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
     "views": 9,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "lVgjo-hfeVU",
+   "url": "https://youtube.com/shorts/lVgjo-hfeVU",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT50S",
+    "privacy": "public",
+    "published": "2026-11-20T11:04:01Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18166386568496242",
+   "url": "https://www.instagram.com/reel/Df9gSbUjam1/",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 133,
+    "reach": 128,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18203077576386955",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df9gWCwsxvy",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "xX0RdyaFEH4",
+   "url": "https://youtube.com/shorts/xX0RdyaFEH4",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT52S",
+    "privacy": "public",
+    "published": "2026-11-20T11:05:29Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18656197570043845",
+   "url": "https://www.instagram.com/reel/Df9gc-LjBB4/",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 72,
+    "reach": 61,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "title": "Fox Attacks Most, Yet Praises Its Own Even More",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18111605999216065",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df9gh2QuamJ",
+   "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
+   "created": "2026-11-20T06:22:22+00:00",
+   "metrics": {
+    "views": 0,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3887,7 +4013,7 @@
    "paper": "20261118-food-co-purchasing-networks-encode-geogr",
    "created": "2026-11-18T12:03:11+00:00",
    "metrics": {
-    "views": 18,
+    "views": 19,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -3907,6 +4033,25 @@
    "created": "2026-11-19T11:59:11+00:00",
    "metrics": {
     "views": 15,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-32",
+   "title": "69.8% 和 61.6%。\n\n這是福斯新聞（Fox News）的片段中，「強化共和黨觀點」和「對民主黨帶負面情緒」各自的比例。MSNBC剛好倒過來：對共和黨帶",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18141137821631883",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df9mwDdmxJR",
+   "paper": "20261120-asymmetric-rhetorical-strategies-drive-p",
+   "created": "2026-11-20T12:00:11+00:00",
+   "metrics": {
+    "views": 10,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4438,7 +4583,64 @@
    "paper": "Sure Enough to Share? Overconfidence in GenAI Video Discernment is Associated with Sharing Intentions",
    "created": "2026-11-20T06:32:36+00:00",
    "metrics": {
-    "views": 12,
+    "views": 13,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-28",
+   "title": "🏭 產業前沿｜AI 代理程式等一次模型回覆，中位數約 2.7 秒；實際運算只佔估計的 5 到 40 毫秒（區間估計，非直接量測）。\n\n在作者部署的「每段對話一個",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18179259763451528",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df9p5vzGxzK",
+   "paper": "Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes",
+   "created": "2026-11-20T12:27:58+00:00",
+   "metrics": {
+    "views": 27,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-29",
+   "title": "🌙 盤後研究室｜住在一個房價連漲好幾年的城市，你會覺得接下來房價會怎麼走？\n\n一篇用密西根消費者調查的研究發現，人們的房價預期，會跟著所在城市最近的房價走勢走。",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17968549332239213",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df-jhjdI21a",
+   "paper": "House price history, biased expectations, and credit cycles: The role of housing investors",
+   "created": "2026-11-20T20:51:31+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-30",
+   "title": "📈 盤前心理學｜8 百萬筆交易、87,373 位投資人：跟著大家做，是一時興起，還是一種習慣？\n\n一項研究分析某家歐洲大型券商的法國散戶交易紀錄（1999 至 ",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18117824399328320",
+   "url": "https://www.threads.com/@human__behavior__decode/post/Df_lEmYEbNo",
+   "paper": "What drives the herding behavior of individual investors?",
+   "created": "2026-11-21T06:24:06+00:00",
+   "metrics": {
+    "views": 15,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
