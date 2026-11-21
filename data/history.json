@@ -9062,5 +9062,366 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261120-asymmetric-rhetorical-strategies-drive-p",
     "pick_reason": "A large-scale computational analysis of US television news that breaks partisanship into distinct rhetorical strategies is easy to show in a few visual steps, and it gives a concrete finding about asymmetry between the two sides. Signals: Political information topics have done well on the channel, but the last episodes already covered retweet partisanship and LLM voting advice, so this pick leans on a different medium (TV) and a multi-dimensional method; news was not a deciding factor."
+  },
+  {
+    "episode": "20261121-a-unified-choice-model-of-news-selection",
+    "created": "2026-11-21T06:13:25+00:00",
+    "paper": {
+      "id": "arxiv:2611.23079",
+      "title": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+      "abstract": "Social media platforms often display visual engagement cues alongside ranked news articles, yet their influence on clicks remains poorly understood when considered jointly with ranking position and users' political preferences. We propose a unified discrete choice framework using a conditional multinomial logit model to jointly estimate and compare the influence of these factors on news selection. We evaluate the model using 1,480 choices from 370 human participants across four news topics in a controlled study with and without visual engagement cues. The framework allows us to assess the incremental contribution of each factor through nested-model likelihood-ratio tests. We find that including visual engagement cues significantly improves model fit across all topics after accounting for rank and stance. Engagement cues alone also predict clicks better than either of these features, although the full model achieves the highest held-out log-likelihood. Finally, we quantify via counterfactual analysis the impact of ranking position and displayed engagement counts on click probabilities. These findings can inform platform owners, researchers, and policymakers evaluating how platform design affects the selection of political news.",
+      "authors": [
+        "Jacopo D'Ignazi",
+        "Andreas Kaltenbrunner",
+        "Michele Starnini",
+        "Vicenç Gómez"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.23079",
+      "pdf_url": "https://arxiv.org/pdf/2611.23079v1",
+      "doi": null,
+      "published": "2026-11-17",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "點新聞看立場？其實讚數更準",
+      "title_en": "Likes, Rank or Politics: What Makes You Click the News?",
+      "paper_title_zh": "新聞選擇的統一選擇模型：立場、排名與互動提示的實驗證據",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "",
+          "heading_en": "",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "讚數贏過排名",
+          "big_text_en": "Likes beat rank",
+          "lines": [
+            {
+              "zh": "你點新聞，是看立場還是看讚數？",
+              "en": "Do you click news for its politics, or its likes?"
+            },
+            {
+              "zh": "答案藏在一個隨機亂放讚數的實驗。",
+              "en": "The answer is in an experiment with randomly placed likes."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "龐培法布拉大學團隊，發表在arXiv。",
+              "en": "A team at Pompeu Fabra University in Spain, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "三條線索",
+          "heading_en": "THREE CLUES",
+          "labels": [
+            "立場",
+            "排名",
+            "讚數"
+          ],
+          "labels_en": [
+            "Stance",
+            "Rank",
+            "Likes"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "研究比三個線索：立場、排名、讚數。",
+              "en": "They compared three clues: political stance, rank, and likes."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "參與者",
+          "heading_en": "THE PEOPLE",
+          "labels": [
+            "美國人"
+          ],
+          "labels_en": [
+            "Americans"
+          ],
+          "values": [
+            370.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "370位美國網友，各在四個主題挑一則新聞。",
+              "en": "370 Americans each picked one story in each of four topics."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "兩組人",
+          "heading_en": "TWO GROUPS",
+          "labels": [
+            "看不到讚數",
+            "看得到讚數"
+          ],
+          "labels_en": [
+            "No likes shown",
+            "Likes shown"
+          ],
+          "values": [],
+          "big_text": "看得到讚數嗎？",
+          "big_text_en": "Can you see likes?",
+          "lines": [
+            {
+              "zh": "一批人看不到讚數，另一批看得到。",
+              "en": "One group couldn't see likes; the other could."
+            }
+          ]
+        },
+        {
+          "visual": "ranking",
+          "heading_zh": "隨機排",
+          "heading_en": "SHUFFLED",
+          "labels": [
+            "新聞A",
+            "新聞B",
+            "新聞C",
+            "新聞D"
+          ],
+          "labels_en": [
+            "Story A",
+            "Story B",
+            "Story C",
+            "Story D"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "新聞順序和讚數，都是隨機分配。",
+              "en": "Story order and like counts were both random."
+            }
+          ]
+        },
+        {
+          "visual": "predict",
+          "heading_zh": "預測",
+          "heading_en": "PREDICTING",
+          "labels": [
+            "排名",
+            "讚數",
+            "點哪則"
+          ],
+          "labels_en": [
+            "Rank",
+            "Likes",
+            "Which click"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "電腦用線索猜點擊，再拿沒看過的點擊來考它。",
+              "en": "A computer guessed clicks from them, then was tested on new clicks."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "讚最少",
+            "讚最多"
+          ],
+          "labels_en": [
+            "Fewest likes",
+            "Most likes"
+          ],
+          "values": [
+            7.2,
+            21.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "讚數最多的拿到21%點擊，最少只有7%。",
+              "en": "Most-liked got 21%; least-liked just 7%."
+            },
+            {
+              "zh": "單看讚數，比單看排名或立場更能猜中。",
+              "en": "Likes alone predicted clicks better than rank or stance alone."
+            },
+            {
+              "zh": "但兩批人相隔半年，不是隨機分組。",
+              "en": "But the two groups ran six months apart, not randomly assigned."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "記住",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "讚多，點擊多",
+          "big_text_en": "More likes, more clicks",
+          "lines": [
+            {
+              "zh": "讚數多的新聞，更容易被點開。",
+              "en": "Stories with more likes get clicked more."
+            },
+            {
+              "zh": "追蹤行為解碼，下次再解一篇。",
+              "en": "Follow us for the next study decoded."
+            }
+          ]
+        }
+      ],
+      "description_zh": "西班牙龐培法布拉大學的團隊找了370位美國人，在四個主題各選一則新聞。新聞的排名和讚數都是隨機放的。結果讚數最多的新聞拿到21%的點擊，最少的只有7%。不過有讚數和沒讚數的兩組相隔半年，並非隨機分配。",
+      "description_en": "When you pick a news story, do you go by politics, rank, or likes? A Spanish team had 370 Americans click one story from ten headlines, with story order and like counts assigned at random. Stories showing more likes got clicked more, and likes alone predicted clicks better than rank or stance alone.",
+      "hashtags": [
+        "行為解碼",
+        "新聞點擊",
+        "社群媒體",
+        "讚數",
+        "BehaviorDecoded",
+        "NewsSelection",
+        "SocialMedia",
+        "EngagementCues"
+      ],
+      "method_summary": "The study, by researchers at Universitat Pompeu Fabra, uses a conditional multinomial logit model, a standard discrete choice model, to describe which of 10 news articles a person clicks. The utility of each article combines three features: the match between the user's and the article's political stance (five-point scale from extreme left to extreme right), the article's rank position, and the log of its displayed engagement count (likes and shares). Data come from two online experiments with US participants recruited through Prolific: E1 (March 2026, 166 participants) with no engagement counts shown, and E2 (September 2026, 204 participants) with likes and shares shown. Each participant did four tasks, one each on climate change, immigration, gender policies and vaccination, choosing one article from a scrollable list of 10 (two per stance category). Article positions were randomized per participant and topic; in E2 like and share counts were randomly assigned to articles, independent of position. Likelihood-ratio tests showed that adding engagement improved fit on every topic. In 10 repetitions of 10-fold cross-validation on E2, engagement alone predicted held-out clicks better than stance alone or rank alone, and the full model did best. Observed clicks: top-ranked articles 17.8% vs bottom-ranked 7.8%; highest like counts 21% vs lowest 7.2%. Model counterfactuals suggest moving an article from bottom to top more than doubles its click probability, and swapping lowest for highest engagement roughly triples it.",
+      "limitations": "The two conditions (without and with engagement cues) were run six months apart and participants were not randomly assigned between them, so the samples may differ. The causal evidence for engagement comes from the randomized counts within E2 and concerns the displayed size of the counts, not the effect of making engagement cues visible. The participants were US online panelists making one-time choices in an experiment, so it is unknown whether the effects hold in real browsing, or what they mean for news diversity or polarization.}</br>",
+      "pt": null,
+      "zh_lines": [
+        [
+          "你點新聞，看立場還是看讚數？",
+          "答案藏在一個讚數亂放的實驗。"
+        ],
+        [
+          "西班牙龐培法布拉大學團隊，公開在 arXiv。"
+        ],
+        [
+          "他們比三條線索：政治立場、排名、讚數。"
+        ],
+        [
+          "370 位美國人，四個主題各選一則新聞。"
+        ],
+        [
+          "一組看不到讚數，另一組看得到。"
+        ],
+        [
+          "新聞的順序和讚數，都是隨機的。"
+        ],
+        [
+          "電腦用這些線索猜點擊，再拿新點擊考它。"
+        ],
+        [
+          "讚數最多的拿到 21%，最少的只有 7%。",
+          "光看讚數，就比光看排名或立場更會猜中點擊。",
+          "但兩組相隔半年，不是隨機分配的。"
+        ],
+        [
+          "讚越多的新聞，越多人點。",
+          "追蹤我們，下次繼續解碼。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "flag",
+          "podium",
+          "thumb-up"
+        ],
+        [
+          "users"
+        ],
+        [
+          "eye-closed",
+          "eye"
+        ],
+        [
+          "article",
+          "article",
+          "article",
+          "article"
+        ],
+        [
+          "podium",
+          "thumb-up",
+          "click"
+        ],
+        [
+          "thumb-down",
+          "thumb-up"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 43.91,
+        "cover_offset_ms": 5970,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 45.59,
+        "cover_offset_ms": 8008,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "SaCTPTjhoT0",
+          "url": "https://youtube.com/shorts/SaCTPTjhoT0"
+        },
+        "instagram": {
+          "id": "18123378550943760",
+          "url": "https://www.instagram.com/reel/DgAFDIOjjwX/"
+        },
+        "threads": {
+          "id": "18655324072013108",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgAFIDchhxg"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "c4ddkzDxMvc",
+          "url": "https://youtube.com/shorts/c4ddkzDxMvc"
+        },
+        "instagram": {
+          "id": "18117785162590989",
+          "url": "https://www.instagram.com/reel/DgAFVhTCSB_/"
+        },
+        "threads": {
+          "id": "17908202637355869",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgAFahHyvvA"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261121-a-unified-choice-model-of-news-selection",
+    "pick_reason": "A conditional multinomial logit experiment on how stance, rank and engagement cues drive news clicks is a concrete, everyday behavior question whose method can be shown in 3-4 visual steps, and it avoids recent topics. Signals: Notes favor concrete, counterintuitive findings with clear comparisons and everyday topics; this fits and avoids recent AI-language and voting-advice themes."
   }
 ]

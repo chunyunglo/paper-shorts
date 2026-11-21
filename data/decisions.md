@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [What drives the herding behavior of individual investors?](https://doi.org/10.3917/fina.343.0067) (Finance)
   - 為什麼 Why: 這篇用真實交易紀錄談散戶行為，主題貼近讀者，也和近日的過度交易、注意力與性別題材不同，是新角度。
   - 花費 Claude cost: US$0.644
+- **短影音 Short** · [點新聞看立場？其實讚數更準 / Likes, Rank or Politics: What Makes You Click the News?](https://youtube.com/shorts/SaCTPTjhoT0)
+  - 論文 Paper: [A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues](https://arxiv.org/abs/2611.23079) (arXiv cs.HC)
+  - 為什麼 Why: A conditional multinomial logit experiment on how stance, rank and engagement cues drive news clicks is a concrete, everyday behavior question whose method can be shown in 3-4 visual steps, and it avoids recent topics. Signals: Notes favor concrete, counterintuitive findings with clear comparisons and everyday topics; this fits and avoids recent AI-language and voting-advice themes.
 
 ## 2026-11-20
 
