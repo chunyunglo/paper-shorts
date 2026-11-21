@@ -938,5 +938,34 @@
     "cost_usd": 0.1892,
     "id": "18100432886113010",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgALq0YkRcP"
+  },
+  {
+    "posted": "2026-11-21T19:53:32+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "market_link",
+    "text": "🌙 盤後研究室｜頭條寫著「股市最慘烈一周天天跌，二戰以來僅有5次」。每逢這種日子，新聞總會附上一串理由。\n\n這些理由到底能解釋多少？一篇2026年的論文，用生成式AI從《華爾街日報》每日市場摘要抽出「理由」，並濾掉直接描述漲跌的字眼，再對照2002至2024年的美股大盤報酬。\n\n研究發現，總經、現金流等傳統變數對月報酬的樣本外解釋力不到10%，多數甚至是負值；新聞理由的解釋力，日報酬和月報酬都約30至40%。\n\n但這是事後解釋，不是預測。作者也說，理由不保證就是真正成因。這項研究並未檢視本週行情。\n\n（研究分享，不是投資建議）",
+    "why": "週末頭條都在找下跌原因，正好可以介紹研究對「事後解釋」與「事前預測」差距的發現，也避開近期已用過的交易行為題材。",
+    "news": "股市最慘烈一周天天跌 二戰以來僅有5次 費半晶片股觸及18年前最低點",
+    "paper": {
+      "id": "arxiv:2611.22277",
+      "title": "Explaining Realized Returns: Roll's $R^2$ 40 Years Later",
+      "abstract": "Can we explain asset price movements even with hindsight? Reinterpreting Roll's (1988) AFA Presidential Address, \"$R^2$,\" as a modern empirical exercise, we show that conventional macroeconomic, cash-flow, expectations, and flow variables explain less than 10% (often with negative $R^2$) of monthly U.S. equity return variation out of sample and lack daily observations. We use generative AI to extract reasons stated in Wall Street Journal market summaries while filtering out price-related language. These reasons explain around 30-40% of daily and monthly return variation out of sample. Their content spans interpretable themes, including corporate news, macroeconomic conditions, monetary policy, sentiment, and geopolitics.",
+      "authors": [
+        "Bryan Kelly",
+        "Yinan Su",
+        "Chao Zhang"
+      ],
+      "venue": "arXiv q-fin.GN",
+      "url": "https://arxiv.org/abs/2611.22277",
+      "pdf_url": "https://arxiv.org/pdf/2611.22277v1",
+      "doi": null,
+      "published": "2026-11-17",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.236,
+    "id": "18080536037439727",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgBBrrGoxYE"
   }
 ]

@@ -7,6 +7,12 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-21
 
+- **股市篇 Stock series** · evening · market_link · [link](https://www.threads.com/@human__behavior__decode/post/DgBBrrGoxYE)
+  - 內容 Text: 🌙 盤後研究室｜頭條寫著「股市最慘烈一周天天跌，二戰以來僅有5次」。每逢這種日子，新聞總會附上一串理由。 這些理由到底能解釋多少？一篇2026年的論文，用生成式AI從《華爾街日報》每日市場摘要抽出「理由」，並濾掉直接描述漲跌的字眼，再對照2…
+  - 論文 Paper: [Explaining Realized Returns: Roll's $R^2$ 40 Years Later](https://arxiv.org/abs/2611.22277) (arXiv q-fin.GN)
+  - 為什麼 Why: 週末頭條都在找下跌原因，正好可以介紹研究對「事後解釋」與「事前預測」差距的發現，也避開近期已用過的交易行為題材。
+  - 時事 News hook: 股市最慘烈一周天天跌 二戰以來僅有5次 費半晶片股觸及18年前最低點
+  - 花費 Claude cost: US$0.236
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgALq0YkRcP)
   - 內容 Text: 🏭 產業前沿｜光電二極體平常只回答一個問題：光有多強。這篇論文問：只改變供電方式，它能不能也分辨光的「顏色」？ 論文做到的是：一顆未改裝的商用 InGaAs 光電二極體，不加濾光片，只施加正弦偏壓，再讓神經網路解讀 10 微秒的光電流波形。…
   - 論文 Paper: [From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone](https://arxiv.org/abs/2611.26532) (arXiv physics.optics)
