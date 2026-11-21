@@ -7,6 +7,14 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-21
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgAIesmFTuU)
+  - 內容 Text: 滑新聞的時候，你點哪一則，是看立場、看排第幾，還是看讚數？ 我們今天介紹的研究（arXiv, 2026）找了美國線上受試者，每人做4次選擇：氣候、移民、性別政策、疫苗，各從10則新聞裡挑1則點開。新聞的順序隨機排；第二個實驗還把讚數和分享數…
+  - 為什麼 Why: This is today's new episode with no Chinese follow-up yet, so it takes the daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener because yesterday's post opened with numbers; no headline links responsibly (today's news is mostly partisan, crime, disaster or market-crash items) and Instagram free posts stay paused per the notes.
+  - 根據的集數 Based on: 20261121-a-unified-choice-model-of-news-selection
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgAIgkpFUF-)
+  - 內容 Text: 約68%。 這是我們上週日介紹的研究（arXiv, 2026）裡，一個比較少人注意的數字。研究者把約3.69萬則ChatGPT對話樣本，分到接案平台Upwork的63個工作類別，算出每類的「ChatGPT使用強度」：2025下半年它在Cha…
+  - 為什麼 Why: The notes replaced the weekly roundup with a non-repeating second angle on the week's best-performing paper, and the AI freelance episode leads this week (youtube/zh 134, its zh Threads follow-up 40), so this number-led post adds the subcategory finding the first post did not focus on.
+  - 根據的集數 Based on: 20261115-the-rebundling-of-freelance-work-in-the
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df_lEmYEbNo)
   - 內容 Text: 📈 盤前心理學｜8 百萬筆交易、87,373 位投資人：跟著大家做，是一時興起，還是一種習慣？ 一項研究分析某家歐洲大型券商的法國散戶交易紀錄（1999 至 2006 年），替每位投資人算出「跟隨群眾」的程度。研究發現，這種傾向有持續性：相…
   - 論文 Paper: [What drives the herding behavior of individual investors?](https://doi.org/10.3917/fina.343.0067) (Finance)

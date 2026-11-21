@@ -464,5 +464,33 @@
     "why": "The TV-news rhetoric paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes recommend, with a number-led opener since yesterday's was question-led, framed neutrally across both sides; no headline links responsibly (mostly partisan, conflict or tragedy news), Instagram free posts stay paused per the notes, and the weekly second-angle post is better saved for tomorrow.",
     "id": "18141137821631883",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df9mwDdmxJR"
+  },
+  {
+    "posted": "2026-11-21T11:33:24+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261121-a-unified-choice-model-of-news-selection"
+    ],
+    "text": "滑新聞的時候，你點哪一則，是看立場、看排第幾，還是看讚數？\n\n我們今天介紹的研究（arXiv, 2026）找了美國線上受試者，每人做4次選擇：氣候、移民、性別政策、疫苗，各從10則新聞裡挑1則點開。新聞的順序隨機排；第二個實驗還把讚數和分享數隨機配給每則新聞。\n\n發現：\n・排第一的新聞被點17.8%，排最後的只有7.8%\n・讚數最高的被點21%，最低的7.2%\n・只看讚數來預測點擊，比只看立場或只看排序都準\n\n限制：兩個實驗相隔半年，受試者沒有隨機分到兩組；而且這是實驗裡的一次性選擇，不知道真實瀏覽時是否一樣，也還不能說它對同溫層有什麼影響。\n\n你點新聞前，會先瞄一眼讚數嗎？",
+    "news": null,
+    "why": "This is today's new episode with no Chinese follow-up yet, so it takes the daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener because yesterday's post opened with numbers; no headline links responsibly (today's news is mostly partisan, crime, disaster or market-crash items) and Instagram free posts stay paused per the notes.",
+    "id": "18116179316134148",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgAIesmFTuU"
+  },
+  {
+    "posted": "2026-11-21T11:33:24+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261115-the-rebundling-of-freelance-work-in-the"
+    ],
+    "text": "約68%。\n\n這是我們上週日介紹的研究（arXiv, 2026）裡，一個比較少人注意的數字。研究者把約3.69萬則ChatGPT對話樣本，分到接案平台Upwork的63個工作類別，算出每類的「ChatGPT使用強度」：2025下半年它在ChatGPT用途裡的占比，相對於它在2023上半年Upwork職缺裡的占比。\n\n再對照各類職缺占比的變化：約68%的類別，不是「ChatGPT用得多、職缺占比下降」，就是「用得少、職缺占比上升」。\n\n但要小心：\n・兩份資料沒有直接配對，也都不代表整個勞動市場\n・這是描述性的關聯，不能說ChatGPT造成職缺變少\n・分類靠的是大型語言模型\n\n完整來源在我們的影片裡。你覺得自己的工作比較像哪一邊？",
+    "news": null,
+    "why": "The notes replaced the weekly roundup with a non-repeating second angle on the week's best-performing paper, and the AI freelance episode leads this week (youtube/zh 134, its zh Threads follow-up 40), so this number-led post adds the subcategory finding the first post did not focus on.",
+    "id": "18343498624262618",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgAIgkpFUF-"
   }
 ]
