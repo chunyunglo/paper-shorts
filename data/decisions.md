@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-21
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgALq0YkRcP)
+  - 內容 Text: 🏭 產業前沿｜光電二極體平常只回答一個問題：光有多強。這篇論文問：只改變供電方式，它能不能也分辨光的「顏色」？ 論文做到的是：一顆未改裝的商用 InGaAs 光電二極體，不加濾光片，只施加正弦偏壓，再讓神經網路解讀 10 微秒的光電流波形。…
+  - 論文 Paper: [From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone](https://arxiv.org/abs/2611.26532) (arXiv physics.optics)
+  - 為什麼 Why: 近幾天午間都是 AI 伺服器、記憶體與通訊題材，這篇換成非 AI 的感測與光學硬體，符合筆記建議的對照，也讓產業前沿的角度更多樣。
+  - 花費 Claude cost: US$0.189
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgAIesmFTuU)
   - 內容 Text: 滑新聞的時候，你點哪一則，是看立場、看排第幾，還是看讚數？ 我們今天介紹的研究（arXiv, 2026）找了美國線上受試者，每人做4次選擇：氣候、移民、性別政策、疫苗，各從10則新聞裡挑1則點開。新聞的順序隨機排；第二個實驗還把讚數和分享數…
   - 為什麼 Why: This is today's new episode with no Chinese follow-up yet, so it takes the daily zh Threads design-and-finding slot the notes keep as default, with a question-led opener because yesterday's post opened with numbers; no headline links responsibly (today's news is mostly partisan, crime, disaster or market-crash items) and Instagram free posts stay paused per the notes.

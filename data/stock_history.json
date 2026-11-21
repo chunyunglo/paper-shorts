@@ -909,5 +909,34 @@
     "cost_usd": 0.6441,
     "id": "18117824399328320",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df_lEmYEbNo"
+  },
+  {
+    "posted": "2026-11-21T12:01:22+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜光電二極體平常只回答一個問題：光有多強。這篇論文問：只改變供電方式，它能不能也分辨光的「顏色」？\n\n論文做到的是：一顆未改裝的商用 InGaAs 光電二極體，不加濾光片，只施加正弦偏壓，再讓神經網路解讀 10 微秒的光電流波形。在 1530–1610 nm 波段，能定位 1 至 3 條雷射譜線，誤差約 0.3–0.4 nm。\n\n但這仍是實驗室示範：光源是 4 或 8 mW 雷射，不是連續寬頻光譜。換到沒參與校正的日子，單線平均誤差從 1.79 nm 降到 0.80 nm，但那是同時加入實測的日間漂移資料、並平均五種訊號表示法的結果。七天各自的誤差範圍，也從 0.70–5.08 nm 縮到 0.34–1.93 nm，差異仍大。\n\n如果成真，可能讓光通訊與感測模組用較簡單的現成元件多取得波長資訊。這是可能性，不是論文證明的。\n\n（研究分享，不是投資建議）",
+    "why": "近幾天午間都是 AI 伺服器、記憶體與通訊題材，這篇換成非 AI 的感測與光學硬體，符合筆記建議的對照，也讓產業前沿的角度更多樣。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.26532",
+      "title": "From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone",
+      "abstract": "Computational spectrometers replace dispersive optics with detectors whose spectral response can be varied, but every reported single-detector device obtains this response through dedicated fabrication: two-dimensional heterostructures, graded epitaxial junctions, organic stacks, filters or photonic circuits. We demonstrate a generic, fabrication-free alternative in which a standard commercial photodiode becomes a spectrometer through its electrical drive alone, requiring no modification of the device, no optical filter and no modulation of the light. The mechanism is bias-modulated optoelectronic chromatic dispersion (OED): light of different wavelengths is absorbed at different depths, and a sinusoidal bias changes how carriers generated at each depth are collected, so that every spectrum is encoded in the shape of the photocurrent waveform over one bias period. Applied to an unmodified InGaAs PIN photodiode at room temperature, a 10 us waveform decoded by a neural network reconstructs spectra of one to three laser lines across the 80 nm of the telecom C+L band, locating the lines to 0.3-0.4 nm, counting them in about 99% of measurements and identifying their power levels, with line shifts tracked to tens of picometres. Because OED relies on universal semiconductor transport physics, the approach is material-agnostic and applies in principle to any off-the-shelf photodiode, turning detectors already deployed as power monitors into low-cost spectral sensors.",
+      "authors": [
+        "Roi Yozevitch",
+        "Shmuel Sternklar",
+        "Ziv Glasser"
+      ],
+      "venue": "arXiv physics.optics",
+      "url": "https://arxiv.org/abs/2611.26532",
+      "pdf_url": "https://arxiv.org/pdf/2611.26532v1",
+      "doi": null,
+      "published": "2026-11-19",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.1892,
+    "id": "18100432886113010",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgALq0YkRcP"
   }
 ]
