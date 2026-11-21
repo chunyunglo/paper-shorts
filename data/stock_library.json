@@ -292,5 +292,37 @@
     "abstract": "Using the Michigan Survey, I show that consumers' house price expectations depend upon the recent history of house price developments in their city of residence. Forecast errors are predictable: people systematically underestimate momentum and neglect mean reversion, remaining over‐optimistic for several quarters after a prolonged trend of house price growth, and vice versa. Housing appreciation also increases the share of consumers who believe that real estate is a good investment. Combining loan‐level data from Freddie Mac to regional measures of housing sentiment, I show that an exogenous shift in house price expectations leads to an increase in leverage on new mortgage originations. The effect is concentrated on investment properties and among prime borrowers in nonrecourse states.",
     "added": "2026-11-20",
     "found_by": "Crossref: extrapolative expectations investors"
+  },
+  {
+    "id": "doi:10.1177/0018726706068793",
+    "title": "Owners or traders? Conceptualizations of institutional investors and their                 relationship with corporate managers",
+    "authors": [
+      "John Hendry",
+      "Paul Sanderson",
+      "Richard Barker",
+      "John Roberts"
+    ],
+    "venue": "Human Relations",
+    "published": "2006",
+    "url": "https://doi.org/10.1177/0018726706068793",
+    "pdf_url": null,
+    "abstract": "We draw on a series of in-depth interviews with senior managers from institutional investors and large listed corporations to explore how different conceptualizations of institutional investors, their role in the corporate governance process, and their interactions with corporate management, are reflected in the accounts of the actors concerned. We find that the conceptualizations in terms of ownership and agency that dominate both academic and popular discourses are marginal to the actors’ accounts. Rather, both fund managers and company managers conceptualize institutional investors primarily as financial traders who happen,as a result of their trading, to control key resources, but whose interests are effectively divorced from those of long-term share owners. Our analysis suggests that far from being mitigated by the large share blocks of institutional investors, as some commentators have suggested, the separation of ownership from control has been compounded in the UK by a separation of accountability from responsibility, with the interests of the institutions holding managers accountable being quite different from those of the owner-beneficiaries to whom they feel responsible. This raises significant challenges for corporate governance policy as well as new issues for research into the governance process.",
+    "added": "2026-11-21",
+    "found_by": "Crossref: noise traders individual investors"
+  },
+  {
+    "id": "doi:10.3917/fina.343.0067",
+    "title": "What drives the herding behavior of individual investors?",
+    "authors": [
+      "Maxime Merli",
+      "Tristan Roger"
+    ],
+    "venue": "Finance",
+    "published": "2014",
+    "url": "https://doi.org/10.3917/fina.343.0067",
+    "pdf_url": null,
+    "abstract": "L’objet de cet article est d’analyser la dynamique du comportement moutonnier (ou de herding) des investisseurs individuels. Dans ce but, nous introduisons une mesure originale de herding permettant un suivi individuel de ce comportement. Sur la base de l’analyse de 8 millions de transactions, réalisées par 87 373 investisseurs individuels sur la période 1999 - 2006, nous mettons en lumière la persistance temporelle de ce comportement ainsi que le rôle prépondérant joué par les performances passées des portefeuilles et la sophistication des investisseurs. La mesure proposée nous permet en outre de répondre à une question peu abordée dans la littérature : le comportement de herding est-il profitable à l’investisseur ? Nos résultats indiquent que les portefeuilles des investisseurs les moins moutonniers présentent d’avantage de rendements extrêmes et de plus faibles couples rendement/risque que les autres investisseurs.",
+    "added": "2026-11-21",
+    "found_by": "Crossref: noise traders individual investors"
   }
 ]

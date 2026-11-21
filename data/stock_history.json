@@ -881,5 +881,33 @@
     "cost_usd": 0.0814,
     "id": "17968549332239213",
     "url": "https://www.threads.com/@human__behavior__decode/post/Df-jhjdI21a"
+  },
+  {
+    "posted": "2026-11-21T06:24:06+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜8 百萬筆交易、87,373 位投資人：跟著大家做，是一時興起，還是一種習慣？\n\n一項研究分析某家歐洲大型券商的法國散戶交易紀錄（1999 至 2006 年），替每位投資人算出「跟隨群眾」的程度。研究發現，這種傾向有持續性：相鄰兩季的相關約 12.43%，四年內仍顯著。不過作者也提醒，這種持續性相對偏弱。\n\n研究還發現，前幾季投資組合表現較差的人，下一季跟著大家交易的傾向較高。交易次數少的投資人，平均比交易頻繁的人更常跟隨；有交易權證的人，平均則較少跟隨。\n\n這是 1999 至 2006 年法國單一券商的資料，且為工作論文，呈現的是行為上的關聯，不是任何人該怎麼操作的建議。\n\n（研究分享，不是投資建議）",
+    "why": "這篇用真實交易紀錄談散戶行為，主題貼近讀者，也和近日的過度交易、注意力與性別題材不同，是新角度。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.3917/fina.343.0067",
+      "title": "What drives the herding behavior of individual investors?",
+      "abstract": "L’objet de cet article est d’analyser la dynamique du comportement moutonnier (ou de herding) des investisseurs individuels. Dans ce but, nous introduisons une mesure originale de herding permettant un suivi individuel de ce comportement. Sur la base de l’analyse de 8 millions de transactions, réalisées par 87 373 investisseurs individuels sur la période 1999 - 2006, nous mettons en lumière la persistance temporelle de ce comportement ainsi que le rôle prépondérant joué par les performances passées des portefeuilles et la sophistication des investisseurs. La mesure proposée nous permet en outre de répondre à une question peu abordée dans la littérature : le comportement de herding est-il profitable à l’investisseur ? Nos résultats indiquent que les portefeuilles des investisseurs les moins moutonniers présentent d’avantage de rendements extrêmes et de plus faibles couples rendement/risque que les autres investisseurs.",
+      "authors": [
+        "Maxime Merli",
+        "Tristan Roger"
+      ],
+      "venue": "Finance",
+      "url": "https://doi.org/10.3917/fina.343.0067",
+      "pdf_url": "http://ifs.u-strasbg.fr/large/publications/2011/2011-03.pdf",
+      "doi": "10.3917/fina.343.0067",
+      "published": "2014",
+      "source": "journal"
+    },
+    "cost_usd": 0.6441,
+    "id": "18117824399328320",
+    "url": "https://www.threads.com/@human__behavior__decode/post/Df_lEmYEbNo"
   }
 ]

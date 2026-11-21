@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-21
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df_lEmYEbNo)
+  - 內容 Text: 📈 盤前心理學｜8 百萬筆交易、87,373 位投資人：跟著大家做，是一時興起，還是一種習慣？ 一項研究分析某家歐洲大型券商的法國散戶交易紀錄（1999 至 2006 年），替每位投資人算出「跟隨群眾」的程度。研究發現，這種傾向有持續性：相…
+  - 論文 Paper: [What drives the herding behavior of individual investors?](https://doi.org/10.3917/fina.343.0067) (Finance)
+  - 為什麼 Why: 這篇用真實交易紀錄談散戶行為，主題貼近讀者，也和近日的過度交易、注意力與性別題材不同，是新角度。
+  - 花費 Claude cost: US$0.644
+
 ## 2026-11-20
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/Df-jhjdI21a)
