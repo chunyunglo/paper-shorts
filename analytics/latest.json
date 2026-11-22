@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-21T08:41:13+00:00",
+ "collected_at": "2026-11-22T08:40:49+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2536,
-   "videoCount": 56
+   "viewCount": 2544,
+   "videoCount": 58
   }
  },
  "notes": [],
@@ -2219,7 +2219,7 @@
    "paper": "Just the Facts: How Dialogues with AI Reduce Conspiracy Beliefs",
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
-    "views": 30,
+    "views": 31,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -2263,7 +2263,7 @@
    "created": "2026-11-09T17:06:05+00:00",
    "metrics": {
     "views": 13,
-    "reach": 10,
+    "reach": 11,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3057,15 +3057,15 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 25,
+    "views": 38,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
     "privacy": "public",
     "published": "2026-11-18T11:04:35Z",
-    "estimatedMinutesWatched": 1,
+    "estimatedMinutesWatched": 2,
     "averageViewDuration": 12,
-    "averageViewPercentage": 28.02,
+    "averageViewPercentage": 28.470000000000002,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -3183,12 +3183,17 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 51,
+    "views": 41,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-11-19T11:04:09Z"
+    "published": "2026-11-19T11:04:09Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 8,
+    "averageViewPercentage": 19.01,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3246,7 +3251,12 @@
     "comments": 1,
     "duration": "PT45S",
     "privacy": "public",
-    "published": "2026-11-19T11:06:13Z"
+    "published": "2026-11-19T11:06:13Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 7,
+    "averageViewPercentage": 15.67,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3299,7 +3309,7 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 24,
+    "views": 31,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -3376,8 +3386,8 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 72,
-    "reach": 61,
+    "views": 73,
+    "reach": 62,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3397,6 +3407,122 @@
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
     "views": 0,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "SaCTPTjhoT0",
+   "url": "https://youtube.com/shorts/SaCTPTjhoT0",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 26,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT44S",
+    "privacy": "public",
+    "published": "2026-11-21T11:03:40Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18123378550943760",
+   "url": "https://www.instagram.com/reel/DgAFDIOjjwX/",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 117,
+    "reach": 104,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18655324072013108",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgAFIDchhxg",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 6,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "c4ddkzDxMvc",
+   "url": "https://youtube.com/shorts/c4ddkzDxMvc",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-21T11:05:21Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18117785162590989",
+   "url": "https://www.instagram.com/reel/DgAFVhTCSB_/",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 119,
+    "reach": 101,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261121-a-unified-choice-model-of-news-selection",
+   "title": "Likes, Rank or Politics: What Makes You Click the News?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17908202637355869",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgAFahHyvvA",
+   "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
+   "created": "2026-11-21T06:13:25+00:00",
+   "metrics": {
+    "views": 1,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4060,6 +4186,44 @@
    }
   },
   {
+   "kind": "social",
+   "episode": "social-33",
+   "title": "滑新聞的時候，你點哪一則，是看立場、看排第幾，還是看讚數？\n\n我們今天介紹的研究（arXiv, 2026）找了美國線上受試者，每人做4次選擇：氣候、移民、性別政",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18116179316134148",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgAIesmFTuU",
+   "paper": "20261121-a-unified-choice-model-of-news-selection",
+   "created": "2026-11-21T11:33:24+00:00",
+   "metrics": {
+    "views": 15,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-34",
+   "title": "約68%。\n\n這是我們上週日介紹的研究（arXiv, 2026）裡，一個比較少人注意的數字。研究者把約3.69萬則ChatGPT對話樣本，分到接案平台Upwor",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18343498624262618",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgAIgkpFUF-",
+   "paper": "20261115-the-rebundling-of-freelance-work-in-the",
+   "created": "2026-11-21T11:33:24+00:00",
+   "metrics": {
+    "views": 13,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "stock",
    "episode": "stock-0",
    "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
@@ -4317,7 +4481,7 @@
    "paper": "LazyWeights: Decode-on-Demand Edge LLMs",
    "created": "2026-11-15T11:44:21+00:00",
    "metrics": {
-    "views": 10,
+    "views": 11,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4431,7 +4595,7 @@
    "paper": "Multilevel AlScN Ferroelectric Diode Crossbar Arrays with Sub-200 nm Cells for Selector-Free Nonvolatile Memory",
    "created": "2026-11-17T12:43:59+00:00",
    "metrics": {
-    "views": 17,
+    "views": 19,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4469,7 +4633,7 @@
    "paper": "The social signal",
    "created": "2026-11-18T06:46:24+00:00",
    "metrics": {
-    "views": 22,
+    "views": 23,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4602,7 +4766,7 @@
    "paper": "Held While Waiting: What LLM Agent Sessions Reserve on Serverless and Agent Runtimes",
    "created": "2026-11-20T12:27:58+00:00",
    "metrics": {
-    "views": 27,
+    "views": 28,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4640,7 +4804,64 @@
    "paper": "What drives the herding behavior of individual investors?",
    "created": "2026-11-21T06:24:06+00:00",
    "metrics": {
-    "views": 15,
+    "views": 16,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-31",
+   "title": "🏭 產業前沿｜光電二極體平常只回答一個問題：光有多強。這篇論文問：只改變供電方式，它能不能也分辨光的「顏色」？\n\n論文做到的是：一顆未改裝的商用 InGaAs ",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18100432886113010",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgALq0YkRcP",
+   "paper": "From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone",
+   "created": "2026-11-21T12:01:22+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-32",
+   "title": "🌙 盤後研究室｜頭條寫著「股市最慘烈一周天天跌，二戰以來僅有5次」。每逢這種日子，新聞總會附上一串理由。\n\n這些理由到底能解釋多少？一篇2026年的論文，用生成",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18080536037439727",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgBBrrGoxYE",
+   "paper": "Explaining Realized Returns: Roll's $R^2$ 40 Years Later",
+   "created": "2026-11-21T19:53:32+00:00",
+   "metrics": {
+    "views": 34,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-33",
+   "title": "📈 盤前心理學｜散戶在網路上聊股票時，到底在聊什麼？\n\n有位研究者分析了大量網路股票留言板和投資社群的貼文，想直接看投資人對會計資訊的關注。研究發現，大家特別盯",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18159988598631711",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgCGgukgI_M",
+   "paper": "Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*",
+   "created": "2026-11-22T05:54:56+00:00",
+   "metrics": {
+    "views": 31,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
