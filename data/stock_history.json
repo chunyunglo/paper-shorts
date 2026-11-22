@@ -967,5 +967,32 @@
     "cost_usd": 0.236,
     "id": "18080536037439727",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgBBrrGoxYE"
+  },
+  {
+    "posted": "2026-11-22T05:54:56+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜散戶在網路上聊股票時，到底在聊什麼？\n\n有位研究者分析了大量網路股票留言板和投資社群的貼文，想直接看投資人對會計資訊的關注。研究發現，大家特別盯著三樣東西：盈餘、現金和營收。\n\n討論熱度也不是一直平平的：在盈餘公告和 8-K 報告送出前後會升高。不過定期報告引起的反應，只出現在小型公司。另外，資訊環境比較差的時候，投資人似乎會更努力去找資訊、處理資訊。\n\n但摘要也指出，財報公布時討論得越多，並沒有明顯對應到更好的資訊處理。\n\n這是線上社群的文字資料，只能看出大家在聊什麼，不代表聊得多就判斷得準。\n\n（研究分享，不是投資建議）",
+    "why": "近期已談過 Google 搜尋、社群平台比較和群眾跟隨,這篇從會計資訊的角度補上散戶注意力的新面向,且題材貼近讀者自己的看盤習慣,摘要裡有具體可引用的內容。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1111/1911-3846.12603",
+      "title": "Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*",
+      "abstract": "Online financial communities provide a unique opportunity to directly examine individual investors' attention to accounting information on a large scale and in great detail. I analyze accounting‐related content in large samples of Yahoo! message board posts and StockTwits and find investors pay attention to a range of accounting information, fixating particularly on earnings, cash, and revenues. Consistent with the expectation that investors react to relevant information events, I find accounting‐related discussion elevated around the filings of earnings releases and 8‐K reports, but the reaction to periodic reports is confined to small firms. I also find investors expand their acquisition of accounting information and processing efforts in poor information environments. Greater attention to accounting information at earnings releases does not appear to be meaningfully associated with better information processing.",
+      "authors": [
+        "Alina Lerman"
+      ],
+      "venue": "Contemporary Accounting Research",
+      "url": "https://doi.org/10.1111/1911-3846.12603",
+      "pdf_url": null,
+      "doi": "10.1111/1911-3846.12603",
+      "published": "2020",
+      "source": "journal"
+    },
+    "cost_usd": 0.0929,
+    "id": "18159988598631711",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgCGgukgI_M"
   }
 ]

@@ -324,5 +324,35 @@
     "abstract": "L’objet de cet article est d’analyser la dynamique du comportement moutonnier (ou de herding) des investisseurs individuels. Dans ce but, nous introduisons une mesure originale de herding permettant un suivi individuel de ce comportement. Sur la base de l’analyse de 8 millions de transactions, réalisées par 87 373 investisseurs individuels sur la période 1999 - 2006, nous mettons en lumière la persistance temporelle de ce comportement ainsi que le rôle prépondérant joué par les performances passées des portefeuilles et la sophistication des investisseurs. La mesure proposée nous permet en outre de répondre à une question peu abordée dans la littérature : le comportement de herding est-il profitable à l’investisseur ? Nos résultats indiquent que les portefeuilles des investisseurs les moins moutonniers présentent d’avantage de rendements extrêmes et de plus faibles couples rendement/risque que les autres investisseurs.",
     "added": "2026-11-21",
     "found_by": "Crossref: noise traders individual investors"
+  },
+  {
+    "id": "doi:10.1111/1911-3846.12603",
+    "title": "Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*",
+    "authors": [
+      "Alina Lerman"
+    ],
+    "venue": "Contemporary Accounting Research",
+    "published": "2020",
+    "url": "https://doi.org/10.1111/1911-3846.12603",
+    "pdf_url": null,
+    "abstract": "Online financial communities provide a unique opportunity to directly examine individual investors' attention to accounting information on a large scale and in great detail. I analyze accounting‐related content in large samples of Yahoo! message board posts and StockTwits and find investors pay attention to a range of accounting information, fixating particularly on earnings, cash, and revenues. Consistent with the expectation that investors react to relevant information events, I find accounting‐related discussion elevated around the filings of earnings releases and 8‐K reports, but the reaction to periodic reports is confined to small firms. I also find investors expand their acquisition of accounting information and processing efforts in poor information environments. Greater attention to accounting information at earnings releases does not appear to be meaningfully associated with better information processing.",
+    "added": "2026-11-22",
+    "found_by": "Crossref: attention-grabbing stocks individual investors"
+  },
+  {
+    "id": "doi:10.1287/mnsc.2016.2551",
+    "title": "Do Investors Value Dividend-Smoothing Stocks Differently?",
+    "authors": [
+      "Yelena Larkin",
+      "Mark T. Leary",
+      "Roni Michaely"
+    ],
+    "venue": "Management Science",
+    "published": "2017",
+    "url": "https://doi.org/10.1287/mnsc.2016.2551",
+    "pdf_url": null,
+    "abstract": "It is widely documented that managers strive to maintain smooth dividends. Yet, it is not clear if this behavior reflects investors’ preferences. In this paper, we study whether investors indeed value dividend-smoothing stocks differently by exploring the implications of dividend smoothing for firms’ investor clientele, stock prices, and cost of capital. We find that retail investors are less likely to hold dividend-smoothing stocks, while institutional investors, and especially mutual funds, are more likely. However, this preference does not result in any detectable relation between the smoothness of a firm’s dividends and the expected return, or market value, of its stock. Together, the evidence suggests that firms adjust the supply of smoothed dividends to match investors’ demand. Dividend smoothing affects the composition of a firm’s shareholders but has little impact on its stock price. This paper was accepted by Amit Seru, finance.",
+    "added": "2026-11-22",
+    "found_by": "Crossref: attention-grabbing stocks individual investors"
   }
 ]

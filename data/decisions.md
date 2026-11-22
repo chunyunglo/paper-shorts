@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-22
+
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgCGgukgI_M)
+  - 內容 Text: 📈 盤前心理學｜散戶在網路上聊股票時，到底在聊什麼？ 有位研究者分析了大量網路股票留言板和投資社群的貼文，想直接看投資人對會計資訊的關注。研究發現，大家特別盯著三樣東西：盈餘、現金和營收。 討論熱度也不是一直平平的：在盈餘公告和 8-K 報…
+  - 論文 Paper: [Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*](https://doi.org/10.1111/1911-3846.12603) (Contemporary Accounting Research)
+  - 為什麼 Why: 近期已談過 Google 搜尋、社群平台比較和群眾跟隨,這篇從會計資訊的角度補上散戶注意力的新面向,且題材貼近讀者自己的看盤習慣,摘要裡有具體可引用的內容。
+  - 花費 Claude cost: US$0.093
+
 ## 2026-11-21
 
 - **股市篇 Stock series** · evening · market_link · [link](https://www.threads.com/@human__behavior__decode/post/DgBBrrGoxYE)
