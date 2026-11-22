@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-22
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgCu56EFvqs)
+  - 內容 Text: 戒掉AI兩週，會比較不孤單嗎？ 我們今天影片介紹的研究（arXiv, 2026）是預先登記的隨機實驗。研究者找了625位美國的ChatGPT活躍使用者（每天至少用15分鐘），付錢請他們暫停使用AI助理。一組停14天（306人），對照組只停1…
+  - 為什麼 Why: The AI-deactivation paper is today's new episode with no Chinese Threads follow-up yet, so it takes the single daily zh design-and-finding slot the notes recommend, with a question-led opener (the format slightly ahead in the notes); this week's second-angle post was already done yesterday, Instagram image posts stay paused, and today's headlines are mostly partisan election news or tragedies we won't use.
+  - 根據的集數 Based on: 20261122-ai-deactivation-reduces-loneliness-and-i
 - **短影音 Short** · [戒掉AI兩週，會比較不孤單嗎？ / Quit AI for Two Weeks: Less Lonely?](https://youtube.com/shorts/SFR4qSgXa0w)
   - 論文 Paper: [AI Deactivation Reduces Loneliness and Increases Social Interaction](https://arxiv.org/abs/2611.25263) (arXiv cs.HC)
   - 為什麼 Why: A deactivation experiment on general-purpose AI assistants measures real changes in loneliness and social interaction, a concrete and surprising finding that is easy to show in 3-4 steps and relates to everyday behavior. Signals: Notes say concrete, counterintuitive findings with clear comparisons have worked best, and everyday non-AI-only topics are welcome; this paper offers a clear before/after comparison and is not too close to recent AI-advice or voting episodes.

@@ -492,5 +492,19 @@
     "why": "The notes replaced the weekly roundup with a non-repeating second angle on the week's best-performing paper, and the AI freelance episode leads this week (youtube/zh 134, its zh Threads follow-up 40), so this number-led post adds the subcategory finding the first post did not focus on.",
     "id": "18343498624262618",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgAIgkpFUF-"
+  },
+  {
+    "posted": "2026-11-22T11:47:38+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261122-ai-deactivation-reduces-loneliness-and-i"
+    ],
+    "text": "戒掉AI兩週，會比較不孤單嗎？\n\n我們今天影片介紹的研究（arXiv, 2026）是預先登記的隨機實驗。研究者找了625位美國的ChatGPT活躍使用者（每天至少用15分鐘），付錢請他們暫停使用AI助理。一組停14天（306人），對照組只停1天（319人）。瀏覽器外掛封鎖了36個AI網站，也用來檢查有沒有做到。\n\n發現：\n・停兩週的人，孤單感比對照組低，約0.1個標準差，效果不大\n・社會支持和面對面互動次數增加\n・研究結束兩週後，孤單感仍較低\n・情緒、整體幸福感、工作時間沒有明顯改變\n・開放式回答顯示，有些人把原本問AI的事改去問別人\n\n要注意：結果多是自我回報，受試者是拿錢參加的線上樣本，約19%的實驗組完成者沒有完全遵守。「多社交所以比較不孤單」只是探索性分析，不能證明因果。\n\n如果兩週不能用AI，你會改去找誰幫忙？",
+    "news": null,
+    "why": "The AI-deactivation paper is today's new episode with no Chinese Threads follow-up yet, so it takes the single daily zh design-and-finding slot the notes recommend, with a question-led opener (the format slightly ahead in the notes); this week's second-angle post was already done yesterday, Instagram image posts stay paused, and today's headlines are mostly partisan election news or tragedies we won't use.",
+    "id": "18019163376005171",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgCu56EFvqs"
   }
 ]
