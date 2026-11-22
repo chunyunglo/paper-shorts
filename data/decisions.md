@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-22
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgDnpfmCY0H)
+  - 內容 Text: 🌙 盤後研究室｜留言很多，真的代表很多人在關注嗎？ 一項研究分析了 2024 年 1 月到 2026 年 4 月，某加密代幣發行平台上的 996,834 個代幣、50,895 個創建者錢包。研究發現，發行量相當集中：平台層級上，前 0.1%…
+  - 論文 Paper: [Manufactured Authenticity: How Behavioral Signals Are Produced and Misread in Online Markets](https://arxiv.org/abs/2611.22261) (arXiv cs.SI)
+  - 為什麼 Why: 今天盤勢新聞情緒很重，避開直接掛新聞，改用有真實行為資料、和讀者如何解讀「熱度」直接相關的研究，也和近期幾則偏傳統股票的題目有所區隔。
+  - 花費 Claude cost: US$0.186
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgCyDpAFmMq)
   - 內容 Text: 🏭 產業前沿｜240 倍:一篇預印本在模擬測試中宣稱,新解碼器的邏輯錯誤率比現有即時硬體解碼器低這麼多。 量子電腦糾錯,需要傳統晶片即時讀取錯誤線索,還得跟上超導量子位元約每微秒一輪的節奏。過去夠快的解碼器多半犧牲準確度,得靠更多量子位元補…
   - 論文 Paper: [Scaling classical hardware for accurate real-time quantum error correction](https://arxiv.org/abs/2611.26447) (arXiv quant-ph)

@@ -1023,5 +1023,34 @@
     "cost_usd": 0.2451,
     "id": "17983874463130566",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgCyDpAFmMq"
+  },
+  {
+    "posted": "2026-11-22T20:03:47+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜留言很多，真的代表很多人在關注嗎？\n\n一項研究分析了 2024 年 1 月到 2026 年 4 月，某加密代幣發行平台上的 996,834 個代幣、50,895 個創建者錢包。研究發現，發行量相當集中：平台層級上，前 0.1% 的錢包貢獻了 26.6% 的發行。\n\n另外，描述文字較制式的代幣回覆率最高（71.6%），但持有人集中度不像描述較多元的那組分散（持有人分析只抽樣 4,000 個代幣）。\n\n這是觀察性資料，錢包不等於人，分群也不代表確認是自動化，更不能直接套到股市。\n\n下次覺得「很多人在關注」，你看的是數字，還是數字怎麼來的？\n\n（研究分享，不是投資建議）",
+    "why": "今天盤勢新聞情緒很重，避開直接掛新聞，改用有真實行為資料、和讀者如何解讀「熱度」直接相關的研究，也和近期幾則偏傳統股票的題目有所區隔。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.22261",
+      "title": "Manufactured Authenticity: How Behavioral Signals Are Produced and Misread in Online Markets",
+      "abstract": "Online platforms increasingly ask users to infer credibility from behavioral signals whose production conditions are opaque. We introduce manufactured authenticity: the platform-mediated production of observable activity that interfaces invite users to read as organic participation. Using 996,834 cryptocurrency tokens and 50,895 creator wallets from Pump.fun, a Solana-based token launchpad, we examine how legitimacy signals are produced in an automation-enabled online market. We identify four production strategies (high-velocity launching, passive launching, template-content creation, and organic-style creation) that generate distinct but interface-similar cues of activity, narrative plausibility, and participation. High-velocity and template-content strategies emerge as alternatives rather than cumulative layers: the former produces activity at scale, while the latter produces descriptions associated with higher reply engagement. Yet visible engagement does not imply broader diffusion: template-like content attracts replies without greater ownership dispersion, and tokens associated with non-organic production strategies exhibit more concentrated investor holdings than organic-style tokens. We argue that platform governance should move beyond detecting manipulation toward making signal provenance legible. We propose authenticity disclosure as a design approach for surfacing production conditions without requiring definitive claims about automation, AI authorship, or actor intent.",
+      "authors": [
+        "Hou-Wan",
+        "Long",
+        "Yun Huang"
+      ],
+      "venue": "arXiv cs.SI",
+      "url": "https://arxiv.org/abs/2611.22261",
+      "pdf_url": "https://arxiv.org/pdf/2611.22261v1",
+      "doi": null,
+      "published": "2026-11-17",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.1862,
+    "id": "18610775455071680",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgDnpfmCY0H"
   }
 ]
