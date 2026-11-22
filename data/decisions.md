@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-22
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgCyDpAFmMq)
+  - 內容 Text: 🏭 產業前沿｜240 倍:一篇預印本在模擬測試中宣稱,新解碼器的邏輯錯誤率比現有即時硬體解碼器低這麼多。 量子電腦糾錯,需要傳統晶片即時讀取錯誤線索,還得跟上超導量子位元約每微秒一輪的節奏。過去夠快的解碼器多半犧牲準確度,得靠更多量子位元補…
+  - 論文 Paper: [Scaling classical hardware for accurate real-time quantum error correction](https://arxiv.org/abs/2611.26447) (arXiv quant-ph)
+  - 為什麼 Why: 近期午間已連續談過記憶體、電網、無線射頻與光感測，量子糾錯的傳統硬體是新的產業角度，也能和上週的非AI硬體做對照，且摘要有明確的速度與準確度取捨可以講清楚。
+  - 花費 Claude cost: US$0.245
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgCu56EFvqs)
   - 內容 Text: 戒掉AI兩週，會比較不孤單嗎？ 我們今天影片介紹的研究（arXiv, 2026）是預先登記的隨機實驗。研究者找了625位美國的ChatGPT活躍使用者（每天至少用15分鐘），付錢請他們暫停使用AI助理。一組停14天（306人），對照組只停1…
   - 為什麼 Why: The AI-deactivation paper is today's new episode with no Chinese Threads follow-up yet, so it takes the single daily zh design-and-finding slot the notes recommend, with a question-led opener (the format slightly ahead in the notes); this week's second-angle post was already done yesterday, Instagram image posts stay paused, and today's headlines are mostly partisan election news or tragedies we won't use.
