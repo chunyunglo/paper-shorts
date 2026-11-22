@@ -9423,5 +9423,365 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261121-a-unified-choice-model-of-news-selection",
     "pick_reason": "A conditional multinomial logit experiment on how stance, rank and engagement cues drive news clicks is a concrete, everyday behavior question whose method can be shown in 3-4 visual steps, and it avoids recent topics. Signals: Notes favor concrete, counterintuitive findings with clear comparisons and everyday topics; this fits and avoids recent AI-language and voting-advice themes."
+  },
+  {
+    "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+    "created": "2026-11-22T06:09:27+00:00",
+    "paper": {
+      "id": "arxiv:2611.25263",
+      "title": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+      "abstract": "General-purpose artificial intelligence (AI) assistants are increasingly embedded in everyday life, transforming how people accomplish tasks and potentially reshaping how they interact with others. Prior research has focused on how using AI for explicitly social purposes affects users' psychological well-being and social lives. Yet such uses account for only a small portion of interactions with general-purpose AI assistants. Whether using AI for everyday, instrumental tasks affects users' psychological well-being and social behavior remains unclear. Here we investigate these effects through a longitudinal deactivation experiment with active ChatGPT users (N=625), in which participants were randomly assigned to abstain from using AI assistants for either fourteen days (treatment) or one day (control). Participants used AI predominantly for instrumental purposes, with 84.7% reporting productivity as their most frequent use case. Two weeks of deactivation significantly reduced loneliness relative to the control group ($β= -0.10$, $p=0.03$), with reductions persisting two weeks after participants resumed using AI ($β= -0.16$, $p=0.02$). Deactivation also significantly increased the number of people participants interacted with in person and the time they spent socializing over the intervention period. Open-ended responses indicate that during the deactivation period participants sought help from others for tasks they otherwise would have delegated to AI and redirected attention toward social interaction. Overall, our findings suggest that even when AI is used primarily to accomplish instrumental tasks, it may inadvertently reduce opportunities for social interaction and connection.",
+      "authors": [
+        "Dora Zhao",
+        "Grace Wang",
+        "Yutong Zhang",
+        "Lujain Ibrahim",
+        "Robert E. Kraut",
+        "Diyi Yang"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.25263",
+      "pdf_url": "https://arxiv.org/pdf/2611.25263v1",
+      "doi": null,
+      "published": "2026-11-18",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "戒掉AI兩週，會比較不孤單嗎？",
+      "title_en": "Quit AI for Two Weeks: Less Lonely?",
+      "paper_title_zh": "停用AI可降低孤獨感並增加社交互動",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "開場",
+          "heading_en": "THE HOOK",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "兩週不用AI",
+          "big_text_en": "No AI, 2 weeks",
+          "lines": [
+            {
+              "zh": "戒掉AI兩週，會比較不孤單？",
+              "en": "Two weeks without ChatGPT made people less lonely?"
+            },
+            {
+              "zh": "答案藏在他們多做了什麼。",
+              "en": "The twist is what they did instead."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "史丹佛等團隊的研究，刊在arXiv。",
+              "en": "A Stanford-led team, posted on arXiv in 2026."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "受試者",
+          "heading_en": "THE PEOPLE",
+          "labels": [
+            "ChatGPT用戶"
+          ],
+          "labels_en": [
+            "ChatGPT users"
+          ],
+          "values": [
+            625.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "625位常用ChatGPT的人，多半用在工作。",
+              "en": "625 US adults who use ChatGPT daily, mostly for work."
+            }
+          ]
+        },
+        {
+          "visual": "experiment",
+          "heading_zh": "分組",
+          "heading_en": "THE SPLIT",
+          "labels": [
+            "停用1天",
+            "停用14天"
+          ],
+          "labels_en": [
+            "Quit 1 day",
+            "Quit 14 days"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "抽籤分兩組：一組停用一天，一組停兩週。",
+              "en": "They drew lots: one group quit AI for a day, the other for two weeks."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "封鎖AI網站",
+            "每日問卷",
+            "比較兩組"
+          ],
+          "labels_en": [
+            "Block AI sites",
+            "Daily survey",
+            "Compare groups"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "電腦裝外掛，擋掉三十多個AI網站。",
+              "en": "A browser add-on blocked over thirty AI sites."
+            },
+            {
+              "zh": "還要每天回報：今天跟幾個人互動。",
+              "en": "And everyone reported how many people they talked to."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "孤單感",
+            "面對面互動",
+            "社會支持"
+          ],
+          "labels_en": [
+            "Loneliness",
+            "In-person",
+            "Support"
+          ],
+          "values": [],
+          "big_text": "比較不孤單",
+          "big_text_en": "Less lonely",
+          "lines": [
+            {
+              "zh": "結果，停用兩週的人比較不孤單。",
+              "en": "Result: the two-week group felt less lonely."
+            },
+            {
+              "zh": "他們當面互動的人也比較多。",
+              "en": "They also saw more people in person."
+            }
+          ]
+        },
+        {
+          "visual": "chat",
+          "heading_zh": "為什麼",
+          "heading_en": "WHY",
+          "labels": [
+            "問媽媽？",
+            "問同事"
+          ],
+          "labels_en": [
+            "Ask mom?",
+            "Ask a coworker"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "有人說不能問AI，就改問家人同事。",
+              "en": "Some said that without AI, they asked family or coworkers."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "但是",
+          "heading_en": "THE CATCH",
+          "labels": [
+            "孤單感",
+            "心情"
+          ],
+          "labels_en": [
+            "Loneliness",
+            "Mood"
+          ],
+          "values": [],
+          "big_text": "只有孤單變少",
+          "big_text_en": "Only loneliness eased",
+          "lines": [
+            {
+              "zh": "但差距不大，心情也沒明顯變好。",
+              "en": "But the gap was small, and mood didn't clearly improve."
+            },
+            {
+              "zh": "而且是自己回報，原因還只是推測。",
+              "en": "It's self-reported, so the reason is still a guess."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "AI省力，也省了聊天",
+          "big_text_en": "AI saves effort, and chats",
+          "lines": [
+            {
+              "zh": "AI幫你省事，也可能省掉跟人聊天。",
+              "en": "AI saves effort, but it may also save you from talking to people."
+            },
+            {
+              "zh": "想看更多行為研究，歡迎追蹤。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "史丹佛團隊找了625位每天用ChatGPT的美國人，抽籤讓一組停用一天、一組停用兩週。停兩週的人覺得比較不孤單，面對面見的人也變多。不過差距不大，資料也是自己填的，原因還不能確定。",
+      "description_en": "What happens if you quit ChatGPT for two weeks? A randomized experiment with 625 US ChatGPT users compared one day without AI against two weeks. The two-week group felt less lonely and reported more in-person interaction, but mood did not clearly change and the reasons remain suggestive.",
+      "hashtags": [
+        "AI",
+        "ChatGPT",
+        "孤獨感",
+        "社交",
+        "行為科學",
+        "loneliness",
+        "AIandSociety",
+        "behaviorscience"
+      ],
+      "method_summary": "The researchers ran a preregistered randomized deactivation experiment with 625 US-based, active ChatGPT users recruited through Prolific. They had to use ChatGPT at least 15 minutes a day and have had an account for at least a month, and were paid to abstain. Participants were randomly assigned to abstain from AI assistants for 14 days (treatment, 306 people) or one day (control, 319 people). A Chrome browser extension blocked 36 AI assistant sites and checked compliance. Participants completed a baseline survey, interim, midline and endline surveys, daily short check-ins about their emotions, number of people they interacted with, time socializing and time working, and a follow-up two weeks after the study ended. Using linear mixed-effects models, two weeks of deactivation reduced loneliness relative to control (about 0.1 standard deviations) and increased social support and the number of in-person interactions. Daily reports showed more social interactions in the treatment group. Loneliness stayed lower at the two-week follow-up. There was no significant change in emotional state, overall well-being or time spent working. Open-ended answers suggested people turned to others for help they would have asked AI for. Exploratory mediation analysis suggested more socializing and social satisfaction may help explain the loneliness drop. Longer-time ChatGPT users showed larger loneliness reductions.",
+      "limitations": "Outcomes were mostly self-reported, and participants were paid US ChatGPT users from an online panel, so results may not generalize. Fewer control participants than treatment participants finished the study, and about 19% of treatment completers did not fully comply. The loneliness effect was small, and mood and overall well-being did not change significantly. The mediation analysis was exploratory, so the paper cannot prove that more socializing caused the drop in loneliness. Only two weeks were studied, and OpenAI funded participant payments (it had no role in the study design or analysis).",
+      "pt": null,
+      "zh_lines": [
+        [
+          "不用AI兩週，會比較不孤單？",
+          "關鍵是他們改做了什麼。"
+        ],
+        [
+          "史丹佛帶頭的團隊，2026年放上arXiv。"
+        ],
+        [
+          "625位美國人，天天用ChatGPT",
+          "多半拿來處理工作。"
+        ],
+        [
+          "抽籤分兩組：一組停用一天，一組停兩週。"
+        ],
+        [
+          "瀏覽器外掛封鎖三十幾個AI網站，",
+          "每天填問卷，說自己見了多少人。"
+        ],
+        [
+          "結果，停兩週的人比較不孤單，",
+          "面對面見的人也變多。"
+        ],
+        [
+          "有些人說，不能問AI，就改問家人同事。"
+        ],
+        [
+          "不過差距不大，心情也沒明顯變好。",
+          "資料是自己填的，原因還只是推測。"
+        ],
+        [
+          "AI幫你省力，也可能省掉跟人聊天。",
+          "追蹤我們，看更多行為研究。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "users"
+        ],
+        [
+          "calendar",
+          "calendar"
+        ],
+        [
+          "ban",
+          "clipboard-check",
+          "chart-bar"
+        ],
+        [
+          "mood-sad",
+          "users",
+          "heart-handshake"
+        ],
+        [
+          "bubble-text",
+          "messages"
+        ],
+        [
+          "mood-sad",
+          "mood-neutral"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 42.59,
+        "cover_offset_ms": 5663,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 46.54,
+        "cover_offset_ms": 7435,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "SFR4qSgXa0w",
+          "url": "https://youtube.com/shorts/SFR4qSgXa0w"
+        },
+        "instagram": {
+          "id": "18118077710609489",
+          "url": "https://www.instagram.com/reel/DgCqBEqjLNx/"
+        },
+        "threads": {
+          "id": "18114938867523038",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgCqGNQOYe5"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "SzaJxq_HGQg",
+          "url": "https://youtube.com/shorts/SzaJxq_HGQg"
+        },
+        "instagram": {
+          "id": "18074230847790449",
+          "url": "https://www.instagram.com/reel/DgCqM36nBzn/"
+        },
+        "threads": {
+          "id": "18080479781449974",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgCqRu3sHjS"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261122-ai-deactivation-reduces-loneliness-and-i",
+    "pick_reason": "A deactivation experiment on general-purpose AI assistants measures real changes in loneliness and social interaction, a concrete and surprising finding that is easy to show in 3-4 steps and relates to everyday behavior. Signals: Notes say concrete, counterintuitive findings with clear comparisons have worked best, and everyday non-AI-only topics are welcome; this paper offers a clear before/after comparison and is not too close to recent AI-advice or voting episodes."
   }
 ]

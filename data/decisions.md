@@ -7,6 +7,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-22
 
+- **短影音 Short** · [戒掉AI兩週，會比較不孤單嗎？ / Quit AI for Two Weeks: Less Lonely?](https://youtube.com/shorts/SFR4qSgXa0w)
+  - 論文 Paper: [AI Deactivation Reduces Loneliness and Increases Social Interaction](https://arxiv.org/abs/2611.25263) (arXiv cs.HC)
+  - 為什麼 Why: A deactivation experiment on general-purpose AI assistants measures real changes in loneliness and social interaction, a concrete and surprising finding that is easy to show in 3-4 steps and relates to everyday behavior. Signals: Notes say concrete, counterintuitive findings with clear comparisons have worked best, and everyday non-AI-only topics are welcome; this paper offers a clear before/after comparison and is not too close to recent AI-advice or voting episodes.
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgCGgukgI_M)
   - 內容 Text: 📈 盤前心理學｜散戶在網路上聊股票時，到底在聊什麼？ 有位研究者分析了大量網路股票留言板和投資社群的貼文，想直接看投資人對會計資訊的關注。研究發現，大家特別盯著三樣東西：盈餘、現金和營收。 討論熱度也不是一直平平的：在盈餘公告和 8-K 報…
   - 論文 Paper: [Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*](https://doi.org/10.1111/1911-3846.12603) (Contemporary Accounting Research)
