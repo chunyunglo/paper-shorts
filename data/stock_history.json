@@ -1052,5 +1052,33 @@
     "cost_usd": 0.1862,
     "id": "18610775455071680",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgDnpfmCY0H"
+  },
+  {
+    "posted": "2026-11-23T06:43:59+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "bias",
+    "text": "📈 盤前心理學｜你在看股票清單時，會從第一個往下滑，還是從最後一個往上看？\n\n研究者 Jacobs 與 Hillert 想知道，字母排序這件小事，會不會也出現在市場數據裡。他們發現，美股中名字在字母排序靠前的股票，交易活動和流動性，比排在後面的高約 5–15%。\n\n這個差距並不是處處一樣大。研究發現，公司知名度越高、投資人越成熟，差距越小。作者也提到，國際資料與基金資金流動的證據，同樣顯示排序可能影響交易活動與流動性。\n\n這不代表排在前面的股票比較好，也不代表可以拿名字順序做決策。摘要談的只是排序與交易活動、流動性的關係，沒有談報酬。\n\n至於背後的原因，摘要沒有交代，要看完整論文才知道。\n\n（研究分享，不是投資建議）",
+    "why": "這是還沒用過的注意力與偏誤題材，貼近散戶自己的看盤習慣，也和近期的Google搜尋、社群平台注意力主題有不同角度，今天沒有市場頭條所以用bias類型。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rof/rfv060",
+      "title": "Alphabetic Bias, Investor Recognition, and Trading Behavior",
+      "abstract": "Extensive research has revealed that alphabetical name ordering tends to provide an advantage to those positioned in the beginning of an alphabetical listing. This article is the first to explore the implications of this alphabetic bias in financial markets. We find that US stocks that appear near the top of an alphabetical listing have about 5–15% higher trading activity and liquidity than stocks that appear toward the bottom. The magnitude of these results is negatively related to firm visibility and investor sophistication. International evidence and fund flows further indicate that ordering effects can affect trading activity and liquidity.",
+      "authors": [
+        "Heiko Jacobs",
+        "Alexander Hillert"
+      ],
+      "venue": "Review of Finance",
+      "url": "https://doi.org/10.1093/rof/rfv060",
+      "pdf_url": null,
+      "doi": "10.1093/rof/rfv060",
+      "published": "2015",
+      "source": "journal"
+    },
+    "cost_usd": 0.0936,
+    "id": "18119888948112160",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgEw615kUAa"
   }
 ]

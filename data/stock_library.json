@@ -354,5 +354,34 @@
     "abstract": "It is widely documented that managers strive to maintain smooth dividends. Yet, it is not clear if this behavior reflects investors’ preferences. In this paper, we study whether investors indeed value dividend-smoothing stocks differently by exploring the implications of dividend smoothing for firms’ investor clientele, stock prices, and cost of capital. We find that retail investors are less likely to hold dividend-smoothing stocks, while institutional investors, and especially mutual funds, are more likely. However, this preference does not result in any detectable relation between the smoothness of a firm’s dividends and the expected return, or market value, of its stock. Together, the evidence suggests that firms adjust the supply of smoothed dividends to match investors’ demand. Dividend smoothing affects the composition of a firm’s shareholders but has little impact on its stock price. This paper was accepted by Amit Seru, finance.",
     "added": "2026-11-22",
     "found_by": "Crossref: attention-grabbing stocks individual investors"
+  },
+  {
+    "id": "doi:10.2308/accr.00000001",
+    "title": "The Effects of Reporting Complexity on Small and Large Investor Trading",
+    "authors": [
+      "Brian P. Miller"
+    ],
+    "venue": "The Accounting Review",
+    "published": "2010",
+    "url": "https://doi.org/10.2308/accr.00000001",
+    "pdf_url": null,
+    "abstract": ": This study examines the effects of financial reporting complexity on investors’ trading behavior. I find that more complex (longer and less readable) filings are associated with lower overall trading, and that this relationship appears due to a reduction in small investors’ trading activity. Additional evidence suggests that the association between report complexity and lower abnormal trading is driven by both cross-sectional variation in firms’ disclosure attributes and variations in disclosure complexity over time. Given regulatory concerns over plain English disclosures and the trend toward more disclosure, my investigation into the effects of reporting complexity on small and large investors should be of interest to regulators concerned with reporting clarity and leveling the playing field across classes of investors.",
+    "added": "2026-11-23",
+    "found_by": "Crossref: investor emotions trading decisions"
+  },
+  {
+    "id": "doi:10.1093/rof/rfv060",
+    "title": "Alphabetic Bias, Investor Recognition, and Trading Behavior",
+    "authors": [
+      "Heiko Jacobs",
+      "Alexander Hillert"
+    ],
+    "venue": "Review of Finance",
+    "published": "2015",
+    "url": "https://doi.org/10.1093/rof/rfv060",
+    "pdf_url": null,
+    "abstract": "Extensive research has revealed that alphabetical name ordering tends to provide an advantage to those positioned in the beginning of an alphabetical listing. This article is the first to explore the implications of this alphabetic bias in financial markets. We find that US stocks that appear near the top of an alphabetical listing have about 5–15% higher trading activity and liquidity than stocks that appear toward the bottom. The magnitude of these results is negatively related to firm visibility and investor sophistication. International evidence and fund flows further indicate that ordering effects can affect trading activity and liquidity.",
+    "added": "2026-11-23",
+    "found_by": "Crossref: investor emotions trading decisions"
   }
 ]

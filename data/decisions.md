@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-23
+
+- **股市篇 Stock series** · morning · bias · [link](https://www.threads.com/@human__behavior__decode/post/DgEw615kUAa)
+  - 內容 Text: 📈 盤前心理學｜你在看股票清單時，會從第一個往下滑，還是從最後一個往上看？ 研究者 Jacobs 與 Hillert 想知道，字母排序這件小事，會不會也出現在市場數據裡。他們發現，美股中名字在字母排序靠前的股票，交易活動和流動性，比排在後面…
+  - 論文 Paper: [Alphabetic Bias, Investor Recognition, and Trading Behavior](https://doi.org/10.1093/rof/rfv060) (Review of Finance)
+  - 為什麼 Why: 這是還沒用過的注意力與偏誤題材，貼近散戶自己的看盤習慣，也和近期的Google搜尋、社群平台注意力主題有不同角度，今天沒有市場頭條所以用bias類型。
+  - 花費 Claude cost: US$0.094
+
 ## 2026-11-22
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgDnpfmCY0H)
