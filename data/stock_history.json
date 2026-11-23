@@ -1080,5 +1080,41 @@
     "cost_usd": 0.0936,
     "id": "18119888948112160",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgEw615kUAa"
+  },
+  {
+    "posted": "2026-11-23T13:58:10+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "noon",
+    "kind": "industry_implication",
+    "text": "🏭 產業前沿｜同一個 AI 推論任務，記憶體可以分三種角色？一篇 2026 年 arXiv 論文這樣設計：\n\n大容量的高頻寬快閃記憶體放大模型權重，小而常被重複讀取的草稿模型放電阻式記憶體，會隨長度增長的 KV 快取留在高頻寬記憶體。\n\n論文做到的是：以 GPU 實測軌跡搭配模擬，估計最高 5.5 倍端到端加速、16.5 倍解碼能效。但這是模擬出來的架構，不是已做出的晶片；而且在 405B 模型、輸出 4096 個 token 時，GPU 反而快 1.32 倍（預填階段運算吃重）。\n\n如果成真，可能影響的是記憶體分層與 3D 堆疊封裝的需求結構。但論文並未分析產業或市場，這一步只是可能性。\n\n（研究分享，不是投資建議）",
+    "why": "最近的產業前沿已有電池、Wi-Fi、量子與光電題材，今天換成 AI 基礎設施中的記憶體架構，也呼應週報建議交替 AI 硬體與非 AI 硬體，且避開近日用過的資料中心電力與記憶體單元題材。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.27701",
+      "title": "FOREST: Coordinating Tree-based HBF, RRAM, and HBM for Efficient Speculative LLM Inference",
+      "abstract": "Speculative decoding (SD) accelerates large language model (LLM) inference by combining lightweight drafting with parallel target-model verification. However, its stages impose distinct resource demands: target verification requires high-throughput access to large weight sets, sequential drafting executes a compact model under tight latency constraints, and long-context attention processes growing key-value (KV) caches. Conventional GPU-centric SD systems serve these workloads through shared HBM-centric memory and general-purpose compute, creating mismatches in capacity, bandwidth, and computation. These mismatches constrain deployable model-context configurations and limit the efficiency of bandwidth-bound and latency-sensitive operations. We propose FOREST, a heterogeneous memory-centric architecture coordinating HBF, 3D-stacked RRAM, and HBM memory-compute trees for efficient SD. It features: (1) compute-aligned 3D RRAM, combining ultra-wide, low-frequency reads with clock-decoupled interfaces and overlapped SRAM-DCIM weight refills for latency-sensitive drafting; (2) cross-tree numerical co-design, moving block-scaled Q/K/V preprocessing to HBF and RRAM root plates and enabling block-floating-point (BFP) attention with pipelined softmax reduction in the HBM tree; and (3) HBF-aware SD design-space exploration, revealing how bandwidth-compute provisioning and model scale determine performance, energy, and cost trade-offs. Evaluated across six SD configurations spanning 32B-405B target models, FOREST achieves up to 5.5x end-to-end speedup, 11.46x higher decode throughput, and 16.5x higher decode energy efficiency over NVIDIA A800 GPU-based SD baselines. Under a modeled total cost of ownership, FOREST delivers up to 6.73x higher token-generation cost efficiency.",
+      "authors": [
+        "Hao Ding",
+        "Zheng Shi",
+        "Dongxue Zhao",
+        "Huiying Bian",
+        "Meng Li",
+        "Xu Zheng",
+        "Kun Wang",
+        "Nanjian Wu",
+        "Jie Chen",
+        "Yimao Cai"
+      ],
+      "venue": "arXiv cs.AR",
+      "url": "https://arxiv.org/abs/2611.27701",
+      "pdf_url": "https://arxiv.org/pdf/2611.27701v1",
+      "doi": null,
+      "published": "2026-11-20",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.267,
+    "id": "18113078983915590",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgFim1BoL1K"
   }
 ]

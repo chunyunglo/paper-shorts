@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-23
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgFim1BoL1K)
+  - 內容 Text: 🏭 產業前沿｜同一個 AI 推論任務，記憶體可以分三種角色？一篇 2026 年 arXiv 論文這樣設計： 大容量的高頻寬快閃記憶體放大模型權重，小而常被重複讀取的草稿模型放電阻式記憶體，會隨長度增長的 KV 快取留在高頻寬記憶體。 論文做…
+  - 論文 Paper: [FOREST: Coordinating Tree-based HBF, RRAM, and HBM for Efficient Speculative LLM Inference](https://arxiv.org/abs/2611.27701) (arXiv cs.AR)
+  - 為什麼 Why: 最近的產業前沿已有電池、Wi-Fi、量子與光電題材，今天換成 AI 基礎設施中的記憶體架構，也呼應週報建議交替 AI 硬體與非 AI 硬體，且避開近日用過的資料中心電力與記憶體單元題材。
+  - 花費 Claude cost: US$0.267
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgFfEb0IQj7)
   - 內容 Text: 0.47 和 0.04。 這是兩個國家「愛搜的名人」平均重疊多少（0到1，1代表完全一樣）：看職業類型是0.47，看名字只有0.04。 我們今天介紹的研究（arXiv, 2026）整理了Google每年公布的各國「年度搜尋」熱門主題：201…
   - 為什麼 Why: The search-trends paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, opening with a number since yesterday's post was question-led; no headline links to it responsibly, the weekly second-angle slot was already used on 11-21, and Instagram free posts stay paused per the notes.
