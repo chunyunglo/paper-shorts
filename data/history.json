@@ -9783,5 +9783,345 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261122-ai-deactivation-reduces-loneliness-and-i",
     "pick_reason": "A deactivation experiment on general-purpose AI assistants measures real changes in loneliness and social interaction, a concrete and surprising finding that is easy to show in 3-4 steps and relates to everyday behavior. Signals: Notes say concrete, counterintuitive findings with clear comparisons have worked best, and everyday non-AI-only topics are welcome; this paper offers a clear before/after comparison and is not too close to recent AI-advice or voting episodes."
+  },
+  {
+    "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+    "created": "2026-11-23T06:18:51+00:00",
+    "paper": {
+      "id": "arxiv:2611.27613",
+      "title": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+      "abstract": "Human societies have always left traces of their collective priorities, from cave drawings and stone carvings to chronicles on papyrus and printed books. In the digital era, these traces increasingly emerge through social media footprints and web search behavior at a global scale. We construct the first large-scale longitudinal dataset of Google Year in Search trends, spanning 15 years, to characterize how collective public attention evolves across countries and time. Because search engines like Google and Bing do not publicly release raw search logs, Year in Search provides a rare cross-national archive of annually salient search interests. The dataset is supplemented with a manually curated, unified ten-category semantic taxonomy with strong inter-annotator agreement. We focus on four categories (Information Seeking, Personality, Entertainment, and Sports) to investigate how collective attention varies across geographic and socio-cultural contexts. Our analyses reveal a consistently glocalized structure of collective attention: countries converge strongly in profession-level personality attention while remaining differentiated in the specific individuals they search for, yet profession-level similarity is only weakly associated with geographic region and income group. Information seeking is globally dominated by politics and health, while regional distributions show varying degrees of divergence. Crisis periods are associated with both shared and regionally differentiated shifts. Entertainment and sports attention likewise combine globally prominent interests with regional differentiation. Overall, our findings suggest that web search data provide a valuable computational lens for observing collective attention at scale, acting as a living archive of how societal priorities vary across countries and change over time.",
+      "authors": [
+        "Anju Bhuiya",
+        "Hasim Ali",
+        "Kovvada Dhyana Vardhan",
+        "Abhijnan Chakraborty"
+      ],
+      "venue": "arXiv cs.SI",
+      "url": "https://arxiv.org/abs/2611.27613",
+      "pdf_url": "https://arxiv.org/pdf/2611.27613v1",
+      "doi": null,
+      "published": "2026-11-20",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "各國愛搜的名人，類型很像、名字卻不同",
+      "title_en": "Same Kinds of Celebrities, Different Names Worldwide",
+      "paper_title_zh": "時代正在改變：從網路搜尋看全球趨勢",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "搜尋",
+          "heading_en": "SEARCH",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "名字幾乎不重疊",
+          "big_text_en": "Few shared names",
+          "lines": [
+            {
+              "zh": "你搜的明星，別國也在搜嗎？",
+              "en": "Do other countries search for your celebrities?"
+            },
+            {
+              "zh": "答案很意外，關鍵在怎麼比。",
+              "en": "The twist is in how they compared."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "印度理工學院，獲ICWSM 2027接受。",
+              "en": "From IIT Kharagpur, accepted at the ICWSM 2027 conference."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "熱搜主題"
+          ],
+          "labels_en": [
+            "Trending topics"
+          ],
+          "values": [
+            6772.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們收集各國的Google年度熱搜榜。",
+              "en": "They collected Google's yearly top searches, country by country."
+            },
+            {
+              "zh": "從2011到2025年，共6,772個主題。",
+              "en": "2011 to 2025: 6,772 trending topics."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "標註",
+          "heading_en": "LABELING",
+          "labels": [
+            "演員",
+            "歌手",
+            "運動員",
+            "政治人物"
+          ],
+          "labels_en": [
+            "Actor",
+            "Singer",
+            "Athlete",
+            "Politician"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "其中不少熱搜是在找某個人。",
+              "en": "Many searches were for a specific person."
+            },
+            {
+              "zh": "三位標註者上網查，替每個人標上職業。",
+              "en": "Three people looked each one up and tagged a job."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "兩國配對",
+            "比職業",
+            "比名字"
+          ],
+          "labels_en": [
+            "Two countries",
+            "Compare jobs",
+            "Compare names"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "每一年，兩兩比較各國名單，看重疊多少。",
+              "en": "Each year, they compared countries two at a time, to see the overlap."
+            },
+            {
+              "zh": "一次看職業種類，一次看真正的人名。",
+              "en": "Once by types of job, once by actual names."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "FINDINGS",
+          "labels": [
+            "職業類型",
+            "名字"
+          ],
+          "labels_en": [
+            "Job types",
+            "Names"
+          ],
+          "values": [
+            0.47,
+            0.04
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果，職業種類大約有一半重疊。",
+              "en": "Job types overlapped about half the time."
+            },
+            {
+              "zh": "但同樣的人名，幾乎沒有重疊。",
+              "en": "But the same names? Almost never."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "但書",
+          "heading_en": "CAVEAT",
+          "labels": [
+            "全部搜尋",
+            "Google精選"
+          ],
+          "labels_en": [
+            "All searches",
+            "Google's picks"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但這只是Google挑的榜，不是全部搜尋。",
+              "en": "But these are Google's chosen top lists, not all searches."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "類型相同，名字不同",
+          "big_text_en": "Same types, different names",
+          "lines": [
+            {
+              "zh": "種類很像，名字卻不同。",
+              "en": "Countries search similar kinds of people, but different names."
+            },
+            {
+              "zh": "追蹤看更多行為研究。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "印度理工學院的團隊整理了 Google 十五年的年度熱搜榜。結果發現，各國搜尋的名人職業類型相當相似，但真正搜的名字幾乎不重疊。要注意，這份資料是 Google 挑出來的榜單，不等於全部搜尋。",
+      "description_en": "Do people everywhere search for the same celebrities? Researchers gathered Google's yearly top-search lists for many countries from 2011 to 2025, tagged each searched person's profession, and compared countries pair by pair. Countries searched for similar kinds of people, but almost never the same individuals.",
+      "hashtags": [
+        "行為解碼",
+        "Google搜尋",
+        "名人",
+        "全球化",
+        "在地化",
+        "GoogleTrends",
+        "BehaviorDecoded",
+        "SearchTrends"
+      ],
+      "method_summary": "The authors built a longitudinal dataset from Google's Year in Search pages, which list the most prominent trending search topics for each country each year. They collected the country pages in January 2025, translated non-English entries into English, and kept 2011-2025 for countries with at least 12 years of data, averaging 52 countries per year and 6,772 trending topic entries. Three annotators sorted topic labels into ten categories (Cohen's kappa about 0.83). For the personality category, three annotators looked up each searched person and tagged a profession (Fleiss's kappa 0.79). To test glocalization, they computed, for every year and every pair of countries, the Jaccard overlap between the two countries' sets of professions and between their sets of individual names. Profession overlap averaged 0.47 (range 0.41 to 0.53) with no clear trend, while name overlap averaged 0.04. Countries were also clustered by profession profile; pairs in the same region or income group were only slightly more similar than pairs across them. Some distant, differently-wealthy pairs, such as Belgium and Malaysia, were very similar. The paper also covers information seeking, entertainment and sports.",
+      "limitations": "The data are Google's curated yearly summaries of salient searches, not complete search logs, so the paper shows relative attention rather than search volumes or individual behavior. Coverage depends on Google's publication: countries such as China and Russia are missing, and data exist only at the country level. Annotation was done by people and translation by machine. The paper shows associations only; it does not explain why countries share job types but not names.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "別國的人，也搜你的偶像嗎？",
+          "先別急，比較方式有個轉折。"
+        ],
+        [
+          "印度理工學院卡拉格普分校做的",
+          "論文獲 ICWSM 2027 接受"
+        ],
+        [
+          "團隊收集 Google 每年各國的熱門搜尋。",
+          "2011 到 2025，共 6,772 個主題。"
+        ],
+        [
+          "很多搜尋是在找某個人。",
+          "三個人逐一查證，標上職業。"
+        ],
+        [
+          "每年把國家兩兩配對，看重疊多少。",
+          "一次比職業類型，一次比真實名字。"
+        ],
+        [
+          "職業類型，重疊大約一半。",
+          "但同一個名字？幾乎沒有。"
+        ],
+        [
+          "但這是 Google 挑的榜單，不是全部搜尋。"
+        ],
+        [
+          "各國愛搜的人類型相似，名字卻不同。",
+          "想看更多行為研究，記得追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "trending-up"
+        ],
+        [
+          "movie",
+          "microphone",
+          "ball-football",
+          "gavel"
+        ],
+        [
+          "world",
+          "briefcase",
+          "user-search"
+        ],
+        [
+          "briefcase",
+          "user"
+        ],
+        [
+          "search",
+          "star"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 45.2,
+        "cover_offset_ms": 5577,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 44.22,
+        "cover_offset_ms": 5599,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "av9N7K4LIu4",
+          "url": "https://youtube.com/shorts/av9N7K4LIu4"
+        },
+        "instagram": {
+          "id": "18203539708377567",
+          "url": "https://www.instagram.com/reel/DgFOrqOHFwI/"
+        },
+        "threads": {
+          "id": "18355096522248319",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgFOw5XT2DR"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "D6WYtHiDQU8",
+          "url": "https://youtube.com/shorts/D6WYtHiDQU8"
+        },
+        "instagram": {
+          "id": "18115980689331858",
+          "url": "https://www.instagram.com/reel/DgFO3vGlNNh/"
+        },
+        "threads": {
+          "id": "17979899235159197",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgFO8gJBJ1K"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261123-the-times-they-are-a-changin-tracking-gl",
+    "pick_reason": "A large-scale longitudinal analysis of Google Year in Search data tracks what people around the world pay attention to, and it is a non-AI, everyday-behavior topic that can be shown in 3-4 visual steps. Signals: Notes favor concrete, non-AI everyday findings with clear comparisons, and this topic is far from the recent episodes."
   }
 ]

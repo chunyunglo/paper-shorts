@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [Alphabetic Bias, Investor Recognition, and Trading Behavior](https://doi.org/10.1093/rof/rfv060) (Review of Finance)
   - 為什麼 Why: 這是還沒用過的注意力與偏誤題材，貼近散戶自己的看盤習慣，也和近期的Google搜尋、社群平台注意力主題有不同角度，今天沒有市場頭條所以用bias類型。
   - 花費 Claude cost: US$0.094
+- **短影音 Short** · [各國愛搜的名人，類型很像、名字卻不同 / Same Kinds of Celebrities, Different Names Worldwide](https://youtube.com/shorts/av9N7K4LIu4)
+  - 論文 Paper: [The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search](https://arxiv.org/abs/2611.27613) (arXiv cs.SI)
+  - 為什麼 Why: A large-scale longitudinal analysis of Google Year in Search data tracks what people around the world pay attention to, and it is a non-AI, everyday-behavior topic that can be shown in 3-4 visual steps. Signals: Notes favor concrete, non-AI everyday findings with clear comparisons, and this topic is far from the recent episodes.
 
 ## 2026-11-22
 
