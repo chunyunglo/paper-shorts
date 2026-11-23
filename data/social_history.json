@@ -506,5 +506,19 @@
     "why": "The AI-deactivation paper is today's new episode with no Chinese Threads follow-up yet, so it takes the single daily zh design-and-finding slot the notes recommend, with a question-led opener (the format slightly ahead in the notes); this week's second-angle post was already done yesterday, Instagram image posts stay paused, and today's headlines are mostly partisan election news or tragedies we won't use.",
     "id": "18019163376005171",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgCu56EFvqs"
+  },
+  {
+    "posted": "2026-11-23T13:26:59+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261123-the-times-they-are-a-changin-tracking-gl"
+    ],
+    "text": "0.47 和 0.04。\n\n這是兩個國家「愛搜的名人」平均重疊多少（0到1，1代表完全一樣）：看職業類型是0.47，看名字只有0.04。\n\n我們今天介紹的研究（arXiv, 2026）整理了Google每年公布的各國「年度搜尋」熱門主題：2011到2025年，平均每年52個國家，共6,772筆。研究者查出每位被搜尋人物的職業，再把國家兩兩比較。\n\n發現：\n・職業重疊各年落在0.41到0.53，沒有明顯趨勢\n・同區域或同所得組的國家，只比跨組的稍微像一點\n・有些相隔很遠、富裕程度不同的國家很相似，例如比利時和馬來西亞\n\n限制：這是Google整理過的年度摘要，不是完整搜尋紀錄，只看得出相對注意力；中國、俄羅斯等國沒有資料。研究也沒有解釋為什麼類型像、名字卻不同。\n\n你猜，大家最常搜的名人是哪種職業？\n\n論文：https://arxiv.org/abs/2611.27613",
+    "news": null,
+    "why": "The search-trends paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, opening with a number since yesterday's post was question-led; no headline links to it responsibly, the weekly second-angle slot was already used on 11-21, and Instagram free posts stay paused per the notes.",
+    "id": "17924022672235606",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgFfEb0IQj7"
   }
 ]

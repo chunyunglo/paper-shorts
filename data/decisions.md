@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-23
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgFfEb0IQj7)
+  - 內容 Text: 0.47 和 0.04。 這是兩個國家「愛搜的名人」平均重疊多少（0到1，1代表完全一樣）：看職業類型是0.47，看名字只有0.04。 我們今天介紹的研究（arXiv, 2026）整理了Google每年公布的各國「年度搜尋」熱門主題：201…
+  - 為什麼 Why: The search-trends paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, opening with a number since yesterday's post was question-led; no headline links to it responsibly, the weekly second-angle slot was already used on 11-21, and Instagram free posts stay paused per the notes.
+  - 根據的集數 Based on: 20261123-the-times-they-are-a-changin-tracking-gl
 - **股市篇 Stock series** · morning · bias · [link](https://www.threads.com/@human__behavior__decode/post/DgEw615kUAa)
   - 內容 Text: 📈 盤前心理學｜你在看股票清單時，會從第一個往下滑，還是從最後一個往上看？ 研究者 Jacobs 與 Hillert 想知道，字母排序這件小事，會不會也出現在市場數據裡。他們發現，美股中名字在字母排序靠前的股票，交易活動和流動性，比排在後面…
   - 論文 Paper: [Alphabetic Bias, Investor Recognition, and Trading Behavior](https://doi.org/10.1093/rof/rfv060) (Review of Finance)
