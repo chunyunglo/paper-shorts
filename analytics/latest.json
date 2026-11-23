@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-22T08:40:49+00:00",
+ "collected_at": "2026-11-23T09:38:39+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2544,
-   "videoCount": 58
+   "viewCount": 2574,
+   "videoCount": 56
   }
  },
  "notes": [],
@@ -944,13 +944,13 @@
    "paper": "Beauty Is Human: When People Love AI-Generated Art, They Think a Human Made It",
    "created": "2026-10-31T06:12:44+00:00",
    "metrics": {
-    "views": 1377,
+    "views": 1379,
     "reach": 1202,
     "likes": 22,
     "comments": 1,
-    "saved": 5,
+    "saved": 4,
     "shares": 0,
-    "total_interactions": 28
+    "total_interactions": 27
    }
   },
   {
@@ -1846,7 +1846,7 @@
    "paper": "Priced In or Bet On? Cram-School Lessons, Jeonse Leases, and Expected Appreciation in Seoul",
    "created": "2026-11-07T06:12:21+00:00",
    "metrics": {
-    "views": 21,
+    "views": 22,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3057,7 +3057,7 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 38,
+    "views": 37,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
@@ -3183,15 +3183,15 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 41,
+    "views": 52,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-11-19T11:04:09Z",
-    "estimatedMinutesWatched": 1,
+    "estimatedMinutesWatched": 2,
     "averageViewDuration": 8,
-    "averageViewPercentage": 19.01,
+    "averageViewPercentage": 19.15,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -3309,12 +3309,17 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 31,
+    "views": 24,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
     "privacy": "public",
-    "published": "2026-11-20T11:04:01Z"
+    "published": "2026-11-20T11:04:01Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 28.73,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3372,7 +3377,12 @@
     "comments": 1,
     "duration": "PT52S",
     "privacy": "public",
-    "published": "2026-11-20T11:05:29Z"
+    "published": "2026-11-20T11:05:29Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 20,
+    "averageViewPercentage": 39.54,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3425,7 +3435,7 @@
    "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
-    "views": 26,
+    "views": 38,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
@@ -3444,8 +3454,8 @@
    "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
-    "views": 117,
-    "reach": 104,
+    "views": 118,
+    "reach": 105,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3523,6 +3533,122 @@
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
     "views": 1,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "SFR4qSgXa0w",
+   "url": "https://youtube.com/shorts/SFR4qSgXa0w",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 56,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT43S",
+    "privacy": "public",
+    "published": "2026-11-22T11:04:08Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18118077710609489",
+   "url": "https://www.instagram.com/reel/DgCqBEqjLNx/",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 107,
+    "reach": 102,
+    "likes": 2,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 3
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18114938867523038",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgCqGNQOYe5",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 19,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "SzaJxq_HGQg",
+   "url": "https://youtube.com/shorts/SzaJxq_HGQg",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 9,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT47S",
+    "privacy": "public",
+    "published": "2026-11-22T11:07:01Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18074230847790449",
+   "url": "https://www.instagram.com/reel/DgCqM36nBzn/",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 86,
+    "reach": 81,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "title": "Quit AI for Two Weeks: Less Lonely?",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18080479781449974",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgCqRu3sHjS",
+   "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
+   "created": "2026-11-22T06:09:27+00:00",
+   "metrics": {
+    "views": 3,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4224,6 +4350,25 @@
    }
   },
   {
+   "kind": "social",
+   "episode": "social-35",
+   "title": "戒掉AI兩週，會比較不孤單嗎？\n\n我們今天影片介紹的研究（arXiv, 2026）是預先登記的隨機實驗。研究者找了625位美國的ChatGPT活躍使用者（每天至",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18019163376005171",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgCu56EFvqs",
+   "paper": "20261122-ai-deactivation-reduces-loneliness-and-i",
+   "created": "2026-11-22T11:47:38+00:00",
+   "metrics": {
+    "views": 18,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
    "kind": "stock",
    "episode": "stock-0",
    "title": "📈 盤前心理學｜帳上一檔股票小賺，另一檔還套著。今天只能賣一檔，你的手會先伸向哪一檔？\n\n有篇研究用台灣的真實交易紀錄看了這件事。研究者分析台灣證交所截至199",
@@ -4538,7 +4683,7 @@
    "paper": "Fine-tuned atomistic foundation model for accurate sodium-carbon chemistry in Na-ion batteries",
    "created": "2026-11-16T12:23:52+00:00",
    "metrics": {
-    "views": 23,
+    "views": 24,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4652,7 +4797,7 @@
    "paper": "StreamingDPD: A 1.28-GSa/s Instantaneous-Power-Gated Depthwise TCN Accelerator for Real-Time 320-MHz Digital Predistortion",
    "created": "2026-11-18T12:35:38+00:00",
    "metrics": {
-    "views": 25,
+    "views": 28,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4690,7 +4835,7 @@
    "paper": "The Impact of Salience on Investor Behavior: Evidence from a Natural Experiment",
    "created": "2026-11-19T06:45:13+00:00",
    "metrics": {
-    "views": 45,
+    "views": 46,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4804,7 +4949,7 @@
    "paper": "What drives the herding behavior of individual investors?",
    "created": "2026-11-21T06:24:06+00:00",
    "metrics": {
-    "views": 16,
+    "views": 17,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4823,7 +4968,7 @@
    "paper": "From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone",
    "created": "2026-11-21T12:01:22+00:00",
    "metrics": {
-    "views": 18,
+    "views": 22,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4861,7 +5006,64 @@
    "paper": "Individual Investors' Attention to Accounting Information: Evidence from Online Financial Communities*",
    "created": "2026-11-22T05:54:56+00:00",
    "metrics": {
-    "views": 31,
+    "views": 33,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-34",
+   "title": "🏭 產業前沿｜240 倍:一篇預印本在模擬測試中宣稱,新解碼器的邏輯錯誤率比現有即時硬體解碼器低這麼多。\n\n量子電腦糾錯,需要傳統晶片即時讀取錯誤線索,還得跟上",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17983874463130566",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgCyDpAFmMq",
+   "paper": "Scaling classical hardware for accurate real-time quantum error correction",
+   "created": "2026-11-22T12:15:17+00:00",
+   "metrics": {
+    "views": 16,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-35",
+   "title": "🌙 盤後研究室｜留言很多，真的代表很多人在關注嗎？\n\n一項研究分析了 2024 年 1 月到 2026 年 4 月，某加密代幣發行平台上的 996,834 個代",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18610775455071680",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgDnpfmCY0H",
+   "paper": "Manufactured Authenticity: How Behavioral Signals Are Produced and Misread in Online Markets",
+   "created": "2026-11-22T20:03:47+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-36",
+   "title": "📈 盤前心理學｜你在看股票清單時，會從第一個往下滑，還是從最後一個往上看？\n\n研究者 Jacobs 與 Hillert 想知道，字母排序這件小事，會不會也出現在",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18119888948112160",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgEw615kUAa",
+   "paper": "Alphabetic Bias, Investor Recognition, and Trading Behavior",
+   "created": "2026-11-23T06:43:59+00:00",
+   "metrics": {
+    "views": 20,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
