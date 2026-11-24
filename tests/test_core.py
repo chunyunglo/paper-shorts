@@ -750,3 +750,12 @@ def test_fit_shrinks_a_long_word_until_it_fits_the_card():
     assert f.getlength(lines[0]) <= 200 and lines[0].endswith("…")
     f, lines = fit("短標", "bold", 300, [40, 34], 1)
     assert f.size == 40
+
+
+def test_two_line_headline_stays_on_the_canvas():
+    from shorts import visuals
+
+    # Nov 24: "More meetings, more trade" in two lines at 72px ran past the bottom from y=650
+    y = visuals._bottom_safe(650, ["More meetings,", "more trade"], 72)
+    assert y + 72 * 1.25 + 72 * 1.1 + 20 <= visuals.VH - 30
+    assert visuals._bottom_safe(650, ["Short"], 50) == 650

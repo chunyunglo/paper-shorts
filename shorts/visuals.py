@@ -504,7 +504,16 @@ def v_contrast(c: Canvas, sc, p, ctx):
     if sc.big_text:
         b = stage(p, 0.5, 0.2)
         f, lines = fit(sc.big_text, "black", VW - 100, [72, 60, 50], 2)
-        c.text_block(VW / 2, 650 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
+        c.text_block(VW / 2, _bottom_safe(650, lines, f.size) + (1 - b) * 20, lines, "black", f.size,
+                     NAVY + (int(255 * b),), anchor="ma")
+
+
+def _bottom_safe(y: float, lines: list[str], size: int, gap: float = 1.25, margin: int = 50) -> float:
+    """Top y for a text block so its last line, with room for the slide-in, stays above the canvas
+    bottom (and so clear of the subtitles below it). A two-line headline at 72px started at y=650
+    ran off the canvas (Nov 18 and Nov 24)."""
+    height = (len(lines) - 1) * size * gap + size * 1.1
+    return min(y, VH - margin - height)
 
 
 def _bezier(pts, k):
@@ -590,7 +599,8 @@ def v_spotlight(c: Canvas, sc, p, ctx):
     if text:
         b = stage(p, 0.35, 0.2)
         f, lines = fit(text, "black", VW - 100, [72, 60, 50], 2)
-        c.text_block(VW / 2, 640 + (1 - b) * 20, lines, "black", f.size, NAVY + (int(255 * b),), anchor="ma")
+        c.text_block(VW / 2, _bottom_safe(640, lines, f.size) + (1 - b) * 20, lines, "black", f.size,
+                     NAVY + (int(255 * b),), anchor="ma")
 
 
 def v_funnel(c: Canvas, sc, p, ctx):
