@@ -88,8 +88,10 @@ class IconPick(BaseModel):
 
 
 SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
-Each episode explains HOW one new study used a computational method to learn something about \
-human behavior. Audience: curious Taiwanese and international viewers scrolling on a phone. \
+Each episode takes one new study of human behavior (usually one that used a computational \
+method) and talks about it seriously: what it reveals that people get wrong, why it happens, and \
+why the evidence is convincing. It is an argument with a point of view, not a summary of the \
+paper's procedure (see Depth below). Audience: curious Taiwanese and international viewers scrolling on a phone. \
 They have never read the paper, know nothing about the field, and hear each line only once, so \
 being easy to follow matters more than covering every detail (see Clarity below).
 
@@ -114,8 +116,12 @@ they measured it), and pay it off in the finding scene.
    big_text = the core of line 1 in at most 8 Chinese characters (a number or a sharp phrase), \
 readable at a glance; the English and pt big text are just as short.
 2. paper: who did this study and where it was published (keep it to one line).
-3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
-This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
+3. the belief: what most people assume, or the obvious explanation, that this study puts to \
+the test. One scene that sets up the tension the rest of the video resolves.
+4-5. the evidence: only the one or two design choices that make the result convincing (the \
+clever comparison, the natural experiment, the data nobody had before), told as why they let \
+us trust the answer, not as a list of steps. Leave out procedure that does not carry the \
+argument. Pick visuals that fit each step: \
 crowd (people/participants/accounts, or many of the things studied), network (connections, \
 spread, communities), pipeline (a 2-4 step process; labels = the step names), bars (comparing \
 groups), timeline (change over time), scatter (a relationship between two measures), contrast \
@@ -160,8 +166,14 @@ use at least four different visuals between the paper and the takeaway, and favo
 animated visuals (journey, spotlight, funnel, clusters, experiment, feed, magnify, counter, \
 waffle, race, cascade, chat, ranking, swipe, echo, predict) whenever they fit the step. Never use a visual that would show something the study did \
 not do: experiment only for a real randomized design, survey only for a real questionnaire.
-7. the finding, and one honest caveat.
-8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
+6. the finding: the insight, stated as precisely as the evidence allows.
+7. the why: the mechanism or explanation the authors propose or test, and what it changes in \
+how we should think about the behavior.
+8. so what: what it means for the viewer or society, or the real open question it raises (e.g. \
+"so do remote-only firms miss these deals?"). This is a thought worth having, never a \
+disclaimer. Do NOT write lines like "but this is only a correlation" / "但這只是關聯，不代表因果" \
+or "more research is needed": they shrink the point and say nothing.
+9. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
 
 Clarity (the most common problem so far: viewers said the videos were hard to understand):
 - Every line must make sense heard once, on its own, by someone who has never heard of the study. \
@@ -176,22 +188,35 @@ counted, what "better" meant.
 - Numbers: use only ones a viewer can picture at once (people, counts, "about 6 in 10", "twice as \
 many"). If a number needs a statistics term to make sense, describe the size in words instead \
 ("a small but real difference") or leave it out.
-- One idea per line. The scenes must read as one story: the question, what they did, what they \
-found, what it means for the viewer. Link lines with plain connectives (所以、結果、但是、也就是說 / \
+- One idea per line. The scenes must read as one argument: what we assume, what the study \
+shows, why, and what follows from it. Link lines with plain connectives (所以、結果、但是、也就是說 / \
 so, it turned out, but).
 - On-screen labels and big text must be understandable without the narration: plain words, no \
 abbreviations or jargon. Keep their length limits: a heading is 2-6 Chinese characters and 1-3 \
 English words, never a sentence.
 - Clear does not mean longer: stay inside the narration budget above. Get clarity by telling \
-fewer things well; drop secondary details (extra groups, sub-results, exact statistics) rather \
-than squeezing them in.
+fewer things well; drop procedural and secondary details (data-cleaning steps, extra groups, \
+sub-results, exact statistics) rather than squeezing them in, but never drop the idea itself: \
+the why and the so-what are what the episode is for.
 - Before finishing, reread the script as a friend who has never heard of this study: could they \
 retell what was done and what was found after one viewing? If not, simplify, even if it means \
 dropping a detail.
 
+Depth (the owner's main complaint so far: the videos were shallow, a recital of what the \
+researchers did that never said why it matters):
+- Every scene must move the argument forward. A line that only reports a step ("they collected \
+X", "then they compared Y") must also say why that step matters, or go.
+- Explain, don't just report: why would people behave this way? What does this overturn or \
+sharpen in what we thought? Use the paper's own discussion and theory for this; you may present \
+the authors' interpretation as theirs ("研究者認為…").
+- Have a point of view: the takeaway should be an idea the viewer did not have before, not a \
+restatement of the result.
+
 Accuracy rules: use only facts from the provided paper. Never invent numbers, sample sizes, or \
-effects; values must be empty unless the exact numbers are in the paper. Do not overstate \
-causality. Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
+effects; values must be empty unless the exact numbers are in the paper. Keep causal claims \
+honest through wording, not through disclaimers: for an observational result say "碰面多的地方，\
+生意也多" rather than "碰面帶來生意"; say "造成/讓" only for experiments or designs the paper \
+treats as causal. Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
 
 
 NEWS_HOOK = """
@@ -320,8 +345,11 @@ that the finding scene pays off.
 - On screen: each scene's heading is 2-6 characters; labels keep the plan's count and order, each at \
 most 10 characters and clear without the narration; big text for the hook at most 8 characters \
 (empty when the plan's is empty).
-Accuracy rules: only facts from the paper and the plan; never invent numbers or effects; do not \
-overstate causality. Leave script null and problems empty."""
+- Keep the plan's argument: the belief it tests, why the result happens, and the so-what. Talk \
+about it seriously, like explaining something you find genuinely interesting, not reading out \
+a procedure. Never add disclaimer lines like 但這只是關聯，不代表因果 or 還需要更多研究.
+Accuracy rules: only facts from the paper and the plan; never invent numbers or effects; keep \
+causal claims honest through wording (碰面多的地方，生意也多), not disclaimers. Leave script null and problems empty."""
 
 
 def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", with_paper: bool = True,
@@ -512,10 +540,12 @@ labels and numbers) against the research paper it explains. It is published with
 so list every material problem:
 - a number, sample, place, date, name or method detail not in the paper or different from it;
 - a finding stated more strongly than the paper supports (causal wording for a correlational \
-design, generalizing beyond the sample, dropped hedges), or a finding the paper does not report;
+design, generalizing beyond the sample), or a finding the paper does not report;
 - a scene whose Chinese lines and English lines state different facts;
 - a news hook that adds facts not in the headline or implies the study examined that event;
 - anything defamatory, hateful, partisan, or mocking real people or groups.
+Wording that matches the design is enough: do not ask for a separate "this is only a correlation" \
+line, and treat the authors' interpretation, presented as theirs, as supported. \
 Do not nitpick style. If there is nothing material, return an empty list."""
 
 
