@@ -250,7 +250,9 @@ SYSTEM = system("classic")
 def pick_format(now: datetime | None = None) -> str:
     """SCRIPT_FORMAT: answer_first, classic, or alternate (default): answer_first on odd Taiwan dates,
     classic on even ones, so the two can be compared on the same weeks of the channel."""
-    want = config.env("SCRIPT_FORMAT", "alternate").strip().lower()
+    from . import playbook  # the weekly review may change it; SCRIPT_FORMAT still overrides
+
+    want = str(playbook.get("script_format")).strip().lower()
     if want in FORMATS:
         return want
     day = (now or datetime.now(timezone.utc)).astimezone(timezone(timedelta(hours=8))).date()
@@ -335,7 +337,9 @@ def write(paper: Paper, news: dict | None = None, notes: str = "", fmt: str | No
     fmt = fmt or pick_format()
     max_zh, max_en = budget(fmt)
     log(f"Script format: {fmt}")
-    draft = paper_call(paper, system(fmt), meta + hook + extra + "\n\nWrite the episode script.", needs_script=True).script
+    from . import playbook
+
+    draft = paper_call(paper, system(fmt) + playbook.script_notes(fmt), meta + hook + extra + "\n\nWrite the episode script.", needs_script=True).script
     script = Script(**draft.model_dump())
     validate(script)
     n, w = length(script)
@@ -438,7 +442,10 @@ def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", 
                  "Update the Chinese video to match the plan and the feedback; keep what still fits.")
     text += "\n\nWrite the Chinese video."
     try:
-        zh = paper_call(paper, zh_system(script_format(script)), text, needs_script=False, with_paper=with_paper).zh
+        from . import playbook
+
+        fmt = script_format(script)
+        zh = paper_call(paper, zh_system(fmt) + playbook.script_notes(fmt), text, needs_script=False, with_paper=with_paper).zh
     except Exception as exc:  # the paired Chinese lines are a usable fallback
         log(f"Chinese video not written ({exc}); using the paired lines")
         script.zh_lines = []
@@ -597,7 +604,10 @@ def revise(paper: Paper, script: Script, feedback: str, with_paper: bool = True)
     current = script.model_dump(exclude={"pt"})
     text = (meta + "\n\nCurrent script (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
             "\n\nOwner feedback:\n<feedback>" + feedback + "</feedback>\n\nReturn the revised script.")
-    rev = paper_call(paper, revise_system(script_format(script)), text, needs_script=True, with_paper=with_paper)
+    from . import playbook
+
+    fmt = script_format(script)
+    rev = paper_call(paper, revise_system(fmt) + playbook.script_notes(fmt), text, needs_script=True, with_paper=with_paper)
     new = Script(**rev.script.model_dump())
     validate(new)
     if script.zh_lines:

@@ -43,6 +43,14 @@ jobs:
         if: env.KIND == 'feedback'
         with:
           render: "true"
+      # the playbook (hook, ending) the episode was written under, so a revision keeps it
+      - name: Load the channel playbook
+        if: env.KIND == 'feedback'
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: state
+          path: state
       - name: Revise and re-render
         if: env.KIND == 'feedback'
         env:

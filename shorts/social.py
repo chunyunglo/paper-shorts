@@ -9,7 +9,8 @@ plan     Claude reads today's headlines, the papers we have covered (with their 
 publish  posts what was planned (images come from a GitHub release, like the videos) and records
          it in data/social_history.json so analytics and comment replies see it.
 
-Caps: MAX_THREADS_PER_DAY (2) and MAX_IG_PER_WEEK (3), counted from the history.
+Caps: the playbook's free_threads_per_day (2) and ig_per_week (3), counted from the history; the repo
+variables MAX_THREADS_PER_DAY / MAX_IG_PER_WEEK override them when set.
 """
 from __future__ import annotations
 
@@ -32,11 +33,15 @@ W, H = 1080, 1350  # Instagram portrait
 
 
 def max_threads_per_day() -> int:
-    return int(config.env("MAX_THREADS_PER_DAY", "2"))
+    from . import playbook  # set by the weekly review; MAX_THREADS_PER_DAY still overrides
+
+    return int(playbook.get("free_threads_per_day"))
 
 
 def max_ig_per_week() -> int:
-    return int(config.env("MAX_IG_PER_WEEK", "3"))
+    from . import playbook  # set by the weekly review; MAX_IG_PER_WEEK still overrides
+
+    return int(playbook.get("ig_per_week"))
 
 
 # ---------------------------------------------------------------- plan
