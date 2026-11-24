@@ -217,7 +217,10 @@ Accuracy rules: use only facts from the provided paper. Never invent numbers, sa
 effects; values must be empty unless the exact numbers are in the paper. Keep causal claims \
 honest through wording, not through disclaimers: for an observational result say "碰面多的地方，\
 生意也多" rather than "碰面帶來生意"; say "造成/讓" only for experiments or designs the paper \
-treats as causal. Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
+treats as causal. Bold is fine; overreach is not. The usual overreach in this channel: "越…越…" or \
+"the more, the more" when the paper only compares two groups (say "最大的那群…" instead); a \
+proposed explanation stated as fact (say "研究者認為…"); and labels the data does not give people \
+(e.g. calling bettors "政治立場相反" when they only bought opposite contracts). Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
 
 
 NEWS_HOOK = """
@@ -566,7 +569,7 @@ FIX_NOTE = ("Fix these fact-check problems and nothing else. Fix each one by rew
             "the finding, the why, the so-what):\n- ")
 
 
-def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: int = 2) -> Script:
+def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: int = 3) -> Script:
     """Stands in for the owner's review: check against the paper, fix what is wrong, give up if it stays wrong."""
     meta = (f"Title: {paper.title}\nVenue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\n"
             f"Abstract:\n{paper.abstract}" + (f"\n\nNews headline used as the hook: {news['title']}" if news else ""))
