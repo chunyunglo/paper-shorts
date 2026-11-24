@@ -424,6 +424,11 @@ def make(slot: str, now: datetime | None = None) -> Path | None:
     if posted_today(history, slot, now):
         log(f"Stocks: {slot} already posted today")
         return None
+    from . import playbook
+
+    if slot not in playbook.get("stock_slots"):  # the weekly review can pause slots; no Claude call either
+        log(f"Stocks: the playbook has the {slot} slot off; skipped")
+        return None
     if threads_budget.room(now) <= 0:  # checked before any Claude call, so a skipped slot costs nothing
         log(f"Stocks: Threads daily cap reached ({threads_budget.daily_cap()}); {slot} skipped")
         return None

@@ -394,6 +394,9 @@ def pick(papers: list[Paper], history: list[dict], headlines: list[newsmod.Headl
     if notes:
         prompt += ("\n\nChannel notes: the numbers so far, the weekly strategy and what viewers told us "
                    "(paraphrased). A tiebreaker, not a rule:\n<notes>\n" + notes + "\n</notes>")
+    from . import playbook
+
+    prompt += playbook.pick_notes()
     # the script is written from the full paper, so skip picks we cannot read in full
     skipped: set[int] = set()
     for _ in range(10):

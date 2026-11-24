@@ -2,7 +2,7 @@
 
 In November 2026 the account posted about six times a day (two shorts, three stock-series posts, one
 or two free posts) and views per post fell: Chinese shorts on Threads went from a median of 23 views
-to 6. THREADS_DAILY_CAP (default 2) caps the account's posts per Taiwan day. One of them is kept
+to 6. THREADS_DAILY_CAP (default 2, or the playbook's threads_daily_cap) caps the account's posts per Taiwan day. One of them is kept
 for the evening short, so the free posts and the stock series share the rest, first come first
 served (the 08:00 stock post usually takes it).
 """
@@ -17,7 +17,9 @@ TW = timezone(timedelta(hours=8))
 
 
 def daily_cap() -> int:
-    return int(config.env("THREADS_DAILY_CAP", "2"))
+    from . import playbook  # set by the weekly review; THREADS_DAILY_CAP still overrides
+
+    return int(playbook.get("threads_daily_cap"))
 
 
 def _day(ts: str) -> str:

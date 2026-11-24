@@ -14,6 +14,8 @@
   podcast-publish   check the rendered talk show and upload it to YouTube for the weekly slot
   analytics         read every post's numbers into state/analytics/; weekly self-review + strategy note,
                     emailed to the owner
+  playbook          print the channel playbook (format, hook, ending, topics, cadence) the weekly
+                    review sets, and which fields can change now
   recall QUERY      print the past posts most like QUERY and how they did (what the pickers see)
   social-make       plan today's free posts (Threads text, Instagram slides), fact-check, draw (out/social/)
   social-publish D  post a planned folder; images are fetched from --image-base-url
@@ -86,6 +88,7 @@ def main() -> None:
     pp.add_argument("--dry-run", action="store_true", help="run the checks, upload nothing")
     an = sub.add_parser("analytics")
     an.add_argument("--strategy", action="store_true", help="rewrite the self-review and strategy note now")
+    sub.add_parser("playbook")
     rc = sub.add_parser("recall")
     rc.add_argument("query", nargs="?", default="")
     an.add_argument("--print", action="store_true", help="print the digest")
@@ -192,6 +195,10 @@ def main() -> None:
         analytics.run(True if args.strategy else None, args.email)
         if args.print:
             print((analytics.DIR / "report.md").read_text(encoding="utf-8"))
+    elif args.cmd == "playbook":
+        from . import playbook
+
+        print(playbook.describe())
     elif args.cmd == "recall":
         from . import memory
 

@@ -1,7 +1,8 @@
 # Daily: read every post's numbers (YouTube, Instagram, Threads) into the state branch:
 # analytics/latest.json, history.jsonl, report.md, and a weekly strategy.md written by Claude
 # (every past note is kept in strategy_log.md), preceded by a self-review of past decisions against
-# their results (lessons.md, history in lessons_log.md). Each new weekly note is emailed to the owner
+# their results (lessons.md, history in lessons_log.md) and a playbook review that may change the
+# format, hook, ending, topics and cadence the pipelines follow (playbook.json, playbook_log.md). Each new weekly note is emailed to the owner
 # (ALERT_EMAIL_* secrets) with the self-review and the numbers.
 # that the podcast picks and writes from. Read-only on every platform. Logs show counts only.
 name: Channel analytics
@@ -52,6 +53,13 @@ jobs:
           ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
           ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          # the weekly review changes the playbook on its own; PLAYBOOK_AUTO=off makes it only propose,
+          # PLAYBOOK_PINNED (comma-separated field names) freezes fields
+          PLAYBOOK_AUTO: ${{ vars.PLAYBOOK_AUTO }}
+          PLAYBOOK_PINNED: ${{ vars.PLAYBOOK_PINNED }}
+          # the owner's own caps win over the playbook; the review sees them and leaves those fields alone
+          MAX_THREADS_PER_DAY: ${{ vars.MAX_THREADS_PER_DAY }}
+          MAX_IG_PER_WEEK: ${{ vars.MAX_IG_PER_WEEK }}
         run: python -m shorts analytics ${{ inputs.strategy && '--strategy' || '' }} ${{ inputs.email && '--email' || '' }}
       - name: Save to the state branch
         env:

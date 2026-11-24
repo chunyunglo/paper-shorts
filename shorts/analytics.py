@@ -7,7 +7,8 @@ collect()  pulls per-post numbers for every published short and podcast episode:
 Writes STATE_DIR/analytics/latest.json, appends a compact daily row per post to
 history.jsonl, writes a readable report.md, and (weekly) asks Claude for strategy.md:
 what has worked, which the paper pickers, the script writers and the free-post planner read.
-The same weekly run first writes a self-review of past decisions against their results (memory.py).
+The same weekly run first writes a self-review of past decisions against their results (memory.py),
+then lets Claude change the playbook (playbook.py: format, hook, ending, topics, cadence) under guardrails.
 
 Only numbers about our own posts are stored; no viewer or commenter data.
 """
@@ -169,6 +170,10 @@ def report_md(report: dict, strategy: str = "", lessons: str = "") -> str:
         md += ["## Strategy 經營策略 (written by Claude)", "", strategy, ""]
     if lessons:
         md += ["## Self-review 自我檢討 (past decisions vs. results)", "", lessons, ""]
+    from . import playbook
+
+    md += ["## Playbook 頻道策略設定 (changed by the weekly review)", "", playbook.current(), "",
+           "變更紀錄：analytics/playbook_log.md", ""]
     md += ["## All posts", "", "| kind | platform | lang | views | likes | comments | title |", "|---|---|---|---|---|---|---|"]
     for r in rows:
         m = r["metrics"]
@@ -200,12 +205,15 @@ Write every field in Traditional Chinese as used in Taiwan (the owner reads it);
 platform names and numbers as they are."""
 
 
-def write_strategy(report: dict) -> str:
+def write_strategy(report: dict, playbook_note: str = "") -> str:
     from . import memory
 
     prompt = summary(report, top=8)
     if lessons := memory.lessons():
         prompt += "\n\nThis week's self-review of our past decisions (build on it):\n<lessons>\n" + lessons + "\n</lessons>"
+    if playbook_note:
+        prompt += ("\n\nThis week's playbook changes (the format, hook, ending, topics and cadence the pipelines now "
+                   "follow; advise within them):\n<playbook>\n" + playbook_note + "\n</playbook>")
     s = llm.ask(Strategy, STRATEGY_SYSTEM, prompt, effort="medium", max_tokens=16000)
     return ("\n".join(f"- {o}" for o in s.observations)
             + f"\n\n**短片：** {s.shorts_advice}\n\n**Podcast：** {s.podcast_advice}"
@@ -242,7 +250,7 @@ def zh_labels(note: str) -> str:
     return note
 
 
-def weekly_email(report: dict, strategy: str, lessons: str) -> bool:
+def weekly_email(report: dict, strategy: str, lessons: str, playbook_note: str = "") -> bool:
     """The owner's weekly letter: the self-review, the new strategy and the numbers, by private email."""
     from . import notify
 
@@ -252,11 +260,18 @@ def weekly_email(report: dict, strategy: str, lessons: str) -> bool:
         f"行為解碼 每週檢討與策略 {day}",
         "== 自我檢討（過去的決定 vs. 結果）==\n\n" + (zh_labels(lessons) or "（還沒有：貼文太新，無法評估）"),
         "== 經營策略 ==\n\n" + (zh_labels(strategy) or "（還沒有）"),
+        "== 頻道策略設定（每週檢討自動調整）==\n\n" + (playbook_note or _playbook_now()),
         "== 數據摘要 ==\n\n" + summary(report, zh=True),
         f"完整報告：{url}\n決策紀錄：https://github.com/{config.GITHUB_REPO}/blob/main/data/decisions.md"])
     ok = notify.email(f"[行為解碼] 每週檢討與策略 {day}", body)
     log("Weekly report emailed" if ok else "Weekly report not emailed (check the ALERT_EMAIL_* secrets)")
     return ok
+
+
+def _playbook_now() -> str:
+    from . import playbook
+
+    return "本週沒有重新檢討。現在的設定：\n" + playbook.current()
 
 
 def run(strategy: bool | None = None, email: bool = False) -> None:
@@ -270,6 +285,7 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
             if r.get("metrics"):
                 fh.write(json.dumps({"day": day, "platform": r["platform"], "id": r["id"], **r["metrics"]}) + "\n")
     sfile = DIR / "strategy.md"
+    pb_note = ""
     # file times are lost on checkout, so the note carries its own date on the first line
     written = sfile.read_text(encoding="utf-8").split("\n", 1)[0][-10:] if sfile.exists() else ""
     stale = written < (datetime.now(timezone.utc) - timedelta(days=6)).date().isoformat()
@@ -281,8 +297,12 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
                 memory.retrospect()
             except RuntimeError as exc:
                 log(f"Retrospective skipped: {exc}")
+            from . import playbook
+
+            # then let the review change the playbook itself (format, hook, ending, topics, cadence)
+            pb_note = playbook.weekly(report, memory.lessons())
             try:
-                note = write_strategy(report)
+                note = write_strategy(report, pb_note)
             except RuntimeError as exc:  # keep today's numbers; the note is tried again tomorrow
                 log(f"Strategy note skipped: {exc}")
                 note = ""
@@ -299,4 +319,4 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
 
     (DIR / "report.md").write_text(report_md(report, text, memory.lessons()), encoding="utf-8")
     if email:
-        weekly_email(report, "\n".join(text.split("\n")[2:]).strip(), memory.lessons())
+        weekly_email(report, "\n".join(text.split("\n")[2:]).strip(), memory.lessons(), pb_note)
