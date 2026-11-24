@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-23T09:38:39+00:00",
+ "collected_at": "2026-11-24T11:30:38+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2574,
-   "videoCount": 56
+   "viewCount": 2811,
+   "videoCount": 64
   }
  },
  "notes": [],
@@ -542,7 +542,7 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 70,
+    "views": 71,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M2S",
@@ -1966,7 +1966,7 @@
    "paper": "Estimating Rail Commuter Preferences under Endogenous Crowding: A Population Game Approach to Train Choice in Tokyo",
    "created": "2026-11-08T06:21:18+00:00",
    "metrics": {
-    "views": 1794,
+    "views": 1795,
     "reach": 1637,
     "likes": 21,
     "comments": 1,
@@ -3057,7 +3057,7 @@
    "paper": "Food co-purchasing networks encode geographic disparities in cardiometabolic health",
    "created": "2026-11-18T07:20:27+00:00",
    "metrics": {
-    "views": 37,
+    "views": 36,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
@@ -3183,7 +3183,7 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 52,
+    "views": 51,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
@@ -3207,8 +3207,8 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 99,
-    "reach": 94,
+    "views": 102,
+    "reach": 95,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3270,8 +3270,8 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 85,
-    "reach": 77,
+    "views": 86,
+    "reach": 78,
     "likes": 1,
     "comments": 1,
     "saved": 0,
@@ -3309,7 +3309,7 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 24,
+    "views": 31,
     "likes": 0,
     "comments": 1,
     "duration": "PT50S",
@@ -3333,8 +3333,8 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 133,
-    "reach": 128,
+    "views": 135,
+    "reach": 129,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3435,12 +3435,17 @@
    "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
-    "views": 38,
+    "views": 26,
     "likes": 0,
     "comments": 1,
     "duration": "PT44S",
     "privacy": "public",
-    "published": "2026-11-21T11:03:40Z"
+    "published": "2026-11-21T11:03:40Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 9,
+    "averageViewPercentage": 22.23,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3454,8 +3459,8 @@
    "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
-    "views": 118,
-    "reach": 105,
+    "views": 119,
+    "reach": 106,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3493,12 +3498,17 @@
    "paper": "A Unified Choice Model of News Selection: Experimental Evidence on Stance, Rank, and Engagement Cues",
    "created": "2026-11-21T06:13:25+00:00",
    "metrics": {
-    "views": 4,
+    "views": 3,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-11-21T11:05:21Z"
+    "published": "2026-11-21T11:05:21Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 0,
+    "averageViewPercentage": 0,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3551,7 +3561,7 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 56,
+    "views": 70,
     "likes": 0,
     "comments": 1,
     "duration": "PT43S",
@@ -3570,8 +3580,8 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 107,
-    "reach": 102,
+    "views": 109,
+    "reach": 103,
     "likes": 2,
     "comments": 1,
     "saved": 0,
@@ -3609,7 +3619,7 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 9,
+    "views": 10,
     "likes": 0,
     "comments": 1,
     "duration": "PT47S",
@@ -3628,8 +3638,8 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 86,
-    "reach": 81,
+    "views": 88,
+    "reach": 82,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -3648,7 +3658,239 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 3,
+    "views": 4,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "av9N7K4LIu4",
+   "url": "https://youtube.com/shorts/av9N7K4LIu4",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 195,
+    "likes": 2,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-23T11:04:04Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "18203539708377567",
+   "url": "https://www.instagram.com/reel/DgFOrqOHFwI/",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 1138,
+    "reach": 1029,
+    "likes": 10,
+    "comments": 1,
+    "saved": 1,
+    "shares": 0,
+    "total_interactions": 12
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18355096522248319",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgFOw5XT2DR",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 7,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "D6WYtHiDQU8",
+   "url": "https://youtube.com/shorts/D6WYtHiDQU8",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT45S",
+    "privacy": "public",
+    "published": "2026-11-23T11:05:50Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18115980689331858",
+   "url": "https://www.instagram.com/reel/DgFO3vGlNNh/",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 2,
+    "reach": 3,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "title": "Same Kinds of Celebrities, Different Names Worldwide",
+   "lang": "en",
+   "platform": "threads",
+   "id": "17979899235159197",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgFO8gJBJ1K",
+   "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
+   "created": "2026-11-23T06:18:51+00:00",
+   "metrics": {
+    "views": 5,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "zh",
+   "platform": "youtube",
+   "id": "GfaUa2x3cvU",
+   "url": "https://youtube.com/shorts/GfaUa2x3cvU",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT47S",
+    "privacy": "public",
+    "published": "2026-11-24T11:03:50Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "zh",
+   "platform": "instagram",
+   "id": "17966300052233152",
+   "url": "https://www.instagram.com/reel/DgHzcHujtU5/",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 0,
+    "reach": 0,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18106442717436960",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgHzhNjTy2v",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "en",
+   "platform": "youtube",
+   "id": "AZZZvqqKcvQ",
+   "url": "https://youtube.com/shorts/AZZZvqqKcvQ",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 0,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT46S",
+    "privacy": "public",
+    "published": "2026-11-24T11:05:30Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "en",
+   "platform": "instagram",
+   "id": "18140119510635011",
+   "url": "https://www.instagram.com/reel/DgHzoEfiiyS/",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 1,
+    "reach": 0,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261124-physical-co-presence-of-workers-is-linke",
+   "title": "Where Workers Overlap, Firms Trade More",
+   "lang": "en",
+   "platform": "threads",
+   "id": "18136054675753685",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgHzs6FqPpX",
+   "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+   "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 0,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -3960,7 +4202,7 @@
    "paper": "20261102-counterfactual-assessment-of-social-medi",
    "created": "2026-11-03T11:12:31+00:00",
    "metrics": {
-    "views": 1,
+    "views": 3,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4265,7 +4507,7 @@
    "paper": "20261118-food-co-purchasing-networks-encode-geogr",
    "created": "2026-11-18T12:03:11+00:00",
    "metrics": {
-    "views": 19,
+    "views": 20,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4303,7 +4545,7 @@
    "paper": "20261120-asymmetric-rhetorical-strategies-drive-p",
    "created": "2026-11-20T12:00:11+00:00",
    "metrics": {
-    "views": 10,
+    "views": 11,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4322,7 +4564,7 @@
    "paper": "20261121-a-unified-choice-model-of-news-selection",
    "created": "2026-11-21T11:33:24+00:00",
    "metrics": {
-    "views": 15,
+    "views": 16,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4360,7 +4602,26 @@
    "paper": "20261122-ai-deactivation-reduces-loneliness-and-i",
    "created": "2026-11-22T11:47:38+00:00",
    "metrics": {
-    "views": 18,
+    "views": 20,
+    "likes": 0,
+    "replies": 0,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "social",
+   "episode": "social-36",
+   "title": "0.47 和 0.04。\n\n這是兩個國家「愛搜的名人」平均重疊多少（0到1，1代表完全一樣）：看職業類型是0.47，看名字只有0.04。\n\n我們今天介紹的研究（",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17924022672235606",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgFfEb0IQj7",
+   "paper": "20261123-the-times-they-are-a-changin-tracking-gl",
+   "created": "2026-11-23T13:26:59+00:00",
+   "metrics": {
+    "views": 8,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4968,7 +5229,7 @@
    "paper": "From power to spectrum: an off-the-shelf photodiode turned into a spectrometer by its bias alone",
    "created": "2026-11-21T12:01:22+00:00",
    "metrics": {
-    "views": 22,
+    "views": 24,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5025,7 +5286,7 @@
    "paper": "Scaling classical hardware for accurate real-time quantum error correction",
    "created": "2026-11-22T12:15:17+00:00",
    "metrics": {
-    "views": 16,
+    "views": 18,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5064,6 +5325,63 @@
    "created": "2026-11-23T06:43:59+00:00",
    "metrics": {
     "views": 20,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-37",
+   "title": "🏭 產業前沿｜同一個 AI 推論任務，記憶體可以分三種角色？一篇 2026 年 arXiv 論文這樣設計：\n\n大容量的高頻寬快閃記憶體放大模型權重，小而常被重複",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18113078983915590",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgFim1BoL1K",
+   "paper": "FOREST: Coordinating Tree-based HBF, RRAM, and HBM for Efficient Speculative LLM Inference",
+   "created": "2026-11-23T13:58:10+00:00",
+   "metrics": {
+    "views": 32,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-38",
+   "title": "🌙 盤後研究室｜財報越寫越厚，讀的人會不會越來越少？\n\n一項發表於《The Accounting Review》（2010）的研究，作者 Miller 檢視財報",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18108948847995614",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO",
+   "paper": "The Effects of Reporting Complexity on Small and Large Investor Trading",
+   "created": "2026-11-24T00:29:09+00:00",
+   "metrics": {
+    "views": 12,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-39",
+   "title": "📈 盤前心理學｜買加密貨幣的人，平常在股市裡是什麼樣子？\n\n這篇研究用行政資料，看的是透過結構型零售商品間接投資加密貨幣的個人。研究發現，這群人是積極的交易者，",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18027051968931420",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgHmoGbG-xk",
+   "paper": "The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments",
+   "created": "2026-11-24T09:11:36+00:00",
+   "metrics": {
+    "views": 34,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
