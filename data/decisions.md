@@ -7,6 +7,10 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-24
 
+- **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgIIR9uEUDP)
+  - 內容 Text: 上班族常「碰得到面」的兩個地區，公司之間比較容易做生意嗎？ 我們今天介紹的研究（arXiv, 2026）把兩份東京資料接起來： ・2019年7到9月，約32.9萬名匿名手機用戶的GPS軌跡 ・2016到2022年，19.6萬家總部在東京的公…
+  - 為什麼 Why: This Tokyo co-presence paper is today's new episode with no Chinese Threads follow-up yet, so it takes the daily zh design-and-finding slot the channel notes keep as default, with a question-led opener because yesterday's post led with numbers; no headline links to it responsibly, Instagram free posts stay paused per the notes, and a second post would be filler.
+  - 根據的集數 Based on: 20261124-physical-co-presence-of-workers-is-linke
 - **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgHmoGbG-xk)
   - 內容 Text: 📈 盤前心理學｜買加密貨幣的人，平常在股市裡是什麼樣子？ 這篇研究用行政資料，看的是透過結構型零售商品間接投資加密貨幣的個人。研究發現，這群人是積極的交易者，傾向出現投資偏誤，持有的投資組合風險也偏高。他們也更常買媒體情緒高的股票，並更常使…
   - 論文 Paper: [The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments](https://doi.org/10.1093/rof/rfab034) (Review of Finance)

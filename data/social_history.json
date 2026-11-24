@@ -520,5 +520,19 @@
     "why": "The search-trends paper is today's new episode with no Chinese follow-up yet, so it takes the single daily zh Threads design-and-finding slot the notes keep as default, opening with a number since yesterday's post was question-led; no headline links to it responsibly, the weekly second-angle slot was already used on 11-21, and Instagram free posts stay paused per the notes.",
     "id": "17924022672235606",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgFfEb0IQj7"
+  },
+  {
+    "posted": "2026-11-24T14:05:35+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "kind": "follow_up",
+    "episodes": [
+      "20261124-physical-co-presence-of-workers-is-linke"
+    ],
+    "text": "上班族常「碰得到面」的兩個地區，公司之間比較容易做生意嗎？\n\n我們今天介紹的研究（arXiv, 2026）把兩份東京資料接起來：\n・2019年7到9月，約32.9萬名匿名手機用戶的GPS軌跡\n・2016到2022年，19.6萬家總部在東京的公司之間的交易關係\n\n研究者把總部對應到邊長約76公尺的小六角格，算出兩格的上班族在同一個30分鐘、同一地點出現的機率。\n\n發現：\n・碰面機率加倍，兩區公司「已有交易」的勝算約高1.4%，「之後出現新交易」約高1.9%\n・關聯集中在上班時間，資訊、金融、專業服務最明顯\n・把軌跡換到其他日期，關聯少了約79%\n・和交易「結束」沒有一致關係\n\n要注意：這是相關，不是因果。可能是先有生意才常跑對方那裡；同時出現也不代表真的聊過，更不知道這些人是不是那兩家公司的員工。\n\n詳細在今天的影片裡。",
+    "news": null,
+    "why": "This Tokyo co-presence paper is today's new episode with no Chinese Threads follow-up yet, so it takes the daily zh design-and-finding slot the channel notes keep as default, with a question-led opener because yesterday's post led with numbers; no headline links to it responsibly, Instagram free posts stay paused per the notes, and a second post would be filler.",
+    "id": "17971947288193147",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgIIR9uEUDP"
   }
 ]
