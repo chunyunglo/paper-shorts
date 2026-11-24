@@ -127,8 +127,9 @@ class Renderer:
         d.text((MARGIN + 84, 160), BRAND_ZH, font=font("black", 38), fill=NAVY, anchor="lm")
         zw = font("black", 38).getlength(BRAND_ZH)
         d.text((MARGIN + 100 + zw, 162), BRAND_EN, font=font("regular", 30), fill=INK_MUTED, anchor="lm")
-        label = f"{i + 1:02d}  ·  {self.scenes[i].heading}"
-        d.text((MARGIN, 290), label, font=font("bold", 34), fill=CORAL, anchor="lm")
+        if i > 0:  # the opening frame shows only the hook, not a "01 · 開場" slide label
+            label = f"{i + 1:02d}  ·  {self.scenes[i].heading}"
+            d.text((MARGIN, 290), label, font=font("bold", 34), fill=CORAL, anchor="lm")
         self._header_cache = {i: img}
         return img
 

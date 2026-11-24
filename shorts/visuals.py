@@ -161,16 +161,17 @@ def fingerprint(c: Canvas, cx, cy, scale, p, coral_ring=3, rings=9, seed=7):
 
 
 def v_hook(c: Canvas, sc, p, ctx):
-    fingerprint(c, 300, 210, 0.7, 0.3 + p)  # already half drawn on frame 0, still growing
+    # No logo motif here: the first frame is only the hook text, so a viewer deciding
+    # whether to swipe sees the point at once.
     text = sc.big_text or sc.lines[0]
-    f, lines = fit(text, "black", VW - 80, [116, 104, 92], 2)
+    f, lines = fit(text, "black", VW - 80, [148, 132, 116, 104, 92], 2)
     if len(lines) > 2:  # three lines must stay below the motif and inside the canvas
         f, lines = fit(text, "black", VW - 80, [92, 80, 68], 3)
     # The hook text is fully there on frame 0 (no fade-in) and gives a small pulse while the
     # first line is spoken, so the opening frame reads at a glance and still moves.
     pulse = 1 + 0.04 * math.sin(min(p, 0.5) * 2 * math.pi)
     size = int(f.size * pulse)
-    y = 640 - (len(lines) - 1) * size * 0.6
+    y = 470 - (len(lines) - 1) * size * 0.6  # centred in the canvas now that the motif is gone
     for k, ln in enumerate(lines):
         c.text((VW / 2, y), ln, "black", size, (CORAL if k == len(lines) - 1 and len(lines) > 1 else NAVY) + (255,),
                anchor="mm")

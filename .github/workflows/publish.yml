@@ -170,8 +170,11 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ github.token }}
       GH_TOKEN: ${{ github.token }}
-      # scheduled runs post zh + en (Portuguese was dropped; older episodes' pt videos are not posted)
-      LANGS: ${{ github.event_name == 'schedule' && 'zh en' || inputs.langs }}
+      # scheduled runs post the languages in the repo variable PUBLISH_LANGS (default: zh only).
+      # English is paused from 2026-11-25 as a growth test: one language per account gives the
+      # recommendation systems a clear audience. Set PUBLISH_LANGS to "zh en" to bring it back.
+      # The en video is still rendered every day, so a manual run can post it.
+      LANGS: ${{ github.event_name == 'schedule' && (vars.PUBLISH_LANGS || 'zh') || inputs.langs }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup
