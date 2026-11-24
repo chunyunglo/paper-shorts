@@ -10123,5 +10123,339 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261123-the-times-they-are-a-changin-tracking-gl",
     "pick_reason": "A large-scale longitudinal analysis of Google Year in Search data tracks what people around the world pay attention to, and it is a non-AI, everyday-behavior topic that can be shown in 3-4 visual steps. Signals: Notes favor concrete, non-AI everyday findings with clear comparisons, and this topic is far from the recent episodes."
+  },
+  {
+    "episode": "20261124-physical-co-presence-of-workers-is-linke",
+    "created": "2026-11-24T06:13:13+00:00",
+    "paper": {
+      "id": "arxiv:2611.29191",
+      "title": "Physical co-presence of workers is linked with the evolution of interfirm networks",
+      "abstract": "Inter-firm transaction networks underpin modern economies and are critical for economic growth and resilience. Previous studies have largely explained the formation of inter-firm ties through spatial proximity. Yet people routinely move across space, creating opportunities for encounters that extend beyond geographical proximity. How these opportunities relate to inter-firm transaction relationships remains poorly understood. Here, we combine large-scale mobile phone mobility data with a multi-year panel of transactions among 196,317 firms in Tokyo to quantify encounter opportunities between workers and examine their association with inter-firm transaction ties. We find that pairs of areas with greater opportunities for encounters one another are more likely to have transaction links and new link formation between previously unconnected firms. This association is particularly pronounced in information- and service-intensive industries, reflecting the importance of encounter opportunities for exchange involving intangible knowledge and service. Indirect connections through shared neighbors in the encounter network are also positively associated with subsequent transaction formation across industries, but not within industries. These findings suggest that urban policies shaping connectivity formed through human mobility could play a significant role in the development and resilience of economic networks.",
+      "authors": [
+        "Ketian Chen",
+        "Hiroyasu Inoue",
+        "Yoshihide Sekimoto",
+        "Yoshiki Ogawa",
+        "Takahiro Yabe"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2611.29191",
+      "pdf_url": "https://arxiv.org/pdf/2611.29191v1",
+      "doi": null,
+      "published": "2026-11-22",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "上班族常碰面的地區，生意也比較多？",
+      "title_en": "Where Workers Overlap, Firms Trade More",
+      "paper_title_zh": "上班族的實體共處，與企業間交易網路的演變相關",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "碰面",
+          "heading_en": "CROSSING PATHS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "常碰面？",
+          "big_text_en": "Crossing paths",
+          "lines": [
+            {
+              "zh": "上班族常碰面的兩區，生意也較多？",
+              "en": "Areas where workers often overlap also trade more?"
+            },
+            {
+              "zh": "答案在手機定位，只看距離和人數看不出來。",
+              "en": "Phone data shows a link. Distance and headcount alone don't."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "研究",
+          "heading_en": "THE STUDY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "東京大學與紐約大學團隊，發表在arXiv。",
+              "en": "By Tokyo and NYU researchers, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "funnel",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "手機用戶",
+            "上班族"
+          ],
+          "labels_en": [
+            "Phone users",
+            "Office workers"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "他們用東京約三十三萬人的手機定位。",
+              "en": "They used location data from about 330,000 phones in Tokyo."
+            },
+            {
+              "zh": "常在同一處上班的人，才算上班族。",
+              "en": "Only people who regularly worked in one spot counted as workers."
+            }
+          ]
+        },
+        {
+          "visual": "geo",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "公司格",
+            "碰面地點"
+          ],
+          "labels_en": [
+            "Firm cell",
+            "Meeting spot"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "東京切成小格，每格都有公司。",
+              "en": "They cut Tokyo into tiny cells, each holding some firms."
+            },
+            {
+              "zh": "再算兩格上班族同時同地的機率。",
+              "en": "Then: how often do two cells' workers show up together?"
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "交易紀錄",
+          "heading_en": "TRADE RECORDS",
+          "labels": [
+            "買方公司",
+            "賣方公司",
+            "交易紀錄"
+          ],
+          "labels_en": [
+            "Buyer firm",
+            "Seller firm",
+            "Trade records"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再對照近二十萬家公司的買賣紀錄。",
+              "en": "Next, buy-and-sell records for nearly 200,000 firms."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "檢驗",
+          "heading_en": "THE TEST",
+          "labels": [
+            "只看距離",
+            "真實碰面"
+          ],
+          "labels_en": [
+            "Distance only",
+            "Real meetings"
+          ],
+          "values": [],
+          "big_text": "距離不夠",
+          "big_text_en": "Distance isn't enough",
+          "lines": [
+            {
+              "zh": "只看距離和人數，算不出這個關聯。",
+              "en": "Predictions from distance and headcount alone didn't show it."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "碰面",
+            "交易",
+            "新合作"
+          ],
+          "labels_en": [
+            "Meetings",
+            "Trading",
+            "New deals"
+          ],
+          "values": [],
+          "big_text": "碰面與交易",
+          "big_text_en": "Meet & trade",
+          "lines": [
+            {
+              "zh": "結果：碰面多的兩格，更常有生意往來。",
+              "en": "Result: cells that met more often were more likely to trade."
+            },
+            {
+              "zh": "之後也更容易開始新合作。",
+              "en": "And more likely to start new deals later."
+            },
+            {
+              "zh": "但這只是關聯，不代表碰面造成生意。",
+              "en": "But it's a link, not proof that meeting causes business."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "碰面連著生意",
+          "big_text_en": "Where people meet tracks who firms trade with",
+          "lines": [
+            {
+              "zh": "人怎麼碰面，和公司怎麼合作有關。",
+              "en": "How people meet in a city tracks how firms connect."
+            },
+            {
+              "zh": "想看更多行為研究，歡迎追蹤。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "東京的研究團隊結合約三十三萬支手機的位置資料，和近二十萬間公司的買賣紀錄，發現上班族常碰面的地區，公司之間也比較常有生意往來。只看距離和人數，看不到這個關係。不過這只是關聯，不代表碰面會帶來生意。",
+      "description_en": "Which Tokyo firms end up trading with each other? Researchers used phone location data from about 330,000 people to measure how often workers from different areas are in the same place at the same time, then compared that with firm transaction records. Areas whose workers met more were more likely to trade, though this shows a link, not a cause.",
+      "hashtags": [
+        "行為解碼",
+        "東京",
+        "手機定位",
+        "企業網路",
+        "上班族",
+        "BehaviorDecoded",
+        "HumanMobility",
+        "Economics"
+      ],
+      "method_summary": "The study combines anonymized smartphone GPS data (329,149 users observed in Tokyo, July to September 2019, about 3.5% of working-age residents) with Teikoku Databank records of buyer-supplier relationships among 196,317 Tokyo-headquartered firms from 2016 to 2022. Firm headquarters were mapped to small hexagonal cells (about 76 m edge length). Workers were identified as users who spent at least 5 hours on a weekday in one firm cell on at least 40 days across at least 12 weeks. For each pair of cells, the authors computed a meeting probability: the chance that a random worker from one cell and one from the other were in the same place in the same 30-minute window, normalized by how often both groups were active at the same time. Logistic regressions with cell fixed effects and controls related this to whether a transaction link existed and whether a new link formed later. A doubling of meeting probability was associated with about 1.4% higher odds of a link existing and about 1.9% higher odds of new link formation. A gravity benchmark based on distance and worker counts did not reproduce the association, and shifting trajectories to other dates cut the coefficient by about 79%. The association was concentrated in working-hour encounters and was strongest for information, finance and professional services pairs. No consistent association with link dissolution was found.",
+      "limitations": "The analysis is observational, so it cannot show that encounters cause transactions; existing relationships may generate travel, and stable features of area pairs may drive both. Co-presence measures only an opportunity to meet, not an actual conversation, and mobility is aggregated to workplace cells, so it is unknown whether the people are employed by the transacting firms. Mobility covers only three months of 2019, later transactions span COVID-19, transaction data mainly record major partners at headquarters level, and the study covers only Tokyo.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "上班族常碰面的地區，生意也多？",
+          "手機資料看到關聯，光靠距離和人數卻看不到。"
+        ],
+        [
+          "東京和紐約的團隊，發表在 arXiv。"
+        ],
+        [
+          "研究用了東京約三十三萬支手機的位置資料。",
+          "只算固定在同處上班的人。"
+        ],
+        [
+          "把東京切成小格子，每格有些公司。",
+          "算兩格的上班族多常同時同地出現。"
+        ],
+        [
+          "接著拿到近二十萬間公司的買賣紀錄。"
+        ],
+        [
+          "只看距離和人數來預測，看不到這個關係。"
+        ],
+        [
+          "常碰面的兩格，比較可能有生意往來。",
+          "之後也比較容易談成新合作。",
+          "不過這只是關聯，不代表碰面會帶來生意。"
+        ],
+        [
+          "城市裡人怎麼碰面，和公司怎麼連結有關。",
+          "想看更多行為研究，請追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "device-mobile",
+          "briefcase"
+        ],
+        [
+          "building",
+          "users"
+        ],
+        [
+          "user",
+          "building-store",
+          "receipt"
+        ],
+        [
+          "ruler-measure",
+          "users-group"
+        ],
+        [
+          "users",
+          "exchange"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 46.29,
+        "cover_offset_ms": 8066,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 45.42,
+        "cover_offset_ms": 8037,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "GfaUa2x3cvU",
+          "url": "https://youtube.com/shorts/GfaUa2x3cvU"
+        },
+        "instagram": {
+          "id": "17966300052233152",
+          "url": "https://www.instagram.com/reel/DgHzcHujtU5/"
+        },
+        "threads": {
+          "id": "18106442717436960",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgHzhNjTy2v"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "AZZZvqqKcvQ",
+          "url": "https://youtube.com/shorts/AZZZvqqKcvQ"
+        },
+        "instagram": {
+          "id": "18140119510635011",
+          "url": "https://www.instagram.com/reel/DgHzoEfiiyS/"
+        },
+        "threads": {
+          "id": "18136054675753685",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgHzs6FqPpX"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261124-physical-co-presence-of-workers-is-linke",
+    "pick_reason": "Uses large-scale inter-firm transaction data together with worker co-presence and mobility to show how people's physical encounters shape the evolution of economic networks, a clear network-science method that can be explained in 3-4 visual steps. Signals: Channel notes favor concrete, non-AI everyday topics with clear comparisons, and recent episodes avoided this economic-network area."
   }
 ]

@@ -12,6 +12,9 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
   - 論文 Paper: [The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments](https://doi.org/10.1093/rof/rfab034) (Review of Finance)
   - 為什麼 Why: 這是還沒用過的研究，用真實的投資人帳戶資料，貼近讀者自身的交易習慣，也和這週的題材不重複。
   - 花費 Claude cost: US$0.067
+- **短影音 Short** · [上班族常碰面的地區，生意也比較多？ / Where Workers Overlap, Firms Trade More](https://youtube.com/shorts/GfaUa2x3cvU)
+  - 論文 Paper: [Physical co-presence of workers is linked with the evolution of interfirm networks](https://arxiv.org/abs/2611.29191) (arXiv physics.soc-ph)
+  - 為什麼 Why: Uses large-scale inter-firm transaction data together with worker co-presence and mobility to show how people's physical encounters shape the evolution of economic networks, a clear network-science method that can be explained in 3-4 visual steps. Signals: Channel notes favor concrete, non-AI everyday topics with clear comparisons, and recent episodes avoided this economic-network area.
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO)
   - 內容 Text: 🌙 盤後研究室｜財報越寫越厚，讀的人會不會越來越少？ 一項發表於《The Accounting Review》（2010）的研究，作者 Miller 檢視財報的複雜度，也就是文件越長、可讀性越低，和投資人交易之間的關係。 研究發現，比較複雜…
   - 論文 Paper: [The Effects of Reporting Complexity on Small and Large Investor Trading](https://doi.org/10.2308/accr.00000001) (The Accounting Review)
