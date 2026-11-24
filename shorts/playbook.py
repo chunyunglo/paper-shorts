@@ -15,7 +15,7 @@ MAX_IG_PER_WEEK) still wins over the playbook, so the owner can always override 
 
 Guardrails, enforced in apply() and not only asked for in the prompt:
 - only the fields of Playbook change, each within its allowed values;
-- at most MAX_CHANGES fields a week; a field stays put COOLDOWN_DAYS after a change (reverting a
+- reviewed every REVIEW_EVERY_DAYS days; at most MAX_CHANGES fields in any 7 days; a field stays put COOLDOWN_DAYS after a change (reverting a
   change that hurt is always allowed);
 - LOCKED_UNTIL: a running experiment can't be ended early (the classic/answer_first A/B test);
 - the repo variable PLAYBOOK_PINNED (comma-separated field names) freezes fields, and
@@ -40,9 +40,11 @@ from .safelog import log
 FILE = analytics.DIR / "playbook.json"
 LOG = analytics.DIR / "playbook_log.md"
 MAX_CHANGES = 2
-COOLDOWN_DAYS = 14
-# The format A/B test started 2026-11-25 (PR #133) and needs two weeks of both formats.
-LOCKED_UNTIL = {"script_format": "2026-12-09"}
+COOLDOWN_DAYS = 7
+REVIEW_EVERY_DAYS = 3  # the playbook review runs this often, on its own schedule from the weekly note
+# The format A/B test started 2026-11-25 (PR #133); a week gives each format ~4 posts with day-3 numbers
+# and the first ones with day-7 numbers (the owner asked for a tighter schedule, 2026-11-24).
+LOCKED_UNTIL = {"script_format": "2026-12-02"}
 # the old env var names, which still override the playbook when set
 ENV = {"script_format": "SCRIPT_FORMAT", "threads_daily_cap": "THREADS_DAILY_CAP",
        "free_threads_per_day": "MAX_THREADS_PER_DAY", "ig_per_week": "MAX_IG_PER_WEEK"}
@@ -231,7 +233,7 @@ whether to change the playbook. The writers and schedulers follow it exactly, so
 changes the next posts.
 
 How to decide:
-- Each change is an experiment: one hypothesis, one number to watch, judged after about two weeks. \
+- Each change is an experiment: one hypothesis, one number to watch, judged after about a week. \
 Prefer ONE change at a time so its effect can be read; never more than {MAX_CHANGES}.
 - First judge the changes still under review in the log: keep them if the number improved or it is too \
 early; revert them (revert=true, back to the old value) if they clearly did worse.
@@ -330,7 +332,7 @@ def current() -> str:
 def weekly(report: dict, lessons: str, now: datetime | None = None) -> str:
     """The weekly step, run by analytics after the self-review. Returns the note for the owner's email."""
     now = now or datetime.now(timezone.utc)
-    if (last := last_review()) and date.fromisoformat(last) > now.date() - timedelta(days=6):
+    if (last := last_review()) and date.fromisoformat(last) > now.date() - timedelta(days=REVIEW_EVERY_DAYS):
         log(f"Playbook: already reviewed on {last}")
         return ""
     try:
