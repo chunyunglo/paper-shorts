@@ -1143,5 +1143,35 @@
     "cost_usd": 0.0965,
     "id": "18108948847995614",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO"
+  },
+  {
+    "posted": "2026-11-24T09:11:36+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "morning",
+    "kind": "finding",
+    "text": "📈 盤前心理學｜買加密貨幣的人，平常在股市裡是什麼樣子？\n\n這篇研究用行政資料，看的是透過結構型零售商品間接投資加密貨幣的個人。研究發現，這群人是積極的交易者，傾向出現投資偏誤，持有的投資組合風險也偏高。他們也更常買媒體情緒高的股票，並更常使用技術分析的經驗法則。\n\n另外，第一次買進加密貨幣之後，他們的帳戶登入次數和交易活動明顯增加，投資組合也傾向轉向風險更高的證券。\n\n這描述的是這群投資人的特徵與行為變化，摘要沒有說明哪種做法比較好或不好。而且研究對象是透過結構型商品間接投資的人，不能直接代表所有加密貨幣投資人。\n\n（研究分享，不是投資建議）",
+    "why": "這是還沒用過的研究，用真實的投資人帳戶資料，貼近讀者自身的交易習慣，也和這週的題材不重複。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1093/rof/rfab034",
+      "title": "The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments",
+      "abstract": "Cryptocurrencies have received growing attention from individuals, the media, and regulators. However, little is known about the investors whom these financial instruments attract. Using administrative data, we describe the investment behavior of individuals who invest in cryptocurrencies with structured retail products. We find that cryptocurrency investors are active traders who are prone to investment biases and hold risky portfolios. Cryptocurrency investors are more likely to invest in stocks with high media sentiment and more likely to employ heuristics from technical analysis. In line with attention effects and anticipatory utility, we find that the average cryptocurrency investor substantially increases account logins and trading activity after his or her first cryptocurrency purchase. Furthermore, cryptocurrency investors tend to tilt their portfolios toward even more risky securities after cryptocurrency adoption. Our results document which investors are more likely to adopt new financial products and help inform regulators about investors’ vulnerability to cryptocurrency investments.",
+      "authors": [
+        "Andreas Hackethal",
+        "Tobin Hanspal",
+        "Dominique M Lammer",
+        "Kevin Rink"
+      ],
+      "venue": "Review of Finance",
+      "url": "https://doi.org/10.1093/rof/rfab034",
+      "pdf_url": null,
+      "doi": "10.1093/rof/rfab034",
+      "published": "2021",
+      "source": "journal"
+    },
+    "cost_usd": 0.0672,
+    "id": "18027051968931420",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgHmoGbG-xk"
   }
 ]

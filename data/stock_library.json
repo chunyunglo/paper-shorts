@@ -383,5 +383,22 @@
     "abstract": "Extensive research has revealed that alphabetical name ordering tends to provide an advantage to those positioned in the beginning of an alphabetical listing. This article is the first to explore the implications of this alphabetic bias in financial markets. We find that US stocks that appear near the top of an alphabetical listing have about 5–15% higher trading activity and liquidity than stocks that appear toward the bottom. The magnitude of these results is negatively related to firm visibility and investor sophistication. International evidence and fund flows further indicate that ordering effects can affect trading activity and liquidity.",
     "added": "2026-11-23",
     "found_by": "Crossref: investor emotions trading decisions"
+  },
+  {
+    "id": "doi:10.1093/rof/rfab034",
+    "title": "The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments",
+    "authors": [
+      "Andreas Hackethal",
+      "Tobin Hanspal",
+      "Dominique M Lammer",
+      "Kevin Rink"
+    ],
+    "venue": "Review of Finance",
+    "published": "2021",
+    "url": "https://doi.org/10.1093/rof/rfab034",
+    "pdf_url": null,
+    "abstract": "Cryptocurrencies have received growing attention from individuals, the media, and regulators. However, little is known about the investors whom these financial instruments attract. Using administrative data, we describe the investment behavior of individuals who invest in cryptocurrencies with structured retail products. We find that cryptocurrency investors are active traders who are prone to investment biases and hold risky portfolios. Cryptocurrency investors are more likely to invest in stocks with high media sentiment and more likely to employ heuristics from technical analysis. In line with attention effects and anticipatory utility, we find that the average cryptocurrency investor substantially increases account logins and trading activity after his or her first cryptocurrency purchase. Furthermore, cryptocurrency investors tend to tilt their portfolios toward even more risky securities after cryptocurrency adoption. Our results document which investors are more likely to adopt new financial products and help inform regulators about investors’ vulnerability to cryptocurrency investments.",
+    "added": "2026-11-24",
+    "found_by": "Crossref: cryptocurrency retail investors behavior"
   }
 ]

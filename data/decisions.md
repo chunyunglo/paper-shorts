@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-24
 
+- **股市篇 Stock series** · morning · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgHmoGbG-xk)
+  - 內容 Text: 📈 盤前心理學｜買加密貨幣的人，平常在股市裡是什麼樣子？ 這篇研究用行政資料，看的是透過結構型零售商品間接投資加密貨幣的個人。研究發現，這群人是積極的交易者，傾向出現投資偏誤，持有的投資組合風險也偏高。他們也更常買媒體情緒高的股票，並更常使…
+  - 論文 Paper: [The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments](https://doi.org/10.1093/rof/rfab034) (Review of Finance)
+  - 為什麼 Why: 這是還沒用過的研究，用真實的投資人帳戶資料，貼近讀者自身的交易習慣，也和這週的題材不重複。
+  - 花費 Claude cost: US$0.067
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO)
   - 內容 Text: 🌙 盤後研究室｜財報越寫越厚，讀的人會不會越來越少？ 一項發表於《The Accounting Review》（2010）的研究，作者 Miller 檢視財報的複雜度，也就是文件越長、可讀性越低，和投資人交易之間的關係。 研究發現，比較複雜…
   - 論文 Paper: [The Effects of Reporting Complexity on Small and Large Investor Trading](https://doi.org/10.2308/accr.00000001) (The Accounting Review)
