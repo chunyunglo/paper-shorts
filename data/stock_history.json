@@ -1116,5 +1116,32 @@
     "cost_usd": 0.267,
     "id": "18113078983915590",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgFim1BoL1K"
+  },
+  {
+    "posted": "2026-11-24T00:29:09+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜財報越寫越厚，讀的人會不會越來越少？\n\n一項發表於《The Accounting Review》（2010）的研究，作者 Miller 檢視財報的複雜度，也就是文件越長、可讀性越低，和投資人交易之間的關係。\n\n研究發現，比較複雜的財報，和較低的整體交易量有關；而且這個關係看起來主要來自小額投資人的交易減少。摘要也提到，這個關聯和公司揭露特性的差異、以及揭露複雜度隨時間的變化都有關。\n\n這代表什麼？複雜度和小額投資人的交易活動之間，有一個值得留意的關聯。但摘要只談到關聯，沒有說明小投資人為什麼少交易，也不能直接推論他們的決策變好或變差。\n\n（研究分享，不是投資建議）",
+    "why": "這篇是讀者自身行為相關的實證研究，尚未用過；近期已談過關注度、社群與盈餘數字，這次換成財報可讀性的角度，今天的頭條多與個別公司和人物事件有關，不適合硬套。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.2308/accr.00000001",
+      "title": "The Effects of Reporting Complexity on Small and Large Investor Trading",
+      "abstract": ": This study examines the effects of financial reporting complexity on investors’ trading behavior. I find that more complex (longer and less readable) filings are associated with lower overall trading, and that this relationship appears due to a reduction in small investors’ trading activity. Additional evidence suggests that the association between report complexity and lower abnormal trading is driven by both cross-sectional variation in firms’ disclosure attributes and variations in disclosure complexity over time. Given regulatory concerns over plain English disclosures and the trend toward more disclosure, my investigation into the effects of reporting complexity on small and large investors should be of interest to regulators concerned with reporting clarity and leveling the playing field across classes of investors.",
+      "authors": [
+        "Brian P. Miller"
+      ],
+      "venue": "The Accounting Review",
+      "url": "https://doi.org/10.2308/accr.00000001",
+      "pdf_url": null,
+      "doi": "10.2308/accr.00000001",
+      "published": "2010",
+      "source": "journal"
+    },
+    "cost_usd": 0.0965,
+    "id": "18108948847995614",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO"
   }
 ]

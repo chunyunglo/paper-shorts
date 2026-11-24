@@ -5,6 +5,14 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-24
+
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgGq0VWmszO)
+  - 內容 Text: 🌙 盤後研究室｜財報越寫越厚，讀的人會不會越來越少？ 一項發表於《The Accounting Review》（2010）的研究，作者 Miller 檢視財報的複雜度，也就是文件越長、可讀性越低，和投資人交易之間的關係。 研究發現，比較複雜…
+  - 論文 Paper: [The Effects of Reporting Complexity on Small and Large Investor Trading](https://doi.org/10.2308/accr.00000001) (The Accounting Review)
+  - 為什麼 Why: 這篇是讀者自身行為相關的實證研究，尚未用過；近期已談過關注度、社群與盈餘數字，這次換成財報可讀性的角度，今天的頭條多與個別公司和人物事件有關，不適合硬套。
+  - 花費 Claude cost: US$0.097
+
 ## 2026-11-23
 
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgFim1BoL1K)
