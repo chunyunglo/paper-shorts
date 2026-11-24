@@ -23,6 +23,7 @@ from pydantic import BaseModel, Field
 from . import config, llm
 from .publish import meta, youtube
 from .safelog import ApiError, log
+from .script import script_format
 from .state import load_history
 
 STATE_DIR = Path(os.environ.get("STATE_DIR", config.ROOT / "state"))
@@ -44,6 +45,7 @@ def _posts() -> list[dict]:
         for lang, posts in (ep.get("posts") or {}).items():
             for platform, p in posts.items():
                 rows.append({"kind": "short", "episode": ep["episode"], "title": title, "lang": lang,
+                             "format": script_format(ep.get("script")),
                              "platform": platform, "id": p["id"], "url": p.get("url", ""),
                              "paper": ep["paper"]["title"], "created": ep.get("created", "")})
     for ep in load_podcast_history():
