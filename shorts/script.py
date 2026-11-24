@@ -170,7 +170,8 @@ not do: experiment only for a real randomized design, survey only for a real que
 7. the why: the mechanism or explanation the authors propose or test, and what it changes in \
 how we should think about the behavior.
 8. so what: what it means for the viewer or society, or the real open question it raises (e.g. \
-"so do remote-only firms miss these deals?"). This is a thought worth having, never a \
+"so do remote-only firms miss these deals?"). This scene is required: never end on a restatement of the \
+finding. It is a thought worth having, never a \
 disclaimer. Do NOT write lines like "but this is only a correlation" / "但這只是關聯，不代表因果" \
 or "more research is needed": they shrink the point and say nothing.
 9. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
@@ -544,14 +545,25 @@ design, generalizing beyond the sample), or a finding the paper does not report;
 - a scene whose Chinese lines and English lines state different facts;
 - a news hook that adds facts not in the headline or implies the study examined that event;
 - anything defamatory, hateful, partisan, or mocking real people or groups.
-Wording that matches the design is enough: do not ask for a separate "this is only a correlation" \
-line, and treat the authors' interpretation, presented as theirs, as supported. \
+Only a line that says something the paper does not support is a problem. Leaving out a caveat, \
+a limitation, a p-value or which sub-tests reached significance is NOT a problem: a one-minute \
+video tells the main result, and the paper's headline finding, stated as the paper states it, is \
+supported. Wording that matches the design is enough: do not ask for a separate "this is only a \
+correlation" / "group-level, not individuals" line, and treat the authors' interpretation, \
+presented as theirs, as supported. For each problem, say how to reword the offending line so it \
+is accurate (e.g. "say 'the biggest spenders' instead of 'the bigger the bet'"), never "add a \
+caveat". \
 Do not nitpick style. If there is nothing material, return an empty list."""
 
 
 class Check(BaseModel):
     problems: list[str] = Field(description="Each material problem: quote the line, say what is wrong and what the "
                                             "paper says. Empty if none")
+
+
+FIX_NOTE = ("Fix these fact-check problems and nothing else. Fix each one by rewording the line it quotes; "
+            "do not add caveat, limitation or disclaimer lines, and keep every scene of the argument (the belief, "
+            "the finding, the why, the so-what):\n- ")
 
 
 def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: int = 2) -> Script:
@@ -572,6 +584,6 @@ def fact_check(paper: Paper, script: Script, news: dict | None = None, rounds: i
             break
         # the problems quote the script and the paper (both public), so the log shows why a check failed
         log(f"Fact check round {i}: {len(problems)} problems; revising:\n- " + "\n- ".join(problems))
-        script, _ = revise(paper, script, "Fix these fact-check problems and nothing else:\n- " + "\n- ".join(problems))
+        script, _ = revise(paper, script, FIX_NOTE + "\n- ".join(problems))
     log("Fact check problems left:\n- " + "\n- ".join(problems))
     raise SystemExit(f"Script still fails the fact check ({len(problems)} problems); no episode today")
