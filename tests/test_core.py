@@ -566,7 +566,7 @@ def test_revise_rewrites_the_chinese_video_too(monkeypatch):
     def fake_ask(schema, system, content, **kw):
         text = content[-1]["text"]
         calls.append(text)
-        if "<task>\n" + sm.ZH_SYSTEM in text:
+        if "<task>\n" + sm.zh_system(sm.script_format(script)) in text:
             assert "舊的" in text and "fix the hook" in text
             return sm.PaperOutput(zh=sm.ZhVersion(title="新", description="d", scenes=[
                 sm.ZhScene(heading="h", labels=list(s.labels), big_text="", lines=["新的"]) for s in script.scenes]))

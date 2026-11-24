@@ -2,11 +2,12 @@
 from __future__ import annotations
 
 import json
+from datetime import datetime, timedelta, timezone
 from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from . import llm, papers
+from . import config, llm, papers
 from .papers import Paper
 from .safelog import log
 
@@ -37,7 +38,8 @@ class ScriptDraft(BaseModel):
     title_zh: str = Field(description="Catchy Traditional Chinese title, at most 28 characters")
     title_en: str = Field(description="Catchy English title for the English video, at most 60 characters")
     paper_title_zh: str = Field(description="Faithful Traditional Chinese translation of the paper title, at most 40 characters")
-    scenes: list[Scene] = Field(description="6-9 scenes; the second scene must be visual 'paper'; the last must be 'takeaway'")
+    scenes: list[Scene] = Field(description="5-9 scenes in the order the task instructions give; the first is 'hook', "
+                                            "the last must be 'takeaway'")
     description_zh: str = Field(description="2-4 sentence Traditional Chinese video description")
     description_en: str = Field(description="2-4 sentence English video description")
     hashtags: list[str] = Field(description="5-8 hashtags without the # sign, mixing Chinese and English")
@@ -87,7 +89,7 @@ class IconPick(BaseModel):
     scenes: list[list[str]] = Field(description="One list per scene, in scene order: the icon names for that scene")
 
 
-SYSTEM = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
+_INTRO = """You write one-minute vertical explainer videos for "行為解碼 Behavior Decoded". \
 Each episode explains HOW one new study used a computational method to learn something about \
 human behavior. Audience: curious Taiwanese and international viewers scrolling on a phone. \
 They have never read the paper, know nothing about the field, and hear each line only once, so \
@@ -100,7 +102,13 @@ short, concrete, conversational, no jargon without a plain-words gloss. The Engl
 the same thing as natural spoken English (not a word-for-word translation); it is the English \
 video's voiceover and subtitle. On-screen labels and big text also come in both languages.
 
-Structure (about 200-240 Chinese characters and 110-140 English words of narration in total; \
+"""
+
+# Two ways to order an episode. "classic" (every episode up to 2026-11-24): question, who did the study,
+# the method, then the finding near the end. "answer_first": the finding is said in the first line and
+# the video is about how they found it, with no credits scene (authors and venue are in the caption and
+# the citation comment). Viewers watched 17 of 51 seconds on average, so most left before the finding.
+_CLASSIC = """Structure (about 200-240 Chinese characters and 110-140 English words of narration in total; \
 each video should run about 45-55 seconds at a calm, unhurried pace):
 1. hook. Viewers decide in the first 3 seconds whether to keep watching, and the video starts \
 directly on this scene (no intro card), so it carries the episode. Two lines:
@@ -115,7 +123,41 @@ they measured it), and pay it off in the finding scene.
 readable at a glance; the English and pt big text are just as short.
 2. paper: who did this study and where it was published (keep it to one line).
 3-6. the method, step by step: what data, what the computer did with it, how they tested it. \
-This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
+"""
+
+_CLASSIC_END = """7. the finding, and one honest caveat.
+8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
+
+"""
+
+_ANSWER_FIRST = """Structure (about 130-160 Chinese characters and 75-95 English words of narration in total; \
+each video should run about 28-35 seconds; tight beats complete). Most viewers swipe away within a few \
+seconds, so the answer comes first and the rest of the video earns the rewatch by showing how they knew:
+1. hook. The video starts directly on this scene (no intro card). Two lines:
+   - Line 1 (spoken in under 3 seconds: at most ~15 Chinese characters / ~10 English words) states the \
+study's main finding as a concrete, surprising claim, ideally carried by its one number or contrast \
+("罰款變兩倍，超速只少一點點" / "Double the fine, barely slower drivers"). It is the answer, not a \
+question whose answer comes later. Never open with "a new study", "researchers", the channel, the \
+authors, a date, or background.
+   - Line 2 opens a loop about HOW anyone could know this ("問題是，這要怎麼算出來？" / "So how do you \
+even measure that?"); the method scenes pay it off.
+   big_text = the finding's number or sharpest contrast in at most 8 Chinese characters, readable at a \
+glance (e.g. "只少3%", "2倍"); the English and pt big text are just as short.
+There is NO scene for who did the study or where it was published: that goes in the descriptions and the \
+citation comment. Never use the 'paper' visual. If naming the team helps trust, do it in a few words \
+inside a method line ("東京大學團隊用了…").
+2-4. the method, step by step, in 2-3 scenes: what data, what the computer did with it, how they tested it. \
+"""
+
+_ANSWER_FIRST_END = """5. the finding in a little more detail (only what the hook did not already say) and one \
+honest caveat. One scene, 1-3 lines.
+6. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no \
+schedule or paper count; the fixed end card shows it).
+In total 5-7 scenes.
+
+"""
+
+_METHOD = """This is the heart of the channel; spend the most time here. Pick visuals that fit each step: \
 crowd (people/participants/accounts, or many of the things studied), network (connections, \
 spread, communities), pipeline (a 2-4 step process; labels = the step names), bars (comparing \
 groups), timeline (change over time), scatter (a relationship between two measures), contrast \
@@ -156,14 +198,13 @@ model that outputs a prediction; labels = 1-2 inputs then the predicted thing la
 Each scene is later illustrated with simple icons of its labels, so \
 make labels concrete nouns where you can; use the icons visual at least once so the episode \
 visibly shows its own subject. Keep it lively: never the same visual in two scenes in a row, \
-use at least four different visuals between the paper and the takeaway, and favor the more \
+use at least {min_visuals} different visuals between the {after} and the takeaway, and favor the more \
 animated visuals (journey, spotlight, funnel, clusters, experiment, feed, magnify, counter, \
 waffle, race, cascade, chat, ranking, swipe, echo, predict) whenever they fit the step. Never use a visual that would show something the study did \
 not do: experiment only for a real randomized design, survey only for a real questionnaire.
-7. the finding, and one honest caveat.
-8. takeaway: one sentence to remember (big_text), then one short line inviting viewers to follow (no schedule or paper count; the fixed end card shows it).
+"""
 
-Clarity (the most common problem so far: viewers said the videos were hard to understand):
+_REST = """Clarity (the most common problem so far: viewers said the videos were hard to understand):
 - Every line must make sense heard once, on its own, by someone who has never heard of the study. \
 No shorthand that only makes sense if you read the paper: say who "they" are, and spell out what \
 a step was (not "三種暖身" but what people actually did).
@@ -192,6 +233,40 @@ dropping a detail.
 Accuracy rules: use only facts from the provided paper. Never invent numbers, sample sizes, or \
 effects; values must be empty unless the exact numbers are in the paper. Do not overstate \
 causality. Do not use brain or neuron imagery or metaphors. Keep on-screen labels tiny."""
+
+FORMATS = ("answer_first", "classic")
+
+
+def system(fmt: str = "classic") -> str:
+    """The script-writing instructions for one episode format."""
+    if fmt == "answer_first":
+        return _INTRO + _ANSWER_FIRST + _METHOD.format(min_visuals="three", after="hook") + _ANSWER_FIRST_END + _REST
+    return _INTRO + _CLASSIC + _METHOD.format(min_visuals="four", after="paper") + _CLASSIC_END + _REST
+
+
+SYSTEM = system("classic")
+
+
+def pick_format(now: datetime | None = None) -> str:
+    """SCRIPT_FORMAT: answer_first, classic, or alternate (default): answer_first on odd Taiwan dates,
+    classic on even ones, so the two can be compared on the same weeks of the channel."""
+    want = config.env("SCRIPT_FORMAT", "alternate").strip().lower()
+    if want in FORMATS:
+        return want
+    day = (now or datetime.now(timezone.utc)).astimezone(timezone(timedelta(hours=8))).date()
+    return "answer_first" if day.toordinal() % 2 else "classic"
+
+
+def script_format(script) -> str:
+    """Which format a script was written in (older episodes are all classic)."""
+    scenes = script.scenes if hasattr(script, "scenes") else (script or {}).get("scenes", [])
+    visuals = [x.visual if hasattr(x, "visual") else x.get("visual") for x in scenes]
+    return "classic" if "paper" in visuals else "answer_first"
+
+
+def budget(fmt: str) -> tuple[int, int]:
+    """Narration budget (Chinese characters, English words), a little over what the prompt asks for."""
+    return (175, 105) if fmt == "answer_first" else (MAX_ZH, MAX_EN)
 
 
 NEWS_HOOK = """
@@ -252,21 +327,24 @@ def paper_call(paper: Paper, task: str, text: str, *, needs_script: bool, with_p
     return out
 
 
-def write(paper: Paper, news: dict | None = None, notes: str = "") -> Script:
+def write(paper: Paper, news: dict | None = None, notes: str = "", fmt: str | None = None) -> Script:
     meta = (f"Title: {paper.title}\nAuthors: {', '.join(paper.authors[:12])}\n"
             f"Venue: {paper.venue} ({paper.published})\nURL: {paper.url}\n\nAbstract:\n{paper.abstract}")
     hook = NEWS_HOOK.format(**news) if news else ""
     extra = CHANNEL_NOTES.format(notes=notes) if notes else ""
-    draft = paper_call(paper, SYSTEM, meta + hook + extra + "\n\nWrite the episode script.", needs_script=True).script
+    fmt = fmt or pick_format()
+    max_zh, max_en = budget(fmt)
+    log(f"Script format: {fmt}")
+    draft = paper_call(paper, system(fmt), meta + hook + extra + "\n\nWrite the episode script.", needs_script=True).script
     script = Script(**draft.model_dump())
     validate(script)
     n, w = length(script)
     log(f"Script: {len(script.scenes)} scenes, {n} Chinese characters, {w} English words")
-    if n > MAX_ZH or w > MAX_EN:
+    if n > max_zh or w > max_en:
         # a script written for clarity tends to run long; past the budget the voiceover nears a minute
         script, _ = revise(paper, script, (
             f"Too long: {n} Chinese characters and {w} English words of narration. Cut to at most "
-            f"{MAX_ZH - 20} characters and {MAX_EN - 10} words by dropping secondary details, not by "
+            f"{max_zh - 20} characters and {max_en - 10} words by dropping secondary details, not by "
             "making lines harder to follow. Keep every line clear to someone who never read the paper."))
         n, w = length(script)
         log(f"Script shortened: {n} Chinese characters, {w} English words")
@@ -311,17 +389,32 @@ literal English idioms. Prefer short sentences and verbs over abstract nouns (�
 "意願的提升").
 - Each scene says the same facts as its English version, no more and no fewer, but you choose how: \
 split, merge or reorder ideas within the scene. 1-4 lines per scene, 6-22 characters each.
-- Hook: line 1 at most ~15 characters, lands the surprising point at once (a question to the \
-viewer or the striking result); never open with 研究、一項新研究 or background. Line 2 opens a loop \
-that the finding scene pays off.
-- 200-230 characters of narration in total, never more than 240 (count them: the voice reads about \
-4.5 characters a second, and the video must stay under 55 seconds). Cut details rather than run long.
+- Hook: {hook}
+- {length}
 - Plain words: no research jargon (中位數、顯著、迴歸、樣本、模型…) without saying what it means.
 - On screen: each scene's heading is 2-6 characters; labels keep the plan's count and order, each at \
 most 10 characters and clear without the narration; big text for the hook at most 8 characters \
 (empty when the plan's is empty).
 Accuracy rules: only facts from the paper and the plan; never invent numbers or effects; do not \
 overstate causality. Leave script null and problems empty."""
+
+ZH_FORMAT = {
+    "classic": ("line 1 at most ~15 characters, lands the surprising point at once (a question to the \
+viewer or the striking result); never open with 研究、一項新研究 or background. Line 2 opens a loop \
+that the finding scene pays off.",
+                "200-230 characters of narration in total, never more than 240 (count them: the voice reads about \
+4.5 characters a second, and the video must stay under 55 seconds). Cut details rather than run long."),
+    "answer_first": ("line 1 at most ~15 characters says the study's finding itself, as a concrete claim \
+(with its number or contrast when the plan has one), not a question; never open with 研究、一項新研究 or \
+background. Line 2 asks how anyone could know that, and the method scenes answer it.",
+                     "130-160 characters of narration in total, never more than 170 (count them: the voice reads about \
+4.5 characters a second, and the video must stay around 30-35 seconds). Cut details rather than run long."),
+}
+
+
+def zh_system(fmt: str) -> str:
+    hook, length_rule = ZH_FORMAT[fmt]
+    return ZH_SYSTEM.replace("{hook}", hook).replace("{length}", length_rule)
 
 
 def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", with_paper: bool = True,
@@ -345,7 +438,7 @@ def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", 
                  "Update the Chinese video to match the plan and the feedback; keep what still fits.")
     text += "\n\nWrite the Chinese video."
     try:
-        zh = paper_call(paper, ZH_SYSTEM, text, needs_script=False, with_paper=with_paper).zh
+        zh = paper_call(paper, zh_system(script_format(script)), text, needs_script=False, with_paper=with_paper).zh
     except Exception as exc:  # the paired Chinese lines are a usable fallback
         log(f"Chinese video not written ({exc}); using the paired lines")
         script.zh_lines = []
@@ -365,9 +458,10 @@ def write_zh(paper: Paper, script: Script, feedback: str = "", notes: str = "", 
     script.zh_lines = [[l.strip() for l in z.lines if l.strip()][:4] for z in zh.scenes]
     n = length(script)[0]
     log(f"Chinese video written: {n} characters")
-    if n > MAX_ZH and not _shortening:
+    max_zh = budget(script_format(script))[0]
+    if n > max_zh and not _shortening:
         # a long Chinese voiceover runs near a minute; one cheap retry with the count
-        return write_zh(paper, script, f"The Chinese narration is {n} characters; cut it to at most 230 by "
+        return write_zh(paper, script, f"The Chinese narration is {n} characters; cut it to at most {max_zh - 20} by "
                         "dropping secondary details, keeping every line clear.", with_paper=with_paper,
                         _shortening=True)
     return script
@@ -478,7 +572,7 @@ def check_localized(script: Script, loc: Localized) -> None:
             l.labels = s.labels_en or s.labels
 
 
-REVISE_SYSTEM = SYSTEM + """
+REVISE_NOTE = """
 
 You are revising an episode script after the channel owner reviewed the videos. Apply their \
 feedback faithfully and change nothing else. The accuracy rules still win: if a request would \
@@ -486,6 +580,13 @@ need facts that are not in the paper, do not invent them and say so in changes_z
 change the script (narration lines, headings, labels, big text, titles, descriptions, hashtags, \
 and which visual each scene uses); if the feedback is about something else (voice, music, colors, \
 the fixed end card), say so in changes_zh."""
+
+
+def revise_system(fmt: str = "classic") -> str:
+    return system(fmt) + REVISE_NOTE
+
+
+REVISE_SYSTEM = revise_system("classic")
 
 
 def revise(paper: Paper, script: Script, feedback: str, with_paper: bool = True) -> tuple[Script, str]:
@@ -496,7 +597,7 @@ def revise(paper: Paper, script: Script, feedback: str, with_paper: bool = True)
     current = script.model_dump(exclude={"pt"})
     text = (meta + "\n\nCurrent script (JSON):\n" + json.dumps(current, ensure_ascii=False, indent=1) +
             "\n\nOwner feedback:\n<feedback>" + feedback + "</feedback>\n\nReturn the revised script.")
-    rev = paper_call(paper, REVISE_SYSTEM, text, needs_script=True, with_paper=with_paper)
+    rev = paper_call(paper, revise_system(script_format(script)), text, needs_script=True, with_paper=with_paper)
     new = Script(**rev.script.model_dump())
     validate(new)
     if script.zh_lines:

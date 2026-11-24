@@ -17,6 +17,7 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 |---|---|---|
 | 選論文 | arXiv（cs.SI、cs.CY、physics.soc-ph、econ.GN、cs.HC）＋ Nature Human Behaviour、Nature Computational Science、PNAS、Science Advances、EPJ Data Science、Journal of Computational Social Science 的 RSS，去掉做過的，由 Claude 挑一篇；也讀本週新聞頭條（台灣、美國、科技、科學），品質相近時優先挑和時事有關的；也會參考後台數字、每週策略和觀眾回饋，但只在品質相近時當作參考 | `shorts/papers.py`、`shorts/news.py` |
 | 寫腳本 | Claude 讀論文全文 PDF（arXiv，或透過 Unpaywall 找到的開放取用版本；讀不到全文的論文不選），寫 6–9 個場景，每句都有中文旁白和英文字幕，並指定畫面類型；有連到時事時，開場從那則新聞切入（只講到標題的程度，不編細節）；後台數字、策略和觀眾回饋只用來調整怎麼講（開場、哪裡講慢一點），不改論文內容 | `shorts/script.py` |
+| 腳本格式 | 兩種輪流（`SCRIPT_FORMAT`，預設 `alternate`：台灣日期單數日用 answer_first、雙數日用 classic，方便比較）。**answer_first**：第一句就講研究發現（附數字或對比），接著講「他們怎麼知道的」，沒有「誰做的研究」那一幕（出處在說明欄和第一則留言），約 28–35 秒。**classic**：原本的順序（問題 → 研究出處 → 方法 → 發現），約 45–55 秒。設成 `answer_first` 或 `classic` 可固定一種；後台數據每支短片都標了 `format` | `shorts/script.py` |
 | 配音 | 中英文都用 Gemini 3.8 Flash TTS 的 Achird（和脫口秀主持人 Kai 同一個聲音）；Gemini 失敗時整支改用備援聲音（有 `GOOGLE_TTS_API_KEY` 用 Google，沒有用 Edge）；再疊一層程式產生的背景音 | `shorts/tts.py` |
 | 畫面 | 依頭像配色的「資料軌跡」風格：人群點陣、網路擴散、步驟流程、長條、時間線、散佈圖、對比卡，逐格繪製後用 ffmpeg 輸出 1080×1920 | `shorts/visuals.py`、`shorts/render.py` |
 | 查核 | 另一個 Claude 對照論文逐句查核（數字、因果說法、中英文一致、時事連結），有問題就改，最多兩輪；還不過就那天不上片 | `shorts/script.py` `fact_check` |
@@ -39,8 +40,10 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 | `podcast.yml` | **暫停中**（原本每週五 04:00 UTC） | 長片 Behavior Decoded Tonight 已暫停：排程拿掉了，程式都保留。要恢復，把 `podcast.yml` 裡兩行 cron 的註解拿掉即可。手動執行仍然可以跑 |
 | `analytics.yml` | 每天 09:30（台灣） | 讀所有貼文（短影音、脫口秀、自由發文）的後台數字，存到 `state` 分支 `analytics/report.md`，每週由 Claude 先自我檢討過去決策和成效（`lessons.md`），再寫經營策略（留言數會扣掉我們自己的 citation 留言來看）。每週寫完會把自我檢討、策略和數據摘要寄到你的信箱（用 `ALERT_EMAIL_*`）。手動執行勾 `strategy` 可立刻重寫兩者並寄信，只勾 `email` 則直接寄目前的報告 |
 | `social.yml` | 每天 11:30（台灣） | 自由發文：Threads 純文字、IG 圖文。repo variable `SOCIAL_AUTO=true` 才會自動跑；手動執行預設只產生草稿和圖片（放 pre-release），不發。上限用 `MAX_THREADS_PER_DAY`、`MAX_IG_PER_WEEK` 改 |
-| `stocks.yml` | 每天 08:00、12:00、21:00（台灣） | 股市篇串文：Claude 選研究和角度、根據論文寫、另一個 Claude 對照論文和「不給投資建議」規則查核，再發到 Threads，第一則回覆附出處。repo variable `STOCKS_AUTO=true` 才會自動跑；手動執行預設只產生草稿（顯示在 run 的 Summary），勾 `post` 才會發。研究來源：`data/stock_library.json`（精選經典，可自己加；每天早上那篇會先用 Semantic Scholar 搜一個主題，忙線時改用 Crossref，把 2 篇被引用 30 次以上、跟金融有關的新研究加進來；用滿 3 次的研究和超過 40 篇時最舊的會自動淘汰；可選 secret `SEMANTIC_SCHOLAR_API_KEY`）、arXiv q-fin／econ 近 120 天、頻道期刊 RSS 裡和金融有關的論文 |
+| `stocks.yml` | 每天 08:00、12:00、21:00（台灣）；但受 Threads 每日上限限制（見下） | 股市篇串文：Claude 選研究和角度、根據論文寫、另一個 Claude 對照論文和「不給投資建議」規則查核，再發到 Threads，第一則回覆附出處。repo variable `STOCKS_AUTO=true` 才會自動跑；手動執行預設只產生草稿（顯示在 run 的 Summary），勾 `post` 才會發。研究來源：`data/stock_library.json`（精選經典，可自己加；每天早上那篇會先用 Semantic Scholar 搜一個主題，忙線時改用 Crossref，把 2 篇被引用 30 次以上、跟金融有關的新研究加進來；用滿 3 次的研究和超過 40 篇時最舊的會自動淘汰；可選 secret `SEMANTIC_SCHOLAR_API_KEY`）、arXiv q-fin／econ 近 120 天、頻道期刊 RSS 裡和金融有關的論文 |
 | `sample.yml` | 手動，或 commit 訊息含 `[sample]` | 只產生樣片，放在 pre-release，不上傳任何平台 |
+
+**Threads 每日上限**：`THREADS_DAILY_CAP`（預設 2）是整個 Threads 帳號一天（台灣日期）的則數，其中一則留給晚上 7 點的短片，股市篇和自由發文共用剩下的，先發先佔（通常是 08:00 那則股市篇）。超過就跳過，而且在呼叫 Claude 之前就跳過，不花錢。自由發文只用 `PUBLISH_LANGS` 裡的語言（預設只有中文）。
 
 開關在 [Settings → Variables](../../settings/variables/actions)：`AUTO_PUBLISH`、`PODCAST_AUTO`、`AUTO_REPLY`、`SOCIAL_AUTO`、`STOCKS_AUTO` 設成 `true` 才會自動跑；`REVIEW_REQUIRED=true` 恢復人工審核；`VISUAL_CHECK=off` 關掉看畫面；`PODCAST_DAY`（0＝週一）和 `PODCAST_HOUR_UTC` 改長片上片時間（預設週五 12:00 UTC＝台灣 20:00）。
 

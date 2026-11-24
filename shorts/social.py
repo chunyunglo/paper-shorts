@@ -22,7 +22,7 @@ from typing import Literal
 from PIL import Image, ImageDraw
 from pydantic import BaseModel, Field
 
-from . import analytics, config, fonts, journal, llm, memory, news as newsmod
+from . import analytics, config, fonts, journal, llm, memory, news as newsmod, threads_budget
 from .safelog import ApiError, log
 from .state import load_history
 
@@ -121,7 +121,14 @@ def room(history: list[dict], now: datetime) -> dict[str, int]:
     day, week = now.date().isoformat(), (now - timedelta(days=7)).isoformat()
     th = sum(1 for p in history if p["platform"] == "threads" and p["posted"][:10] == day)
     ig = sum(1 for p in history if p["platform"] == "instagram" and p["posted"] >= week)
-    return {"threads": max(0, max_threads_per_day() - th), "instagram": max(0, max_ig_per_week() - ig)}
+    # the account-wide budget (threads_budget) also counts the stock series and keeps a slot for the short
+    th_left = min(max(0, max_threads_per_day() - th), threads_budget.room(now))
+    return {"threads": th_left, "instagram": max(0, max_ig_per_week() - ig)}
+
+
+def langs() -> set[str]:
+    """Languages free posts may use: the same PUBLISH_LANGS the shorts use (default zh only)."""
+    return {l.strip() for l in config.env("PUBLISH_LANGS", "zh").split(",") if l.strip()} or {"zh"}
 
 
 def episodes_listing(eps: list[dict]) -> str:
@@ -146,7 +153,7 @@ def validate(plan: Plan, eps: dict[str, dict], cap: dict[str, int], n_news: int)
     """Drop what breaks the rules mechanically (over the cap, no source episode, wrong shape)."""
     keep, left = [], dict(cap)
     for p in plan.posts:
-        if left[p.platform] <= 0 or not p.episodes or any(e not in eps for e in p.episodes):
+        if left[p.platform] <= 0 or not p.episodes or any(e not in eps for e in p.episodes) or p.lang not in langs():
             continue
         if p.platform == "instagram" and not 1 <= len(p.slides) <= 10:
             continue
@@ -176,7 +183,7 @@ def make(now: datetime | None = None) -> Path | None:
     # how earlier free posts on similar news did, and the best and worst so far, so the plan learns from them
     past = memory.context(newsmod.listing(heads), ("free post",))
     prompt = (f"Today: {now:%A %Y-%m-%d} (UTC). Room left: threads {cap['threads']} today, instagram "
-              f"{cap['instagram']} this week.\n\nOur recent free posts (don't repeat):\n{recent}\n\n"
+              f"{cap['instagram']} this week. Write only in: {', '.join(sorted(langs()))}.\n\nOur recent free posts (don't repeat):\n{recent}\n\n"
               f"Channel notes:\n<notes>\n{analytics.guidance() or '(no data yet)'}\n\n{past}\n</notes>\n\n"
               f"Episodes we published:\n<episodes>\n{episodes_listing(list(eps.values()))}\n</episodes>\n\n"
               f"Today's headlines:\n<headlines>\n{newsmod.listing(heads) or '(none)'}\n</headlines>")

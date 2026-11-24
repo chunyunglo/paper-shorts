@@ -34,7 +34,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field
 
-from . import analytics, config, journal, llm, news as newsmod, papers
+from . import analytics, config, journal, llm, news as newsmod, papers, threads_budget
 from .safelog import ApiError, http, log
 
 HISTORY = config.DATA / "stock_history.json"
@@ -424,6 +424,9 @@ def make(slot: str, now: datetime | None = None) -> Path | None:
     if posted_today(history, slot, now):
         log(f"Stocks: {slot} already posted today")
         return None
+    if threads_budget.room(now) <= 0:  # checked before any Claude call, so a skipped slot costs nothing
+        log(f"Stocks: Threads daily cap reached ({threads_budget.daily_cap()}); {slot} skipped")
+        return None
     # the pick call reads every listed abstract, so the list is capped: the first run listed ~200
     # studies (94k tokens, most of that post's cost); the library and used studies come first
     if slot == "morning":
@@ -506,6 +509,9 @@ def publish(folder: Path) -> None:
     history = load()
     if posted_today(history, rec["slot"]):
         log(f"Stocks: {rec['slot']} already posted today; skipped")
+        return
+    if threads_budget.room() <= 0:
+        log("Stocks: Threads daily cap reached; skipped")
         return
     pid, url = meta.th_publish_text(rec["text"])
     history.append({"posted": datetime.now(timezone.utc).isoformat(timespec="seconds"), "platform": "threads",
