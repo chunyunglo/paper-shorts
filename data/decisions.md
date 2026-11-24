@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-24
 
+- **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgILVkPm0id)
+  - 內容 Text: 🏭 產業前沿｜反鐵磁排列的材料，能帶也可能出現自旋分裂？ 這類材料叫交錯磁體：晶胞中自旋向上與向下的錳原子，是靠旋轉或鏡面這類操作彼此對應，而不是靠反轉或平移。 這篇預印本用對稱性分析，指出 MnSiN2 與 MnGeN2 這兩種以錳為磁性…
+  - 論文 Paper: [Altermagnetism of MnSiN2 and MnGeN2 in a wurtzite-based crystal structure](https://arxiv.org/abs/2611.30865) (arXiv cond-mat.mtrl-sci)
+  - 為什麼 Why: 筆記建議午間交替 AI 與非 AI 硬體或材料題材，昨天剛談過 AI 記憶體架構，今天換成材料物理，也避開最近談過的資料中心電網題。
+  - 花費 Claude cost: US$0.110
 - **自由發文 Free post** · threads/zh · follow_up · [link](https://www.threads.com/@human__behavior__decode/post/DgIIR9uEUDP)
   - 內容 Text: 上班族常「碰得到面」的兩個地區，公司之間比較容易做生意嗎？ 我們今天介紹的研究（arXiv, 2026）把兩份東京資料接起來： ・2019年7到9月，約32.9萬名匿名手機用戶的GPS軌跡 ・2016到2022年，19.6萬家總部在東京的公…
   - 為什麼 Why: This Tokyo co-presence paper is today's new episode with no Chinese Threads follow-up yet, so it takes the daily zh design-and-finding slot the channel notes keep as default, with a question-led opener because yesterday's post led with numbers; no headline links to it responsibly, Instagram free posts stay paused per the notes, and a second post would be filler.
