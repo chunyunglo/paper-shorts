@@ -1202,5 +1202,33 @@
     "cost_usd": 0.1104,
     "id": "18195950131416423",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgILVkPm0id"
+  },
+  {
+    "posted": "2026-11-24T22:51:49+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜「大多數人可以信任嗎？」一個問卷題目，竟然和股票的「彩券效應」扯上關係。\n\n研究用 1996–2018 年在那斯達克上市、總部位於美國 49 州的 8,875 家公司，把「上個月單日最大漲幅（MAX）」高的股票視為彩券型股票。過去已知這類股票隔月報酬往往偏低。這篇研究發現，這個現象集中在社會信任相對較高的地區，信任較低的地區則較弱或不明顯。例如價值加權下，高低 MAX 組合的月報酬差距，高信任地區是 −1.34%，低信任地區是 −0.87%（不顯著）。\n\n作者的解釋是：信任高，人們對難以驗證的樂觀故事就少一分懷疑。這是作者的推論，不是直接量到的心理；也不代表信任有害，更不是任何操作訊號。\n\n（研究分享，不是投資建議）",
+    "why": "近期晚間貼文已談過極端報酬與基金申贖、單一股票槓桿 ETF 與留言熱度，這篇把「彩券型股票」連到信任與地區差異，角度新，也貼近讀者自己的投資習慣，且不必掛今天任何新聞。",
+    "news": null,
+    "paper": {
+      "id": "arxiv:2611.27020",
+      "title": "Trust and Lottery-Related Anomalies",
+      "abstract": "We examine whether social trust shapes the pricing of lottery-like stocks by influencing investors' beliefs regarding optimistic information associated with extreme future payoffs. We argue that higher social trust reduces investors' skepticism toward optimistic information associated with extreme future payoffs, increasing demand for lottery-type stocks and leading to overpricing and lower subsequent returns. Using a sample of 8,875 firms across 49 US states over the period 1996-2018 and MAX as a proxy for lottery-like characteristics, we show that the MAX effect is concentrated in regions with relatively high trust and is weak or absent in regions with relatively low trust. We further find that this trust conditioning is stronger in regions with lower education or income levels, consistent with social trust playing a relatively more important role when investors have more limited access to private information. The results are robust to alternative lottery proxies and a range of robustness checks. Our findings identify social trust as a novel determinant of the pricing of lottery-like stocks and provide evidence that social capital may amplify belief-driven mispricing in assets with highly skewed payoffs.",
+      "authors": [
+        "Reza Bradrania",
+        "Ya Gao"
+      ],
+      "venue": "arXiv q-fin.PR",
+      "url": "https://arxiv.org/abs/2611.27020",
+      "pdf_url": "https://arxiv.org/pdf/2611.27020v1",
+      "doi": "10.1016/j.iref.2026.106078",
+      "published": "2026-11-20",
+      "source": "arxiv"
+    },
+    "cost_usd": 0.2431,
+    "id": "18130424207312549",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgJEeMAG3eH"
   }
 ]

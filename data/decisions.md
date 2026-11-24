@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-24
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgJEeMAG3eH)
+  - 內容 Text: 🌙 盤後研究室｜「大多數人可以信任嗎？」一個問卷題目，竟然和股票的「彩券效應」扯上關係。 研究用 1996–2018 年在那斯達克上市、總部位於美國 49 州的 8,875 家公司，把「上個月單日最大漲幅（MAX）」高的股票視為彩券型股票。…
+  - 論文 Paper: [Trust and Lottery-Related Anomalies](https://arxiv.org/abs/2611.27020) (arXiv q-fin.PR)
+  - 為什麼 Why: 近期晚間貼文已談過極端報酬與基金申贖、單一股票槓桿 ETF 與留言熱度，這篇把「彩券型股票」連到信任與地區差異，角度新，也貼近讀者自己的投資習慣，且不必掛今天任何新聞。
+  - 花費 Claude cost: US$0.243
 - **股市篇 Stock series** · noon · industry_implication · [link](https://www.threads.com/@human__behavior__decode/post/DgILVkPm0id)
   - 內容 Text: 🏭 產業前沿｜反鐵磁排列的材料，能帶也可能出現自旋分裂？ 這類材料叫交錯磁體：晶胞中自旋向上與向下的錳原子，是靠旋轉或鏡面這類操作彼此對應，而不是靠反轉或平移。 這篇預印本用對稱性分析，指出 MnSiN2 與 MnGeN2 這兩種以錳為磁性…
   - 論文 Paper: [Altermagnetism of MnSiN2 and MnGeN2 in a wurtzite-based crystal structure](https://arxiv.org/abs/2611.30865) (arXiv cond-mat.mtrl-sci)
