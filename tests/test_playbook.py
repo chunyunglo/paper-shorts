@@ -47,17 +47,17 @@ def test_guardrails(state, monkeypatch):
     lines = pbm.apply(p, NOW)
     assert [l[:3] for l in lines] == ["- ❌", "- ❌", "- ❌", "- ✅", "- ✅", "- ❌"]  # range, field, empty, max 2
     # cooldown: no new change to the same field within two weeks, but a revert is fine
-    later = datetime(2026, 12, 27, tzinfo=timezone.utc)
+    later = datetime(2026, 12, 24, tzinfo=timezone.utc)
     assert pbm.apply(pbm.Proposal(check="c", changes=[change("ending", "follow")]), later)[0].startswith("- ❌")
     assert pbm.apply(pbm.Proposal(check="c", changes=[change("ending", "follow", revert=True)]),
-                     datetime(2027, 1, 5, tzinfo=timezone.utc))[0].startswith("- ✅")
+                     datetime(2026, 12, 28, tzinfo=timezone.utc))[0].startswith("- ✅")
     monkeypatch.setenv("PLAYBOOK_PINNED", "ig_per_week")
     assert "PLAYBOOK_PINNED" in pbm.apply(pbm.Proposal(check="c", changes=[change("ig_per_week", 1)]), later)[0]
 
 
 def test_ab_test_is_locked_and_env_vars_still_win(state, monkeypatch):
     early = datetime(2026, 12, 1, tzinfo=timezone.utc)
-    assert "2026-12-09" in pbm.apply(pbm.Proposal(check="c", changes=[change("script_format", "classic")]), early)[0]
+    assert "2026-12-02" in pbm.apply(pbm.Proposal(check="c", changes=[change("script_format", "classic")]), early)[0]
     monkeypatch.setenv("THREADS_DAILY_CAP", "1")
     assert threads_budget.daily_cap() == 1
     assert "THREADS_DAILY_CAP" in pbm.apply(pbm.Proposal(check="c", changes=[change("threads_daily_cap", 3)]), NOW)[0]
@@ -88,7 +88,8 @@ def test_weekly_runs_once_a_week(state, monkeypatch):
     calls = []
     monkeypatch.setattr(pbm, "propose", lambda *a: calls.append(1) or pbm.Proposal(check="c", changes=[]))
     assert "本週不改" in pbm.weekly({}, "", NOW)
-    assert pbm.weekly({}, "", datetime(2026, 12, 23, tzinfo=timezone.utc)) == "" and len(calls) == 1
+    assert pbm.weekly({}, "", datetime(2026, 12, 22, tzinfo=timezone.utc)) == "" and len(calls) == 1
+    assert pbm.weekly({}, "", datetime(2026, 12, 23, tzinfo=timezone.utc)) and len(calls) == 2
 
 
 def test_format_compare_uses_same_age(state):

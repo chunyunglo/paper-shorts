@@ -289,7 +289,15 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
     # file times are lost on checkout, so the note carries its own date on the first line
     written = sfile.read_text(encoding="utf-8").split("\n", 1)[0][-10:] if sfile.exists() else ""
     stale = written < (datetime.now(timezone.utc) - timedelta(days=6)).date().isoformat()
-    if strategy or (strategy is None and stale and config.env("ANTHROPIC_API_KEY")):
+    weekly = strategy or (strategy is None and stale and config.env("ANTHROPIC_API_KEY"))
+    if not weekly and config.env("ANTHROPIC_API_KEY") and any(r.get("metrics") for r in report["posts"]):
+        from . import memory, playbook
+
+        # every few days, on its own schedule (weekly() returns "" when not due): change the playbook
+        # itself (format, hook, ending, topics, cadence); on the weekly day it runs after the self-review
+        pb_note = playbook.weekly(report, memory.lessons())
+        email = email or bool(pb_note)
+    if weekly:
         if any(r.get("metrics") for r in report["posts"]):
             from . import memory
 
@@ -299,7 +307,6 @@ def run(strategy: bool | None = None, email: bool = False) -> None:
                 log(f"Retrospective skipped: {exc}")
             from . import playbook
 
-            # then let the review change the playbook itself (format, hook, ending, topics, cadence)
             pb_note = playbook.weekly(report, memory.lessons())
             try:
                 note = write_strategy(report, pb_note)
