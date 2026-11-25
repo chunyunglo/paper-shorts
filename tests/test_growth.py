@@ -5,13 +5,14 @@ from datetime import datetime, timezone
 from shorts import config, script as sm, social, stocks, threads_budget
 
 
-def test_answer_first_has_no_credits_scene_and_a_shorter_budget():
+def test_answer_first_has_no_credits_scene_and_both_share_the_length_limit(monkeypatch):
     a, c = sm.system("answer_first"), sm.system("classic")
     assert "2. paper:" in c and "2. paper:" not in a and "Never use the 'paper' visual" in a
-    assert "28-35 seconds" in a and "45-55 seconds" in c
-    assert sm.budget("answer_first")[0] < sm.budget("classic")[0]
-    assert "130-160" in sm.zh_system("answer_first") and "200-230" in sm.zh_system("classic")
-    assert "{hook}" not in sm.zh_system("classic")
+    assert "Length rule" in a and "Length rule" in c and "{hook}" not in sm.zh_system("classic")
+    monkeypatch.delenv("MAX_SECONDS", raising=False)
+    assert sm.budget("answer_first") == sm.budget("classic") == (540, 312)  # 2 minutes
+    monkeypatch.setenv("MAX_SECONDS", "60")
+    assert sm.budget("classic") == (270, 156)
 
 
 def test_format_alternates_by_taiwan_day_and_can_be_fixed(monkeypatch):

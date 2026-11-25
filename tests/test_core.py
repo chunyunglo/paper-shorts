@@ -346,7 +346,7 @@ def test_threads_publish_does_not_retry_other_errors(monkeypatch):
 def test_write_shortens_a_script_over_the_narration_budget(monkeypatch):
     from shorts import script as sm
 
-    long_line = sm.Line(zh="這" * 22, en=" ".join(["word"] * 12))
+    long_line = sm.Line(zh="這" * 40, en=" ".join(["word"] * 12))
     short_line = sm.Line(zh="這" * 10, en="a short line")
 
     def scene(visual, line):
@@ -586,13 +586,13 @@ def test_a_long_chinese_video_is_cut_once(monkeypatch):
 
     def fake_ask(schema, system, content, **kw):
         texts.append(content[-1]["text"])
-        line = "長" * (50 if len(texts) == 1 else 20)
+        line = "長" * (80 if len(texts) == 1 else 20)
         return sm.PaperOutput(zh=sm.ZhVersion(title="t", description="d", scenes=[
             sm.ZhScene(heading="h", labels=list(s.labels), big_text="", lines=[line]) for s in script.scenes]))
 
     monkeypatch.setattr(sm.llm, "ask", fake_ask)
     out = sm.write_zh(_PAPER, script)
-    assert len(texts) == 2 and "350 characters" in texts[1] and sm.length(out)[0] == 140
+    assert len(texts) == 2 and "560 characters" in texts[1] and sm.length(out)[0] == 140
 
 
 def test_rerender_reuses_spoken_lines_and_records_the_fallback_voice(monkeypatch, tmp_path):
