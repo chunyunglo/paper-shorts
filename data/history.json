@@ -10457,5 +10457,289 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261124-physical-co-presence-of-workers-is-linke",
     "pick_reason": "Uses large-scale inter-firm transaction data together with worker co-presence and mobility to show how people's physical encounters shape the evolution of economic networks, a clear network-science method that can be explained in 3-4 visual steps. Signals: Channel notes favor concrete, non-AI everyday topics with clear comparisons, and recent episodes avoided this economic-network area."
+  },
+  {
+    "episode": "20261125-political-orientation-and-participation",
+    "created": "2026-11-25T06:07:52+00:00",
+    "paper": {
+      "id": "arxiv:2611.29576",
+      "title": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+      "abstract": "Prediction markets offer a way to study collective expectations and beliefs: people express their views on various events and, by putting money behind their predictions, take on the risks of their judgments. As a result, the scale of investment can reveal additional dimensions of individual behavior and beliefs. In this study, we use a complex network approach to examine the structure of user participation, drawing on roughly 1.14 billion transaction records from the Polymarket platform, covering more than 3.1 million wallet addresses and 764,000 prediction events. To do this, we build a bipartite network of users and events and analyze patterns of investment concentration, connections between topics, and the network's community structure. Our findings show a highly skewed distribution of financial participation: 1\\% of events account for 64\\% of total transaction volume, while 1\\% of wallets account for 79.2\\% of total financial participation. We also examine how investment scale and political orientation shape user participation patterns. Focusing on the 2024 U.S. presidential election, we compare users who invested exclusively in a Trump victory or exclusively in a Harris victory, grouping wallets by purchase size rather than by retail or institutional status. The results show that among large-scale investors, capital allocation patterns across topics are more similar between the two political groups; in contrast, these patterns diverge more and vary more among small-scale investors. This result holds across six different ways of representing and comparing the networks, and four of these differences are also statistically supported.",
+      "authors": [
+        "Ali Hosseinzadeh",
+        "Ali Hosseiny",
+        "Reza Jafari"
+      ],
+      "venue": "arXiv physics.soc-ph",
+      "url": "https://arxiv.org/abs/2611.29576",
+      "pdf_url": "https://arxiv.org/pdf/2611.29576v1",
+      "doi": null,
+      "published": "2026-11-22",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "押注相反，大額組卻很像",
+      "title_en": "Opposite Bets, Similar Big Bettors",
+      "paper_title_zh": "政治傾向與預測市場參與：大額趨同，小額分歧",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "答案",
+          "heading_en": "THE ANSWER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "大額組較像",
+          "big_text_en": "Big stakes: more alike",
+          "lines": [
+            {
+              "zh": "押相反候選人，大戶押法卻較像",
+              "en": "Opposite bets, yet big-stake groups look alike"
+            },
+            {
+              "zh": "問題是，這要怎麼比出來？",
+              "en": "So how do you even measure that?"
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "筆交易"
+          ],
+          "labels_en": [
+            "trades"
+          ],
+          "values": [],
+          "big_text": "約11.4億",
+          "big_text_en": "~1.14 billion",
+          "lines": [
+            {
+              "zh": "預測市場上約11億筆真錢交易。",
+              "en": "About 1.14 billion real-money bets on Polymarket."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "分組",
+          "heading_en": "THE GROUPS",
+          "labels": [
+            "只押賀錦麗",
+            "只押川普",
+            "大額",
+            "小額"
+          ],
+          "labels_en": [
+            "Harris only",
+            "Trump only",
+            "Big stakes",
+            "Small stakes"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "九月買過賀錦麗或川普的人，按下注金額排名",
+              "en": "September 2024: all Harris or Trump buyers, ranked by stake size."
+            },
+            {
+              "zh": "取最大與最小的5%，再挑出只押單邊的人",
+              "en": "Take the top and bottom 5%, then keep one-candidate-only bettors."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE TEST",
+          "labels": [
+            "9月下注",
+            "10月下注",
+            "比較"
+          ],
+          "labels_en": [
+            "Sept. bets",
+            "Oct. bets",
+            "Compare"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "再看十月，他們在選舉之外押了什麼？",
+              "en": "In October, what else did they bet on?"
+            },
+            {
+              "zh": "最後比較兩派的分配像不像。",
+              "en": "Finally, how alike were the two sides' bets?"
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "大額",
+            "小額"
+          ],
+          "labels_en": [
+            "Big stakes",
+            "Small stakes"
+          ],
+          "values": [],
+          "big_text": "大額較接近",
+          "big_text_en": "Big: closer",
+          "lines": [
+            {
+              "zh": "大額兩派的押法較接近，小額差較多。",
+              "en": "Big-stake groups' other bets were closer than small-stake ones."
+            },
+            {
+              "zh": "六種比法方向一致，但只有四種經統計檢驗支持。",
+              "en": "All 6 comparisons agreed, but only 4 passed the statistical test."
+            },
+            {
+              "zh": "這只比整組，不代表個人；只看十月、人數不多。",
+              "en": "Group-level, not individuals; only October, small groups."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "大額組較像",
+          "big_text_en": "Big-stake groups looked closer",
+          "lines": [
+            {
+              "zh": "這次選舉裡，大額兩派較像，原因還不明。",
+              "en": "In this election, big-stake groups looked closer. Why is unclear."
+            },
+            {
+              "zh": "想看更多，請追蹤我們。",
+              "en": "Follow for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "2024年美國大選，有人只押賀錦麗，有人只押川普。研究團隊用Polymarket約11.4億筆交易，比較兩邊九月下注金額最大和最小5%的人，十月在其他題目上的押法。結果大額組的兩邊比較像，但只有四種比法通過統計檢驗，原因也還不清楚。",
+      "description_en": "How do people who bet on Trump and people who bet on Harris spread their other bets? A study of about 1.14 billion trades on Polymarket found that the biggest-stake groups on the two sides allocated money more alike than the smallest-stake groups. All six comparisons pointed the same way, but only four were statistically supported. It compares groups over one month, so it cannot show individual views, causes or political bias. Paper: Hosseinzadeh, Hosseiny and Jafari, arXiv 2026.",
+      "hashtags": [
+        "預測市場",
+        "Polymarket",
+        "行為解碼",
+        "政治",
+        "網路科學",
+        "PredictionMarkets",
+        "BehaviorDecoded",
+        "2024選舉"
+      ],
+      "method_summary": "The authors used about 1.14 billion executed trades (roughly 41.3 billion USDC) from the Polymarket prediction market, covering over 3.1 million wallet addresses and about 764,000 events. They built a bipartite network linking wallets to events, weighted by traded amount, and measured concentration: the top 1% of events hold 64% of volume and the top 1% of wallets hold 79.2% of participation. Community detection on the whole network found 149 communities in the amount-weighted version. For the election case study, they took September 2024 YES purchases in the presidential winner market. Purchase-size cutoffs were computed across one pool of all 21,301 buyers of either candidate (including 4,466 who bought both): Top 5% means at least about 2,788 USDC and Bottom 5% at most about 1.09 USDC. Only afterwards were Harris-only and Trump-only cohorts selected within each tier. They then measured how each cohort spread its October trading across 22 subjects outside the election, and compared Harris and Trump cohorts using Jensen-Shannon divergence (a measure of how different two distributions are). The Top pair was closer than the Bottom pair (0.243 vs 0.457 bits for amount-edge networks) and closer in all six representations. Four of the six contrasts were supported by a label-randomization test after Holm correction (adjusted p = 0.0006), while amount profiles (p = 0.3274) and amount edges (p = 0.3357) were not; in the amount-edge view, HB-TT was closer than HT-TT.",
+      "limitations": "The comparison is between aggregate cohorts, not individual wallets, and wallets need not be distinct people. An election purchase does not establish political affiliation, wealth or motive, so the gap cannot be attributed to political bias, better information or stake size as a cause. Only two tiers (top and bottom 5%) were compared, so no graded trend with stake size is shown. Only October activity was examined, with unequal active fractions and small cohorts (135 to 360 active wallets), on one platform and one election. Two of six comparisons were not statistically supported. The study is observational.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "押注相反，大額組卻很像",
+          "怎麼知道的？"
+        ],
+        [
+          "Polymarket有約11.4億筆真錢下注。"
+        ],
+        [
+          "2024年9月，買賀錦麗或川普的人按金額排名",
+          "取最大、最小5%，再留只押一邊的"
+        ],
+        [
+          "十月，他們還押了什麼？",
+          "最後比兩邊像不像。"
+        ],
+        [
+          "大額組其他題目的押法，比小額組更接近。",
+          "六種比法都如此，四種通過統計檢驗。",
+          "整組比較，只看十月，人數不多。"
+        ],
+        [
+          "這次大選，大額組較像，原因不明。",
+          "追蹤看更多。"
+        ]
+      ],
+      "icons": [
+        [],
+        [
+          "transaction-dollar"
+        ],
+        [
+          "user",
+          "user",
+          "moneybag",
+          "coin"
+        ],
+        [
+          "calendar",
+          "calendar",
+          "git-compare"
+        ],
+        [
+          "moneybag",
+          "coin"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 31.98,
+        "cover_offset_ms": 4133,
+        "tts": "gemini Achird"
+      },
+      "en": {
+        "file": "video_en.mp4",
+        "duration": 37.3,
+        "cover_offset_ms": 5259,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "jzh8LyDv9IU",
+          "url": "https://youtube.com/shorts/jzh8LyDv9IU"
+        },
+        "instagram": {
+          "id": "18008753018794767",
+          "url": "https://www.instagram.com/reel/DgKYQiLq54l/"
+        },
+        "threads": {
+          "id": "17945703123147771",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgKYVUcs1kT"
+        }
+      },
+      "en": {
+        "youtube": {
+          "id": "ZjTGCaua4oc",
+          "url": "https://youtube.com/shorts/ZjTGCaua4oc"
+        },
+        "instagram": {
+          "id": "18486186766141124",
+          "url": "https://www.instagram.com/reel/DgKYf0mB3kt/"
+        },
+        "threads": {
+          "id": "18000199086013300",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgKYjn4hKAy"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261125-political-orientation-and-participation",
+    "pick_reason": "Uses network analysis of real-money prediction market participation to show that political orientation shapes small bets but converges at large stakes, a concrete and surprising finding that can be explained visually in 3-4 steps. Signals: Notes favor concrete, counterintuitive comparisons and everyday non-AI behavior topics, and recent episodes already covered AI advice, voting-advice chatbots, news selection and partisan TV, so this politics-and-markets pick is fresh."
   }
 ]

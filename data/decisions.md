@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-25
+
+- **短影音 Short** · [押注相反，大額組卻很像 / Opposite Bets, Similar Big Bettors](https://youtube.com/shorts/jzh8LyDv9IU)
+  - 論文 Paper: [Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge](https://arxiv.org/abs/2611.29576) (arXiv physics.soc-ph)
+  - 為什麼 Why: Uses network analysis of real-money prediction market participation to show that political orientation shapes small bets but converges at large stakes, a concrete and surprising finding that can be explained visually in 3-4 steps. Signals: Notes favor concrete, counterintuitive comparisons and everyday non-AI behavior topics, and recent episodes already covered AI advice, voting-advice chatbots, news selection and partisan TV, so this politics-and-markets pick is fresh.
+
 ## 2026-11-24
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgJEeMAG3eH)
