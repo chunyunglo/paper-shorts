@@ -47,15 +47,19 @@ REVIEW_EVERY_DAYS = 3  # the playbook review runs this often, on its own schedul
 LOCKED_UNTIL = {"script_format": "2026-12-02"}
 # the old env var names, which still override the playbook when set
 ENV = {"script_format": "SCRIPT_FORMAT", "threads_daily_cap": "THREADS_DAILY_CAP",
-       "free_threads_per_day": "MAX_THREADS_PER_DAY", "ig_per_week": "MAX_IG_PER_WEEK"}
+       "free_threads_per_day": "MAX_THREADS_PER_DAY", "ig_per_week": "MAX_IG_PER_WEEK",
+       "max_seconds": "MAX_SECONDS"}
 
 
 class Playbook(BaseModel):
     # ---- shorts: how an episode is told
     script_format: Literal["alternate", "classic", "answer_first"] = Field(
         "alternate", description="alternate = answer_first on odd Taiwan dates, classic on even ones (the A/B "
-        "test); classic = question, who did the study, method, finding near the end (45-55 s); answer_first = "
-        "the finding in line 1, then how they found it, no credits scene (28-35 s)")
+        "test); classic = question, who did the study, method, finding near the end; answer_first = "
+        "the finding in line 1, then how they found it, no credits scene. Length is max_seconds for both")
+    max_seconds: int = Field(
+        120, ge=30, le=120, description="Longest a short may run, in seconds (the owner's limit is 2 minutes). "
+        "Scripts take the time the story needs up to this, never padded; lower it if long videos lose viewers")
     hook_style: Literal["either", "question", "result"] = Field(
         "either", description="classic format only: the hook's first line is a question about the viewer's own "
         "behavior, the striking result stated as a tension, or either (whichever fits). answer_first always "
@@ -227,7 +231,7 @@ class Proposal(BaseModel):
 
 
 PROPOSE_SYSTEM = f"""You own the playbook of "Behavior Decoded / 行為解碼": the structural choices behind \
-its one-minute research shorts (format, hook, ending), its paper picking and its posting cadence. Each \
+its short research videos (up to 2 minutes) (format, hook, ending), its paper picking and its posting cadence. Each \
 week you read the channel numbers, this week's self-review and the playbook's change log, and decide \
 whether to change the playbook. The writers and schedulers follow it exactly, so a change here really \
 changes the next posts.
@@ -348,8 +352,13 @@ def weekly(report: dict, lessons: str, now: datetime | None = None) -> str:
 # ---------------------------------------------------------------- what the writers read
 
 def script_notes(fmt: str) -> str:
-    """Playbook rules appended to the script writer's instructions (empty at the defaults)."""
+    """Playbook rules appended to the script writer's instructions (always the length rule)."""
     pb, out = load(), []
+    zh, en = int(pb.max_seconds * 4.5), int(pb.max_seconds * 2.6)
+    out.append(f"Length: as long as this study needs to be clear and no longer, at most {pb.max_seconds} seconds: "
+               f"at most about {zh} Chinese characters and {en} English words of narration in total. The finding "
+               "still comes in the first seconds as the structure says; extra time goes to explaining clearly, "
+               "never to padding.")
     if fmt == "classic" and pb.hook_style == "question":
         out.append("Hook line 1 is a direct question about the viewer's own behavior, not a statement.")
     elif fmt == "classic" and pb.hook_style == "result":

@@ -28,7 +28,9 @@ def test_defaults_keep_todays_behaviour(state):
     pb = pbm.load()
     assert pb.script_format == "alternate" and pb.threads_daily_cap == 2 and pb.ig_per_week == 3
     assert pb.stock_slots == ["morning", "noon", "evening"]
-    assert pbm.script_notes("classic") == "" and pbm.pick_notes() == ""
+    notes = pbm.script_notes("classic")
+    assert pb.max_seconds == 120 and "at most 120 seconds" in notes and notes.count("\n- ") == 1
+    assert pbm.pick_notes() == ""
     assert threads_budget.daily_cap() == 2 and social.max_threads_per_day() == 2
 
 
