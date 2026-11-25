@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-25
 
+- **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgLjwtGFu-U)
+  - 內容 Text: 🌙 盤後研究室｜公司愛不愛把股利發得很平穩？這其實是個老問題：經理人普遍想維持平滑的股利，但投資人真的買單嗎？ 有研究從三個角度檢查：誰持有這類股票、股價、以及資金成本。研究發現，散戶比較不傾向持有股利發放平穩的股票，法人，尤其是共同基金，…
+  - 論文 Paper: [Do Investors Value Dividend-Smoothing Stocks Differently?](https://doi.org/10.1287/mnsc.2016.2551) (Management Science)
+  - 為什麼 Why: 近期貼文多談散戶行為與情緒，這篇用持股結構比較散戶與法人，角度新；今天大盤標題波動劇烈，避免掛新聞，改用不涉及行情的持股偏好研究。
+  - 花費 Claude cost: US$0.076
 - **短影音 Short** · [押注相反，大額組卻很像 / Opposite Bets, Similar Big Bettors](https://youtube.com/shorts/jzh8LyDv9IU)
   - 論文 Paper: [Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge](https://arxiv.org/abs/2611.29576) (arXiv physics.soc-ph)
   - 為什麼 Why: Uses network analysis of real-money prediction market participation to show that political orientation shapes small bets but converges at large stakes, a concrete and surprising finding that can be explained visually in 3-4 steps. Signals: Notes favor concrete, counterintuitive comparisons and everyday non-AI behavior topics, and recent episodes already covered AI advice, voting-advice chatbots, news selection and partisan TV, so this politics-and-markets pick is fresh.

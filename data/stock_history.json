@@ -1230,5 +1230,34 @@
     "cost_usd": 0.2431,
     "id": "18130424207312549",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgJEeMAG3eH"
+  },
+  {
+    "posted": "2026-11-25T22:03:41+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "finding",
+    "text": "🌙 盤後研究室｜公司愛不愛把股利發得很平穩？這其實是個老問題：經理人普遍想維持平滑的股利，但投資人真的買單嗎？\n\n有研究從三個角度檢查：誰持有這類股票、股價、以及資金成本。研究發現，散戶比較不傾向持有股利發放平穩的股票，法人，尤其是共同基金，則更可能持有。\n\n有趣的是，這種偏好並沒有在股票的預期報酬或市值上留下可偵測的關聯。作者的解讀是，公司可能是依投資人的需求來調整平穩股利的供給。\n\n這不代表股利政策無關緊要，研究看到的是它會影響股東組成，對股價則影響不大。摘要沒有說明更細的樣本或期間，所以這裡只能談到這裡。\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文多談散戶行為與情緒，這篇用持股結構比較散戶與法人，角度新；今天大盤標題波動劇烈，避免掛新聞，改用不涉及行情的持股偏好研究。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1287/mnsc.2016.2551",
+      "title": "Do Investors Value Dividend-Smoothing Stocks Differently?",
+      "abstract": "It is widely documented that managers strive to maintain smooth dividends. Yet, it is not clear if this behavior reflects investors’ preferences. In this paper, we study whether investors indeed value dividend-smoothing stocks differently by exploring the implications of dividend smoothing for firms’ investor clientele, stock prices, and cost of capital. We find that retail investors are less likely to hold dividend-smoothing stocks, while institutional investors, and especially mutual funds, are more likely. However, this preference does not result in any detectable relation between the smoothness of a firm’s dividends and the expected return, or market value, of its stock. Together, the evidence suggests that firms adjust the supply of smoothed dividends to match investors’ demand. Dividend smoothing affects the composition of a firm’s shareholders but has little impact on its stock price. This paper was accepted by Amit Seru, finance.",
+      "authors": [
+        "Yelena Larkin",
+        "Mark T. Leary",
+        "Roni Michaely"
+      ],
+      "venue": "Management Science",
+      "url": "https://doi.org/10.1287/mnsc.2016.2551",
+      "pdf_url": null,
+      "doi": "10.1287/mnsc.2016.2551",
+      "published": "2017",
+      "source": "journal"
+    },
+    "cost_usd": 0.0763,
+    "id": "18143509972713504",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgLjwtGFu-U"
   }
 ]
