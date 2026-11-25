@@ -133,7 +133,7 @@ def room(history: list[dict], now: datetime) -> dict[str, int]:
 
 def langs() -> set[str]:
     """Languages free posts may use: the same PUBLISH_LANGS the shorts use (default zh only)."""
-    return {l.strip() for l in config.env("PUBLISH_LANGS", "zh").split(",") if l.strip()} or {"zh"}
+    return set(config.publish_langs())
 
 
 def episodes_listing(eps: list[dict]) -> str:

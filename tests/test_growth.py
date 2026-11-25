@@ -65,3 +65,16 @@ def test_free_posts_respect_the_shared_budget_and_languages(tmp_path, monkeypatc
     zh = post.model_copy(update={"lang": "zh"})
     kept = social.validate(social.Plan(posts=[post, zh]), {"e": {}}, {"threads": 2, "instagram": 0}, 0).posts
     assert [p.lang for p in kept] == ["zh"]
+
+
+def test_publish_langs_default_to_chinese_only(monkeypatch):
+    from shorts import engage, pipeline
+    monkeypatch.delenv("PUBLISH_LANGS", raising=False)
+    assert config.publish_langs() == ("zh",)
+    assert pipeline.langs() == ("zh",) and engage.langs() == ("zh",)
+    monkeypatch.setenv("PUBLISH_LANGS", "zh en")
+    assert config.publish_langs() == ("zh", "en")
+    monkeypatch.setenv("PUBLISH_LANGS", "zh,en,xx")
+    assert config.publish_langs() == ("zh", "en")
+    monkeypatch.setenv("PUBLISH_LANGS", "")
+    assert config.publish_langs() == ("zh",)

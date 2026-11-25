@@ -188,6 +188,7 @@ def test_suggest_replies_filters_posts_and_never_posts(monkeypatch):
              {"id": "2", "text": "ours", "username": "me", "timestamp": now},
              {"id": "3", "text": "old", "username": "b", "timestamp": "2020-01-01T00:00:00+0000"}]
     monkeypatch.setattr(engage, "search", lambda q, limit=15: found)
+    monkeypatch.setattr(engage, "LANGS", ("zh", "en"))  # both, as when English posting is on
     q = engage.Queries(zh=["演算法 同溫層"], en=["my feed"], pt=["algoritmo bolha"])
     posts, ok = engage.find_posts(q, "me")
     assert ok and [(p["id"], p["query_lang"]) for p in posts] == [("1", "zh"), ("4", "en")]

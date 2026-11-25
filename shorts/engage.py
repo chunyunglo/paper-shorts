@@ -20,7 +20,11 @@ from .safelog import ApiError, log
 from .state import load_history
 
 
-LANGS = ("zh", "en")  # add "pt" to widen it
+LANGS: tuple[str, ...] | None = None  # None = config.publish_langs() (PUBLISH_LANGS; default zh only)
+
+
+def langs() -> tuple[str, ...]:
+    return tuple(LANGS) if LANGS else config.publish_langs()
 PER_LANG = 3  # at most this many suggestions per language
 
 
@@ -88,7 +92,7 @@ def find_posts(queries: Queries, own: str, days: int = 7) -> tuple[list[dict], b
     """Returns (posts, search_available)."""
     cutoff = time.time() - days * 86400
     posts, seen, available = [], set(), False
-    for lang in LANGS:
+    for lang in langs():
         for q in getattr(queries, lang)[:3]:
             try:
                 found = search(q)
@@ -133,7 +137,7 @@ def email_body(ep: dict, posts: list[dict], plan: Plan, queries: Queries, availa
         out += ["（Threads 搜尋權限 threads_keyword_search 還沒開通，所以沒有自動找貼文。"
                 "可以點下面的搜尋連結自己找。）", ""]
     out.append("搜尋連結：")
-    for lang in LANGS:
+    for lang in langs():
         out += [f"- {q}: https://www.threads.com/search?q={quote(q)}" for q in getattr(queries, lang)]
     return "\n".join(out)
 
@@ -143,14 +147,14 @@ def run(dry_run: bool = False) -> None:
     if not ep:
         log("Suggested replies: no episode published in the last day")
         return
-    queries = llm.ask(Queries, QUERY_SYSTEM, context(ep) + f"\n\nWrite phrases for: {', '.join(LANGS)}",
+    queries = llm.ask(Queries, QUERY_SYSTEM, context(ep) + f"\n\nWrite phrases for: {', '.join(langs())}",
                       effort="low")
     try:
         own = th("GET", "me", "username", fields="username")["username"]
     except ApiError:
         own = ""
     posts, available = find_posts(queries, own)
-    posts = [p for lang in LANGS for p in [x for x in posts if x["query_lang"] == lang][:20]]
+    posts = [p for lang in langs() for p in [x for x in posts if x["query_lang"] == lang][:20]]
     listing = "\n".join(f'<post index="{i}" lang="{p["query_lang"]}">{p["text"][:800]}</post>'
                         for i, p in enumerate(posts))
     plan = llm.ask(Plan, PLAN_SYSTEM, context(ep) + "\n\nPosts:\n" + (listing or "(none found)"),

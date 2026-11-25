@@ -38,6 +38,7 @@ jobs:
       VISUAL_CHECK: ${{ vars.VISUAL_CHECK }}
       MAX_THREADS_PER_DAY: ${{ inputs.threads || vars.MAX_THREADS_PER_DAY }}
       MAX_IG_PER_WEEK: ${{ inputs.instagram || vars.MAX_IG_PER_WEEK }}
+      PUBLISH_LANGS: ${{ vars.PUBLISH_LANGS }}
     steps:
       - uses: actions/checkout@v4
       - name: Load analytics

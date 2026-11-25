@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import os
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -34,6 +35,14 @@ GITHUB_REPO = os.environ.get("GITHUB_REPOSITORY", "chunyunglo/paper-shorts")
 def env(name: str, default: str | None = None) -> str | None:
     value = os.environ.get(name, default)
     return value if value else default
+
+
+def publish_langs() -> tuple[str, ...]:
+    """Languages the channel posts and renders: the PUBLISH_LANGS repo variable, space- or
+    comma-separated (default zh only; English is paused from 2026-11-25 as a growth test)."""
+    raw = env("PUBLISH_LANGS", "zh") or "zh"
+    langs = tuple(dict.fromkeys(l for l in re.split(r"[\s,]+", raw) if l in ("zh", "en", "pt")))
+    return langs or ("zh",)
 
 
 def require(name: str) -> str:
