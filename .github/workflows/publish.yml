@@ -25,8 +25,8 @@ on:
         options: [prepare, publish, delete]
         default: prepare
       langs:
-        description: "publish: which videos (space-separated: zh en)"
-        default: "zh en"
+        description: "publish: which videos (space-separated: zh en); empty = the PUBLISH_LANGS repo variable (default zh)"
+        default: ""
       episode:
         description: "prepare: remake this published episode instead of picking a new paper; delete: the episode to remove"
         default: ""
@@ -61,6 +61,8 @@ jobs:
       TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
       TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
       TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
+      # only these languages are rendered (English paused: no en video, so none in the review issue)
+      PUBLISH_LANGS: ${{ vars.PUBLISH_LANGS }}
       UNPAYWALL_EMAIL: ${{ secrets.ALERT_EMAIL_TO }}
     steps:
       - uses: actions/checkout@v4
@@ -174,7 +176,7 @@ jobs:
       # English is paused from 2026-11-25 as a growth test: one language per account gives the
       # recommendation systems a clear audience. Set PUBLISH_LANGS to "zh en" to bring it back.
       # The en video is still rendered every day, so a manual run can post it.
-      LANGS: ${{ github.event_name == 'schedule' && (vars.PUBLISH_LANGS || 'zh') || inputs.langs }}
+      LANGS: ${{ github.event_name != 'schedule' && inputs.langs || vars.PUBLISH_LANGS || 'zh' }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup

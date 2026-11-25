@@ -62,6 +62,7 @@ jobs:
           TTS_VOICE_ZH: ${{ vars.TTS_VOICE_ZH }}
           TTS_VOICE_EN: ${{ vars.TTS_VOICE_EN }}
           TTS_VOICE_PT: ${{ vars.TTS_VOICE_PT }}
+          PUBLISH_LANGS: ${{ vars.PUBLISH_LANGS }}
           UNPAYWALL_EMAIL: ${{ secrets.ALERT_EMAIL_TO }}
         run: |
           tag=$(python -m shorts review-tag "$ISSUE")

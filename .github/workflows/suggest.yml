@@ -29,4 +29,5 @@ jobs:
           ALERT_EMAIL_USER: ${{ secrets.ALERT_EMAIL_USER }}
           ALERT_EMAIL_APP_PASSWORD: ${{ secrets.ALERT_EMAIL_APP_PASSWORD }}
           ALERT_EMAIL_TO: ${{ secrets.ALERT_EMAIL_TO }}
+          PUBLISH_LANGS: ${{ vars.PUBLISH_LANGS }}
         run: python -m shorts suggest-replies ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}

@@ -11,7 +11,11 @@ from .config import OUT
 from .safelog import log
 from .state import load_history
 
-LANGS = ("zh", "en")  # add "pt" to bring back the Brazilian Portuguese video
+LANGS: tuple[str, ...] | None = None  # None = config.publish_langs() (PUBLISH_LANGS; default zh only)
+
+
+def langs() -> tuple[str, ...]:
+    return tuple(LANGS) if LANGS else config.publish_langs()
 
 
 def slug(text: str) -> str:
@@ -59,7 +63,7 @@ def make(script_json: Path | None = None, paper_json: Path | None = None, previe
                 papers.reject(paper)
                 raise
         ep_id = f"{now:%Y%m%d}-{slug(paper.title)}"
-    if "pt" in LANGS and not script.pt:
+    if "pt" in langs() and not script.pt:
         script.pt = scriptmod.translate_pt(script)
     return build(ep_id, paper, script, reason, preview_every, news)
 
@@ -83,7 +87,7 @@ def build(ep_id: str, paper: papers.Paper, script: scriptmod.Script, reason: str
     from .look import settled_times as look_times
 
     videos, check_times = {}, {}
-    for lang in LANGS:
+    for lang in langs():
         audio = out / f"voice_{lang}.wav"
         timings, total = tts.voiceover(spoken(script, lang), audio, lang)
         log(f"Voiceover ({lang}): {total:.1f}s")
