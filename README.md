@@ -17,7 +17,7 @@ The channel runs itself with no human review: daily shorts and a weekly English 
 |---|---|---|
 | 選論文 | arXiv（cs.SI、cs.CY、physics.soc-ph、econ.GN、cs.HC）＋ Nature Human Behaviour、Nature Computational Science、PNAS、Science Advances、EPJ Data Science、Journal of Computational Social Science 的 RSS，去掉做過的，由 Claude 挑一篇；也讀本週新聞頭條（台灣、美國、科技、科學），品質相近時優先挑和時事有關的；也會參考後台數字、每週策略和觀眾回饋，但只在品質相近時當作參考 | `shorts/papers.py`、`shorts/news.py` |
 | 寫腳本 | Claude 讀論文全文 PDF（arXiv，或透過 Unpaywall 找到的開放取用版本；讀不到全文的論文不選），寫 6–9 個場景，每句都有中文旁白和英文字幕，並指定畫面類型；有連到時事時，開場從那則新聞切入（只講到標題的程度，不編細節）；後台數字、策略和觀眾回饋只用來調整怎麼講（開場、哪裡講慢一點），不改論文內容 | `shorts/script.py` |
-| 腳本格式 | 兩種輪流（`SCRIPT_FORMAT`，預設 `alternate`：台灣日期單數日用 answer_first、雙數日用 classic，方便比較）。**answer_first**：第一句就講研究發現（附數字或對比），接著講「他們怎麼知道的」，沒有「誰做的研究」那一幕（出處在說明欄和第一則留言），約 28–35 秒。**classic**：原本的順序（問題 → 研究出處 → 方法 → 發現），約 45–55 秒。設成 `answer_first` 或 `classic` 可固定一種；後台數據每支短片都標了 `format` | `shorts/script.py` |
+| 腳本格式 | 兩種輪流（`SCRIPT_FORMAT`，預設 `alternate`：台灣日期單數日用 answer_first、雙數日用 classic，方便比較）。**answer_first**：第一句就講研究發現（附數字或對比），接著講「他們怎麼知道的」，沒有「誰做的研究」那一幕（出處在說明欄和第一則留言）。**classic**：原本的順序（問題 → 研究出處 → 方法 → 發現）。兩種的長度都是「故事需要多長就多長、不灌水」，上限是 playbook 的 `max_seconds`（預設 120 秒，可用 `MAX_SECONDS` 覆蓋）。設成 `answer_first` 或 `classic` 可固定一種；後台數據每支短片都標了 `format` | `shorts/script.py` |
 | 配音 | 中英文都用 Gemini 3.8 Flash TTS 的 Achird（和脫口秀主持人 Kai 同一個聲音）；Gemini 失敗時整支改用備援聲音（有 `GOOGLE_TTS_API_KEY` 用 Google，沒有用 Edge）；再疊一層程式產生的背景音 | `shorts/tts.py` |
 | 畫面 | 依頭像配色的「資料軌跡」風格：人群點陣、網路擴散、步驟流程、長條、時間線、散佈圖、對比卡，逐格繪製後用 ffmpeg 輸出 1080×1920 | `shorts/visuals.py`、`shorts/render.py` |
 | 查核 | 另一個 Claude 對照論文逐句查核（數字、因果說法、中英文一致、時事連結），有問題就改，最多兩輪；還不過就那天不上片 | `shorts/script.py` `fact_check` |
