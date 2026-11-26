@@ -10741,5 +10741,422 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261125-political-orientation-and-participation",
     "pick_reason": "Uses network analysis of real-money prediction market participation to show that political orientation shapes small bets but converges at large stakes, a concrete and surprising finding that can be explained visually in 3-4 steps. Signals: Notes favor concrete, counterintuitive comparisons and everyday non-AI behavior topics, and recent episodes already covered AI advice, voting-advice chatbots, news selection and partisan TV, so this politics-and-markets pick is fresh."
+  },
+  {
+    "episode": "20261126-before-they-were-cool-do-early-fans-aban",
+    "created": "2026-11-26T06:07:57+00:00",
+    "paper": {
+      "id": "arxiv:2611.33619",
+      "title": "Before They Were Cool: Do Early Fans Abandon Artists Who Suddenly Become Popular? Evidence from Online Music Listening",
+      "abstract": "Identity-signalling theory, echoed in the hipster's \"I liked them before they were cool\", expects an artist's first fans to pull away once the artist becomes popular, by leaving or by avoiding what the newcomers play. A rival account expects the event that brings the crowd to renew existing listeners' attention to the artist. We test both in the Last.fm listening histories of 594,415 users (21.1 billion plays, 2005-2013), where every play appears on the user's profile. Study 1 detects 78 crowd arrivals: months in which the number of people discovering an artist tripled without a new album, single or EP, for example after a song appeared in a film. Study 2 compares Grammy and Mercury Prize winners with nominees who won nothing. We compare listeners who had played the artist before the crowd arrived (early fans) with early fans of comparison artists. Early fans did not withdraw. Those still listening stopped less often (25.8% vs. 29.1% over six months), and those who had drifted away returned more often (29.6% vs. 25.0%). Those who kept listening converged on the crowd: the song most newcomers played took a larger share of their plays, with no turn to deep cuts. More lapsed fans returned after larger surges, and neither fans with the most distinctive tastes nor fans facing a more mainstream crowd quit more. Award wins brought few new listeners and no clear change. Where listening is displayed by default, early fans moved towards the crowd after sudden popularity, not away from it.",
+      "authors": [
+        "Zihan Chen",
+        "Lei Nico Zheng",
+        "Di Zhu"
+      ],
+      "venue": "arXiv cs.HC",
+      "url": "https://arxiv.org/abs/2611.33619",
+      "pdf_url": "https://arxiv.org/pdf/2611.33619v1",
+      "doi": null,
+      "published": "2026-11-25",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "樂團爆紅，老粉絲會跑嗎？",
+      "title_en": "Do Early Fans Abandon a Band When It Blows Up?",
+      "paper_title_zh": "在他們爆紅之前：早期粉絲會拋棄突然走紅的藝人嗎？線上音樂聆聽的證據",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "老粉絲",
+          "heading_en": "EARLY FANS",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "老粉絲會跑嗎？",
+          "big_text_en": "Do early fans bail?",
+          "lines": [
+            {
+              "zh": "樂團爆紅，老粉絲會跑嗎？",
+              "en": "Band blows up. Do early fans bail?"
+            },
+            {
+              "zh": "答案跟你想的相反，重點在怎麼比較。",
+              "en": "The answer's the opposite, and it's all in how they compared."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "史蒂文斯理工學院等團隊的研究，登在arXiv。",
+              "en": "From Stevens Institute of Technology and partners, on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "位聽眾"
+          ],
+          "labels_en": [
+            "listeners"
+          ],
+          "values": [
+            594415.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "用Last.fm的聽歌紀錄，近六十萬人。",
+              "en": "Listening logs from about 600,000 Last.fm users."
+            },
+            {
+              "zh": "每首播放的歌，都會自動顯示在個人頁面。",
+              "en": "Every play shows up on your profile automatically."
+            }
+          ]
+        },
+        {
+          "visual": "magnify",
+          "heading_zh": "找暴增",
+          "heading_en": "FINDING SURGES",
+          "labels": [
+            "新粉絲暴增"
+          ],
+          "labels_en": [
+            "New-fan surge"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "電腦在紀錄裡，找歌手突然多出三倍新聽眾的月份。",
+              "en": "The computer searched for months when a band's new listeners tripled."
+            },
+            {
+              "zh": "而且那個月沒出新專輯，例如歌被用在電影裡。",
+              "en": "With no new album, say after a song was used in a film."
+            },
+            {
+              "zh": "這樣的歌手，一共找到七十八位。",
+              "en": "It found 78 artists like that."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "跟誰比",
+          "heading_en": "WHO IS COMPARED",
+          "labels": [
+            "老粉絲",
+            "新聽眾",
+            "對照組"
+          ],
+          "labels_en": [
+            "Early fans",
+            "Newcomers",
+            "Comparison"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "老粉絲，是爆紅前就常聽這位歌手的人。",
+              "en": "Early fans often played the artist before the surge."
+            },
+            {
+              "zh": "再找沒爆紅、發片時間差不多的歌手當對照。",
+              "en": "Then they picked similar artists with no surge, as a comparison."
+            },
+            {
+              "zh": "拿兩邊的老粉絲來比。",
+              "en": "And compared the early fans of both."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "追蹤什麼",
+          "heading_en": "WHAT THEY TRACKED",
+          "labels": [
+            "之前",
+            "之後",
+            "離開或回來"
+          ],
+          "labels_en": [
+            "Before",
+            "After",
+            "Quit or return"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "先看爆紅前半年還在聽的人，後來有沒有完全停掉。",
+              "en": "First: did fans who were listening before totally stop afterwards?"
+            },
+            {
+              "zh": "再看原本沒在聽的人，有沒有回頭。",
+              "en": "Then: did fans who had drifted away come back?"
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "發現",
+          "heading_en": "THE FINDING",
+          "labels": [
+            "暴增：離開",
+            "對照：離開",
+            "暴增：回來",
+            "對照：回來"
+          ],
+          "labels_en": [
+            "Surge: quit",
+            "Other: quit",
+            "Surge: back",
+            "Other: back"
+          ],
+          "values": [
+            25.8,
+            29.1,
+            29.6,
+            25.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "結果，老粉絲沒有跑。",
+              "en": "It turned out early fans didn't bail."
+            },
+            {
+              "zh": "停聽的比較少：約26%，對照組約29%。",
+              "en": "Fewer stopped listening: about 26%, versus 29%."
+            },
+            {
+              "zh": "離開過的老粉絲，約30%回頭，對照是25%。",
+              "en": "More lapsed fans came back: about 30%, versus 25%."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "聽什麼",
+          "heading_en": "WHAT THEY PLAYED",
+          "labels": [
+            "新人愛的歌",
+            "老粉絲",
+            "冷門曲目"
+          ],
+          "labels_en": [
+            "Newcomers' song",
+            "Early fans",
+            "Deep cuts"
+          ],
+          "values": [],
+          "big_text": "跟著人潮走",
+          "big_text_en": "They followed the crowd",
+          "lines": [
+            {
+              "zh": "還在聽的老粉絲，更常播新聽眾來聽的那首歌。",
+              "en": "Fans still listening played the newcomers' favorite song more."
+            },
+            {
+              "zh": "他們沒有轉去聽冷門歌。",
+              "en": "They didn't retreat to obscure deep cuts."
+            },
+            {
+              "zh": "爆紅越猛，回頭的老粉絲越多。",
+              "en": "And the bigger the surge, the more lapsed fans came back."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "但是",
+          "heading_en": "THE CATCH",
+          "labels": [
+            "聽了什麼",
+            "心情如何"
+          ],
+          "labels_en": [
+            "What they played",
+            "How they felt"
+          ],
+          "values": [],
+          "big_text": "只看行為",
+          "big_text_en": "Only behavior",
+          "lines": [
+            {
+              "zh": "但這只看得到播放，看不到心裡怎麼想。",
+              "en": "But this only shows what they played, not how they felt."
+            },
+            {
+              "zh": "而且爆紅不是隨機的，用戶也是樂迷。",
+              "en": "And surges aren't random, and these users were music enthusiasts."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "老粉絲留下來了",
+          "big_text_en": "Early fans stayed",
+          "lines": [
+            {
+              "zh": "歌手爆紅，老粉絲在播放紀錄裡沒有離開。",
+              "en": "Fans stayed, at least in what they played."
+            },
+            {
+              "zh": "喜歡的話，記得追蹤我們。",
+              "en": "Follow us for more."
+            }
+          ]
+        }
+      ],
+      "description_zh": "「我早就聽過他們了」，真的會在樂團爆紅後轉身離開嗎？研究團隊分析約六十萬名 Last.fm 用戶的聽歌紀錄，找出七十八個沒出新專輯卻新聽眾暴增的歌手。結果老粉絲停聽的比較少，久沒聽的人回來的比較多。不過這只看得到他們聽了什麼，看不到心情。",
+      "description_en": "\"I liked them before they were cool\": do early fans really leave once an artist blows up? Researchers analyzed the listening logs of about 600,000 Last.fm users and found 78 sudden surges with no new album. They compared early fans with those of similar artists. Fewer early fans stopped listening and more lapsed fans came back, though the study only sees plays, not feelings.",
+      "hashtags": [
+        "行為解碼",
+        "音樂",
+        "老粉絲",
+        "Last.fm",
+        "BehaviorDecoded",
+        "hipster",
+        "musicdata",
+        "心理學"
+      ],
+      "method_summary": "The study used MLHD+, a cleaned release of Last.fm listening histories: about 594,415 users and 21.1 billion time-stamped plays from 2005 to 2013, linked to MusicBrainz so each artist is recognised however its name is spelled. Last.fm records every play and shows it on the user's profile by default. Study 1 detected 78 'crowd arrivals': months between 2007 and mid-2012 when an artist's newcomers tripled compared with the previous year, the artist had an existing audience, and MusicBrainz showed no new release around the event (for example after a song was used in a film or TV series). Early fans were users who had played the artist at least ten times in months -24 to -7 before the event and were regular Last.fm users. Each treated artist was compared with up to five artists with no surge, matched on time since their latest studio album. Among early fans still listening before the event, 25.8% stopped playing the artist in the next six months versus 29.1% for comparison fans; among lapsed fans, 29.6% returned versus 25.0%. No such gaps existed one window earlier. Fans who kept listening gave the song most newcomers played a 3.0 percentage point larger share of their plays (from 8.4%), with no shift to deep cuts. Returning rose more after larger surges, and fans with niche tastes or facing more mainstream crowds did not quit more. Study 2 compared Grammy and Mercury Prize winners with losing nominees and found few new listeners and no clear change.",
+      "limitations": "The data come from Last.fm users between 2005 and 2013, committed music enthusiasts who logged their listening, and only plays matched to MusicBrainz recordings. Crowd arrivals were not randomly assigned, so the comparison does not prove cause. The study observes what people played, not how they felt or what they chose to display or say, so identity effects in deliberate displays remain untested. Many events had other recordings near the date. The award study had few events and showed no clear result. Results may not hold on today's algorithm-driven streaming services.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "樂團爆紅，老粉絲會跑嗎？",
+          "答案剛好相反，關鍵在怎麼比。"
+        ],
+        [
+          "這篇來自史蒂文斯理工學院等團隊，刊在 arXiv。"
+        ],
+        [
+          "資料是大約六十萬名 Last.fm 用戶的聽歌紀錄。",
+          "每播一首歌，個人頁面就自動顯示。"
+        ],
+        [
+          "電腦去找新聽眾暴增三倍的月份。",
+          "而且那段時間沒出新專輯，",
+          "例如歌被用在電影裡。",
+          "這樣的歌手找到七十八位。"
+        ],
+        [
+          "老粉絲，就是爆紅前常聽這位歌手的人。",
+          "再找類似但沒暴增的歌手當對照，",
+          "比較兩邊的老粉絲。"
+        ],
+        [
+          "第一，原本在聽的人，之後是不是完全不聽了？",
+          "第二，早就沒在聽的人，有沒有回來？"
+        ],
+        [
+          "結果老粉絲沒有跑。",
+          "停聽的比較少：約26%，對照組29%。",
+          "久沒聽的人回來更多：約30%，對照25%。"
+        ],
+        [
+          "還在聽的人，更常播新人愛聽的那首歌。",
+          "沒有躲去聽冷門曲目。",
+          "而且人潮越大，回來的老粉絲越多。"
+        ],
+        [
+          "不過這只看得到他們聽了什麼，看不到心情。",
+          "爆紅也不是隨機發生，用戶又都是愛聽音樂的人。"
+        ],
+        [
+          "至少在聽的內容上，老粉絲留下來了。",
+          "想看更多研究，歡迎追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "headphones"
+        ],
+        [
+          "trending-up"
+        ],
+        [
+          "heart",
+          "user-plus",
+          "git-compare"
+        ],
+        [
+          "history",
+          "clock",
+          "refresh"
+        ],
+        [
+          "door-exit",
+          "door-exit",
+          "refresh",
+          "refresh"
+        ],
+        [
+          "music",
+          "heart",
+          "vinyl"
+        ],
+        [
+          "music",
+          "mood-happy"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 73.71,
+        "cover_offset_ms": 6215,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "TzB7K2sWbP8",
+          "url": "https://youtube.com/shorts/TzB7K2sWbP8"
+        },
+        "instagram": {
+          "id": "17895544797621476",
+          "url": "https://www.instagram.com/reel/DgM9E71tSxJ/"
+        },
+        "threads": {
+          "id": "18360394135174005",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgM9MfeBfQp"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261126-before-they-were-cool-do-early-fans-aban",
+    "pick_reason": "Uses large-scale online music listening logs to test a concrete, relatable question (do early fans abandon artists who get popular?) with a clear before/after design that fits a 3-4 step visual explanation. Signals: Channel notes favor concrete, counterintuitive findings with a clear comparison and everyday non-AI topics, and recent episodes cover news, politics, food and AI, so music listening is fresh."
   }
 ]

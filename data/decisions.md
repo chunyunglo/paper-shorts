@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-26
+
+- **短影音 Short** · [樂團爆紅，老粉絲會跑嗎？ / Do Early Fans Abandon a Band When It Blows Up?](https://youtube.com/shorts/TzB7K2sWbP8)
+  - 論文 Paper: [Before They Were Cool: Do Early Fans Abandon Artists Who Suddenly Become Popular? Evidence from Online Music Listening](https://arxiv.org/abs/2611.33619) (arXiv cs.HC)
+  - 為什麼 Why: Uses large-scale online music listening logs to test a concrete, relatable question (do early fans abandon artists who get popular?) with a clear before/after design that fits a 3-4 step visual explanation. Signals: Channel notes favor concrete, counterintuitive findings with a clear comparison and everyday non-AI topics, and recent episodes cover news, politics, food and AI, so music listening is fresh.
+
 ## 2026-11-25
 
 - **股市篇 Stock series** · evening · finding · [link](https://www.threads.com/@human__behavior__decode/post/DgLjwtGFu-U)
