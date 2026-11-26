@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-25T10:18:46+00:00",
+ "collected_at": "2026-11-26T09:57:40+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 2986,
-   "videoCount": 64
+   "viewCount": 3099,
+   "videoCount": 66
   }
  },
  "notes": [],
@@ -3535,15 +3535,15 @@
    "paper": "Asymmetric rhetorical strategies drive partisanship in television news",
    "created": "2026-11-20T06:22:22+00:00",
    "metrics": {
-    "views": 2,
+    "views": 3,
     "likes": 0,
     "comments": 1,
     "duration": "PT52S",
     "privacy": "public",
     "published": "2026-11-20T11:05:29Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 20,
-    "averageViewPercentage": 39.54,
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 35,
+    "averageViewPercentage": 69.12,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -3733,7 +3733,7 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 56,
+    "views": 70,
     "likes": 0,
     "comments": 1,
     "duration": "PT43S",
@@ -3799,15 +3799,15 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 9,
+    "views": 10,
     "likes": 0,
     "comments": 1,
     "duration": "PT47S",
     "privacy": "public",
     "published": "2026-11-22T11:07:01Z",
-    "estimatedMinutesWatched": 0,
-    "averageViewDuration": 5,
-    "averageViewPercentage": 11.44,
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 30.34,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -3865,12 +3865,17 @@
    "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
    "created": "2026-11-23T06:18:51+00:00",
    "metrics": {
-    "views": 295,
+    "views": 185,
     "likes": 2,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
-    "published": "2026-11-23T11:04:04Z"
+    "published": "2026-11-23T11:04:04Z",
+    "estimatedMinutesWatched": 20,
+    "averageViewDuration": 14,
+    "averageViewPercentage": 30.829999999999995,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3926,12 +3931,17 @@
    "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
    "created": "2026-11-23T06:18:51+00:00",
    "metrics": {
-    "views": 13,
+    "views": 12,
     "likes": 0,
     "comments": 1,
     "duration": "PT45S",
     "privacy": "public",
-    "published": "2026-11-23T11:05:50Z"
+    "published": "2026-11-23T11:05:50Z",
+    "estimatedMinutesWatched": 0,
+    "averageViewDuration": 20,
+    "averageViewPercentage": 44.75,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -3987,9 +3997,9 @@
    "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
    "created": "2026-11-24T06:13:13+00:00",
    "metrics": {
-    "views": 25,
+    "views": 38,
     "likes": 0,
-    "comments": 1,
+    "comments": 2,
     "duration": "PT47S",
     "privacy": "public",
     "published": "2026-11-24T11:03:50Z"
@@ -4007,8 +4017,8 @@
    "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
    "created": "2026-11-24T06:13:13+00:00",
    "metrics": {
-    "views": 130,
-    "reach": 116,
+    "views": 131,
+    "reach": 117,
     "likes": 0,
     "comments": 1,
     "saved": 0,
@@ -4068,8 +4078,8 @@
    "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
    "created": "2026-11-24T06:13:13+00:00",
    "metrics": {
-    "views": 72,
-    "reach": 69,
+    "views": 74,
+    "reach": 72,
     "likes": 0,
     "comments": 1,
     "saved": 1,
@@ -4088,6 +4098,128 @@
    "url": "https://www.threads.com/@human__behavior__decode/post/DgHzs6FqPpX",
    "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
    "created": "2026-11-24T06:13:13+00:00",
+   "metrics": {
+    "views": 4,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "youtube",
+   "id": "jzh8LyDv9IU",
+   "url": "https://youtube.com/shorts/jzh8LyDv9IU",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
+   "metrics": {
+    "views": 35,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT32S",
+    "privacy": "public",
+    "published": "2026-11-25T11:04:03Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "instagram",
+   "id": "18008753018794767",
+   "url": "https://www.instagram.com/reel/DgKYQiLq54l/",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
+   "metrics": {
+    "views": 34,
+    "reach": 33,
+    "likes": 1,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 2
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "threads",
+   "id": "17945703123147771",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgKYVUcs1kT",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
+   "metrics": {
+    "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "en",
+   "format": "answer_first",
+   "platform": "youtube",
+   "id": "ZjTGCaua4oc",
+   "url": "https://youtube.com/shorts/ZjTGCaua4oc",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
+   "metrics": {
+    "views": 31,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT38S",
+    "privacy": "public",
+    "published": "2026-11-25T11:05:44Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "en",
+   "format": "answer_first",
+   "platform": "instagram",
+   "id": "18486186766141124",
+   "url": "https://www.instagram.com/reel/DgKYf0mB3kt/",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
+   "metrics": {
+    "views": 55,
+    "reach": 53,
+    "likes": 0,
+    "comments": 1,
+    "saved": 0,
+    "shares": 0,
+    "total_interactions": 1
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261125-political-orientation-and-participation",
+   "title": "Opposite Bets, Similar Big Bettors",
+   "lang": "en",
+   "format": "answer_first",
+   "platform": "threads",
+   "id": "18000199086013300",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgKYjn4hKAy",
+   "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
+   "created": "2026-11-25T06:07:52+00:00",
    "metrics": {
     "views": 4,
     "likes": 0,
@@ -4325,7 +4457,7 @@
    "paper": "20261031-beauty-is-human-when-people-love-ai-gene",
    "created": "2026-11-01T10:44:32+00:00",
    "metrics": {
-    "views": 18,
+    "views": 19,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -5352,7 +5484,7 @@
    "paper": "Salience and Mutual Fund Investor Demand for Idiosyncratic Volatility",
    "created": "2026-11-19T21:05:05+00:00",
    "metrics": {
-    "views": 17,
+    "views": 18,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5504,7 +5636,7 @@
    "paper": "Scaling classical hardware for accurate real-time quantum error correction",
    "created": "2026-11-22T12:15:17+00:00",
    "metrics": {
-    "views": 20,
+    "views": 22,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5599,7 +5731,7 @@
    "paper": "The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments",
    "created": "2026-11-24T09:11:36+00:00",
    "metrics": {
-    "views": 38,
+    "views": 40,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5638,6 +5770,25 @@
    "created": "2026-11-24T22:51:49+00:00",
    "metrics": {
     "views": 16,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-42",
+   "title": "🌙 盤後研究室｜公司愛不愛把股利發得很平穩？這其實是個老問題：經理人普遍想維持平滑的股利，但投資人真的買單嗎？\n\n有研究從三個角度檢查：誰持有這類股票、股價、以",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "18143509972713504",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgLjwtGFu-U",
+   "paper": "Do Investors Value Dividend-Smoothing Stocks Differently?",
+   "created": "2026-11-25T22:03:41+00:00",
+   "metrics": {
+    "views": 9,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
