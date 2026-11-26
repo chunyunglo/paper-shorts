@@ -1259,5 +1259,35 @@
     "cost_usd": 0.0763,
     "id": "18143509972713504",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgLjwtGFu-U"
+  },
+  {
+    "posted": "2026-11-26T22:01:38+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "question",
+    "text": "🌙 盤後研究室｜如果把大量投資社群的分析文章，轉成四個「情緒指數」，會看到什麼？\n\nZhang 等人（2021）用中國投資人社群的文章做文字分析。研究發現，在這個新興市場，情緒與股市波動之間呈現非線性的關係，而不是一條直線，這和已開發市場的結果不同。他們也發現，加入情緒指數後，用長短期記憶（LSTM）模型預測波動的表現有改善；考慮另一個情緒代理變數後仍顯著，從經濟角度看也有意義。\n\n但這不代表情緒能預測漲跌：摘要談的是波動，資料也只來自這一個社群。\n\n所以想問：讀到一片樂觀或悲觀的討論時，你的判斷有沒有跟著氣氛一起變？\n\n（研究分享，不是投資建議）",
+    "why": "近幾天晚場已用過盈餘實驗、基金申購、彩券效應與股利等題材，這篇是尚未用過、談文字情緒與波動、且以散戶社群資料為基礎的研究，可為本週補上情緒這個角度，並且完全避開今天的市場頭條。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1002/for.2777",
+      "title": "Predicting stock market volatility based on textual sentiment: A nonlinear analysis",
+      "abstract": "This paper investigates whether and how investor sentiment affects stock market volatility forecasting from a nonlinear theory perspective. With the use of a novel dataset that contains massive articles about stock market analysis obtained from a Chinese investors' community, we construct four sentiment indices to measure investor sentiment by applying textual analysis techniques. Differing from the developed market, we find that the investor sentiment from an emerging market causes stock volatility by a nonlinear pattern rather than a linear style. Furthermore, we show that the investor sentiment improves stock volatility prediction based on the long short‐term memory model. And the predictability is still significant after considering another sentiment proxy variable. Finally, we demonstrate that this improvement of predictive performance is meaningful from an economic point of view.",
+      "authors": [
+        "Weiguo Zhang",
+        "Xue Gong",
+        "Chao Wang",
+        "Xin Ye"
+      ],
+      "venue": "Journal of Forecasting",
+      "url": "https://doi.org/10.1002/for.2777",
+      "pdf_url": null,
+      "doi": "10.1002/for.2777",
+      "published": "2021",
+      "source": "journal"
+    },
+    "cost_usd": 0.0848,
+    "id": "18111064652256592",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgOIVcjo7_6"
   }
 ]

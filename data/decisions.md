@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-26
 
+- **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/DgOIVcjo7_6)
+  - 內容 Text: 🌙 盤後研究室｜如果把大量投資社群的分析文章，轉成四個「情緒指數」，會看到什麼？ Zhang 等人（2021）用中國投資人社群的文章做文字分析。研究發現，在這個新興市場，情緒與股市波動之間呈現非線性的關係，而不是一條直線，這和已開發市場的結…
+  - 論文 Paper: [Predicting stock market volatility based on textual sentiment: A nonlinear analysis](https://doi.org/10.1002/for.2777) (Journal of Forecasting)
+  - 為什麼 Why: 近幾天晚場已用過盈餘實驗、基金申購、彩券效應與股利等題材，這篇是尚未用過、談文字情緒與波動、且以散戶社群資料為基礎的研究，可為本週補上情緒這個角度，並且完全避開今天的市場頭條。
+  - 花費 Claude cost: US$0.085
 - **短影音 Short** · [樂團爆紅，老粉絲會跑嗎？ / Do Early Fans Abandon a Band When It Blows Up?](https://youtube.com/shorts/TzB7K2sWbP8)
   - 論文 Paper: [Before They Were Cool: Do Early Fans Abandon Artists Who Suddenly Become Popular? Evidence from Online Music Listening](https://arxiv.org/abs/2611.33619) (arXiv cs.HC)
   - 為什麼 Why: Uses large-scale online music listening logs to test a concrete, relatable question (do early fans abandon artists who get popular?) with a clear before/after design that fits a 3-4 step visual explanation. Signals: Channel notes favor concrete, counterintuitive findings with a clear comparison and everyday non-AI topics, and recent episodes cover news, politics, food and AI, so music listening is fresh.
