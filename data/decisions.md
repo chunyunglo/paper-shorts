@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-27
+
+- **短影音 Short** · [五萬句諺語：有立場時偏謹慎誠實 / 50,000 Proverbs Analyzed: Advice Leans Careful, Honest](https://youtube.com/shorts/HzKX0d7_aTw)
+  - 論文 Paper: [Proverbs As A Window On Collective Prescriptions](https://arxiv.org/abs/2611.34832) (arXiv cs.CL)
+  - 為什麼 Why: It applies LLMs validated against human judgments to roughly 50,000 proverbs to quantify what collective prescriptions they encode; this is an everyday, culturally familiar behavior topic that can be explained visually in 3-4 steps, and it is distinct from recent episodes. Signals: Notes favor concrete, non-AI everyday topics that are easy to grasp at a glance, and the recent episodes cover politics, news and AI use, so a language and culture study adds variety.
+
 ## 2026-11-26
 
 - **股市篇 Stock series** · evening · question · [link](https://www.threads.com/@human__behavior__decode/post/DgOIVcjo7_6)

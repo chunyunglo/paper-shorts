@@ -11158,5 +11158,371 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261126-before-they-were-cool-do-early-fans-aban",
     "pick_reason": "Uses large-scale online music listening logs to test a concrete, relatable question (do early fans abandon artists who get popular?) with a clear before/after design that fits a 3-4 step visual explanation. Signals: Channel notes favor concrete, counterintuitive findings with a clear comparison and everyday non-AI topics, and recent episodes cover news, politics, food and AI, so music listening is fresh."
+  },
+  {
+    "episode": "20261127-proverbs-as-a-window-on-collective-presc",
+    "created": "2026-11-27T06:10:15+00:00",
+    "paper": {
+      "id": "arxiv:2611.34832",
+      "title": "Proverbs As A Window On Collective Prescriptions",
+      "abstract": "Proverbs, as repositories of traditional wisdom, have informed human reasoning for millennia. Yet the collective prescriptions they encode have remained largely unquantified. We introduce a computational framework to analyze nearly 50,000 English-language proverbs. Using large language models, validated against human judgments, we map the topical landscape of proverbs, assess their prescriptive power, and quantify their recommendations on key dimensions of human judgment and behavior. We find that most proverbs are prescriptive, offering guidance in domains under individual control, such as preparation and prudent action, whereas proverbs about uncontrollable circumstances, such as fate and mortality, tend to describe rather than prescribe. When prescriptive proverbs take a consistent stance, they favor caution over risk, long-term over short-term outcomes, honesty over deception, and kindness over malice, and show a moderate tendency toward suspicion over trust. On dimensions involving genuine trade-offs, especially autonomy versus compliance, proverbs provide contradicting advice rather than a single recommendation. This analysis provides a quantitative map of the collective prescriptions in a culture's proverbial wisdom, revealing a core of prudent, honest, and forward-looking guidance alongside varied advice where circumstances dictate the best course of action.",
+      "authors": [
+        "Tomás Lejarraga",
+        "Dirk U. Wulff",
+        "Ralph Hertwig"
+      ],
+      "venue": "arXiv cs.CL",
+      "url": "https://arxiv.org/abs/2611.34832",
+      "pdf_url": "https://arxiv.org/pdf/2611.34832v1",
+      "doi": null,
+      "published": "2026-11-25",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "五萬句諺語：有立場時偏謹慎誠實",
+      "title_en": "50,000 Proverbs Analyzed: Advice Leans Careful, Honest",
+      "paper_title_zh": "諺語：窺見集體規範的一扇窗",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "",
+          "heading_en": "",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "偏謹慎、誠實",
+          "big_text_en": "Lean careful, honest",
+          "lines": [
+            {
+              "zh": "給建議的諺語，傾向謹慎和誠實",
+              "en": "Advice proverbs lean careful and honest."
+            },
+            {
+              "zh": "問題是，這要怎麼算出來？",
+              "en": "So how do you even measure that?"
+            }
+          ]
+        },
+        {
+          "visual": "counter",
+          "heading_zh": "資料",
+          "heading_en": "THE DATA",
+          "labels": [
+            "諺語"
+          ],
+          "labels_en": [
+            "proverbs"
+          ],
+          "values": [
+            49528.0
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "團隊先蒐集七本英文諺語辭典。",
+              "en": "The team started with seven English proverb dictionaries."
+            },
+            {
+              "zh": "合起來，不重複的諺語近五萬句。",
+              "en": "Together: nearly 50,000 different proverbs."
+            }
+          ]
+        },
+        {
+          "visual": "pipeline",
+          "heading_zh": "方法",
+          "heading_en": "THE METHOD",
+          "labels": [
+            "閱讀",
+            "解釋",
+            "回答"
+          ],
+          "labels_en": [
+            "Read",
+            "Explain",
+            "Answer"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "接著請AI讀每一句，先寫白話意思。",
+              "en": "Then an AI read each one and wrote what it means in plain words."
+            },
+            {
+              "zh": "再回答：這句在教人怎麼做嗎？",
+              "en": "Then it answered: does this tell you what to do?"
+            },
+            {
+              "zh": "還有：偏冒險，還是偏謹慎？",
+              "en": "And: does it lean toward risk, or toward caution?"
+            },
+            {
+              "zh": "共九組對立，像誠實對欺騙、信任對懷疑。",
+              "en": "Nine such pairs, like honesty versus deception, trust versus suspicion."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "驗證",
+          "heading_en": "CHECK IT",
+          "labels": [
+            "助理",
+            "500句諺語",
+            "AI"
+          ],
+          "labels_en": [
+            "Assistants",
+            "500 proverbs",
+            "AI"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "AI可靠嗎？兩位受訓助理也來評分。",
+              "en": "Can you trust the AI? Two trained assistants rated proverbs too."
+            },
+            {
+              "zh": "他們評了隨機抽出的500句諺語。",
+              "en": "They rated 500 randomly picked proverbs."
+            },
+            {
+              "zh": "結果AI和兩人平均的看法，比兩人彼此更接近。",
+              "en": "The AI sat closer to their average than they sat to each other."
+            }
+          ]
+        },
+        {
+          "visual": "waffle",
+          "heading_zh": "發現",
+          "heading_en": "FINDINGS",
+          "labels": [
+            "有給建議"
+          ],
+          "labels_en": [
+            "give advice"
+          ],
+          "values": [
+            67.1
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "AI判斷，約七成諺語在教人怎麼做。",
+              "en": "The AI judged about 7 in 10 proverbs to give advice."
+            },
+            {
+              "zh": "像「凡事先量兩次，再下刀」。",
+              "en": "Like \"Measure twice, cut once.\""
+            },
+            {
+              "zh": "命運、死亡這類無法控制的事，則多半只是描述。",
+              "en": "Fate and death? Those proverbs mostly just describe."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "傾向",
+          "heading_en": "LEANS",
+          "labels": [
+            "謹慎",
+            "長期",
+            "誠實",
+            "善意"
+          ],
+          "labels_en": [
+            "Caution",
+            "Long-term",
+            "Honesty",
+            "Kindness"
+          ],
+          "values": [],
+          "big_text": "四項有明確傾向",
+          "big_text_en": "Four clear leans",
+          "lines": [
+            {
+              "zh": "教人做事的諺語，偏向謹慎、看長遠、誠實、善意。",
+              "en": "Advice proverbs favor caution, the long term, honesty and kindness."
+            },
+            {
+              "zh": "像「誠實為上策」。",
+              "en": "Like \"Honesty is the best policy.\""
+            },
+            {
+              "zh": "對信任則略偏提防：「信任，但要查證」。",
+              "en": "On trust they lean a bit toward suspicion: \"Trust, but verify.\""
+            }
+          ]
+        },
+        {
+          "visual": "balance",
+          "heading_zh": "分歧",
+          "heading_en": "CONFLICT",
+          "labels": [
+            "自主",
+            "服從"
+          ],
+          "labels_en": [
+            "Autonomy",
+            "Compliance"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但自主還是服從，諺語吵得最兇。",
+              "en": "But on autonomy versus obedience, proverbs argue the most."
+            },
+            {
+              "zh": "合作也一樣：人多好辦事，廚子多煮壞湯。",
+              "en": "Same for teamwork: many hands help, too many cooks spoil the broth."
+            },
+            {
+              "zh": "不過這些多是英美的老諺語，不代表全世界。",
+              "en": "Caveat: mostly old English and American proverbs, not the whole world."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "TAKEAWAY",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "有共識，也有爭吵",
+          "big_text_en": "Proverbs agree on some things, fight on others",
+          "lines": [
+            {
+              "zh": "諺語在謹慎與誠實上一致，在自主上各說各話。",
+              "en": "Proverbs agree on caution and honesty, and split on autonomy."
+            },
+            {
+              "zh": "想看更多行為研究，歡迎追蹤。",
+              "en": "Follow for more studies on human behavior."
+            }
+          ]
+        }
+      ],
+      "description_zh": "研究團隊用AI分析七本字典裡將近五萬句英文諺語，再請人類助理對照檢查。結果發現，約七成諺語在教你怎麼做；有明確立場時，偏向謹慎、長遠、誠實和善意，對信任則稍偏懷疑。但在自主和服從上，諺語各說各話。不過資料多半是老的英美諺語，不能代表全世界。",
+      "description_en": "What do proverbs actually tell us to do? Researchers merged seven English proverb dictionaries into nearly 50,000 proverbs, had an AI read each one, and checked it against human raters. Most proverbs give advice, favoring caution, the long term, honesty and kindness, but they split on autonomy versus compliance. Paper: Lejarraga, Wulff & Hertwig, arXiv 2026.",
+      "hashtags": [
+        "諺語",
+        "行為科學",
+        "大型語言模型",
+        "文化分析",
+        "決策",
+        "proverbs",
+        "BehaviorDecoded",
+        "LLM"
+      ],
+      "method_summary": "The authors compiled 49,528 unique proverbs from seven published dictionaries (five mostly American or British, two multicultural or global). They used the open model Gemma-3-27B to write a short gist for each proverb, assign up to three topic tags, and rate it on five-point scales: whether it gives guidance on how to act (prescriptive), and which pole it favors on nine dimensions: risk vs caution, short vs long term, own vs others' interests, autonomy vs compliance, trust vs suspicion, honesty vs deception, equality vs hierarchy, kindness vs malice, cooperation vs competition. For validation, two trained research assistants rated a random sample of 500 proverbs, with and without the gist. The model agreed more with the average human rating than the humans agreed with each other on every dimension. The model rated 67.1% of proverbs as prescriptive (humans 73.8%). Among prescriptive proverbs, both model and humans found a clear lean toward caution, long-term outcomes, honesty and kindness, and a moderate lean toward suspicion. Autonomy vs compliance showed the most contradictory advice (polarity about .65), and cooperation, own vs others' interests and equality averaged near neutral because opposing advice offset each other. Results were broadly similar across the seven collections.",
+      "limitations": "The corpus is mostly English-language, American and British proverbs, so it cannot show cross-cultural patterns. Dictionaries favor old, durable sayings over new ones. Each proverb counts once, regardless of how often people actually use it. There is no firm definition of a proverb. Ratings come mainly from an AI, and on contested dimensions like hierarchy and own-interest the AI and humans diverged, so exact positions there are uncertain. The study does not show that proverbs cause behavior.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "給建議的諺語，偏謹慎又誠實。",
+          "這種事，到底怎麼量出來的？"
+        ],
+        [
+          "研究團隊先找來七本英文諺語字典。",
+          "合起來，將近五萬句不重複的諺語。"
+        ],
+        [
+          "請AI讀每一句，再用白話說出意思。",
+          "接著回答：這句有在教你怎麼做嗎？",
+          "還有：它偏冒險，還是偏謹慎？",
+          "九組二選一，像誠實或欺騙、信任或懷疑。"
+        ],
+        [
+          "AI可信嗎？兩位受過訓練的助理也來評分。",
+          "他們評了隨機抽出的500句諺語。",
+          "結果AI跟兩人平均的答案，比兩人彼此還接近。"
+        ],
+        [
+          "AI判斷，約七成的諺語在教你怎麼做。",
+          "像「量兩次，切一次」。",
+          "講命運和死亡的，多半只是在描述。"
+        ],
+        [
+          "給建議的諺語，有立場時偏愛謹慎、長遠、誠實和善意。",
+          "像「誠實為上策」。",
+          "信任方面稍偏懷疑：「信任，但要查證」。"
+        ],
+        [
+          "但在自主和服從上，諺語吵得最兇。",
+          "團隊合作也一樣：人多好辦事，廚師多了壞了湯。",
+          "提醒一下：多半是老的英美諺語，不代表全世界。"
+        ],
+        [
+          "諺語在謹慎和誠實上有共識，在自主上各說各話。",
+          "想看更多人類行為研究，歡迎追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [
+          "quotes"
+        ],
+        [
+          "book",
+          "bulb",
+          "checks"
+        ],
+        [
+          "users",
+          "list",
+          "robot"
+        ],
+        [
+          "bulb"
+        ],
+        [
+          "shield",
+          "hourglass",
+          "heart-handshake",
+          "heart"
+        ],
+        [
+          "hand-grab",
+          "gavel"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 78.25,
+        "cover_offset_ms": 7121,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "HzKX0d7_aTw",
+          "url": "https://youtube.com/shorts/HzKX0d7_aTw"
+        },
+        "instagram": {
+          "id": "17928080796456021",
+          "url": "https://www.instagram.com/reel/DgPh0D7hUic/"
+        },
+        "threads": {
+          "id": "18167358958491042",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgPh7bhOMGX"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261127-proverbs-as-a-window-on-collective-presc",
+    "pick_reason": "It applies LLMs validated against human judgments to roughly 50,000 proverbs to quantify what collective prescriptions they encode; this is an everyday, culturally familiar behavior topic that can be explained visually in 3-4 steps, and it is distinct from recent episodes. Signals: Notes favor concrete, non-AI everyday topics that are easy to grasp at a glance, and the recent episodes cover politics, news and AI use, so a language and culture study adds variety."
   }
 ]
