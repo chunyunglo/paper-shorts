@@ -7,6 +7,11 @@ Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the we
 
 ## 2026-11-27
 
+- **股市篇 Stock series** · evening · myth_check · [link](https://www.threads.com/@human__behavior__decode/post/DgQrP8HoGcY)
+  - 內容 Text: 🌙 盤後研究室｜推特上的大眾情緒,真的能預測股市嗎?這篇研究的答案,附帶不少但書。 研究者分析2008年2月底到12月約985萬則推文(約270萬名用戶),只留下明確描述自身心情的貼文,再對照道瓊工業指數。研究發現,七個情緒指標裡,只有「平…
+  - 論文 Paper: [Twitter mood predicts the stock market](https://doi.org/10.1016/j.jocs.2010.12.007) (Journal of Computational Science)
+  - 為什麼 Why: 近期貼文已多次談社群與留言情緒,但還沒有用這篇經典研究檢驗「情緒能預測市場」的說法;它使用真實的大規模文字資料,屬於人的行為研究,且不必借用今天的任何頭條。
+  - 花費 Claude cost: US$0.207
 - **短影音 Short** · [五萬句諺語：有立場時偏謹慎誠實 / 50,000 Proverbs Analyzed: Advice Leans Careful, Honest](https://youtube.com/shorts/HzKX0d7_aTw)
   - 論文 Paper: [Proverbs As A Window On Collective Prescriptions](https://arxiv.org/abs/2611.34832) (arXiv cs.CL)
   - 為什麼 Why: It applies LLMs validated against human judgments to roughly 50,000 proverbs to quantify what collective prescriptions they encode; this is an everyday, culturally familiar behavior topic that can be explained visually in 3-4 steps, and it is distinct from recent episodes. Signals: Notes favor concrete, non-AI everyday topics that are easy to grasp at a glance, and the recent episodes cover politics, news and AI use, so a language and culture study adds variety.

@@ -1289,5 +1289,34 @@
     "cost_usd": 0.0848,
     "id": "18111064652256592",
     "url": "https://www.threads.com/@human__behavior__decode/post/DgOIVcjo7_6"
+  },
+  {
+    "posted": "2026-11-27T21:45:19+00:00",
+    "platform": "threads",
+    "lang": "zh",
+    "slot": "evening",
+    "kind": "myth_check",
+    "text": "🌙 盤後研究室｜推特上的大眾情緒,真的能預測股市嗎?這篇研究的答案,附帶不少但書。\n\n研究者分析2008年2月底到12月約985萬則推文(約270萬名用戶),只留下明確描述自身心情的貼文,再對照道瓊工業指數。研究發現,七個情緒指標裡,只有「平靜」在統計上與數天後的指數變動有關;正負面情緒則沒有。神經網路加入「平靜」後,在12月1日至19日的測試期,漲跌方向命中率為86.7%(摘要寫87.6%)。\n\n但測試期只有約15個交易日。作者也說,研究沒有說明因果機制,當時用戶多是美國的英語使用者。這是2008年的單一時期結果,不等於現在也成立。\n\n（研究分享，不是投資建議）",
+    "why": "近期貼文已多次談社群與留言情緒,但還沒有用這篇經典研究檢驗「情緒能預測市場」的說法;它使用真實的大規模文字資料,屬於人的行為研究,且不必借用今天的任何頭條。",
+    "news": null,
+    "paper": {
+      "id": "doi:10.1016/j.jocs.2010.12.007",
+      "title": "Twitter mood predicts the stock market",
+      "abstract": "Behavioral economics tells us that emotions can profoundly affect individual behavior and decision-making. Does this also apply to societies at large, i.e. can societies experience mood states that affect their collective decision making? By extension is the public mood correlated or even predictive of economic indicators? Here we investigate whether measurements of collective mood states derived from large-scale Twitter feeds are correlated to the value of the Dow Jones Industrial Average (DJIA) over time. We analyze the text content of daily Twitter feeds by two mood tracking tools, namely OpinionFinder that measures positive vs. negative mood and Google-Profile of Mood States (GPOMS) that measures mood in terms of 6 dimensions (Calm, Alert, Sure, Vital, Kind, and Happy). We cross-validate the resulting mood time series by comparing their ability to detect the public's response to the presidential election and Thanksgiving day in 2008. A Granger causality analysis and a Self-Organizing Fuzzy Neural Network are then used to investigate the hypothesis that public mood states, as measured by the OpinionFinder and GPOMS mood time series, are predictive of changes in DJIA closing values. Our results indicate that the accuracy of DJIA predictions can be significantly improved by the inclusion of specific public mood dimensions but not others. We find an accuracy of 86.7% in predicting the daily up and down changes in the closing values of the DJIA and a reduction of the Mean Average Percentage Error (MAPE) by more than 6%.",
+      "authors": [
+        "Johan Bollen",
+        "Huina Mao",
+        "Xiaojun Zeng"
+      ],
+      "venue": "Journal of Computational Science",
+      "url": "https://doi.org/10.1016/j.jocs.2010.12.007",
+      "pdf_url": "https://arxiv.org/pdf/1010.3003",
+      "doi": "10.1016/j.jocs.2010.12.007",
+      "published": "2011",
+      "source": "journal"
+    },
+    "cost_usd": 0.2075,
+    "id": "17882750169635574",
+    "url": "https://www.threads.com/@human__behavior__decode/post/DgQrP8HoGcY"
   }
 ]
