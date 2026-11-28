@@ -11524,5 +11524,403 @@
     },
     "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261127-proverbs-as-a-window-on-collective-presc",
     "pick_reason": "It applies LLMs validated against human judgments to roughly 50,000 proverbs to quantify what collective prescriptions they encode; this is an everyday, culturally familiar behavior topic that can be explained visually in 3-4 steps, and it is distinct from recent episodes. Signals: Notes favor concrete, non-AI everyday topics that are easy to grasp at a glance, and the recent episodes cover politics, news and AI use, so a language and culture study adds variety."
+  },
+  {
+    "episode": "20261128-the-cost-of-being-seen-as-ai-in-group-ba",
+    "created": "2026-11-28T06:08:32+00:00",
+    "paper": {
+      "id": "arxiv:2611.34322",
+      "title": "The cost of being seen as AI in group bargaining",
+      "abstract": "As artificial intelligence (AI) becomes embedded in collective decision-making, people's perceptions of AI may shape who reaches agreement and what they receive. We studied this in a repeated three-player majoritarian bargaining game with 2,234 participants. Players saw each opponent identified as Human or AI. The instructions described AI as acting either independently or on behalf of a human. Human participants made every decision. In mixed groups, players presented as AI received fewer points in opening offers, were included in fewer final agreements and earned about 18% less per round than those presented as Human. Smaller payoffs in agreements that included them accounted for most of the observed gap. Further analysis found a payoff gap even when all three players agreed. Social perceptions of AI may therefore shape who benefits from collective decisions, with potential costs for people represented by AI.",
+      "authors": [
+        "Tahmineh Godazgar",
+        "Nico Mutzner",
+        "Taha Yasseri"
+      ],
+      "venue": "arXiv cs.CY",
+      "url": "https://arxiv.org/abs/2611.34322",
+      "pdf_url": "https://arxiv.org/pdf/2611.34322v1",
+      "doi": null,
+      "published": "2026-11-25",
+      "source": "arxiv"
+    },
+    "script": {
+      "title_zh": "被標成AI，你分到的比較少？",
+      "title_en": "Seen as AI, You Get a Smaller Share",
+      "paper_title_zh": "在團體談判中被視為AI的代價",
+      "scenes": [
+        {
+          "visual": "hook",
+          "heading_zh": "反轉",
+          "heading_en": "THE TWIST",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "被貼AI標籤",
+          "big_text_en": "Tagged as AI",
+          "lines": [
+            {
+              "zh": "被標成AI，就會少賺錢？",
+              "en": "Labeled 'AI,' do you earn less?"
+            },
+            {
+              "zh": "其實全是真人，看他們怎麼測出來。",
+              "en": "Everyone was human. Here's how they tested it."
+            }
+          ]
+        },
+        {
+          "visual": "paper",
+          "heading_zh": "論文",
+          "heading_en": "THE PAPER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "愛爾蘭都柏林三一學院團隊，發表在arXiv。",
+              "en": "Trinity College Dublin researchers, posted on arXiv."
+            }
+          ]
+        },
+        {
+          "visual": "icons",
+          "heading_zh": "遊戲",
+          "heading_en": "THE GAME",
+          "labels": [
+            "三人一組",
+            "12 點",
+            "獎金"
+          ],
+          "labels_en": [
+            "3 players",
+            "12 points",
+            "Bonus"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "三個人一組，要分12個點數。",
+              "en": "Three players per group split 12 points."
+            },
+            {
+              "zh": "點數會換成真的獎金。",
+              "en": "Points turn into real bonus money."
+            },
+            {
+              "zh": "任兩人同意同一種分法，就成交。",
+              "en": "If any two agree on a split, the deal is done."
+            },
+            {
+              "zh": "兩千多人參加，一組玩十輪。",
+              "en": "Over 2,000 people played, ten rounds each."
+            }
+          ]
+        },
+        {
+          "visual": "experiment",
+          "heading_zh": "標籤",
+          "heading_en": "THE LABELS",
+          "labels": [
+            "標成真人",
+            "標成AI"
+          ],
+          "labels_en": [
+            "Tagged Human",
+            "Tagged AI"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "螢幕上，每個對手都標著「真人」或「AI」。",
+              "en": "Each opponent on screen was tagged 'Human' or 'AI.'"
+            },
+            {
+              "zh": "但其實，對手全是真人。",
+              "en": "But every opponent was actually a real person."
+            },
+            {
+              "zh": "標籤是研究者指派的，自己看不到自己的標籤。",
+              "en": "Researchers assigned the tags; you couldn't see your own."
+            }
+          ]
+        },
+        {
+          "visual": "bars",
+          "heading_zh": "收入",
+          "heading_en": "EARNINGS",
+          "labels": [
+            "標成真人",
+            "標成AI"
+          ],
+          "labels_en": [
+            "Tagged Human",
+            "Tagged AI"
+          ],
+          "values": [
+            0.879,
+            0.725
+          ],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "在混合組裡，標成AI的人每輪少賺約18%。",
+              "en": "In mixed groups, AI-tagged players earned about 18% less."
+            },
+            {
+              "zh": "大家一開始提議，分給標AI的比較少，",
+              "en": "People offered AI-tagged opponents less in first proposals."
+            },
+            {
+              "zh": "也更常被排除在成交之外。",
+              "en": "AI-tagged players were also left out of deals more often."
+            },
+            {
+              "zh": "就算成交，拿到的也比較少。",
+              "en": "And when included, they got smaller shares."
+            }
+          ]
+        },
+        {
+          "visual": "spotlight",
+          "heading_zh": "關鍵",
+          "heading_en": "KEY FINDING",
+          "labels": [
+            "標成AI",
+            "三人同意",
+            "分到的"
+          ],
+          "labels_en": [
+            "AI-tagged",
+            "3-way deal",
+            "Share"
+          ],
+          "values": [],
+          "big_text": "三人同意，還是分得少",
+          "big_text_en": "Gap even in 3-way deals",
+          "lines": [
+            {
+              "zh": "就算三個人都點頭同意，",
+              "en": "Even when all three players agreed on a deal,"
+            },
+            {
+              "zh": "標成AI的人，分到的還是比較少。",
+              "en": "the AI-tagged player still got a smaller share."
+            },
+            {
+              "zh": "差距多半來自成交時分到的份量，",
+              "en": "Most of the gap came from smaller shares inside deals,"
+            },
+            {
+              "zh": "而不只是被排除在外。",
+              "en": "not only from being left out."
+            }
+          ]
+        },
+        {
+          "visual": "contrast",
+          "heading_zh": "兩種說法",
+          "heading_en": "TWO STORIES",
+          "labels": [
+            "AI自己行動",
+            "AI替人出戰"
+          ],
+          "labels_en": [
+            "AI acts alone",
+            "AI for a human"
+          ],
+          "values": [],
+          "big_text": "兩種都有差距",
+          "big_text_en": "Gap in both",
+          "lines": [
+            {
+              "zh": "研究者也換了兩種說法介紹AI。",
+              "en": "They also tried two stories about the AI."
+            },
+            {
+              "zh": "一種是AI自己行動，一種是替真人代打。",
+              "en": "One: it acts alone. Two: it plays for a human."
+            },
+            {
+              "zh": "結果兩種說法下，差距都出現。",
+              "en": "The gap showed up under both."
+            }
+          ]
+        },
+        {
+          "visual": "crowd",
+          "heading_zh": "限制",
+          "heading_en": "CAVEAT",
+          "labels": [
+            "美國線上"
+          ],
+          "labels_en": [
+            "US online"
+          ],
+          "values": [],
+          "big_text": "",
+          "big_text_en": "",
+          "lines": [
+            {
+              "zh": "但這只是美國網路上的簡化遊戲，",
+              "en": "But it's a simplified online game with US participants."
+            },
+            {
+              "zh": "標成AI的玩家其實都是真人。",
+              "en": "The 'AI' players were all humans, not real AI."
+            },
+            {
+              "zh": "真實AI談判會怎樣，還不知道。",
+              "en": "How real AI would bargain remains unknown."
+            }
+          ]
+        },
+        {
+          "visual": "takeaway",
+          "heading_zh": "重點",
+          "heading_en": "REMEMBER",
+          "labels": [],
+          "labels_en": [],
+          "values": [],
+          "big_text": "被當AI，分得少",
+          "big_text_en": "Seen as AI, you get less",
+          "lines": [
+            {
+              "zh": "被當成AI，可能得到比較少。",
+              "en": "Being seen as AI may cost you a smaller share."
+            },
+            {
+              "zh": "想看更多行為研究，歡迎追蹤。",
+              "en": "Follow for more behavior research."
+            }
+          ]
+        }
+      ],
+      "description_zh": "三人一組分12點，每個人都是真人，只是畫面上有人被標成「AI」。結果在混合組裡，被標成AI的人每回合少賺約18%，三個人都同意的協議裡也分得比較少。這是美國線上的簡化遊戲，不代表真AI會怎麼談判。",
+      "description_en": "Groups of three split 12 points, and opponents were tagged 'Human' or 'AI' even though everyone was human. In mixed groups, AI-tagged players earned about 18% less per round, and a gap remained even when all three agreed. It's a simplified online game, so it doesn't directly show how real AI would fare.",
+      "hashtags": [
+        "行為解碼",
+        "AI",
+        "談判",
+        "團體決策",
+        "BehaviorDecoded",
+        "AIperception",
+        "bargaining",
+        "行為經濟學"
+      ],
+      "method_summary": "The study ran a preregistered online bargaining game on Prolific with 2,234 analysed US participants in 776 groups of three. Each group stayed together for ten rounds. In each round, players chose cells on a triangular grid that split 12 points among the three players. Any two players holding the same cell for ten seconds finalised a deal, and the value of each point shrank over 120 seconds. Players saw each opponent labelled Human or AI but not their own label; all players were humans and made every decision. Group compositions were all-Human, one AI, two AI, or all-AI. Instructions framed the AI as either an autonomous agent or a delegate acting for a human. One random round determined a bonus. In mixed groups, AI-labelled players earned about 18% less per round (about 0.725 vs 0.879 pounds), received smaller first-offer allocations, joined fewer final deals (83.5% vs 88.2%), and earned less when included. A descriptive decomposition attributed about 71% of the gap to terms and 29% to inclusion. The gap persisted in three-player agreements and under both framings.",
+      "limitations": "All 'AI' players were humans, so the study shows responses to labels, not how real AI agents bargain. It used a stylised game, ten rounds and one US online sample. Results are conditional on retained participants and on deals that formed. The decomposition is descriptive. Evidence on partner preference was partial, the retained-points hypothesis was not supported, and the framing comparison could not rule out a small effect. The three-player analysis was exploratory.",
+      "pt": null,
+      "zh_lines": [
+        [
+          "被標成AI，拿到的比較少？",
+          "全場其實都是真人，怎麼測的？"
+        ],
+        [
+          "都柏林聖三一學院的團隊，",
+          "把論文放上了 arXiv。"
+        ],
+        [
+          "三個人一組，要分 12 點。",
+          "點數會換成真的獎金。",
+          "只要任兩個人同意，就成交。",
+          "兩千多人參加，每人玩十回合。"
+        ],
+        [
+          "畫面上，每個對手都標著「真人」或「AI」。",
+          "可實際上，每個對手都是真人。",
+          "標籤由研究團隊指派，你看不到自己的。"
+        ],
+        [
+          "混合組裡，被標成AI的人少賺約18%。",
+          "第一次出價，別人給他們的點數比較少。",
+          "他們也比較常被排除在協議外。",
+          "就算進了協議，分到的也比較少。"
+        ],
+        [
+          "就算三個人都同意同一個分法，",
+          "被標成AI的人，分到的還是比較少。",
+          "差距大多來自談成之後分得少，",
+          "而不只是被排除在外。"
+        ],
+        [
+          "研究團隊也試了兩種說法。",
+          "一種是AI自己做決定，",
+          "一種是AI替某個人出戰。",
+          "兩種說法下，差距都出現了。"
+        ],
+        [
+          "不過這是簡化的線上遊戲，參加者在美國。",
+          "那些「AI」其實都是真人。",
+          "真AI會怎麼談判，還不知道。"
+        ],
+        [
+          "被看成AI，可能就分到比較少。",
+          "想看更多行為研究，記得追蹤。"
+        ]
+      ],
+      "icons": [
+        [],
+        [],
+        [
+          "users",
+          "coins",
+          "gift"
+        ],
+        [
+          "user",
+          "robot"
+        ],
+        [
+          "user",
+          "robot"
+        ],
+        [
+          "robot",
+          "users-group"
+        ],
+        [
+          "robot",
+          "user"
+        ],
+        [
+          "users"
+        ],
+        []
+      ]
+    },
+    "videos": {
+      "zh": {
+        "file": "video_zh.mp4",
+        "duration": 69.69,
+        "cover_offset_ms": 5985,
+        "tts": "gemini Achird"
+      }
+    },
+    "posts": {
+      "zh": {
+        "youtube": {
+          "id": "c9S6CDi9wTY",
+          "url": "https://youtube.com/shorts/c9S6CDi9wTY"
+        },
+        "instagram": {
+          "id": "18659004940046719",
+          "url": "https://www.instagram.com/reel/DgSGn60q-Sm/"
+        },
+        "threads": {
+          "id": "17997580014064726",
+          "url": "https://www.threads.com/@human__behavior__decode/post/DgSGvDeTqYy"
+        }
+      }
+    },
+    "video_base_url": "https://github.com/chunyunglo/paper-shorts/releases/download/ep-20261128-the-cost-of-being-seen-as-ai-in-group-ba",
+    "pick_reason": "A large preregistered bargaining experiment (2,234 participants) shows people are treated worse when labeled as AI, a concrete and surprising behavioral finding that is easy to explain in 3-4 visual steps (label opponents, play rounds, compare offers and payoffs). Signals: Notes favor concrete, everyday-style findings with clear comparisons and caution against over-reading trends; this paper has a clean human-vs-AI label comparison and is not too close to recent episodes."
   }
 ]

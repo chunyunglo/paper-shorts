@@ -5,6 +5,12 @@ Rebuilt after every post from data/*.json: why each post went out. Newest first.
 Weekly strategy notes: `analytics/strategy_log.md` on the `state` branch; the weekly self-review of these decisions against their results: `analytics/lessons.md` (history in `lessons_log.md`).
 
 
+## 2026-11-28
+
+- **短影音 Short** · [被標成AI，你分到的比較少？ / Seen as AI, You Get a Smaller Share](https://youtube.com/shorts/c9S6CDi9wTY)
+  - 論文 Paper: [The cost of being seen as AI in group bargaining](https://arxiv.org/abs/2611.34322) (arXiv cs.CY)
+  - 為什麼 Why: A large preregistered bargaining experiment (2,234 participants) shows people are treated worse when labeled as AI, a concrete and surprising behavioral finding that is easy to explain in 3-4 visual steps (label opponents, play rounds, compare offers and payoffs). Signals: Notes favor concrete, everyday-style findings with clear comparisons and caution against over-reading trends; this paper has a clean human-vs-AI label comparison and is not too close to recent episodes.
+
 ## 2026-11-27
 
 - **股市篇 Stock series** · evening · myth_check · [link](https://www.threads.com/@human__behavior__decode/post/DgQrP8HoGcY)
