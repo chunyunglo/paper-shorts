@@ -1,10 +1,10 @@
 {
- "collected_at": "2026-11-27T10:02:25+00:00",
+ "collected_at": "2026-11-28T09:19:38+00:00",
  "channel": {
   "youtube": {
    "subscriberCount": 5,
-   "viewCount": 3129,
-   "videoCount": 67
+   "viewCount": 3161,
+   "videoCount": 68
   }
  },
  "notes": [],
@@ -570,15 +570,15 @@
    "paper": "The Effects of Generative AI on Collaboration and Social Networks Among Knowledge Workers",
    "created": "2026-10-28T06:13:33+00:00",
    "metrics": {
-    "views": 71,
+    "views": 72,
     "likes": 0,
     "comments": 0,
     "duration": "PT1M2S",
     "privacy": "public",
     "published": "2026-10-28T11:08:33Z",
     "estimatedMinutesWatched": 8,
-    "averageViewDuration": 17,
-    "averageViewPercentage": 27.99,
+    "averageViewDuration": 16,
+    "averageViewPercentage": 26.96,
     "shares": 0,
     "subscribersGained": 1
    }
@@ -3034,11 +3034,11 @@
    "metrics": {
     "views": 76,
     "reach": 70,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3100,11 +3100,11 @@
    "metrics": {
     "views": 119,
     "reach": 103,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3166,11 +3166,11 @@
    "metrics": {
     "views": 121,
     "reach": 105,
-    "likes": 1,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -3232,11 +3232,11 @@
    "metrics": {
     "views": 112,
     "reach": 104,
-    "likes": 1,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -3298,11 +3298,11 @@
    "metrics": {
     "views": 93,
     "reach": 84,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3337,7 +3337,7 @@
    "paper": "Hi Gemini, Who Should I Vote For? The Benefits (and Problems) of Using LLMs As Voting Advice Applications",
    "created": "2026-11-19T06:15:44+00:00",
    "metrics": {
-    "views": 51,
+    "views": 52,
     "likes": 0,
     "comments": 1,
     "duration": "PT46S",
@@ -3364,11 +3364,11 @@
    "metrics": {
     "views": 102,
     "reach": 95,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3430,11 +3430,11 @@
    "metrics": {
     "views": 86,
     "reach": 78,
-    "likes": 1,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -3496,11 +3496,11 @@
    "metrics": {
     "views": 135,
     "reach": 129,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3562,11 +3562,11 @@
    "metrics": {
     "views": 73,
     "reach": 62,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3628,11 +3628,11 @@
    "metrics": {
     "views": 119,
     "reach": 106,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3694,11 +3694,11 @@
    "metrics": {
     "views": 119,
     "reach": 101,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3733,7 +3733,7 @@
    "paper": "AI Deactivation Reduces Loneliness and Increases Social Interaction",
    "created": "2026-11-22T06:09:27+00:00",
    "metrics": {
-    "views": 70,
+    "views": 68,
     "likes": 0,
     "comments": 1,
     "duration": "PT43S",
@@ -3760,11 +3760,11 @@
    "metrics": {
     "views": 109,
     "reach": 103,
-    "likes": 2,
+    "likes": 3,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 3
+    "total_interactions": 4
    }
   },
   {
@@ -3826,11 +3826,11 @@
    "metrics": {
     "views": 88,
     "reach": 82,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3865,15 +3865,15 @@
    "paper": "The Times They Are A-Changin': Tracking Global Trends through the Lens of Web Search",
    "created": "2026-11-23T06:18:51+00:00",
    "metrics": {
-    "views": 295,
+    "views": 302,
     "likes": 2,
     "comments": 1,
     "duration": "PT46S",
     "privacy": "public",
     "published": "2026-11-23T11:04:04Z",
-    "estimatedMinutesWatched": 38,
+    "estimatedMinutesWatched": 39,
     "averageViewDuration": 16,
-    "averageViewPercentage": 35.95,
+    "averageViewPercentage": 35.57,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -3892,11 +3892,11 @@
    "metrics": {
     "views": 1149,
     "reach": 1039,
-    "likes": 10,
+    "likes": 11,
     "comments": 1,
     "saved": 1,
     "shares": 0,
-    "total_interactions": 12
+    "total_interactions": 13
    }
   },
   {
@@ -3958,11 +3958,11 @@
    "metrics": {
     "views": 2,
     "reach": 3,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -3997,15 +3997,15 @@
    "paper": "Physical co-presence of workers is linked with the evolution of interfirm networks",
    "created": "2026-11-24T06:13:13+00:00",
    "metrics": {
-    "views": 24,
+    "views": 38,
     "likes": 0,
-    "comments": 1,
+    "comments": 2,
     "duration": "PT47S",
     "privacy": "public",
     "published": "2026-11-24T11:03:50Z",
-    "estimatedMinutesWatched": 1,
-    "averageViewDuration": 12,
-    "averageViewPercentage": 27.42,
+    "estimatedMinutesWatched": 4,
+    "averageViewDuration": 25,
+    "averageViewPercentage": 54.79999999999999,
     "shares": 0,
     "subscribersGained": 0
    }
@@ -4024,11 +4024,11 @@
    "metrics": {
     "views": 131,
     "reach": 117,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -4090,11 +4090,11 @@
    "metrics": {
     "views": 74,
     "reach": 72,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 1,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -4129,12 +4129,17 @@
    "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
    "created": "2026-11-25T06:07:52+00:00",
    "metrics": {
-    "views": 42,
+    "views": 35,
     "likes": 0,
     "comments": 1,
     "duration": "PT32S",
     "privacy": "public",
-    "published": "2026-11-25T11:04:03Z"
+    "published": "2026-11-25T11:04:03Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 17,
+    "averageViewPercentage": 53.94,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -4151,11 +4156,11 @@
    "metrics": {
     "views": 35,
     "reach": 34,
-    "likes": 1,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -4190,12 +4195,17 @@
    "paper": "Political Orientation and Participation in Prediction Markets: Large Stakes Converge, Small Stakes Diverge",
    "created": "2026-11-25T06:07:52+00:00",
    "metrics": {
-    "views": 30,
+    "views": 31,
     "likes": 0,
     "comments": 1,
     "duration": "PT38S",
     "privacy": "public",
-    "published": "2026-11-25T11:05:44Z"
+    "published": "2026-11-25T11:05:44Z",
+    "estimatedMinutesWatched": 1,
+    "averageViewDuration": 12,
+    "averageViewPercentage": 32.02,
+    "shares": 0,
+    "subscribersGained": 0
    }
   },
   {
@@ -4212,11 +4222,11 @@
    "metrics": {
     "views": 56,
     "reach": 55,
-    "likes": 0,
+    "likes": 1,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 1
+    "total_interactions": 2
    }
   },
   {
@@ -4251,7 +4261,7 @@
    "paper": "Before They Were Cool: Do Early Fans Abandon Artists Who Suddenly Become Popular? Evidence from Online Music Listening",
    "created": "2026-11-26T06:07:57+00:00",
    "metrics": {
-    "views": 8,
+    "views": 19,
     "likes": 0,
     "comments": 1,
     "duration": "PT1M14S",
@@ -4271,13 +4281,13 @@
    "paper": "Before They Were Cool: Do Early Fans Abandon Artists Who Suddenly Become Popular? Evidence from Online Music Listening",
    "created": "2026-11-26T06:07:57+00:00",
    "metrics": {
-    "views": 18,
-    "reach": 17,
-    "likes": 1,
+    "views": 19,
+    "reach": 18,
+    "likes": 2,
     "comments": 1,
     "saved": 0,
     "shares": 0,
-    "total_interactions": 2
+    "total_interactions": 3
    }
   },
   {
@@ -4293,6 +4303,67 @@
    "created": "2026-11-26T06:07:57+00:00",
    "metrics": {
     "views": 2,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261127-proverbs-as-a-window-on-collective-presc",
+   "title": "50,000 Proverbs Analyzed: Advice Leans Careful, Honest",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "youtube",
+   "id": "HzKX0d7_aTw",
+   "url": "https://youtube.com/shorts/HzKX0d7_aTw",
+   "paper": "Proverbs As A Window On Collective Prescriptions",
+   "created": "2026-11-27T06:10:15+00:00",
+   "metrics": {
+    "views": 24,
+    "likes": 0,
+    "comments": 1,
+    "duration": "PT1M19S",
+    "privacy": "public",
+    "published": "2026-11-27T11:03:45Z"
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261127-proverbs-as-a-window-on-collective-presc",
+   "title": "50,000 Proverbs Analyzed: Advice Leans Careful, Honest",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "instagram",
+   "id": "17928080796456021",
+   "url": "https://www.instagram.com/reel/DgPh0D7hUic/",
+   "paper": "Proverbs As A Window On Collective Prescriptions",
+   "created": "2026-11-27T06:10:15+00:00",
+   "metrics": {
+    "views": 122,
+    "reach": 116,
+    "likes": 3,
+    "comments": 1,
+    "saved": 0,
+    "shares": 2,
+    "total_interactions": 6
+   }
+  },
+  {
+   "kind": "short",
+   "episode": "20261127-proverbs-as-a-window-on-collective-presc",
+   "title": "50,000 Proverbs Analyzed: Advice Leans Careful, Honest",
+   "lang": "zh",
+   "format": "answer_first",
+   "platform": "threads",
+   "id": "18167358958491042",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgPh7bhOMGX",
+   "paper": "Proverbs As A Window On Collective Prescriptions",
+   "created": "2026-11-27T06:10:15+00:00",
+   "metrics": {
+    "views": 5,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -4757,7 +4828,7 @@
    "paper": "20261109-just-the-facts-how-dialogues-with-ai-red",
    "created": "2026-11-10T13:02:16+00:00",
    "metrics": {
-    "views": 24,
+    "views": 25,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4947,7 +5018,7 @@
    "paper": "20261120-asymmetric-rhetorical-strategies-drive-p",
    "created": "2026-11-20T12:00:11+00:00",
    "metrics": {
-    "views": 11,
+    "views": 12,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -4985,7 +5056,7 @@
    "paper": "20261115-the-rebundling-of-freelance-work-in-the",
    "created": "2026-11-21T11:33:24+00:00",
    "metrics": {
-    "views": 13,
+    "views": 14,
     "likes": 0,
     "replies": 0,
     "reposts": 0,
@@ -5213,7 +5284,7 @@
    "paper": "Attention-Induced Trading and Returns: Evidence from Robinhood Users",
    "created": "2026-11-13T20:10:40+00:00",
    "metrics": {
-    "views": 36,
+    "views": 37,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5460,7 +5531,7 @@
    "paper": "The social signal",
    "created": "2026-11-18T06:46:24+00:00",
    "metrics": {
-    "views": 23,
+    "views": 24,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5631,7 +5702,7 @@
    "paper": "What drives the herding behavior of individual investors?",
    "created": "2026-11-21T06:24:06+00:00",
    "metrics": {
-    "views": 17,
+    "views": 18,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5802,7 +5873,7 @@
    "paper": "The Characteristics and Portfolio Behavior of Bitcoin Investors: Evidence from Indirect Cryptocurrency Investments",
    "created": "2026-11-24T09:11:36+00:00",
    "metrics": {
-    "views": 40,
+    "views": 41,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
@@ -5878,7 +5949,26 @@
    "paper": "Predicting stock market volatility based on textual sentiment: A nonlinear analysis",
    "created": "2026-11-26T22:01:38+00:00",
    "metrics": {
-    "views": 15,
+    "views": 16,
+    "likes": 0,
+    "replies": 1,
+    "reposts": 0,
+    "quotes": 0,
+    "shares": 0
+   }
+  },
+  {
+   "kind": "stock",
+   "episode": "stock-44",
+   "title": "🌙 盤後研究室｜推特上的大眾情緒,真的能預測股市嗎?這篇研究的答案,附帶不少但書。\n\n研究者分析2008年2月底到12月約985萬則推文(約270萬名用戶),只",
+   "lang": "zh",
+   "platform": "threads",
+   "id": "17882750169635574",
+   "url": "https://www.threads.com/@human__behavior__decode/post/DgQrP8HoGcY",
+   "paper": "Twitter mood predicts the stock market",
+   "created": "2026-11-27T21:45:19+00:00",
+   "metrics": {
+    "views": 1,
     "likes": 0,
     "replies": 1,
     "reposts": 0,
